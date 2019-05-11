@@ -1,0 +1,12 @@
+.wp-block-image.interactive {
+  
+  img {
+    opacity: .5;
+    transition: $animations__lenght;
+  }
+  
+  &.visible img {
+    opacity: 1;
+  }
+  
+}

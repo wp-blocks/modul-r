@@ -1,0 +1,49 @@
+.site-footer {
+  background: $color__secondary;
+  margin-top: $size__padding;
+  
+  h3,
+  p,
+  a {color: $color__white;}
+  
+  h3 {
+    padding-top: $size__padding * .5;
+    padding-bottom: 16px;
+    font-weight: 600;
+    font-size: 28px;
+    border-bottom: 1px solid transparentize($color__black, 0.9);
+  }
+  
+  .footer-widgets {
+    padding-top: $size__padding;
+    display: flex;
+    justify-content: space-between;
+  
+    @media #{$tablet-portrait} {
+      flex-direction: column-reverse;
+      width: 100%;
+    }
+    
+    li {
+      display: block;
+      a {}
+      .post-date {
+        font-size: 13px;
+        margin-left: $size__margin;
+        color: transparentize($color__white, 0.5);
+      }
+    }
+  }
+
+  .footer-credits {
+    background-color: $color__black;
+    padding: $size__margin;
+    
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+    }
+    
+  }
+}

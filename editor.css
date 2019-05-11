@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/*
+Theme Name: Codekraft
+Theme URI: https://codekraft.it
+Author: Codekraft Studio - info@codekraft.it 
+Author URI: https://codekraft.it 
+Description: wp theme description
+Requires at least: WordPress 4.9.6
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License: Copyright (c) 2019 Codekraft Studio - info@codekraft.it 
+Text Domain: cktheme
+*/
+
+.wp-block {
+  max-width: 1000px; }
+
+/*# sourceMappingURL=editor.css.map */

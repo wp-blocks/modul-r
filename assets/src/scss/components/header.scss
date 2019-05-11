@@ -1,0 +1,72 @@
+#masthead {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  background-color: $color__primary;
+  transition: $animations__lenght;
+  
+  .scrolled & {
+    box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);
+  }
+  
+  & + div {
+    margin-top: $nav__height * 2;
+  }
+  
+  .admin-bar & {
+    top: 32px; // the wordpress admin bar height
+  
+    @media screen and (max-width: 600px) {
+      top: 0;
+    }
+  
+    & + div {
+      margin-top: ($nav__height * 2) + 32;
+    }
+  }
+  
+  .site-branding-container {
+    display: flex;
+    flex-direction: $head__direction;
+    justify-content: space-between;
+    margin-top: 0;
+    margin-bottom: 0;
+  
+    .site-branding {
+      width: 100%;
+    }
+    
+    @media #{$tablet-portrait} {
+      height: 100%;
+    }
+  
+    .site-logo {
+      padding-top: $size__margin;
+      padding-bottom: $size__margin;
+      box-sizing: border-box;
+  
+      @media #{$tablet-portrait} {
+        height: $head__height-responsive;
+        max-width: 60%;
+      }
+    }
+    
+    .custom-logo-link {
+      display: flex;
+      height: 100%;
+    }
+    
+    .custom-logo {
+      @if($head__direction == row) {
+        max-height: $nav__height - ($size__margin * 2) ;
+      }
+      object-fit: contain;
+      object-position: left;
+      @media #{$tablet-portrait} {
+        max-height: 100%;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,30 @@
+//
+// Sass-Ready media queries
+// Here there are some presets of useful
+// media queries breakpoints for various devices
+// Usage: @media #{variable-name} { }
+// and it will compile to: @media variable-name { }
+//
+//
+
+// Devices
+$largemonitors: "(min-width : 1991px)";
+$desktop: "(max-width : 1600px)";
+$laptop: "(max-width : 1366px)";
+$smaller-than-laptops: "(max-width : 1365px)";
+$larger-than-tablet: "(min-width : 1024px)";
+$tablet: "(max-width : 1260px)";
+$smaller-than-tablet: "(max-width : 1023px)";
+$tablet-portrait: "(max-width : 767px)";
+$phablet: "(max-width : 500px)";
+$smartphone: "(max-width : 420px)";
+$small-phone: "(max-width : 376px)";
+
+
+$theme-width-size: "(max-width : #{$size__site-width})";
+
+$ie1011: "all and (-ms-high-contrast: none), (-ms-high-contrast: active)";
+
+$hdpi: "(-webkit-min-device-pixel-ratio: 1.2),(min-device-pixel-ratio: 1.2)";
+
+$print: "print";

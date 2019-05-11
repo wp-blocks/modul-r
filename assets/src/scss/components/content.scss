@@ -1,0 +1,25 @@
+.featured-image {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.entry-title {
+  text-align: center;
+  font-size: 64px;
+  @media #{$tablet-portrait} {
+    font-size: 52px;
+  }
+}
+
+.page-links {
+  clear: both;
+  padding-top: $size__padding;
+}
+
+.wp-block-separator,
+hr {
+  border: none;
+  border-bottom: 2px solid $color__secondary;
+}

@@ -1,0 +1,60 @@
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  padding: 12px 8px;
+  margin:0;
+  background: white;
+  outline:none!important;
+  border: 1px solid $color__light-grey;
+  
+  font-size: $text__size;
+  color: $color__text;
+  
+  transition:350ms;
+}
+
+input {
+  transition: 175ms;
+  border: 0 solid transparent;
+  
+  &[type="text"] {
+    width: 100%;
+    padding-left: 0;
+    box-shadow: 0 1px 0 $color__light-grey;
+    
+    &:hover {
+      box-shadow: 0 1px 0 $color__secondary;
+    }
+  
+    &:focus {
+      box-shadow: 0 2px 0 $color__secondary;
+    }
+  }
+}
+
+.input-label {
+  font-size: $text__size * .5;
+  color: lighten($color__text, 20%);
+}
+
+textarea {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 160px;
+  overflow:hidden;
+}
+
+fieldset {
+  margin: $size__margin 0;
+}
+
+input, textarea {
+  margin-bottom: $size__margin;
+}
+
+select, textarea {
+  width: 100%;
+  border-radius:4px;
+}

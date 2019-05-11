@@ -1,0 +1,51 @@
+// COLOR VARIABLES
+$color__primary: #17BEBB;
+$color__secondary: #673AB7;
+$color__black: #44474e;
+$color__dark-grey: lighten($color__black, 10%);
+$color__light-grey: #e3e3e3;
+$color__white: #fff;
+
+$color__bold: $color__primary;
+$color__link: $color__secondary;
+$color__button: $color__secondary;
+$color__text: $color__dark-grey;
+$color__border: $color__dark-grey;
+$color__background-body: darken($color__white, 1%);
+
+
+// TEXT VARIABLES
+$text__line-height: 1.7;
+$text__line-height-headline: 1.2;
+$text__size: 17px;
+$font__family: 'Montserrat';
+$font__family-headline: 'Montserrat';
+
+// ANIMATIONS
+$animations__lenght : .35s;
+
+// MEASURES
+$size__site-width: 1400px;
+$size__side-padding: 300px;
+// $size__sidebar-width: 300px;
+// $size__sidebar-margin: 60px;
+
+// HEADER
+$head__direction: row;
+$head__height-responsive: 64px;
+// $size__header-height: 120px;
+$nav__dropdown: 1;
+$nav__height: 48px;
+
+// DISTANCES
+$size__margin: 8px;
+$size__padding: 64px;
+$size__padding-resp: 24px;
+
+
+// SCROLLBAR
+$scrollbar-line-color: $color__primary;
+$scrollbar-background-color: $color__light-grey;
+
+// EXTRAS
+$blockquote__icon-size: 60px;

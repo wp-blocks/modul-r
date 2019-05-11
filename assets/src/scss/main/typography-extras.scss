@@ -1,0 +1,115 @@
+pre {
+	width: 100%;
+	padding: 10px 24px;
+	background: lighten($color__light-grey, 5%);
+	border: 1px solid $color__light-grey;
+	white-space: pre-wrap;
+}
+
+blockquote {
+	min-height: 100px;
+	padding: ($blockquote__icon-size * .5) ($blockquote__icon-size * 1.5);
+	margin: ($size__margin * 4) 0;
+	position:relative;
+	background: white;
+	border: 1px solid $color__light-grey;
+	
+	p {
+		margin-bottom: $size__margin * 3;
+	}
+	
+	&:before {
+		font-family: 'Material Icons';
+		content: "\E244";
+		position: absolute;
+		top: -4px;
+		left: 16px;
+		font-size: $blockquote__icon-size;
+		color: $color__primary;
+	}
+	
+}
+
+p code {
+	background-color: $color__light-grey;
+	padding: 4px 6px;
+}
+
+
+pre {
+	padding: ($size__padding * .5)  $size__padding;
+}
+
+
+.tags {
+	display: inline-block;
+	clear: both;
+	text-align: left;
+	list-style: none;
+	overflow: hidden;
+	padding: ($size__margin * 2) 0 ($size__margin * 4);
+	
+	h4 {
+		color: $color__text;
+		display: inline-block;
+		margin-right: $size__margin * 2;
+	}
+}
+
+.tag {
+	background: $color__secondary;
+	border-radius: 3px 0 0 3px;
+	display: inline-block;
+	height: 22px;
+	line-height: 18px;
+	padding: 0 20px 0 25px;
+	position: relative;
+	margin: 0 10px 10px 0;
+	
+	a {
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: $color__white;
+		text-decoration: none !important;
+	}
+	
+	&, &::before, &::after, a {
+		transition: 0.2s;
+	}
+	
+	&::before {
+		background: #fff;
+		border-radius: 10px;
+		box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+		content: '';
+		height: 6px;
+		left: 10px;
+		position: absolute;
+		width: 6px;
+		top: 8px;
+	}
+	
+	&::after {
+		background: #fff;
+		border-bottom: 11px solid transparent;
+		border-left: 10px solid $color__secondary;
+		border-top: 11px solid transparent;
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	
+	&:hover {
+		background-color: $color__secondary;
+		a {
+			color: white;
+		}
+	}
+	
+	&:hover::after {
+		border-left-color: $color__secondary;
+	}
+}

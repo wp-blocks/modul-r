@@ -1,0 +1,31 @@
+img {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+figure {
+  margin-bottom: $size__margin * 2;
+  img {
+    max-width: inherit;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.wp-caption .wp-caption-text {
+  color: lighten($color__text, 10%);
+  font-size: $text__size - 2;
+  font-style: italic;
+  margin-bottom: $size__margin * 3;
+}
+
+.entry-content {
+  .alignleft {
+    margin-right: $size__margin * 2;
+  }
+  
+  .alignright {
+    margin-left: $size__margin * 2;
+  }
+}

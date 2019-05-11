@@ -1,0 +1,74 @@
+// The animated header button
+$hamburger__size: 40px;
+$hamburger__margin: $hamburger__size * .25;
+$hamburger__weight: 3px;
+
+.menu-resp {
+  display: none;
+  position: absolute;
+  z-index: 1020;
+  top: ($head__height-responsive - $hamburger__size) * .5;
+  right: $size__padding-resp - $hamburger__margin;
+  
+  @media #{$smaller-than-tablet} {
+    display: block;
+  }
+}
+
+button.c-hamburger {
+  
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $hamburger__size;
+  height: $hamburger__size;
+  font-size: 0;
+  text-indent: -9999px;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  background-color: transparent;
+  
+  &:focus { outline: 0; }
+  
+  span {
+    display: block;
+    position: absolute;
+    top: $hamburger__size * .5;
+    left: $hamburger__margin;
+    right: $hamburger__margin;
+    height: $hamburger__weight;
+    background: $color__secondary;
+    transition: background 0.15s 0.1s;transition-delay: 0.1s, 0s;
+    
+    &::after,
+    &::before {
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: $hamburger__weight;
+      background: $color__secondary;
+      content: "";
+      transition-duration: .3s,.3s; transition-delay: 0.3s, 0s;
+    }
+    &::before {top: $hamburger__size * .25;transition-property: top, transform;}
+    &::after {bottom: $hamburger__size * .25;transition-property: bottom, transform;}
+  }
+  
+  .active & {
+    span {
+      background: 0 0;
+      transition-delay: 0.2s, 0.0s;
+      
+      &::before { top: 0; transform: rotate(45deg); }
+      &::after { bottom: 0; transform: rotate(-45deg); }
+      &::after,
+      &::before { transition-delay: 0s, 0.3s;}
+    }
+    
+  }
+}

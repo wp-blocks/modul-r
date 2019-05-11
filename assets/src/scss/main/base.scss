@@ -1,0 +1,62 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: $color__background-body;
+  
+  font-family: $font__family, sans-serif;
+  color: $color__text;
+  font-size: $text__size;
+  line-height: $text__line-height;
+}
+
+iframe {
+  width: 100%;
+  max-width: 100%;
+}
+
+b,
+strong {
+  color: $color__bold;
+}
+
+a {
+  color: $color__link;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+    color: $color__link;
+  }
+}
+
+
+table {
+  width:100%;
+  max-width:100%;
+  border-collapse:collapse;
+  
+  tr {
+    th,
+    td {
+      padding: $size__margin * 1.5;
+    }
+    th {
+      background: $color__secondary;
+      color: #fff;
+    }
+    td {
+      border-bottom: 1px solid $color__light-grey;
+    }
+  }
+}
+
+
+
+::selection {
+  background-color: transparentize($color__primary, 0.5) !important;
+  color: white;
+}
