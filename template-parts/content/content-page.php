@@ -13,13 +13,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-  <!-- post thumbnail -->
-	<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-    <div class="interactive featured-image">
-			<?php the_post_thumbnail('fullwidth', array('class' => 'fit-image wp-post-image')); ?>
-    </div>
-	<?php endif; ?>
-  <!-- /post thumbnail -->
+	<?php print_post_image(); ?>
 
 	<div class="entry-content">
 
@@ -37,9 +31,10 @@
 			)
 		);
 		?>
-	</div><!-- .entry-content -->
+	</div><!-- /entry-content -->
 
   <footer class="entry-footer main-width">
+
   </footer>
 
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>

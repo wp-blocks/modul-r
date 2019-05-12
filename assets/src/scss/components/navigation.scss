@@ -1,4 +1,7 @@
+$nav_padding: 0 ($size__margin * 4);
+
 .main-navigation {
+ 
   ul {
     display: flex;
     height: $nav__height;
@@ -21,7 +24,7 @@
       white-space: nowrap;
       height: $nav__height;
       line-height: $nav__height;
-      padding: 0 ($size__margin * 4);
+      padding: $nav_padding;
       box-sizing: border-box;
   
       color: $color__white;
@@ -32,7 +35,10 @@
         opacity: 1;
       }
     }
-    &:last-of-type a { padding-right: 0}
+  }
+  
+  .main-menu + li:last-of-type a {
+    padding-right: 0
   }
   
   .menu-shadow {

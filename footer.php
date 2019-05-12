@@ -1,4 +1,4 @@
-  </div><!-- #content -->
+  </div><!-- /content -->
 
   <footer id="colophon" class="site-footer">
 
@@ -14,9 +14,9 @@
       </p>
     </div>
 
-    </footer><!-- #colophon -->
+    </footer><!-- /colophon -->
 
-</div><!-- #page -->
+</div><!-- /page -->
 
 <?php wp_footer(); ?>
 

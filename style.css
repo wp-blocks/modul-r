@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*
-Theme Name: Codekraft
+Theme Name: modular-wordpress-theme
 Theme URI: https://codekraft.it
 Author: Codekraft Studio - info@codekraft.it 
 Author URI: https://codekraft.it 
@@ -10,7 +10,6 @@ Version: 1.0.0
 License: GNU General Public License v2 or later
 License: Copyright (c) 2019 Codekraft Studio - info@codekraft.it 
 Text Domain: cktheme
-Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
 */
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -792,11 +791,20 @@ button,
     justify-content: space-between;
     margin-top: 0;
     margin-bottom: 0; }
-    #masthead .site-branding-container .site-branding {
-      width: 100%; }
     @media (max-width: 767px) {
       #masthead .site-branding-container {
         height: 100%; } }
+    #masthead .site-branding-container .site-branding {
+      width: 100%; }
+    #masthead .site-branding-container .site-title {
+      font-size: 26px;
+      margin: 8px 0;
+      display: inline-block; }
+    #masthead .site-branding-container .site-description {
+      display: inline-block;
+      color: white;
+      font-weight: 300;
+      font-size: 11px; }
     #masthead .site-branding-container .site-logo {
       padding-top: 8px;
       padding-bottom: 8px;
@@ -845,8 +853,9 @@ button,
     opacity: 0.9; }
     .main-navigation li a:hover {
       opacity: 1; }
-  .main-navigation li:last-of-type a {
-    padding-right: 0; }
+
+.main-navigation .main-menu + li:last-of-type a {
+  padding-right: 0; }
 
 .main-navigation .menu-shadow {
   display: none; }
@@ -992,11 +1001,13 @@ button.c-hamburger {
   width: 100%;
   height: 100%; }
 
-.entry-title {
+.entry-title,
+.page-title {
   text-align: center;
   font-size: 64px; }
   @media (max-width: 767px) {
-    .entry-title {
+    .entry-title,
+    .page-title {
       font-size: 52px; } }
 
 .page-links {
@@ -1689,5 +1700,20 @@ hr {
 
 .comments-wrapper {
   clear: both; }
+
+body.archive article {
+  display: flex;
+  margin: 64px auto 32px; }
+  body.archive article .article-image {
+    width: 30%;
+    margin-right: 32px; }
+    body.archive article .article-image img {
+      height: 200px;
+      -o-object-fit: cover;
+      object-fit: cover; }
+  body.archive article .entry-title {
+    margin: 0 0 4px; }
+  body.archive article .article-content {
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

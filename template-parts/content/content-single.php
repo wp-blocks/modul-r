@@ -13,25 +13,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-  <!-- post thumbnail -->
-	<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-    <div class="interactive featured-image">
-			<?php the_post_thumbnail('fullwidth', array('class' => 'fit-image wp-post-image')); ?>
-    </div>
-	<?php endif; ?>
-  <!-- /post thumbnail -->
+	<?php print_post_image(); ?>
 
 	<header class="entry-header main-width alignwide">
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-    <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><h4><?php the_author_meta( 'display_name' ); ?></h4></a>
-    <a href="<?php echo get_day_link( get_the_time('Y'), get_the_time('m'), get_the_time('d') ); ?>">
-      <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-				<?php the_date(); ?> <?php the_time(); ?>
-      </time>
-    </a>
-    <p>commenti: <?php echo get_comment_count(); ?></p>
+    <?php print_footer_meta(); ?>
 
 	</header>
 

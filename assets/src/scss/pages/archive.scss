@@ -1,0 +1,25 @@
+body.archive {
+
+  article {
+    display: flex;
+    margin: $size__padding auto ($size__padding * .5);
+    
+    .article-image {
+      width: 30%;
+      margin-right: 32px;
+      img {
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+  
+    .entry-title {
+      margin: 0 0 4px;
+    }
+    
+    .article-content {
+      width: 100%;
+    }
+    
+  }
+}

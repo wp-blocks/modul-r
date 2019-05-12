@@ -32,13 +32,24 @@
     justify-content: space-between;
     margin-top: 0;
     margin-bottom: 0;
-  
+
+    @media #{$tablet-portrait} {height: 100%;}
+
     .site-branding {
       width: 100%;
     }
-    
-    @media #{$tablet-portrait} {
-      height: 100%;
+
+    .site-title {
+      font-size: 26px;
+      margin: $size__margin 0;
+      display: inline-block;
+    }
+
+    .site-description {
+      display: inline-block;
+      color: white;
+      font-weight: 300;
+      font-size: 11px;
     }
   
     .site-logo {

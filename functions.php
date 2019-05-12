@@ -11,6 +11,7 @@ require_once( get_template_directory() . '/inc/sidebar.php' );
 require_once( get_template_directory() . '/inc/enqueue-scripts.php' );
 require_once( get_template_directory() . '/inc/mimetypes.php' );
 require_once( get_template_directory() . '/inc/custom-post-type.php' );
+require_once( get_template_directory() . '/inc/template-functions.php' );
 
 
 

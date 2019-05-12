@@ -10,7 +10,6 @@ const autoprefixer = require("autoprefixer");
 const fs = require('fs');
 const newer = require('gulp-newer');
 const imagemin = require('gulp-imagemin');
-const eslint = require('gulp-eslint');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
@@ -49,23 +48,6 @@ const opts = {
     },
     build: {
       outputStyle: 'compressed'
-    }
-  },
-
-  eslint: {
-    dev: {
-      "parser": "babel-eslint",
-      "rules": {
-        "strict": 0
-      }
-    },
-    build: {
-      "parser": "babel-eslint",
-      "parserOptions": {
-        "sourceType": "module",
-        "allowImportExportEverywhere": false,
-        "codeFrame": true
-      }
     }
   },
 
@@ -142,9 +124,6 @@ function userScript() {
   return gulp
     .src(opts.devPath + 'js/user/*.js')
     .pipe(sourcemaps.init())
-    .pipe(eslint(opts.eslint.dev))
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
     .pipe(babel({
       presets: ['@babel/env']
     }))

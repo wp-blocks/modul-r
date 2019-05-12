@@ -17,7 +17,7 @@
               <div class="site-logo"><?php the_custom_logo(); ?></div>
           <?php else : ?>
               <h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
-              <p class="site-description"><?php get_bloginfo( 'description', 'display' ); ?></p>
+              <p class="site-description"><?php echo get_bloginfo( 'description' ); ?></p>
           <?php endif; ?>
       </div>
 
