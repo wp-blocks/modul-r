@@ -1,25 +1,46 @@
 body.archive {
+  
+  $archive__image-height: $size__padding * 3;
+  
+  .site-main {
+   .article-container:nth-child(2n + 2) {
+     background: darken($color__white, 10%);
+   }
+  }
 
   article {
     display: flex;
-    margin: $size__padding auto ($size__padding * .5);
+    margin: 0 auto;
+    padding-top: $size__padding;
+    padding-bottom: $size__padding;
+    min-height: $archive__image-height;
     
-    .article-image {
+    .entry-image {
       width: 30%;
-      margin-right: 32px;
+      margin-right: $size__padding;
       img {
-        height: 200px;
+        height: $archive__image-height;
         object-fit: cover;
       }
     }
+    
+    .entry-header {
+      padding-top: 0;
+    }
   
     .entry-title {
-      margin: 0 0 4px;
+      font-size: 32px;
+      margin: 0 0 $size__margin;
+      text-align: left;
     }
     
-    .article-content {
+    .entry-content {
       width: 100%;
+      p {
+        margin: 0;
+        padding: 0;
+      }
     }
-    
+ 
   }
 }

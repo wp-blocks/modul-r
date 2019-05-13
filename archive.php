@@ -27,7 +27,7 @@ get_header();
                 endwhile;
 
                 // Previous/next page navigation.
-                printf('<div class="main-width alignwide">%s</div>', print_post_nav() );
+                printf('<div class="main-width alignwide text-center">%s</div>', print_post_nav() );
 
             // If no content, include the "No posts found" template.
             else :
