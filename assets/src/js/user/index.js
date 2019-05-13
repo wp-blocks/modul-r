@@ -38,21 +38,17 @@ function VisibleItemsTrigger(top) {
 
     if (isInViewport(entry)) {
 
-      var firstTop = window.pageYOffset + entry.getBoundingClientRect().top;
-
       // Parallax images
       // check if interactive box have a img child and get the distance from top
-      var parallaxed = entry.getElementsByClassName("parallax");
-      var parallaxArray = [].slice.call(parallaxed);
-
-      parallaxArray.forEach( function(item) {
-        var parallaxSpeedItem = (item.getAttribute('aria-speed') !== null) ? item.getAttribute('aria-speed') : parallaxDefaultSpeed ;
-        var moveTopItem = -(firstTop - top) * parallaxSpeedItem;
-        item.style.transform = "translateY(" + moveTopItem + "px)";
-      });
+      if (entry.classList.contains('parallax')) {
+          var firstTop = window.pageYOffset + entry.getBoundingClientRect().top;
+          var moveTopItem = -(firstTop - top) * parallaxDefaultSpeed;
+          entry.getElementsByTagName('img')[0].style.transform = "translateY(" + moveTopItem + "px)";
+      }
     }
   });
 }
+
 
 function throttle(fn, wait) {
   var time = Date.now();
@@ -81,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   scrollCallback();
 
-  window.addEventListener('scroll', throttle(scrollCallback, 5), true); // 1 frame each 16ms is about 60fps
+  window.addEventListener('scroll', throttle(scrollCallback, 16), true); // 1 frame each 16ms is about 60fps
   window.addEventListener('resize', scrollCallback, true); // 1 frame each 16ms is about 60fps
 
   $('.main-slider').slick({

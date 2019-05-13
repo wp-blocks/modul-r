@@ -1,12 +1,39 @@
-.wp-block-image.interactive {
-  
-  img {
-    opacity: .5;
+.interactive {
+
+  &.animated img {
     transition: $animations__lenght;
   }
   
-  &.visible img {
-    opacity: 1;
+  &.fade-in {
+  
+    img {
+      opacity: .5;
+    }
+  
+    &.visible img {
+      opacity: 1;
+    }
+    
+  }
+  
+  &.enter-left {
+  
+    img {
+      transform: translateX(-100px);
+    }
+    
+    &.visible img {
+      transform: translateX(0);
+    }
+  }
+  
+  &.parallax {
+    overflow: hidden;
+    
+    img {
+      height: calc(100% + 200px);
+      margin-bottom: -200px;
+    }
   }
   
 }
