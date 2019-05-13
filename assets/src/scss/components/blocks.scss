@@ -51,6 +51,22 @@
 		margin-bottom: 0;
     clear: both;
 	}
+	
+	&.alignclose {
+		margin-top: 0;
+		margin-bottom: 0;
+		
+		&.padded-image img {
+			margin-top: $size__padding;
+			margin-bottom: $size__padding;
+			margin-left: $size__padding;
+		}
+		
+		&.has-media-on-the-right.padded-image img {
+			margin-right: $size__padding;
+			margin-left: 0;
+		}
+	}
 
 	&.alignwide {
     padding-left: 0;

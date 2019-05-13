@@ -1,35 +1,27 @@
 .interactive {
+  
+  overflow: hidden;
 
   &.animated img {
-    transition: $animations__lenght;
+    transition: $animations__lenght * 2;
   }
   
   &.fade-in {
-  
-    img {
-      opacity: .5;
-    }
-  
-    &.visible img {
-      opacity: 1;
-    }
-    
+    img {opacity: 0;}
+    &.visible img {opacity: 1;}
   }
   
   &.enter-left {
+    img {transform: translateX(-100px);}
+    &.visible img {transform: translateX(0);}
+  }
   
-    img {
-      transform: translateX(-100px);
-    }
-    
-    &.visible img {
-      transform: translateX(0);
-    }
+  &.enter-down {
+    img {transform: translateY(200px);}
+    &.visible img {transform: translateY(0);}
   }
   
   &.parallax {
-    overflow: hidden;
-    
     img {
       height: calc(100% + 200px);
       margin-bottom: -200px;
