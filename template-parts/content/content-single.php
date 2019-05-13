@@ -19,7 +19,7 @@
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-    <?php print_footer_meta(); ?>
+    <?php print_meta(); ?>
 
 	</header>
 

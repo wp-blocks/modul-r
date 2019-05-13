@@ -5,9 +5,9 @@
 @import "utils/media-queries";
 
 @import "main/base";
-@import "main/helpers";
 @import "main/fonts";
 @import "main/typography";
+@import "main/helpers";
 @import "main/typography-extras";
 @import "main/inputs";
 @import "main/images";
@@ -24,4 +24,6 @@
 @import "components/comments";
 
 @import "pages/homepage";
+@import "pages/page";
+@import "pages/single";
 @import "pages/archive";

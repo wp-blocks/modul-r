@@ -7,9 +7,14 @@ img {
 figure {
   margin-bottom: $size__margin * 2;
   img {
-    max-width: inherit;
+    max-width: 100%;
     padding-left: 0;
     padding-right: 0;
+  }
+  
+  figcaption {
+    overflow: hidden;
+    line-height: 1.2;
   }
 }
 

@@ -1,9 +1,11 @@
+$nav__background: $color__dark-grey;
+
 #masthead {
   position: fixed;
   z-index: 1000;
   top: 0;
   width: 100%;
-  background-color: $color__primary;
+  background-color: $nav__background;
   transition: $animations__lenght;
   
   .scrolled & {
@@ -11,7 +13,7 @@
   }
   
   & + div {
-    margin-top: $nav__height * 2;
+    margin-top: $nav__height;
   }
   
   .admin-bar & {
@@ -22,9 +24,11 @@
     }
   
     & + div {
-      margin-top: ($nav__height * 2) + 32;
+      margin-top: 48px;
+      @media screen and (max-width: 600px) {margin-top: 32px;}
     }
   }
+  
   
   .site-branding-container {
     display: flex;
@@ -43,6 +47,10 @@
       font-size: 26px;
       margin: $size__margin 0;
       display: inline-block;
+      
+      a {
+        color: $color__primary;
+      }
     }
 
     .site-description {

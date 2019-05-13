@@ -3,7 +3,7 @@
 if ( ! function_exists('print_post_image') ) :
 	function print_post_image() {
       if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-          <div class="interactive featured-image">
+          <div class="entry-image interactive">
               <?php the_post_thumbnail('fullwidth', array('class' => 'fit-image wp-post-image')); ?>
           </div>
       <?php endif;
@@ -50,7 +50,7 @@ endif;
 
 
 if ( ! function_exists('print_footer_meta') ) :
-	function print_footer_meta() {
+	function print_meta() {
 
 		?>
     <div class="meta-wrapper">

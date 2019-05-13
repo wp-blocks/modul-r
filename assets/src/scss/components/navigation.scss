@@ -111,14 +111,14 @@ $nav_padding: 0 ($size__margin * 4);
     width: auto;
     overflow: hidden;
 
-    background-color: darken($color__primary, 5%);
+    background-color: darken($nav__background, 5%);
     transition: $animations__lenght * .5;
     transition-delay: 0ms;
   
     ul.sub-menu {
       top: 0;
       left: 100%;
-      background-color: darken($color__primary, 10%);
+      background-color: darken($nav__background, 10%);
       &.active {opacity: 1;}
     }
   
@@ -131,7 +131,7 @@ $nav_padding: 0 ($size__margin * 4);
     }
     
     li {
-      &:hover {background-color: darken($color__primary, 8%);}
+      &:hover {background-color: darken($nav__background, 8%);}
     }
   }
 }

@@ -1,27 +1,44 @@
 .site-footer {
-  background: $color__secondary;
+  background: $color__primary;
   margin-top: $size__padding;
+  clear: both;
   
   h3,
   p,
   a {color: $color__white;}
+  
+  b,
+  strong {
+    color: $color__secondary;
+  }
   
   h3 {
     padding-top: $size__padding * .5;
     padding-bottom: 16px;
     font-weight: 600;
     font-size: 28px;
-    border-bottom: 1px solid transparentize($color__black, 0.9);
+    border-bottom: 1px solid transparentize($color__black, .9);
   }
   
   .footer-widgets {
     padding-top: $size__padding;
     display: flex;
-    justify-content: space-between;
+    flex-flow: wrap;
+    
   
     @media #{$tablet-portrait} {
       flex-direction: column-reverse;
       width: 100%;
+    }
+    
+    .widget {
+      flex-grow: 1;
+      padding-left: $size__padding;
+  
+      &:first-of-type {
+        flex-grow: 2;
+        padding-left: 0;
+      }
     }
     
     li {
@@ -30,7 +47,7 @@
       .post-date {
         font-size: 13px;
         margin-left: $size__margin;
-        color: transparentize($color__white, 0.5);
+        color: transparentize($color__white, .5);
       }
     }
   }
