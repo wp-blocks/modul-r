@@ -1,6 +1,6 @@
 "use strict";
 
-var parallaxDefaultSpeed = 0.2;
+var parallaxDefaultSpeed = 0.3;
 var shiftView = 200; // make the elements triggered before fully in the viewport
 
 var vScrollTop = 0;

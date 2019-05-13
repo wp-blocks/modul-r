@@ -1750,6 +1750,10 @@ hr {
       .site-footer .footer-widgets .widget:first-of-type {
         flex-grow: 2;
         padding-left: 0; }
+      @media (max-width: 767px) {
+        .site-footer .footer-widgets .widget {
+          padding-left: 0;
+          padding-bottom: 32px; } }
     .site-footer .footer-widgets li {
       display: block; }
       .site-footer .footer-widgets li .post-date {
@@ -1786,7 +1790,7 @@ hr {
     transform: translateY(0); }
   .interactive.parallax img {
     height: calc(100% + 200px);
-    margin-bottom: -200px; }
+    margin-bottom: -200px !important; }
 
 .comments-wrapper {
   clear: both; }

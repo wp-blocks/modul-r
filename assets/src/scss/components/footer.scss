@@ -39,6 +39,11 @@
         flex-grow: 2;
         padding-left: 0;
       }
+  
+      @media #{$tablet-portrait} {
+        padding-left: 0;
+        padding-bottom: $size__padding * .5;
+      }
     }
     
     li {

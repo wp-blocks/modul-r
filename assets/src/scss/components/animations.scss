@@ -24,7 +24,7 @@
   &.parallax {
     img {
       height: calc(100% + 200px);
-      margin-bottom: -200px;
+      margin-bottom: -200px !important;
     }
   }
   
