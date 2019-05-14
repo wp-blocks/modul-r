@@ -2,18 +2,23 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
   // a slick slider
-  $('slider').slick({
-    infinite: true,
-    slidesToShow: 1,
-    autoplay: true
-  });
+  if ($('.slider')) {
+    $('.slider').slick({
+      infinite: true,
+      slidesToShow: 1,
+      autoplay: true
+    });
+  }
 
 
   $('.lightbox a').fancybox({
-    caption : function( instance, item ) {
-      var caption = $(this).data('caption') || '';
-      caption = ( caption.length ? caption : '<?php  ?>caption' );
+    caption : function() {
+
+      var caption = $(this).next('figcaption').text() !== '' ? $(this).next('figcaption').text() : $(this).children('img').attr('alt')  ;
+      caption = ( caption.length ? caption : 'No caption' );
+
       return caption;
+
     }
   });
 
@@ -33,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         gallery.push({
           src : galleryItem.href,
           opts : {
-            caption: caption
+            caption: caption + '<br/><span class="fancybox-counter"><span data-fancybox-index></span> of <span data-fancybox-count></span></span>'
           }
         })
       });

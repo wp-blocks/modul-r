@@ -1,0 +1,54 @@
+.masonry {
+
+  
+  .navigation {
+    text-align: center;
+    a {
+      font-size: 22px;
+      color: #aaa;
+    }
+  }
+}
+
+body.archive article.masonry-item {
+  width: 27%;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: $size__padding-resp;
+  margin-top: 0;
+  padding-top: 0;
+  
+  display: flex;
+  flex-direction: column;
+  
+  @media #{$tablet-portrait}{
+    width: 46%;
+  }
+  
+  @media #{$phablet}{
+    width: calc(100% - #{$size__padding-resp *2 }) ;
+    margin-left: $size__padding-resp;
+    margin-right: $size__padding-resp;
+  }
+  
+  .entry-image {
+    width: 100%;
+    margin: 0 0 $size__padding * .25;
+  }
+  
+  .entry-header {
+    padding-bottom: $size__margin;
+    .entry-title {
+      font-size: 24px;
+    }
+  }
+  
+  hr {
+    border-bottom: 2px solid $color__light-grey;
+    width: 25%;
+    margin-top: $size__padding;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  
+}

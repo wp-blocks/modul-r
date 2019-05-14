@@ -1,17 +1,23 @@
+html {
+  max-width: 100%;
+  background-color: $color__background-body;
+  overflow-x: hidden;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 100%;
-  overflow-x: hidden;
-  background-color: $color__background-body;
-  
+  position: relative;
+  height: 100%;
+
   font-family: $font__family, sans-serif;
   color: $color__text;
   font-size: $text__size;
   line-height: $text__line-height;
 }
+
 
 iframe {
   width: 100%;
