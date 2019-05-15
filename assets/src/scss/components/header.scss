@@ -1,11 +1,11 @@
-$nav__background: $color__dark-grey;
+
 
 #masthead {
   position: fixed;
   z-index: 1000;
   top: 0;
   width: 100%;
-  background-color: $nav__background;
+  background-color: $color__nav-background;
   transition: $animations__lenght;
   
   @media #{$tablet-portrait} {

@@ -2,11 +2,32 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
   // a slick slider
-  if ($('.slider')) {
-    $('.slider').slick({
+  if ($('.slider-single')) {
+    $('.slider-single').slick({
       infinite: true,
       slidesToShow: 1,
       autoplay: true
+    });
+  }
+  if ($('.slider-multi')) {
+    $('.slider-multi').slick({
+        lazyLoad: 'ondemand',
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        autoplay: true,
+        centerMode: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: false
+            }
+          }
+      ]
     });
   }
 

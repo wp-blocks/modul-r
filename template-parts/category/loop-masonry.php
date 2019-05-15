@@ -17,7 +17,7 @@
 
 	<div class="navigation">
 		<?php previous_posts_link( '« Newer posts' ); ?>
-		<?php next_posts_link( 'Older posts »', $query->max_num_pages ); ?>
+		<?php next_posts_link( 'Older posts &darr;', $query->max_num_pages ); ?>
 	</div>
 
 
@@ -70,7 +70,7 @@
         loading: {
           msgText: 'Loading',
           finishedMsg: 'Finished',
-          img: 'https://samherbert.net/svg-loaders/svg-loaders/oval.svg'
+          img: '<?php echo get_template_directory_uri(); ?>/assets/src/img/elements/loader.svg'
         }
       },
 

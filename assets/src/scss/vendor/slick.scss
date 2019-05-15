@@ -181,4 +181,40 @@ $slick-next-character: ">" !default;
     width: 100%;
     height: auto;
   }
+  padding: $size__margin * .5;
+}
+
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  margin: 0;
+  padding: $size__margin 0;
+  
+  list-style-type: none;
+  
+  li {
+    margin: 0 $size__margin;
+  }
+  
+  button {
+    display: block;
+    width: $size__margin;
+    height: $size__margin;
+    padding: 0;
+    min-width: inherit;
+    outline:inherit !important;
+    
+    border: none;
+    border-radius: 100%;
+    background-color: $color__light-grey;
+    
+    text-indent: -9999px;
+  }
+  
+  li.slick-active button {
+    background-color: $color__secondary;
+  }
+  
 }

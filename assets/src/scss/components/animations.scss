@@ -1,26 +1,52 @@
-.interactive {
-  
+.interactive  {
   overflow: hidden;
-
-  &.animated img {
-    transition: $animations__lenght * 2;
+  
+  // animation trigger
+  // &.visible      img on/off when visible
+  // &.already-see  executes only one time
+  
+  &.animated {
+    
+    * {
+      transition-duration: $animations__lenght * 2;
+    }
+    
+    &.long-delay * {
+      transition-delay: 3s;
+    }
+   
+    &.fade-in {
+      img {opacity: 0;}
+      &.already-see img {opacity: 1;}
+    }
+    
+    &.slide-left {
+      img {transform: translateX(-100px);}
+      &.visible img {transform: translateX(0);}
+    }
+    
+    &.enter-down {
+      img {transform: translateY(100%);}
+      &.already-see img {transform: translateY(0);}
+    }
+    
+    &.exit-right {
+      img {
+        opacity: 1;
+        transform: translateX(0);
+        transition-duration: $animations__lenght * 3;
+      }
+      &.already-see {
+        img {
+          opacity: 0;
+          transform: translateX(300%);
+        }
+      }
+    }
+    
   }
   
-  &.fade-in {
-    img {opacity: 0;}
-    &.visible img {opacity: 1;}
-  }
-  
-  &.enter-left {
-    img {transform: translateX(-100px);}
-    &.visible img {transform: translateX(0);}
-  }
-  
-  &.enter-down {
-    img {transform: translateY(200px);}
-    &.visible img {transform: translateY(0);}
-  }
-  
+ 
   &.parallax {
     img {
       height: calc(100% + 200px);
@@ -28,12 +54,11 @@
     }
   }
   
+  &.already-see {
+  
+  }
+  
 }
 
 
 
-@for $i from 1 to 10 {
-  .delay-#{$i}) { animation-delay: $i * 0.5s; }
-  .delay-fast-#{$i}) { animation-delay: $i * 0.25s; }
-  .delay-overlap-#{$i} {animation-delay: $i - $i * 0.7s;}
-}
