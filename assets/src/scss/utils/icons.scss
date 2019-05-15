@@ -11,18 +11,21 @@
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path style="fill:white" d="M18.73,17.65v-4.68c0-2.51-1.34-3.68-3.13-3.68c-1.44,0-2.09,0.79-2.45,1.35V9.48h-2.72 c0.04,0.77,0,8.17,0,8.17h2.72v-4.56c0-0.24,0.02-0.49,0.09-0.66c0.2-0.49,0.64-0.99,1.39-0.99c0.98,0,1.38,0.75,1.38,1.85v4.37 L18.73,17.65L18.73,17.65z M7.58,8.37c0.95,0,1.54-0.63,1.54-1.41C9.1,6.16,8.53,5.55,7.6,5.55S6.07,6.15,6.07,6.96 c0,0.78,0.59,1.41,1.5,1.41H7.58z M12,24C5.37,24,0,18.63,0,12C0,5.37,5.37,0,12,0s12,5.37,12,12C24,18.63,18.63,24,12,24z M8.94,17.65V9.48H6.23v8.17H8.94z"/></svg>');
 }
 
-
 $Socials: facebook, twitter, youtube, linkedin;
-span.social-ico {
+
+i.social-ico {
+  
+  $social__size: 24px;
+  
   display: inline-block;
-  width: $nav__height;
-  height: $nav__height;
+  width: $social__size;
+  height: $social__size;
   background: no-repeat center;
-  background-size: $nav__height;
+  background-size: $social__size;
   cursor: pointer;
   transition: $animations__lenght;
   padding:0;
-  margin:0 0 0 $nav__height / 6;
+  margin:0 0 0 $social__size / 6;
   opacity: 0.8;
   
   &:before,
@@ -36,3 +39,75 @@ span.social-ico {
     }
   }
 }
+
+
+
+%arrow-right {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 5,5 45,40 5,75 "> </polyline></svg>');
+}
+
+%arrow-left {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 45,75 5,40 45,5 "> </polyline></svg>');
+}
+
+.arrow {
+
+  $arrowSize: 60px;
+
+  background-color: transparentize($color__primary, 0.2);
+  border-radius: 50%;
+  width: $arrowSize;
+  height: $arrowSize;
+  padding: 0;
+  min-width: inherit;
+  background-size: $arrowSize * .25;
+  background-repeat: no-repeat;
+  background-position: center;
+  border:0;
+  
+  @media #{$smaller-than-tablet} {
+    $arrowSize: 24px;
+    padding: $arrowSize * 0.25;
+    width: $arrowSize;
+    height: $arrowSize;
+    background-size: $arrowSize * .25;
+  }
+  
+  &-next {
+    @extend %arrow-right;
+    margin-right: 16px;
+  }
+  
+  &-prev {
+    @extend %arrow-left;
+    margin-left: 16px;
+  }
+}
+
+
+//reset slick arrow
+.slick-prev:before, .slick-next:before {
+  display: none !important;
+}
+.fancybox-navigation svg {
+  display: none;
+}
+
+.fancybox-navigation .fancybox-button--arrow_right,
+.slider button.slick-next {
+  @extend .arrow;
+  @extend .arrow-next
+}
+
+.fancybox-navigation .fancybox-button--arrow_left,
+.slider button.slick-prev {
+  @extend .arrow;
+  @extend .arrow-prev
+}
+
+
+.fancybox-navigation .fancybox-button--arrow_left:disabled,
+.fancybox-navigation .fancybox-button--arrow_right:disabled {
+  opacity: .5;
+}
+  

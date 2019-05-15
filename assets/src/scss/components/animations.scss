@@ -29,3 +29,11 @@
   }
   
 }
+
+
+
+@for $i from 1 to 10 {
+  .delay-#{$i}) { animation-delay: $i * 0.5s; }
+  .delay-fast-#{$i}) { animation-delay: $i * 0.25s; }
+  .delay-overlap-#{$i} {animation-delay: $i - $i * 0.7s;}
+}

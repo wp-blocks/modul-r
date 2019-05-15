@@ -8,12 +8,16 @@ $nav__background: $color__dark-grey;
   background-color: $nav__background;
   transition: $animations__lenght;
   
-  .scrolled & {
-    box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);
+  @media #{$tablet-portrait} {
+    height: $head__height-responsive;
   }
   
-  & + div {
-    margin-top: $nav__height;
+  .scrolled & {
+    box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);
+  
+    @if($head__direction == column) {
+      transform: translateY(-$size__branding-height);
+    }
   }
   
   .admin-bar & {
@@ -22,13 +26,29 @@ $nav__background: $color__dark-grey;
     @media screen and (max-width: 600px) {
       top: 0;
     }
-  
-    & + div {
-      margin-top: 48px;
-      @media screen and (max-width: 600px) {margin-top: 32px;}
-    }
   }
+
+  // todo: make the content under the header only if is and image
+  & + div {
+    
+    @if($head__direction == column) {
+      padding-top: $nav__height + $size__branding-height;
+    } @elseif($head__direction == row) {
+      padding-top: $nav__height;
+    }
   
+    body.page .entry-image,
+    body.single .entry-image,
+    .website-hero {
+      @if($head__direction == column) {
+        margin-top: ($nav__height + $size__branding-height) * -1;
+      } @elseif($head__direction == row) {
+        padding-top: $nav__height * -1;
+      }
+      
+    }
+    
+  }
   
   .site-branding-container {
     display: flex;
@@ -41,16 +61,34 @@ $nav__background: $color__dark-grey;
 
     .site-branding {
       width: 100%;
+      @if($head__direction == row) {
+        padding-top: $size__margin;
+        padding-bottom: $size__margin;
+      }
+  
+      @if($head__direction == column) {
+        height: 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
     }
-
+  
+    
+    // IF NO CUSTOM LOGO
+    .site-title,
+    .site-description {
+      @if ($head__direction == row) {
+        display: inline-block;
+      }
+      margin: 0;
+      line-height: 1;
+    }
+    
     .site-title {
       font-size: 26px;
-      margin: $size__margin 0;
-      display: inline-block;
-      
-      a {
-        color: $color__primary;
-      }
+      a {color: $color__primary;}
     }
 
     .site-description {
@@ -60,9 +98,8 @@ $nav__background: $color__dark-grey;
       font-size: 11px;
     }
   
+    // IF CUSTOM LOGO
     .site-logo {
-      padding-top: $size__margin;
-      padding-bottom: $size__margin;
       box-sizing: border-box;
   
       @media #{$tablet-portrait} {
@@ -75,17 +112,22 @@ $nav__background: $color__dark-grey;
       display: flex;
       height: 100%;
     }
-    
+
     .custom-logo {
+      object-fit: contain;
+  
       @if($head__direction == row) {
         max-height: $nav__height - ($size__margin * 2) ;
+        object-position: left;
       }
-      object-fit: contain;
-      object-position: left;
+      
       @media #{$tablet-portrait} {
         max-height: 100%;
       }
+      
     }
+    
+    
   }
-  
+ 
 }

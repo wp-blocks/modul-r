@@ -9,7 +9,7 @@
   "homepage": "https://codekraft.it",
   "description": "wp theme description",
   "textDomain": "cktheme",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "style": "./style.css",
   "devDependencies": {
     "@babel/core": "^7.3.3",

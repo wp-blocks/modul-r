@@ -61,10 +61,15 @@ function throttle(fn, wait) {
 }
 
 function scrollCallback() {
-  vScrollTop = window.pageYOffset
-  var headerHeight = document.getElementById('masthead').clientHeight;
 
-  vScrollTop > scrollOffset ? document.body.classList.add('scrolled') : document.body.classList.remove('scrolled');
+  vScrollTop = window.pageYOffset;
+  headerHeight = document.getElementById('masthead').clientHeight;
+
+  if ( lastScroll > vScrollTop ) {
+    document.body.classList.remove('scrolled');
+  } else {
+    vScrollTop > scrollOffset ? document.body.classList.add('scrolled') : document.body.classList.remove('scrolled');
+  }
 
   VisibleItemsTrigger(vScrollTop);
 

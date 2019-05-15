@@ -68,9 +68,9 @@
         behavior: 'local',
         container: '#main',
         loading: {
-          msgText: "Caricamento articoli",
-          finishedMsg: '',
-          img: ''
+          msgText: 'Loading',
+          finishedMsg: 'Finished',
+          img: 'https://samherbert.net/svg-loaders/svg-loaders/oval.svg'
         }
       },
 
@@ -89,3 +89,4 @@
 
   });
 </script>
+

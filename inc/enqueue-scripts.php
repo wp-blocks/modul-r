@@ -1,20 +1,22 @@
 <?php
 
 /**
- * Enqueue scripts and styles.
+ * Enqueue main style in footer.
  */
 function theme_style() {
 	wp_enqueue_style( 'theme-style', get_stylesheet_uri(), array(), null );
 }
-add_action( 'wp_enqueue_scripts', 'theme_style' );
+add_action( 'get_footer', 'theme_style' );
 
 
 /**
- * Load admin scripts
+ * Load scripts
  */
 
 // A category load the masonry scripts
-function newscategoryScripts(){
+function masonryScripts(){
+
+	// customize with your category which will displayed with the masonry layout
 	if(is_category(15)){
 
 		// Pull Masonry from the core of WordPress
@@ -24,7 +26,7 @@ function newscategoryScripts(){
 		wp_enqueue_script( 'infinitescroll', '//cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.1.0/jquery.infinitescroll.min.js', array('jquery'), null, true );
 	}
 }
-add_action('wp_enqueue_scripts', 'newscategoryScripts');
+add_action('wp_enqueue_scripts', 'masonryScripts');
 
 function theme_scripts() {
 

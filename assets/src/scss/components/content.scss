@@ -1,7 +1,19 @@
+// Main Image
 .entry-image {
   img {
     width: 100%;
     height: 100%;
+  }
+}
+
+body.page,
+body.single,
+.website-hero {
+  .entry-image {
+    width: 100%;
+    height: 50vh;
+    max-height: 720px;
+    background-color: $color__dark-grey;
   }
 }
 
@@ -10,6 +22,7 @@
   max-width: $size__site-width - $size__side-padding;
 }
 
+// Pages Header
 .entry-header {
   padding-top: $size__padding;
   padding-bottom: $size__padding * .5;
@@ -19,7 +32,6 @@
     float: inherit;
   }
 }
-
 
 .page-header {
   padding-top: $size__padding * .5 ;
@@ -35,6 +47,7 @@
   }
 }
 
+// Metas
 .page-links {
   clear: both;
   padding-top: $size__padding;
@@ -59,10 +72,9 @@
     vertical-align: sub;
     margin-right: $size__margin * .5;
   }
-  
-  
 }
 
+// Extra
 .wp-block-separator,
 hr {
   border: none;

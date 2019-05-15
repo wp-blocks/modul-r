@@ -1,6 +1,6 @@
 // COLOR VARIABLES
 $color__primary: #17BEBB;
-$color__secondary: #673AB7;
+$color__secondary: #7452b1;
 $color__black: #44474e;
 $color__dark-grey: lighten($color__black, 10%);
 $color__light-grey: #e3e3e3;
@@ -31,9 +31,9 @@ $size__side-padding: 300px;
 // $size__sidebar-margin: 60px;
 
 // HEADER
-$head__direction: row;
+$head__direction: row; // row or column
+$size__branding-height: 64px;
 $head__height-responsive: 64px;
-// $size__header-height: 120px;
 $nav__dropdown: 1;
 $nav__height: 48px;
 
@@ -48,3 +48,8 @@ $scrollbar-background-color: $color__light-grey;
 
 // EXTRAS
 $blockquote__icon-size: 60px;
+
+
+
+// My customization
+$head__direction: column;

@@ -77,8 +77,8 @@ const opts = {
     'Description: <%= description %>\n' +
     'Requires at least: WordPress 4.9.6\n' +
     'Version: <%= version %>\n' +
-    'License: GNU General Public License v2 or later\n' +
-    'License: Copyright (c) <%= new Date().getFullYear() %> <%= author.name %> \n' +
+    'License: GNU General Public License v3 or later\n' +
+    'License: © <%= new Date().getFullYear() %> <%= author.name %> \n' +
     'Text Domain: <%= textDomain %>\n' +
     '*/\n\n'
   ].join('\n')
@@ -143,9 +143,22 @@ function vendorScript() {
     .pipe(rename({suffix: '.min'}));
 }
 
+// todo: if the name is atf.scss use a different preset ()
+function cssAtf() {
+  return gulp
+    .src(opts.devPath + 'scss/atf.scss')
+    .pipe(sass(opts.sass.dev))
+    .on('error', notify.onError('Error: <%= error.message %>,title: "sass Error"'))
+    .pipe(postcss([
+      autoprefixer(opts.autoprefixer.build),
+      cssnano(opts.cssnano)
+    ]))
+    .pipe(gulp.dest(opts.rootPath));
+}
+
 function css() {
   return gulp
-    .src(opts.devPath + 'scss/*.scss')
+    .src(opts.devPath + 'scss/!(atf.scss)*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "sass Error"'))
@@ -175,7 +188,7 @@ function buildStyle() {
 
 // Watch files
 function watchStyle() {
-  gulp.watch(opts.devPath + 'scss/**/*.scss', css );
+  gulp.watch(opts.devPath + 'scss/**/*.scss', style );
 }
 
 function watchCode() {
@@ -187,13 +200,16 @@ function watchImages() {
 }
 
 
+const style = gulp.parallel(css, cssAtf);
 const scripts = gulp.parallel(vendorScript, userScript, mainScript);
 const build = gulp.series(clean, gulp.parallel(imageMinify, buildStyle, scripts) );
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
+exports.style = style;
 exports.scripts = scripts;
 exports.vendorScript = vendorScript;
 exports.userScript = userScript;
+exports.cssAtf = cssAtf;
 exports.css = css;
 exports.buildStyle = buildStyle;
 exports.imageMinify = imageMinify;

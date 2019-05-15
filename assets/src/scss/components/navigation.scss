@@ -7,6 +7,8 @@ $nav_padding: 0 ($size__margin * 4);
     height: $nav__height;
     margin: 0;
   
+    justify-content: center;
+  
     @media #{$smaller-than-tablet} {
       flex-direction: column;
       justify-content: flex-start;
@@ -14,6 +16,7 @@ $nav_padding: 0 ($size__margin * 4);
     }
  
   }
+  
   li {
     display: block;
     position: relative;
@@ -30,11 +33,17 @@ $nav_padding: 0 ($size__margin * 4);
       color: $color__white;
       font-weight: 600;
       text-decoration: none !important;
-      opacity: 0.9;
-      &:hover {
+      opacity: 0.8;
+      &:hover {opacity: 1;}
+    }
+  
+    .current-menu-item,
+    .current-menu-ancestor {
+      a {
         opacity: 1;
       }
     }
+    
   }
   
   .main-menu > li:last-of-type a {

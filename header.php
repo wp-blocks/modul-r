@@ -3,6 +3,9 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style><?php // include the above the fold style. remind include is different than enqueue, the code will be added directly to the page
+	  include (TEMPLATEPATH . '/atf.css' );
+	  ?></style>
     <?php wp_head(); ?>
 </head>
 
