@@ -133,7 +133,7 @@ function userScript() {
     .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 
-// vendor scripts concat
+// Vendor scripts concat
 function vendorScript() {
   return gulp
     .src(opts.devPath + 'js/vendor/*.js')
@@ -143,7 +143,6 @@ function vendorScript() {
     .pipe(rename({suffix: '.min'}));
 }
 
-// todo: if the name is atf.scss use a different preset ()
 function cssAtf() {
   return gulp
     .src(opts.devPath + 'scss/atf.scss')
