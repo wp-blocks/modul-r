@@ -1,4 +1,6 @@
 ::-webkit-scrollbar {
+  position: relative;
+  z-index: 100000;
   width: 12px;
   height: 12px;
   @media #{$tablet-portrait}{

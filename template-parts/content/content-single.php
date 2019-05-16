@@ -30,27 +30,33 @@
 		<?php the_content(); ?>
 	</div><!-- /entry-content -->
 
-	<footer class="entry-footer">
-      <?php
-          if ( is_singular( 'attachment' ) ) {
+	<footer class="entry-footer main-width">
+    <hr>
 
-            // Parent post navigation.
-            the_post_navigation(
-              array(
-                /* translators: %s: parent post link */
-                'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'cktheme' ), '%title' ),
-              )
-            );
+    <?php
+        if ( is_singular( 'attachment' ) ) {
 
-          } elseif ( is_singular( 'post' ) ) {
+          // Parent post navigation.
+          the_post_navigation(
+            array(
+              /* translators: %s: parent post link */
+              'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'cktheme' ), '%title' ),
+            )
+          );
 
-            // Previous/next post navigation.
-            // todo: style this
-            print_post_nav();
+        } elseif ( is_singular( 'post' ) ) {
 
-            print_comments();
-          }
-      ?>
+          // Previous/next post navigation.
+          // todo: style this
+          print_post_nav();
+
+          print_social_sharer();
+
+          print_comments();
+
+          print_relateds();
+        }
+    ?>
 	</footer><!-- /entry-footer -->
 
 </article><!-- /post -->

@@ -723,6 +723,8 @@
 
 	//! Columns
 	.wp-block-columns {
+		
+		overflow-x: hidden;
 
 		&.alignfull {
 			padding-left: $size__padding-resp;

@@ -98,3 +98,79 @@ if ( ! function_exists('print_breadcrumbs') ) :
     }
   }
 endif;
+
+if ( ! function_exists('print_social_sharer') ) :
+	function print_social_sharer() {
+    ?>
+    <div id="share-buttons">
+      <h3>Sharing is caring!</h3>
+
+      <!-- Email -->
+      <a href="mailto:?Subject=<?php echo bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>">
+        <i class="social-ico email"></i>
+      </a>
+
+
+      <!-- Facebook -->
+      <a href="http://www.facebook.com/sharer.php?u=<?php echo get_page_link(); ?>" target="_blank">
+        <i class="social-ico facebook"></i>
+      </a>
+
+
+      <!-- LinkedIn -->
+      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo get_page_link(); ?>" target="_blank">
+        <i class="social-ico linkedin"></i>
+      </a>
+
+
+      <!-- Print -->
+      <a href="javascript:" onclick="window.print()">
+        <i class="social-ico linkedin"></i>
+      </a>
+
+      <!-- Twitter -->
+      <a href="https://twitter.com/share?url=<?php echo get_page_link(); ?>&amp;text=<?php echo bloginfo('title'); ?>&amp;hashtags=<?php echo bloginfo('title'); ?>" target="_blank">
+        <i class="social-ico twitter"></i>
+      </a>
+
+    </div>
+    <?php
+	}
+endif;
+
+if ( ! function_exists('print_relateds') ) :
+	function print_relateds() {
+  ?>
+    <div class="relateds">
+		<?php
+		$args = array(
+			'post_type' => 'post',
+			'orderby'   => 'rand',
+			'posts_per_page' => 3,
+		);
+
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) : ?>
+
+      <h3>Ti potrebbe interessare anche...</h3>
+      <ul>
+
+      <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+        <li class="related">
+          <a href="<?php the_permalink() ?>">
+            <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
+              <?php the_post_thumbnail('thumbnail'); ?>
+            <?php endif; ?>
+            <h5><?php the_title() ?></h5>
+            <p><?php the_excerpt() ?></p>
+          </a>
+        </li>
+      <?php endwhile; ?>
+
+      </ul>
+
+		<?php endif; ?>
+    </div>
+  <?php
+  }
+endif;

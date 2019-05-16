@@ -14,6 +14,11 @@
     font-weight: 600;
     font-size: 28px;
     border-bottom: 1px solid transparentize($color__black, .9);
+  
+    @media #{$smaller-than-tablet} {
+      padding-top: 0;
+      font-size: 22px;
+    }
   }
   
   .footer-widgets {
@@ -65,7 +70,8 @@
   
   .footer-credits {
     background-color: $color__black;
-    padding: $size__margin;
+    padding: $size__margin 0;
+    
     @media #{$larger-than-tablet} {
       text-align: right;
     }

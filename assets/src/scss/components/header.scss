@@ -1,5 +1,3 @@
-
-
 #masthead {
   position: fixed;
   z-index: 1000;
@@ -18,14 +16,6 @@
   
     @if($head__direction == column) {
       transform: translateY(-$size__branding-height);
-    }
-  }
-  
-  .admin-bar & {
-    top: 32px; // the wordpress admin bar height
-  
-    @media screen and (max-width: 600px) {
-      top: 0;
     }
   }
 
@@ -48,7 +38,11 @@
       @if($head__direction == column) {
         margin-top: ($nav__height + $size__branding-height) * -1;
       } @elseif($head__direction == row) {
-        padding-top: $nav__height * -1;
+        margin-top: $nav__height * -1;
+      }
+  
+      @media #{$smaller-than-tablet} {
+        margin-top: $head__height-responsive * -1;
       }
       
     }
@@ -96,6 +90,9 @@
       }
       margin: 0;
       line-height: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
     
     .site-title {
@@ -131,15 +128,32 @@
       @if($head__direction == row) {
         max-height: $nav__height - ($size__margin * 2) ;
         object-position: left;
+      } @elseif($head__direction == column) {
+        height: 60%;
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
       }
       
       @media #{$smaller-than-tablet} {
         max-height: 100%;
       }
-      
     }
-    
+ 
     
   }
- 
+}
+
+
+// the wordpress admin bar fix
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed !important;
+    top: -46px;
+  }
+}
+
+.admin-bar #masthead {
+  top: 32px;
+  @media screen and (max-width: 782px) { top: 46px; }
 }

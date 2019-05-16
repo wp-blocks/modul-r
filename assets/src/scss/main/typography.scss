@@ -7,7 +7,6 @@ h6 {
 	margin: ($size__margin * 2) 0 $size__margin;
 	padding: 0;
 	color: $color__black;
-	font-weight: 300;
 	line-height: $text__line-height-headline;
 	
 	a:hover {
@@ -16,36 +15,51 @@ h6 {
 	}
 }
 
+h1, h2 {
+	font-weight: 300;
+}
+
 h1 {
 	font-size: 42px;
-	@media #{$tablet} {font-size: 36px;}
+	@media #{$smaller-than-tablet} {font-size: 36px;}
 }
 
 h2 {
   color: $color__black;
 	font-size: 36px;
-	@media #{$tablet} {font-size: 28px;}
+	@media #{$smaller-than-tablet} {font-size: 28px;}
+}
+
+
+h3, h4 {
+	font-weight: 400;
 }
 
 h3 {
 	font-size: 28px;
-	@media #{$tablet} {font-size: 22px;}
+	@media #{$smaller-than-tablet} {font-size: 22px;}
+	@media #{$tablet-portrait} {font-size: 20px;}
 }
 
 h4 {
 	font-size: 22px;
-	@media #{$tablet} {font-size: 19px;}
+	@media #{$smaller-than-tablet} {font-size: 19px;}
 }
 
+
+
 h5 {
-  color: $color__secondary;
+  color: var(--color-secondary);
 }
 
 h5, h6 {
+	font-weight: 500;
 	font-size: $text__size;
 	font-weight: 500;
-	@media #{$tablet} {font-size: $text__size - 2;}
+	@media #{$smaller-than-tablet} {font-size: $text__size - 2;}
 }
+
+
 
 
 li,
@@ -53,7 +67,7 @@ p {
 	font-size: $text__size;
 	color: $color__text;
 	
-	@media #{$tablet} {font-size: $text__size - 1;}
+	@media #{$smaller-than-tablet} {font-size: $text__size - 1;}
 	@media #{$phablet} {font-size: $text__size - 2;}
 }
 

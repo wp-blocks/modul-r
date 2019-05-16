@@ -14,6 +14,19 @@ $color__border: $color__dark-grey;
 $color__background-body: darken($color__white, 1%);
 $color__nav-background: transparentize($color__dark-grey, .05);
 
+$colors: (
+  primary: $color__primary,
+  secondary: $color__secondary,
+  black: $color__black,
+  text: $color__text
+);
+
+:root {
+  @each $name, $color in $colors {
+    --color-#{$name}: $color;
+  }
+}
+
 // TEXT VARIABLES
 $text__line-height: 1.7;
 $text__line-height-headline: 1.2;
@@ -43,7 +56,7 @@ $nav__height: 48px;
 // HAMBURGER MENU
 $hamburger__size: 40px;
 $hamburger__margin: $size__margin;
-$hamburger__weight: 3px;
+$hamburger__weight: 2.5px;
 $hamburger__color: $color__primary;
 
 // SCROLLBAR

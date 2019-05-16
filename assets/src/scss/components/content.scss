@@ -25,7 +25,7 @@ body.single,
 
 // Pages Header
 .entry-header {
-  padding-top: $size__padding;
+  padding-top: $size__padding * .5;
   padding-bottom: $size__padding * .5;
   text-align: center;
   
@@ -48,15 +48,25 @@ body.single,
   text-align: center;
   font-size: 64px;
   color: $color__secondary;
-  @media #{$smaller-than-tablet} {
-    font-size: 52px;
-  }
+  @media #{$smaller-than-tablet} {font-size: 52px;}
+  @media #{$phablet} {font-size: 42px;}
 }
 
 
 
 
 // Metas
+
+.entry-footer {
+  clear: both;
+  padding-top: $size__padding;
+  padding-bottom: $size__padding;
+  hr {
+    margin-bottom: $size__padding;
+  }
+}
+
+
 .page-links {
   clear: both;
   padding-top: $size__padding;
@@ -98,6 +108,36 @@ body.single,
   a {
     font-weight: 400;
     color: lighten($color__text, 10%);
+  }
+}
+
+$image-size: 150px;
+.relateds {
+  padding-top: $size__padding;
+  
+  li {
+    display: block;
+    margin: $size__margin 0 $size__margin * 4;
+    clear: both;
+    font-weight: 400;
+    
+    h5 {  }
+    p {
+      font-size: .9em;
+      font-weight: 400;
+    }
+    
+    img {
+      float:left;
+      clear: both;
+      width: $image-size;
+      margin-right: 24px;
+      margin-right: 24px;
+      margin-bottom: 24px;
+      @media #{$smaller-than-tablet} {
+        width:  $image-size * .5;
+      }
+    }
   }
 }
 

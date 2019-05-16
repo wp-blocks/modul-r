@@ -26,6 +26,8 @@ body.home {
       } @elseif($head__direction == row) {
         padding-top: $nav__height * .5;
       }
+      padding-left: $size__padding-resp;
+      padding-right: $size__padding-resp;
       
       
       h1 {

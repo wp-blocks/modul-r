@@ -21,7 +21,7 @@ $smartphone: "(max-width : 420px)";
 $small-phone: "(max-width : 376px)";
 
 
-$theme-width-size: "(max-width : #{$size__site-width})";
+$theme-width-size: "(max-width : #{$size__site-width + ($size__padding-resp * 2)})";
 
 $ie1011: "all and (-ms-high-contrast: none), (-ms-high-contrast: active)";
 

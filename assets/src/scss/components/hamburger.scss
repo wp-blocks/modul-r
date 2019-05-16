@@ -35,8 +35,8 @@ button.c-hamburger {
     display: block;
     position: absolute;
     top: $hamburger__size * .5;
-    left: $hamburger__margin;
-    right: $hamburger__margin;
+    left: $hamburger__margin * 1.2;
+    right: $hamburger__margin * 1.2;
     height: $hamburger__weight;
     background: $hamburger__color;
     transition: background 0.15s 0.1s;transition-delay: 0.1s, 0s;
@@ -52,8 +52,8 @@ button.c-hamburger {
       content: "";
       transition-duration: .3s,.3s; transition-delay: 0.3s, 0s;
     }
-    &::before {top: $hamburger__size * .25;transition-property: top, transform;}
-    &::after {bottom: $hamburger__size * .25;transition-property: bottom, transform;}
+    &::before {top: $hamburger__size * .3;transition-property: top, transform;}
+    &::after {bottom: $hamburger__size * .3;transition-property: bottom, transform;}
   }
   
   .active & {

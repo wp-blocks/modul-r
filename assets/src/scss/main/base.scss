@@ -1,6 +1,6 @@
 html {
-  max-width: 100%;
   background-color: $color__background-body;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -32,11 +32,6 @@ strong {
 a {
   color: $color__link;
   text-decoration: none;
-  
-  &:hover {
-    text-decoration: underline;
-    color: $color__link;
-  }
 }
 
 
