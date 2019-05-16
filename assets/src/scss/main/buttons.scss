@@ -46,6 +46,11 @@ $button__height: 36px;
     outline-offset: -4px;
   }
   
+  
+  &.outline {
+    background: transparent !important;
+    border: 2px solid $color__white;
+  }
 }
 
 input[type="submit"],
@@ -68,5 +73,9 @@ button,
   }
   &.shaped {
     border-radius: 18px;
+  }
+  
+  & + & {
+    margin-right: $size__margin;
   }
 }

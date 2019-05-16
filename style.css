@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /*
-Theme Name: modular-wordpress-theme
+Theme Name: modul-r
 Theme URI: https://codekraft.it
 Author: Codekraft Studio - info@codekraft.it 
 Author URI: https://codekraft.it 
-Description: wp theme description
+Description: default theme description
 Requires at least: WordPress 4.9.6
 Version: 1.0.0
 License: GNU General Public License v3 or later
@@ -692,6 +692,13 @@ button,
     background: #9075c1;
     outline: thin dotted;
     outline-offset: -4px; }
+  input.outline[type="submit"],
+  input.outline[type="button"],
+  input.outline[type="reset"],
+  button.outline,
+  .outline.button, .entry-content .wp-block-button .outline.wp-block-button__link {
+    background: transparent !important;
+    border: 2px solid #fff; }
 
 input[type="submit"],
 input[type="button"],
@@ -709,6 +716,9 @@ button,
 
 .button.shaped {
   border-radius: 18px; }
+
+.button + .button {
+  margin-right: 8px; }
 
 ::-webkit-scrollbar {
   position: relative;
@@ -1524,6 +1534,10 @@ button.c-hamburger {
         flex-basis: 300px;
         padding-left: 0;
         padding-right: 128px; }
+        @media (max-width: 1023px) {
+          .site-footer .footer-widgets .widget:first-of-type {
+            padding-top: 32px;
+            padding-bottom: 0; } }
         .site-footer .footer-widgets .widget:first-of-type b,
         .site-footer .footer-widgets .widget:first-of-type strong {
           color: #5c6069;
@@ -1587,6 +1601,31 @@ button.c-hamburger {
 .comments-wrapper {
   clear: both;
   padding: 0; }
+
+div#cookielaw {
+  position: fixed;
+  z-index: 10000000;
+  transition: 600ms;
+  bottom: -180px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 24px;
+  margin: 0;
+  background-color: #030303; }
+  div#cookielaw p {
+    color: #fcfcfc;
+    text-align: center;
+    font-size: 14px; }
+  div#cookielaw a {
+    color: #8bad4e;
+    text-decoration: underline;
+    font-weight: 600; }
+  div#cookielaw i {
+    cursor: pointer;
+    color: #fcfcfc;
+    display: block;
+    text-align: right;
+    margin-bottom: -16px; }
 
 body.archive .site-main .article-container:nth-child(2n + 2) {
   background: #e6e6e6; }
@@ -2619,14 +2658,14 @@ i.social-ico.linkedin {
 
 i.social-ico {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   background: no-repeat center;
-  background-size: 24px;
+  background-size: 36px;
   cursor: pointer;
   transition: 0.35s;
   padding: 0;
-  margin: 0 0 0 12px;
+  margin: 8px 18px 8px 0;
   opacity: 0.8; }
   i.social-ico:before, i.social-ico:hover {
     opacity: 1; }

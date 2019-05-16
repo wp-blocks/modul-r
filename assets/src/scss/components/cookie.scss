@@ -1,0 +1,34 @@
+div#cookielaw {
+  position: fixed;
+  z-index: 10000000;
+  transition: 600ms;
+  bottom: -180px;
+  
+  width: 100%;
+  box-sizing: border-box;
+  padding: $size__margin $size__padding-resp;
+  margin: 0;
+  
+  background-color: invert($color__background-body);
+  
+  p {
+    color: $color__background-body;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  a {
+    color: invert($color__secondary);
+    text-decoration: underline;
+    font-weight: 600
+  }
+  
+  i {
+    cursor: pointer;
+    color: $color__background-body;
+    display: block;
+    text-align: right;
+    margin-bottom: -16px;
+  }
+  
+}

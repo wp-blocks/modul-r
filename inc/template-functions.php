@@ -174,3 +174,14 @@ if ( ! function_exists('print_relateds') ) :
   <?php
   }
 endif;
+
+if ( ! function_exists('print_cookie_banner') ) :
+	function print_cookie_banner() {
+  ?>
+    <div id="cookielaw" onclick="okCookie();">
+      <i class="material-icons">close</i>
+		  <p>This website uses cookies to improve user experience, memorizing your preferences and monitorizing site funcionality. check out our <a href="<?php site_url() ?>/cookie-policy/">Cookie Policy</a></p>
+    </div>
+  <?php
+  }
+endif;

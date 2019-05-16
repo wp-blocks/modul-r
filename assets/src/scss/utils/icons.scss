@@ -21,7 +21,7 @@ $Socials: email, print, facebook, twitter, youtube, linkedin;
 
 i.social-ico {
   
-  $social__size: 24px;
+  $social__size: 36px;
   
   display: inline-block;
   width: $social__size;
@@ -31,7 +31,7 @@ i.social-ico {
   cursor: pointer;
   transition: $animations__lenght;
   padding:0;
-  margin:0 0 0 ($social__size * .5);
+  margin:$size__margin ($social__size * .5) $size__margin 0;
   opacity: 0.8;
   
   &:before,
