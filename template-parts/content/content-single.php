@@ -17,6 +17,8 @@
 
 	<header class="entry-header main-width alignwide">
 
+    <p class="breadcrumbs"><?php print_breadcrumbs(); ?></p>
+
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
     <?php print_meta(); ?>
@@ -25,37 +27,30 @@
 
 
 	<div class="entry-content">
-		<?php
-
-    the_content(); // Dynamic Content
-
-		if ( is_singular( 'attachment' ) ) {
-			// Parent post navigation.
-			the_post_navigation(
-				array(
-					/* translators: %s: parent post link */
-					'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'cktheme' ), '%title' ),
-				)
-			);
-		} elseif ( is_singular( 'post' ) ) {
-			// Previous/next post navigation.
-			the_post_navigation(
-				array(
-					'next_text' => '<span class="meta-nav" aria-hidden="true">Next Post</span> ' .
-					               '<span class="screen-reader-text">Next post:</span> <br/>' .
-					               '<span class="post-title">%title</span>',
-					'prev_text' => '<span class="meta-nav" aria-hidden="true">Previous Post</span> ' .
-					               '<span class="screen-reader-text">Previous post:</span> <br/>' .
-					               '<span class="post-title">%title</span>',
-				)
-			);
-		}
-
-		?>
-	</div><!-- .entry-content -->
+		<?php the_content(); ?>
+	</div><!-- /entry-content -->
 
 	<footer class="entry-footer">
+      <?php
+          if ( is_singular( 'attachment' ) ) {
 
-	</footer><!-- .entry-footer -->
+            // Parent post navigation.
+            the_post_navigation(
+              array(
+                /* translators: %s: parent post link */
+                'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'cktheme' ), '%title' ),
+              )
+            );
 
-</article><!-- #post-${ID} -->
+          } elseif ( is_singular( 'post' ) ) {
+
+            // Previous/next post navigation.
+            // todo: style this
+            print_post_nav();
+
+            print_comments();
+          }
+      ?>
+	</footer><!-- /entry-footer -->
+
+</article><!-- /post -->

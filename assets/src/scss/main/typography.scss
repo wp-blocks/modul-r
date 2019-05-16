@@ -6,7 +6,7 @@ h5,
 h6 {
 	margin: ($size__margin * 2) 0 $size__margin;
 	padding: 0;
-	color: $color__primary;
+	color: $color__black;
 	font-weight: 300;
 	line-height: $text__line-height-headline;
 	
@@ -38,7 +38,7 @@ h4 {
 }
 
 h5 {
-  color: $color__black;
+  color: $color__secondary;
 }
 
 h5, h6 {

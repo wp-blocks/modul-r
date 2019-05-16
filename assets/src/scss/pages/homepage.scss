@@ -33,7 +33,11 @@ body.home {
         font-weight: 700;
         color: white;
         text-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
-        margin: 0;
+        margin: 0 $size__padding-resp;
+  
+        @media #{$smaller-than-tablet} {
+          font-size: 48px;
+        }
       }
       
       p {

@@ -8,8 +8,9 @@
   background-color: $color__nav-background;
   transition: $animations__lenght;
   
-  @media #{$tablet-portrait} {
+  @media #{$smaller-than-tablet} {
     height: $head__height-responsive;
+    transform: inherit !important;
   }
   
   .scrolled & {
@@ -37,6 +38,10 @@
       padding-top: $nav__height;
     }
   
+    @media #{$smaller-than-tablet} {
+      padding-top: $head__height-responsive;
+    }
+  
     body.page .entry-image,
     body.single .entry-image,
     .website-hero {
@@ -57,10 +62,11 @@
     margin-top: 0;
     margin-bottom: 0;
 
-    @media #{$tablet-portrait} {height: 100%;}
+    @media #{$smaller-than-tablet} {height: 100%;}
 
     .site-branding {
       width: 100%;
+      
       @if($head__direction == row) {
         padding-top: $size__margin;
         padding-bottom: $size__margin;
@@ -73,6 +79,12 @@
         justify-content: center;
         text-align: center;
       }
+  
+      @media #{$smaller-than-tablet} {
+        text-align: left;
+        width: calc(100% - #{$hamburger__size * 1.5} )
+      }
+      
     }
   
     
@@ -102,7 +114,7 @@
     .site-logo {
       box-sizing: border-box;
   
-      @media #{$tablet-portrait} {
+      @media #{$smaller-than-tablet} {
         height: $head__height-responsive;
         max-width: 60%;
       }
@@ -121,7 +133,7 @@
         object-position: left;
       }
       
-      @media #{$tablet-portrait} {
+      @media #{$smaller-than-tablet} {
         max-height: 100%;
       }
       

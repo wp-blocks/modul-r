@@ -11,7 +11,7 @@
   @media #{$theme-width-size} {
     max-width: 100%;
   }
-  @media #{$tablet} {
+  @media #{$smaller-than-tablet} {
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
   }
@@ -57,9 +57,11 @@
 		margin-bottom: 0;
 		
 		&.padded-image img {
-			margin-top: $size__padding;
-			margin-bottom: $size__padding;
-			margin-left: $size__padding;
+			padding-top: $size__padding;
+			padding-bottom: $size__padding;
+			padding-left: $size__padding;
+			padding-right: $size__padding * 0.25;
+			box-sizing: border-box;
 		}
 		
 		&.has-media-on-the-right.padded-image img {
@@ -73,7 +75,7 @@
     padding-right: 0;
 		clear: both;
     
-    @media #{$tablet} {
+    @media #{$smaller-than-tablet} {
       padding-left: $size__margin;
       padding-right: $size__margin;
     }
@@ -99,7 +101,7 @@
     padding-left: $size__margin;
     padding-right: $size__margin;
 		
-		@media #{$tablet} {
+		@media #{$smaller-than-tablet} {
 			padding-left: 0;
 			padding-right: 0;
 		}
@@ -113,7 +115,7 @@
     padding-left: $size__margin;
     padding-right: $size__margin;
 		
-		@media #{$tablet} {
+		@media #{$smaller-than-tablet} {
 			padding-left: 0;
 			padding-right: 0;
 		}
@@ -126,7 +128,7 @@
     padding-left: 0;
     padding-right: 0;
 
-		@media #{$tablet} {
+		@media #{$smaller-than-tablet} {
 			margin-left: 0;
 			margin-right: 0;
 		}
@@ -148,7 +150,7 @@
 		max-width: inherit;
 		padding: inherit;
 
-		@media #{$tablet} {
+		@media #{$smaller-than-tablet} {
 			margin: inherit;
 			max-width: inherit;
 			padding: inherit;
@@ -185,7 +187,7 @@
 
 			max-width: (0.33 * $size__site-width);
 
-			@media #{$tablet} {
+			@media #{$smaller-than-tablet} {
 				max-width: (0.5 * $size__site-width);
 			}
       
@@ -479,8 +481,8 @@
 
 		.aligncenter {
 
-			@media #{$tablet} {
-				margin: 0;
+			@media #{$smaller-than-tablet} {
+				margin: 0 auto;
 
 				img {
 					margin: 0 auto;
@@ -497,7 +499,7 @@
 		&.alignfull img {
 			width: 100%;
 
-			@media #{$tablet} {
+			@media #{$smaller-than-tablet} {
 				margin-left: auto;
 				margin-right: auto;
 			}
@@ -505,12 +507,12 @@
     
     .alignleft {
       margin-right: $size__margin * 4;
-      @media #{$tablet} {margin-right: $size__margin;}
+      @media #{$smaller-than-tablet} {margin-right: $size__margin;}
     }
     
     .alignright {
       margin-left: $size__margin * 4;
-      @media #{$tablet} {margin-left: $size__margin;}
+      @media #{$smaller-than-tablet} {margin-left: $size__margin;}
     }
 	}
 	
@@ -528,7 +530,7 @@
 		min-height: 430px;
 		padding: $size__margin;
 
-		@media #{$tablet} {
+		@media #{$smaller-than-tablet} {
 			padding: $size__margin 10%;
 		}
 
@@ -542,7 +544,7 @@
       margin: $size__padding-resp;
 			color: #fff;
 
-			@media #{$tablet} {
+			@media #{$smaller-than-tablet} {
 				max-width: 100%;
 			}
 		}
@@ -551,7 +553,7 @@
 		&.alignright {
 			width: 100%;
 
-			@media #{$tablet} {
+			@media #{$smaller-than-tablet} {
 				padding: $size__margin calc(2 * #{$size__margin});
 			}
 		}
@@ -564,7 +566,7 @@
 			
 			}
 
-			@media #{$tablet} {
+			@media #{$smaller-than-tablet} {
 
 				.wp-block-cover-image-text,
 				.wp-block-cover-text,
@@ -804,10 +806,12 @@
 
 	.has-large-font-size {
 		font-size: $text__size * 1.6;
+		line-height: 1.2;
 	}
 
 	.has-huge-font-size {
 		font-size: $text__size * 2.5;
+		line-height: 1.2;
 	}
 
 	//! Custom background colors

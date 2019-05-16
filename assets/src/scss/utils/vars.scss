@@ -12,7 +12,7 @@ $color__button: $color__secondary;
 $color__text: $color__dark-grey;
 $color__border: $color__dark-grey;
 $color__background-body: darken($color__white, 1%);
-$color__nav-background: $color__dark-grey;
+$color__nav-background: transparentize($color__dark-grey, .05);
 
 // TEXT VARIABLES
 $text__line-height: 1.7;
@@ -27,20 +27,24 @@ $animations__lenght : .35s;
 // MEASURES
 $size__site-width: 1400px;
 $size__side-padding: 300px;
-// $size__sidebar-width: 300px;
-// $size__sidebar-margin: 60px;
-
-// HEADER
-$head__direction: row; // row or column
-$size__branding-height: 64px;
-$head__height-responsive: 64px;
-$nav__dropdown: 1;
-$nav__height: 48px;
 
 // DISTANCES
 $size__margin: 8px;
 $size__padding: 64px;
 $size__padding-resp: 24px;
+
+// HEADER
+$head__direction: row; // row or column
+$size__branding-height: 64px;
+$head__height-responsive: 64px;
+$nav__dropdown: 1; // 1 means include sub-menu style otherwise the menu will be not styled
+$nav__height: 48px;
+
+// HAMBURGER MENU
+$hamburger__size: 40px;
+$hamburger__margin: $size__margin;
+$hamburger__weight: 3px;
+$hamburger__color: $color__primary;
 
 // SCROLLBAR
 $scrollbar-line-color: $color__primary;

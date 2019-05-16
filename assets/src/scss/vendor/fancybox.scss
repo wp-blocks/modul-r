@@ -3,6 +3,9 @@ body.compensate-for-scrollbar {
   margin: 0 !important;
 }
 
+.fancybox-toolbar .fancybox-button {
+  background-color: transparent;
+}
 
 .fancybox-active {
   height: auto;

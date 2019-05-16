@@ -24,6 +24,8 @@
 		<?php
 		the_content();
 
+	  print_comments();
+
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links"> Pagine: ',

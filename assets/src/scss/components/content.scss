@@ -21,6 +21,8 @@ body.single,
   max-width: $size__site-width - $size__side-padding;
 }
 
+
+
 // Pages Header
 .entry-header {
   padding-top: $size__padding;
@@ -29,6 +31,10 @@ body.single,
   
   .meta-wrapper {
     float: inherit;
+  }
+  
+  @media #{$smaller-than-tablet} {
+    padding-top: 0;
   }
 }
 
@@ -41,10 +47,14 @@ body.single,
 .page-title {
   text-align: center;
   font-size: 64px;
-  @media #{$tablet-portrait} {
+  color: $color__secondary;
+  @media #{$smaller-than-tablet} {
     font-size: 52px;
   }
 }
+
+
+
 
 // Metas
 .page-links {
@@ -59,12 +69,22 @@ body.single,
  
   & > * {
     margin-left: $size__margin * 4;
+    @media #{$smaller-than-tablet} {margin-left: $size__margin;}
+    
+    &:first-child { margin-left: 0}
   }
   
   p {
     color: lighten($color__text, 20%);
+    font-weight: 300;
+    margin-bottom: 0;
+  
+    @media #{$smaller-than-tablet} {font-size: 13px;}
+  }
+  
+  a {
+    color: lighten($color__text, 10%);
     font-weight: 400;
-    line-height: 1;
   }
   
   i {
@@ -73,11 +93,19 @@ body.single,
   }
 }
 
+.breadcrumbs {
+  color: $color__primary;
+  a {
+    font-weight: 400;
+    color: lighten($color__text, 10%);
+  }
+}
+
 // Extra
 .wp-block-separator,
 hr {
   border: none;
-  border-bottom: 2px solid $color__secondary;
+  border-bottom: 1px solid transparentize($color__secondary, .6);
 }
 
 .screen-reader-text {

@@ -1,6 +1,6 @@
 pre {
 	width: 100%;
-	padding: 10px 24px;
+	padding: ($size__padding * .5)  $size__padding;
 	background: lighten($color__light-grey, 5%);
 	border: 1px solid $color__light-grey;
 	white-space: pre-wrap;
@@ -9,6 +9,7 @@ pre {
 blockquote {
 	min-height: 100px;
 	padding: ($blockquote__icon-size * .5) ($blockquote__icon-size * 1.5);
+	padding-left: $blockquote__icon-size * 1.5 !important;
 	margin: ($size__margin * 4) 0;
 	position:relative;
 	background: white;
@@ -35,12 +36,21 @@ p code {
 	padding: 4px 6px;
 }
 
-
-pre {
-	padding: ($size__padding * .5)  $size__padding;
+@media #{$smaller-than-tablet} {
+	.site-main .entry-content {
+		table,
+		pre,
+		blockquote,
+		code {
+			width: auto;
+			margin-left: $size__padding-resp;
+			margin-right: $size__padding-resp;
+		}
+	}
 }
 
 
+// Tags arrowed style
 .tags {
 	display: inline-block;
 	clear: both;

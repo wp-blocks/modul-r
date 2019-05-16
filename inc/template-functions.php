@@ -49,31 +49,52 @@ if ( ! function_exists('print_tags') ) :
 endif;
 
 
-if ( ! function_exists('print_footer_meta') ) :
+if ( ! function_exists('print_meta') ) :
 	function print_meta() {
 
 		?>
     <div class="meta-wrapper">
-      <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
-        <p>
-          <i class="material-icons">person</i>
-          <?php the_author_meta( 'display_name' ); ?>
-        </p>
-      </a>
-      <a href="<?php echo get_day_link( get_the_time('Y'), get_the_time('m'), get_the_time('d') ); ?>">
-        <p>
-          <i class="material-icons">calendar_today</i>
-          <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-            <?php the_date(); ?> <?php the_time(); ?>
-          </time>
-        </p>
-      </a>
-      <p>
-        <i class="material-icons">comment</i>
-        Commenti: <?php print_r(get_comment_count()['approved']); ?>
+
+      <p> by
+        <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+            <?php the_author_meta( 'display_name' ); ?>
+        </a>
       </p>
+
+      <p><b> | </b></p>
+
+      <p>
+        <a href="<?php echo get_day_link( get_the_time('Y'), get_the_time('m'), get_the_time('d') ); ?>">
+        <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
+          <?php the_date(); ?>
+        </time>
+        </a>
+      </p>
+
+      <?php if ( get_comment_count()['approved'] > 0 ) { ?>
+
+      <p><b> | </b></p>
+
+      <p>
+        <a href="<?php get_page_uri(); ?>#comments">
+	        <?php print_r(get_comment_count()['approved']); ?> comments
+        </a>
+      </p>
+
+	    <?php } ?>
+
     </div>
 		<?php
 
 	}
+endif;
+
+if ( ! function_exists('print_breadcrumbs') ) :
+	function print_breadcrumbs() {
+	  if ( function_exists('yoast_breadcrumb') ) {
+		  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	  } else {
+	    the_category( ' &gt; ' );
+    }
+  }
 endif;

@@ -17,17 +17,14 @@
 
 body.archive article.masonry-item {
   width: 27%;
-  margin-left: 3%;
-  margin-right: 3%;
-  margin-bottom: $size__padding-resp;
-  margin-top: 0;
+  margin: 0 3% $size__padding-resp;
   padding-top: 0;
   
   display: flex;
   flex-direction: column;
   
   @media #{$tablet-portrait}{
-    width: 46%;
+    width: 44%;
   }
   
   @media #{$phablet}{
