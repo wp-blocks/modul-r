@@ -35,11 +35,21 @@
     
     .widget {
       flex-grow: 1;
+      box-sizing: content-box;
       padding-left: $size__padding;
   
+      @media #{$smaller-than-tablet} {
+        padding-left: 0 !important;;
+        padding-right: 0 !important;
+        padding-bottom: $size__padding * .5;
+      }
+  
       &:first-of-type {
+        flex-shrink: 0;
         flex-grow: 2;
+        flex-basis: 300px;
         padding-left: 0;
+        padding-right: $size__padding * 2;
   
         b,
         strong{
@@ -48,11 +58,8 @@
         }
   
         a {color: $color__secondary;}
-      }
-  
-      @media #{$smaller-than-tablet} {
-        padding-left: 0;
-        padding-bottom: $size__padding * .5;
+        
+        img {max-width: 300px}
       }
     }
     

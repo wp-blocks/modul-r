@@ -1511,20 +1511,27 @@ button.c-hamburger {
         width: 100%; } }
     .site-footer .footer-widgets .widget {
       flex-grow: 1;
+      box-sizing: content-box;
       padding-left: 64px; }
+      @media (max-width: 1023px) {
+        .site-footer .footer-widgets .widget {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          padding-bottom: 32px; } }
       .site-footer .footer-widgets .widget:first-of-type {
+        flex-shrink: 0;
         flex-grow: 2;
-        padding-left: 0; }
+        flex-basis: 300px;
+        padding-left: 0;
+        padding-right: 128px; }
         .site-footer .footer-widgets .widget:first-of-type b,
         .site-footer .footer-widgets .widget:first-of-type strong {
           color: #5c6069;
           font-size: 24px; }
         .site-footer .footer-widgets .widget:first-of-type a {
           color: #7452b1; }
-      @media (max-width: 1023px) {
-        .site-footer .footer-widgets .widget {
-          padding-left: 0;
-          padding-bottom: 32px; } }
+        .site-footer .footer-widgets .widget:first-of-type img {
+          max-width: 300px; }
     .site-footer .footer-widgets li {
       display: block; }
       .site-footer .footer-widgets li .post-date {

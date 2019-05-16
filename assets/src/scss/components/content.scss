@@ -59,8 +59,8 @@ body.single,
 
 .entry-footer {
   clear: both;
-  padding-top: $size__padding;
-  padding-bottom: $size__padding;
+  div:first-child {padding-top: $size__padding;}
+  div:last-child {padding-bottom: $size__padding;}
   hr {
     margin-bottom: $size__padding;
   }
