@@ -9,7 +9,7 @@ $button__height: 36px;
   white-space: nowrap;
   
   min-width: 64px;
-  margin: 0 0 0 $size__margin;
+  margin: 0;
   padding: ($size__margin * 1.5) ($size__margin * 3);
   
   border: none;
@@ -62,6 +62,10 @@ button,
   
   background: $color__secondary;
   color: $color__white;
+  
+  & + & {
+    margin-right: $size__margin * 1.5;
+  }
 }
 
 .button {

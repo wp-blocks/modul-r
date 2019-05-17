@@ -24,10 +24,13 @@ if ( post_password_required() ) {
 // Display Comments Section
 if ( have_comments() ) : ?>
   <h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses');?> <?php printf('to “%s”', the_title('', '', false)); ?></h3>
+
   <div class="navigation">
     <div class="alignleft"><?php previous_comments_link() ?></div>
     <div class="alignright"><?php next_comments_link() ?></div>
   </div>
+
+
   <ol class="commentlist">
 	  <?php
 	  wp_list_comments(array(
@@ -36,16 +39,13 @@ if ( have_comments() ) : ?>
 		  // 'callback'          => null,
 		  // 'end-callback'      => null,
 		  // 'type'              => 'all',
-		  // 'avatar_size'       => 32,
+		   'avatar_size'       => 90,
 		  // 'reverse_top_level' => null,
 		  // 'reverse_children'  =>
 	  ));
 	  ?>
   </ol>
-  <div class="navigation">
-    <div class="alignleft"><?php previous_comments_link() ?></div>
-    <div class="alignright"><?php next_comments_link() ?></div>
-  </div>
+
 	<?php
 	if ( ! comments_open() ) : // There are comments but comments are now closed
 		echo"<p class='nocomments'>Comments are closed.</p>";

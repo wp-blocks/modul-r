@@ -96,6 +96,8 @@ endif;
 if ( ! function_exists('modu_meta') ) :
 	function modu_meta() {
 
+    global $post;
+
 		?>
     <div class="meta-wrapper">
 
@@ -115,13 +117,13 @@ if ( ! function_exists('modu_meta') ) :
         </a>
       </p>
 
-      <?php if ( get_comment_count()['approved'] > 0 ) { ?>
+      <?php if ( get_comment_count($post->ID)['approved'] > 0 ) { ?>
 
       <p><b> | </b></p>
 
       <p>
         <a href="<?php get_page_uri(); ?>#comments">
-	        <?php print_r(get_comment_count()['approved']); ?> <?php _e('comments', 'modu'); ?>
+	        <?php echo get_comment_count($post->ID)['approved']; ?> <?php _e('comments', 'modu'); ?>
         </a>
       </p>
 
@@ -204,7 +206,10 @@ if ( ! function_exists('modu_relateds') ) :
 
       </ul>
 
-		<?php endif; ?>
+		<?php
+        wp_reset_query();
+        endif;
+     ?>
     </div>
   <?php
   }
