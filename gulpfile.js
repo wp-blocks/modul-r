@@ -80,7 +80,8 @@ const opts = {
     'Version: <%= version %>\n' +
     'License: GNU General Public License v3 or later\n' +
     'License: © <%= new Date().getFullYear() %> <%= author.name %> \n' +
-    'Text Domain: <%= wp.textDomain %>\n' +
+    'Text Domain: one-column grid-layout wide-blocks block-styles full-width-template microformats custom-logo custom-menu editor-style sticky-post featured-image footer-widgets theme-options threaded-comments \n' +
+    'Tags: \n' +
     '*/\n\n'
   ].join('\n')
 };

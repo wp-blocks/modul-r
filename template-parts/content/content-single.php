@@ -28,37 +28,38 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php modu_tags(); ?>
-		<?php modu_social_sharer(); ?>
+
+    <?php if ( is_singular( 'attachment' ) ) {
+
+      the_post_navigation(
+        array(
+          /* translators: %s: parent post link */
+          'prev_text' => sprintf( __( '<span class="meta-nav">Attachment published in</span><span class="post-title">%s</span>', 'modu' ), '%title' ),
+        )
+      );
+
+    } elseif ( is_singular( 'post' ) ) {
+
+      // Previous/next post navigation.
+      printf( '<div class="post-navigation">%s</div>', modu_post_nav() );
+
+    } ?>
 	</div><!-- /entry-content -->
 
 
 	<footer class="entry-footer main-width">
 
-    <hr>
+	  <?php modu_tags(); ?>
 
-    <?php
-        if ( is_singular( 'attachment' ) ) {
+	  <?php modu_social_sharer(); ?>
 
-          // Parent post navigation.
-          the_post_navigation(
-            array(
-              /* translators: %s: parent post link */
-              'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'modu' ), '%title' ),
-            )
-          );
-
-        } elseif ( is_singular( 'post' ) ) {
-
-          // Previous/next post navigation.
-          modu_post_nav();
-
-          modu_comments();
-
-          modu_relateds();
-        }
-    ?>
+    <?php modu_relateds(); ?>
 
 	</footer><!-- /entry-footer -->
+
+
+  <div class="entry-comments main-width">
+	  <?php modu_comments(); ?>
+  </div>
 
 </article><!-- /post -->

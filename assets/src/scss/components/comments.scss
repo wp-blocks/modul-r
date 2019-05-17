@@ -1,4 +1,36 @@
-.comments-wrapper {
+.entry-comments {
   clear: both;
-  padding: 0;
+  h3 {
+    margin-top: $size__padding;
+  }
+  
+  .navigation a {
+    font-size: 12px;
+    font-weight: 400;
+    color: $color__dark-grey
+  }
 }
+
+.commentlist {
+  ul,
+  ol {
+    list-style: none;
+  }
+  
+  li {
+    margin: 0;
+    display: block;
+    padding: ($size__margin * .5) 0 ($size__margin * 4) ($size__margin * 4);
+  }
+}
+
+#respond {
+  position: relative;
+  
+  > small {
+    display: block;
+    font-size: $text__size;
+  }
+}
+
+

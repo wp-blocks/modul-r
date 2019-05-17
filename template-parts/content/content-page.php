@@ -21,18 +21,18 @@
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
     </header>
 
-		<?php
-		the_content();
+		<?php	the_content();?>
 
-	  modu_post_nav();
-
-	  modu_comments();
-
-		?>
 	</div><!-- /entry-content -->
 
   <footer class="entry-footer main-width">
 
+	  <?php modu_social_sharer(); ?>
+
   </footer>
+
+  <div class="entry-comments main-width">
+	  <?php modu_comments(); ?>
+  </div>
 
 </article>

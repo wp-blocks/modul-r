@@ -9,7 +9,8 @@ Requires at least: WordPress 4.9.6
 Version: 1.0.0
 License: GNU General Public License v3 or later
 License: © 2019 Codekraft Studio - info@codekraft.it 
-Text Domain: modu
+Text Domain: one-column grid-layout wide-blocks block-styles full-width-template microformats custom-logo custom-menu editor-style sticky-post featured-image footer-widgets theme-options threaded-comments 
+Tags: 
 */
 
 /* MODUL R Style */
@@ -1418,7 +1419,7 @@ button.c-hamburger {
           color: #5c6069;
           font-size: 24px; }
         .site-footer .footer-widgets .widget:first-of-type a {
-          color: #7452b1; }
+          color: #5c6069; }
         .site-footer .footer-widgets .widget:first-of-type img {
           max-width: 300px; }
     .site-footer .footer-widgets li {
@@ -1473,9 +1474,29 @@ button.c-hamburger {
     height: calc(100% + 200px);
     margin-bottom: -200px !important; }
 
-.comments-wrapper {
-  clear: both;
-  padding: 0; }
+.entry-comments {
+  clear: both; }
+  .entry-comments h3 {
+    margin-top: 64px; }
+  .entry-comments .navigation a {
+    font-size: 12px;
+    font-weight: 400;
+    color: #5c6069; }
+
+.commentlist ul,
+.commentlist ol {
+  list-style: none; }
+
+.commentlist li {
+  margin: 0;
+  display: block;
+  padding: 4px 0 32px 32px; }
+
+#respond {
+  position: relative; }
+  #respond > small {
+    display: block;
+    font-size: 17px; }
 
 .search-form {
   display: flex;
@@ -2648,8 +2669,10 @@ pre {
 
 blockquote {
   min-height: 100px;
-  padding: 30px 90px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: 90px !important;
+  padding-right: 90px !important;
   margin: 32px 0;
   position: relative;
   background: white;
@@ -2679,12 +2702,7 @@ p code {
     margin-right: 24px; } }
 
 .tags {
-  clear: both;
   list-style: none; }
-  .tags h4, .tags .entry-content .wp-block-subhead, .entry-content .tags .wp-block-subhead {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 8px; }
 
 .tag {
   background: #7452b1;
@@ -2766,5 +2784,14 @@ p code {
 
 ::-webkit-scrollbar-corner {
   background-color: #fdfdfd; }
+
+@media print {
+  body, #main, #content {
+    color: #000; }
+  a, a:link, a:visited {
+    color: #000;
+    text-decoration: none; }
+  #globalheader, #globalfooter, #directorynav, #tabs, .noprint, .hide {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

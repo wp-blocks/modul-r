@@ -8,8 +8,10 @@ pre {
 
 blockquote {
 	min-height: 100px;
-	padding: ($blockquote__icon-size * .5) ($blockquote__icon-size * 1.5);
+	padding-top: ($blockquote__icon-size * .5);
+	padding-bottom: ($blockquote__icon-size * .5);
 	padding-left: $blockquote__icon-size * 1.5 !important;
+	padding-right: $blockquote__icon-size * 1.5 !important;
 	margin: ($size__margin * 4) 0;
 	position:relative;
 	background: white;
@@ -52,14 +54,7 @@ p code {
 
 // Tags arrowed style
 .tags {
-	clear: both;
 	list-style: none;
-	
-	h4 {
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: $size__margin;
-	}
 }
 
 .tag {

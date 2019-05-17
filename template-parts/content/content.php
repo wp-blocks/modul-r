@@ -24,7 +24,11 @@
 
     <div class="article-metas">
 
-			<?php modu_tags(); ?>
+	    <?php modu_tags(); ?>
+
+	    <?php modu_social_sharer(); ?>
+
+			<?php modu_post_navigation(); ?>
 
     </div>
 

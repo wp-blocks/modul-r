@@ -24,14 +24,40 @@ if ( ! function_exists( 'modu_archive_nav' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'modu_post_navigation' ) ) :
+	function modu_post_navigation() {
+		the_posts_pagination(
+			array(
+				'mid_size'  => 2,
+				'prev_text' => sprintf(
+					'%s <span class="nav-prev-text">%s</span>',
+					twentynineteen_get_icon_svg( 'chevron_left', 22 ),
+					__( 'Newer posts', 'twentynineteen' )
+				),
+				'next_text' => sprintf(
+					'<span class="nav-next-text">%s</span> %s',
+					__( 'Older posts', 'twentynineteen' ),
+					twentynineteen_get_icon_svg( 'chevron_right', 22 )
+				),
+			)
+		);
+	}
+endif;
+
 if ( ! function_exists( 'modu_post_nav' ) ) :
+  // Displays page-links for paginated posts
 	function modu_post_nav() {
 
 	  $defaults = array(
 		  'before'           => '<p>' . __( 'Pages:', 'modu' ),
 		  'after'            => '</p>',
-		  'nextpagelink'     => __( 'Next', 'modu'),
-		  'previouspagelink' => __( 'Prev', 'modu' )
+		  'link_before'      => '',
+		  'link_after'       => '',
+		  'next_or_number'   => 'number',
+		  'separator'        => ' ',
+		  'nextpagelink'     => __( 'Next page', 'modu'),
+		  'previouspagelink' => __( 'Previous page', 'modu' ),
+		  'pagelink'         => '%'
 	  );
 
 	  $pagination = wp_link_pages( $defaults );
@@ -58,7 +84,7 @@ if ( ! function_exists('modu_tags') ) :
 
 		if( has_tag() ): ?>
 			<div class="tags">
-				<h4>Tags: </h4>
+				<h3>Tags: </h3>
 				<?php the_tags( '<li class="tag">', '</li><li class="tag">', '</li>');  ?>
 			</div>
 		<?php endif;
@@ -84,7 +110,7 @@ if ( ! function_exists('modu_meta') ) :
       <p>
         <a href="<?php echo get_day_link( get_the_time('Y'), get_the_time('m'), get_the_time('d') ); ?>">
         <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-          <?php the_date(); ?>
+          <?php echo apply_filters( 'the_date', get_the_date(), get_option( 'date_format' ), '', '' ); ?>
         </time>
         </a>
       </p>

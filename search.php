@@ -25,7 +25,7 @@ get_header();
 				endwhile;
 
 				// Previous/next page navigation.
-				modu_post_nav();
+		    modu_post_navigation();
 
 			// If no content, include the "No posts found" template.
 			else :
