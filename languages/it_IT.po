@@ -1,0 +1,120 @@
+# Copyright (C) 2019 modul-r-theme
+# This file is distributed under the same license as the modul-r-theme package.
+msgid ""
+msgstr ""
+"Project-Id-Version: modul-r-theme\n"
+"POT-Creation-Date: 2019-05-17 12:30+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;"
+"esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:16
+msgid "Page not found"
+msgstr "Pagina non trovata"
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+"Non abbiamo trovato quello che cercavi. Potresti provare ad effettuare una "
+"ricerca."
+
+#: inc/sidebar.php:12
+msgid "Main Sidebar"
+msgstr "Sidebar principale"
+
+#: inc/sidebar.php:14
+msgid "The main theme sidebar"
+msgstr "La barra laterale principale del tema"
+
+#: inc/sidebar.php:22
+msgid "Footer"
+msgstr "Footer"
+
+#: inc/sidebar.php:24
+msgid "Add widgets here to appear in your footer."
+msgstr "Aggiungi qui i widgets che appariranno nel Footer."
+
+#: inc/template-functions.php:18 inc/template-functions.php:34
+msgid "Prev"
+msgstr "Precedente"
+
+#: inc/template-functions.php:19 inc/template-functions.php:33
+msgid "Next"
+msgstr "Successivo"
+
+#: inc/template-functions.php:31
+msgid "Pages:"
+msgstr "Pagine:"
+
+#: inc/template-functions.php:98
+msgid "comments"
+msgstr "commenti"
+
+#: inc/template-functions.php:124
+msgid "Share this post"
+msgstr "Condividi questo post"
+
+#: inc/template-functions.php:172
+#, fuzzy
+#| msgid "You might be interested in"
+msgid "You might be interested in..."
+msgstr "Potresti essere interessato a..."
+
+#: inc/template-functions.php:192
+msgid ""
+"This website uses cookies to improve user experience, memorizing your "
+"preferences and monitorizing site funcionality"
+msgstr ""
+"Per offrirti la migliore esperienza utente possibile questo sito utilizza "
+"cookies per memorizzare le tue preferenze e per monitorare il funzionamento "
+"del sito"
+
+#: inc/template-functions.php:192
+msgid "Check out our"
+msgstr "Controlla la nostra"
+
+#: inc/template-functions.php:192
+msgid "Cookie Policy"
+msgstr "Cookie Policy"
+
+#: inc/theme-setup.php:32
+msgid "Primary Navigation"
+msgstr ""
+
+#: search.php:16
+msgid "Search results for:"
+msgstr "Risultati trovati per la ricerca "
+
+#: template-parts/content/content-homepage.php:19
+msgid "Contact us"
+msgstr "Contattaci"
+
+#: template-parts/content/content-homepage.php:20
+msgid "Download"
+msgstr "Download"
+
+#: template-parts/content/content-single.php:47
+#, php-format
+msgid ""
+"<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</"
+"span>"
+msgstr ""
+"<span class=\"meta-nav\">Pubblicato in</span><span class=\"post-title\">%s</"
+"span>"
+
+#: template-parts/footer/footer.php:11
+msgid "Proudly powered by WordPress"
+msgstr "Orgogliosamente motorizzato da Wordpress"
