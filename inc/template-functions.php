@@ -58,7 +58,7 @@ if ( ! function_exists('modu_tags') ) :
 
 		if( has_tag() ): ?>
 			<div class="tags">
-				<h4>Tags</h4>
+				<h4>Tags: </h4>
 				<?php the_tags( '<li class="tag">', '</li><li class="tag">', '</li>');  ?>
 			</div>
 		<?php endif;
@@ -123,12 +123,6 @@ if ( ! function_exists('modu_social_sharer') ) :
     <div id="share-buttons">
       <h3><?php _e('Share this post', 'modu'); ?></h3>
 
-      <!-- Email -->
-      <a href="mailto:?Subject=<?php echo get_bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>">
-        <i class="social-ico email"></i>
-      </a>
-
-
       <!-- Facebook -->
       <a href="http://www.facebook.com/sharer.php?u=<?php echo get_page_link(); ?>" target="_blank">
         <i class="social-ico facebook"></i>
@@ -140,15 +134,20 @@ if ( ! function_exists('modu_social_sharer') ) :
         <i class="social-ico linkedin"></i>
       </a>
 
-
-      <!-- Print -->
-      <a href="javascript:" onclick="window.print()">
-        <i class="social-ico linkedin"></i>
-      </a>
-
       <!-- Twitter -->
       <a href="https://twitter.com/intent/tweet?url=<?php echo get_page_link(); ?>&amp;text=<?php echo get_bloginfo('title'); ?> <?php the_title(); ?>" target="_blank">
         <i class="social-ico twitter"></i>
+      </a>
+
+
+      <!-- Email -->
+      <a href="mailto:?Subject=<?php echo get_bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>">
+        <i class="social-ico email"></i>
+      </a>
+
+      <!-- Print -->
+      <a href="javascript:" onclick="window.print()">
+        <i class="social-ico print"></i>
       </a>
 
     </div>
@@ -170,7 +169,7 @@ if ( ! function_exists('modu_relateds') ) :
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) : ?>
 
-      <h3><?php _e('You might be interested in', 'modu'); ?></h3>
+      <h3><?php _e('You might be interested in...', 'modu'); ?></h3>
       <ul>
 
       <?php while ( $query->have_posts() ) : $query->the_post();

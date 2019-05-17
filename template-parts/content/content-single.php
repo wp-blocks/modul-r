@@ -28,6 +28,8 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
+		<?php modu_tags(); ?>
+		<?php modu_social_sharer(); ?>
 	</div><!-- /entry-content -->
 
 
@@ -50,8 +52,6 @@
 
           // Previous/next post navigation.
           modu_post_nav();
-
-          modu_social_sharer();
 
           modu_comments();
 

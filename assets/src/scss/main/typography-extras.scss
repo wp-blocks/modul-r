@@ -52,17 +52,13 @@ p code {
 
 // Tags arrowed style
 .tags {
-	display: inline-block;
 	clear: both;
-	text-align: left;
 	list-style: none;
-	overflow: hidden;
-	padding: ($size__margin * 2) 0 ($size__margin * 4);
 	
 	h4 {
-		color: $color__text;
 		display: inline-block;
-		margin-right: $size__margin * 2;
+		vertical-align: middle;
+		margin-right: $size__margin;
 	}
 }
 

@@ -31,22 +31,6 @@
     @media #{$smaller-than-tablet} {
       padding-top: $head__height-responsive;
     }
-  
-    body.page .entry-image,
-    body.single .entry-image,
-    .website-hero {
-      @if($head__direction == column) {
-        margin-top: ($nav__height + $size__branding-height) * -1;
-      } @elseif($head__direction == row) {
-        margin-top: $nav__height * -1;
-      }
-  
-      @media #{$smaller-than-tablet} {
-        margin-top: $head__height-responsive * -1;
-      }
-      
-    }
-    
   }
   
   .site-branding-container {
@@ -156,4 +140,19 @@
 .admin-bar #masthead {
   top: 32px;
   @media screen and (max-width: 782px) { top: 46px; }
+}
+
+
+
+body.has-featured-image .site-content {
+  @if($head__direction == column) {
+    margin-top: ($nav__height + $size__branding-height) * -1;
+  } @elseif($head__direction == row) {
+    margin-top: $nav__height * -1;
+  }
+  
+  @media #{$smaller-than-tablet} {
+    margin-top: $head__height-responsive * -1;
+  }
+  
 }
