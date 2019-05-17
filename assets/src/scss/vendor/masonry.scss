@@ -69,6 +69,8 @@ body.archive article.masonry-item {
   background: $color__white;
   color: $color__dark-grey;
   
+  @extend .elevation-01;
+  
   img {
     margin: 12px 0;
   }

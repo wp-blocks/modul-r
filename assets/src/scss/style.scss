@@ -1,19 +1,20 @@
+/* MODUL R Style */
 
-// Utils
+/* Utils */
 @import "utils/normalize";
 @import "utils/vars";
 @import "utils/media-queries";
 
+/* Base style */
 // @import "main/base";
 @import "main/fonts";
 @import "main/typography";
 @import "main/helpers";
-@import "main/typography-extras";
 @import "main/inputs";
 @import "main/images";
 @import "main/buttons";
-@import "main/scrollbar";
 
+/* Components */
 // @import "components/header";
 // @import "components/navigation";
 @import "components/hamburger";
@@ -22,15 +23,21 @@
 @import "components/footer";
 @import "components/animations";
 @import "components/comments";
+@import "components/search-form";
 @import "components/cookie";
 
+/* Pages */
 // @import "pages/homepage";
 @import "pages/page";
 @import "pages/single";
 @import "pages/archive";
 
+/* Vendor Style */
 @import "vendor/fancybox";
 @import "vendor/slick";
 @import "vendor/masonry";
 
+/* Icons & extras */
 @import "utils/icons";
+@import "main/typography-extras";
+@import "main/scrollbar";

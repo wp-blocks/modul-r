@@ -11,19 +11,21 @@ get_header();
         <main id="main" class="site-main">
 
             <div class="error-404 not-found">
-                <header class="page-header">
+                <header class="page-header main-width">
                     <h1 class="page-title">404</h1>
-                    <h4><?php _e('Page not found', 'modu'); ?></h4>
+                    <h2 class="text-center"><?php _e('Page not found', 'modu'); ?></h2>
                 </header><!-- /page-header -->
 
-                <div class="page-content">
+                <div class="page-content main-width">
 
-                    <p><?php _e('It looks like nothing was found at this location. Maybe try a search?', 'modu'); ?></p>
+                    <p class="text-center"><?php _e('It looks like nothing was found at this location. Maybe try a search?', 'modu'); ?></p>
 
-                    <?php get_search_form(); ?>
+                    <div>
+                      <?php get_search_form(); ?>
+                    </div>
 
                     <div class="entry-footer">
-                      <?php modu_post_nav(); ?>
+                      <?php modu_relateds(); ?>
                     </div>
 
                 </div><!-- /page-content -->

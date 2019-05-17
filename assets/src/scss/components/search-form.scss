@@ -1,0 +1,51 @@
+.search-form {
+  
+  display: flex;
+  max-width: 360px;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  
+  @extend .elevation-01;
+  
+  input {
+    height: 48px;
+  }
+  
+  label {
+    width: 100%;
+  }
+  
+  input[type="search"] {
+    width: 100%;
+    margin: 0;
+    padding: $size__margin ($size__margin * 2);
+  }
+  
+  input[type="submit"] {
+    width: 80px;
+    margin: 0;
+    border-radius: 0;
+    font-size: 0;
+  }
+  
+  &:before {
+    content: '\E8B6';
+    font-family: 'Material Icons';
+    color: $color__white;
+    font-size: 28px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    z-index: 2;
+    right: 26px;
+  }
+  
+  
+  #primary & {
+    margin: $size__padding auto;
+  }
+}
+

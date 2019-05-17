@@ -96,14 +96,10 @@ body.single,
     color: lighten($color__text, 10%);
     font-weight: 400;
   }
-  
-  i {
-    vertical-align: sub;
-    margin-right: $size__margin * .5;
-  }
 }
 
 .breadcrumbs {
+  font-weight: 700;
   color: $color__primary;
   a {
     font-weight: 400;

@@ -71,16 +71,16 @@ const opts = {
   banner: [
     '@charset "UTF-8";\n' +
     '/*' ,
-    'Theme Name: <%= pkg.name %>\n' +
-    'Theme URI: <%= pkg.homepage %>\n' +
-    'Author: <%= pkg.author.name %> \n' +
-    'Author URI: <%= pkg.author.website %> \n' +
-    'Description: <%= pkg.wp.description %>\n' +
+    'Theme Name: <%= name %>\n' +
+    'Theme URI: <%= homepage %>\n' +
+    'Author: <%= author.name %> \n' +
+    'Author URI: <%= author.website %> \n' +
+    'Description: <%= wp.description %>\n' +
     'Requires at least: WordPress 4.9.6\n' +
-    'Version: <%= pkg.version %>\n' +
+    'Version: <%= version %>\n' +
     'License: GNU General Public License v3 or later\n' +
-    'License: © <%= new Date().getFullYear() %> <%= pkg.author.name %> \n' +
-    'Text Domain: <%= pkg.wp.textDomain %>\n' +
+    'License: © <%= new Date().getFullYear() %> <%= author.name %> \n' +
+    'Text Domain: <%= wp.textDomain %>\n' +
     '*/\n\n'
   ].join('\n')
 };
