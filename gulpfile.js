@@ -19,6 +19,7 @@ const header = require('gulp-header');
 const del = require("del");
 const rename = require('gulp-rename');
 const notify = require("gulp-notify");
+const wpPot = require('gulp-wp-pot');
 
 // Misc/global vars
 const pkg = JSON.parse(fs.readFileSync('package.json'));
@@ -70,16 +71,16 @@ const opts = {
   banner: [
     '@charset "UTF-8";\n' +
     '/*' ,
-    'Theme Name: <%= name %>\n' +
-    'Theme URI: <%= homepage %>\n' +
-    'Author: <%= author.name %> \n' +
-    'Author URI: <%= author.website %> \n' +
-    'Description: <%= description %>\n' +
+    'Theme Name: <%= pkg.name %>\n' +
+    'Theme URI: <%= pkg.homepage %>\n' +
+    'Author: <%= pkg.author.name %> \n' +
+    'Author URI: <%= pkg.author.website %> \n' +
+    'Description: <%= pkg.description %>\n' +
     'Requires at least: WordPress 4.9.6\n' +
-    'Version: <%= version %>\n' +
+    'Version: <%= pkg.version %>\n' +
     'License: GNU General Public License v3 or later\n' +
-    'License: © <%= new Date().getFullYear() %> <%= author.name %> \n' +
-    'Text Domain: <%= textDomain %>\n' +
+    'License: © <%= new Date().getFullYear() %> <%= pkg.author.name %> \n' +
+    'Text Domain: <%= pkg.textDomain %>\n' +
     '*/\n\n'
   ].join('\n')
 };
@@ -95,7 +96,7 @@ function clean() {
     '**/.DS_Store',
     opts.rootPath + 'style.css.map',
     opts.distPath + '**'
-  ]).then(paths => {
+  ]).then( paths => {
     console.log('Successfully deleted files and folders:\n', paths.join('\n'));
   });
 }
@@ -107,9 +108,21 @@ function imageMinify() {
   .pipe(newer(opts.distPath + 'img/'))
   .pipe(
     imagemin(opts.imagemin.settings)
-    .on('error', notify.onError('Error: <%= error.message %>,title: "imagemin Error"'))
+    .on('error', notify.onError('Error: <%= error.message %>,title: "Imagemin Error"'))
   )
   .pipe(gulp.dest(opts.distPath + 'img/'));
+}
+
+// Wordpress pot translation file
+function createPot() {
+  return gulp
+    .src(opts.rootPath + '**/*.php')
+    .pipe( wpPot({
+      domain: pkg.textDomain,
+      package: pkg.name + '-theme'
+    }) )
+    .on('error', notify.onError('Error: <%= error.message %>,title: "Translation Error"'))
+    .pipe(gulp.dest('/languages/'+ pkg.name +'.pot'));
 }
 
 // Main Scripts
@@ -147,7 +160,7 @@ function cssAtf() {
   return gulp
     .src(opts.devPath + 'scss/atf.scss')
     .pipe(sass(opts.sass.dev))
-    .on('error', notify.onError('Error: <%= error.message %>,title: "sass Error"'))
+    .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.build),
       cssnano(opts.cssnano)
@@ -160,7 +173,7 @@ function css() {
     .src(opts.devPath + 'scss/!(atf.scss)*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(opts.sass.dev))
-    .on('error', notify.onError('Error: <%= error.message %>,title: "sass Error"'))
+    .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.dev)
     ]))
@@ -174,7 +187,7 @@ function buildStyle() {
   return gulp
     .src(opts.devPath + 'scss/*.scss')
     .pipe(sass(opts.sass.build))
-    .on('error', notify.onError('Error: <%= error.message %>,title: "sass Error"'))
+    .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(gulp.dest(opts.rootPath))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.build),
@@ -201,9 +214,10 @@ function watchImages() {
 
 const style = gulp.parallel(css, cssAtf);
 const scripts = gulp.parallel(vendorScript, userScript, mainScript);
-const build = gulp.series(clean, gulp.parallel(imageMinify, buildStyle, scripts) );
+const build = gulp.series(clean, gulp.parallel( imageMinify, buildStyle, scripts, createPot ));
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
+exports.createPot = createPot;
 exports.style = style;
 exports.scripts = scripts;
 exports.vendorScript = vendorScript;

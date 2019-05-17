@@ -16,12 +16,7 @@
 	<div class="entry-content">
 		<?php the_content();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">Pagine: ',
-				'after'  => '</div>',
-			)
-		);
+      print_post_nav();
 		?>
 	</div>
 

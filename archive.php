@@ -12,9 +12,7 @@ get_header();
             <?php if ( have_posts() ) : ?>
 
                 <header class="page-header">
-                    <?php
-                    the_archive_title( '<h1 class="page-title main-width">', '</h1>' );
-                    ?>
+                    <?php the_archive_title( '<h1 class="page-title main-width">', '</h1>' ); ?>
                 </header>
 
                 <?php
@@ -32,7 +30,7 @@ get_header();
 
 
 	              // Previous/next page navigation.
-	              printf( '<div class="main-width alignwide text-center">%s</div>', print_post_nav() );
+	              printf( '<div class="main-width alignwide text-center">%s</div>', print_archive_nav() );
               }
 
             // If no content, include the "No posts found" template.

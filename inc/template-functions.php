@@ -10,15 +10,33 @@ if ( ! function_exists('print_post_image') ) :
 	}
 endif;
 
+if ( ! function_exists( 'print_archive_nav' ) ) :
+	function print_archive_nav() {
+
+	  $pagination = get_the_posts_pagination( array(
+		  'mid_size'  => 5,
+		  'prev_text' => __( 'Prev', 'modu' ),
+		  'next_text' => __( 'Next', 'modu'),
+	  ) );
+
+	  return $pagination;
+
+	}
+endif;
+
 if ( ! function_exists( 'print_post_nav' ) ) :
 	function print_post_nav() {
-		$pagination = get_the_posts_pagination( array(
-			'mid_size'  => 5,
-			'prev_text' => "Back",
-			'next_text' => "Next",
-		) );
 
-		return $pagination;
+	  $defaults = array(
+		  'before'           => '<p>' . __( 'Pages:', 'modu' ),
+		  'after'            => '</p>',
+		  'nextpagelink'     => __( 'Next', 'modu'),
+		  'previouspagelink' => __( 'Prev', 'modu' )
+	  );
+
+	  $pagination = wp_link_pages( $defaults );
+
+	  return $pagination;
   }
 endif;
 
@@ -40,7 +58,7 @@ if ( ! function_exists('print_tags') ) :
 
 		if( has_tag() ): ?>
 			<div class="tags">
-				<h4>Tag:</h4>
+				<h4>Tags</h4>
 				<?php the_tags( '<li class="tag">', '</li><li class="tag">', '</li>');  ?>
 			</div>
 		<?php endif;

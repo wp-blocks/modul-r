@@ -8,7 +8,7 @@
   },
   "homepage": "https://codekraft.it",
   "description": "default theme description",
-  "textDomain": "cktheme",
+  "textDomain": "modu",
   "license": "GPL-3.0",
   "style": "./style.css",
   "devDependencies": {
@@ -29,6 +29,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.1",
-    "gulp-watch": "^5.0.1"
+    "gulp-watch": "^5.0.1",
+    "gulp-wp-pot": "^2.3.5"
   }
 }

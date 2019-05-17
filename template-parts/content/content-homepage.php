@@ -16,8 +16,8 @@
   <div class="hero-title text-center">
     <h1><?php echo bloginfo('title'); ?></h1>
     <p><?php echo bloginfo('description'); ?></p>
-    <button class="big">Contact us</button>
-    <button class="big outline">Download</button>
+    <button class="big"><?php _e('Contact us', 'modu'); ?></button>
+    <button class="big outline"><?php _e('Download', 'modu'); ?></button>
   </div>
 </div>
 
@@ -27,19 +27,10 @@
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
   </header>
 
-  <?php
-  the_content();
-
-  wp_link_pages(
-    array(
-      'before' => '<div class="page-links"> Pagine: ',
-      'after'  => '</div>',
-    )
-  );
-  ?>
+  <?php the_content(); ?>
 </div><!-- /entry-content -->
 
 <footer class="entry-footer main-width">
-
+	<?php print_post_nav(); ?>
 </footer>
 

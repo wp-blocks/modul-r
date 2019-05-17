@@ -29,8 +29,10 @@
 	<div class="entry-content">
 		<?php the_content(); ?>
 	</div><!-- /entry-content -->
+  
 
 	<footer class="entry-footer main-width">
+
     <hr>
 
     <?php
@@ -40,14 +42,13 @@
           the_post_navigation(
             array(
               /* translators: %s: parent post link */
-              'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'cktheme' ), '%title' ),
+              'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'modu' ), '%title' ),
             )
           );
 
         } elseif ( is_singular( 'post' ) ) {
 
           // Previous/next post navigation.
-          // todo: style this
           print_post_nav();
 
           print_social_sharer();
@@ -57,6 +58,7 @@
           print_relateds();
         }
     ?>
+
 	</footer><!-- /entry-footer -->
 
 </article><!-- /post -->

@@ -8,7 +8,7 @@
 
 	<div class="footer-credits">
 		<p class="main-width alignwide">
-			Proudly powered by WordPress - © <?php the_time('Y')?> <?php echo str_replace(array( 'http://', 'https://' ), '', site_url()); ?> - Made with ♥ by codekraft-studio.
+		  <?php _e('Proudly powered by WordPress', 'modu'); ?> - © <?php the_time('Y')?> <?php echo str_replace(array( 'http://', 'https://' ), '', site_url()); ?> - Made with ♥ by codekraft-studio.
 		</p>
 	</div>
 

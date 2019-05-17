@@ -1,58 +1,49 @@
 <?php
 
 // Register Custom Post Type
-function custom_post_type() {
+add_action( 'init', 'modu_custom_post' );
 
-$labels = array(
-'name'                  => 'CustomPosts',
-'singular_name'         => 'CustomPost',
-'menu_name'             => 'CustomPosts',
-'name_admin_bar'        => 'CustomPosts',
-'archives'              => 'Archivio CustomPosts',
-'attributes'            => 'Attributi CustomPosts',
-'parent_item_colon'     => 'CustomPost genitore',
-'all_items'             => 'Tutti i CustomPosts',
-'add_new_item'          => 'Aggiungi un nuovo CustomPost',
-'add_new'               => 'Aggiungi nuovo',
-'new_item'              => 'Nuovo CustomPost',
-'edit_item'             => 'Modifica CustomPost',
-'update_item'           => 'Aggiorna CustomPost',
-'view_item'             => 'Vedi CustomPost',
-'view_items'            => 'Vedi CustomPosts',
-'search_items'          => 'Cerca CustomPosts',
-'not_found'             => 'CustomPost non trovato',
-'not_found_in_trash'    => 'CustomPost non trovato nel cestino',
-'featured_image'        => 'Immagine in evidenza',
-'set_featured_image'    => 'Imposta l\'immagine in evidenza',
-'remove_featured_image' => 'Rimuovi immagine in evidenza',
-'use_featured_image'    => 'Usa come immagine in evidenza',
-'insert_into_item'      => 'Inserisci nel CustomPost',
-'uploaded_to_this_item' => 'caricato nel CustomPost',
-'items_list'            => 'Lista CustomPosts',
-'items_list_navigation' => 'Navigazione Lista CustomPosts',
-'filter_items_list'     => 'Filtra Lista CustomPosts',
-);
-$args = array(
-'label'                 => 'CustomPost',
-'description'           => 'Post Type Description',
-'labels'                => $labels,
-'supports'              => array( 'title', 'editor', 'thumbnail' ),
-'taxonomies'            => array( 'post_tag' ),
-'hierarchical'          => false,
-'public'                => true,
-'show_ui'               => true,
-'show_in_menu'          => true,
-'menu_position'         => 5,
-'menu_icon'             => 'dashicons-admin-appearance',
-'show_in_admin_bar'     => true,
-'show_in_nav_menus'     => true,
-'can_export'            => true,
-'has_archive'           => true,
-'exclude_from_search'   => false,
-'publicly_queryable'    => true,
-'capability_type'       => 'post',
-);
-register_post_type( 'CustomPosts', $args );
+/**
+ * Register a custom post type.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_post_type
+ *
+ * replace RcustomR with your own term
+ */
 
+function modu_custom_post() {
+	$labels = array(
+		'name'               => _x( 'RcustomRs', 'post type general name', 'modu' ),
+		'singular_name'      => _x( 'RcustomR', 'post type singular name', 'modu' ),
+		'menu_name'          => _x( 'RcustomRs', 'admin menu', 'modu' ),
+		'name_admin_bar'     => _x( 'RcustomR', 'add new on admin bar', 'modu' ),
+		'add_new'            => _x( 'Add New', 'RcustomR', 'modu' ),
+		'add_new_item'       => __( 'Add New RcustomR', 'modu' ),
+		'new_item'           => __( 'New RcustomR', 'modu' ),
+		'edit_item'          => __( 'Edit RcustomR', 'modu' ),
+		'view_item'          => __( 'View RcustomR', 'modu' ),
+		'all_items'          => __( 'All RcustomRs', 'modu' ),
+		'search_items'       => __( 'Search RcustomRs', 'modu' ),
+		'parent_item_colon'  => __( 'Parent RcustomRs:', 'modu' ),
+		'not_found'          => __( 'No RcustomRs found.', 'modu' ),
+		'not_found_in_trash' => __( 'No RcustomRs found in Trash.', 'modu' )
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'description'        => __( 'Description.', 'modu' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'RcustomR' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+	);
+
+	register_post_type( 'RcustomR', $args );
 }
-add_action( 'init', 'custom_post_type', 0 );

@@ -24,14 +24,10 @@
 		<?php
 		the_content();
 
+	  print_post_nav();
+
 	  print_comments();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links"> Pagine: ',
-				'after'  => '</div>',
-			)
-		);
 		?>
 	</div><!-- /entry-content -->
 
