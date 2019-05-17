@@ -99,7 +99,7 @@ body.single,
 }
 
 .breadcrumbs {
-  font-weight: 700;
+  font-weight: 600;
   color: $color__primary;
   a {
     font-weight: 400;
@@ -144,6 +144,9 @@ $image-size: 150px;
     flex-basis: 50%;
     flex-shrink: 0;
   }
+  .alignright {
+    text-align: right;
+  }
 }
 
 // the archive navigation
@@ -172,7 +175,7 @@ $image-size: 150px;
     background-color: $color__light-grey;
     color: $color__primary;
     
-    &.current {color:$color__white;}
+    &.current {color:$color__dark-grey;}
     
     &.next,
     &.prev, {

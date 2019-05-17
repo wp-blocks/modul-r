@@ -562,7 +562,7 @@ button,
   cursor: pointer;
   white-space: nowrap;
   min-width: 64px;
-  margin: 0 0 0 8px;
+  margin: 0;
   padding: 12px 24px;
   border: none;
   border-radius: 5px;
@@ -619,6 +619,48 @@ button,
 .button {
   background: #7452b1;
   color: #fff; }
+  input[type="submit"] + input[type="submit"],
+  input[type="button"] + input[type="submit"],
+  input[type="reset"] + input[type="submit"],
+  button + input[type="submit"],
+  .button + input[type="submit"], input[type="submit"] +
+  input[type="button"],
+  input[type="button"] +
+  input[type="button"],
+  input[type="reset"] +
+  input[type="button"],
+  button +
+  input[type="button"],
+  .button +
+  input[type="button"], input[type="submit"] +
+  input[type="reset"],
+  input[type="button"] +
+  input[type="reset"],
+  input[type="reset"] +
+  input[type="reset"],
+  button +
+  input[type="reset"],
+  .button +
+  input[type="reset"], input[type="submit"] +
+  button,
+  input[type="button"] +
+  button,
+  input[type="reset"] +
+  button,
+  button +
+  button,
+  .button +
+  button, input[type="submit"] +
+  .button,
+  input[type="button"] +
+  .button,
+  input[type="reset"] +
+  .button,
+  button +
+  .button,
+  .button +
+  .button {
+    margin-right: 12px; }
 
 .button.raised {
   background-color: #7452b1;
@@ -1476,8 +1518,6 @@ button.c-hamburger {
 
 .entry-comments {
   clear: both; }
-  .entry-comments h3 {
-    margin-top: 64px; }
   .entry-comments .navigation a {
     font-size: 12px;
     font-weight: 400;
@@ -1490,7 +1530,75 @@ button.c-hamburger {
 .commentlist li {
   margin: 0;
   display: block;
-  padding: 4px 0 32px 32px; }
+  padding: 16px 0 32px 32px; }
+
+.commentlist .avatar {
+  line-height: 1;
+  float: left;
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+  border-radius: 50%;
+  overflow: hidden; }
+
+.commentlist .fn,
+.commentlist .comment-author {
+  height: 38.4px;
+  line-height: 42.24px; }
+  .commentlist .fn a,
+  .commentlist .fn b,
+  .commentlist .comment-author a,
+  .commentlist .comment-author b {
+    color: #7452b1;
+    font-weight: 600;
+    font-size: 23px; }
+
+.commentlist .comment-metadata {
+  height: 25.6px;
+  line-height: 1; }
+  .commentlist .comment-metadata a {
+    font-size: 12px;
+    font-weight: 400;
+    color: #8e939d; }
+  .commentlist .comment-metadata .comment-edit-link {
+    opacity: 0;
+    transition: 350ms;
+    background-color: #7452b1;
+    margin-left: 16px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    color: #fff;
+    font-weight: 600; }
+
+.commentlist article:hover .comment-metadata .comment-edit-link {
+  opacity: 1; }
+
+.commentlist .comment-content {
+  background: #fff;
+  border: 1px solid #f2f2f2;
+  padding: 16px;
+  margin-left: 80px;
+  margin-top: 8px;
+  max-height: 800px;
+  overflow-y: auto; }
+  .commentlist .comment-content * {
+    max-width: 100%; }
+
+.commentlist .reply {
+  text-align: right; }
+  .commentlist .reply a {
+    color: #e3e3e3;
+    clear: both;
+    padding: 4px 12px;
+    border-radius: 16px;
+    display: inline-block;
+    line-height: 1.2;
+    margin-top: 12px;
+    font-size: 14px;
+    transition: 0.35s; }
+    .commentlist .reply a:hover {
+      background-color: #7452b1;
+      color: #fff; }
 
 #respond {
   position: relative; }
@@ -2527,6 +2635,7 @@ body.compensate-for-scrollbar {
 .masonry .navigation {
   text-align: center; }
   .masonry .navigation a {
+    flex-basis: 100%;
     font-size: 26px;
     color: #aaa;
     font-weight: 300; }
@@ -2665,7 +2774,8 @@ pre {
   padding: 32px 64px;
   background: #f0f0f0;
   border: 1px solid #e3e3e3;
-  white-space: pre-wrap; }
+  white-space: pre-wrap;
+  box-sizing: border-box; }
 
 blockquote {
   min-height: 100px;

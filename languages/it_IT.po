@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: modul-r-theme\n"
-"POT-Creation-Date: 2019-05-17 12:30+0200\n"
+"POT-Creation-Date: 2019-05-17 18:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,6 +31,10 @@ msgstr ""
 "Non abbiamo trovato quello che cercavi. Potresti provare ad effettuare una "
 "ricerca."
 
+#: comments.php:63
+msgid "Comments"
+msgstr "Commenti"
+
 #: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr "Sidebar principale"
@@ -47,33 +51,47 @@ msgstr "Footer"
 msgid "Add widgets here to appear in your footer."
 msgstr "Aggiungi qui i widgets che appariranno nel Footer."
 
-#: inc/template-functions.php:18 inc/template-functions.php:34
+#: inc/template-functions.php:18
 msgid "Prev"
 msgstr "Precedente"
 
-#: inc/template-functions.php:19 inc/template-functions.php:33
+#: inc/template-functions.php:19
 msgid "Next"
 msgstr "Successivo"
 
-#: inc/template-functions.php:31
+#: inc/template-functions.php:35
+msgid "Newer posts"
+msgstr "Post più recenti"
+
+#: inc/template-functions.php:39
+msgid "Older posts"
+msgstr "Post meno recenti"
+
+#: inc/template-functions.php:52
 msgid "Pages:"
 msgstr "Pagine:"
 
-#: inc/template-functions.php:98
+#: inc/template-functions.php:58
+msgid "Next page"
+msgstr "Successivo"
+
+#: inc/template-functions.php:59
+msgid "Previous page"
+msgstr "Precedente"
+
+#: inc/template-functions.php:126
 msgid "comments"
 msgstr "commenti"
 
-#: inc/template-functions.php:124
+#: inc/template-functions.php:152
 msgid "Share this post"
 msgstr "Condividi questo post"
 
-#: inc/template-functions.php:172
-#, fuzzy
-#| msgid "You might be interested in"
+#: inc/template-functions.php:200
 msgid "You might be interested in..."
 msgstr "Potresti essere interessato a..."
 
-#: inc/template-functions.php:192
+#: inc/template-functions.php:223
 msgid ""
 "This website uses cookies to improve user experience, memorizing your "
 "preferences and monitorizing site funcionality"
@@ -82,17 +100,17 @@ msgstr ""
 "cookies per memorizzare le tue preferenze e per monitorare il funzionamento "
 "del sito"
 
-#: inc/template-functions.php:192
+#: inc/template-functions.php:223
 msgid "Check out our"
 msgstr "Controlla la nostra"
 
-#: inc/template-functions.php:192
+#: inc/template-functions.php:223
 msgid "Cookie Policy"
 msgstr "Cookie Policy"
 
 #: inc/theme-setup.php:32
 msgid "Primary Navigation"
-msgstr ""
+msgstr "Navigazione Primaria"
 
 #: search.php:16
 msgid "Search results for:"
@@ -106,15 +124,15 @@ msgstr "Contattaci"
 msgid "Download"
 msgstr "Download"
 
-#: template-parts/content/content-single.php:47
+#: template-parts/content/content-single.php:37
 #, php-format
 msgid ""
-"<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</"
-"span>"
+"<span class=\"meta-nav\">Attachment published in</span><span class=\"post-"
+"title\">%s</span>"
 msgstr ""
-"<span class=\"meta-nav\">Pubblicato in</span><span class=\"post-title\">%s</"
-"span>"
+"<span class=\"meta-nav\">Allegato pubblicato in</span><span class=\"post-"
+"title\">%s</span>"
 
 #: template-parts/footer/footer.php:11
 msgid "Proudly powered by WordPress"
-msgstr "Orgogliosamente motorizzato da Wordpress"
+msgstr "Motorizzato da Wordpress"

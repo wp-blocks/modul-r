@@ -1,8 +1,5 @@
 .entry-comments {
   clear: both;
-  h3 {
-    margin-top: $size__padding;
-  }
   
   .navigation a {
     font-size: 12px;
@@ -10,6 +7,8 @@
     color: $color__dark-grey
   }
 }
+
+$comments__avatar-size: 64px;
 
 .commentlist {
   ul,
@@ -20,8 +19,90 @@
   li {
     margin: 0;
     display: block;
-    padding: ($size__margin * .5) 0 ($size__margin * 4) ($size__margin * 4);
+    padding: ($size__margin * 2) 0 ($size__margin * 4) ($size__margin * 4);
   }
+  
+  .avatar {
+    line-height: 1;
+    float: left;
+    width: $comments__avatar-size;
+    height: $comments__avatar-size;
+    margin-right: $comments__avatar-size * .25;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .fn,
+  .comment-author {
+    height: $comments__avatar-size * .6;
+    line-height: $comments__avatar-size * .66;
+    a,
+    b {
+      color: $color__secondary;
+      font-weight: 600;
+      font-size: 23px;
+    }
+  }
+  
+  .comment-metadata {
+    height: $comments__avatar-size * .4;
+    line-height: 1;
+  
+    a {
+      font-size: 12px;
+      font-weight: 400;
+      color: lighten($color__dark-grey, 20%);
+    }
+  
+    .comment-edit-link {
+      opacity: 0;
+      transition: 350ms;
+      background-color: $color__secondary;
+      margin-left: $size__margin * 2;
+      padding: ($size__margin * .5) ($size__margin * 1.5);
+      border-radius: $size__margin * 2;
+      color: $color__white;
+      font-weight: 600;
+    }
+  }
+  
+  article:hover .comment-metadata .comment-edit-link {
+    opacity: 1;
+  }
+  
+  .comment-content {
+    background: $color__white;
+    border: 1px solid darken($color__white, 5%);
+    padding: $size__padding * .25;
+    margin-left: $comments__avatar-size * 1.25;
+    margin-top: $size__margin;
+  
+    max-height: 800px;
+    overflow-y: auto;
+    
+    * { max-width: 100%}
+  }
+  
+  .reply {
+    text-align: right;
+    a {
+      color: $color__light-grey;
+      clear: both;
+      padding: ($size__margin * .5) ($size__margin * 1.5);
+      border-radius: $size__margin * 2;
+      display: inline-block;
+      line-height: 1.2;
+      margin-top: $size__margin * 1.5;
+      font-size: 14px;
+      transition: $animations__lenght;
+  
+      &:hover {
+        background-color: $color__secondary;
+        color: $color__white;
+      }
+    }
+  }
+  
 }
 
 #respond {

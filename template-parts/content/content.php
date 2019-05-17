@@ -34,6 +34,8 @@
 
   </footer>
 
-	<?php modu_comments(); ?>
+  <div class="entry-comments main-width">
+	  <?php modu_comments(); ?>
+  </div>
 
 </article>
