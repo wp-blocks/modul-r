@@ -26,7 +26,7 @@ function theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 400, 9999 );
 
-	add_image_size( 'fullwidth', 1920, 9999 ); // larghezza 300 pixel (e altezza illimitata)
+	add_image_size( 'fullwidth', 1920, 9999 ); // 1920px width & unlimited height
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menu('header-main',__( 'Primary Navigation' ));

@@ -1,0 +1,14 @@
+@media #{$print} {
+  body,#main,#content {
+    color: #000
+  }
+  
+  a,a:link,a:visited {
+    color: #000;
+    text-decoration: none
+  }
+  
+  #globalheader,#globalfooter,#directorynav,#tabs,.noprint,.hide {
+    display: none
+  }
+}

@@ -2,6 +2,9 @@ html {
   background-color: $color__background-body;
   max-width: 100%;
   overflow-x: hidden;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 html,
@@ -16,6 +19,7 @@ body {
   color: $color__text;
   font-size: $text__size;
   line-height: $text__line-height;
+  word-break: break-word;
 }
 
 
