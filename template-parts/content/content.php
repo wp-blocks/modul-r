@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php print_post_image(); ?>
+	<?php modu_post_image(); ?>
 
   <header class="entry-header main-width">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -16,7 +16,7 @@
 	<div class="entry-content">
 		<?php the_content();
 
-      print_post_nav();
+      modu_post_nav();
 		?>
 	</div>
 
@@ -24,12 +24,12 @@
 
     <div class="article-metas">
 
-			<?php print_tags(); ?>
+			<?php modu_tags(); ?>
 
     </div>
 
   </footer>
 
-	<?php print_comments(); ?>
+	<?php modu_comments(); ?>
 
 </article>

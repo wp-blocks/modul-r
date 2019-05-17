@@ -75,12 +75,12 @@ const opts = {
     'Theme URI: <%= pkg.homepage %>\n' +
     'Author: <%= pkg.author.name %> \n' +
     'Author URI: <%= pkg.author.website %> \n' +
-    'Description: <%= pkg.description %>\n' +
+    'Description: <%= pkg.wp.description %>\n' +
     'Requires at least: WordPress 4.9.6\n' +
     'Version: <%= pkg.version %>\n' +
     'License: GNU General Public License v3 or later\n' +
     'License: © <%= new Date().getFullYear() %> <%= pkg.author.name %> \n' +
-    'Text Domain: <%= pkg.textDomain %>\n' +
+    'Text Domain: <%= pkg.wp.textDomain %>\n' +
     '*/\n\n'
   ].join('\n')
 };
@@ -118,11 +118,11 @@ function createPot() {
   return gulp
     .src(opts.rootPath + '**/*.php')
     .pipe( wpPot({
-      domain: pkg.textDomain,
-      package: pkg.name + '-theme'
-    }) )
-    .on('error', notify.onError('Error: <%= error.message %>,title: "Translation Error"'))
-    .pipe(gulp.dest('/languages/'+ pkg.name +'.pot'));
+        domain: pkg.wp.textDomain,
+        package: pkg.name + '-theme'
+      }).on('error', notify.onError('Error: <%= error.message %>,title: "Translation Error"'))
+    )
+    .pipe(gulp.dest(opts.rootPath + 'languages/' + pkg.name + '.pot'));
 }
 
 // Main Scripts

@@ -12,7 +12,7 @@
 ?>
 
 <div class="website-hero text-center">
-	<?php print_post_image(); ?>
+	<?php modu_post_image(); ?>
   <div class="hero-title text-center">
     <h1><?php echo bloginfo('title'); ?></h1>
     <p><?php echo bloginfo('description'); ?></p>
@@ -31,6 +31,6 @@
 </div><!-- /entry-content -->
 
 <footer class="entry-footer main-width">
-	<?php print_post_nav(); ?>
+	<?php modu_post_nav(); ?>
 </footer>
 

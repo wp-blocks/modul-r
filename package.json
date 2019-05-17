@@ -7,8 +7,10 @@
     "website": "https://codekraft.it"
   },
   "homepage": "https://codekraft.it",
-  "description": "default theme description",
-  "textDomain": "modu",
+  "wp": {
+    "description": "default theme description",
+    "textDomain": "modu"
+  },
   "license": "GPL-3.0",
   "style": "./style.css",
   "devDependencies": {

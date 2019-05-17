@@ -13,15 +13,15 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php print_post_image(); ?>
+	<?php modu_post_image(); ?>
 
 	<header class="entry-header main-width alignwide">
 
-    <p class="breadcrumbs"><?php print_breadcrumbs(); ?></p>
+    <p class="breadcrumbs"><?php modu_breadcrumbs(); ?></p>
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-    <?php print_meta(); ?>
+    <?php modu_meta(); ?>
 
 	</header>
 
@@ -29,7 +29,7 @@
 	<div class="entry-content">
 		<?php the_content(); ?>
 	</div><!-- /entry-content -->
-  
+
 
 	<footer class="entry-footer main-width">
 
@@ -49,13 +49,13 @@
         } elseif ( is_singular( 'post' ) ) {
 
           // Previous/next post navigation.
-          print_post_nav();
+          modu_post_nav();
 
-          print_social_sharer();
+          modu_social_sharer();
 
-          print_comments();
+          modu_comments();
 
-          print_relateds();
+          modu_relateds();
         }
     ?>
 

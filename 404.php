@@ -23,7 +23,7 @@ get_header();
                     <?php get_search_form(); ?>
 
                     <div class="entry-footer">
-                      <?php print_post_nav(); ?>
+                      <?php modu_post_nav(); ?>
                     </div>
 
                 </div><!-- /page-content -->

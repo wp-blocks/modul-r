@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( array('masonry-item')); ?>>
 
-  <?php print_post_image(); ?>
+  <?php modu_post_image(); ?>
 
   <div class="article-wrapper">
 

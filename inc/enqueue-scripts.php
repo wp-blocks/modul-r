@@ -24,6 +24,7 @@ function masonryScripts(){
 
 		wp_enqueue_script( 'imagesloaded', '//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.js', array('jquery'), null, true );
 		wp_enqueue_script( 'infinitescroll', '//cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.1.0/jquery.infinitescroll.min.js', array('jquery'), null, true );
+
 	}
 }
 add_action('wp_enqueue_scripts', 'masonryScripts');

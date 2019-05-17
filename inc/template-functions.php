@@ -1,7 +1,7 @@
 <?php
 
-if ( ! function_exists('print_post_image') ) :
-	function print_post_image() {
+if ( ! function_exists('modu_post_image') ) :
+	function modu_post_image() {
       if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
           <div class="entry-image interactive">
               <?php the_post_thumbnail('fullwidth', array('class' => 'fit-image wp-post-image')); ?>
@@ -10,8 +10,8 @@ if ( ! function_exists('print_post_image') ) :
 	}
 endif;
 
-if ( ! function_exists( 'print_archive_nav' ) ) :
-	function print_archive_nav() {
+if ( ! function_exists( 'modu_archive_nav' ) ) :
+	function modu_archive_nav() {
 
 	  $pagination = get_the_posts_pagination( array(
 		  'mid_size'  => 5,
@@ -24,8 +24,8 @@ if ( ! function_exists( 'print_archive_nav' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'print_post_nav' ) ) :
-	function print_post_nav() {
+if ( ! function_exists( 'modu_post_nav' ) ) :
+	function modu_post_nav() {
 
 	  $defaults = array(
 		  'before'           => '<p>' . __( 'Pages:', 'modu' ),
@@ -41,8 +41,8 @@ if ( ! function_exists( 'print_post_nav' ) ) :
 endif;
 
 
-if ( ! function_exists('print_comments') ) :
-	function print_comments() {
+if ( ! function_exists('modu_comments') ) :
+	function modu_comments() {
 
 		// If comments are open or we have at least one comment, load up the comment template.
 		if ( comments_open() || get_comments_number() ) {
@@ -53,8 +53,8 @@ if ( ! function_exists('print_comments') ) :
 endif;
 
 
-if ( ! function_exists('print_tags') ) :
-	function print_tags() {
+if ( ! function_exists('modu_tags') ) :
+	function modu_tags() {
 
 		if( has_tag() ): ?>
 			<div class="tags">
@@ -67,13 +67,13 @@ if ( ! function_exists('print_tags') ) :
 endif;
 
 
-if ( ! function_exists('print_meta') ) :
-	function print_meta() {
+if ( ! function_exists('modu_meta') ) :
+	function modu_meta() {
 
 		?>
     <div class="meta-wrapper">
 
-      <p> by
+      <p>
         <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
             <?php the_author_meta( 'display_name' ); ?>
         </a>
@@ -95,7 +95,7 @@ if ( ! function_exists('print_meta') ) :
 
       <p>
         <a href="<?php get_page_uri(); ?>#comments">
-	        <?php print_r(get_comment_count()['approved']); ?> comments
+	        <?php print_r(get_comment_count()['approved']); ?> <?php _e('comments', 'modu'); ?>
         </a>
       </p>
 
@@ -107,8 +107,8 @@ if ( ! function_exists('print_meta') ) :
 	}
 endif;
 
-if ( ! function_exists('print_breadcrumbs') ) :
-	function print_breadcrumbs() {
+if ( ! function_exists('modu_breadcrumbs') ) :
+	function modu_breadcrumbs() {
 	  if ( function_exists('yoast_breadcrumb') ) {
 		  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
 	  } else {
@@ -117,14 +117,14 @@ if ( ! function_exists('print_breadcrumbs') ) :
   }
 endif;
 
-if ( ! function_exists('print_social_sharer') ) :
-	function print_social_sharer() {
+if ( ! function_exists('modu_social_sharer') ) :
+	function modu_social_sharer() {
     ?>
     <div id="share-buttons">
-      <h3>Sharing is caring!</h3>
+      <h3><?php _e('Share this post', 'modu'); ?></h3>
 
       <!-- Email -->
-      <a href="mailto:?Subject=<?php echo bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>">
+      <a href="mailto:?Subject=<?php echo get_bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>">
         <i class="social-ico email"></i>
       </a>
 
@@ -147,7 +147,7 @@ if ( ! function_exists('print_social_sharer') ) :
       </a>
 
       <!-- Twitter -->
-      <a href="https://twitter.com/share?url=<?php echo get_page_link(); ?>&amp;text=<?php echo bloginfo('title'); ?>&amp;hashtags=<?php echo bloginfo('title'); ?>" target="_blank">
+      <a href="https://twitter.com/intent/tweet?url=<?php echo get_page_link(); ?>&amp;text=<?php echo get_bloginfo('title'); ?> <?php the_title(); ?>" target="_blank">
         <i class="social-ico twitter"></i>
       </a>
 
@@ -156,8 +156,8 @@ if ( ! function_exists('print_social_sharer') ) :
 	}
 endif;
 
-if ( ! function_exists('print_relateds') ) :
-	function print_relateds() {
+if ( ! function_exists('modu_relateds') ) :
+	function modu_relateds() {
   ?>
     <div class="relateds">
 		<?php
@@ -170,20 +170,12 @@ if ( ! function_exists('print_relateds') ) :
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) : ?>
 
-      <h3>Ti potrebbe interessare anche...</h3>
+      <h3><?php _e('You might be interested in', 'modu'); ?></h3>
       <ul>
 
-      <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-        <li class="related">
-          <a href="<?php the_permalink() ?>">
-            <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
-              <?php the_post_thumbnail('thumbnail'); ?>
-            <?php endif; ?>
-            <h5><?php the_title() ?></h5>
-            <p><?php the_excerpt() ?></p>
-          </a>
-        </li>
-      <?php endwhile; ?>
+      <?php while ( $query->have_posts() ) : $query->the_post();
+        get_template_part( 'template-parts/content/content', 'related' );
+      endwhile; ?>
 
       </ul>
 
@@ -193,12 +185,12 @@ if ( ! function_exists('print_relateds') ) :
   }
 endif;
 
-if ( ! function_exists('print_cookie_banner') ) :
-	function print_cookie_banner() {
+if ( ! function_exists('modu_cookie_banner') ) :
+	function modu_cookie_banner() {
   ?>
     <div id="cookielaw" onclick="okCookie();">
       <i class="material-icons">close</i>
-		  <p>This website uses cookies to improve user experience, memorizing your preferences and monitorizing site funcionality. check out our <a href="<?php site_url() ?>/cookie-policy/">Cookie Policy</a></p>
+		  <p><?php _e('This website uses cookies to improve user experience, memorizing your preferences and monitorizing site funcionality', 'modu'); ?>. <?php _e('Check out our', 'modu'); ?> <a href="<?php site_url() ?>/cookie-policy/"><?php _e('Cookie Policy', 'modu'); ?></a></p>
     </div>
   <?php
   }

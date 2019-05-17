@@ -13,7 +13,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php print_post_image(); ?>
+	<?php modu_post_image(); ?>
 
 	<div class="entry-content">
 
@@ -24,9 +24,9 @@
 		<?php
 		the_content();
 
-	  print_post_nav();
+	  modu_post_nav();
 
-	  print_comments();
+	  modu_comments();
 
 		?>
 	</div><!-- /entry-content -->
