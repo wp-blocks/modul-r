@@ -3,11 +3,6 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: modul-r-theme\n"
-"POT-Creation-Date: 2019-05-18 14:08+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,30 +12,34 @@ msgstr ""
 "esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
 "X-Generator: Poedit 2.2.2\n"
+"Last-Translator: \n"
+"Language: de\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: 404.php:16
 msgid "Page not found"
-msgstr "Pagina non trovata"
+msgstr "Seite nicht gefunden"
 
 #: 404.php:21
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
-"Non abbiamo trovato quello che cercavi. Vuoi provare a fare una ricerca?"
 
 #: comments.php:63
 msgid "Comments"
-msgstr "Commenti"
+msgstr "Kommentare"
 
 #: inc/sidebar.php:12
 msgid "Main Sidebar"
-msgstr "Sidebar principale"
+msgstr "Haupt-Seitenleiste"
 
 #: inc/sidebar.php:14
 msgid "The main theme sidebar"
-msgstr "La barra laterale principale del tema"
+msgstr "Das Hauptthema Sidebar"
 
 #: inc/sidebar.php:22
 msgid "Footer"
@@ -48,96 +47,81 @@ msgstr "Footer"
 
 #: inc/sidebar.php:24
 msgid "Add widgets here to appear in your footer."
-msgstr "Aggiungi qui i widgets che appariranno nel Footer."
+msgstr "Füge Widgets hinzu, die in der Fußzeile erscheinen"
 
 #: inc/template-functions.php:18
 msgid "Prev"
-msgstr "Precedente"
+msgstr "Zurück"
 
 #: inc/template-functions.php:19
 msgid "Next"
-msgstr "Successivo"
+msgstr "Weiter"
 
 #: inc/template-functions.php:30
 msgid "Post navigation"
-msgstr "Navigazione post"
+msgstr "Beitragsnavigation"
 
 #: inc/template-functions.php:48
 msgid "Pages:"
-msgstr "Pagine:"
+msgstr ""
 
 #: inc/template-functions.php:54
 msgid "Next page"
-msgstr "Successivo"
+msgstr ""
 
 #: inc/template-functions.php:55
 msgid "Previous page"
-msgstr "Precedente"
+msgstr ""
 
 #: inc/template-functions.php:79
 msgid "Tags:"
-msgstr "Tags:"
+msgstr ""
 
 #: inc/template-functions.php:118
 msgid "comments"
-msgstr "commenti"
+msgstr ""
 
 #: inc/template-functions.php:144
 msgid "Share this post"
-msgstr "Condividi questo post"
+msgstr ""
 
 #: inc/template-functions.php:192
 msgid "You might be interested in..."
-msgstr "Potresti essere interessato a..."
+msgstr ""
 
 #: inc/template-functions.php:215
 msgid ""
 "This website uses cookies to improve user experience, memorizing your "
 "preferences and monitorizing site funcionality"
 msgstr ""
-"Per offrirti la migliore esperienza utente possibile questo sito utilizza "
-"cookies per memorizzare le tue preferenze e per monitorare il funzionamento "
-"del sito"
 
 #: inc/template-functions.php:215
 msgid "Check out our"
-msgstr "Controlla la nostra"
+msgstr ""
 
 #: inc/template-functions.php:215
 msgid "Cookie Policy"
-msgstr "Cookie Policy"
-
-#: inc/theme-setup.php:32
-msgid "Primary Navigation"
-msgstr "Navigazione post"
+msgstr ""
 
 #: search.php:16
 msgid "Search results for:"
-msgstr "Risultati di ricerca per:"
+msgstr ""
 
 #: template-parts/content/content-homepage.php:19
 msgid "Contact us"
-msgstr "Contattaci"
+msgstr ""
 
 #: template-parts/content/content-homepage.php:20
 msgid "Download"
-msgstr "Download"
+msgstr ""
 
+#. translators: %s: parent post link
 #: template-parts/content/content-single.php:37
-#, php-format
 msgid ""
 "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-"
 "title\">%s</span>"
 msgstr ""
-"<span class=\"meta-nav\">Allegato pubblicato in</span><span class=\"post-"
-"title\">%s</span>"
 
 #: template-parts/footer/footer.php:11
 msgid "Proudly powered by WordPress"
-msgstr "Motorizzato da Wordpress"
-
-#~ msgid "Newer posts"
-#~ msgstr "Post più recenti"
-
-#~ msgid "Older posts"
-#~ msgstr "Post meno recenti"
+msgstr ""

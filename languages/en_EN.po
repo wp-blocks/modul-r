@@ -3,11 +3,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: modul-r-theme\n"
-"POT-Creation-Date: 2019-05-17 18:30+0200\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: en_EN\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,39 +57,39 @@ msgstr "Prev"
 msgid "Next"
 msgstr "Next"
 
-#: inc/template-functions.php:35
-msgid "Newer posts"
-msgstr "Newer posts"
+#: inc/template-functions.php:30
+msgid "Post navigation"
+msgstr "Primary Navigation"
 
-#: inc/template-functions.php:39
-msgid "Older posts"
-msgstr "Older posts"
-
-#: inc/template-functions.php:52
+#: inc/template-functions.php:48
 msgid "Pages:"
 msgstr "Pages:"
 
-#: inc/template-functions.php:58
+#: inc/template-functions.php:54
 msgid "Next page"
 msgstr "Next page"
 
-#: inc/template-functions.php:59
+#: inc/template-functions.php:55
 msgid "Previous page"
 msgstr "Previous page"
 
-#: inc/template-functions.php:126
+#: inc/template-functions.php:79
+msgid "Tags:"
+msgstr "Tags:"
+
+#: inc/template-functions.php:118
 msgid "comments"
 msgstr "comments"
 
-#: inc/template-functions.php:152
+#: inc/template-functions.php:144
 msgid "Share this post"
 msgstr "Share this post"
 
-#: inc/template-functions.php:200
+#: inc/template-functions.php:192
 msgid "You might be interested in..."
 msgstr "You might be interested in..."
 
-#: inc/template-functions.php:223
+#: inc/template-functions.php:215
 msgid ""
 "This website uses cookies to improve user experience, memorizing your "
 "preferences and monitorizing site funcionality"
@@ -97,17 +97,13 @@ msgstr ""
 "This website uses cookies to improve user experience, memorizing your "
 "preferences and monitorizing site funcionality"
 
-#: inc/template-functions.php:223
+#: inc/template-functions.php:215
 msgid "Check out our"
 msgstr "Check out our"
 
-#: inc/template-functions.php:223
+#: inc/template-functions.php:215
 msgid "Cookie Policy"
 msgstr "Cookie Policy"
-
-#: inc/theme-setup.php:32
-msgid "Primary Navigation"
-msgstr "Primary Navigation"
 
 #: search.php:16
 msgid "Search results for:"
@@ -121,8 +117,8 @@ msgstr "Contact us"
 msgid "Download"
 msgstr "Download"
 
+#. translators: %s: parent post link
 #: template-parts/content/content-single.php:37
-#, php-format
 msgid ""
 "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-"
 "title\">%s</span>"
@@ -133,3 +129,9 @@ msgstr ""
 #: template-parts/footer/footer.php:11
 msgid "Proudly powered by WordPress"
 msgstr "Proudly powered by WordPress"
+
+#~ msgid "Newer posts"
+#~ msgstr "Newer posts"
+
+#~ msgid "Older posts"
+#~ msgstr "Older posts"

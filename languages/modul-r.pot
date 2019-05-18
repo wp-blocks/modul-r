@@ -21,6 +21,10 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
+#: comments.php:63
+msgid "Comments"
+msgstr ""
+
 #: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr ""
@@ -37,39 +41,55 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:18, inc/template-functions.php:34
+#: inc/template-functions.php:18
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:19, inc/template-functions.php:33
+#: inc/template-functions.php:19
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:31
+#: inc/template-functions.php:30
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-functions.php:48
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:98
+#: inc/template-functions.php:54
+msgid "Next page"
+msgstr ""
+
+#: inc/template-functions.php:55
+msgid "Previous page"
+msgstr ""
+
+#: inc/template-functions.php:79
+msgid "Tags:"
+msgstr ""
+
+#: inc/template-functions.php:118
 msgid "comments"
 msgstr ""
 
-#: inc/template-functions.php:124
+#: inc/template-functions.php:144
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:172
+#: inc/template-functions.php:192
 msgid "You might be interested in..."
 msgstr ""
 
-#: inc/template-functions.php:192
+#: inc/template-functions.php:215
 msgid "This website uses cookies to improve user experience, memorizing your preferences and monitorizing site funcionality"
 msgstr ""
 
-#: inc/template-functions.php:192
+#: inc/template-functions.php:215
 msgid "Check out our"
 msgstr ""
 
-#: inc/template-functions.php:192
+#: inc/template-functions.php:215
 msgid "Cookie Policy"
 msgstr ""
 
@@ -86,8 +106,8 @@ msgid "Download"
 msgstr ""
 
 #. translators: %s: parent post link
-#: template-parts/content/content-single.php:47
-msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
+#: template-parts/content/content-single.php:37
+msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-title\">%s</span>"
 msgstr ""
 
 #: template-parts/footer/footer.php:11
