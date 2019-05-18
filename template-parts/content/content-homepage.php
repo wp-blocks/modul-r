@@ -31,6 +31,6 @@
 </div><!-- /entry-content -->
 
 <footer class="entry-footer main-width">
-	<?php modu_post_nav(); ?>
+	<?php modu_page_links(); ?>
 </footer>
 

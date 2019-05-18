@@ -5,7 +5,7 @@
 
 ?>
 <div class="article-container">
-  <article id="post-<?php the_ID(); ?>" <?php post_class( array('main-width alignwide') ); ?>>
+  <article id="post-<?php the_ID(); ?>" <?php post_class( array('main-width') ); ?>>
 
     <?php modu_post_image(); ?>
 

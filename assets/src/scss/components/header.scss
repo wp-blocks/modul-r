@@ -18,21 +18,8 @@
       transform: translateY(-$size__branding-height);
     }
   }
-
-  // todo: make the content under the header only if is and image
-  & + div {
-    
-    @if($head__direction == column) {
-      padding-top: $nav__height + $size__branding-height;
-    } @elseif($head__direction == row) {
-      padding-top: $nav__height;
-    }
   
-    @media #{$smaller-than-tablet} {
-      padding-top: $head__height-responsive;
-    }
-  }
-  
+  // the container of the logo/site title
   .site-branding-container {
     display: flex;
     flex-direction: $head__direction;
@@ -64,9 +51,8 @@
       }
       
     }
-  
     
-    // IF NO CUSTOM LOGO
+    // Site title & description (no custom logo)
     .site-title,
     .site-description {
       @if ($head__direction == row) {
@@ -91,7 +77,7 @@
       font-size: 11px;
     }
   
-    // IF CUSTOM LOGO
+    // Custom logo
     .site-logo {
       box-sizing: border-box;
   
@@ -121,6 +107,7 @@
       
       @media #{$smaller-than-tablet} {
         max-height: 100%;
+        object-position: left;
       }
     }
  
@@ -143,6 +130,19 @@
 }
 
 
+
+// This will create the folding effect of the featured image under the header
+#masthead + div {
+  @if($head__direction == column) {
+    padding-top: $nav__height + $size__branding-height;
+  } @elseif($head__direction == row) {
+    padding-top: $nav__height;
+  }
+  
+  @media #{$smaller-than-tablet} {
+    padding-top: $head__height-responsive;
+  }
+}
 
 body.has-featured-image .site-content {
   @if($head__direction == column) {

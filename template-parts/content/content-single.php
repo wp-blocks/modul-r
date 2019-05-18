@@ -41,7 +41,7 @@
     } elseif ( is_singular( 'post' ) ) {
 
       // Previous/next post navigation.
-      printf( '<div class="post-navigation">%s</div>', modu_post_nav() );
+      printf( '<div class="post-navigation">%s</div>', modu_page_links() );
 
     } ?>
 	</div><!-- /entry-content -->
@@ -53,13 +53,16 @@
 
 	  <?php modu_social_sharer(); ?>
 
+    <?php modu_post_nav(); ?>
+
     <?php modu_relateds(); ?>
 
 	</footer><!-- /entry-footer -->
 
-
-  <div class="entry-comments main-width">
-	  <?php modu_comments(); ?>
-  </div>
+  <?php if ( comments_open() || get_comments_number() ) { ?>
+    <div class="entry-comments main-width">
+      <?php modu_comments(); ?>
+    </div>
+  <?php } ?>
 
 </article><!-- /post -->

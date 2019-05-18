@@ -1,12 +1,31 @@
 .entry-comments {
   clear: both;
+  margin-top: $size__padding * .75;
+  padding-top: $size__padding;
+  border-top: 1px solid darken($color__background-body, 5%);
+  
+  > p {
+    font-size: 1.3em;
+    margin-bottom: $size__padding;
+    font-weight: 300;
+  }
   
   .navigation a {
     font-size: 12px;
     font-weight: 400;
-    color: $color__dark-grey
+    color: $color__dark-grey;
   }
+  
+  p.logged-in-as {
+    font-weight: 600;
+    float: right;
+    font-size: 13px;
+    line-height: 20px;
+    margin: -30px 0 0;
+  }
+  
 }
+
 
 $comments__avatar-size: 64px;
 
@@ -111,6 +130,35 @@ $comments__avatar-size: 64px;
   > small {
     display: block;
     font-size: $text__size;
+  }
+  
+  label {
+    min-width: 100px;
+    display: inline-block;
+  }
+  
+  form p {
+    margin-bottom: $size__margin * 2;
+  }
+
+  input[type="text"], input[type="email"], input[type="url"] {
+    width: 50%;
+  }
+  
+  .comment-form-cookies-consent {
+    display: flex;
+    margin: ($size__margin * 2) 0;
+    
+    label {
+      font-size: 14px;
+      line-height: 1;
+      margin-left: $size__margin;
+    }
+  }
+  
+  .form-submit {
+    margin-top: $size__margin * 2;
+    text-align: right;
   }
 }
 

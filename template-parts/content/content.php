@@ -16,7 +16,7 @@
 	<div class="entry-content">
 		<?php the_content();
 
-      modu_post_nav();
+      modu_page_links();
 		?>
 	</div>
 
@@ -24,18 +24,12 @@
 
     <div class="article-metas">
 
-	    <?php modu_tags(); ?>
-
 	    <?php modu_social_sharer(); ?>
 
-			<?php modu_post_navigation(); ?>
+      <?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
 
     </div>
 
   </footer>
-
-  <div class="entry-comments main-width">
-	  <?php modu_comments(); ?>
-  </div>
 
 </article>

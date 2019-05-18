@@ -64,7 +64,7 @@ button,
   color: $color__white;
   
   & + & {
-    margin-right: $size__margin * 1.5;
+    margin-left: $size__margin * 1.5;
   }
 }
 

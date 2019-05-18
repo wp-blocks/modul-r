@@ -1,7 +1,5 @@
 body.archive {
   
-  $archive__image-height: $size__padding * 3;
-  
   .site-main {
    .article-container:nth-child(2n + 2) {
      background: darken($color__white, 10%);
@@ -11,17 +9,38 @@ body.archive {
   article {
     display: flex;
     margin: 0 auto;
-    padding-top: $size__padding;
-    padding-bottom: $size__padding;
-    min-height: $archive__image-height;
+    padding: $size__padding 0 $size__padding;
+    min-height: 100px;
+  
+    @media #{$smaller-than-tablet} {
+      flex-direction: column;
+      padding: ($size__padding * .75) $size__padding-resp;
+    }
+  
+  
+    .article-wrapper {
+      max-width: 100%;
+    }
     
     .entry-image {
       width: 30%;
-      margin-right: $size__padding;
+      margin-right: $size__padding * .5;
       img {
-        height: $archive__image-height;
+        height: 100%;
         object-fit: cover;
       }
+      
+      + .article-wrapper {
+        width: 70%;
+        
+        @media #{$smaller-than-tablet} {width: 100%;}
+      }
+  
+      @media #{$smaller-than-tablet} {
+        width: 100%;
+        margin: 0 auto $size__padding-resp;
+      }
+      
     }
     
     .entry-header {
@@ -32,6 +51,7 @@ body.archive {
       font-size: 32px;
       margin: 0 0 $size__margin;
       text-align: left;
+      @media #{$smaller-than-tablet} {font-size: 26px;}
     }
     
     .entry-content {
@@ -41,6 +61,14 @@ body.archive {
         padding: 0;
       }
     }
- 
   }
+  
+  .entry-footer {
+    .meta-wrapper {
+      margin: $size__margin 0 0;
+      padding: 0;
+    }
+  }
+  
+  
 }

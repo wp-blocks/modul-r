@@ -24,29 +24,25 @@ if ( ! function_exists( 'modu_archive_nav' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'modu_post_navigation' ) ) :
-	function modu_post_navigation() {
-		the_posts_pagination(
-			array(
-				'mid_size'  => 2,
-				'prev_text' => sprintf(
-					'%s <span class="nav-prev-text">%s</span>',
-					twentynineteen_get_icon_svg( 'chevron_left', 22 ),
-					__( 'Newer posts', 'twentynineteen' )
-				),
-				'next_text' => sprintf(
-					'<span class="nav-next-text">%s</span> %s',
-					__( 'Older posts', 'twentynineteen' ),
-					twentynineteen_get_icon_svg( 'chevron_right', 22 )
-				),
-			)
-		);
-	}
+if ( ! function_exists( 'modu_post_nav' ) ) :
+	function modu_post_nav() { ?>
+  <div class="post-navigation">
+    <h3><?php _e('Post navigation', 'modu'); ?></h3>
+    <div class="navigation">
+      <div class="alignleft">
+	  	  <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
+      </div>
+      <div class="alignright">
+  		  <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
+      </div>
+    </div> <!-- end navigation -->
+  </div>
+  <?php }
 endif;
 
-if ( ! function_exists( 'modu_post_nav' ) ) :
+if ( ! function_exists( 'modu_page_links' ) ) :
   // Displays page-links for paginated posts
-	function modu_post_nav() {
+	function modu_page_links() {
 
 	  $defaults = array(
 		  'before'           => '<p>' . __( 'Pages:', 'modu' ),
@@ -69,12 +65,8 @@ endif;
 
 if ( ! function_exists('modu_comments') ) :
 	function modu_comments() {
-
 		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) {
-			comments_template();
-		}
-
+		comments_template();
 	}
 endif;
 
@@ -84,7 +76,7 @@ if ( ! function_exists('modu_tags') ) :
 
 		if( has_tag() ): ?>
 			<div class="tags">
-				<h3>Tags: </h3>
+				<h3><?php _e('Tags:', 'modu'); ?></h3>
 				<?php the_tags( '<li class="tag">', '</li><li class="tag">', '</li>');  ?>
 			</div>
 		<?php endif;

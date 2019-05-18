@@ -61,10 +61,10 @@ i.social-ico {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 45,75 5,40 45,5 "> </polyline></svg>');
 }
 
+
+$arrowSize: 60px;
+
 .arrow {
-
-  $arrowSize: 60px;
-
   background-color: transparentize($color__primary, 0.2);
   border-radius: 50%;
   width: $arrowSize;
@@ -86,35 +86,34 @@ i.social-ico {
   
   &-next {
     @extend %arrow-right;
-    margin-right: 16px;
+    margin-right: $arrowSize * .5;
   }
   
   &-prev {
     @extend %arrow-left;
-    margin-left: 16px;
+    margin-left: $arrowSize * .5;
   }
 }
 
 
 //reset slick arrow
-.slick-prev:before, .slick-next:before {
-  display: none !important;
-}
-.fancybox-navigation svg {
-  display: none;
-}
+.slick-prev:before, .slick-next:before {display: none !important;}
+.fancybox-navigation svg {display: none;}
 
 .fancybox-navigation .fancybox-button--arrow_right,
 .slider button.slick-next {
   @extend .arrow;
-  @extend .arrow-next
+  @extend .arrow-next;
 }
 
 .fancybox-navigation .fancybox-button--arrow_left,
 .slider button.slick-prev {
   @extend .arrow;
-  @extend .arrow-prev
+  @extend .arrow-prev;
 }
+
+.slider button.slick-prev {margin-left: $arrowSize * -1;}
+.slider button.slick-next {margin-right: $arrowSize * -1;}
 
 
 .fancybox-navigation .fancybox-button--arrow_left:disabled,

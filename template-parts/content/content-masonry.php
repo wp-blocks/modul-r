@@ -17,8 +17,6 @@
 
     <div class="entry-content">
         <?php the_excerpt(); ?>
-
-        <hr>
     </div>
 
   </div>

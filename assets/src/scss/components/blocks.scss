@@ -1,17 +1,16 @@
 /* !Block styles */
 
 %website-width {
-  width: 100%;
-  max-width: $size__site-width;
-  padding-left: $size__side-padding;
-  padding-right: $size__side-padding;
-	
-  margin: $size__padding auto ($size__padding * .5);
-  box-sizing: border-box;
+  width: $size__site-width - ($size__side-padding * 2) ;
+  max-width: 100%;
   
-  @media #{$theme-width-size} {
-    max-width: 100%;
-  }
+  box-sizing: border-box;
+  padding-left: $size__padding-resp;
+  padding-right: $size__padding-resp;
+  margin: $size__padding auto ($size__padding * .5);
+  
+  @media #{$theme-width-size} {}
+  
   @media #{$smaller-than-tablet} {
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
@@ -20,29 +19,28 @@
 
 
 .main-width {
+  
   @extend %website-width;
+  
   &.alignwide {
+    width: $size__site-width;
     padding-left: 0;
     padding-right: 0;
     @media #{$theme-width-size} {
-      padding-left: $size__padding-resp;
-      padding-right: $size__padding-resp;
+      padding-left: $size__padding-resp * .5;
+      padding-right: $size__padding-resp * .5;
     }
   }
+  
 }
 
 .site-main .entry-content > *,
 .entry .entry-content > * {
+  
   @extend %website-width;
   
   margin-top: $size__padding;
   margin-bottom: $size__padding;
-  box-sizing: border-box;
- 
-
-  figure {
-    margin-bottom: $size__margin;
-  }
   
 	> *:first-child {
 		margin-top: 0;
@@ -58,11 +56,8 @@
 		margin-bottom: 0;
 		
 		&.padded-image img {
-			padding-top: $size__padding;
-			padding-bottom: $size__padding;
-			padding-left: $size__padding;
-			padding-right: $size__padding * 0.25;
-			box-sizing: border-box;
+      padding: $size__padding ($size__padding * 0.25) $size__padding $size__padding;
+      box-sizing: border-box;
 		}
 		
 		&.has-media-on-the-right.padded-image img {
@@ -72,19 +67,15 @@
 	}
 
 	&.alignwide {
+    width: $size__site-width;
     padding-left: 0;
     padding-right: 0;
 		clear: both;
-    
-    @media #{$smaller-than-tablet} {
-      padding-left: $size__margin;
-      padding-right: $size__margin;
-    }
 	}
 
 	&.alignfull {
     position: relative;
-    max-width: 100%;
+    width: 100%;
     padding-left: 0;
     padding-right: 0;
     clear: both;
@@ -136,6 +127,14 @@
 	}
 }
 
+// paragraph distance fix
+.site-main .entry-content {
+  p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}
+
 /*
  * Unset nested content selector styles
  * - Prevents layout styles from cascading too deeply
@@ -161,11 +160,6 @@
 
 .entry-content {
 
-	//! Paragraphs
-	p.has-background {
-		padding: 20px 30px;
-	}
-  
   //! Subhead
   .wp-block-subhead {
     @extend h4;
@@ -179,9 +173,7 @@
 
 		width: auto;
 
-		audio {
-			width: 100%;
-		}
+		audio {width: 100%;}
 
 		&.alignleft audio,
 		&.alignright audio {

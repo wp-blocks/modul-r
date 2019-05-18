@@ -31,8 +31,10 @@
 
   </footer>
 
-  <div class="entry-comments main-width">
-	  <?php modu_comments(); ?>
-  </div>
+	<?php if ( comments_open() || get_comments_number() ) { ?>
+      <div class="entry-comments main-width">
+  		  <?php modu_comments(); ?>
+      </div>
+	<?php } ?>
 
 </article>

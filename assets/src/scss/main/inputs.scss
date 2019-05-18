@@ -18,9 +18,11 @@ input {
   transition: 175ms;
   border: 0 solid transparent;
   
-  &[type="text"] {
+  &[type="text"],
+  &[type="email"],
+  &[type="url"] {
     width: 100%;
-    padding-left: 0;
+    padding-left: $size__margin * .5;
     box-shadow: 0 1px 0 $color__light-grey;
     
     &:hover {
@@ -31,6 +33,12 @@ input {
       box-shadow: 0 2px 0 $color__secondary;
     }
   }
+}
+
+[type="checkbox"], [type="radio"] {
+  margin: 0;
+  display: inline;
+  vertical-align: sub;
 }
 
 .input-label {
