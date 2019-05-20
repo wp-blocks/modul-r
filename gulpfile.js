@@ -13,16 +13,17 @@ const imagemin = require('gulp-imagemin');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
+const wpPot = require('gulp-wp-pot');
 
 // Gulp plugins
 const header = require('gulp-header');
 const del = require("del");
 const rename = require('gulp-rename');
 const notify = require("gulp-notify");
-const wpPot = require('gulp-wp-pot');
+const zip = require('gulp-zip');
 
 // Misc/global vars
-const pkg = JSON.parse(fs.readFileSync('package.json'));
+const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
 // Task options
 const opts = {
@@ -233,6 +234,23 @@ function buildCSS() {
     .pipe(gulp.dest(opts.distPath + 'css/'));
 }
 
+// Zip all theme files into /release/version/textDomain.zip
+function zipRelease() {
+  return gulp
+    .src([
+      opts.rootPath + '/assets/**/*',
+      opts.rootPath + '/inc/**/*',
+      opts.rootPath + '/languages/**/*',
+      opts.rootPath + '/template-parts/**/*',
+      opts.rootPath + '*',
+      '!.gitignore',
+      '!./node_modules',
+      '!./releases'
+    ])
+    .pipe(zip( pkg.wp.textDomain + '.zip'))
+    .pipe(gulp.dest(opts.rootPath + '/releases/' + pkg.version + '/' ))
+}
+
 // Watch files
 function watchStyle() {
   gulp.watch(opts.devPath + 'scss/**/*.scss', style );
@@ -250,19 +268,27 @@ function watchImages() {
 const style = gulp.parallel(mainCSS, CSS, cssAtf);
 const scripts = gulp.parallel(vendorScript, userScript, mainScript);
 const BuildAll = gulp.series(clean, gulp.parallel( imageMinify, createPot, buildMainCSS, buildCSS, cssAtf, scripts ));
+const BuildRelease = gulp.series(BuildAll, zipRelease);
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
 exports.createPot = createPot;
-exports.style = style;
+exports.BuildAll = BuildAll;
+exports.BuildRelease = BuildRelease;
+
+exports.watch = watch;
+
 exports.scripts = scripts;
 exports.vendorScript = vendorScript;
 exports.userScript = userScript;
+
+exports.style = style;
 exports.cssAtf = cssAtf;
 exports.CSS = CSS;
 exports.mainCSS = mainCSS;
 exports.buildCSS = buildCSS;
 exports.buildMainCSS = buildMainCSS;
+
 exports.imageMinify = imageMinify;
-exports.BuildAll = BuildAll;
-exports.watch = watch;
+exports.zipRelease = zipRelease;
+
 exports.default = BuildAll;
