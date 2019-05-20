@@ -9,7 +9,7 @@
   "homepage": "https://nas.codekraft.it/modular/",
   "wp": {
     "themeName": "Modul R",
-    "description": "default theme description",
+    "description": "Modul R is a powerful and flexible theme that provides a fast way to create an awesome website.",
     "textDomain": "modul-r",
     "tags": "portfolio, one-column, custom-background, custom-header, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks",
     "licenseURI": "https://github.com/erikyo/modular-wordpress-theme/blob/master/LICENSE"

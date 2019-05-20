@@ -35,6 +35,7 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 = 1.0.1 =
 * Gulp tasks fix
 * Better wordpress customizer integration
+* Vendors javascript path fix
 
 = 1.0.0 =
 * First release

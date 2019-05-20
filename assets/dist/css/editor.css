@@ -1,17 +1,1 @@
-@charset "UTF-8";
-/*!
-Theme Name: Modul R
-Description: default theme description
-Theme URI: https://nas.codekraft.it/modular/
-Author: Codekraft Studio - info@codekraft.it 
-Author URI: https://codekraft.it 
-Requires at least: WordPress 4.9.6
-Version: 1.0.1
-License: GNU General Public License v3 or later
-License: © 2019 Codekraft Studio - info@codekraft.it
-License URI: https://github.com/erikyo/modular-wordpress-theme/blob/master/LICENSE
-Text Domain: modul-r
-Tags: portfolio, one-column, custom-background, custom-header, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks
-*/
-
 .wp-block{max-width:1000px}

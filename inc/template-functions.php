@@ -220,7 +220,7 @@ endif;
 
 if ( ! function_exists('modu_header_textcolor') ) :
 	function modu_header_textcolor() {
-    if (get_header_textcolor() != HEADER_TEXTCOLOR ) {
+    if (get_header_textcolor()) {
       echo ' style="color:#' . get_header_textcolor(). '"';
     }
 	}

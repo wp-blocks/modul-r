@@ -80,10 +80,6 @@ function theme_setup() {
 	// Add support for responsive embedded content.
 	add_theme_support( 'responsive-embeds' );
 
-	// Add default color to the customizer
-	// TODO: Better color customizer integration
-	define( 'HEADER_TEXTCOLOR', '17bebb' );
-
 }
 
 add_action( 'after_setup_theme', 'theme_setup' );

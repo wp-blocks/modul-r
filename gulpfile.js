@@ -205,14 +205,15 @@ function buildMainCSS() {
 // compile all other styles that's name is not style.scss or atf
 function CSS() {
   return gulp
-    .src(opts.devPath + 'scss/!(atf.scss|style.scss)*.scss')
+    .src([
+      opts.devPath + 'scss/editor.scss'
+    ])
     .pipe(sourcemaps.init())
     .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.dev)
     ]))
-    .pipe(header(opts.banner, pkg))
     .pipe(gulp.dest(opts.distPath + 'css/'))
     .pipe(sourcemaps.write('.', { sourceRoot: '/' }))
     .pipe(gulp.dest(opts.distPath + 'css/'));
@@ -220,14 +221,15 @@ function CSS() {
 
 function buildCSS() {
   return gulp
-    .src(opts.devPath + 'scss/!(atf.scss|style.scss)*.scss')
+    .src([
+      opts.devPath + 'scss/editor.scss'
+      ])
     .pipe(sass(opts.sass.build))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.build),
       cssnano(opts.cssnano)
     ]))
-    .pipe(header(opts.banner, pkg))
     .pipe(gulp.dest(opts.distPath + 'css/'));
 }
 
@@ -263,4 +265,4 @@ exports.buildMainCSS = buildMainCSS;
 exports.imageMinify = imageMinify;
 exports.BuildAll = BuildAll;
 exports.watch = watch;
-exports.default = watch;
+exports.default = BuildAll;
