@@ -1,15 +1,6 @@
 <?php
 /**
  * The template for displaying comments
- *
- * This is the template that displays the area of the page that contains both the current comments
- * and the comment form.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since 1.0.0
  */
 
 /*
@@ -22,8 +13,9 @@ if ( post_password_required() ) {
 }
 
 // Display Comments Section
+// TODO: translations
 if ( have_comments() ) : ?>
-  <h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses');?> <?php printf('to "%s"', the_title('', '', false)); ?></h3>
+  <h3 id="comments"><?php comments_number(__('No Responses', 'modul-r'), __('One Response', 'modul-r'), __('% Responses', 'modul-r'));?> <?php printf('to "%s"', the_title('', '', false)); ?></h3>
 
   <div class="navigation">
     <div class="alignleft"><?php previous_comments_link() ?></div>

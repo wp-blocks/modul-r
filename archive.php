@@ -18,6 +18,7 @@ get_header();
                 <?php
 
 	            if(is_category(15)) {
+
 	              // create the masonry wrapper
 	              get_template_part( 'template-parts/category/loop', 'masonry' );
 

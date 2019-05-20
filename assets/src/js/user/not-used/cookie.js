@@ -1,5 +1,6 @@
 /**
  * Cookie Policy
+ * TODO: if needed inject the html into the page so i can remove the html at the start of the body
  */
 
 document.addEventListener("DOMContentLoaded", function(event) {

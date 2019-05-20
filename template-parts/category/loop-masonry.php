@@ -19,74 +19,73 @@
 		<?php previous_posts_link( 'Newer posts' ); ?>
 		<?php next_posts_link( 'Older posts &darr;', $query->max_num_pages ); ?>
 	</div>
-
-
 </div>
 
 <script>
+
+  // TODO: enqueue this script
   document.addEventListener("DOMContentLoaded", function(event) {
 
-    var $ = jQuery;
-    // Initiate Masonry
-    var $container = $('#masonry-wrapper');
+      var $ = jQuery;
+      // Initiate Masonry
+      var $container = $('#masonry-wrapper');
 
-    $container.imagesLoaded(function () {
-      $container.masonry({
-        itemSelector: '.masonry-item',
-        columnWidth: '.masonry-item',
-        isAnimated: true,
-        animationOptions: {
-          duration: 750,
-          easing: 'linear',
-          queue: false
-        }
-      });
-    });
-
-    $.extend($.infinitescroll.prototype, {
-      _nearbottom_local: function () {
-        var opts = this.options,
-          $max = 0;
-        $('.masonry-item').each(function () {
-          $btm = $(this).position().top + jQuery(this).height();
-          if ($max < $btm) {
-            $max = $btm;
+      $container.imagesLoaded(function () {
+        $container.masonry({
+          itemSelector: '.masonry-item',
+          columnWidth: '.masonry-item',
+          isAnimated: true,
+          animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
           }
         });
+      });
 
-        this._debug('math:', $(window).scrollTop() + $(window).height() - opts.bufferPx, $max);
+      $.extend($.infinitescroll.prototype, {
+        _nearbottom_local: function () {
+          var opts = this.options,
+            $max = 0;
+          $('.masonry-item').each(function () {
+            $btm = $(this).position().top + jQuery(this).height();
+            if ($max < $btm) {
+              $max = $btm;
+            }
+          });
 
-        return ( $(window).scrollTop() + $(window).height() - opts.bufferPx > $max );
-      }
-    });
+          this._debug('math:', $(window).scrollTop() + $(window).height() - opts.bufferPx, $max);
 
-    $container.infinitescroll({
-        debug: false,
-        navSelector: '.navigation', // selector for the paged navigation
-        nextSelector: '.navigation a', // selector for the NEXT link (to page 2)
-        itemSelector: '.masonry-item', // selector for all items you'll retrieve
-        behavior: 'local',
-        container: '#main',
-        loading: {
-          msgText: 'Loading',
-          finishedMsg: 'Finished',
-          img: '<?php echo get_template_directory_uri(); ?>/assets/src/img/elements/loader.svg'
+          return ( $(window).scrollTop() + $(window).height() - opts.bufferPx > $max );
         }
-      },
+      });
 
-      // trigger Masonry as a callback
-      function (newElements) {
-        // hide new items while they are loading
-        var $newElems = $(newElements).css({opacity: 0});
-        // ensure that images load before adding to masonry layout
-        $newElems.imagesLoaded(function () {
-          // show elems now they're ready
-          $newElems.animate({opacity: 1});
-          $container.masonry('appended', $newElems, true);
-        });
-      }
-    );
+      $container.infinitescroll({
+          debug: false,
+          navSelector: '.navigation', // selector for the paged navigation
+          nextSelector: '.navigation a', // selector for the NEXT link (to page 2)
+          itemSelector: '.masonry-item', // selector for all items you'll retrieve
+          behavior: 'local',
+          container: '#main',
+          loading: {
+            msgText: 'Loading',
+            finishedMsg: 'Finished',
+            img: '<?php echo get_template_directory_uri(); ?>/assets/src/img/elements/loader.svg'
+          }
+        },
 
+        // trigger Masonry as a callback
+        function (newElements) {
+          // hide new items while they are loading
+          var $newElems = $(newElements).css({opacity: 0});
+          // ensure that images load before adding to masonry layout
+          $newElems.imagesLoaded(function () {
+            // show elems now they're ready
+            $newElems.animate({opacity: 1});
+            $container.masonry('appended', $newElems, true);
+          });
+        }
+      );
   });
 </script>
 

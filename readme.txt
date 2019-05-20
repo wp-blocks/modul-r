@@ -47,5 +47,3 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 * fancybox.js © 2008 - 2019 fancyapps, GPL3
 * slick.js © 2017 Ken Wheeler, MIT 
 * normalize.css © 2019 Nicolas Gallagher and Jonathan Neal, MIT
-* simon-goetz-240683-unsplash-1920x1281.jpg © 2019 Simon Goetz
-* icons from https://iconmonstr.com/ https://iconmonstr.com/license/
