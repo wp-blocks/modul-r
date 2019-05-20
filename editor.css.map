@@ -1,1 +1,0 @@
-{"version":3,"sources":["editor.scss"],"names":[],"mappings":";;;;;;;;;;;;;;;AAEA;EAAY,iBAAiB,EAAA","file":"editor.css","sourcesContent":["@charset \"UTF-8\";\r\n\r\n.wp-block { max-width: 1000px;}"],"sourceRoot":"/"}

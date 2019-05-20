@@ -5,7 +5,7 @@ function theme_setup() {
 	* Make theme available for translation.
 	* Translations can be filed in the /languages/ directory.
 	*/
-	load_theme_textdomain( 'modu', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'modul-r', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -19,6 +19,12 @@ function theme_setup() {
 	add_theme_support( 'title-tag' );
 
 	/*
+	* Wordpress define content width
+	* https://codex.wordpress.org/Content_Width
+	*/
+	if ( ! isset( $content_width ) ) $content_width = 900;
+
+	/*
 	* Enable support for Post Thumbnails on posts and pages.
 	*
 	* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
@@ -29,7 +35,10 @@ function theme_setup() {
 	add_image_size( 'fullwidth', 1920, 9999 ); // 1920px width & unlimited height
 
 	// This theme uses wp_nav_menu() in two locations.
-	register_nav_menu('header-main',__( 'Primary Navigation' ));
+	register_nav_menu('header-main',__( 'Primary Navigation', 'modul-r' ));
+
+	add_theme_support( 'custom-header' );
+	add_theme_support( 'custom-background' );
 
 	/*
 	* Switch default core markup for search form, comment form, and comments

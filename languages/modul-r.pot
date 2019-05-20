@@ -93,6 +93,10 @@ msgstr ""
 msgid "Cookie Policy"
 msgstr ""
 
+#: inc/theme-setup.php:38
+msgid "Primary Navigation"
+msgstr ""
+
 #: search.php:16
 msgid "Search results for:"
 msgstr ""

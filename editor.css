@@ -1,19 +1,17 @@
 @charset "UTF-8";
-/*
-Theme Name: modul-r
-Theme URI: https://codekraft.it
+/*!
+Theme Name: Modul R
+Description: default theme description
+Theme URI: https://nas.codekraft.it/modular/
 Author: Codekraft Studio - info@codekraft.it 
 Author URI: https://codekraft.it 
-Description: default theme description
 Requires at least: WordPress 4.9.6
 Version: 1.0.0
 License: GNU General Public License v3 or later
-License: © 2019 Codekraft Studio - info@codekraft.it 
-Text Domain: one-column grid-layout wide-blocks block-styles full-width-template microformats custom-logo custom-menu editor-style sticky-post featured-image footer-widgets theme-options threaded-comments 
-Tags: 
+License: © 2019 Codekraft Studio - info@codekraft.it
+License URI: https://github.com/erikyo/modular-wordpress-theme/blob/master/LICENSE
+Text Domain: modul-r
+Tags: portfolio, one-column, custom-background, custom-header, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks
 */
 
-.wp-block {
-  max-width: 1000px; }
-
-/*# sourceMappingURL=editor.css.map */
+.wp-block{max-width:1000px}

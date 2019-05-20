@@ -23,7 +23,7 @@ if ( post_password_required() ) {
 
 // Display Comments Section
 if ( have_comments() ) : ?>
-  <h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses');?> <?php printf('to “%s”', the_title('', '', false)); ?></h3>
+  <h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses');?> <?php printf('to "%s"', the_title('', '', false)); ?></h3>
 
   <div class="navigation">
     <div class="alignleft"><?php previous_comments_link() ?></div>
@@ -60,7 +60,7 @@ else : // I.E. There are no Comments
 endif;
 
 $comments_settings = array(
-	'title_reply' => __( 'Comments', 'modu' ),
+	'title_reply' => __( 'Comments', 'modul-r' ),
 	'comment_notes_after' => ''
 );
 

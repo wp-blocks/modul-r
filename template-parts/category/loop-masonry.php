@@ -16,7 +16,7 @@
 	<!-- /posts -->
 
 	<div class="navigation">
-		<?php previous_posts_link( '« Newer posts' ); ?>
+		<?php previous_posts_link( 'Newer posts' ); ?>
 		<?php next_posts_link( 'Older posts &darr;', $query->max_num_pages ); ?>
 	</div>
 

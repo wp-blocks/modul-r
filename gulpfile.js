@@ -70,18 +70,19 @@ const opts = {
 
   banner: [
     '@charset "UTF-8";\n' +
-    '/*' ,
-    'Theme Name: <%= name %>\n' +
+    '/*!' ,
+    'Theme Name: <%= wp.themeName %>\n' +
+    'Description: <%= wp.description %>\n' +
     'Theme URI: <%= homepage %>\n' +
     'Author: <%= author.name %> \n' +
     'Author URI: <%= author.website %> \n' +
-    'Description: <%= wp.description %>\n' +
     'Requires at least: WordPress 4.9.6\n' +
     'Version: <%= version %>\n' +
     'License: GNU General Public License v3 or later\n' +
-    'License: © <%= new Date().getFullYear() %> <%= author.name %> \n' +
-    'Text Domain: one-column grid-layout wide-blocks block-styles full-width-template microformats custom-logo custom-menu editor-style sticky-post featured-image footer-widgets theme-options threaded-comments \n' +
-    'Tags: \n' +
+    'License: © <%= new Date().getFullYear() %> <%= author.name %>\n' +
+    'License URI: <%= wp.licenseURI %>\n' +
+    'Text Domain: <%= wp.textDomain %>\n' +
+    'Tags: <%= wp.tags %>\n' +
     '*/\n\n'
   ].join('\n')
 };
@@ -95,7 +96,7 @@ function clean() {
   return del([
     '**/Thumbs.db',
     '**/.DS_Store',
-    opts.rootPath + 'style.css.map',
+    opts.rootPath + '*.css.map',
     opts.distPath + '**'
   ]).then( paths => {
     console.log('Successfully deleted files and folders:\n', paths.join('\n'));
@@ -152,9 +153,10 @@ function vendorScript() {
   return gulp
     .src(opts.devPath + 'js/vendor/*.js')
     .pipe(newer(opts.distPath + 'js/vendor-scripts.js'))
+    .pipe(uglify())
     .pipe(concat('vendor-scripts.js'))
-    .pipe(gulp.dest(opts.distPath + 'js/'))
-    .pipe(rename({suffix: '.min'}));
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 
 function cssAtf() {
@@ -195,7 +197,6 @@ function buildStyle() {
       cssnano(opts.cssnano)
     ]))
     .pipe(header(opts.banner, pkg))
-    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(opts.rootPath));
 }
 

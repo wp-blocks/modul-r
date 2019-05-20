@@ -16,8 +16,8 @@
   <div class="hero-title text-center">
     <h1><?php echo bloginfo('title'); ?></h1>
     <p><?php echo bloginfo('description'); ?></p>
-    <button class="big"><?php _e('Contact us', 'modu'); ?></button>
-    <button class="big outline"><?php _e('Download', 'modu'); ?></button>
+    <button class="big"><?php _e('Contact us', 'modul-r'); ?></button>
+    <button class="big outline"><?php _e('Download', 'modul-r'); ?></button>
   </div>
 </div>
 
