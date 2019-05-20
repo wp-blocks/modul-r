@@ -15,6 +15,13 @@ Also, Modul R provides a full integration with the new Gutemberg editor to give 
 
 == Frequently Asked Questions ==
 
+= How customize this theme? =
+
+for first install NodeJS, then run "npm i" into the theme folder. I have prepared some tasks that simplify the development of the website:
+* BuildAll : clean all unneeded files, then compile minified style and script. Also compress images in the img/ folder
+* watch : watch edits on theme file than compile what you have edited
+* createPot : create pot file for translators
+
 = How install node? =
 
 Download and install this https://nodejs.org/it/download/
@@ -25,7 +32,11 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Gulp tasks fix
+* Better wordpress customizer integration
+
+= 1.0.0 =
 * First release
 
 == Upgrade Notice ==
@@ -34,4 +45,6 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 * jquery.js © 2019 The jQuery Foundation. jQuery License
 * fancybox.js © 2008 - 2019 fancyapps, GPL3
 * slick.js © 2017 Ken Wheeler, MIT 
-* normalize.css © 2019 Nicolas Gallagher and Jonathan Neal, MIT 
+* normalize.css © 2019 Nicolas Gallagher and Jonathan Neal, MIT
+* simon-goetz-240683-unsplash-1920x1281.jpg © 2019 Simon Goetz
+* icons from https://iconmonstr.com/ https://iconmonstr.com/license/

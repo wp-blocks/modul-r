@@ -125,13 +125,12 @@
 
 
 // the wordpress admin bar fix
-// rename with the correct name
-// @media screen and (max-width: 600px) {
-//  #wwwpadminbar {
-//    position: fixed !important;
-//    top: -46px;
-//  }
-// }
+@media screen and (max-width: 600px) {
+ #wpadminbar {
+   position: fixed !important;
+   top: -46px;
+ }
+}
 
 .admin-bar #masthead {
   top: 32px;

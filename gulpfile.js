@@ -158,6 +158,8 @@ function vendorScript() {
     .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 
+
+// CSS Style functions
 function cssAtf() {
   return gulp
     .src(opts.devPath + 'scss/atf.scss')
@@ -167,12 +169,13 @@ function cssAtf() {
       autoprefixer(opts.autoprefixer.build),
       cssnano(opts.cssnano)
     ]))
-    .pipe(gulp.dest(opts.rootPath));
+    .pipe(gulp.dest(opts.distPath + 'css/'));
 }
 
-function css() {
+// compile style.scss (the main wordpress style)
+function mainCSS() {
   return gulp
-    .src(opts.devPath + 'scss/!(atf.scss)*.scss')
+    .src(opts.devPath + 'scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
@@ -185,9 +188,9 @@ function css() {
     .pipe(gulp.dest(opts.rootPath));
 }
 
-function buildStyle() {
+function buildMainCSS() {
   return gulp
-    .src(opts.devPath + 'scss/!(atf.scss)*.scss')
+    .src(opts.devPath + 'scss/style.scss')
     .pipe(sass(opts.sass.build))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(gulp.dest(opts.rootPath))
@@ -197,6 +200,35 @@ function buildStyle() {
     ]))
     .pipe(header(opts.banner, pkg))
     .pipe(gulp.dest(opts.rootPath));
+}
+
+// compile all other styles that's name is not style.scss or atf
+function CSS() {
+  return gulp
+    .src(opts.devPath + 'scss/!(atf.scss|style.scss)*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass(opts.sass.dev))
+    .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
+    .pipe(postcss([
+      autoprefixer(opts.autoprefixer.dev)
+    ]))
+    .pipe(header(opts.banner, pkg))
+    .pipe(gulp.dest(opts.distPath + 'css/'))
+    .pipe(sourcemaps.write('.', { sourceRoot: '/' }))
+    .pipe(gulp.dest(opts.distPath + 'css/'));
+}
+
+function buildCSS() {
+  return gulp
+    .src(opts.devPath + 'scss/!(atf.scss|style.scss)*.scss')
+    .pipe(sass(opts.sass.build))
+    .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
+    .pipe(postcss([
+      autoprefixer(opts.autoprefixer.build),
+      cssnano(opts.cssnano)
+    ]))
+    .pipe(header(opts.banner, pkg))
+    .pipe(gulp.dest(opts.distPath + 'css/'));
 }
 
 // Watch files
@@ -213,9 +245,9 @@ function watchImages() {
 }
 
 
-const style = gulp.parallel(css, cssAtf);
+const style = gulp.parallel(mainCSS, CSS, cssAtf);
 const scripts = gulp.parallel(vendorScript, userScript, mainScript);
-const build = gulp.series(clean, gulp.parallel( imageMinify, buildStyle, scripts, createPot ));
+const BuildAll = gulp.series(clean, gulp.parallel( imageMinify, createPot, buildMainCSS, buildCSS, cssAtf, scripts ));
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
 exports.createPot = createPot;
@@ -224,9 +256,11 @@ exports.scripts = scripts;
 exports.vendorScript = vendorScript;
 exports.userScript = userScript;
 exports.cssAtf = cssAtf;
-exports.css = css;
-exports.buildStyle = buildStyle;
+exports.CSS = CSS;
+exports.mainCSS = mainCSS;
+exports.buildCSS = buildCSS;
+exports.buildMainCSS = buildMainCSS;
 exports.imageMinify = imageMinify;
-exports.build = build;
+exports.BuildAll = BuildAll;
 exports.watch = watch;
 exports.default = watch;

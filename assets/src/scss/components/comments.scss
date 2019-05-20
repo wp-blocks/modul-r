@@ -159,6 +159,10 @@ $comments__avatar-size: 64px;
   .form-submit {
     margin-top: $size__margin * 2;
     text-align: right;
+    input {
+      font-size: 16px;
+      padding: 10px 16px;
+    }
   }
 }
 
