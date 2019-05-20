@@ -137,6 +137,7 @@ $image-size: 150px;
 .navigation {
   display: flex;
   flex-wrap: wrap;
+  a { font-weight: 500}
   * {
     flex-basis: 50%;
     flex-shrink: 0;

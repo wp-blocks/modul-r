@@ -2,3 +2,31 @@
 .bypostauthor {
   background-color: transparent;
 }
+
+
+.article-author {
+
+  .avatar{
+    float: left;
+    max-width: $size__padding;
+    margin-right: $size__padding * .5;
+    @media #{$tablet} { max-width: $size__padding; }
+    img{
+      margin: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      vertical-align: middle;
+    }
+  }
+
+  
+  .author-details {
+    display: table;
+  }
+  
+  .author-description p {
+    font-size: 13px;
+    margin: 8px 0 ;
+    line-height: 1.8;
+  }
+}

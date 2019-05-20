@@ -49,6 +49,8 @@
 
 	<footer class="entry-footer main-width">
 
+	  <?php modu_author(); ?>
+
 	  <?php modu_tags(); ?>
 
 	  <?php modu_social_sharer(); ?>

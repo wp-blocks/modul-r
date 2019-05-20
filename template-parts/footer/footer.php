@@ -12,4 +12,4 @@
 		</p>
 	</div>
 
-</footer><!-- /colophon -->
+</footer>

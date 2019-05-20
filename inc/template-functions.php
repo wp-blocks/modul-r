@@ -218,6 +218,7 @@ if ( ! function_exists('modu_cookie_banner') ) :
   }
 endif;
 
+
 if ( ! function_exists('modu_header_textcolor') ) :
 	function modu_header_textcolor() {
     if (get_header_textcolor()) {
@@ -225,8 +226,6 @@ if ( ! function_exists('modu_header_textcolor') ) :
     }
 	}
 endif;
-
-
 
 if ( ! function_exists('modu_header_image') ) :
 	function modu_header_image() {
@@ -238,4 +237,45 @@ endif;
 
 
 
-// TODO: post author
+if ( ! function_exists('modu_author') ) :
+	function modu_author() {
+
+	  global $post;
+
+	  ?>
+
+    <div class="article-metas">
+
+      <div class="article-author">
+        <div class="author-image">
+          <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+            <span class="avatar"><?php echo get_avatar( get_the_author_meta( 'ID' ), '64', null, get_the_author() ); ?> </span>
+          </a>
+        </div>
+        <div class="author-details">
+          <div class="author-name">
+            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><h3><?php the_author_meta( 'display_name' ); ?></h3></a>
+          </div>
+          <div class="author-description">
+            <p><?php the_author_meta( 'description' ); ?></p>
+            <?php
+
+            $website = get_the_author_meta( 'url', $post->post_author );
+            if ( $website ) {echo '<a href="' . $website . '" rel="nofollow" target="_blank"><i class="linkedin"></i></a>';}
+
+            $twitter = get_the_author_meta( 'twitter', $post->post_author );
+            if ( $twitter ) {echo '<a href="https://twitter.com/' . $twitter . '" rel="nofollow" target="_blank"><i class="twitter"></i></a>';}
+
+            $facebook = get_the_author_meta( 'facebook', $post->post_author );
+            if ( $facebook ) {echo '<a href="' . $facebook . '" rel="nofollow" target="_blank"><i class="facebook"></i></a>';}
+
+            ?>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  <?php
+	}
+endif;

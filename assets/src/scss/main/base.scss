@@ -7,6 +7,12 @@
   --color-white: #{$color__white};
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   background-color: $color__background-body;
   max-width: 100%;
@@ -16,14 +22,9 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-html,
 body {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  position: relative;
   min-height: 100%;
-
   font-family: $font__family, sans-serif;
   color: $color__text;
   font-size: $text__size;
