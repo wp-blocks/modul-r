@@ -14,15 +14,6 @@ $color__border: $color__dark-grey;
 $color__background-body: darken($color__white, 1%);
 $color__nav-background: transparentize($color__dark-grey, .05);
 
-
-// TODO: this don't work && better color management
-:root {
-  --color-primary: #{$color__primary};
-  --color-secondary: #{$color__secondary};
-  --color-black: #{$color__black};
-  --color-text: #{$color__text};
-}
-
 // TEXT VARIABLES
 $text__line-height: 1.7;
 $text__line-height-headline: 1.2;

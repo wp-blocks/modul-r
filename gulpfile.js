@@ -155,7 +155,6 @@ function vendorScript() {
     .pipe(newer(opts.distPath + 'js/vendor-scripts.js'))
     .pipe(uglify())
     .pipe(concat('vendor-scripts.js'))
-    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 
@@ -188,7 +187,7 @@ function css() {
 
 function buildStyle() {
   return gulp
-    .src(opts.devPath + 'scss/*.scss')
+    .src(opts.devPath + 'scss/!(atf.scss)*.scss')
     .pipe(sass(opts.sass.build))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(gulp.dest(opts.rootPath))
