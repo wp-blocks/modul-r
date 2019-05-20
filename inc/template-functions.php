@@ -218,5 +218,24 @@ if ( ! function_exists('modu_cookie_banner') ) :
   }
 endif;
 
+if ( ! function_exists('modu_header_textcolor') ) :
+	function modu_header_textcolor() {
+    if (get_header_textcolor() != HEADER_TEXTCOLOR ) {
+      echo ' style="color:#' . get_header_textcolor(). '"';
+    }
+	}
+endif;
+
+
+
+if ( ! function_exists('modu_header_image') ) :
+	function modu_header_image() {
+    if (get_header_image()) {?>
+     <img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" class="site-header-image" />
+	  <?php }
+	}
+endif;
+
+
 
 // TODO: post author

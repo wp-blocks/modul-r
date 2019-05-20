@@ -31,7 +31,6 @@ body {
   word-break: break-word;
 }
 
-
 iframe {
   width: 100%;
   max-width: 100%;
@@ -67,8 +66,6 @@ table {
     }
   }
 }
-
-
 
 ::selection {
   background-color: transparentize($color__primary, 0.5) !important;

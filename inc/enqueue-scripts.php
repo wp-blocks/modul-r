@@ -29,6 +29,7 @@ function masonryScripts(){
 }
 add_action('wp_enqueue_scripts', 'masonryScripts');
 
+
 function theme_scripts() {
 
 	// Register and Enqueue
@@ -42,10 +43,12 @@ function theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' ); // Add Theme admin scripts
 
+
 /**
  * To allow full JavaScript functionality with the comment features in WordPress 2.7, the following changes must be made within the WordPress Theme template files.
  */
 if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+
 
 /**
  * Registers an editor stylesheet for the theme.

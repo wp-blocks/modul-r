@@ -14,4 +14,7 @@ Text Domain: modul-r
 Tags: portfolio, one-column, custom-background, custom-header, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks
 */
 
-.wp-block{max-width:1000px}
+.wp-block {
+  max-width: 1000px; }
+
+/*# sourceMappingURL=editor.css.map */

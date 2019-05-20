@@ -34,7 +34,7 @@ function theme_setup() {
 
 	add_image_size( 'fullwidth', 1920, 9999 ); // 1920px width & unlimited height
 
-	// This theme uses wp_nav_menu() in two locations.
+	// This theme uses wp_nav_menu() in Primary Navigation.
 	register_nav_menu('header-main',__( 'Primary Navigation', 'modul-r' ));
 
 	add_theme_support( 'custom-header' );
@@ -79,6 +79,10 @@ function theme_setup() {
 
 	// Add support for responsive embedded content.
 	add_theme_support( 'responsive-embeds' );
+
+	// Add default color to the customizer
+	// TODO: Better color customizer integration
+	define( 'HEADER_TEXTCOLOR', '17bebb' );
 
 }
 

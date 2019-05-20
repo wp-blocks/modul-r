@@ -1,12 +1,14 @@
-<header id="masthead" class="site-header">
+<header id="masthead" class="site-header" >
 
 	<div class="site-branding-container main-width alignwide">
+
+    <?php modu_header_image(); ?>
 
 		<div class="site-branding">
 			<?php if ( has_custom_logo() ) : ?>
 				<div class="site-logo"><?php the_custom_logo(); ?></div>
 			<?php else : ?>
-				<h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
+				<h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" <?php modu_header_textcolor() ?>><?php bloginfo( 'name' ); ?></a></h2>
 				<p class="site-description"><?php echo get_bloginfo( 'description' ); ?></p>
 			<?php endif; ?>
 		</div>

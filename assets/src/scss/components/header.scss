@@ -19,6 +19,14 @@
     }
   }
   
+  .site-header-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-left: -$size__side-padding;
+    opacity: 0.1;
+  }
+  
   // the container of the logo/site title
   .site-branding-container {
     display: flex;
