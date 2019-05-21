@@ -27,8 +27,8 @@
     padding-left: 0;
     padding-right: 0;
     @media #{$theme-width-size} {
-      padding-left: $size__padding-resp * .5;
-      padding-right: $size__padding-resp * .5;
+      padding-left: $size__padding-resp;
+      padding-right: $size__padding-resp;
     }
   }
   

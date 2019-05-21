@@ -13,8 +13,6 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 
-  <?php modu_cookie_banner(); ?>
-
   <?php get_template_part( 'template-parts/header/header' ); ?>
 
   <div id="content" class="site-content">

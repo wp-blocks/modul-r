@@ -1,6 +1,7 @@
 <?php
 
-function theme_setup() {
+if ( ! function_exists('modu_theme_setup') ) :
+function modu_theme_setup() {
 	/*
 	* Make theme available for translation.
 	* Translations can be filed in the /languages/ directory.
@@ -81,5 +82,6 @@ function theme_setup() {
 	add_theme_support( 'responsive-embeds' );
 
 }
+endif;
 
-add_action( 'after_setup_theme', 'theme_setup' );
+add_action( 'after_setup_theme', 'modu_theme_setup' );

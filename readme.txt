@@ -32,6 +32,13 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
+= 1.0.4 =
+* function name update
+
+= 1.0.3 =
+* removal of clean.php
+* new screenshot
+
 = 1.0.2 =
 * Js scripts init enhancement
 * automatic task who create the zip needed for the theme upload

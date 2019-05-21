@@ -207,18 +207,6 @@ if ( ! function_exists('modu_relateds') ) :
   }
 endif;
 
-if ( ! function_exists('modu_cookie_banner') ) :
-	function modu_cookie_banner() {
-  ?>
-    <div id="cookielaw" onclick="okCookie();">
-      <i class="material-icons">close</i>
-		  <p><?php _e('This website uses cookies to improve user experience, memorizing your preferences and monitorizing site funcionality', 'modul-r'); ?>. <?php _e('Check out our', 'modul-r'); ?> <a href="<?php site_url() ?>/cookie-policy/"><?php _e('Cookie Policy', 'modul-r'); ?></a></p>
-    </div>
-  <?php
-  }
-endif;
-
-
 if ( ! function_exists('modu_header_textcolor') ) :
 	function modu_header_textcolor() {
     if (get_header_textcolor()) {
