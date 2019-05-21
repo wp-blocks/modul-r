@@ -238,15 +238,15 @@ function buildCSS() {
 function zipRelease() {
   return gulp
     .src([
-      opts.rootPath + '/assets/**/*',
-      opts.rootPath + '/inc/**/*',
-      opts.rootPath + '/languages/**/*',
-      opts.rootPath + '/template-parts/**/*',
-      opts.rootPath + '*',
+      opts.rootPath + 'assets/**/*.*',
+      opts.rootPath + 'inc/**/*.*',
+      opts.rootPath + 'languages/**/*.*',
+      opts.rootPath + 'template-parts/**/*.*',
+      opts.rootPath + '*.*',
       '!.gitignore',
       '!./node_modules',
       '!./releases'
-    ])
+    ], {base: '.'})
     .pipe(zip( pkg.wp.textDomain + '.zip'))
     .pipe(gulp.dest(opts.rootPath + '/releases/' + pkg.version + '/' ))
 }

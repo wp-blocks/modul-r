@@ -85,10 +85,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
   window.addEventListener('scroll', throttle(scrollCallback, 16), true); // 1 frame each 16ms is about 60fps
   window.addEventListener('resize', scrollCallback, true); // 1 frame each 16ms is about 60fps
 
-  $('.main-slider').slick({
-    infinite: true,
-    slidesToShow: 1,
-    autoplay: true
-  });
-
 });

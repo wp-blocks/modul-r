@@ -12,16 +12,13 @@ add_action( 'get_footer', 'theme_style' );
 /**
  * Load scripts
  */
-
-
 function theme_scripts() {
 
 	// Register and Enqueue
-	wp_register_script('jquery3', get_template_directory_uri() . '/assets/dist/js/jquery.min.js', null, null, null);
-	wp_enqueue_script( 'jquery3' );
-	wp_register_script( 'scripts-vendors', get_template_directory_uri() . "/assets/dist/js/vendor-scripts.js" , array('jquery3'), null, true );
+	wp_enqueue_script( 'jquery' );
+	wp_register_script( 'scripts-vendors', get_template_directory_uri() . "/assets/dist/js/vendor-scripts.js" , array('jquery'), null, true );
 	wp_enqueue_script( 'scripts-vendors' );
-	wp_register_script( 'scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js" , array('jquery3'), null, true );
+	wp_register_script( 'scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js" , array('jquery'), null, true );
 	wp_enqueue_script( 'scripts-main' );
 
 }

@@ -32,6 +32,11 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
+= 1.0.2 =
+* Js scripts init enhancement
+* automatic task who create the zip needed for the theme upload
+* removed masonry (will come back in future versions), removed jquery 3
+
 = 1.0.1 =
 * Gulp tasks fix
 * Better wordpress customizer integration
@@ -43,7 +48,6 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 == Upgrade Notice ==
 
 == Resources ==
-* jquery.js © 2019 The jQuery Foundation. jQuery License
 * fancybox.js © 2008 - 2019 fancyapps, GPL3
 * slick.js © 2017 Ken Wheeler, MIT 
 * normalize.css © 2019 Nicolas Gallagher and Jonathan Neal, MIT

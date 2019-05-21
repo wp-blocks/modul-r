@@ -1,57 +1,60 @@
 
-document.addEventListener("DOMContentLoaded", function(event) {
+jQuery(document).ready(function($){
 
   // a slick slider
-  if ($('.slider-single')) {
-    $('.slider-single').slick({
-      infinite: true,
-      slidesToShow: 1,
-      autoplay: true
-    });
+  const sliders = document.getElementsByClassName("slider");
+
+  if (sliders.length) {
+    for (let i = 0; i < sliders.length; i++) {
+      console.log(sliders[i]);
+      if (sliders[i].classList.contains('slider-single')) {
+        $(sliders[i]).slick({
+          infinite: true,
+          slidesToShow: 1,
+          autoplay: true
+        });
+      } else if (sliders[i].classList.contains('slider-multi')) {
+        $(sliders[i]).slick({
+          lazyLoad: 'ondemand',
+          dots: true,
+          infinite: true,
+          slidesToShow: 3,
+          autoplay: true,
+          centerMode: true,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: false
+              }
+            }
+          ]
+        });
+      }
+    }
   }
 
-  if ($('.slider-multi')) {
-    $('.slider-multi').slick({
-        lazyLoad: 'ondemand',
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        autoplay: true,
-        centerMode: true,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false
-            }
-          }
-      ]
-    });
-  }
 
 
   $('.lightbox a').fancybox({
     caption : function() {
-
-      var caption = $(this).next('figcaption').text() !== '' ? $(this).next('figcaption').text() : $(this).children('img').attr('alt')  ;
+      let caption = $(this).next('figcaption').text() !== '' ? $(this).next('figcaption').text() : $(this).children('img').attr('alt')  ;
       caption = ( caption.length ? caption : 'No caption' );
 
       return caption;
-
     }
   });
-
 
 
   if ($('.lightbox-gallery')) {
 
     $('.blocks-gallery-item').click(function() {
 
-      var galleryImages = $(this).parent().find('a');
-      var gallery = [];
+      let galleryImages = $(this).parent().find('a');
+      let gallery = [];
 
       galleryImages.each(function( index, galleryItem ) {
 

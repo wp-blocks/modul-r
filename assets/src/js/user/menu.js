@@ -1,5 +1,5 @@
 // Change 'hover' to 'click' if you want to
-document.addEventListener("DOMContentLoaded", function(event) {
+jQuery(document).ready(function($){
   $('nav li > .sub-menu').parent().hover(function () {
 
     var submenu = $(this).children('.sub-menu');
