@@ -21,7 +21,31 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: comments.php:63
+#: comments.php:17
+msgid "No Responses"
+msgstr ""
+
+#: comments.php:17
+msgid "One Response"
+msgstr ""
+
+#: comments.php:17
+msgid "% Responses"
+msgstr ""
+
+#: comments.php:17
+msgid "to %s"
+msgstr ""
+
+#: comments.php:42, comments.php:49
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:47
+msgid "Be the first to write a comment."
+msgstr ""
+
+#: comments.php:54
 msgid "Comments"
 msgstr ""
 
@@ -101,19 +125,23 @@ msgstr ""
 msgid "Search results for:"
 msgstr ""
 
-#: template-parts/content/content-homepage.php:19
+#: template-parts/content/content-homepage.php:13
 msgid "Contact us"
 msgstr ""
 
-#: template-parts/content/content-homepage.php:20
+#: template-parts/content/content-homepage.php:14
 msgid "Download"
 msgstr ""
 
 #. translators: %s: parent post link
-#: template-parts/content/content-single.php:37
+#: template-parts/content/content-single.php:31
 msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-title\">%s</span>"
 msgstr ""
 
 #: template-parts/footer/footer.php:11
 msgid "Proudly powered by WordPress"
+msgstr ""
+
+#: template-parts/footer/footer.php:11
+msgid "Made with &hearts; by codekraft-studio."
 msgstr ""

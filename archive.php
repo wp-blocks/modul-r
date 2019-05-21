@@ -17,22 +17,14 @@ get_header();
 
                 <?php
 
-	            if(is_category(15)) {
-
-	              // create the masonry wrapper
-	              get_template_part( 'template-parts/category/loop', 'masonry' );
-
-	            } else {
-
 	              // Start the Loop.
 	              while ( have_posts() ) : the_post();
 		              get_template_part( 'template-parts/content/content', 'excerpt' );
                 endwhile;
 
-
 	              // Previous/next page navigation.
 	              printf( '<div class="main-width alignwide text-center">%s</div>', modu_archive_nav() );
-              }
+
 
             // If no content, include the "No posts found" template.
             else :

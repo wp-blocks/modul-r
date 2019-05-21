@@ -8,8 +8,8 @@
 <div class="website-hero text-center">
 	<?php modu_post_image(); ?>
   <div class="hero-title text-center">
-    <h1><?php echo bloginfo('title'); ?></h1>
-    <p><?php echo bloginfo('description'); ?></p>
+    <h1><?php bloginfo( 'name' ); ?></h1>
+    <p><?php bloginfo('description'); ?></p>
     <button class="big"><?php _e('Contact us', 'modul-r'); ?></button>
     <button class="big outline"><?php _e('Download', 'modul-r'); ?></button>
   </div>

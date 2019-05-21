@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       autoplay: true
     });
   }
+
   if ($('.slider-multi')) {
     $('.slider-multi').slick({
         lazyLoad: 'ondemand',

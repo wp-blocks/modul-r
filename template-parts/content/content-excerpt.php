@@ -14,6 +14,7 @@
       <header class="entry-header">
         <?php
 
+        // TODO: Better sticky
         if ( is_sticky() && is_home() && ! is_paged() ) {
           echo '<span class="sticky-post">sticky</span>';
         }
