@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Displays the featured image of the post/page
+ */
 if ( ! function_exists('modu_post_image') ) :
 	function modu_post_image() {
       if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
@@ -10,6 +13,10 @@ if ( ! function_exists('modu_post_image') ) :
 	}
 endif;
 
+
+/**
+ * Displays the navigation for the archive page
+ */
 if ( ! function_exists( 'modu_archive_nav' ) ) :
 	function modu_archive_nav() {
 
@@ -24,6 +31,10 @@ if ( ! function_exists( 'modu_archive_nav' ) ) :
 	}
 endif;
 
+
+/**
+ * Displays the next/prev navigation for the post
+ */
 if ( ! function_exists( 'modu_post_nav' ) ) :
 	function modu_post_nav() { ?>
   <div class="post-navigation">
@@ -40,8 +51,11 @@ if ( ! function_exists( 'modu_post_nav' ) ) :
   <?php }
 endif;
 
+
+/**
+ * Displays page-links for paginated posts
+ */
 if ( ! function_exists( 'modu_page_links' ) ) :
-  // Displays page-links for paginated posts
 	function modu_page_links() {
 
 	  $defaults = array(
@@ -63,6 +77,9 @@ if ( ! function_exists( 'modu_page_links' ) ) :
 endif;
 
 
+/**
+ * Displays the comments template
+ */
 if ( ! function_exists('modu_comments') ) :
 	function modu_comments() {
 		// If comments are open or we have at least one comment, load up the comment template.
@@ -71,6 +88,9 @@ if ( ! function_exists('modu_comments') ) :
 endif;
 
 
+/**
+ * Displays the tags
+ */
 if ( ! function_exists('modu_tags') ) :
 	function modu_tags() {
 
@@ -84,7 +104,9 @@ if ( ! function_exists('modu_tags') ) :
 	}
 endif;
 
-
+/**
+ * Displays the article meta (author / date / comments number if isn't zero)
+ */
 if ( ! function_exists('modu_meta') ) :
 	function modu_meta() {
 
@@ -127,6 +149,10 @@ if ( ! function_exists('modu_meta') ) :
 	}
 endif;
 
+
+/**
+ * Displays the article breadcrumbs
+ */
 if ( ! function_exists('modu_breadcrumbs') ) :
 	function modu_breadcrumbs() {
 	  if ( function_exists('yoast_breadcrumb') ) {
@@ -137,6 +163,10 @@ if ( ! function_exists('modu_breadcrumbs') ) :
   }
 endif;
 
+
+/**
+ * Displays the article shares buttons
+ */
 if ( ! function_exists('modu_social_sharer') ) :
 	function modu_social_sharer() {
     ?>
@@ -175,6 +205,9 @@ if ( ! function_exists('modu_social_sharer') ) :
 	}
 endif;
 
+/**
+ * Displays the article relateds
+ */
 if ( ! function_exists('modu_relateds') ) :
 	function modu_relateds() {
   ?>
@@ -207,6 +240,10 @@ if ( ! function_exists('modu_relateds') ) :
   }
 endif;
 
+
+/**
+ * Change the color of the headline if changed in the customizer
+ */
 if ( ! function_exists('modu_header_textcolor') ) :
 	function modu_header_textcolor() {
     if (get_header_textcolor()) {
@@ -215,6 +252,10 @@ if ( ! function_exists('modu_header_textcolor') ) :
 	}
 endif;
 
+
+/**
+ * Add a background to the headline if changed in the customizer
+ */
 if ( ! function_exists('modu_header_image') ) :
 	function modu_header_image() {
     if (get_header_image()) {?>
@@ -224,7 +265,9 @@ if ( ! function_exists('modu_header_image') ) :
 endif;
 
 
-
+/**
+ * Display the author of the post
+ */
 if ( ! function_exists('modu_author') ) :
 	function modu_author() {
 
@@ -249,13 +292,13 @@ if ( ! function_exists('modu_author') ) :
             <?php
 
             $website = get_the_author_meta( 'url', $post->post_author );
-            if ( $website ) {echo '<a href="' . $website . '" rel="nofollow" target="_blank"><i class="linkedin"></i></a>';}
+            if ( $website ) {echo '<a href="' . $website . '" rel="nofollow" target="_blank"><i class="social-ico linkedin"></i></a>';}
 
             $twitter = get_the_author_meta( 'twitter', $post->post_author );
-            if ( $twitter ) {echo '<a href="https://twitter.com/' . $twitter . '" rel="nofollow" target="_blank"><i class="twitter"></i></a>';}
+            if ( $twitter ) {echo '<a href="https://twitter.com/' . $twitter . '" rel="nofollow" target="_blank"><i class="social-ico twitter"></i></a>';}
 
             $facebook = get_the_author_meta( 'facebook', $post->post_author );
-            if ( $facebook ) {echo '<a href="' . $facebook . '" rel="nofollow" target="_blank"><i class="facebook"></i></a>';}
+            if ( $facebook ) {echo '<a href="' . $facebook . '" rel="nofollow" target="_blank"><i class="social-ico facebook"></i></a>';}
 
             ?>
           </div>
