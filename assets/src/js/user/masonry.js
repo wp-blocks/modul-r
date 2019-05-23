@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       loading: {
         msgText: masonry_args.loading,
         finishedMsg: masonry_args.end,
-        img: masonry_args.templateUrl + '/assets/dist/img/loader.svg'
+        img: masonry_args.templateUrl + '/assets/dist/img/elements/loader.svg'
       }
     },
 

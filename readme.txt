@@ -62,6 +62,6 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Resources ==
 * fancybox.js © 2008 - 2019 fancyapps, GPL3
-* slick.js © 2017 Ken Wheeler, MIT 
+* slick.js © 2017 Ken Wheeler, MIT
 * normalize.css © 2019 Nicolas Gallagher and Jonathan Neal, MIT
-* twentyninetten © 2019 the WordPress team, GPL2
+* twentynineteen © 2019 the WordPress team, GPL2
