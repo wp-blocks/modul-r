@@ -136,7 +136,7 @@ if ( ! function_exists('modu_meta') ) :
       <p><b> | </b></p>
 
       <p>
-        <a href="<?php get_page_uri(); ?>#comments">
+        <a href="<?php the_permalink(); ?>#comments">
 	        <?php echo get_comment_count($post->ID)['approved']; ?> <?php _e('comments', 'modul-r'); ?>
         </a>
       </p>

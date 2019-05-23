@@ -24,9 +24,22 @@ if ( ! function_exists('modu_theme_scripts') ) :
 		wp_register_script( 'scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js" , array('jquery'), null, true );
 		wp_enqueue_script( 'scripts-main' );
 
+		$masonry_args = array(
+			'templateUrl' => get_stylesheet_directory_uri(),
+			'loading' => __('Loading', 'modul-r' ),
+			'end' => __('No more post', 'modul-r' )
+		);
+
+		wp_localize_script( 'scripts-main', 'masonry_args', $masonry_args );
+
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modu_theme_scripts' ); // Add Theme admin scripts
+
+
+
+
+
 
 
 /**
