@@ -49,8 +49,10 @@ $nav_padding: 0 ($size__margin * 4);
     
   }
   
-  .main-menu > li:last-of-type a {
+  .main-menu > li:last-child a {
     padding-right: 0
+    
+    a { padding: $nav_padding;}
   }
   
   .menu-shadow {

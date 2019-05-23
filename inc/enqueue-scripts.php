@@ -25,7 +25,7 @@ if ( ! function_exists('modu_theme_scripts') ) :
 		wp_enqueue_script( 'scripts-main' );
 
 		$masonry_args = array(
-			'templateUrl' => get_stylesheet_directory_uri(),
+			'templateUrl' => get_template_directory_uri(),
 			'loading' => __('Loading', 'modul-r' ),
 			'end' => __('No more post', 'modul-r' )
 		);

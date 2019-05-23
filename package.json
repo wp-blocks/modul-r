@@ -1,6 +1,6 @@
 {
   "name": "modul-r",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "Codekraft",
   "author": {
     "name": "Codekraft Studio - info@codekraft.it",
@@ -13,6 +13,11 @@
     "textDomain": "modul-r",
     "tags": "portfolio, one-column, grid-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks",
     "licenseURI": "https://github.com/erikyo/modular-wordpress-theme/blob/master/LICENSE"
+  },
+  "scripts": {
+    "watch": "node node_modules/gulp/bin/gulp watch",
+    "build": "node node_modules/gulp/bin/gulp BuildAll",
+    "postinstall": "node node_modules/gulp/bin/gulp BuildAll"
   },
   "license": "GPL-3.0",
   "style": "./style.css",

@@ -69,6 +69,9 @@ button,
 }
 
 .button {
+  
+  line-height: 1;
+  
   &.raised {
     background-color: $color__secondary;
     color: white;

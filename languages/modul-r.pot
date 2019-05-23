@@ -13,39 +13,39 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:16, releases/1.0.2/modul-r/404.php:16
+#: 404.php:16
 msgid "Page not found"
 msgstr ""
 
-#: 404.php:21, releases/1.0.2/modul-r/404.php:21
+#: 404.php:21
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: comments.php:17, releases/1.0.2/modul-r/comments.php:17
+#: comments.php:17
 msgid "No Responses"
 msgstr ""
 
-#: comments.php:17, releases/1.0.2/modul-r/comments.php:17
+#: comments.php:17
 msgid "One Response"
 msgstr ""
 
-#: comments.php:17, releases/1.0.2/modul-r/comments.php:17
+#: comments.php:17
 msgid "% Responses"
 msgstr ""
 
-#: comments.php:17, releases/1.0.2/modul-r/comments.php:17
+#: comments.php:17
 msgid "to %s"
 msgstr ""
 
-#: comments.php:42, comments.php:49, releases/1.0.2/modul-r/comments.php:42, releases/1.0.2/modul-r/comments.php:49
+#: comments.php:42, comments.php:49
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:47, releases/1.0.2/modul-r/comments.php:47
+#: comments.php:47
 msgid "Be the first to write a comment."
 msgstr ""
 
-#: comments.php:54, releases/1.0.2/modul-r/comments.php:54
+#: comments.php:54
 msgid "Comments"
 msgstr ""
 
@@ -57,100 +57,87 @@ msgstr ""
 msgid "No more post"
 msgstr ""
 
-#: inc/sidebar.php:12, releases/1.0.2/modul-r/inc/sidebar.php:12
+#: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr ""
 
-#: inc/sidebar.php:14, releases/1.0.2/modul-r/inc/sidebar.php:14
+#: inc/sidebar.php:14
 msgid "The main theme sidebar"
 msgstr ""
 
-#: inc/sidebar.php:22, releases/1.0.2/modul-r/inc/sidebar.php:22
+#: inc/sidebar.php:22
 msgid "Footer"
 msgstr ""
 
-#: inc/sidebar.php:24, releases/1.0.2/modul-r/inc/sidebar.php:24
+#: inc/sidebar.php:24
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:25, releases/1.0.2/modul-r/inc/template-functions.php:18
+#: inc/template-functions.php:25
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:26, releases/1.0.2/modul-r/inc/template-functions.php:19
+#: inc/template-functions.php:26
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:41, releases/1.0.2/modul-r/inc/template-functions.php:30
+#: inc/template-functions.php:41
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:62, releases/1.0.2/modul-r/inc/template-functions.php:48
+#: inc/template-functions.php:62
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:68, releases/1.0.2/modul-r/inc/template-functions.php:54
+#: inc/template-functions.php:68
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:69, releases/1.0.2/modul-r/inc/template-functions.php:55
+#: inc/template-functions.php:69
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:99, releases/1.0.2/modul-r/inc/template-functions.php:79
+#: inc/template-functions.php:99
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:140, releases/1.0.2/modul-r/inc/template-functions.php:118
+#: inc/template-functions.php:140
 msgid "comments"
 msgstr ""
 
-#: inc/template-functions.php:174, releases/1.0.2/modul-r/inc/template-functions.php:144
+#: inc/template-functions.php:174
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:225, releases/1.0.2/modul-r/inc/template-functions.php:192
+#: inc/template-functions.php:225
 msgid "You might be interested in..."
 msgstr ""
 
-#: inc/theme-setup.php:39, releases/1.0.2/modul-r/inc/theme-setup.php:38
+#: inc/theme-setup.php:39
 msgid "Primary Navigation"
 msgstr ""
 
-#: releases/1.0.2/modul-r/inc/template-functions.php:215
-msgid "This website uses cookies to improve user experience, memorizing your preferences and monitorizing site funcionality"
-msgstr ""
-
-#: releases/1.0.2/modul-r/inc/template-functions.php:215
-msgid "Check out our"
-msgstr ""
-
-#: releases/1.0.2/modul-r/inc/template-functions.php:215
-msgid "Cookie Policy"
-msgstr ""
-
-#: releases/1.0.2/modul-r/search.php:16, search.php:16
+#: search.php:16
 msgid "Search results for:"
 msgstr ""
 
-#: releases/1.0.2/modul-r/template-parts/content/content-homepage.php:13, template-parts/content/content-homepage.php:13
+#: template-parts/content/content-homepage.php:13
 msgid "Contact us"
 msgstr ""
 
-#: releases/1.0.2/modul-r/template-parts/content/content-homepage.php:14, template-parts/content/content-homepage.php:14
+#: template-parts/content/content-homepage.php:14
 msgid "Download"
 msgstr ""
 
 #. translators: %s: parent post link
-#. translators: %s: parent post link
-#: releases/1.0.2/modul-r/template-parts/content/content-single.php:31, template-parts/content/content-single.php:31
+#: template-parts/content/content-single.php:31
 msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-title\">%s</span>"
 msgstr ""
 
-#: releases/1.0.2/modul-r/template-parts/footer/footer.php:11, template-parts/footer/footer.php:11
+#: template-parts/footer/footer.php:11
 msgid "Proudly powered by WordPress"
 msgstr ""
 
-#: releases/1.0.2/modul-r/template-parts/footer/footer.php:11, template-parts/footer/footer.php:11
+#: template-parts/footer/footer.php:11
 msgid "Made with &hearts; by codekraft-studio."
 msgstr ""

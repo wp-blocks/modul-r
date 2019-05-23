@@ -16,8 +16,10 @@ Also, Modul R provides a full integration with the new Gutemberg editor to give 
 == Frequently Asked Questions ==
 
 = How customize this theme? =
+For first install NodeJS, then run "npm i && gulp BuildAll" into the theme folder.
+you can find a quick start guide here https://modul-r.codekraft.it/
 
-for first install NodeJS, then run "npm i" into the theme folder. I have prepared some tasks that simplify the development of the website:
+There is some Gulp tasks i've prepared that simplify the development of the website:
 * BuildAll : clean all unneeded files, then compile minified style and script. Also compress images in the img/ folder
 * watch : watch edits on theme file than compile what you have edited
 * createPot : create pot file for translators
@@ -31,6 +33,9 @@ Download and install this https://nodejs.org/it/download/
 follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
+
+= 1.0.6 =
+* Source code optimization & bug correction
 
 = 1.0.5 =
 * Reintroduction of the grid layout (masonry) for categories

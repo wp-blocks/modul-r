@@ -10,8 +10,8 @@
   <div class="hero-title text-center">
     <h1><?php bloginfo( 'name' ); ?></h1>
     <p><?php bloginfo('description'); ?></p>
-    <button class="big"><?php _e('Contact us', 'modul-r'); ?></button>
-    <button class="big outline" onclick="location.href='https://github.com/erikyo/Modul-R';"><?php _e('Download', 'modul-r'); ?></button>
+    <a href="https://codekraft.it" class="button big"><?php _e('Contact us', 'modul-r'); ?></a>
+    <a href="https://github.com/erikyo/Modul-R" class="button big outline" ><?php _e('Download', 'modul-r'); ?></a>
   </div>
 </div>
 
