@@ -95,9 +95,9 @@ if ( ! function_exists('modu_tags') ) :
 	function modu_tags() {
 
 		if( has_tag() ): ?>
-			<div class="tags">
+			<div class="post-tags">
 				<h3><?php _e('Tags:', 'modul-r'); ?></h3>
-				<?php the_tags( '<li class="tag">', '</li><li class="tag">', '</li>');  ?>
+				<?php the_tags( '<li class="post-tag">', '</li><li class="post-tag">', '</li>');  ?>
 			</div>
 		<?php endif;
 

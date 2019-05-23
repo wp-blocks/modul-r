@@ -1,6 +1,6 @@
 {
   "name": "modul-r",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "Codekraft",
   "author": {
     "name": "Codekraft Studio - info@codekraft.it",
@@ -11,7 +11,7 @@
     "themeName": "Modul R",
     "description": "Modul R is a powerful and flexible theme that provides a fast way to create an awesome website.",
     "textDomain": "modul-r",
-    "tags": "portfolio, one-column, custom-background, custom-header, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks",
+    "tags": "portfolio, one-column, grid-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks",
     "licenseURI": "https://github.com/erikyo/modular-wordpress-theme/blob/master/LICENSE"
   },
   "license": "GPL-3.0",
