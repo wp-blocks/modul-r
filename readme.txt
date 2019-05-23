@@ -52,7 +52,11 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 = 1.0.0 =
 * First release
 
-== Upgrade Notice ==
+== TODO ==
+* A better way to change the primary and secondary color, if possibile with che wp customizer
+* Create my own icons for the social media / mail / print
+* Rework sticky post + article author + footer style
+* Re-enable masonry (only for archive?)
 
 == Resources ==
 * fancybox.js © 2008 - 2019 fancyapps, GPL3

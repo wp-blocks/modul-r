@@ -1,8 +1,10 @@
 div#cookielaw {
   position: fixed;
+  bottom: 0;
   z-index: 10000000;
-  transition: 600ms;
-  bottom: -180px;
+  transition: $animations__lenght * 2;
+  opacity: 0;
+  transform: translateY(200%);
   
   width: 100%;
   box-sizing: border-box;
@@ -11,12 +13,17 @@ div#cookielaw {
   
   background-color: invert($color__background-body);
   
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   p {
     color: $color__background-body;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
   }
-  
+
   a {
     color: invert($color__secondary);
     text-decoration: underline;
@@ -24,11 +31,18 @@ div#cookielaw {
   }
   
   i {
-    cursor: pointer;
     color: $color__background-body;
+    cursor: pointer;
     display: block;
     text-align: right;
     margin-bottom: -16px;
   }
   
+  button {
+    background-color: invert($color__secondary);
+    margin: $size__margin auto;
+    display: block;
+    font-size: 13px;
+    padding: 6px 12px;
+  }
 }

@@ -8,7 +8,6 @@ if ( ! function_exists('modu_theme_style') ) :
 		wp_enqueue_style( 'theme-style', get_stylesheet_uri(), array(), null );
 	}
 endif;
-
 add_action( 'get_footer', 'modu_theme_style' );
 
 
@@ -25,9 +24,8 @@ if ( ! function_exists('modu_theme_scripts') ) :
 		wp_register_script( 'scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js" , array('jquery'), null, true );
 		wp_enqueue_script( 'scripts-main' );
 
-}
+	}
 endif;
-
 add_action( 'wp_enqueue_scripts', 'modu_theme_scripts' ); // Add Theme admin scripts
 
 
@@ -36,16 +34,12 @@ add_action( 'wp_enqueue_scripts', 'modu_theme_scripts' ); // Add Theme admin scr
  */
 if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 
-
 /**
- * Registers an editor stylesheet for the theme.
+ * Add the editor stylesheet
  */
-add_theme_support( 'editor-styles' );
-
 if ( ! function_exists('modu_editor_styles') ) :
 	function modu_editor_styles() {
 		add_editor_style( get_template_directory_uri() . '/editor.css' );
 	}
 endif;
-
 add_action( 'admin_init', 'modu_editor_styles' );

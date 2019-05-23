@@ -6,7 +6,6 @@ jQuery(document).ready(function($){
 
   if (sliders.length) {
     for (let i = 0; i < sliders.length; i++) {
-      console.log(sliders[i]);
       if (sliders[i].classList.contains('slider-single')) {
         $(sliders[i]).slick({
           infinite: true,
@@ -39,18 +38,21 @@ jQuery(document).ready(function($){
 
 
 
-  $('.lightbox a').fancybox({
-    caption : function() {
-      let caption = $(this).next('figcaption').text() !== '' ? $(this).next('figcaption').text() : $(this).children('img').attr('alt')  ;
-      caption = ( caption.length ? caption : 'No caption' );
+  if ($('.lightbox a')) {
+    $('.lightbox a').fancybox({
 
-      return caption;
-    }
-  });
+      caption : function() {
+        let caption = $(this).next('figcaption').text() !== '' ? $(this).next('figcaption').text() : $(this).children('img').attr('alt')  ;
+        caption = ( caption.length ? caption : 'No caption' );
+
+        return caption;
+      }
+
+    });
+  }
 
 
   if ($('.lightbox-gallery')) {
-
     $('.blocks-gallery-item').click(function() {
 
       let galleryImages = $(this).parent().find('a');
@@ -69,8 +71,8 @@ jQuery(document).ready(function($){
       });
 
       $.fancybox.open( gallery, { loop: false }, $(this).index() );
-
       return false;
+
     });
   }
 

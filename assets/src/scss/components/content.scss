@@ -20,16 +20,10 @@ body.single,
 
 // Pages Header
 .entry-header {
-  padding-top: $size__padding * .5;
-  padding-bottom: $size__padding * .5;
   text-align: center;
   
   .meta-wrapper {
     float: inherit;
-  }
-  
-  @media #{$smaller-than-tablet} {
-    padding-top: 0;
   }
 }
 
@@ -137,7 +131,11 @@ $image-size: 150px;
 .navigation {
   display: flex;
   flex-wrap: wrap;
-  a { font-weight: 500}
+  a {
+    font-weight: 500;
+    display: inline-table;
+    width: calc(100% - 30px);
+  }
   * {
     flex-basis: 50%;
     flex-shrink: 0;
@@ -178,7 +176,7 @@ $image-size: 150px;
     &:hover {color: $color__primary;}
     
     &.next,
-    &.prev, {
+    &.prev {
       width: auto;
     }
   

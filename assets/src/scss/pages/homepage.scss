@@ -1,7 +1,7 @@
 body.home {
   
   .website-hero {
-    height: 75vh;
+    height: 67vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,7 +43,7 @@ body.home {
       }
       
       p {
-        color: $color__white;
+        color: darken($color__light-grey, 20%);
         font-size: 19px;
         font-style: italic;
       }
