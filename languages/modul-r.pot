@@ -49,6 +49,14 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
+#: inc/enqueue-scripts.php:29
+msgid "Loading"
+msgstr ""
+
+#: inc/enqueue-scripts.php:30
+msgid "No more post"
+msgstr ""
+
 #: inc/sidebar.php:12, releases/1.0.2/modul-r/inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr ""
@@ -65,43 +73,43 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:18, releases/1.0.2/modul-r/inc/template-functions.php:18
+#: inc/template-functions.php:25, releases/1.0.2/modul-r/inc/template-functions.php:18
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:19, releases/1.0.2/modul-r/inc/template-functions.php:19
+#: inc/template-functions.php:26, releases/1.0.2/modul-r/inc/template-functions.php:19
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:30, releases/1.0.2/modul-r/inc/template-functions.php:30
+#: inc/template-functions.php:41, releases/1.0.2/modul-r/inc/template-functions.php:30
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:48, releases/1.0.2/modul-r/inc/template-functions.php:48
+#: inc/template-functions.php:62, releases/1.0.2/modul-r/inc/template-functions.php:48
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:54, releases/1.0.2/modul-r/inc/template-functions.php:54
+#: inc/template-functions.php:68, releases/1.0.2/modul-r/inc/template-functions.php:54
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:55, releases/1.0.2/modul-r/inc/template-functions.php:55
+#: inc/template-functions.php:69, releases/1.0.2/modul-r/inc/template-functions.php:55
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:79, releases/1.0.2/modul-r/inc/template-functions.php:79
+#: inc/template-functions.php:99, releases/1.0.2/modul-r/inc/template-functions.php:79
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:118, releases/1.0.2/modul-r/inc/template-functions.php:118
+#: inc/template-functions.php:140, releases/1.0.2/modul-r/inc/template-functions.php:118
 msgid "comments"
 msgstr ""
 
-#: inc/template-functions.php:144, releases/1.0.2/modul-r/inc/template-functions.php:144
+#: inc/template-functions.php:174, releases/1.0.2/modul-r/inc/template-functions.php:144
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:192, releases/1.0.2/modul-r/inc/template-functions.php:192
+#: inc/template-functions.php:225, releases/1.0.2/modul-r/inc/template-functions.php:192
 msgid "You might be interested in..."
 msgstr ""
 

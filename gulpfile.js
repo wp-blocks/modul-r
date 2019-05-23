@@ -20,6 +20,7 @@ const header = require('gulp-header');
 const del = require("del");
 const rename = require('gulp-rename');
 const notify = require("gulp-notify");
+const zip = require('gulp-zip');
 
 // Misc/global vars
 const pkg = JSON.parse(fs.readFileSync('./package.json'));
@@ -267,10 +268,12 @@ function watchImages() {
 const style = gulp.parallel(mainCSS, CSS, cssAtf);
 const scripts = gulp.parallel(vendorScript, userScript, mainScript);
 const BuildAll = gulp.series(clean, gulp.parallel( imageMinify, createPot, buildMainCSS, buildCSS, cssAtf, scripts ));
+const BuildRelease = gulp.series(BuildAll, zipRelease);
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
 exports.createPot = createPot;
 exports.BuildAll = BuildAll;
+exports.BuildRelease = BuildRelease;
 
 exports.watch = watch;
 
@@ -286,5 +289,6 @@ exports.buildCSS = buildCSS;
 exports.buildMainCSS = buildMainCSS;
 
 exports.imageMinify = imageMinify;
+exports.zipRelease = zipRelease;
 
 exports.default = BuildAll;
