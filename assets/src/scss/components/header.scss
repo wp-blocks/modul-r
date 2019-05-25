@@ -103,7 +103,7 @@
 
     .custom-logo {
       object-fit: contain;
-      height: #{$size__branding-height *.5};
+      height: $size__branding-logo-ratio;
   
       @if($head__direction == row) {
         object-position: left;

@@ -109,43 +109,38 @@ $nav_padding: 0 ($size__margin * 4);
   }
 }
 
+ul.sub-menu {
+  position: absolute;
+  z-index: 1010;
+  flex-direction: column;
+  top: 100%;
+  left: 0;
+  
+  opacity: 0;
+  height: 0;
+  width: auto;
+  overflow: hidden;
 
+  background-color: darken($color__nav-background, 5%);
+  transition: $animations__lenght * .5;
+  transition-delay: 0ms;
 
-
-@if($nav__dropdown == 1) {
   ul.sub-menu {
-    position: absolute;
-    z-index: 1010;
-    flex-direction: column;
-    top: 100%;
-    left: 0;
-    
-    opacity: 0;
-    height: 0;
-    width: auto;
-    overflow: hidden;
+    top: 0;
+    left: 100%;
+    background-color: darken($color__nav-background, 10%);
+    &.active {opacity: 1;}
+  }
 
-    background-color: darken($color__nav-background, 5%);
-    transition: $animations__lenght * .5;
-    transition-delay: 0ms;
+  &.active {
+    transition: $animations__lenght ease-out;
+    transition-delay: 100ms;
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+  }
   
-    ul.sub-menu {
-      top: 0;
-      left: 100%;
-      background-color: darken($color__nav-background, 10%);
-      &.active {opacity: 1;}
-    }
-  
-    &.active {
-      transition: $animations__lenght ease-out;
-      transition-delay: 100ms;
-      height: auto;
-      opacity: 1;
-      overflow: visible;
-    }
-    
-    li {
-      &:hover {background-color: darken($color__nav-background, 8%);}
-    }
+  li {
+    &:hover {background-color: darken($color__nav-background, 8%);}
   }
 }
