@@ -46,7 +46,7 @@
       }
   
       @if($head__direction == column) {
-        height: 64px;
+        height: $size__branding-height;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -87,10 +87,10 @@
   
     // Custom logo
     .site-logo {
-      box-sizing: border-box;
+      box-sizing: content-box;
   
       @media #{$smaller-than-tablet} {
-        height: $head__height-responsive;
+        height: $head__height-responsive - ($size__margin * 2);;
         max-width: 60%;
       }
     }
@@ -98,23 +98,23 @@
     .custom-logo-link {
       display: flex;
       height: 100%;
+      align-items: center;
     }
 
     .custom-logo {
       object-fit: contain;
+      height: #{$size__branding-height *.5};
   
       @if($head__direction == row) {
-        max-height: $nav__height - ($size__margin * 2);
         object-position: left;
       } @elseif($head__direction == column) {
-        max-height: $nav__height - ($size__margin * 2);
         align-self: center;
         margin-left: auto;
         margin-right: auto;
       }
       
       @media #{$smaller-than-tablet} {
-        max-height: 100%;
+        max-height: $head__height-responsive - ($size__margin * 2);
         object-position: left;
       }
     }
