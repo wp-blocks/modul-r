@@ -25,7 +25,7 @@ h1 {
 }
 
 h2 {
-  color: $color__black;
+	color: $color__black;
 	font-size: 36px;
 	@media #{$smaller-than-tablet} {font-size: 28px;}
 }
@@ -49,7 +49,7 @@ h4 {
 
 
 h5 {
-  color: var(--color-secondary);
+	color: var(--color-secondary);
 }
 
 h5, h6 {
@@ -71,26 +71,26 @@ p {
 	@media #{$phablet} {font-size: $text__size - 2;}
 }
 
-p { 
+p {
 	margin: 0 0 $size__margin;
 	line-height: $text__line-height;
 }
 
 b, strong, a {
-  font-weight: 600;
+	font-weight: 600;
 }
-
 ul, ol, dl {
-    margin-top: $size__margin;
-    margin-bottom: $size__margin;
-    padding: 0;
-    list-style-position: inside;
-
+	margin-top: $size__padding * .5;
+	margin-bottom: $size__padding * .5;
+	padding: 0;
+	list-style-position: inside;
+	
 	li, dt {
-		line-height: $text__line-height * 1.5;
-    margin-left: 0;
-    li, dt {
-      margin-left: $size__margin * 4;
-    }
+		line-height: $text__line-height;
+		padding-left: $size__margin;
+		margin-bottom: $size__margin * 1.5;
+		li, dt {
+			margin-left: $size__margin * 4;
+		}
 	}
 }

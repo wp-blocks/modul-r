@@ -20,11 +20,6 @@
 		margin-top: 0;
 		margin-bottom: 0;
 		
-		&.padded-image img {
-			padding: $size__padding ($size__padding * 0.25) $size__padding $size__padding;
-			box-sizing: border-box;
-		}
-		
 		&.has-media-on-the-right.padded-image img {
 			margin-right: $size__padding;
 			margin-left: 0;
@@ -485,9 +480,17 @@
 	
 	//! Media Text
 	.wp-block-media-text{
+		
 		.wp-block-media-text__media {
 			margin-top: 0;
 			margin-bottom: 0;
+		}
+		
+		&.padded-image img {
+			max-height: 60vh;
+			object-fit: contain;
+			padding: $size__padding ($size__padding * 0.25) $size__padding $size__padding;
+			box-sizing: border-box;
 		}
 		
 		.wp-block-media-text__content {
@@ -633,7 +636,7 @@
 		}
 		
 		/* Remove duplicate rule-line when a separator
-		 * is followed by an H1, or H2 */
+     * is followed by an H1, or H2 */
 		& + h1,
 		& + h2 {
 			
