@@ -5,9 +5,10 @@
  */
 if ( ! function_exists('modu_post_image') ) :
 	function modu_post_image() {
+      // TODO: provide more options for the featured image like the possibility to choose if parallaxed or not
       if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
           <div class="entry-image interactive">
-              <?php the_post_thumbnail('fullwidth', array('class' => 'fit-image wp-post-image')); ?>
+              <?php the_post_thumbnail('modul-r-fullwidth', array('class' => 'fit-image wp-post-image')); ?>
           </div>
       <?php endif;
 	}

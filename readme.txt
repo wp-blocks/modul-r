@@ -60,8 +60,9 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 = 1.0.0 =
 * First release
 
-== TODO ==
+== TODOS ==
 * A better way to change the primary and secondary color, if possibile with che wp customizer
+* Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
 * Create my own icons for the social media / mail / print
 * Rework sticky post + article author + footer style
 

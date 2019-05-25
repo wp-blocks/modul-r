@@ -73,43 +73,43 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:25
+#: inc/template-functions.php:26
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:26
+#: inc/template-functions.php:27
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:41
+#: inc/template-functions.php:42
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:62
+#: inc/template-functions.php:63
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:68
+#: inc/template-functions.php:69
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:69
+#: inc/template-functions.php:70
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:99
+#: inc/template-functions.php:100
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:140
+#: inc/template-functions.php:141
 msgid "comments"
 msgstr ""
 
-#: inc/template-functions.php:174
+#: inc/template-functions.php:175
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:225
+#: inc/template-functions.php:226
 msgid "You might be interested in..."
 msgstr ""
 
