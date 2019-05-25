@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+jQuery(document).ready(function($){
 
-  let $ = jQuery;
   // Initiate Masonry
   let $container = $('#masonry-wrapper');
 

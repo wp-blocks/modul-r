@@ -709,7 +709,7 @@
 	//! Code
 	.wp-block-code {
 		border-radius: 0;
-    max-width: $size__site-width - (#{$size__side-padding} * 2) ;
+    max-width: #{$size__site-width - ($size__side-padding * 2)};
 
 		code {}
 	}

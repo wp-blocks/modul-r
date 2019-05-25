@@ -104,10 +104,10 @@
       object-fit: contain;
   
       @if($head__direction == row) {
-        max-height: $nav__height - ($size__margin * 2) ;
+        max-height: $nav__height - ($size__margin * 2);
         object-position: left;
       } @elseif($head__direction == column) {
-        height: 60%;
+        max-height: $nav__height - ($size__margin * 2);
         align-self: center;
         margin-left: auto;
         margin-right: auto;
@@ -118,7 +118,6 @@
         object-position: left;
       }
     }
- 
     
   }
 }
