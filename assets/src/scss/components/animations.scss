@@ -14,7 +14,7 @@
     &.long-delay * {
       transition-delay: 3s;
     }
-   
+    
     &.fade-in {
       img {opacity: 0;}
       &.already-see img {opacity: 1;}
@@ -43,22 +43,16 @@
         }
       }
     }
-    
   }
   
- 
+  
+  
   &.parallax {
-    img {
-      height: calc(100% + 200px);
-      margin-bottom: -200px !important;
+    figure {
+      height: 100%;
+      img {
+        height: calc(100% + 200px);
+      }
     }
   }
-  
-  &.already-see {
-  
-  }
-  
 }
-
-
-

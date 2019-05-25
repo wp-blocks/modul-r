@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#118886">
     <style><?php // include the above the fold style and, remind, include is different than enqueue and the code will be added directly to the page
-	    include (TEMPLATEPATH . '/assets/dist/css/atf.css' );
+	    include_once( get_stylesheet_directory() .'/assets/dist/css/atf.css' );
 	  ?></style>
     <?php wp_head(); ?>
 </head>
