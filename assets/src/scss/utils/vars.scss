@@ -38,13 +38,13 @@ $head__direction: row; // row or column
 $size__branding-height: 68px;
 $nav__height: 48px;
 $size__branding-logo-ratio: $size__branding-height *.5;
+
 // HEADER RESP
 $head__height-responsive: 48px;
 
 // HAMBURGER MENU
-$hamburger__size: 40px;
-$hamburger__margin: $size__margin;
-$hamburger__weight: 2.5px;
+$hamburger__size: 36px;
+$hamburger__weight: 3px;
 $hamburger__color: $color__primary;
 
 // SCROLLBAR

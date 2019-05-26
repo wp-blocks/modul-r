@@ -5,7 +5,7 @@
   position: absolute;
   z-index: 1020;
   top: ($head__height-responsive - $hamburger__size) * .5;
-  right: $size__padding-resp - $hamburger__margin;
+  right: $size__padding-resp;
   
   @media #{$smaller-than-tablet} {
     display: block;
@@ -20,6 +20,7 @@ button.c-hamburger {
   margin: 0;
   padding: 0;
   width: $hamburger__size;
+  min-width: inherit;
   height: $hamburger__size;
   font-size: 0;
   text-indent: -9999px;
@@ -35,8 +36,8 @@ button.c-hamburger {
     display: block;
     position: absolute;
     top: $hamburger__size * .5;
-    left: $hamburger__margin * 1.2;
-    right: $hamburger__margin * 1.2;
+    left: 0;
+    right: 0;
     height: $hamburger__weight;
     background: $hamburger__color;
     transition: background 0.15s 0.1s;transition-delay: 0.1s, 0s;

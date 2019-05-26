@@ -34,6 +34,10 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
+= 1.0.7 =
+* Enhancement of child theme compatibility
+* Header, navbar, blocks style optimization (added some customizations features for the header)
+
 = 1.0.6 =
 * Source code optimization & bug correction
 
