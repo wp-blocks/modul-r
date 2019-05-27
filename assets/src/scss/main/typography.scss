@@ -46,8 +46,6 @@ h4 {
 	@media #{$smaller-than-tablet} {font-size: 19px;}
 }
 
-
-
 h5 {
 	color: var(--color-secondary);
 }
@@ -58,7 +56,6 @@ h5, h6 {
 	font-weight: 500;
 	@media #{$smaller-than-tablet} {font-size: $text__size - 2;}
 }
-
 
 
 
@@ -79,18 +76,14 @@ p {
 b, strong, a {
 	font-weight: 600;
 }
+
+
+
 ul, ol, dl {
-	margin-top: $size__padding * .5;
-	margin-bottom: $size__padding * .5;
-	padding: 0;
-	list-style-position: inside;
+  margin: ($size__padding * .5) 0 ;
 	
 	li, dt {
 		line-height: $text__line-height;
-		padding-left: $size__margin;
 		margin-bottom: $size__margin * 1.5;
-		li, dt {
-			margin-left: $size__margin * 4;
-		}
 	}
 }

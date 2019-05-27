@@ -51,13 +51,18 @@
 $image-size: 150px;
 .relateds {
   
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  
   li {
     display: block;
-    margin: $size__margin 0 $size__margin * 4;
+    padding: 0;
+    margin: $size__margin 0 ($size__padding * .75);
     clear: both;
     font-weight: 400;
     
-    h5 {  }
     p {
       font-size: .9em;
       font-weight: 400;
@@ -67,7 +72,6 @@ $image-size: 150px;
       float:left;
       clear: both;
       width: $image-size;
-      margin-right: 24px;
       margin-right: 24px;
       margin-bottom: 24px;
       @media #{$smaller-than-tablet} {
@@ -135,7 +139,7 @@ $image-size: 150px;
 
 .post-navigation {
   .navigation {
-    margin-top: $size__margin;
+    margin-top: $size__margin * 2;
     & > div {
       height: 60px;
     }

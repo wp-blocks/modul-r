@@ -56,6 +56,22 @@ p code {
 // Tags arrowed style
 .post-tags {
 	list-style: none;
+	
+	h3 {
+		display: inline-block;
+		vertical-align: sub;
+	}
+	
+	ul {
+		display: inline-block;
+		margin: 0;
+		padding-left: $size__margin * 2.5;
+	}
+	
+	li.post-tag {
+		margin: 0 10px 10px 0;
+		padding: 0 20px 0 25px;
+	}
 }
 
 .post-tag {
@@ -64,9 +80,7 @@ p code {
 	display: inline-block;
 	height: 22px;
 	line-height: 18px;
-	padding: 0 20px 0 25px;
 	position: relative;
-	margin: 0 10px 10px 0;
 	
 	a {
 		font-size: 11px;

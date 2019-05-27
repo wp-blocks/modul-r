@@ -6,6 +6,9 @@ $nav_padding: 0 ($size__margin * 4);
     display: flex;
     height: $nav__height;
     margin: 0;
+    @if($head__direction == column) {
+      padding: 0 $size__padding-resp;
+    }
   
     justify-content: center;
   
@@ -51,16 +54,16 @@ $nav_padding: 0 ($size__margin * 4);
     
   }
   
-  .main-menu > li:first-child a {
-    padding-left: 0;
+  .main-menu > li {
+    &:first-child a {
+      padding-left: 0;
+    }
     
-    a { padding: $nav_padding;}
-  }
-  
-  .main-menu > li:last-child a {
-    padding-right: 0;
-    
-    a { padding: $nav_padding;}
+    &:last-child a {
+      padding-right: 0;
+    }
+   
+    li a { padding: $nav_padding !important;}
   }
   
   .menu-shadow {
@@ -127,6 +130,7 @@ ul.sub-menu {
   opacity: 0;
   height: 0;
   width: auto;
+  padding: 0;
   overflow: hidden;
 
   background-color: darken($color__nav-background, 5%);

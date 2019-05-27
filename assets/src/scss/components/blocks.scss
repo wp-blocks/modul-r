@@ -98,9 +98,48 @@
 
 // paragraph distance fix
 .site-main .entry-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: $size__padding;
+    margin-bottom: $size__padding * .25;
+  }
+  
   p {
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: $size__padding * .25;
+    margin-bottom: $size__padding * .25;
+  
+    & + h1,
+    & + h2 {
+      margin-top: $size__padding;
+    }
+  
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6 {
+      margin-top: $size__padding * .5;
+    }
+  }
+  
+  ul, ol, dl {
+    padding: ($size__padding * .5) 0 ($size__padding * .5) $size__padding;
+    list-style-position: outside;
+    
+    li, dt {
+      padding-left: $size__margin;
+    }
+    
+    ul, ol {
+      padding-left: $size__padding * .5;
+    }
+  }
+  
+  button {
+    margin-top: $size__padding * .5;
   }
 }
 
@@ -598,6 +637,10 @@
   //! Galleries
   .wp-block-gallery {
     list-style-type: none;
+  
+    .blocks-gallery-item {
+      padding: 0;
+    }
     
     .blocks-gallery-image:last-child,
     .blocks-gallery-item:last-child {
@@ -638,8 +681,8 @@
   .wp-block-separator,
   hr {
     height: 2px;
-    margin-bottom: (2 * $size__margin);
-    margin-top: (2 * $size__margin);
+    margin-top: $size__padding;
+    margin-bottom: $size__padding * .25;
     max-width: 2.25em;
     text-align: left;
     

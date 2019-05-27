@@ -1,12 +1,9 @@
 .interactive  {
-  overflow: hidden;
   
   // animation trigger
   // &.visible      img on/off when visible
   // &.already-see  executes only one time
   
-  &.animated {
-    
     * {
       transition-duration: $animations__lenght * 2;
     }
@@ -43,16 +40,24 @@
         }
       }
     }
-  }
+  
   
   
   
   &.parallax {
+    
+    overflow: hidden;
+    
+    * {transition: inherit;}
+    
     figure {
       height: 100%;
-      img {
-        height: calc(100% + 200px);
-      }
+      overflow: hidden;
+    }
+    
+    img {
+      height: calc(100% + 200px);
+      margin-bottom: -100px !important;
     }
   }
 }
