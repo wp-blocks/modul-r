@@ -14,7 +14,7 @@ if ( post_password_required() ) {
 
 // Display Comments Section
 if ( have_comments() ) : ?>
-  <h3 id="comments"><?php comments_number(__('No Responses', 'modul-r'), __('One Response', 'modul-r'), __('% Responses', 'modul-r'));?> <?php printf(__('to %s', 'modul-r'), the_title('', '', false)); ?></h3>
+  <h3 id="comments"><?php comments_number(__('No Responses',  'modul-r'), __('One Response',  'modul-r'), __('% Responses',  'modul-r'));?> <?php printf(__('to %s',  'modul-r'), the_title('', '', false)); ?></h3>
 
   <div class="navigation">
     <div class="alignleft"><?php previous_comments_link() ?></div>
@@ -26,32 +26,26 @@ if ( have_comments() ) : ?>
 	  <?php
 	  wp_list_comments(array(
 		  // see http://codex.wordpress.org/Function_Reference/wp_list_comments
-		  // 'login_text'        => 'Login to reply',
-		  // 'callback'          => null,
-		  // 'end-callback'      => null,
-		  // 'type'              => 'all',
-		   'avatar_size'       => 90,
-		  // 'reverse_top_level' => null,
-		  // 'reverse_children'  =>
+		   'avatar_size'       => 90
 	  ));
 	  ?>
   </ol>
 
 	<?php
 	if ( ! comments_open() ) : // There are comments but comments are now closed
-		echo"<p class='nocomments'>".__( 'Comments are closed.', 'modul-r' )."</p>";
+		echo"<p class='nocomments'>".__( 'Comments are closed.',  'modul-r' )."</p>";
 	endif;
 
 else : // I.E. There are no Comments
 	if ( comments_open() ) : // Comments are open, but there are none yet
-		echo "<p>".__( 'Be the first to write a comment.', 'modul-r' )."</p>";
+		echo "<p>".__( 'Be the first to write a comment.',  'modul-r' )."</p>";
 	else : // comments are closed
-		 echo "<p class='nocomments'>".__( 'Comments are closed.', 'modul-r' )."</p>";
+		 echo "<p class='nocomments'>".__( 'Comments are closed.',  'modul-r' )."</p>";
 	endif;
 endif;
 
 $comments_settings = array(
-	'title_reply' => __( 'Comments', 'modul-r' ),
+	'title_reply' => __( 'Comments',  'modul-r' ),
 	'comment_notes_after' => ''
 );
 

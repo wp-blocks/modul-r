@@ -5,7 +5,7 @@
  */
 if ( ! function_exists('modu_theme_style') ) :
 	function modu_theme_style() {
-		wp_enqueue_style( 'theme-style', get_stylesheet_uri(), array(), null );
+		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array(), null );
 	}
 endif;
 add_action( 'get_footer', 'modu_theme_style' );
@@ -26,8 +26,8 @@ if ( ! function_exists('modu_theme_scripts') ) :
 
 		$masonry_args = array(
 			'templateUrl' => get_template_directory_uri(),
-			'loading' => __('Loading', 'modul-r' ),
-			'end' => __('No more post', 'modul-r' )
+			'loading' => __('Loading',  'modul-r' ),
+			'end' => __('No more post',  'modul-r' )
 		);
 
 		wp_localize_script( 'scripts-main', 'masonry_args', $masonry_args );

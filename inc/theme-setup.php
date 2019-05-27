@@ -6,7 +6,7 @@ function modu_theme_setup() {
 	* Make theme available for translation.
 	* Translations can be filed in the /languages/ directory.
 	*/
-	load_theme_textdomain( 'modul-r', get_template_directory() . '/languages' );
+	load_theme_textdomain(  'modul-r', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -36,7 +36,7 @@ function modu_theme_setup() {
 	add_image_size( 'modul-r-fullwidth', 1920, 9999 ); // 1920px width & unlimited height
 
 	// This theme uses wp_nav_menu() in Primary Navigation.
-	register_nav_menu('header-main',__( 'Primary Navigation', 'modul-r' ));
+	register_nav_menu('header-main',__( 'Primary Navigation',  'modul-r' ));
 
 	add_theme_support( 'custom-header' );
 	add_theme_support( 'custom-background' );
@@ -76,7 +76,7 @@ function modu_theme_setup() {
 	add_theme_support( 'editor-styles' );
 
 	// Enqueue editor styles.
-	add_editor_style( 'style-editor.css' );
+	add_editor_style( get_stylesheet_directory() .'/assets/dist/css/style-editor.css' );
 
 	// Add support for responsive embedded content.
 	add_theme_support( 'responsive-embeds' );

@@ -26,7 +26,7 @@
 
 	    <?php modu_social_sharer(); ?>
 
-      <?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
+      <?php modu_archive_nav(); ?>
 
     </div>
 

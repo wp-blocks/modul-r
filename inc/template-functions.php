@@ -23,8 +23,8 @@ if ( ! function_exists( 'modu_archive_nav' ) ) :
 
 	  $pagination = get_the_posts_pagination( array(
 		  'mid_size'  => 5,
-		  'prev_text' => __( 'Prev', 'modul-r' ),
-		  'next_text' => __( 'Next', 'modul-r'),
+		  'prev_text' => __( 'Prev',  'modul-r' ),
+		  'next_text' => __( 'Next',  'modul-r'),
 	  ) );
 
 	  return $pagination;
@@ -39,7 +39,7 @@ endif;
 if ( ! function_exists( 'modu_post_nav' ) ) :
 	function modu_post_nav() { ?>
   <div class="post-navigation">
-    <h3><?php _e('Post navigation', 'modul-r'); ?></h3>
+    <h3><?php _e('Post navigation',  'modul-r'); ?></h3>
     <div class="navigation">
       <div class="alignleft">
 	  	  <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
@@ -60,14 +60,14 @@ if ( ! function_exists( 'modu_page_links' ) ) :
 	function modu_page_links() {
 
 	  $defaults = array(
-		  'before'           => '<p>' . __( 'Pages:', 'modul-r' ),
+		  'before'           => '<p>' . __( 'Pages:',  'modul-r' ),
 		  'after'            => '</p>',
 		  'link_before'      => '',
 		  'link_after'       => '',
 		  'next_or_number'   => 'number',
 		  'separator'        => ' ',
-		  'nextpagelink'     => __( 'Next page', 'modul-r'),
-		  'previouspagelink' => __( 'Previous page', 'modul-r' ),
+		  'nextpagelink'     => __( 'Next page',  'modul-r'),
+		  'previouspagelink' => __( 'Previous page',  'modul-r' ),
 		  'pagelink'         => '%'
 	  );
 
@@ -97,7 +97,7 @@ if ( ! function_exists('modu_tags') ) :
 
 		if( has_tag() ): ?>
 			<div class="post-tags">
-				<h3><?php _e('Tags:', 'modul-r'); ?></h3>
+				<h3><?php _e('Tags:',  'modul-r'); ?></h3>
 				<ul><?php the_tags( '<li class="post-tag">', '</li><li class="post-tag">', '</li>');  ?></ul>
 			</div>
 		<?php endif;
@@ -138,7 +138,7 @@ if ( ! function_exists('modu_meta') ) :
 
       <p>
         <a href="<?php the_permalink(); ?>#comments">
-	        <?php echo get_comment_count($post->ID)['approved']; ?> <?php _e('comments', 'modul-r'); ?>
+	        <?php echo get_comment_count($post->ID)['approved']; ?> <?php _e('comments',  'modul-r'); ?>
         </a>
       </p>
 
@@ -172,7 +172,7 @@ if ( ! function_exists('modu_social_sharer') ) :
 	function modu_social_sharer() {
     ?>
     <div id="share-buttons">
-      <h3><?php _e('Share this post', 'modul-r'); ?></h3>
+      <h3><?php _e('Share this post',  'modul-r'); ?></h3>
 
       <!-- Facebook -->
       <a href="http://www.facebook.com/sharer.php?u=<?php echo get_page_link(); ?>" target="_blank">
@@ -223,7 +223,7 @@ if ( ! function_exists('modu_relateds') ) :
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) : ?>
 
-      <h3><?php _e('You might be interested in...', 'modul-r'); ?></h3>
+      <h3><?php _e('You might be interested in...',  'modul-r'); ?></h3>
       <ul>
 
       <?php while ( $query->have_posts() ) : $query->the_post();

@@ -36,7 +36,7 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 = 1.0.8 =
 * Text typography enhancement
-*
+* text domain lowercase (and also renamed the git repos)
 
 = 1.0.7 =
 * Enhancement of child theme compatibility
