@@ -1,3 +1,7 @@
 @charset "UTF-8";
 
-.wp-block { max-width: 1000px;}
+@import "utils/vars";
+@import "utils/media-queries";
+
+@import "main/fonts";
+@import "main/typography";

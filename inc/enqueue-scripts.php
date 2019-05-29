@@ -47,12 +47,3 @@ add_action( 'wp_enqueue_scripts', 'modu_theme_scripts' ); // Add Theme admin scr
  */
 if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 
-/**
- * Add the editor stylesheet
- */
-if ( ! function_exists('modu_editor_styles') ) :
-	function modu_editor_styles() {
-		add_editor_style( get_template_directory_uri() . '/editor.css' );
-	}
-endif;
-add_action( 'admin_init', 'modu_editor_styles' );

@@ -8,6 +8,7 @@ h6 {
 	padding: 0;
 	color: $color__black;
 	line-height: $text__line-height-headline;
+	font-family: $font__family, sans-serif;
 	
 	a:hover {
 		text-decoration: none;
@@ -53,7 +54,6 @@ h5 {
 h5, h6 {
 	font-weight: 500;
 	font-size: $text__size;
-	font-weight: 500;
 	@media #{$smaller-than-tablet} {font-size: $text__size - 2;}
 }
 

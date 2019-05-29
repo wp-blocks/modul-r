@@ -1,1 +1,92 @@
-.wp-block{max-width:1000px}
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Material+Icons");
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 16px 0 8px;
+  padding: 0;
+  color: #44474e;
+  line-height: 1.2;
+  font-family: "Montserrat", sans-serif; }
+  h1 a:hover,
+  h2 a:hover,
+  h3 a:hover,
+  h4 a:hover,
+  h5 a:hover,
+  h6 a:hover {
+    text-decoration: none;
+    color: #7452b1; }
+
+h1, h2 {
+  font-weight: 300; }
+
+h1 {
+  font-size: 42px; }
+  @media (max-width: 1023px) {
+    h1 {
+      font-size: 36px; } }
+
+h2 {
+  color: #44474e;
+  font-size: 36px; }
+  @media (max-width: 1023px) {
+    h2 {
+      font-size: 28px; } }
+
+h3, h4 {
+  font-weight: 400; }
+
+h3 {
+  font-size: 28px; }
+  @media (max-width: 1023px) {
+    h3 {
+      font-size: 22px; } }
+  @media (max-width: 767px) {
+    h3 {
+      font-size: 20px; } }
+
+h4 {
+  font-size: 22px; }
+  @media (max-width: 1023px) {
+    h4 {
+      font-size: 19px; } }
+
+h5 {
+  color: var(--color-secondary); }
+
+h5, h6 {
+  font-weight: 500;
+  font-size: 17px; }
+  @media (max-width: 1023px) {
+    h5, h6 {
+      font-size: 15px; } }
+
+li,
+p {
+  font-size: 17px;
+  color: #5c6069; }
+  @media (max-width: 1023px) {
+    li,
+    p {
+      font-size: 16px; } }
+  @media (max-width: 500px) {
+    li,
+    p {
+      font-size: 15px; } }
+
+p {
+  margin: 0 0 8px;
+  line-height: 1.7; }
+
+b, strong, a {
+  font-weight: 600; }
+
+ul, ol, dl {
+  margin: 32px 0; }
+  ul li, ul dt, ol li, ol dt, dl li, dl dt {
+    line-height: 1.7;
+    margin-bottom: 12px; }
+
+/*# sourceMappingURL=editor.css.map */
