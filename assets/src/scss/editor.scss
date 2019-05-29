@@ -3,5 +3,14 @@
 @import "utils/vars";
 @import "utils/media-queries";
 
+@import "main/base";
 @import "main/fonts";
 @import "main/typography";
+
+.wp-block.editor-post-title__block .editor-post-title__input{
+  @extend %headline_style;
+}
+
+.editor-styles-wrapper {
+  li, p {@extend li, p;}
+}

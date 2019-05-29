@@ -1,0 +1,19 @@
+table {
+  width:100%;
+  max-width:100%;
+  border-collapse:collapse;
+  
+  tr {
+    th,
+    td {
+      padding: $size__margin * 1.5;
+    }
+    th {
+      background: $color__secondary;
+      color: #fff;
+    }
+    td {
+      border-bottom: 1px solid $color__light-grey;
+    }
+  }
+}

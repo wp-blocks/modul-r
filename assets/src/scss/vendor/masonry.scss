@@ -7,6 +7,9 @@
   
   .navigation {
     text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     a {
       flex-basis: 100%;
       font-size: 26px;
@@ -26,11 +29,11 @@ body.archive article.masonry-item {
   display: flex;
   flex-direction: column;
   
-  @media #{$tablet-portrait}{
+  @media #{$tablet}{
     width: calc(100% / 2);
   }
   
-  @media #{$phablet}{
+  @media #{$tablet-portrait}{
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -39,9 +42,11 @@ body.archive article.masonry-item {
   }
   
   .entry-image {
-    max-height: 60vh;
     width: 100%;
     margin: 0 0 $size__padding * .25;
+    img {
+      max-height: 60vh;
+    }
   }
   
   .article-wrapper {

@@ -126,7 +126,7 @@
   }
   
   ul, ol, dl {
-    padding: ($size__padding * .5) 0 ($size__padding * .5) $size__padding;
+    padding: ($size__padding * .5) $size__padding-resp ($size__padding * .5) $size__padding-resp;
     list-style-position: outside;
     
     li, dt {
@@ -134,13 +134,14 @@
     }
     
     ul, ol {
-      padding-left: $size__padding * .5;
+      padding-left: $size__padding-resp * 2;
     }
   }
   
   button {
     margin-top: $size__padding * .5;
   }
+  
 }
 
 /*

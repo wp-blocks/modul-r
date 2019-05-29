@@ -34,6 +34,10 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
+= 1.0.9 =
+* Editor style
+* Gutenberg blocks style enhancement
+
 = 1.0.8 =
 * Text typography enhancement
 * text domain lowercase (and also renamed the git repos)

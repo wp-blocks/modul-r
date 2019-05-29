@@ -37,37 +37,6 @@ iframe {
   max-width: 100%;
 }
 
-b,
-strong {
-  color: $color__bold;
-}
-
-a {
-  color: $color__link;
-  text-decoration: none;
-}
-
-
-table {
-  width:100%;
-  max-width:100%;
-  border-collapse:collapse;
-  
-  tr {
-    th,
-    td {
-      padding: $size__margin * 1.5;
-    }
-    th {
-      background: $color__secondary;
-      color: #fff;
-    }
-    td {
-      border-bottom: 1px solid $color__light-grey;
-    }
-  }
-}
-
 ::selection {
   background-color: transparentize($color__primary, 0.5) !important;
   color: white;

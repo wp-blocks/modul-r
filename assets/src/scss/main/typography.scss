@@ -1,14 +1,21 @@
+/* Headlines */
+
+%headline_style {
+	font-family: $font__family-headline;
+	color: $color__black;
+	font-weight: 300;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+	@extend %headline_style;
 	margin: ($size__margin * 2) 0 $size__margin;
 	padding: 0;
-	color: $color__black;
 	line-height: $text__line-height-headline;
-	font-family: $font__family, sans-serif;
 	
 	a:hover {
 		text-decoration: none;
@@ -16,9 +23,6 @@ h6 {
 	}
 }
 
-h1, h2 {
-	font-weight: 300;
-}
 
 h1 {
 	font-size: 42px;
@@ -26,14 +30,8 @@ h1 {
 }
 
 h2 {
-	color: $color__black;
 	font-size: 36px;
 	@media #{$smaller-than-tablet} {font-size: 28px;}
-}
-
-
-h3, h4 {
-	font-weight: 400;
 }
 
 h3 {
@@ -52,15 +50,16 @@ h5 {
 }
 
 h5, h6 {
-	font-weight: 500;
+	font-weight: 600;
 	font-size: $text__size;
 	@media #{$smaller-than-tablet} {font-size: $text__size - 2;}
 }
 
 
-
+/* Text and lists */
 li,
 p {
+	font-family: $font__family;
 	font-size: $text__size;
 	color: $color__text;
 	
@@ -73,14 +72,24 @@ p {
 	line-height: $text__line-height;
 }
 
+
+
 b, strong, a {
 	font-weight: 600;
 }
 
+b,
+strong {
+	color: $color__bold;
+}
 
+a {
+	color: $color__link;
+	text-decoration: none;
+}
 
 ul, ol, dl {
-  margin: ($size__padding * .5) 0 ;
+	margin: ($size__padding * .5) 0 ;
 	
 	li, dt {
 		line-height: $text__line-height;

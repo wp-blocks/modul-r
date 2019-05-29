@@ -37,15 +37,15 @@ msgstr ""
 msgid "to %s"
 msgstr ""
 
-#: comments.php:42, comments.php:49
+#: comments.php:36, comments.php:43
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:47
+#: comments.php:41
 msgid "Be the first to write a comment."
 msgstr ""
 
-#: comments.php:54
+#: comments.php:48
 msgid "Comments"
 msgstr ""
 
