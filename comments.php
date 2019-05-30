@@ -26,7 +26,7 @@ if ( have_comments() ) : ?>
 	  <?php
 	  wp_list_comments(array(
 		  // see http://codex.wordpress.org/Function_Reference/wp_list_comments
-		   'avatar_size'       => 90
+		   'avatar_size' => 90
 	  ));
 	  ?>
   </ol>

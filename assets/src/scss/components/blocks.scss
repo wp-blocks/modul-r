@@ -1,4 +1,5 @@
 /* !Block styles */
+
 .site-main .entry-content > *,
 .entry .entry-content > * {
   
@@ -96,7 +97,7 @@
   
 }
 
-// paragraph distance fix
+/* !Typography styles */
 .site-main .entry-content {
 
   overflow-x: hidden;
@@ -143,6 +144,11 @@
     }
   }
   
+  .wp-block-gallery {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
   button {
     margin-top: $size__padding * .5;
   }
@@ -172,6 +178,7 @@
   }
 }
 
+/* !Blocks styles */
 .entry-content {
   
   //! Subhead
@@ -184,8 +191,6 @@
   
   //! Audio
   .wp-block-audio {
-    
-    width: auto;
     
     audio {width: 100%;}
     
@@ -352,6 +357,8 @@
   
   //! Paragraphs
   .has-drop-cap {
+    margin-bottom: $size__padding * .5;
+    
     &:not(:focus):first-letter {
       font-family: $font__family-headline;
       line-height: 1;
@@ -392,12 +399,9 @@
     &.alignleft,
     &.alignright {
       width: 100%;
-      padding: 0;
       
       blockquote {
         margin: $size__margin 0;
-        padding: 0;
-        text-align: left;
         max-width: 100%;
         
         p:first-child {
@@ -643,6 +647,7 @@
   //! Galleries
   .wp-block-gallery {
     list-style-type: none;
+    
   
     .blocks-gallery-item {
       padding: 0;
@@ -693,6 +698,8 @@
     text-align: left;
     
     &.is-style-wide {
+      margin-left: 0;
+      margin-right: 0;
       max-width: 100%;
       border-bottom: 1px solid transparentize($color__black, .9 );
     }

@@ -23,8 +23,8 @@ if ( ! function_exists( 'modu_archive_nav' ) ) :
 
 	  $pagination = get_the_posts_pagination( array(
 		  'mid_size'  => 5,
-		  'prev_text' => __( 'Prev',  'modul-r' ),
-		  'next_text' => __( 'Next',  'modul-r'),
+		  'prev_text' => __( 'Prev', 'modul-r' ),
+		  'next_text' => __( 'Next', 'modul-r'),
 	  ) );
 
 	  return $pagination;
@@ -223,7 +223,7 @@ if ( ! function_exists('modu_relateds') ) :
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) : ?>
 
-      <h3><?php __('You might be interested in...',  'modul-r'); ?></h3>
+      <h3><?php _e('You might be interested in...', 'modul-r'); ?></h3>
       <ul>
 
       <?php while ( $query->have_posts() ) : $query->the_post();
