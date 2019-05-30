@@ -1,38 +1,37 @@
 <?php
 /**
  * The template for displaying 404 pages (not found)
- *
  */
 
 get_header();
 ?>
 
-    <section id="primary" class="content-area">
-        <main id="main" class="site-main">
+  <section id="primary" class="content-area">
+    <main id="main" class="site-main">
 
-            <div class="error-404 not-found">
-                <header class="page-header main-width">
-                    <h1 class="page-title">404</h1>
-                    <h2 class="text-center"><?php _e('Page not found',  'modul-r'); ?></h2>
-                </header><!-- /page-header -->
+      <div class="error-404 not-found">
+        <header class="page-header main-width">
+          <h1 class="page-title"><?php __('404', 'modul-r'); ?></h1>
+          <h2 class="text-center"><?php __('Page not found', 'modul-r'); ?></h2>
+        </header><!-- /page-header -->
 
-                <div class="page-content main-width">
+        <div class="page-content main-width">
 
-                    <p class="text-center"><?php _e('It looks like nothing was found at this location. Maybe try a search?',  'modul-r'); ?></p>
+          <p class="text-center"><?php __('It looks like nothing was found at this location. Maybe try a search?', 'modul-r'); ?></p>
 
-                    <div>
-                      <?php get_search_form(); ?>
-                    </div>
+          <div>
+			      <?php get_search_form(); ?>
+          </div>
 
-                    <div class="entry-footer">
-                      <?php modu_relateds(); ?>
-                    </div>
+          <div class="entry-footer">
+			      <?php modu_relateds(); ?>
+          </div>
 
-                </div><!-- /page-content -->
-            </div><!-- /error-404 -->
+        </div><!-- /page-content -->
+      </div><!-- /error-404 -->
 
-        </main><!-- /main -->
-    </section><!-- /primary -->
+    </main><!-- /main -->
+  </section><!-- /primary -->
 
 <?php
 get_footer();

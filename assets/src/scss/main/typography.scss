@@ -89,7 +89,8 @@ a {
 }
 
 ul, ol, dl {
-	margin: ($size__padding * .5) 0 ;
+	margin-top: $size__padding * .5;
+	margin-bottom: $size__padding * .5;
 	
 	li, dt {
 		line-height: $text__line-height;

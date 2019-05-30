@@ -44,9 +44,7 @@ else : // I.E. There are no Comments
 	endif;
 endif;
 
-$comments_settings = array(
+comment_form( array(
 	'title_reply' => __( 'Comments',  'modul-r' ),
 	'comment_notes_after' => ''
-);
-
-comment_form($comments_settings);
+) );

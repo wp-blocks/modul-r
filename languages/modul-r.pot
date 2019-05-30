@@ -13,11 +13,15 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:16
+#: 404.php:14
+msgid "404"
+msgstr ""
+
+#: 404.php:15
 msgid "Page not found"
 msgstr ""
 
-#: 404.php:21
+#: 404.php:20
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 

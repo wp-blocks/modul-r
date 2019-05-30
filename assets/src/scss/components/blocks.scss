@@ -129,9 +129,11 @@
   }
   
   ul, ol, dl {
-    padding: ($size__padding * .5) $size__padding-resp ($size__padding * .5) $size__padding-resp;
+    padding: 0 ($size__padding-resp * 2);
+    margin-top: $size__padding * .5;
+    margin-bottom: $size__padding * .5;
     list-style-position: outside;
-    
+
     li, dt {
       padding-left: $size__margin;
     }

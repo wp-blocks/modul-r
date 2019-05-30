@@ -116,7 +116,7 @@ function imageMinify() {
   .pipe(gulp.dest(opts.distPath + 'img/'));
 }
 
-// Wordpress pot translation file
+// WordPress pot translation file
 function createPot() {
   return gulp
     .src(opts.rootPath + '**/*.php')
@@ -173,7 +173,7 @@ function cssAtf() {
     .pipe(gulp.dest(opts.distPath + 'css/'));
 }
 
-// compile style.scss (the main wordpress style)
+// compile style.scss (the main WordPress style)
 function mainCSS() {
   return gulp
     .src(opts.devPath + 'scss/style.scss')

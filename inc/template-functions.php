@@ -223,7 +223,7 @@ if ( ! function_exists('modu_relateds') ) :
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) : ?>
 
-      <h3><?php _e('You might be interested in...',  'modul-r'); ?></h3>
+      <h3><?php __('You might be interested in...',  'modul-r'); ?></h3>
       <ul>
 
       <?php while ( $query->have_posts() ) : $query->the_post();
