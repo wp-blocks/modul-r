@@ -35,7 +35,7 @@ get_header();
           endif; ?>
         </div>
 
-        <div class="navigation">
+        <div class="masonry navigation">
           <?php next_posts_link(); ?>
         </div>
 
