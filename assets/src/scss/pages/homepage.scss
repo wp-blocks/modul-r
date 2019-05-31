@@ -55,13 +55,24 @@ body.home {
     }
   }
   
-  .wp-block-column {
-    h2,
-    h3,
-    h4,
-    p {
-      padding-left:10%;
-      padding-right:10%;
+  .wp-block-columns {
+  
+    @media #{$smaller-than-tablet} {
+      flex-direction: column;
+      .wp-block-column {
+        padding-bottom: $size__padding * .5;
+      }
+    }
+    
+    .wp-block-column {
+      h2,
+      h3,
+      h4,
+      p {
+        margin-top: $size__margin * 2;
+        padding-left:10%;
+        padding-right:10%;
+      }
     }
   }
   

@@ -113,8 +113,19 @@ $arrowSize: 60px;
   @extend .arrow-prev;
 }
 
-.slider button.slick-prev {margin-left: $arrowSize * -1;}
-.slider button.slick-next {margin-right: $arrowSize * -1;}
+.slider button.slick-prev {
+  margin-left: $arrowSize * -1;
+  @media #{$smaller-than-tablet} {
+    margin-left: $arrowSize * .5;
+  }
+}
+
+.slider button.slick-next {
+  margin-right: $arrowSize * -1;
+  @media #{$smaller-than-tablet} {
+    margin-right: $arrowSize * .5;
+  }
+}
 
 
 .fancybox-navigation .fancybox-button--arrow_left:disabled,

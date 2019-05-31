@@ -74,6 +74,7 @@ $image-size: 150px;
       width: $image-size;
       margin-right: 24px;
       margin-bottom: 24px;
+      max-height: $image-size;
       @media #{$smaller-than-tablet} {
         width:  $image-size * .5;
       }

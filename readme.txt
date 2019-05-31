@@ -79,6 +79,7 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 * Rework sticky post + article author + footer style
 
 == Resources ==
+* infinite-scroll.js - 2019 David DeSandro, GPL3
 * fancybox.js © 2008 - 2019 fancyapps, GPL3
 * slick.js © 2017 Ken Wheeler, MIT
 * normalize.css © 2019 Nicolas Gallagher and Jonathan Neal, MIT

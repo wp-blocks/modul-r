@@ -5,7 +5,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( array('masonry-item')); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( array('grid__item')); ?>>
 
   <?php modu_post_image(); ?>
 

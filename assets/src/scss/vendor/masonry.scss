@@ -1,52 +1,48 @@
-.masonry {
-  #masonry-wrapper {
-    transition: 1s;
-    transition-delay: .5s;
-    overflow: hidden;
-  }
-  
-  .navigation {
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    a {
-      flex-basis: 100%;
-      font-size: 26px;
-      color: #aaa;
-      font-weight: 300;
-    }
+
+.masonry-wrapper {
+  position: relative;
+  overflow: hidden;
+  transition-duration: .8s;
+  transition-delay: .2s;
+}
+
+.navigation {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  a {
+    flex-basis: 100%;
+    font-size: 26px;
+    color: #aaa;
+    font-weight: 300;
+    opacity: 0;
   }
 }
 
 
-body.archive article.masonry-item {
-  width: calc(100% / 3);
-  padding: 0 3% ($size__margin * 4);
-  margin-top: $size__margin * 2;
-  box-sizing: border-box;
+.grid__item,
+.grid__col-sizer {
+  width: 30%;
+  @media #{$tablet}{ width: calc(100% / 2);}
+  @media #{$tablet-portrait}{ width: 100%;}
   
+}
+
+.grid__gutter-sizer { width: 5%; }
+
+
+body.archive article.grid__item {
+  padding: 0 0 40px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   
-  @media #{$tablet}{
-    width: calc(100% / 2);
-  }
-  
-  @media #{$tablet-portrait}{
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: $size__padding-resp * .5;
-    padding-right: $size__padding-resp * .5;
-  }
-  
+
   .entry-image {
     width: 100%;
     margin: 0 0 $size__padding * .25;
-    img {
-      max-height: 60vh;
-    }
+    img { max-height: 600px}
   }
   
   .article-wrapper {
@@ -66,22 +62,9 @@ body.archive article.masonry-item {
 }
 
 
-#infscr-loading {
+
+.page-load-status {
+  display: none; /* hidden by default */
+  padding-top: $size__padding * .5;
   text-align: center;
-  font-size: 15px;
-  z-index: 1;
-  position: fixed;
-  border-radius: 4px;
-  right: $size__padding;
-  bottom: $size__padding;
-  width: 125px;
-  padding: $size__margin * 2;
-  background: $color__white;
-  color: $color__dark-grey;
-  
-  @extend .elevation-01;
-  
-  img {
-    margin: 12px 0;
-  }
 }

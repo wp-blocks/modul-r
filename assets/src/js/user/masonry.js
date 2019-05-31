@@ -1,48 +1,29 @@
+
 jQuery(document).ready(function($){
 
-  // Initiate Masonry
-  let $container = $('#masonry-wrapper');
+  const $container = document.getElementById('masonry-wrapper');
 
-  if ($container.length) {
+  let msnry = new Masonry($container, {
+    // Masonry options...
+    itemSelector: '.grid__item', // select none at first
+    columnWidth: '.grid__col-sizer',
+    gutter: '.grid__gutter-sizer',
+    percentPosition: true,
+    transitionDuration: '0.8s',
+  });
 
-    $container.imagesLoaded(function () {
-      $container.masonry({
-        itemSelector: '.masonry-item',
-        columnWidth: '.masonry-item',
-        isAnimated: true,
-        animationOptions: {
-          duration: 750,
-          easing: 'linear',
-          queue: false
-        }
-      });
-    });
+  // init Infinite Scroll
+  let infScroll = new InfiniteScroll($container, {
+    // Infinite Scroll options...
+    path: '.navigation a', // selector for the NEXT link (to page 2)
+    append: '.grid__item', // selector for all items you'll retrieve
+    outlayer: msnry,
+    history: false,
+    status: '.page-load-status',
+  });
 
-    $container.infinitescroll({
-        debug: false,
-        navSelector: '.navigation', // selector for the paged navigation
-        nextSelector: '.navigation a', // selector for the NEXT link (to page 2)
-        itemSelector: '.masonry-item', // selector for all items you'll retrieve
-        behavior: 'local',
-        container: '#main',
-        loading: {
-          msgText: masonry_args.loading,
-          finishedMsg: masonry_args.end,
-          img: masonry_args.templateUrl + '/assets/dist/img/elements/loader.svg'
-        }
-      },
-      // trigger Masonry as a callback
-      function (newElements) {
-        // hide new items while they are loading
-        let $newElems = $(newElements).css({opacity: 0});
-        // ensure that images load before adding to masonry layout
-        $newElems.imagesLoaded(function () {
-          // show elems now they're ready
-          $newElems.animate({opacity: 1});
-          $container.masonry('appended', $newElems, true);
-        });
-      }
+  imagesLoaded( $container, function( instance ) {
+    msnry.layout()
+  });
 
-    );
-  }
 });
