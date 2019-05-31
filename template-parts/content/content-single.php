@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php modu_post_image(); ?>
+	<?php modu_post_image('parallax'); ?>
 
 	<header class="entry-header main-width alignwide">
 

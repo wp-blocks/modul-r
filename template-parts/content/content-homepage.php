@@ -6,7 +6,7 @@
 ?>
 
 <div class="website-hero text-center">
-	<?php modu_post_image(); ?>
+	<?php modu_post_image('parallax'); ?>
   <div class="hero-title text-center">
     <h1><?php bloginfo( 'name' ); ?></h1>
     <p><?php bloginfo('description'); ?></p>

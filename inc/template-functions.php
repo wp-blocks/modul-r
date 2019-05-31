@@ -2,12 +2,13 @@
 
 /**
  * Displays the featured image of the post/page
+ * you can pass single or multiple classes to the image wrapper
  */
 if ( ! function_exists('modu_post_image') ) :
-	function modu_post_image() {
-      // TODO: provide more options for the featured image like the possibility to choose if parallaxed or not
-      if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-          <div class="entry-image interactive">
+	function modu_post_image($class = null) {
+	    // Check if Thumbnail exists
+      if ( has_post_thumbnail()) : ?>
+          <div class="entry-image interactive<?php echo ' '.$class; ?>">
               <?php the_post_thumbnail('modul-r-fullwidth', array('class' => 'fit-image wp-post-image')); ?>
           </div>
       <?php endif;
