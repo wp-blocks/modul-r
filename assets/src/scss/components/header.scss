@@ -40,6 +40,7 @@
     .site-branding {
       width: 100%;
       display: flex;
+      flex-direction: column;
       
       @if($head__direction == row) {
         padding-top: $size__margin;
@@ -48,7 +49,6 @@
   
       @if($head__direction == column) {
         height: $size__branding-height;
-        flex-direction: column;
         justify-content: center;
         text-align: center;
       }
