@@ -33,7 +33,7 @@
   &:before {
     content: '\E8B6';
     font-family: 'Material Icons';
-    color: $color__white;
+    color: var(--color-white);
     font-size: 28px;
     display: block;
     width: 24px;

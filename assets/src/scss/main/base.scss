@@ -1,12 +1,3 @@
-// TODO: Better color management
-:root {
-  --color-primary: #{$color__primary};
-  --color-secondary: #{$color__secondary};
-  --color-black: #{$color__black};
-  --color-text: #{$color__text};
-  --color-white: #{$color__white};
-}
-
 html,
 body {
   margin: 0;
@@ -14,7 +5,7 @@ body {
 }
 
 html {
-  background-color: $color__background-body;
+  background-color: $color__background;
   max-width: 100%;
   overflow-x: hidden;
   -ms-text-size-adjust: 100%;
@@ -26,7 +17,7 @@ body {
   box-sizing: border-box;
   min-height: 100%;
   font-family: $font__family, sans-serif;
-  color: $color__text;
+  color: var(--color-text);
   font-size: $text__size;
   line-height: $text__line-height;
   word-break: break-word;
@@ -41,3 +32,4 @@ iframe {
   background-color: transparentize($color__primary, 0.5) !important;
   color: white;
 }
+

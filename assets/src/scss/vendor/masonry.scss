@@ -13,8 +13,7 @@
   width: 100%;
   a {
     flex-basis: 100%;
-    font-size: 26px;
-    color: #aaa;
+    color: $color__light-grey;
     font-weight: 300;
     opacity: 0;
   }
@@ -48,7 +47,7 @@ body.archive article.grid__item {
   .article-wrapper {
     width: 100%;
     padding-bottom: $size__margin * 4;
-    border-bottom: 1px solid darken($color__background-body, 5%);
+    border-bottom: 1px solid var(--color-light-grey);
   }
   
   .entry-header {

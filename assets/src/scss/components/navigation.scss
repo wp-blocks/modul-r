@@ -34,7 +34,7 @@ $nav_padding: 0 ($size__margin * 4);
       padding: $nav_padding;
       box-sizing: border-box;
   
-      color: $color__white;
+      color: var(--color-white);
       font-weight: 600;
       text-decoration: none !important;
       opacity: 0.8;
@@ -95,7 +95,7 @@ $nav_padding: 0 ($size__margin * 4);
       width: 100%;
       opacity: 0;
       right: 100%;
-      background-color: $color__black;
+      background-color: var(--color-black);
       transition: 200ms opacity;
       transform: translateX(0) !important;
     }
@@ -153,6 +153,7 @@ ul.sub-menu {
   }
   
   li {
-    &:hover {background-color: darken($color__nav-background, 8%);}
+    filter: brightness(90%);
+    &:hover {filter: brightness(110%);}
   }
 }

@@ -29,7 +29,7 @@ blockquote {
 		top: -4px;
 		left: 16px;
 		font-size: $blockquote__icon-size;
-		color: $color__primary;
+		color: var(--color-primary);
 	}
 	
 }
@@ -75,7 +75,7 @@ p code {
 }
 
 .post-tag {
-	background: $color__secondary;
+	background: var(--color-secondary);
 	border-radius: 3px 0 0 3px;
 	display: inline-block;
 	height: 22px;
@@ -87,7 +87,7 @@ p code {
 		font-weight: 600;
 		letter-spacing: 1px;
 		text-transform: uppercase;
-		color: $color__white;
+		color: var(--color-white);
 		text-decoration: none !important;
 	}
 	
@@ -110,7 +110,7 @@ p code {
 	&::after {
 		background: #fff;
 		border-bottom: 11px solid transparent;
-		border-left: 10px solid $color__secondary;
+		border-left: 10px solid var(--color-secondary);
 		border-top: 11px solid transparent;
 		content: '';
 		position: absolute;
@@ -119,13 +119,13 @@ p code {
 	}
 	
 	&:hover {
-		background-color: $color__secondary;
+		background-color: var(--color-secondary);
 		a {
 			color: white;
 		}
 	}
 	
 	&:hover::after {
-		border-left-color: $color__secondary;
+		border-left-color: var(--color-secondary);
 	}
 }

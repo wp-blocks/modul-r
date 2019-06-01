@@ -1,0 +1,26 @@
+// Pages Header
+.entry-header {
+  text-align: center;
+  
+  .meta-wrapper {
+    float: inherit;
+  }
+}
+
+.page-header {
+  padding-top: $size__padding * .5 ;
+  padding-bottom: $size__padding * .25;
+}
+
+.entry-title,
+.page-title,
+.page-title.main-width {
+  text-align: center;
+  font-size: 64px;
+  color: var(--color-secondary);
+  @media #{$smaller-than-tablet} {
+    font-size: 52px;
+    margin-top: 32px
+  }
+  @media #{$phablet} {font-size: 42px;}
+}

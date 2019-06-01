@@ -12,7 +12,7 @@ get_header();
       <?php if ( have_posts() ) : ?>
 
         <header class="page-header">
-            <?php the_archive_title( '<h1 class="page-title main-width">', '</h1>' ); ?>
+          <h1 class="page-title main-width"><?php single_cat_title(); ?></h1>
         </header>
 
 

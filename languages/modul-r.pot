@@ -25,6 +25,14 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
+#: category.php:47
+msgid "End of content"
+msgstr ""
+
+#: category.php:48
+msgid "No more pages to load"
+msgstr ""
+
 #: comments.php:17
 msgid "No Responses"
 msgstr ""
@@ -53,14 +61,6 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: inc/enqueue-scripts.php:29
-msgid "Loading"
-msgstr ""
-
-#: inc/enqueue-scripts.php:30
-msgid "No more post"
-msgstr ""
-
 #: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr ""
@@ -77,43 +77,43 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:26
+#: inc/template-functions.php:27
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:27
+#: inc/template-functions.php:28
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:42
+#: inc/template-functions.php:43
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:63
+#: inc/template-functions.php:64
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:69
+#: inc/template-functions.php:70
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:70
+#: inc/template-functions.php:71
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:100
+#: inc/template-functions.php:101
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:141
+#: inc/template-functions.php:142
 msgid "comments"
 msgstr ""
 
-#: inc/template-functions.php:175
+#: inc/template-functions.php:176
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:226
+#: inc/template-functions.php:227
 msgid "You might be interested in..."
 msgstr ""
 

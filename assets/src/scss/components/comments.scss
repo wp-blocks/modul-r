@@ -2,7 +2,7 @@
   clear: both;
   margin-top: $size__padding * .75;
   padding-top: $size__padding;
-  border-top: 1px solid darken($color__background-body, 5%);
+  border-top: 1px solid var(--color-light-grey);
   
   > p {
     font-size: 1.3em;
@@ -13,7 +13,7 @@
   .navigation a {
     font-size: 12px;
     font-weight: 400;
-    color: $color__dark-grey;
+    color: var(--color-dark-grey);
   }
   
   p.logged-in-as {
@@ -57,7 +57,7 @@ $comments__avatar-size: 64px;
     line-height: $comments__avatar-size * .66;
     a,
     b {
-      color: $color__secondary;
+      color: var(--color-secondary);
       font-weight: 600;
       font-size: 23px;
     }
@@ -76,11 +76,11 @@ $comments__avatar-size: 64px;
     .comment-edit-link {
       opacity: 0;
       transition: 350ms;
-      background-color: $color__secondary;
+      background-color: var(--color-secondary);
       margin-left: $size__margin * 2;
       padding: ($size__margin * .5) ($size__margin * 1.5);
       border-radius: $size__margin * 2;
-      color: $color__white;
+      color: var(--color-white);
       font-weight: 600;
     }
   }
@@ -90,7 +90,7 @@ $comments__avatar-size: 64px;
   }
   
   .comment-content {
-    background: $color__white;
+    background: var(--color-white);
     border: 1px solid darken($color__white, 5%);
     padding: $size__padding * .25;
     margin-left: $comments__avatar-size * 1.25;
@@ -116,8 +116,8 @@ $comments__avatar-size: 64px;
       transition: $animations__lenght;
   
       &:hover {
-        background-color: $color__secondary;
-        color: $color__white;
+        background-color: var(--color-secondary);
+        color: var(--color-white);
       }
     }
   }

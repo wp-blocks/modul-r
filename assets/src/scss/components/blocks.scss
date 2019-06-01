@@ -191,7 +191,7 @@
     @extend h4;
     font-style: inherit;
     opacity: 1;
-    color: $color__black;
+    color: var(--color-black);
   }
   
   //! Audio
@@ -247,8 +247,7 @@
     &.is-style-outline .wp-block-button__link,
     &.is-style-outline .wp-block-button__link:focus,
     &.is-style-outline .wp-block-button__link:active {
-      border-width: 2px;
-      border-style: solid;
+      border: 2px solid;
       background-color: transparent;
       
       &:not(.has-background) {
@@ -256,18 +255,19 @@
       }
       
       &:not(.has-text-color) {
-        color: $color__button;
+        color: var(--color-accent);
         border-color: currentColor;
       }
     }
     
     &.is-style-outline .wp-block-button__link:hover {
-      color: lighten($color__button, 10%);
-      background-color: $color__white;
-      border-color: lighten($color__button, 10%);
+      color: var(--color-accent);
+      background-color: var(--color-white);
+      border-color: var(--color-accent);
+      filter: brightness(120%);
       
       &:not(.has-background) {
-        color: lighten($color__button, 10%);
+        color: var(--color-accent);
       }
     }
     
@@ -282,7 +282,7 @@
     list-style: none;
     
     li {
-      color: $color__text;
+      color: var(--color-text);
       font-weight: 300;
       
       &.menu-item-has-children,
@@ -297,7 +297,7 @@
     }
     
     .wp-block-latest-posts__post-date {
-      color: $color__black;
+      color: var(--color-black);
       font-size: 13px;
       font-weight: 400;
       line-height: 1;
@@ -330,7 +330,7 @@
   //! Latest posts grid view
   .wp-block-latest-posts.is-grid {
     li {
-      border-top: 2px solid $color__border;
+      border-top: 2px solid var(--color-dark-grey);
       padding-top: (1 * $size__margin);
       margin-bottom: (2 * $size__margin);
       a {
@@ -379,7 +379,7 @@
     padding: ($blockquote__icon-size * .5) ($blockquote__icon-size * 2);
     
     blockquote {
-      color: $color__text;
+      color: var(--color-text);
       border: none;
     }
     
@@ -398,7 +398,7 @@
       font-family: $font__family-headline;
       line-height: 1.6;
       text-transform: none;
-      color: $color__text;
+      color: var(--color-text);
     }
     
     &.alignleft,
@@ -416,7 +416,7 @@
     }
     
     &.is-style-solid-color {
-      background-color: $color__link;
+      background-color: var(--color-secondary);
       padding-left: 0;
       padding-right: 0;
       
@@ -432,7 +432,7 @@
       
       blockquote {
         max-width: 100%;
-        color: $color__background-body;
+        color: $color__background;
         padding-left: 0;
         margin-left: $size__margin;
         margin-right: $size__margin;
@@ -455,7 +455,7 @@
     
     &:not(.is-large),
     &:not(.is-style-large) {
-      border-left: 2px solid $color__link;
+      border-left: 2px solid var(--color-secondary);
       padding-left: $blockquote__icon-size * 2;
       padding-top: $blockquote__icon-size * .5;
       padding-bottom: $blockquote__icon-size * .5;
@@ -705,6 +705,7 @@
     &.is-style-wide {
       margin-left: 0;
       margin-right: 0;
+      width: 100%;
       max-width: 100%;
       border-bottom: 1px solid transparentize($color__black, .9 );
     }
@@ -717,7 +718,7 @@
       text-align: center;
       
       &:before {
-        color: $color__secondary;
+        color: var(--color-secondary);
         font-size: 64px;
         letter-spacing: 24px;
         padding-left: 24px;
@@ -762,7 +763,7 @@
       display: table;
       border: none;
       border-radius: 5px;
-      background: $color__button;
+      background: var(--color-accent);
       font-size: $text__size;
       text-decoration: none;
       font-weight: bold;
@@ -772,12 +773,12 @@
       
       
       &:hover {
-        background: lighten($color__button, 10%);
+        filter: brightness(120%);
         cursor: pointer;
       }
       
       &:focus {
-        background: lighten($color__button, 10%);
+        filter: brightness(120%);
         outline: thin dotted;
         outline-offset: -4px;
       }
@@ -902,7 +903,7 @@
   .has-light-gray-background-color {
     
     // Use white text against these backgrounds by default.
-    color: $color__background-body;
+    color: $color__background;
     
     p,
     h1,
@@ -912,12 +913,12 @@
     h5,
     h6,
     a {
-      color: $color__background-body;
+      color: $color__background;
     }
   }
   
   .has-white-background-color {
-    color: $color__text;
+    color: var(--color-text);
     
     // Use dark gray text against this background by default.
     p,
@@ -928,13 +929,13 @@
     h5,
     h6,
     a {
-      color: $color__text;
+      color: var(--color-text);
     }
   }
   
   .has-primary-background-color,
   .wp-block-pullquote.is-style-solid-color.has-primary-background-color {
-    background-color: $color__link;
+    background-color: var(--color-secondary);
   }
   
   .has-secondary-background-color,
@@ -942,7 +943,7 @@
   
   .has-dark-gray-background-color,
   .wp-block-pullquote.is-style-solid-color.has-dark-gray-background-color {
-    background-color: $color__text;
+    background-color: var(--color-text);
   }
   
   .has-light-gray-background-color,
@@ -952,26 +953,26 @@
   
   .has-white-background-color,
   .wp-block-pullquote.is-style-solid-color.has-white-background-color {
-    background-color: $color__white;
+    background-color: var(--color-white);
   }
   
   //! Custom foreground colors
   .has-primary-color,
   .wp-block-pullquote.is-style-solid-color blockquote.has-primary-color,
   .wp-block-pullquote.is-style-solid-color blockquote.has-primary-color p {
-    color: $color__link;
+    color: var(--color-secondary);
   }
   
   .has-secondary-color,
   .wp-block-pullquote.is-style-solid-color blockquote.has-secondary-color,
   .wp-block-pullquote.is-style-solid-color blockquote.has-secondary-color p {
-    color: $color__link;
+    color: var(--color-secondary);
   }
   
   .has-dark-gray-color,
   .wp-block-pullquote.is-style-solid-color blockquote.has-dark-gray-color,
   .wp-block-pullquote.is-style-solid-color blockquote.has-dark-gray-color p {
-    color: $color__text;
+    color: var(--color-text);
   }
   
   .has-light-gray-color,
@@ -982,6 +983,6 @@
   
   .has-white-color,
   .wp-block-pullquote.is-style-solid-color blockquote.has-white-color {
-    color: $color__white;
+    color: var(--color-white);
   }
 }

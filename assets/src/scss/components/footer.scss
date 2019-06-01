@@ -1,11 +1,11 @@
 .site-footer {
-  background: $color__primary;
+  background: var(--color-primary);
   margin-top: $size__padding * 1.5;
   clear: both;
   
   h3,
   p,
-  a {color: $color__white;}
+  a {color: var(--color-white);}
   
  
   h3 {
@@ -58,11 +58,11 @@
   
         b,
         strong{
-          color: $color__dark-grey;
+          color: var(--color-dark-grey);
           font-size: 24px;
         }
   
-        a {color: $color__dark-grey;}
+        a {color: var(--color-dark-grey);}
         
         img {max-width: 300px}
       }
@@ -89,7 +89,7 @@
 
   
   .footer-credits {
-    background-color: $color__black;
+    background-color: var(--color-black);
     padding: $size__margin 0;
     
     @media #{$larger-than-tablet} {

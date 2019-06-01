@@ -6,14 +6,13 @@ $button__height: 36px;
   
   transition: 150ms;
   cursor: pointer;
-  white-space: nowrap;
   
   min-width: 64px;
   margin: 0;
   padding: ($size__margin * 1.5) ($size__margin * 3);
   
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   outline: none;
   
   font-family: $font__family-headline;
@@ -24,32 +23,31 @@ $button__height: 36px;
   overflow-wrap: break-word;
   
   &:not(.has-background) {
-    background-color: $color__white;
-    color: $color__secondary;
+    background-color: var(--color-white);
+    color: var(--color-accent);
   }
   
   &:not(.has-text-color) {
-    background: $color__secondary;
-    color: $color__white;
+    background: var(--color-accent);
+    color: var(--color-white);
   }
   
   &:hover {
-    color: $color__white;
-    background: lighten($color__button, 10%);
+    color: var(--color-white);
+    filter: brightness(120%);
     cursor: pointer;
   }
   
   &:focus {
-    color: $color__white;
-    background: lighten($color__button, 10%);
+    color: var(--color-white);
+    filter: brightness(120%);
     outline: thin dotted;
     outline-offset: -4px;
   }
   
-  
   &.outline {
     background: transparent !important;
-    border: 2px solid $color__white;
+    border: 2px solid var(--color-white);
   }
 }
 
@@ -60,8 +58,8 @@ button,
 .button {
   @extend %button;
   
-  background: $color__secondary;
-  color: $color__white;
+  background: var(--color-accent);
+  color: var(--color-white);
   
   & + & {
     margin-left: $size__margin * 1.5;
@@ -71,16 +69,6 @@ button,
 .button {
   
   line-height: 1;
-  
-  &.raised {
-    background-color: $color__secondary;
-    color: white;
-    border-radius: 4px;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-  }
-  &.shaped {
-    border-radius: 18px;
-  }
   
   & + & {
     margin-right: $size__margin;

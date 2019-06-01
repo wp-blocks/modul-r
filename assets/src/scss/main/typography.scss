@@ -2,7 +2,7 @@
 
 %headline_style {
 	font-family: $font__family-headline;
-	color: $color__black;
+	color: var(--color-black);
 	font-weight: 300;
 }
 
@@ -19,40 +19,36 @@ h6 {
 	
 	a:hover {
 		text-decoration: none;
-		color: $color__link;
+		color: var(--color-secondary);
 	}
 }
 
 
 h1 {
 	font-size: 42px;
-	@media #{$smaller-than-tablet} {font-size: 36px;}
+	@media #{$tablet} {font-size: 36px;}
 }
 
 h2 {
 	font-size: 36px;
-	@media #{$smaller-than-tablet} {font-size: 28px;}
+	@media #{$tablet} {font-size: 28px;}
 }
 
 h3 {
 	font-size: 28px;
-	@media #{$smaller-than-tablet} {font-size: 22px;}
+	@media #{$tablet} {font-size: 22px;}
 	@media #{$tablet-portrait} {font-size: 20px;}
 }
 
 h4 {
 	font-size: 22px;
-	@media #{$smaller-than-tablet} {font-size: 19px;}
-}
-
-h5 {
-	color: var(--color-secondary);
+	@media #{$tablet} {font-size: 19px;}
 }
 
 h5, h6 {
-	font-weight: 600;
+	font-weight: 500;
 	font-size: $text__size;
-	@media #{$smaller-than-tablet} {font-size: $text__size - 2;}
+	@media #{$tablet} {font-size: $text__size - 2;}
 }
 
 
@@ -61,9 +57,9 @@ li,
 p {
 	font-family: $font__family;
 	font-size: $text__size;
-	color: $color__text;
+	color: var(--color-text);
 	
-	@media #{$smaller-than-tablet} {font-size: $text__size - 1;}
+	@media #{$tablet} {font-size: $text__size - 1;}
 	@media #{$phablet} {font-size: $text__size - 2;}
 }
 
@@ -80,11 +76,11 @@ b, strong, a {
 
 b,
 strong {
-	color: $color__bold;
+	color: var(--color-primary);
 }
 
 a {
-	color: $color__link;
+	color: var(--color-secondary);
 	text-decoration: none;
 }
 

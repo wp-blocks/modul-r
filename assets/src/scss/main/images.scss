@@ -39,7 +39,7 @@ figure {
     padding-right: $size__padding-resp;
     
     .wp-caption-text {
-      color: lighten($color__text, 10%);
+      color: var(--color-text-light);
       font-size: $text__size - 2;
       font-style: italic;
     }

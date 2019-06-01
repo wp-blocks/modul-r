@@ -39,6 +39,7 @@
 
     .site-branding {
       width: 100%;
+      display: flex;
       
       @if($head__direction == row) {
         padding-top: $size__margin;
@@ -47,7 +48,6 @@
   
       @if($head__direction == column) {
         height: $size__branding-height;
-        display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
@@ -75,7 +75,7 @@
     
     .site-title {
       font-size: 26px;
-      a {color: $color__primary;}
+      a {color: var(--color-primary);}
     }
 
     .site-description {

@@ -9,7 +9,7 @@ textarea {
   border: 1px solid $color__light-grey;
   
   font-size: $text__size;
-  color: $color__text;
+  color: var(--color-text);
   
   transition:350ms;
 }
@@ -26,11 +26,11 @@ input {
     box-shadow: 0 1px 0 $color__light-grey;
     
     &:hover {
-      box-shadow: 0 1px 0 $color__secondary;
+      box-shadow: 0 1px 0 var(--color-secondary);
     }
   
     &:focus {
-      box-shadow: 0 2px 0 $color__secondary;
+      box-shadow: 0 2px 0 var(--color-secondary);
     }
   }
 }
@@ -43,7 +43,7 @@ input {
 
 .input-label {
   font-size: $text__size * .5;
-  color: lighten($color__text, 20%);
+  color: var(--color-text-light);
 }
 
 textarea {

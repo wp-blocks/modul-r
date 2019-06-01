@@ -3,8 +3,12 @@
   --color-primary: #17BEBB;
   --color-secondary: #7452b1;
   --color-black: #44474e;
+  --color-dark-grey: #5c6069;
+  --color-light-grey: #e3e3e3;
+  --color-white: #fff;
   --color-text: #5c6069;
-  --color-white: #fff; }
+  --color-text-light: #818691;
+  --color-accent: var(--color-secondary); }
 
 html,
 body {
@@ -24,6 +28,7 @@ body {
   min-height: 100%;
   font-family: "Montserrat", serif, sans-serif;
   color: #5c6069;
+  color: var(--color-text);
   font-size: 17px;
   line-height: 1.7;
   word-break: break-word; }
@@ -41,14 +46,40 @@ iframe {
   color: white; }
 
 /* Headlines */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6, .wp-block.editor-post-title__block .editor-post-title__input {
+h1 {
   font-family: "Montserrat", serif;
   color: #44474e;
+  color: var(--color-black);
+  font-weight: 300; }
+h2 {
+  font-family: "Montserrat", serif;
+  color: #44474e;
+  color: var(--color-black);
+  font-weight: 300; }
+h3 {
+  font-family: "Montserrat", serif;
+  color: #44474e;
+  color: var(--color-black);
+  font-weight: 300; }
+h4 {
+  font-family: "Montserrat", serif;
+  color: #44474e;
+  color: var(--color-black);
+  font-weight: 300; }
+h5 {
+  font-family: "Montserrat", serif;
+  color: #44474e;
+  color: var(--color-black);
+  font-weight: 300; }
+h6 {
+  font-family: "Montserrat", serif;
+  color: #44474e;
+  color: var(--color-black);
+  font-weight: 300; }
+.wp-block.editor-post-title__block .editor-post-title__input {
+  font-family: "Montserrat", serif;
+  color: #44474e;
+  color: var(--color-black);
   font-weight: 300; }
 
 h1,
@@ -60,30 +91,46 @@ h6 {
   margin: 16px 0 8px;
   padding: 0;
   line-height: 1.2; }
-  h1 a:hover,
-  h2 a:hover,
-  h3 a:hover,
-  h4 a:hover,
-  h5 a:hover,
+  h1 a:hover {
+    text-decoration: none;
+    color: #7452b1;
+    color: var(--color-secondary); }
+  h2 a:hover {
+    text-decoration: none;
+    color: #7452b1;
+    color: var(--color-secondary); }
+  h3 a:hover {
+    text-decoration: none;
+    color: #7452b1;
+    color: var(--color-secondary); }
+  h4 a:hover {
+    text-decoration: none;
+    color: #7452b1;
+    color: var(--color-secondary); }
+  h5 a:hover {
+    text-decoration: none;
+    color: #7452b1;
+    color: var(--color-secondary); }
   h6 a:hover {
     text-decoration: none;
-    color: #7452b1; }
+    color: #7452b1;
+    color: var(--color-secondary); }
 
 h1 {
   font-size: 42px; }
-  @media (max-width: 1023px) {
+  @media (max-width: 1260px) {
     h1 {
       font-size: 36px; } }
 
 h2 {
   font-size: 36px; }
-  @media (max-width: 1023px) {
+  @media (max-width: 1260px) {
     h2 {
       font-size: 28px; } }
 
 h3 {
   font-size: 28px; }
-  @media (max-width: 1023px) {
+  @media (max-width: 1260px) {
     h3 {
       font-size: 22px; } }
   @media (max-width: 767px) {
@@ -92,29 +139,49 @@ h3 {
 
 h4 {
   font-size: 22px; }
-  @media (max-width: 1023px) {
+  @media (max-width: 1260px) {
     h4 {
       font-size: 19px; } }
 
-h5 {
-  color: var(--color-secondary); }
-
 h5, h6 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 17px; }
-  @media (max-width: 1023px) {
+  @media (max-width: 1260px) {
     h5, h6 {
       font-size: 15px; } }
 
 /* Text and lists */
-li, .editor-styles-wrapper li, .editor-styles-wrapper p,
-p,
-.editor-styles-wrapper li,
+li {
+  font-family: "Montserrat", serif;
+  font-size: 17px;
+  color: #5c6069;
+  color: var(--color-text); }
+.editor-styles-wrapper li {
+  font-family: "Montserrat", serif;
+  font-size: 17px;
+  color: #5c6069;
+  color: var(--color-text); }
 .editor-styles-wrapper p {
   font-family: "Montserrat", serif;
   font-size: 17px;
-  color: #5c6069; }
-  @media (max-width: 1023px) {
+  color: #5c6069;
+  color: var(--color-text); }
+p {
+  font-family: "Montserrat", serif;
+  font-size: 17px;
+  color: #5c6069;
+  color: var(--color-text); }
+.editor-styles-wrapper li {
+  font-family: "Montserrat", serif;
+  font-size: 17px;
+  color: #5c6069;
+  color: var(--color-text); }
+.editor-styles-wrapper p {
+  font-family: "Montserrat", serif;
+  font-size: 17px;
+  color: #5c6069;
+  color: var(--color-text); }
+  @media (max-width: 1260px) {
     li, .editor-styles-wrapper li, .editor-styles-wrapper p,
     p,
     .editor-styles-wrapper li,
@@ -137,12 +204,17 @@ p,
 b, strong, a {
   font-weight: 600; }
 
-b,
+b {
+  color: #17BEBB;
+  color: var(--color-primary); }
+
 strong {
-  color: #17BEBB; }
+  color: #17BEBB;
+  color: var(--color-primary); }
 
 a {
   color: #7452b1;
+  color: var(--color-secondary);
   text-decoration: none; }
 
 ul, ol, dl {

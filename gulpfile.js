@@ -4,9 +4,10 @@ const gulp = require('gulp');
 // Utilities
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
 const autoprefixer = require("autoprefixer");
+const cssvariables = require('postcss-css-variables');
 const fs = require('fs');
 const newer = require('gulp-newer');
 const imagemin = require('gulp-imagemin');
@@ -43,6 +44,11 @@ const opts = {
   },
 
   cssnano: {reduceIdents: {keyframes: false}},
+
+  cssvariables: {
+    preserve : true,
+    preserveInjectedVariables: true
+  },
 
   sass: {
     dev: {
@@ -168,6 +174,7 @@ function cssAtf() {
     .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
+      cssvariables(opts.cssvariables),
       autoprefixer(opts.autoprefixer.build),
       cssnano(opts.cssnano)
     ]))
@@ -182,6 +189,7 @@ function mainCSS() {
     .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
+      cssvariables(opts.cssvariables),
       autoprefixer(opts.autoprefixer.dev)
     ]))
     .pipe(header(opts.banner, pkg))
@@ -197,6 +205,7 @@ function buildMainCSS() {
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(gulp.dest(opts.rootPath))
     .pipe(postcss([
+      cssvariables(opts.cssvariables),
       autoprefixer(opts.autoprefixer.build),
       cssnano(opts.cssnano)
     ]))
@@ -214,6 +223,7 @@ function CSS() {
     .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
+      cssvariables(opts.cssvariables),
       autoprefixer(opts.autoprefixer.dev)
     ]))
     .pipe(gulp.dest(opts.distPath + 'css/'))
@@ -229,6 +239,7 @@ function buildCSS() {
     .pipe(sass(opts.sass.build))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
+      cssvariables(opts.cssvariables),
       autoprefixer(opts.autoprefixer.build),
       cssnano(opts.cssnano)
     ]))

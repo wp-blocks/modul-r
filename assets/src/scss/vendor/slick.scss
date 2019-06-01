@@ -214,7 +214,7 @@ $slick-next-character: ">" !default;
   }
   
   li.slick-active button {
-    background-color: $color__secondary;
+    background-color: var(--color-secondary);
   }
   
 }

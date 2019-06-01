@@ -7,7 +7,7 @@ body.home {
     justify-content: center;
     align-content: center;
     position: relative;
-    background-color: $color__dark-grey;
+    background-color: var(--color-dark-grey);
     
     & > * {
       position: relative;
@@ -28,13 +28,16 @@ body.home {
       }
       padding-left: $size__padding-resp;
       padding-right: $size__padding-resp;
-      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+  
+      h1, p {
+        text-shadow: 0 3px 3px transparentize($color__black, 0.2);
+      }
       
       
       h1 {
         font-size: 64px;
         font-weight: 700;
-        color: $color__white;
+        color: var(--color-white);
         margin: 0 $size__padding-resp;
   
         @media #{$smaller-than-tablet} {
@@ -43,7 +46,7 @@ body.home {
       }
       
       p {
-        color: darken($color__light-grey, 20%);
+        color: var(--color-light-grey);
         font-size: 19px;
         font-style: italic;
       }
