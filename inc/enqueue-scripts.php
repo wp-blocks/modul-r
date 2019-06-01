@@ -1,7 +1,17 @@
 <?php
 
 /**
- * Enqueue main style in footer.
+ * Load fonts
+ */
+if ( ! function_exists('modu_theme_fonts') ) :
+	function modu_theme_fonts() {
+		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Material+Icons', array(), null );
+	}
+endif;
+add_action( 'get_footer', 'modu_theme_fonts' );
+
+/**
+ * Enqueue main style
  */
 if ( ! function_exists('modu_theme_style') ) :
 	function modu_theme_style() {
@@ -9,7 +19,6 @@ if ( ! function_exists('modu_theme_style') ) :
 	}
 endif;
 add_action( 'get_footer', 'modu_theme_style' );
-
 
 /**
  * Load scripts
@@ -27,10 +36,6 @@ if ( ! function_exists('modu_theme_scripts') ) :
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modu_theme_scripts' ); // Add Theme admin scripts
-
-
-
-
 
 
 

@@ -188,7 +188,7 @@
   
   //! Subhead
   .wp-block-subhead {
-    @extend h4;
+    // @extend h4;
     font-style: inherit;
     opacity: 1;
     color: var(--color-black);

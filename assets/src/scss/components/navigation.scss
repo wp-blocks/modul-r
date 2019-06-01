@@ -133,14 +133,14 @@ ul.sub-menu {
   padding: 0;
   overflow: hidden;
 
-  background-color: darken($color__nav-background, 5%);
+  background-color: lighten($color__nav-background, 2%);
   transition: $animations__lenght * .5;
   transition-delay: 0ms;
 
   ul.sub-menu {
     top: 0;
     left: 100%;
-    background-color: darken($color__nav-background, 10%);
+    background-color: lighten($color__nav-background, 5%);
     &.active {opacity: 1;}
   }
 
@@ -153,7 +153,6 @@ ul.sub-menu {
   }
   
   li {
-    filter: brightness(90%);
-    &:hover {filter: brightness(110%);}
+    &:hover {background-color: darken($color__nav-background, 8%);}
   }
 }

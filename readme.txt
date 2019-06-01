@@ -34,6 +34,10 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
+= 1.0.10 =
+* Masonry script update to v3
+* css4 vars
+
 = 1.0.9 =
 * Editor style
 * Gutenberg blocks style enhancement

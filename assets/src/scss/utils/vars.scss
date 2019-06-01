@@ -12,6 +12,7 @@ $color__background: darken($color__white, 1%);
 
 // TODO: Better color management with wordpress
 // TODO: update color functions to css4 color-mod() when fully supported
+
 :root {
   --color-primary: #{$color__primary};
   --color-secondary: #{$color__secondary};
@@ -21,7 +22,7 @@ $color__background: darken($color__white, 1%);
   --color-white: #{$color__white};
   --color-text: #{$color__text};
   --color-text-light: #{lighten($color__text, 15%)};
-  --color-accent: var(--color-secondary);
+  --color-accent: #{$color__secondary};
 }
 
 // TEXT VARIABLES
@@ -55,10 +56,10 @@ $head__height-responsive: 48px;
 // HAMBURGER MENU
 $hamburger__size: 36px;
 $hamburger__weight: 3px;
-$hamburger__color: var(--color-primary);
+$hamburger__color: #{$color__primary};
 
 // SCROLLBAR
-$scrollbar-line-color: var(--color-primary);
+$scrollbar-line-color: #{$color__primary};
 $scrollbar-background-color: $color__light-grey;
 
 // EXTRAS
