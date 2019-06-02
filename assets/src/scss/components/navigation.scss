@@ -34,7 +34,7 @@ $nav_padding: 0 ($size__margin * 4);
       padding: $nav_padding;
       box-sizing: border-box;
   
-      color: var(--color-white);
+      color: $color__white;
       font-weight: 600;
       text-decoration: none !important;
       opacity: 0.8;
@@ -95,7 +95,7 @@ $nav_padding: 0 ($size__margin * 4);
       width: 100%;
       opacity: 0;
       right: 100%;
-      background-color: var(--color-black);
+      background-color: $color__black;
       transition: 200ms opacity;
       transform: translateX(0) !important;
     }

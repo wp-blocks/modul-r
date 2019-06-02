@@ -17,7 +17,7 @@
 .page-title.main-width {
   text-align: center;
   font-size: 64px;
-  color: var(--color-secondary);
+  color: $color__secondary;
   @media #{$smaller-than-tablet} {
     font-size: 52px;
     margin-top: 32px

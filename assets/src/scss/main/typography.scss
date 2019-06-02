@@ -2,7 +2,7 @@
 
 %headline_style {
 	font-family: $font__family-headline;
-	color: var(--color-black);
+	color: $color__black;
 	font-weight: 300;
 }
 
@@ -19,7 +19,7 @@ h6 {
 	
 	a:hover {
 		text-decoration: none;
-		color: var(--color-secondary);
+		color: $color__secondary;
 	}
 }
 
@@ -57,7 +57,7 @@ li,
 p {
 	font-family: $font__family;
 	font-size: $text__size;
-	color: var(--color-text);
+	color: $color__text;
 	
 	@media #{$tablet} {font-size: $text__size - 1;}
 	@media #{$phablet} {font-size: $text__size - 2;}
@@ -75,11 +75,11 @@ b, strong, a {
 
 b,
 strong {
-	color: var(--color-primary);
+	color: $color__primary;
 }
 
 a {
-	color: var(--color-secondary);
+	color: $color__secondary;
 	text-decoration: none;
 }
 

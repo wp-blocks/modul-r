@@ -7,7 +7,7 @@ body.home {
     justify-content: center;
     align-content: center;
     position: relative;
-    background-color: var(--color-dark-grey);
+    background-color: $color__dark-grey;
     
     & > * {
       position: relative;
@@ -37,7 +37,7 @@ body.home {
       h1 {
         font-size: 64px;
         font-weight: 700;
-        color: var(--color-white);
+        color: $color__white;
         margin: 0 $size__padding-resp;
   
         @media #{$smaller-than-tablet} {
@@ -46,7 +46,7 @@ body.home {
       }
       
       p {
-        color: var(--color-light-grey);
+        color: $color__light-grey;
         font-size: 19px;
         font-style: italic;
       }

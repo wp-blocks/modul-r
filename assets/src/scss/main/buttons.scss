@@ -23,33 +23,32 @@ $button__height: 36px;
   overflow-wrap: break-word;
   
   &:not(.has-background) {
-    background-color: var(--color-white);
-    color: var(--color-accent);
+    background-color: $color__white;
+    color: $color__accent;
   }
-  
+
   &:not(.has-text-color) {
-    background: var(--color-accent);
-    color: var(--color-white);
+    background: $color__accent;
+    color: $color__white;
   }
   
   &:hover {
-    color: var(--color-white);
-    filter: brightness(120%);
+    color: $color__white;
+    filter: brightness(115%);
     cursor: pointer;
   }
   
   &:focus {
-    color: var(--color-white);
+    color: $color__white;
     filter: brightness(120%);
-    outline: thin dotted;
-    outline-offset: -4px;
   }
   
   &.outline {
     background: transparent !important;
-    border: 2px solid var(--color-white);
+    border: 2px solid $color__white;
   }
 }
+
 
 input[type="submit"],
 input[type="button"],
@@ -58,8 +57,8 @@ button,
 .button {
   @extend %button;
   
-  background: var(--color-accent);
-  color: var(--color-white);
+  background: $color__accent;
+  color: $color__white;
   
   & + & {
     margin-left: $size__margin * 1.5;

@@ -17,7 +17,7 @@ body {
   box-sizing: border-box;
   min-height: 100%;
   font-family: $font__family, sans-serif;
-  color: var(--color-text);
+  color: $color__text;
   font-size: $text__size;
   line-height: $text__line-height;
   word-break: break-word;

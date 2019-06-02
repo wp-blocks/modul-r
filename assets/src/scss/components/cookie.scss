@@ -11,7 +11,7 @@ div#cookielaw {
   padding: $size__margin $size__padding-resp;
   margin: 0;
   
-  background-color: var(--color-dark-grey);
+  background-color: $color__dark-grey;
   
   &.active {
     opacity: 1;
@@ -19,7 +19,7 @@ div#cookielaw {
   }
   
   p {
-    color: var(--color-light-grey);
+    color: $color__light-grey;
     text-align: center;
     font-size: 13px;
   }
@@ -31,7 +31,7 @@ div#cookielaw {
   }
   
   i {
-    color: var(--color-light-grey);
+    color: $color__light-grey;
     cursor: pointer;
     display: block;
     text-align: right;

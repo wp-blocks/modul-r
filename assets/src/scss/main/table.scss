@@ -9,7 +9,7 @@ table {
       padding: $size__margin * 1.5;
     }
     th {
-      background: var(--color-secondary);
+      background: $color__secondary;
       color: #fff;
     }
     td {
