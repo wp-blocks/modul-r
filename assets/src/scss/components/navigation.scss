@@ -8,7 +8,7 @@ $nav_padding: 0 ($size__margin * 4);
     align-items: center;
     justify-content: center;
   
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       align-items: flex-start;
       justify-content: flex-start;
     }
@@ -23,7 +23,7 @@ $nav_padding: 0 ($size__margin * 4);
       padding: 0 $size__padding-resp;
     }
  
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       flex-direction: column;
       justify-content: flex-start;
       box-sizing: border-box;
@@ -76,7 +76,7 @@ $nav_padding: 0 ($size__margin * 4);
    
     li a { padding: $nav_padding !important;}
     
-    a {@media #{$smaller-than-tablet} {padding: 0 !important;}}
+    a {@media #{$mq__smaller-than-tablet} {padding: 0 !important;}}
     
   }
   
@@ -84,7 +84,7 @@ $nav_padding: 0 ($size__margin * 4);
     display: none;
   }
   
-  @media #{$smaller-than-tablet} {
+  @media #{$mq__smaller-than-tablet} {
     background-color: darken($color__nav-background, 5%);
     height: calc(100vh - #{$head__height-responsive});
     z-index: 190;
@@ -117,7 +117,7 @@ $nav_padding: 0 ($size__margin * 4);
   
 }
 
-@media #{$smaller-than-tablet} {
+@media #{$mq__smaller-than-tablet} {
   #masthead {
     height: $head__height-responsive;
     

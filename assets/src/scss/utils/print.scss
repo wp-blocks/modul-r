@@ -1,4 +1,4 @@
-@media #{$print} {
+@media #{$mq__print} {
   body,#main,#content {
     color: #000
   }

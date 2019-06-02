@@ -34,23 +34,26 @@ blockquote {
 	
 }
 
-p code {
+code {
 	background-color: $color__light-grey;
 	padding: 4px 6px;
+	font-weight: 600;
 }
 
-@media #{$smaller-than-tablet} {
+@media #{$mq__content-width} {
 	.site-main .entry-content {
 		table,
 		pre,
-		blockquote,
-		code {
+		blockquote {
 			padding-left: $size__padding-resp;
 			padding-right: $size__padding-resp;
 		}
+		
+		table {
+			width: calc(100% - #{$size__padding-resp * 2});
+		}
 	}
 }
-
 
 // Tags arrowed style
 .post-tags {

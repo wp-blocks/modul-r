@@ -12,7 +12,7 @@ body.archive {
     padding: $size__padding 0 $size__padding;
     min-height: 100px;
   
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       flex-direction: column;
       padding: ($size__padding * .75) $size__padding-resp;
     }
@@ -33,10 +33,10 @@ body.archive {
       + .article-wrapper {
         width: 70%;
         
-        @media #{$smaller-than-tablet} {width: 100%;}
+        @media #{$mq__smaller-than-tablet} {width: 100%;}
       }
   
-      @media #{$smaller-than-tablet} {
+      @media #{$mq__smaller-than-tablet} {
         width: 100%;
         margin: 0 auto $size__padding-resp;
       }
@@ -51,7 +51,7 @@ body.archive {
       font-size: 32px;
       margin: 0 0 $size__margin;
       text-align: left;
-      @media #{$smaller-than-tablet} {font-size: 26px;}
+      @media #{$mq__smaller-than-tablet} {font-size: 26px;}
     }
     
     .entry-content {

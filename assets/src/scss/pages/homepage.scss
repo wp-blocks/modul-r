@@ -40,7 +40,7 @@ body.home {
         color: $color__white;
         margin: 0 $size__padding-resp;
   
-        @media #{$smaller-than-tablet} {
+        @media #{$mq__smaller-than-tablet} {
           font-size: 48px;
         }
       }
@@ -60,7 +60,7 @@ body.home {
   
   .wp-block-columns {
   
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       flex-direction: column;
       .wp-block-column {
         padding-bottom: $size__padding * .5;

@@ -67,7 +67,7 @@
     margin-right: auto;
     text-align: center;
     
-    @media #{$tablet} {
+    @media #{$mq__tablet} {
       margin-left: auto;
       margin-right: auto;
     }
@@ -121,7 +121,11 @@
     margin-top: $size__padding * .5;
     margin-bottom: $size__padding * .5;
     list-style-position: outside;
-
+    
+    @media #{$mq__tablet} {
+      list-style-position: inside;
+    }
+    
     li, dt {
       padding-left: $size__margin;
     }
@@ -162,7 +166,7 @@
     max-width: inherit;
     padding: inherit;
     
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       margin: inherit;
       max-width: inherit;
       padding: inherit;
@@ -191,11 +195,11 @@
       
       max-width: (0.33 * $size__site-width);
       
-      @media #{$smaller-than-tablet} {
+      @media #{$mq__smaller-than-tablet} {
         max-width: (0.5 * $size__site-width);
       }
       
-      @media #{$desktop} {
+      @media #{$mq__desktop} {
         max-width: (0.33 * $size__site-width);
       }
     }
@@ -305,14 +309,16 @@
     }
     
     li {
-      
       a { margin-bottom: $size__margin}
     }
   
     ul {
       list-style-type: none;
       padding-left: $size__padding-resp;
-      a { color: $color__text; }
+      a {
+        color: $color__text;
+        font-weight: 400;
+      }
     }
   
     
@@ -380,7 +386,7 @@
     border-width: 2px;
     padding: ($blockquote__icon-size * .5) ($blockquote__icon-size * 2);
     
-    @media #{$theme-width-size} {
+    @media #{$mq__theme-width} {
       padding: ($blockquote__icon-size * .5) ($size__padding-resp * 2);
     }
     
@@ -503,7 +509,7 @@
     
     .aligncenter {
       
-      @media #{$smaller-than-tablet} {
+      @media #{$mq__smaller-than-tablet} {
         margin: 0 auto;
         
         img {
@@ -511,7 +517,7 @@
         }
       }
       
-      @media #{$desktop} {
+      @media #{$mq__desktop} {
         img {
           margin: 0 auto;
         }
@@ -521,7 +527,7 @@
     &.alignfull img {
       width: 100%;
       
-      @media #{$smaller-than-tablet} {
+      @media #{$mq__smaller-than-tablet} {
         margin-left: auto;
         margin-right: auto;
       }
@@ -529,12 +535,12 @@
     
     .alignleft {
       margin-right: $size__margin * 4;
-      @media #{$smaller-than-tablet} {margin-right: $size__margin * 2;}
+      @media #{$mq__smaller-than-tablet} {margin-right: $size__margin * 2;}
     }
     
     .alignright {
       margin-left: $size__margin * 4;
-      @media #{$smaller-than-tablet} {margin-left: $size__margin * 2;}
+      @media #{$mq__smaller-than-tablet} {margin-left: $size__margin * 2;}
     }
   }
   
@@ -555,7 +561,7 @@
         box-sizing: border-box;
       }
       
-      @media #{$tablet-portrait} {
+      @media #{$mq__tablet-portrait} {
         img {padding: 0 ($size__padding * 0.5) 0 $size__padding;}
         &.has-media-on-the-right img{
           padding: 0 ($size__padding * 0.5) $size__padding-resp $size__padding;
@@ -581,7 +587,7 @@
       padding-top: $size__padding * .5;
       padding-bottom: $size__padding * .5;
       
-      @media #{$theme-width-size} {
+      @media #{$mq__theme-width} {
         padding-left: $size__padding-resp !important;
         padding-right: $size__padding-resp !important;
       }
@@ -604,7 +610,7 @@
     min-height: 430px;
     padding: $size__margin;
     
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       padding: $size__margin 10%;
     }
     
@@ -622,7 +628,7 @@
       margin: $size__padding-resp;
       color: #fff;
       
-      @media #{$smaller-than-tablet} {
+      @media #{$mq__smaller-than-tablet} {
         max-width: 100%;
       }
     }
@@ -631,7 +637,7 @@
     &.alignright {
       width: 100%;
       
-      @media #{$smaller-than-tablet} {
+      @media #{$mq__smaller-than-tablet} {
         padding: $size__margin calc(2 * #{$size__margin});
       }
     }
@@ -644,7 +650,7 @@
       
       }
       
-      @media #{$smaller-than-tablet} {
+      @media #{$mq__smaller-than-tablet} {
         
         .wp-block-cover-image-text,
         .wp-block-cover-text,
@@ -817,11 +823,11 @@
       padding-right: $size__padding-resp;
     }
     
-    @media #{$phablet} {
+    @media #{$mq__phablet} {
       flex-wrap: nowrap;
     }
     
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       .wp-block-column > * {
         
         &:first-child {

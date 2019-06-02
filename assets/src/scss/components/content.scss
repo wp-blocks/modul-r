@@ -10,9 +10,9 @@
   padding-right: $size__padding-resp;
   margin: $size__padding auto ($size__padding * .5);
   
-  @media #{$theme-width-size} {}
+  @media #{$mq__theme-width} {}
   
-  @media #{$smaller-than-tablet} {
+  @media #{$mq__smaller-than-tablet} {
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
   }
@@ -27,7 +27,7 @@
     width: $size__site-width;
     padding-left: 0;
     padding-right: 0;
-    @media #{$theme-width-size} {
+    @media #{$mq__theme-width} {
       padding-left: $size__padding-resp;
       padding-right: $size__padding-resp;
     }

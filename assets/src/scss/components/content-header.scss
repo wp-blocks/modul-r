@@ -18,9 +18,9 @@
   text-align: center;
   font-size: 64px;
   color: $color__secondary;
-  @media #{$smaller-than-tablet} {
+  @media #{$mq__smaller-than-tablet} {
     font-size: 52px;
     margin-top: 32px
   }
-  @media #{$phablet} {font-size: 42px;}
+  @media #{$mq__phablet} {font-size: 42px;}
 }

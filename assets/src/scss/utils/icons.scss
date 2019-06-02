@@ -77,7 +77,7 @@ $arrowSize: 60px;
   background-position: center;
   border:0;
   
-  @media #{$smaller-than-tablet} {
+  @media #{$mq__smaller-than-tablet} {
     $arrowSize: 24px;
     padding: $arrowSize * 0.25;
     width: $arrowSize;
@@ -115,14 +115,14 @@ $arrowSize: 60px;
 
 .slider button.slick-prev {
   margin-left: $arrowSize * -1;
-  @media #{$smaller-than-tablet} {
+  @media #{$mq__smaller-than-tablet} {
     margin-left: $arrowSize * .5;
   }
 }
 
 .slider button.slick-next {
   margin-right: $arrowSize * -1;
-  @media #{$smaller-than-tablet} {
+  @media #{$mq__smaller-than-tablet} {
     margin-right: $arrowSize * .5;
   }
 }

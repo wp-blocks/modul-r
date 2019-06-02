@@ -7,7 +7,7 @@
   top: ($head__height-responsive - $hamburger__size) * .5;
   right: $size__padding-resp;
   
-  @media #{$smaller-than-tablet} {
+  @media #{$mq__smaller-than-tablet} {
     display: block;
   }
 }

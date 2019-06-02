@@ -1,9 +1,14 @@
+.masonry-container {
+  padding-left: $size__padding-resp;
+  padding-right: $size__padding-resp;
+}
 
-.masonry-wrapper {
+#masonry-wrapper {
   position: relative;
   overflow: hidden;
   transition-duration: .8s;
   transition-delay: .2s;
+  padding: 0;
 }
 
 .masonry.navigation {
@@ -22,22 +27,26 @@
 
 .grid__item,
 .grid__col-sizer {
-  width: 30%;
-  @media #{$tablet}{ width: 48%;}
-  @media #{$tablet-portrait}{ width: 100%;}
+  width: 32%;
+  @media #{$mq__tablet} { width: 48% };
+  @media #{$mq__tablet-portrait}{ width: 100%;}
 }
 
-.grid__gutter-sizer { width: 5%;
-  @media #{$tablet}{ width: 4%;}
-  @media #{$tablet-portrait}{ width: 0;}
+.grid__gutter-sizer { width: 3%;
+  @media #{$mq__tablet} { width: 4% };
+  @media #{$mq__tablet-portrait}{ width: 0;}
 }
 
 
 body.archive article.grid__item {
-  padding: 0 24px 40px 0;
+  padding: 0 0 40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  
+  @media #{$mq__tablet-portrait}{
+    padding-right: 0;
+  }
 
   .entry-image {
     width: 100%;

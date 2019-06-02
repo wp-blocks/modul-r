@@ -15,7 +15,7 @@
     font-size: 28px;
     border-bottom: 1px solid transparentize($color__black, .9);
   
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       padding-top: 0;
       font-size: 22px;
     }
@@ -28,7 +28,7 @@
     flex-flow: wrap;
     
   
-    @media #{$smaller-than-tablet} {
+    @media #{$mq__smaller-than-tablet} {
       flex-direction: column-reverse;
       width: 100%;
     }
@@ -38,7 +38,7 @@
       box-sizing: content-box;
       padding-left: $size__padding;
   
-      @media #{$smaller-than-tablet} {
+      @media #{$mq__smaller-than-tablet} {
         padding-left: 0 !important;
         padding-right: 0 !important;
         padding-bottom: $size__padding * .5;
@@ -51,7 +51,7 @@
         padding-left: 0;
         padding-right: $size__padding * 2;
   
-        @media #{$smaller-than-tablet} {
+        @media #{$mq__smaller-than-tablet} {
           padding-top: $size__padding * .5;
           padding-bottom: 0;
         }
@@ -81,7 +81,7 @@
       margin: 0;
       
       a {
-        display: block;
+        display: inline-block;
         padding-bottom: $size__margin ;
       }
       .post-date {
@@ -97,7 +97,7 @@
     background-color: $color__black;
     padding: $size__margin 0;
     
-    @media #{$larger-than-tablet} {
+    @media #{$mq__larger-than-tablet} {
       text-align: right;
     }
     
