@@ -24,15 +24,14 @@
   }
 }
 
-
 .grid__item,
 .grid__col-sizer {
-  width: 32%;
+  width: 31%;
   @media #{$mq__tablet} { width: 48% };
   @media #{$mq__tablet-portrait}{ width: 100%;}
 }
 
-.grid__gutter-sizer { width: 3%;
+.grid__gutter-sizer { width: 3.5%;
   @media #{$mq__tablet} { width: 4% };
   @media #{$mq__tablet-portrait}{ width: 0;}
 }

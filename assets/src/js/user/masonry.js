@@ -9,6 +9,7 @@ jQuery(document).ready(function($){
       itemSelector: '.grid__item', // select none at first
       columnWidth: '.grid__col-sizer',
       gutter: '.grid__gutter-sizer',
+      percentPosition: true,
       transitionDuration: '0.8s',
     });
 
