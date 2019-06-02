@@ -13,7 +13,6 @@
 }
 
 button.c-hamburger {
-  
   display: block;
   position: relative;
   overflow: hidden;
@@ -26,11 +25,10 @@ button.c-hamburger {
   text-indent: -9999px;
   box-shadow: none;
   border: none;
+  border-radius: 0;
   cursor: pointer;
   transition: background 0.3s;
   background-color: transparent;
-  
-  &:focus { outline: 0; }
   
   span {
     display: block;

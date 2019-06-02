@@ -36,7 +36,7 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 = 1.0.10 =
 * Masonry script update to v3
-* css4 vars
+* Complete removal of css4 vars (at the moment there is no gain in using them, there is problems with the fallback and with the sass integration (which however allows you to do many more things such as color operations)
 
 = 1.0.9 =
 * Editor style

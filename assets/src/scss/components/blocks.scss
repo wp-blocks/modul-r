@@ -29,8 +29,8 @@
   
   &.alignwide {
     width: $size__site-width;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: $size__margin;
+    padding-right: $size__margin;
     clear: both;
   }
   
@@ -42,10 +42,6 @@
     clear: both;
   }
   
-  &.alignnone {
-  
-  }
-  
   &.alignleft {
     float: left;
     width: auto;
@@ -54,11 +50,6 @@
     margin-bottom: 0;
     padding-left: $size__margin;
     padding-right: $size__margin;
-    
-    @media #{$smaller-than-tablet} {
-      padding-left: 0;
-      padding-right: 0;
-    }
   }
   
   &.alignright {
@@ -69,19 +60,12 @@
     margin-bottom: 0;
     padding-left: $size__margin;
     padding-right: $size__margin;
-    
-    @media #{$smaller-than-tablet} {
-      padding-left: 0;
-      padding-right: 0;
-    }
   }
   
   &.aligncenter {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    padding-left: 0;
-    padding-right: 0;
     
     @media #{$tablet} {
       margin-left: auto;
@@ -100,34 +84,35 @@
 }
 
 /* !Typography styles */
-.site-main .entry-content {
-
-  overflow-x: hidden;
+.site-main {
+  .entry-content {
+    overflow-x: hidden;
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: $size__padding;
-    margin-bottom: $size__padding * .25;
-  }
-  
-  p {
-    margin-top: $size__padding * .25;
-    margin-bottom: $size__padding * .25;
-  
-    & + h1,
-    & + h2 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       margin-top: $size__padding;
+      margin-bottom: $size__padding * .25;
     }
   
-    & + h3,
-    & + h4,
-    & + h5,
-    & + h6 {
-      margin-top: $size__padding * .5;
+    p {
+      margin-top: $size__padding * .25;
+      margin-bottom: $size__padding * .25;
+    
+      & + h1,
+      & + h2 {
+        margin-top: $size__padding;
+      }
+    
+      & + h3,
+      & + h4,
+      & + h5,
+      & + h6 {
+        margin-top: $size__padding * .5;
+      }
     }
   }
   
@@ -159,7 +144,7 @@
   button {
     margin-top: $size__padding * .5;
   }
-  
+
 }
 
 /*
@@ -309,32 +294,47 @@
   
   .wp-block-archives,
   .wp-block-categories {
+
+    list-style-type: none;
+
+    
+    ul,
+    li {
+      padding: 0;
+      margin: 0 auto;
+    }
+    
+    li {
+      
+      a { margin-bottom: $size__margin}
+    }
+  
+    ul {
+      list-style-type: none;
+      padding-left: $size__padding-resp;
+      a { color: $color__text; }
+    }
+  
     
     &.aligncenter {
       text-align: center;
+      ul {
+        padding: 0 0 $size__padding-resp * .5;
+      }
     }
   }
   
   //! Latest categories
   .wp-block-categories {
-    
-    ul {
-      padding-bottom: $size__margin ;
-    }
-    
-    li ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    
+  
   }
   
   //! Latest posts grid view
   .wp-block-latest-posts.is-grid {
     li {
-      border-top: 2px solid $color__dark-grey;
-      padding-top: (1 * $size__margin);
-      margin-bottom: (2 * $size__margin);
+      border-top: 1px solid $color__light-grey;
+      padding-top: $size__margin;
+      margin-bottom: $size__margin;
       a {
         &:after {
           content: '';
@@ -379,6 +379,10 @@
     border-color: transparent;
     border-width: 2px;
     padding: ($blockquote__icon-size * .5) ($blockquote__icon-size * 2);
+    
+    @media #{$theme-width-size} {
+      padding: ($blockquote__icon-size * .5) ($size__padding-resp * 2);
+    }
     
     blockquote {
       color: $color__text;
@@ -830,8 +834,6 @@
       }
       
       &[class*='has-'] > * {
-        margin-right: $size__margin;
-        
         &:last-child {
           margin-right: 0;
         }

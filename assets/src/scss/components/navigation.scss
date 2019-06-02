@@ -1,17 +1,28 @@
 $nav_padding: 0 ($size__margin * 4);
 
 .main-navigation {
+  
+  .menu-main-menu-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  
+    @media #{$smaller-than-tablet} {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
  
   ul {
     display: flex;
     height: $nav__height;
     margin: 0;
+
     @if($head__direction == column) {
       padding: 0 $size__padding-resp;
     }
-  
-    justify-content: center;
-  
+ 
     @media #{$smaller-than-tablet} {
       flex-direction: column;
       justify-content: flex-start;
@@ -64,6 +75,9 @@ $nav_padding: 0 ($size__margin * 4);
     }
    
     li a { padding: $nav_padding !important;}
+    
+    a {@media #{$smaller-than-tablet} {padding: 0 !important;}}
+    
   }
   
   .menu-shadow {
@@ -71,7 +85,7 @@ $nav_padding: 0 ($size__margin * 4);
   }
   
   @media #{$smaller-than-tablet} {
-    background-color: darken($color__secondary, 5%);
+    background-color: darken($color__nav-background, 5%);
     height: calc(100vh - #{$head__height-responsive});
     z-index: 190;
     width: 90%;

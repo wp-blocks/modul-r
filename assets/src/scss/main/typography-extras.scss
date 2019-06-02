@@ -45,9 +45,8 @@ p code {
 		pre,
 		blockquote,
 		code {
-			width: auto;
-			margin-left: $size__padding-resp;
-			margin-right: $size__padding-resp;
+			padding-left: $size__padding-resp;
+			padding-right: $size__padding-resp;
 		}
 	}
 }

@@ -75,8 +75,9 @@ function modu_theme_setup() {
 	// Add support for editor styles.
 	add_theme_support( 'editor-styles' );
 
-	// Enqueue editor styles.
+	// Enqueue editor styles and fonts.
 	add_editor_style( 'assets/dist/css/editor.css' );
+	add_editor_style( 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Material+Icons' );
 
 	// Add support for responsive embedded content.
 	add_theme_support( 'responsive-embeds' );

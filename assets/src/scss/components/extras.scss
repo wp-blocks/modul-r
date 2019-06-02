@@ -91,7 +91,7 @@ $image-size: 150px;
     display: inline-table;
     width: calc(100% - 30px);
   }
-  * {
+  > * {
     flex-basis: 50%;
     flex-shrink: 0;
   }
