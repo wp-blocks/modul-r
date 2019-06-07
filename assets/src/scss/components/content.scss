@@ -51,3 +51,19 @@ body.single,
     max-height: 1000px;
   }
 }
+
+
+body.woocommerce .site-content {
+  width: $size__site-width;
+  max-width: 100%;
+  
+  box-sizing: border-box;
+  padding-left: $size__padding-resp;
+  padding-right: $size__padding-resp;
+  margin: $size__padding auto ($size__padding * .5);
+  
+  @media #{$mq__smaller-than-tablet} {
+    padding-left: $size__padding-resp;
+    padding-right: $size__padding-resp;
+  }
+}
