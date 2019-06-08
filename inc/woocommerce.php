@@ -11,5 +11,4 @@ if ( class_exists( 'WooCommerce' ) ) {
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
 
-
 }

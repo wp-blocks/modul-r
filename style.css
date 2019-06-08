@@ -494,7 +494,6 @@ textarea {
   transition: 350ms; }
 
 input {
-  transition: 175ms;
   border: 0 solid transparent; }
   input[type="text"], input[type="email"], input[type="url"] {
     width: 100%;
@@ -816,7 +815,12 @@ body.woocommerce .site-content {
 .page-title.main-width {
   text-align: center;
   font-size: 64px;
-  color: #7452b1; }
+  color: #7452b1;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px; }
   @media (max-width: 1023px) {
     .entry-title,
     .page-title,
@@ -2103,26 +2107,59 @@ body.woocommerce #primary {
       body.woocommerce #primary .product_title.entry-title {
         font-size: 32px; } }
 
-body.woocommerce .post-type-archive-product .woocommerce-products-header {
-  padding: 32px 24px; }
+body.woocommerce.post-type-archive-product .woocommerce-products-header {
+  padding: 0 24px 16px; }
 
-body.woocommerce .post-type-archive-product ul.products {
+body.woocommerce.post-type-archive-product ul.products {
   padding-top: 32px; }
+  body.woocommerce.post-type-archive-product ul.products li.product .woocommerce-loop-product__title {
+    font-weight: 500; }
 
+body.woocommerce .woocommerce-breadcrumb,
 body.woocommerce .woocommerce-result-count,
 body.woocommerce .woocommerce-ordering {
   line-height: 64px; }
 
+body.woocommerce .product_meta {
+  margin-top: 8px; }
+  body.woocommerce .product_meta > span {
+    display: block; }
+
+body.woocommerce div.product div.images .flex-control-thumbs li {
+  padding: 0; }
+
+body.woocommerce div.product form.cart {
+  margin-top: 16px; }
+  body.woocommerce div.product form.cart div.quantity .qty {
+    font-size: 18px; }
+  body.woocommerce div.product form.cart .qty,
+  body.woocommerce div.product form.cart .button {
+    height: 48px; }
+
 #secondary {
-  min-width: 360px; }
-  #secondary > ul {
-    list-style-type: none; }
+  min-width: 300px; }
+  #secondary section ul {
+    list-style-type: none;
+    margin: 16px 0;
+    padding-left: 0; }
+    #secondary section ul ul {
+      padding-left: 16px; }
   #secondary h3 {
     margin: 64px 0 8px;
     font-size: 20px;
     font-weight: 600; }
   #secondary ul {
-    margin: 8px 0; }
+    margin: 16px 0; }
+  #secondary a {
+    font-weight: 600;
+    font-size: 16px; }
+
+.select2-selection__rendered {
+  line-height: 48px !important; }
+
+.select2-container .select2-selection--single,
+.select2-selection__arrow {
+  height: 48px !important; }
 
 /* Vendor Style */
 body.compensate-for-scrollbar {
@@ -3116,7 +3153,9 @@ body.archive article.grid__item {
   body.archive article.grid__item .entry-header {
     padding-bottom: 8px; }
     body.archive article.grid__item .entry-header .entry-title {
-      font-size: 24px; }
+      font-size: 24px;
+      padding: 0;
+      margin: 0; }
 
 .page-load-status {
   display: none;
@@ -3165,25 +3204,32 @@ i.social-ico {
 
 .arrow-next, .fancybox-navigation .fancybox-button--arrow_right,
 .slider button.slick-next {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 5,5 45,40 5,75 "> </polyline></svg>'); }
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="%235C6069" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 5,5 45,40 5,75 "> </polyline></svg>'); }
 
 .arrow-prev, .fancybox-navigation .fancybox-button--arrow_left,
 .slider button.slick-prev {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 45,75 5,40 45,5 "> </polyline></svg>'); }
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="%235C6069" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 45,75 5,40 45,5 "> </polyline></svg>'); }
 
 .arrow, .fancybox-navigation .fancybox-button--arrow_right,
 .slider button.slick-next, .fancybox-navigation .fancybox-button--arrow_left,
 .slider button.slick-prev {
-  background-color: rgba(23, 190, 187, 0.8);
+  background-color: transparent;
   border-radius: 50%;
   width: 60px;
   height: 60px;
+  margin: 0;
   padding: 0;
   min-width: inherit;
   background-size: 15px;
   background-repeat: no-repeat;
   background-position: center;
   border: 0; }
+  .arrow:hover, .fancybox-navigation .fancybox-button--arrow_right:hover,
+  .slider button.slick-next:hover, .fancybox-navigation .fancybox-button--arrow_left:hover,
+  .slider button.slick-prev:hover {
+    background-color: rgba(92, 96, 105, 0.1);
+    -webkit-filter: inherit;
+    filter: inherit; }
   @media (max-width: 1023px) {
     .arrow, .fancybox-navigation .fancybox-button--arrow_right,
     .slider button.slick-next, .fancybox-navigation .fancybox-button--arrow_left,
