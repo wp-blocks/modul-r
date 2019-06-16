@@ -161,5 +161,8 @@ body.has-featured-image .site-content {
   @media #{$mq__smaller-than-tablet} {
     margin-top: $head__height-responsive * -1;
   }
-  
+}
+
+body.woocommerce .site-content {
+  margin-top: 0;
 }

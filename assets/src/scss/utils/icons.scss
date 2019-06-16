@@ -1,5 +1,12 @@
-// TODO: find better icons
+@function colorEncode($color) {
+  @if (str-index(ie-hex-str($color), "#") == 1 and str-length(ie-hex-str($color)) == 9 and type-of($color) == 'color') {
+    @return '%23' + str-slice(ie-hex-str($color), 4, 9);
+  }
+  
+  @return $color ;
+}
 
+// TODO: find better icons
 %social-email {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 640 640" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><path d="M318.016 459.006l126.155-126.143 191.861 191.849H.001l191.861-191.849 126.155 126.143zM7.3 115.301l310.716 310.705 310.705-310.705H7.3zM0 478.176l164.72-164.719L0 148.738v329.437zm640 15.756L459.516 313.457 640 132.971v360.961z"/></svg>');
 }
@@ -55,27 +62,33 @@ i.social-ico {
 
 
 %arrow-right {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 5,5 45,40 5,75 "> </polyline></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="#{colorEncode($color__dark-grey)}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 5,5 45,40 5,75 "> </polyline></svg>');
 }
 
 %arrow-left {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 45,75 5,40 45,5 "> </polyline></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="#{colorEncode($color__dark-grey)}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 45,75 5,40 45,5 "> </polyline></svg>');
 }
 
 
 $arrowSize: 60px;
 
 .arrow {
-  background-color: transparentize($color__primary, 0.2);
+  background-color: transparent;
   border-radius: 50%;
   width: $arrowSize;
   height: $arrowSize;
+  margin: 0;
   padding: 0;
   min-width: inherit;
   background-size: $arrowSize * .25;
   background-repeat: no-repeat;
   background-position: center;
   border:0;
+  
+  &:hover {
+    background-color: transparentize($color__dark-grey, .9);
+    filter: inherit;
+  }
   
   @media #{$mq__smaller-than-tablet} {
     $arrowSize: 24px;
@@ -95,7 +108,6 @@ $arrowSize: 60px;
     margin-left: $arrowSize * .5;
   }
 }
-
 
 //reset slick arrow
 .slick-prev:before, .slick-next:before {display: none !important;}
