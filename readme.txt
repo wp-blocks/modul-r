@@ -34,6 +34,9 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
+= 1.0.11 =
+* WooCommerce support
+
 = 1.0.10 =
 * Masonry script update to v3
 * Complete removal of css4 vars (at the moment there is no gain in using them, there is problems with the fallback and with the sass integration (which however allows you to do many more things such as color operations)
