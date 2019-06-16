@@ -35,6 +35,22 @@ body.woocommerce {
     .woocommerce-tabs .entry-content > * {
       width: 100%;
     }
+  
+    table.woocommerce-product-attributes {
+      margin-left: $size__padding-resp;
+      margin-right: $size__padding-resp;
+      td {
+        padding-left: $size__padding-resp;
+      }
+      tr:nth-child(even) th {
+        background-color: darken($color__secondary, 8%);
+      }
+    }
+  
+    .related.products {
+      padding: ($size__padding * .5) $size__padding-resp ($size__padding * .25);
+    }
     
   }
+  
 }

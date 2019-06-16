@@ -2147,6 +2147,17 @@ body.woocommerce div.product form.cart {
 body.woocommerce div.product .woocommerce-tabs .entry-content > * {
   width: 100%; }
 
+body.woocommerce div.product table.woocommerce-product-attributes {
+  margin-left: 24px;
+  margin-right: 24px; }
+  body.woocommerce div.product table.woocommerce-product-attributes td {
+    padding-left: 24px; }
+  body.woocommerce div.product table.woocommerce-product-attributes tr:nth-child(even) th {
+    background-color: #614496; }
+
+body.woocommerce div.product .related.products {
+  padding: 32px 24px 16px; }
+
 #secondary {
   min-width: 300px; }
   #secondary section ul {
