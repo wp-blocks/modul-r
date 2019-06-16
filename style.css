@@ -6,7 +6,7 @@ Theme URI: https://modul-r.codekraft.it/
 Author: Codekraft Studio - info@codekraft.it 
 Author URI: https://codekraft.it 
 Requires at least: WordPress 4.9.6 
-Version: 1.0.10 
+Version: 1.0.11 
 License: GNU General Public License v3 or later 
 License: © 2019 Codekraft Studio - info@codekraft.it 
 License URI: https://github.com/erikyo/modular-wordpress-theme/blob/master/LICENSE 
@@ -2093,6 +2093,7 @@ body.archive .entry-footer .meta-wrapper {
   margin: 8px 0;
   line-height: 1.8; }
 
+/* WooCommerce */
 body.woocommerce .site-content {
   display: flex;
   /* flex-direction: row-reverse; */ }
@@ -2107,14 +2108,6 @@ body.woocommerce #primary {
       body.woocommerce #primary .product_title.entry-title {
         font-size: 32px; } }
 
-body.woocommerce.post-type-archive-product .woocommerce-products-header {
-  padding: 0 24px 16px; }
-
-body.woocommerce.post-type-archive-product ul.products {
-  padding-top: 32px; }
-  body.woocommerce.post-type-archive-product ul.products li.product .woocommerce-loop-product__title {
-    font-weight: 500; }
-
 body.woocommerce .woocommerce-breadcrumb,
 body.woocommerce .woocommerce-result-count,
 body.woocommerce .woocommerce-ordering {
@@ -2124,6 +2117,21 @@ body.woocommerce .product_meta {
   margin-top: 8px; }
   body.woocommerce .product_meta > span {
     display: block; }
+
+.select2-selection__rendered {
+  line-height: 48px !important; }
+
+.select2-container .select2-selection--single,
+.select2-selection__arrow {
+  height: 48px !important; }
+
+body.woocommerce.post-type-archive-product .woocommerce-products-header {
+  padding: 0 24px 16px; }
+
+body.woocommerce.post-type-archive-product ul.products {
+  padding-top: 32px; }
+  body.woocommerce.post-type-archive-product ul.products li.product .woocommerce-loop-product__title {
+    font-weight: 500; }
 
 body.woocommerce div.product div.images .flex-control-thumbs li {
   padding: 0; }
@@ -2135,6 +2143,9 @@ body.woocommerce div.product form.cart {
   body.woocommerce div.product form.cart .qty,
   body.woocommerce div.product form.cart .button {
     height: 48px; }
+
+body.woocommerce div.product .woocommerce-tabs .entry-content > * {
+  width: 100%; }
 
 #secondary {
   min-width: 300px; }
@@ -2153,13 +2164,6 @@ body.woocommerce div.product form.cart {
   #secondary a {
     font-weight: 600;
     font-size: 16px; }
-
-.select2-selection__rendered {
-  line-height: 48px !important; }
-
-.select2-container .select2-selection--single,
-.select2-selection__arrow {
-  height: 48px !important; }
 
 /* Vendor Style */
 body.compensate-for-scrollbar {

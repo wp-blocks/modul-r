@@ -1,0 +1,40 @@
+body.woocommerce {
+  
+  // the archive page
+  &.post-type-archive-product {
+    .woocommerce-products-header {
+      padding: 0 $size__padding-resp ($size__padding * .25);
+    }
+    ul.products {
+      padding-top: $size__padding * .5;
+      
+      li.product .woocommerce-loop-product__title {
+        font-weight: 500;
+      }
+    }
+  }
+  
+  // the single product
+  div.product {
+    div.images .flex-control-thumbs li {
+      padding: 0;
+    }
+    
+    form.cart {
+      margin-top: $size__margin * 2;
+      div.quantity {
+        .qty {
+          font-size: 18px;
+        }
+      }
+      .qty,
+      .button {
+        height: $size__padding * .75;
+      }
+    }
+    .woocommerce-tabs .entry-content > * {
+      width: 100%;
+    }
+    
+  }
+}

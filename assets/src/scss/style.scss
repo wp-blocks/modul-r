@@ -34,7 +34,11 @@
 @import "pages/single";
 @import "pages/archive";
 @import "pages/author";
-@import "woocommerce/main";
+
+/* WooCommerce */
+@import "woo/woo-base";
+@import "woo/woo-pages";
+@import "woo/woo-sidebar";
 
 /* Vendor Style */
 @import "vendor/fancybox";
