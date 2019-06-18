@@ -21,25 +21,25 @@ get_header();
             <div class="grid__col-sizer"></div>
             <div class="grid__gutter-sizer"></div>
 
-              <?php
-                // create the masonry wrapper
-                while ( have_posts() ) : the_post();
-                  get_template_part( 'template-parts/content/content', 'masonry' );
-                endwhile;
-              ?>
+	          <?php
+	          // create the masonry wrapper
+	          while ( have_posts() ) : the_post();
+		          get_template_part( 'template-parts/content/content', 'masonry' );
+	          endwhile;
+	          ?>
 
-              <?php
-              // If no content, include the "No posts found" template.
-              else :
-              get_template_part( 'template-parts/content/content', 'none' );
-            endif; ?>
           </div>
         </div>
+
+        <?php
+        // If no content, include the "No posts found" template.
+        else :
+          get_template_part( 'template-parts/content/content', 'none' );
+        endif; ?>
 
         <div class="masonry navigation">
           <?php next_posts_link(); ?>
         </div>
-
 
         <div class="page-load-status">
           <div class="loader-ellips infinite-scroll-request">

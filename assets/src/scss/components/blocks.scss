@@ -581,7 +581,7 @@
     
     .wp-block-media-text__content {
       max-width: $size__site-width * .4;
-      padding-right: 0;
+      padding-right: inherit;
       padding-left: $size__padding;
       padding-top: $size__padding * .5;
       padding-bottom: $size__padding * .5;
@@ -595,7 +595,7 @@
     &.has-media-on-the-right {
       .wp-block-media-text__content {
         float: right;
-        padding-left: 0;
+        padding-left: inherit;
         padding-right: $size__padding;
         margin-left: auto;
       }

@@ -32,11 +32,9 @@ const opts = {
 
   autoprefixer: {
     dev: {
-      browsers: ['last 1 versions'],
       cascade: false
     },
     build: {
-      browsers: ['> 1%', 'last 2 versions'],
       cascade: false
     }
   },
