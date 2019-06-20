@@ -39,18 +39,40 @@
 
     .site-branding {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      
       @if($head__direction == row) {
         padding-top: $size__margin;
         padding-bottom: $size__margin;
       }
-  
       @if($head__direction == column) {
         height: $size__branding-height;
+ 
+        .header-text {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+      
+      &.has-header-text.has-custom-logo {
+        display: flex;
+        flex-direction: row;
         justify-content: center;
-        text-align: center;
+    
+        .header-text {text-align: left;}
+    
+        .site-logo {
+          margin-right: $size__margin * 2;
+      
+          @media #{$mq__phablet} {
+            width:auto;
+            text-align: center;
+          }
+        }
+      }
+      
+      .header-text {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
       }
   
       @media #{$mq__smaller-than-tablet} {
@@ -86,7 +108,8 @@
     }
   
     // Custom logo
-    .site-logo {
+    .has-custom-logo .site-logo {
+      height: 100%;
       box-sizing: content-box;
   
       @media #{$mq__smaller-than-tablet} {

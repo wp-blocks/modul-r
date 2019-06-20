@@ -113,6 +113,7 @@ if ( ! function_exists('modu_meta') ) :
 	function modu_meta() {
 
     global $post;
+    $comments_count = get_comment_count($post->ID);
 
 		?>
     <div class="meta-wrapper">
@@ -133,13 +134,13 @@ if ( ! function_exists('modu_meta') ) :
         </a>
       </p>
 
-      <?php if ( get_comment_count($post->ID)['approved'] > 0 ) { ?>
+      <?php if ( $comments_count['approved'] > 0 ) { ?>
 
       <p><b> | </b></p>
 
       <p>
         <a href="<?php the_permalink(); ?>#comments">
-	        <?php echo get_comment_count($post->ID)['approved']; ?> <?php _e('comments',  'modul-r'); ?>
+	        <?php echo $comments_count['approved']; ?> <?php _e('comments',  'modul-r'); ?>
         </a>
       </p>
 
