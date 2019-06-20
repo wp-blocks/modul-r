@@ -38,7 +38,7 @@ body.home {
         font-size: 64px;
         font-weight: 700;
         color: $color__white;
-        margin: 0 $size__padding-resp;
+        margin: 0 auto;
   
         @media #{$mq__smaller-than-tablet} {
           font-size: 48px;
