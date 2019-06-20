@@ -105,15 +105,15 @@ msgstr ""
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:142
+#: inc/template-functions.php:143
 msgid "comments"
 msgstr ""
 
-#: inc/template-functions.php:176
+#: inc/template-functions.php:177
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:227
+#: inc/template-functions.php:228
 msgid "You might be interested in..."
 msgstr ""
 
@@ -131,6 +131,14 @@ msgstr ""
 
 #: template-parts/content/content-homepage.php:14
 msgid "Download"
+msgstr ""
+
+#: template-parts/content/content-none.php:12
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content/content-none.php:18
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
 #. translators: %s: parent post link
