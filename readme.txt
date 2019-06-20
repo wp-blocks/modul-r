@@ -1,10 +1,12 @@
 === Theme Name ===
 Contributors: Codekraft
-Requires at least: 5.0
-Tested up to: 5.2
+Requires at least: 4.9.6
+Tested up to: WordPress 5.2
 Requires PHP: 5.6
+Stable tag: 1.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready
 
 Modul R is a powerful and flexible theme that provides a fast way to create an awesome website.
 
@@ -33,6 +35,9 @@ Download and install this https://nodejs.org/it/download/
 follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
+
+= 1.0.12 =
+* updates to WordPress standards
 
 = 1.0.11 =
 * WooCommerce support
@@ -85,9 +90,15 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 * Create my own icons for the social media / mail / print
 * Rework sticky post + article author + footer style
 
+== Images Screenshot ==
+License: CC0 1.0 Universal (CC0 1.0)
+Screenshot Image
+https://pixabay.com/photos/skyscraper-facade-modern-1030774/
+
 == Resources ==
-* infinite-scroll.js - 2019 David DeSandro, GPL3
-* fancybox.js © 2008 - 2019 fancyapps, GPL3
-* slick.js © 2017 Ken Wheeler, MIT
-* normalize.css © 2019 Nicolas Gallagher and Jonathan Neal, MIT
-* twentynineteen © 2019 the WordPress team, GPL2
+* infinite-scroll.js https://infinite-scroll.com/, © 2019 David DeSandro, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* fancybox.js https://fancyapps.com/fancybox/3/, © 2008 - 2019 fancyapps, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* slick.js https://kenwheeler.github.io/slick/, © 2017 Ken Wheeler, [MIT](http://opensource.org/licenses/MIT)
+* normalize.css http://necolas.github.io/normalize.css/, © 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
+* twentynineteen https://it.wordpress.org/themes/twentynineteen/, © 2019 the WordPress team, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Google Fonts - Apache License, version 2.0
