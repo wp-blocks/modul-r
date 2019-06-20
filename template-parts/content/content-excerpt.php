@@ -7,7 +7,7 @@
 <div class="article-container">
   <article id="post-<?php the_ID(); ?>" <?php post_class( array('main-width') ); ?>>
 
-    <?php modu_post_image(); ?>
+    <?php modul_r_post_image(); ?>
 
     <div class="article-wrapper">
 
@@ -29,7 +29,7 @@
       </div><!-- /entry-content -->
 
       <footer class="entry-footer">
-          <?php modu_meta(); ?>
+          <?php modul_r_meta(); ?>
       </footer>
 
     </div>

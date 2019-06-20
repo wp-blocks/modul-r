@@ -7,7 +7,7 @@
 
 	<header class="entry-header main-width alignwide">
 
-    <p class="breadcrumbs"><?php modu_breadcrumbs(); ?></p>
+    <p class="breadcrumbs"><?php modul_r_breadcrumbs(); ?></p>
 
 		<h1 class="entry-title"><?php _e( 'Nothing Found', 'modul-r' ); ?></h1>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="entry-footer">
-		  <?php modu_relateds(); ?>
+		  <?php modul_r_relateds(); ?>
     </div>
 
 	</footer><!-- /entry-footer -->

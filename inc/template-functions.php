@@ -4,8 +4,8 @@
  * Displays the featured image of the post/page
  * you can pass single or multiple classes to the image wrapper
  */
-if ( ! function_exists('modu_post_image') ) :
-	function modu_post_image($class = null) {
+if ( ! function_exists('modul_r_post_image') ) :
+	function modul_r_post_image($class = null) {
 	    // Check if Thumbnail exists
       if ( has_post_thumbnail()) : ?>
           <div class="entry-image interactive<?php echo ' '.$class; ?>">
@@ -19,8 +19,8 @@ endif;
 /**
  * Displays the navigation for the archive page
  */
-if ( ! function_exists( 'modu_archive_nav' ) ) :
-	function modu_archive_nav() {
+if ( ! function_exists( 'modul_r_archive_nav' ) ) :
+	function modul_r_archive_nav() {
 
 	  $pagination = get_the_posts_pagination( array(
 		  'mid_size'  => 5,
@@ -37,8 +37,8 @@ endif;
 /**
  * Displays the next/prev navigation for the post
  */
-if ( ! function_exists( 'modu_post_nav' ) ) :
-	function modu_post_nav() { ?>
+if ( ! function_exists( 'modul_r_post_nav' ) ) :
+	function modul_r_post_nav() { ?>
   <div class="post-navigation">
     <h3><?php _e('Post navigation',  'modul-r'); ?></h3>
     <div class="navigation">
@@ -57,8 +57,8 @@ endif;
 /**
  * Displays page-links for paginated posts
  */
-if ( ! function_exists( 'modu_page_links' ) ) :
-	function modu_page_links() {
+if ( ! function_exists( 'modul_r_page_links' ) ) :
+	function modul_r_page_links() {
 
 	  $defaults = array(
 		  'before'           => '<p>' . __( 'Pages:',  'modul-r' ),
@@ -82,8 +82,8 @@ endif;
 /**
  * Displays the comments template
  */
-if ( ! function_exists('modu_comments') ) :
-	function modu_comments() {
+if ( ! function_exists('modul_r_comments') ) :
+	function modul_r_comments() {
 		// If comments are open or we have at least one comment, load up the comment template.
 		comments_template();
 	}
@@ -93,8 +93,8 @@ endif;
 /**
  * Displays the tags
  */
-if ( ! function_exists('modu_tags') ) :
-	function modu_tags() {
+if ( ! function_exists('modul_r_tags') ) :
+	function modul_r_tags() {
 
 		if( has_tag() ): ?>
 			<div class="post-tags">
@@ -109,8 +109,8 @@ endif;
 /**
  * Displays the article meta (author / date / comments number if isn't zero)
  */
-if ( ! function_exists('modu_meta') ) :
-	function modu_meta() {
+if ( ! function_exists('modul_r_meta') ) :
+	function modul_r_meta() {
 
     global $post;
     $comments_count = get_comment_count($post->ID);
@@ -156,8 +156,8 @@ endif;
 /**
  * Displays the article breadcrumbs
  */
-if ( ! function_exists('modu_breadcrumbs') ) :
-	function modu_breadcrumbs() {
+if ( ! function_exists('modul_r_breadcrumbs') ) :
+	function modul_r_breadcrumbs() {
 	  if ( function_exists('yoast_breadcrumb') ) {
 		  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
 	  } else {
@@ -170,8 +170,8 @@ endif;
 /**
  * Displays the article shares buttons
  */
-if ( ! function_exists('modu_social_sharer') ) :
-	function modu_social_sharer() {
+if ( ! function_exists('modul_r_social_sharer') ) :
+	function modul_r_social_sharer() {
     ?>
     <div id="share-buttons">
       <h3><?php _e('Share this post',  'modul-r'); ?></h3>
@@ -211,8 +211,8 @@ endif;
 /**
  * Displays the article relateds
  */
-if ( ! function_exists('modu_relateds') ) :
-	function modu_relateds() {
+if ( ! function_exists('modul_r_relateds') ) :
+	function modul_r_relateds() {
   ?>
     <div class="relateds">
 		<?php
@@ -247,8 +247,8 @@ endif;
 /**
  * Change the color of the headline if changed in the customizer
  */
-if ( ! function_exists('modu_header_textcolor') ) :
-	function modu_header_textcolor() {
+if ( ! function_exists('modul_r_header_textcolor') ) :
+	function modul_r_header_textcolor() {
     if (get_header_textcolor()) {
       echo ' style="color:#' . get_header_textcolor(). '"';
     }
@@ -259,8 +259,8 @@ endif;
 /**
  * Add a background to the headline if changed in the customizer
  */
-if ( ! function_exists('modu_header_image') ) :
-	function modu_header_image() {
+if ( ! function_exists('modul_r_header_image') ) :
+	function modul_r_header_image() {
     if (get_header_image()) {?>
      <img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" class="site-header-image" />
 	  <?php }
@@ -271,8 +271,8 @@ endif;
 /**
  * Display the author of the post
  */
-if ( ! function_exists('modu_author') ) :
-	function modu_author() {
+if ( ! function_exists('modul_r_author') ) :
+	function modul_r_author() {
 
 	  global $post;
 

@@ -1,7 +1,7 @@
 <?php
 
-if ( ! function_exists('modu_theme_setup') ) :
-function modu_theme_setup() {
+if ( ! function_exists('modul_r_theme_setup') ) :
+function modul_r_theme_setup() {
 	/*
 	* Make theme available for translation.
 	* Translations can be filed in the /languages/ directory.
@@ -85,4 +85,4 @@ function modu_theme_setup() {
 }
 endif;
 
-add_action( 'after_setup_theme', 'modu_theme_setup' );
+add_action( 'after_setup_theme', 'modul_r_theme_setup' );

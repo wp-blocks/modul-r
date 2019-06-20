@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 
-function registerSidebar() {
+function modul_r_registerSidebar() {
 
 	register_sidebar( array(
 			'name'          => __( 'Main Sidebar',  'modul-r' ),
@@ -30,4 +30,4 @@ function registerSidebar() {
 
 }
 
-add_action( 'widgets_init', 'registerSidebar' );
+add_action( 'widgets_init', 'modul_r_registerSidebar' );

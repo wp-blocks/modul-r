@@ -8,13 +8,13 @@
 
 	<div class="site-branding-container main-width alignwide">
 
-    <?php modu_header_image(); ?>
+    <?php modul_r_header_image(); ?>
 
     <div class="site-branding<?php if ( $show_header_text ) {echo ' has-header-text';} ?><?php if ( $custom_logo ) {echo ' has-custom-logo';} ?>">
       <div class="site-logo"><?php the_custom_logo(); ?></div>
       <?php if ( $show_header_text ) : ?>
         <div class="header-text">
-          <h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" <?php modu_header_textcolor() ?>><?php bloginfo( 'name' ); ?></a></h2>
+          <h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" <?php modul_r_header_textcolor() ?>><?php bloginfo( 'name' ); ?></a></h2>
           <?php if ( $description ) { ?>
             <p class="site-description"><?php echo $description; ?></p>
           <?php } ?>

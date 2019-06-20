@@ -22,7 +22,7 @@ get_header();
 			endwhile;
 
 			// Previous/next page navigation.
-			printf( '<div class="main-width alignwide text-center">%s</div>', modu_archive_nav() );
+			printf( '<div class="main-width alignwide text-center">%s</div>', modul_r_archive_nav() );
 
 		// If no content, include the "No posts found" template.
 		else :

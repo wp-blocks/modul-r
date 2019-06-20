@@ -6,7 +6,7 @@
 ?>
 
 <div class="website-hero text-center">
-	<?php modu_post_image('parallax'); ?>
+	<?php modul_r_post_image('parallax'); ?>
   <div class="hero-title text-center">
     <h1><?php bloginfo( 'name' ); ?></h1>
     <p><?php bloginfo('description'); ?></p>
@@ -25,6 +25,6 @@
 </div><!-- /entry-content -->
 
 <footer class="entry-footer main-width">
-	<?php modu_page_links(); ?>
+	<?php modul_r_page_links(); ?>
 </footer>
 

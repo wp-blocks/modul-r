@@ -3,28 +3,28 @@
 /**
  * Load fonts
  */
-if ( ! function_exists('modu_theme_fonts') ) :
-	function modu_theme_fonts() {
+if ( ! function_exists('modul_r_theme_fonts') ) :
+	function modul_r_theme_fonts() {
 		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Material+Icons', array(), null );
 	}
 endif;
-add_action( 'get_footer', 'modu_theme_fonts' );
+add_action( 'get_footer', 'modul_r_theme_fonts' );
 
 /**
  * Enqueue main style
  */
-if ( ! function_exists('modu_theme_style') ) :
-	function modu_theme_style() {
+if ( ! function_exists('modul_r_theme_style') ) :
+	function modul_r_theme_style() {
 		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array(), null );
 	}
 endif;
-add_action( 'get_footer', 'modu_theme_style' );
+add_action( 'get_footer', 'modul_r_theme_style' );
 
 /**
  * Load scripts
  */
-if ( ! function_exists('modu_theme_scripts') ) :
-	function modu_theme_scripts() {
+if ( ! function_exists('modul_r_theme_scripts') ) :
+	function modul_r_theme_scripts() {
 
 		// Register and Enqueue
 		wp_enqueue_script( 'jquery' );
@@ -35,7 +35,7 @@ if ( ! function_exists('modu_theme_scripts') ) :
 
 	}
 endif;
-add_action( 'wp_enqueue_scripts', 'modu_theme_scripts' ); // Add Theme admin scripts
+add_action( 'wp_enqueue_scripts', 'modul_r_theme_scripts' ); // Add Theme admin scripts
 
 
 

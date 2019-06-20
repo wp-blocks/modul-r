@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( array('grid__item')); ?>>
 
-  <?php modu_post_image(); ?>
+  <?php modul_r_post_image(); ?>
 
   <div class="article-wrapper">
 

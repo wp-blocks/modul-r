@@ -7,15 +7,15 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php modu_post_image('parallax'); ?>
+	<?php modul_r_post_image('parallax'); ?>
 
 	<header class="entry-header main-width alignwide">
 
-    <p class="breadcrumbs"><?php modu_breadcrumbs(); ?></p>
+    <p class="breadcrumbs"><?php modul_r_breadcrumbs(); ?></p>
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-    <?php modu_meta(); ?>
+    <?php modul_r_meta(); ?>
 
 	</header>
 
@@ -35,7 +35,7 @@
     } elseif ( is_singular( 'post' ) ) {
 
       // Previous/next post navigation.
-      printf( '<div class="post-navigation">%s</div>', modu_page_links() );
+      printf( '<div class="post-navigation">%s</div>', modul_r_page_links() );
 
     } ?>
 	</div><!-- /entry-content -->
@@ -43,21 +43,21 @@
 
 	<footer class="entry-footer main-width">
 
-	  <?php modu_author(); ?>
+	  <?php modul_r_author(); ?>
 
-	  <?php modu_tags(); ?>
+	  <?php modul_r_tags(); ?>
 
-	  <?php modu_social_sharer(); ?>
+	  <?php modul_r_social_sharer(); ?>
 
-    <?php modu_post_nav(); ?>
+    <?php modul_r_post_nav(); ?>
 
-    <?php modu_relateds(); ?>
+    <?php modul_r_relateds(); ?>
 
 	</footer><!-- /entry-footer -->
 
   <?php if ( comments_open() || get_comments_number() ) { ?>
     <div class="entry-comments main-width">
-      <?php modu_comments(); ?>
+      <?php modul_r_comments(); ?>
     </div>
   <?php } ?>
 

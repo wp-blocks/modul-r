@@ -24,7 +24,7 @@ get_header();
           </div>
 
           <div class="entry-footer">
-			      <?php modu_relateds(); ?>
+			      <?php modul_r_relateds(); ?>
           </div>
 
         </div><!-- /page-content -->
