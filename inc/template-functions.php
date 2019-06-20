@@ -40,7 +40,7 @@ endif;
 if ( ! function_exists( 'modul_r_post_nav' ) ) :
 	function modul_r_post_nav() { ?>
   <div class="post-navigation">
-    <h3><?php _e('Post navigation',  'modul-r'); ?></h3>
+    <h3><?php _e('Post navigation', 'modul-r'); ?></h3>
     <div class="navigation">
       <div class="alignleft">
 	  	  <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
