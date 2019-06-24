@@ -1,7 +1,7 @@
 body.home {
   
   .website-hero {
-    height: 67vh;
+    height: 66vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,7 +17,7 @@ body.home {
       position: absolute;
       width: 100%;
       height: 100%;
-      opacity: .7;
+      opacity: .66;
     }
     
     .hero-title {
@@ -59,7 +59,7 @@ body.home {
   }
   
   .wp-block-columns {
-  
+    
     @media #{$mq__smaller-than-tablet} {
       flex-direction: column;
       .wp-block-column {
@@ -75,6 +75,73 @@ body.home {
         margin-top: $size__margin * 2;
         padding-left: 6%;
         padding-right: 6%;
+      }
+    }
+  }
+  
+  // first Column mod
+  .entry-content {
+    overflow: visible;
+    
+    & > .wp-block-columns:first-of-type {
+      text-align: center;
+      overflow: visible;
+      
+      .wp-block-column {
+        background: white;
+        position: relative;
+        margin-left: $size__padding * .5;
+        margin-right: $size__padding * .5;
+        height: 100%;
+        z-index: 999;
+        margin-top: -100px;
+        
+        box-shadow: 0 5px 30px -20px transparentize($color__dark-grey, .3);
+        padding: 0 0 ($size__padding * .5);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+  
+      .wp-block-image figure {
+        width: 100%;
+        margin: 0 0 ($size__margin * .5);
+      }
+      
+      img {
+        width: 100%;
+        height: 220px;
+      }
+      
+      h2 {
+        font-size: 24px;
+        margin: ($size__margin * 3)  0 $size__margin;
+        a { color: $color__primary;}
+      }
+      
+      p {
+        line-height: 1.4;
+        margin: 0;
+        opacity: .9;
+        b, strong { color: $color__text;}
+      }
+    }
+  }
+  
+  //animations
+  .entry-content > .has-3-columns.animated {
+    .wp-block-column {
+      transition: $animations__lenght * 4;
+      transform: translateY(100%);
+      opacity: 0;
+      
+      &:nth-of-type(1) { transition-delay: $animations__lenght * 1}
+      &:nth-of-type(3) { transition-delay: $animations__lenght * 1.5}
+    }
+    
+    &.already-see {
+      .wp-block-column {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
   }

@@ -3,7 +3,7 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Stable tag: 1.0.12
+Stable tag: 1.0.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready
@@ -35,6 +35,9 @@ Download and install this https://nodejs.org/it/download/
 follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
+
+= 1.0.13 =
+* Pre-release
 
 = 1.0.12 =
 * updates to WordPress standards
@@ -93,7 +96,10 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
 Screenshot Image
-https://pixabay.com/photos/skyscraper-facade-modern-1030774/
+https://stocksnap.io/photo/BTGQ0EUZ5Z
+https://stocksnap.io/photo/SNX6M0KJ2G
+https://stocksnap.io/photo/SFKZHJODOV
+https://stocksnap.io/photo/6FOTSJ06WB
 
 == Resources ==
 * infinite-scroll.js https://infinite-scroll.com/, © 2019 David DeSandro, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
