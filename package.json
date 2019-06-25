@@ -3,7 +3,7 @@
   "version": "1.0.13",
   "main": "Codekraft",
   "author": {
-    "name": "Codekraft Studio - info@codekraft.it",
+    "name": "Codekraft Studio",
     "website": "https://codekraft.it"
   },
   "homepage": "https://modul-r.codekraft.it/",
@@ -12,7 +12,7 @@
     "description": "Modul R is a powerful and flexible theme that provides a fast way to create an awesome website.",
     "textDomain": "modul-r",
     "tags": "blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready",
-    "licenseURI": "https://github.com/erikyo/modular-wordpress-theme/blob/master/LICENSE"
+    "licenseURI": "https://github.com/erikyo/modul-r/blob/master/LICENSE"
   },
   "scripts": {
     "watch": "node node_modules/gulp/bin/gulp watch",
