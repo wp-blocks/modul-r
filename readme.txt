@@ -36,6 +36,9 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
+= 1.0.14 =
+* fixes
+
 = 1.0.13 =
 * Pre-release
 

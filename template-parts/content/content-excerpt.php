@@ -9,7 +9,7 @@
 
     <?php modul_r_post_image(); ?>
 
-    <div class="article-wrapper<? if ( is_sticky() && is_home() && ! is_paged() ) { echo ' sticky'; } ?>">
+    <div class="article-wrapper<?php if( is_sticky() && is_home() && ! is_paged() ) {echo ' sticky';}  ?>">
 
       <header class="entry-header">
         <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
