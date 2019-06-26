@@ -1,4 +1,4 @@
-=== Theme Name ===
+=== Modul R ===
 Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2

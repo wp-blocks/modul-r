@@ -9,19 +9,10 @@
 
     <?php modul_r_post_image(); ?>
 
-    <div class="article-wrapper">
+    <div class="article-wrapper<? if ( is_sticky() && is_home() && ! is_paged() ) { echo ' sticky'; } ?>">
 
       <header class="entry-header">
-        <?php
-
-        // TODO: Better sticky
-        if ( is_sticky() && is_home() && ! is_paged() ) {
-          echo '<span class="sticky-post">sticky</span>';
-        }
-
-        the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
-
-        ?>
+        <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
       </header><!-- /entry-header -->
 
       <div class="entry-content">
