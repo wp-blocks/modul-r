@@ -128,14 +128,14 @@ $image-size: 150px;
     $pagenumber__size: 36px;
     
     display: inline-block;
-    padding: $pagenumber__size * .25;
+    padding: 0 ($pagenumber__size * .20);
     width: $pagenumber__size;
     height: $pagenumber__size;
     vertical-align: middle;
     box-sizing: border-box;
     
     font-weight: 600;
-    line-height: 1;
+    line-height: $pagenumber__size;
     
     border-radius: $pagenumber__size * .5;
     background-color: $color__light-grey;

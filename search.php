@@ -13,9 +13,8 @@ get_header();
 
 				<header class="page-header">
 					<h1 class="page-title">
-			      <?php _e('Search results for:',  'modul-r'); ?>
+			      <?php _e('Search results for:',  'modul-r'); ?> <?php echo get_search_query(); ?>
 					</h1>
-					<div class="page-description"><?php echo get_search_query(); ?></div>
 				</header><!-- /page-header -->
 
 				<?php while ( have_posts() ) :
@@ -25,7 +24,7 @@ get_header();
 				endwhile;
 
 				// Previous/next page navigation.
-		    modul_r_post_nav();
+		    printf( '<div class="main-width alignwide text-center">%s</div>', modul_r_archive_nav() );
 
 			// If no content, include the "No posts found" template.
 			else :
