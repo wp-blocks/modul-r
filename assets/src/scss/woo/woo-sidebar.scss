@@ -15,13 +15,28 @@
     font-weight: 600;
   }
   
+  a {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
   ul {
     margin: ($size__margin * 2) 0;
   }
   
-  a {
-    font-weight: 600;
-    font-size: 16px;
+  ul.product-categories {
+    
+    ul { margin: $size__margin 0;}
+    
+    a {
+      color: $color__text;
+      font-weight: 500;
+    }
+    
+    .current-cat > a {
+      font-weight: 600;
+      color: $color__secondary;
+    }
   }
   
 }

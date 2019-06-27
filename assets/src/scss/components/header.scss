@@ -45,10 +45,18 @@
       }
       @if($head__direction == column) {
         height: $size__branding-height;
+        @media #{$mq__smaller-than-tablet} {
+          margin-top: $size__margin * .5;
+          height: $size__branding-height - ($size__margin * .5);
+        }
  
         .header-text {
           justify-content: center;
           text-align: center;
+          @media #{$mq__smaller-than-tablet} {
+            justify-content: flex-start;
+            text-align: left;
+          }
         }
       }
       
@@ -56,8 +64,10 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-    
-        .header-text {text-align: left;}
+  
+        .header-text {
+          text-align: left;
+        }
     
         .site-logo {
           margin-right: $size__margin * 2;
@@ -113,7 +123,7 @@
       box-sizing: content-box;
   
       @media #{$mq__smaller-than-tablet} {
-        height: $head__height-responsive - ($size__margin * 2);;
+        height: 100%;
         max-width: 60%;
       }
     }

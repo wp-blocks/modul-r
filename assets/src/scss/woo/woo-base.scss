@@ -3,11 +3,14 @@ body.woocommerce {
   .site-content {
     display: flex;
     /* flex-direction: row-reverse; */
+  
+    @media #{$mq__smaller-than-tablet} {flex-direction: column;}
   }
   
   #primary {
-    padding-right: $size__padding;
     width: 100%;
+    padding-right: $size__padding;
+    @media #{$mq__smaller-than-tablet} {padding-right: 0;}
   }
   
   #secondary {
