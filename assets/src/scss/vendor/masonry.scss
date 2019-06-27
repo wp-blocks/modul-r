@@ -50,6 +50,8 @@ body.archive article.grid__item {
 
   .entry-image {
     width: 100%;
+    min-width: inherit;
+    max-width: inherit;
     margin: 0 0 $size__padding * .25;
     img { max-height: 600px}
   }
