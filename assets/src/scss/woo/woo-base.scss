@@ -8,38 +8,9 @@ body.woocommerce {
   #primary {
     padding-right: $size__padding;
     width: 100%;
-    
-    .product_title.entry-title {
-      font-size: 42px;
-      text-align: left;
-      @media #{$mq__smaller-than-tablet} {font-size: 32px;}
-    }
   }
   
-  // the ui
-  .woocommerce-breadcrumb,
-  .woocommerce-result-count,
-  .woocommerce-ordering {
-    line-height: $size__padding;
+  #secondary {
+    min-width: 300px;
   }
-  
-  .product_meta {
-    margin-top: $size__margin;
-    & > span {
-      display: block;
-      span,
-      a {}
-    }
-  }
-}
-
-
-
-// Select2 custom style
-.select2-selection__rendered {
-  line-height: 48px !important;
-}
-.select2-container .select2-selection--single,
-.select2-selection__arrow {
-  height: 48px !important;
 }
