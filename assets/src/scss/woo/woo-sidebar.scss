@@ -57,9 +57,10 @@
     .toggle {
       i {
         opacity: .5;
-        margin-right: $size__margin;
         transition: $animations__lenght;
         vertical-align: middle;
+        margin-top: -2px;
+        margin-right: $size__margin;
       }
     }
     .cat-parent.active > a i {
