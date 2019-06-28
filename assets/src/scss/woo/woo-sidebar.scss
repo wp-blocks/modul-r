@@ -24,19 +24,49 @@
     margin: ($size__margin * 2) 0;
   }
   
+  // the sidebar's product accordion
   ul.product-categories {
     
-    ul { margin: $size__margin 0;}
+    ul {
+      margin: 0;
+      padding-left: $size__padding * .5;
+    }
+  
+    li {
+      line-height: 42px;
+      margin: 0;
+      @extend .ellipsis;
+    }
     
     a {
       color: $color__text;
       font-weight: 500;
     }
     
-    .current-cat > a {
-      font-weight: 600;
+    .current-cat-parent,.current-cat {
+      & > a {
+        font-weight: 600;
+      }
+    }
+    .current-cat {
+      & > a {
+        color: $color__secondary;
+      }
+    }
+    
+    .toggle {
+      i {
+        opacity: .5;
+        margin-right: $size__margin;
+        transition: $animations__lenght;
+        vertical-align: middle;
+      }
+    }
+    .cat-parent.active > a i {
+      opacity: 1;
+      transform: rotate(90deg);
       color: $color__secondary;
     }
+    
   }
-  
 }

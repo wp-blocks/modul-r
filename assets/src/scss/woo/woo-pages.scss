@@ -2,10 +2,10 @@ body.woocommerce {
   
   // the product list style
   ul.products {
-    padding-top: $size__padding * .5;
+    padding-top: $size__margin * 4;
   
     li.product {
-      padding-bottom: $size__padding * .5;
+      padding-bottom: $size__margin * 2;
       background-color: $color__white;
   
       a img {
@@ -28,7 +28,7 @@ body.woocommerce {
       a.button {
         display: table;
         padding: $size__margin;
-        margin: $size__margin auto 0;
+        margin: ($size__margin * 2) auto 0;
         position: inherit;
         left: inherit;
         font-weight: 600;
@@ -36,6 +36,22 @@ body.woocommerce {
         text-transform: uppercase;
         border: 1px solid #f3f3f3;
         background-color: white;
+      }
+  
+      .woocommerce-loop-description {
+        padding: 0 ($size__margin * 2) $size__margin;
+        p {
+          font-size: $text__size - 3;
+          line-height: 1.5;
+          font-weight: 400;
+          margin : 0;
+        }
+      }
+  
+      .price,
+      a.button {
+        padding-left: $size__margin * 2;
+        padding-right: $size__margin * 2;
       }
     }
   }
