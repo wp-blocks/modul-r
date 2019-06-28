@@ -2,7 +2,7 @@ body.woocommerce {
   
   // the product list style
   ul.products {
-    padding-top: $size__margin * 4;
+    padding-top: $size__margin * 2;
   
     li.product {
       padding-bottom: $size__margin * 2;
@@ -38,16 +38,6 @@ body.woocommerce {
         background-color: white;
       }
   
-      .woocommerce-loop-description {
-        padding: 0 ($size__margin * 2) $size__margin;
-        p {
-          font-size: $text__size - 3;
-          line-height: 1.5;
-          font-weight: 400;
-          margin : 0;
-        }
-      }
-  
       .price,
       a.button {
         padding-left: $size__margin * 2;
@@ -58,9 +48,11 @@ body.woocommerce {
   
   
   // the archive page
-  &.post-type-archive-product {
+  &.post-type-archive-product,
+  &.tax-product_cat {
     .woocommerce-products-header {
-      padding: 0 $size__padding-resp ($size__padding * .25);
+      padding: ($size__padding * .5) 0;
+      @media #{$mq__smaller-than-tablet} {padding: ($size__padding * .25) 0;}
     }
   }
   

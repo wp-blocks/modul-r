@@ -1,22 +1,29 @@
 body.woocommerce {
   
-  // main content
-  #primary {
+  // the ui
+  .woocommerce-breadcrumb {
+    margin: 0;
+    line-height: 1;
+    padding-top: $size__margin * .5;
+    padding-bottom: $size__margin * .5;
+    @extend .ellipsis;
+    @media #{$mq__smaller-than-tablet} {padding: 0;}
   }
   
-  // the ui
-  .woocommerce-breadcrumb,
-  .woocommerce-result-count,
+  .woocommerce-result-count {
+    line-height: $size__padding * .75;
+    @media #{$mq__smaller-than-tablet} {font-size: $text__size - 4}
+  }
   .woocommerce-ordering {
-    line-height: $size__padding;
+    a, span, option, select {
+      @media #{$mq__smaller-than-tablet} {font-size: $text__size - 4}
+    }
   }
   
   .product_meta {
     margin-top: $size__margin;
     & > span {
       display: block;
-      span,
-      a {}
     }
   }
   
@@ -25,9 +32,9 @@ body.woocommerce {
 
 // Select2 custom style
 .select2-selection__rendered {
-  line-height: 48px !important;
+  line-height: $size__padding * .75 !important;
 }
 .select2-container .select2-selection--single,
 .select2-selection__arrow {
-  height: 48px !important;
+  height: $size__padding * .75 !important;
 }

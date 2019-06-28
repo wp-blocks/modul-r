@@ -13,20 +13,18 @@
 }
 
 .entry-title,
-.page-title,
+.woocommerce-products-header,
 .page-title.main-width {
-  text-align: center;
-  font-size: 64px;
-  color: $color__secondary;
-  max-width: $size__site-width - ($size__side-padding * 2);
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $size__padding-resp;
-  padding-right: $size__padding-resp;
   
-  @media #{$mq__smaller-than-tablet} {
-    font-size: 52px;
-    margin-top: 32px
+  h1 {
+    text-align: center;
+    font-size: 64px;
+    color: $color__secondary;
+    @media #{$mq__smaller-than-tablet} {font-size: 52px;}
+    @media #{$mq__phablet} {font-size: 42px;}
   }
-  @media #{$mq__phablet} {font-size: 42px;}
+  
 }
