@@ -36,7 +36,7 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 
 == Changelog ==
 
-= 1.0.15 =
+= 1.0.16 =
 * Pre-release
 
 = 1.0.12 =
@@ -48,39 +48,18 @@ follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
 = 1.0.10 =
 * Masonry script update to v3
 * Complete removal of css4 vars (at the moment there is no gain in using them, there is problems with the fallback and with the sass integration (which however allows you to do many more things such as color operations)
-
-= 1.0.9 =
 * Editor style
 * Gutenberg blocks style enhancement
-
-= 1.0.8 =
 * Text typography enhancement
 * text domain lowercase (and also renamed the git repos)
-
-= 1.0.7 =
 * Enhancement of child theme compatibility
 * Header, navbar, blocks style optimization (added some customizations features for the header)
-
-= 1.0.6 =
 * Source code optimization & bug correction
-
-= 1.0.5 =
-* Reintroduction of the grid layout (masonry) for categories
-
-= 1.0.4 =
+* grid layout with masonry for categories
 * function name update
-
-= 1.0.3 =
 * removal of clean.php
-* new screenshot
-
-= 1.0.2 =
 * Js scripts init enhancement
-* automatic task who create the zip needed for the theme upload
-* removed masonry (will come back in future versions), removed jquery 3
-
-= 1.0.1 =
-* Gulp tasks fix
+* Gulp task who create the zip needed for the theme upload
 * Better wordpress customizer integration
 * Vendors javascript path fix
 

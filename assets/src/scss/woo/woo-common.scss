@@ -4,8 +4,7 @@ body.woocommerce {
   .woocommerce-breadcrumb {
     margin: 0;
     line-height: 1;
-    padding-top: $size__margin * .5;
-    padding-bottom: $size__margin * .5;
+    padding-bottom: $size__margin * 4;
     @extend .ellipsis;
     @media #{$mq__smaller-than-tablet} {padding: 0;}
   }
