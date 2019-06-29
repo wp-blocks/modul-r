@@ -17,13 +17,17 @@
   margin-right: auto;
   text-align: center;
   
-  @media #{$mq__content-width} {
-    max-width: 100%;
+  @media #{$mq__content-width} {max-width: 100%;}
+  
+  p {
+    margin: 0 auto;
+    max-width: $size__site-width * .5;
   }
 }
 
 .page-title,
 .entry-title {
+  margin: 0 auto ($size__margin * 2);
   text-align: center;
   font-size: 64px;
   color: $color__secondary;

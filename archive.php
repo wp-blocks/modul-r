@@ -13,6 +13,7 @@ get_header();
 
       <header class="page-header">
         <?php the_archive_title( '<h1 class="page-title main-width">', '</h1>' ); ?>
+        <?php echo category_description(); ?>
       </header>
 
 

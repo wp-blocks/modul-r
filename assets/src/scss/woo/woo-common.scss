@@ -20,9 +20,11 @@ body.woocommerce {
   }
   
   .product_meta {
-    margin-top: $size__margin;
+    margin-top: $size__margin * 2;
     & > span {
       display: block;
+      font-weight: 600;
+      span, a {font-weight: 400;}
     }
   }
   

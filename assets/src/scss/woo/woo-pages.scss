@@ -13,7 +13,7 @@ body.woocommerce {
         height: auto;
         max-height: 220px;
         object-fit: contain;
-        margin: 0 auto ($size__margin * 4);
+        margin: 0 auto ($size__margin * 3);
         padding: 0;
         box-sizing: border-box;
       }
@@ -61,9 +61,9 @@ body.woocommerce {
   div.product {
     
     .product_title.entry-title {
-      font-size: 42px;
+      font-size: 38px;
       text-align: left;
-      @media #{$mq__smaller-than-tablet} {font-size: 32px;}
+      @media #{$mq__smaller-than-tablet} {font-size: 30px;}
     }
     
     div.images .flex-control-thumbs li {

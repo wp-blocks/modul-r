@@ -36,7 +36,10 @@
       line-height: 42px;
       margin: 0;
       @extend .ellipsis;
+      border-top: 1px solid rgba($color__black, 0.05);
     }
+  
+    & > li:first-child { border: 0; }
     
     a {
       color: $color__text;
@@ -69,5 +72,28 @@
       color: $color__secondary;
     }
     
+  }
+  
+  ul.product_list_widget {
+    $list-line-size: $size__padding * .75;
+    li {
+      line-height: $list-line-size;
+      border-top: 1px solid rgba($color__black, 0.05);
+      &:first-child { border: 0;}
+      
+      span {
+        color: $color__text;
+        display: block;
+        @extend .ellipsis;
+      }
+  
+      img {
+        width: $list-line-size;
+        height: $list-line-size;
+        object-fit: contain;
+        margin-right: $size__margin;
+      }
+      
+    }
   }
 }
