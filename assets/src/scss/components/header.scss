@@ -42,6 +42,10 @@
       @if($head__direction == row) {
         padding-top: $size__margin;
         padding-bottom: $size__margin;
+        @media #{$mq__smaller-than-tablet} {
+          padding-top: $size__margin * .5;
+          padding-bottom: $size__margin * .5;
+        }
       }
       @if($head__direction == column) {
         height: $size__branding-height;
@@ -63,8 +67,12 @@
       &.has-header-text.has-custom-logo {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-  
+        @if($head__direction == row) {
+          justify-content: flex-start;
+        }
+        @if($head__direction == column) {
+          justify-content: center;
+        }
         .header-text {
           text-align: left;
         }
@@ -83,6 +91,9 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+        @media #{$mq__smaller-than-tablet} {
+          justify-content: center;
+        }
       }
   
       @media #{$mq__smaller-than-tablet} {
@@ -136,6 +147,7 @@
 
     .custom-logo {
       object-fit: contain;
+      width: auto;
       height: $size__branding-logo-ratio;
   
       @if($head__direction == row) {

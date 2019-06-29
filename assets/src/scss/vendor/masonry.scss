@@ -9,6 +9,8 @@
   transition-duration: .8s;
   transition-delay: .2s;
   padding: 0;
+  margin-top: $size__margin;
+  margin-bottom: $size__margin;
 }
 
 .masonry.navigation {
@@ -39,39 +41,61 @@
 
 
 body.archive article.grid__item {
-  padding: 0 0 40px;
+  max-width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  border-radius: 3px;
+  background-color: $color__white;
+  box-shadow: 0 3px 12px -8px transparentize($color__black, .7);
+  padding: 0;
+  margin: 0 ($size__margin * .25) 40px;
   
   @media #{$mq__tablet-portrait}{
     padding-right: 0;
   }
-
+  
+  .article-wrapper {
+    width: auto;
+    margin-left: $size__padding-resp;
+    margin-right: $size__padding-resp;
+    padding-top: $size__margin * 2;
+    padding-bottom: $size__margin * 4;
+  }
+  
   .entry-image {
     width: 100%;
     min-width: inherit;
     max-width: inherit;
-    margin: 0 0 $size__padding * .25;
+    margin: 0;
     img { max-height: 600px}
-  }
-  
-  .article-wrapper {
-    width: auto;
-    padding-bottom: $size__margin * 4;
-    border-bottom: 1px solid $color__light-grey;
   }
   
   .entry-header {
     padding-bottom: $size__margin;
-    
-    .entry-title {
-      font-size: 24px;
-      padding: 0;
-      margin: 0;
-    }
   }
   
+  
+  h5 {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: $color__dark-grey;
+    text-align: left;
+    font-family: $font__family;
+  }
+  
+  h2.entry-title {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  p {
+    font-size: $text__size - 2;
+    line-height: 1.6;
+  }
+ 
 }
 
 
