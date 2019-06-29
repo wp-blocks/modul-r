@@ -76,13 +76,28 @@
   
   ul.product_list_widget {
     $list-line-size: $size__padding * .75;
+    
+    a {display: block;}
+    
     li {
-      line-height: $list-line-size;
+      height: $list-line-size;
       border-top: 1px solid rgba($color__black, 0.05);
       &:first-child { border: 0;}
       
       span {
+        display: inline-block;
+        line-height: 1;
+      }
+      
+      span.woocommerce-Price-amount {
+        font-size: 11px;
+        vertical-align: super;
+      }
+      
+      .product-title {
         color: $color__text;
+        font-weight: 600;
+        padding-top: $size__margin;
         display: block;
         @extend .ellipsis;
       }
