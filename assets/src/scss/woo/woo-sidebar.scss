@@ -82,22 +82,24 @@
     li {
       height: $list-line-size;
       border-top: 1px solid rgba($color__black, 0.05);
+      font-size: 11px;
+      line-height: 1;
+      
       &:first-child { border: 0;}
       
       span {
         display: inline-block;
-        line-height: 1;
-      }
-      
-      span.woocommerce-Price-amount {
-        font-size: 11px;
-        vertical-align: super;
+        
+        &.woocommerce-Price-amount {
+          color: #026c7c;
+        }
       }
       
       .product-title {
         color: $color__text;
         font-weight: 600;
         padding-top: $size__margin;
+        line-height: 1.3;
         display: block;
         @extend .ellipsis;
       }

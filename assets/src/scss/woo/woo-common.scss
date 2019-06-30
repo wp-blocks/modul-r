@@ -28,12 +28,25 @@ body.woocommerce {
     }
   }
   
-  .pswp__button {
-    background: transparent;
-  }
+  // product lightbox background reset
+  .pswp__button {background: transparent;}
   
 }
 
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  background-color: #026c7c;
+  &:hover { background-color: lighten(#026c7c, 5%);}
+}
+
+.woocommerce button.button.alt.disabled {
+  background-color: lighten($color-_dark-grey, 10%);
+  &:hover {
+    background-color: $color-_dark-grey;
+  }
+}
 
 // Select2 custom style
 .select2-selection__rendered {

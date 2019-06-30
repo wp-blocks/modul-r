@@ -37,7 +37,39 @@ body.woocommerce {
         border: 1px solid #f3f3f3;
         background-color: white;
       }
-
+  
+      .added_to_cart {
+        $add-to-cart: 30px;
+        position: absolute;
+        bottom: $add-to-cart * .5;
+        right: $add-to-cart * .5;
+        height: $add-to-cart;
+        width: $add-to-cart;
+        display: block;
+        text-align: center;
+        background: $color__secondary;
+        color: white;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+        border-radius: 50%;
+        
+        &:before {
+          display: block;
+          font-family: Material Icons;
+          content: "\E547";
+          font-weight: 500;
+          font-size: 24px;
+          line-height: $add-to-cart;
+          opacity: 0.99;
+        }
+      }
+      
+      p.price,
+      span.price {
+        color: #026c7c;
+      }
+      
       .price,
       a.button {
         padding-left: $size__margin * 2;
@@ -59,6 +91,13 @@ body.woocommerce {
   
   // the single product
   div.product {
+  
+    .summary.entry-summary {
+      padding-top: $size__margin * 4;
+      padding-left: $size__padding * .25;
+      box-sizing: border-box;
+      @media #{$mq__smaller-than-tablet} { padding-left: 0;}
+    }
     
     .product_title.entry-title {
       font-size: 38px;
@@ -69,18 +108,33 @@ body.woocommerce {
     div.images .flex-control-thumbs li {
       padding: 0;
     }
+  
+    .woocommerce-variation.single_variation {
+      margin-bottom: 1em;
+    }
     
     form.cart {
+      $form-radius: 4px;
       margin-top: $size__margin * 2;
       div.quantity {
-        .qty {
-          font-size: 18px;
+        margin: 0;
+        input {
+          margin: 0;
+          border: 1px solid #e3e3e3;
+          border-radius: $form-radius 0 0 $form-radius;
         }
+        .qty {font-size: 18px;}
       }
       .qty,
       .button {
         height: $size__padding * .75;
       }
+      .button { border-radius: 0 $form-radius $form-radius 0; }
+    }
+  
+    p.price,
+    span.price {
+      color: #026c7c;
     }
     
     .woocommerce-tabs .entry-content > * {
