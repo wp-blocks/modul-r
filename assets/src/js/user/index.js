@@ -60,7 +60,6 @@ jQuery(document).ready(function($){
       let galleryImages;
 
       if ($(this).closest('.wp-block-gallery').hasClass('slider')) {
-        console.log('hasIT');
         galleryImages = $(this).closest('.wp-block-gallery').find('.slick-slide:not(".slick-cloned") a');
       } else {
         galleryImages = $(this).closest('.wp-block-gallery').find('a');
@@ -70,12 +69,14 @@ jQuery(document).ready(function($){
 
       galleryImages.each(function( index, galleryItem ) {
 
-        let caption = $(this).parent().find('figcaption') ?  $(this).find('img').attr('alt') : $(this).parent().find('figcaption')  ;
+        let altcaption = $(this).children('img').attr('alt').length ? $(this).children('img').attr('alt') : '';
+        let figcaption = $(this).next('figcaption').length > 0 ? $(this).next('figcaption').text() : '';
+        let imgcaption = (figcaption !== '' ? figcaption : (altcaption !== '' ? altcaption : '')) ;
 
         gallery.push({
           src : galleryItem.href,
           opts : {
-            caption: caption + '<br/><span class="fancybox-counter"><span data-fancybox-index></span> of <span data-fancybox-count></span></span>'
+            caption: imgcaption + '<br/><span class="fancybox-counter"><span data-fancybox-index></span> of <span data-fancybox-count></span></span>'
           }
         })
       });
