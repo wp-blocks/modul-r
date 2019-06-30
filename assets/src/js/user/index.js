@@ -38,14 +38,15 @@ jQuery(document).ready(function($){
 
 
 
-  if ($('.lightbox a')) {
+  if ($('.lightbox')) {
+
     $('.lightbox a').fancybox({
 
       caption : function() {
-        let caption = $(this).next('figcaption').text() !== '' ? $(this).next('figcaption').text() : $(this).children('img').attr('alt')  ;
-        caption = ( caption.length ? caption : 'No caption' );
-
-        return caption;
+        let altcaption = $(this).children('img').attr('alt').length ? $(this).children('img').attr('alt') : '';
+        let figcaption = $(this).next('figcaption').length > 0 ? $(this).next('figcaption').text() : '';
+        let imgcaption = (figcaption !== '' ? figcaption : (altcaption !== '' ? altcaption : '')) ;
+        return imgcaption;
       }
 
     });
@@ -53,14 +54,23 @@ jQuery(document).ready(function($){
 
 
   if ($('.lightbox-gallery')) {
-    $('.blocks-gallery-item').click(function() {
 
-      let galleryImages = $(this).parent().find('a');
+    $('.lightbox-gallery a').click(function() {
+
+      let galleryImages;
+
+      if ($(this).closest('.wp-block-gallery').hasClass('slider')) {
+        console.log('hasIT');
+        galleryImages = $(this).closest('.wp-block-gallery').find('.slick-slide:not(".slick-cloned") a');
+      } else {
+        galleryImages = $(this).closest('.wp-block-gallery').find('a');
+      }
+
       let gallery = [];
 
       galleryImages.each(function( index, galleryItem ) {
 
-        var caption = $(this).parent().find('figcaption') ?  $(this).find('img').attr('alt') : $(this).parent().find('figcaption')  ;
+        let caption = $(this).parent().find('figcaption') ?  $(this).find('img').attr('alt') : $(this).parent().find('figcaption')  ;
 
         gallery.push({
           src : galleryItem.href,
@@ -76,47 +86,4 @@ jQuery(document).ready(function($){
     });
   }
 
-
 });
-
-
-// WooCommerce category accordion
-jQuery(document).ready(function($) {
-
-  if ($('ul.product-categories').length > 0) {
-
-    $('.product-categories li.cat-parent > a').prepend('<span class="toggle"><i class="material-icons">arrow_forward</i></span>');
-    $('.product-categories .children').hide();
-    $('.product-categories li.current-cat-parent > .children, .product-categories li.current-cat > .children').show();
-    $('.product-categories li.current-cat, .product-categories li.current-cat-parent').addClass('active');
-
-    $(function () {
-
-      $('.product-categories').find('a').on('click', function (e) {
-
-        const catItem = $(this).parent('.cat-item');
-
-        if ( ! catItem.hasClass('active')) {
-
-          catItem.addClass('active');
-
-          if ( catItem.hasClass('cat-parent') || catItem.hasClass('current-cat')) {
-            e.preventDefault();
-          }
-
-          $(this).parents('.product-categories > li').siblings().removeClass('active');
-
-          $(this).siblings('.children').stop(true, true).slideToggle()
-            .parents('.cat-item').siblings().children('.children').stop(true, true).slideUp();
-
-        }
-
-      });
-
-    });
-
-  }
-
-});
-
-
