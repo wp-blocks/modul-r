@@ -44,7 +44,7 @@ get_header();
 
         <div class="page-load-status">
           <div class="loader-ellips infinite-scroll-request">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/src/img/elements/loader.svg" alt="wait! loading">
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/src/img/elements/loader.svg" alt="wait! loading">
           </div>
           <p class="infinite-scroll-last"><?php _e('End of content',  'modul-r' ); ?></p>
           <p class="infinite-scroll-error"><?php _e('No more pages to load',  'modul-r' ); ?></p>
