@@ -21,158 +21,175 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: 404.php:16, releases/1.0.2/modul-r/404.php:16
+#: 404.php:14
+msgid "404"
+msgstr "404"
+
+#: 404.php:15
 msgid "Page not found"
 msgstr "Seite nicht gefunden"
 
-#: 404.php:21, releases/1.0.2/modul-r/404.php:21
+#: 404.php:20
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
-"Wie es aussieht, wurde an dieser Stelle nichts gefunden. Möchtest Du "
-"danach suchen?"
+"Wie es aussieht, wurde an dieser Stelle nichts gefunden. Möchtest Du danach "
+"suchen?"
 
-#: comments.php:17, releases/1.0.2/modul-r/comments.php:17
+#: category.php:49
+msgid "End of content"
+msgstr "Ende des Inhalts"
+
+#: category.php:50
+msgid "No more pages to load"
+msgstr "Keine weiteren Seiten zum Laden"
+
+#: comments.php:17
 msgid "No Responses"
 msgstr "Keine Antworten"
 
-#: comments.php:17, releases/1.0.2/modul-r/comments.php:17
+#: comments.php:17
 msgid "One Response"
 msgstr "Ein Kommentar"
 
-#: comments.php:17, releases/1.0.2/modul-r/comments.php:17
+#: comments.php:17
 msgid "% Responses"
 msgstr "% Kommentare"
 
-#: comments.php:17, releases/1.0.2/modul-r/comments.php:17
+#: comments.php:17
 msgid "to %s"
 msgstr "zu %s"
 
-#: comments.php:42, comments.php:49, releases/1.0.2/modul-r/comments.php:42,
-#: releases/1.0.2/modul-r/comments.php:49
+#: comments.php:36, comments.php:43
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-#: comments.php:47, releases/1.0.2/modul-r/comments.php:47
+#: comments.php:41
 msgid "Be the first to write a comment."
 msgstr "Hinterlassen Sie einen ersten Kommentar."
 
-#: comments.php:54, releases/1.0.2/modul-r/comments.php:54
+#: comments.php:48
 msgid "Comments"
 msgstr "Kommentare"
 
-#: inc/sidebar.php:12, releases/1.0.2/modul-r/inc/sidebar.php:12
+#: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr "Haupt-Seitenleiste"
 
-#: inc/sidebar.php:14, releases/1.0.2/modul-r/inc/sidebar.php:14
+#: inc/sidebar.php:14
 msgid "The main theme sidebar"
 msgstr "Das Hauptthema Sidebar"
 
-#: inc/sidebar.php:22, releases/1.0.2/modul-r/inc/sidebar.php:22
+#: inc/sidebar.php:22
 msgid "Footer"
 msgstr "Footer"
 
-#: inc/sidebar.php:24, releases/1.0.2/modul-r/inc/sidebar.php:24
+#: inc/sidebar.php:24
 msgid "Add widgets here to appear in your footer."
-msgstr "Füge Widgets hinzu, die in der Fußzeile erscheinen"
+msgstr "Füge Widgets hinzu, die in der Fußzeile erscheinen."
 
-#: inc/template-functions.php:18,
-#: releases/1.0.2/modul-r/inc/template-functions.php:18
+#: inc/template-functions.php:27
 msgid "Prev"
 msgstr "Zurück"
 
-#: inc/template-functions.php:19,
-#: releases/1.0.2/modul-r/inc/template-functions.php:19
+#: inc/template-functions.php:28
 msgid "Next"
 msgstr "Weiter"
 
-#: inc/template-functions.php:30,
-#: releases/1.0.2/modul-r/inc/template-functions.php:30
+#: inc/template-functions.php:43
 msgid "Post navigation"
 msgstr "Beitragsnavigation"
 
-#: inc/template-functions.php:48,
-#: releases/1.0.2/modul-r/inc/template-functions.php:48
+#: inc/template-functions.php:64
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: inc/template-functions.php:54,
-#: releases/1.0.2/modul-r/inc/template-functions.php:54
+#: inc/template-functions.php:70
 msgid "Next page"
 msgstr "Nächste Seite"
 
-#: inc/template-functions.php:55,
-#: releases/1.0.2/modul-r/inc/template-functions.php:55
+#: inc/template-functions.php:71
 msgid "Previous page"
 msgstr "Seite nicht gefunden"
 
-#: inc/template-functions.php:79,
-#: releases/1.0.2/modul-r/inc/template-functions.php:79
+#: inc/template-functions.php:101
 msgid "Tags:"
-msgstr ""
+msgstr "Tags:"
 
-#: inc/template-functions.php:118,
-#: releases/1.0.2/modul-r/inc/template-functions.php:118
+#: inc/template-functions.php:143
 msgid "comments"
 msgstr "Kommentare"
 
-#: inc/template-functions.php:144,
-#: releases/1.0.2/modul-r/inc/template-functions.php:144
+#: inc/template-functions.php:177
 msgid "Share this post"
-msgstr ""
+msgstr "Diesen Beitrag teilen"
 
-#: inc/template-functions.php:192,
-#: releases/1.0.2/modul-r/inc/template-functions.php:192
+#: inc/template-functions.php:228
 msgid "You might be interested in..."
-msgstr ""
+msgstr "Sie könnten sich für ..."
 
-#: inc/theme-setup.php:39, releases/1.0.2/modul-r/inc/theme-setup.php:38
+#: inc/theme-setup.php:39
 msgid "Primary Navigation"
 msgstr "Beitragsnavigation"
 
-#: releases/1.0.2/modul-r/inc/template-functions.php:215
-msgid ""
-"This website uses cookies to improve user experience, memorizing your "
-"preferences and monitorizing site funcionality"
-msgstr ""
-
-#: releases/1.0.2/modul-r/inc/template-functions.php:215
-msgid "Check out our"
-msgstr ""
-
-#: releases/1.0.2/modul-r/inc/template-functions.php:215
-msgid "Cookie Policy"
-msgstr ""
-
-#: releases/1.0.2/modul-r/search.php:16, search.php:16
+#: search.php:16
 msgid "Search results for:"
-msgstr ""
+msgstr "Suchergebnisse für:"
 
-#: releases/1.0.2/modul-r/template-parts/content/content-homepage.php:13,
 #: template-parts/content/content-homepage.php:13
 msgid "Contact us"
-msgstr ""
+msgstr "Kontaktieren Sie uns"
 
-#: releases/1.0.2/modul-r/template-parts/content/content-homepage.php:14,
 #: template-parts/content/content-homepage.php:14
 msgid "Download"
+msgstr "Herunterladen"
+
+#: template-parts/content/content-none.php:12
+msgid "Nothing Found"
+msgstr "Nichts gefunden"
+
+#: template-parts/content/content-none.php:18
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
+"Anscheinend können wir nicht finden, wonach Sie suchen. Vielleicht kann die "
+"Suche helfen."
 
 #. translators: %s: parent post link
-#. translators: %s: parent post link
-#: releases/1.0.2/modul-r/template-parts/content/content-single.php:31,
 #: template-parts/content/content-single.php:31
 msgid ""
 "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-"
 "title\">%s</span>"
 msgstr ""
+"<span class = \"meta-nav\" > Attachment veröffentlicht in </span> <span "
+"class = \"post-title\" > %s </span>"
 
-#: releases/1.0.2/modul-r/template-parts/footer/footer.php:11,
+#: template-parts/footer/footer.php:11
+msgid "//wordpress.org/"
+msgstr "//wordpress.org/"
+
 #: template-parts/footer/footer.php:11
 msgid "Proudly powered by WordPress"
-msgstr ""
+msgstr "Stolz unterstützt von WordPress"
 
-#: releases/1.0.2/modul-r/template-parts/footer/footer.php:11,
-#: template-parts/footer/footer.php:11
+#: template-parts/footer/footer.php:18
+msgid "//codekraft.it"
+msgstr "//codekraft.it"
+
+#: template-parts/footer/footer.php:18
 msgid "Made with &hearts; by codekraft-studio."
 msgstr "Made with &hearts; by codekraft-studio."
+
+#~ msgid ""
+#~ "This website uses cookies to improve user experience, memorizing your "
+#~ "preferences and monitorizing site funcionality"
+#~ msgstr ""
+#~ "Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern, "
+#~ "Ihre Präferenzen zu speichern und die Funktionalität der Website zu "
+#~ "überwachen."
+
+#~ msgid "Check out our"
+#~ msgstr "Schauen Sie sich unsere"
+
+#~ msgid "Cookie Policy"
+#~ msgstr "Cookie Policy"

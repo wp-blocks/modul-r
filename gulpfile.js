@@ -39,10 +39,22 @@ const opts = {
     }
   },
 
-  cssnano: {reduceIdents: {keyframes: false}},
-
-  cssvariables: {
-    preserve : true
+  cssnano: {
+    compressed: {
+      preset: ['default', {
+        reduceIdents: {
+          keyframes: false
+        }
+      }]
+    },
+    extended: {
+      preset: ['default', {
+        reduceIdents: {
+          keyframes: false
+        },
+        normalizeWhitespace: false
+      }]
+    }
   },
 
   sass: {
@@ -165,9 +177,8 @@ function cssAtf() {
     .pipe(sass(opts.sass))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
-
       autoprefixer(opts.autoprefixer.build),
-      cssnano(opts.cssnano)
+      cssnano(opts.cssnano.compressed)
     ]))
     .pipe(gulp.dest(opts.distPath + 'css/'));
 }
@@ -196,7 +207,7 @@ function buildMainCSS() {
     .pipe(gulp.dest(opts.rootPath))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.build),
-      cssnano(opts.cssnano)
+      cssnano(opts.cssnano.extended)
     ]))
     .pipe(header(opts.banner, pkg))
     .pipe(gulp.dest(opts.rootPath));
@@ -227,9 +238,8 @@ function buildCSS() {
     .pipe(sass(opts.sass))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
-
       autoprefixer(opts.autoprefixer.build),
-      cssnano(opts.cssnano)
+      cssnano(opts.cssnano.compressed)
     ]))
     .pipe(gulp.dest(opts.distPath + 'css/'));
 }

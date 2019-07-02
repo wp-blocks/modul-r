@@ -147,7 +147,7 @@ msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post
 msgstr ""
 
 #: template-parts/footer/footer.php:11
-msgid "https://wordpress.org/"
+msgid "//wordpress.org/"
 msgstr ""
 
 #: template-parts/footer/footer.php:11
@@ -155,7 +155,7 @@ msgid "Proudly powered by WordPress"
 msgstr ""
 
 #: template-parts/footer/footer.php:18
-msgid "https://codekraft.it"
+msgid "//codekraft.it"
 msgstr ""
 
 #: template-parts/footer/footer.php:18
