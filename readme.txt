@@ -8,31 +8,54 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready
 
-Modul R is a powerful and flexible theme that provides a fast way to create an awesome website.
+Modul R is a powerful and flexible theme that provides a fast way to create an awesome website. It is designed to be a starter theme to hack, with a kit of reusable parts and functions, with the website speed performance in mind.
 
 == Description ==
 Modul R is a powerful and flexible theme that provides a fast way to create an awesome website. Modul R brings plenty of customization possibilities like a hi tech sass style, automated gulp task, visibility triggered animations, parallax, lightbox, slider and masonry and many more features!
 
-Also, Modul R provides a full integration with the new Gutemberg editor to give you the opportunity to turn loose your imagination.
+Modul R also provides a seamless integration with Gutemberg and Woocommerce.
 
 == Frequently Asked Questions ==
 
-= How customize this theme? =
-For first install NodeJS, then run "npm i && gulp BuildAll" into the theme folder.
-you can find a quick start guide here https://modul-r.codekraft.it/
-
-There is some Gulp tasks i've prepared that simplify the development of the website:
-* BuildAll : clean all unneeded files, then compile minified style and script. Also compress images in the img/ folder
-* watch : watch edits on theme file than compile what you have edited
-* createPot : create pot file for translators
+= Getting started =
+* Create a menu then assign it into the primary navigation
+* Go to the Widget section, and under the footer widgets box add a widget.
+* Create a page "homepage" then go to settings > reading and select the homepage as static homepage
 
 = How install node? =
-
-Download and install this https://nodejs.org/it/download/
+Run the installer of NodeJS from the link below:
+  https://nodejs.org/en/download/
+After this step, you can check if NodeJS and NPM were installed with the command:
+  node -v && npm -v
+if npm is installed you can run:
+  npm i
 
 = How run gulp tasks? =
+There is some Gulp tasks i've prepared that simplify the development of the website:
+  gulp clean
+Delete unnecessary development files like source maps, thumbnail os files, and ALL the content of assets/dist (you have to compile again sources after this command).
+  gulp style
+Runs (once) the Sass compile task on style.scss, the autoprefixer and then creates the sourcemap.
+  gulp Acf
+Runs (once) the Sass compile task on acf.scss then autoprefix
+  gulp imageMinify
+Minify images (PNG, JPEG, GIF and SVG) from assets/src/img then copy to assets/dist/img folder.
+  gulp scripts
+Traspile es6 to javascript (if needed) then uglify (a sort of minify), concat (merge all files into one) and creates the sourcemap.
+  gulp zipRelease
+Zip all theme files into /releases/$version, it can be useful if you want to “package” the theme for upload purpose.
+  gulp createPot
+Parse all php files into theme folder and generates the pot files for WordPress translations.
+  gulp watch
+You have to run this command during developement, and this command will be your best friend 🙂 It runs a file watcher on sass, scripts, and images folders and when triggered run the needed gulp task. It uses the latest version of gulp which allows these tasks to run in parallel, in order to have very short compilation times.
+  gulp buildAll
+To finalize the theme… for first run clean and removes all development files. Then compile with a set of options suitable for publication (in watch task instead the compilation speed is privileged and also the css is not minified)
+  gulp buildRelease
+Same as buildAll task but furthermore run the zip task
 
-follow this tutorial https://gulpjs.com/docs/en/getting-started/quick-start
+= More questions? =
+you can find a quick start guide here https://modul-r.codekraft.it/2019/06/theme-setup/
+
 
 == Changelog ==
 
