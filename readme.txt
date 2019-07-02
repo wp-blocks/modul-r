@@ -3,7 +3,7 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Stable tag: 1.0.20
+Stable tag: 1.0.21
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready
@@ -47,7 +47,7 @@ Zip all theme files into /releases/$version, it can be useful if you want to “
   gulp createPot
 Parse all php files into theme folder and generates the pot files for WordPress translations.
   gulp watch
-You have to run this command during developement, and this command will be your best friend 🙂 It runs a file watcher on sass, scripts, and images folders and when triggered run the needed gulp task. It uses the latest version of gulp which allows these tasks to run in parallel, in order to have very short compilation times.
+You have to run this command during development, and this command will be your best friend 🙂 It runs a file watcher on sass, scripts, and images folders and when triggered run the needed gulp task. It uses the latest version of gulp which allows these tasks to run in parallel, in order to have very short compilation times.
   gulp buildAll
 To finalize the theme… for first run clean and removes all development files. Then compile with a set of options suitable for publication (in watch task instead the compilation speed is privileged and also the css is not minified)
   gulp buildRelease
@@ -59,7 +59,7 @@ you can find a quick start guide here https://modul-r.codekraft.it/2019/06/theme
 
 == Changelog ==
 
-= 1.0.20 =
+= 1.0.21 =
 * Pre-release
 
 = 1.0.12 =
