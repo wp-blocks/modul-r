@@ -6,7 +6,7 @@ body.woocommerce {
     line-height: 1;
     padding-bottom: $size__margin * 4;
     @extend .ellipsis;
-    @media #{$mq__smaller-than-tablet} {padding: 0;}
+    @media #{$mq__smaller-than-tablet} {padding: $size__margin;}
   }
   
   .woocommerce-result-count {

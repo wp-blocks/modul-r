@@ -21,7 +21,7 @@ Modul R also provides a seamless integration with Gutemberg and Woocommerce.
 = Getting started =
 * Create a menu then assign it into the primary navigation
 * Go to the Widget section, and under the footer widgets box add a widget.
-* Create a page "homepage" then go to settings > reading and select the homepage as static homepage
+* Create a page then go to settings > reading and select the page as static homepage
 
 = How install node? =
 Run the installer of NodeJS from the link below:
