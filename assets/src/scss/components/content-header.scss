@@ -17,7 +17,12 @@
   margin-right: auto;
   text-align: center;
   
-  @media #{$mq__content-width} {max-width: 100%;}
+  @media #{$mq__content-width} {
+    max-width: 100%;
+    width: auto;
+    padding-left: $size__padding-resp;
+    padding-right: $size__padding-resp;
+  }
   
   p {
     margin: 0 auto;

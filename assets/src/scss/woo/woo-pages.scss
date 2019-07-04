@@ -91,6 +91,17 @@ body.woocommerce {
   
   // the single product
   div.product {
+    
+    .gallery__image {
+      @media #{$mq__smaller-than-tablet} {
+        height: 300px;
+        margin: auto;
+        img {
+          object-fit: contain;
+          height: 100%;
+        }
+      }
+    }
   
     .summary.entry-summary {
       padding-top: $size__margin * 4;

@@ -3,10 +3,10 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
-Stable tag: 1.0.22
+Stable tag: 1.0.23
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
 Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready
 
 Modul R is a powerful and flexible theme that provides a fast way to create an awesome website, it's designed to be a starter theme to hack, it comes with a kit of reusable parts and functions. Uses the Gulp task runner to automatize boring tasks!
@@ -58,12 +58,12 @@ Same as buildAll task but furthermore run the zip task
 You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/theme-setup/)
 
 == Upgrade Notice ==
-= 1.0.21 - Jul 3, 2019 =
+= 1.0.0 - May 11, 2019 =
 * First release
 
 == Changelog ==
 
-= 1.0.22 =
+= 1.0.23 =
 * Pre-release
 
 = 1.0.11 =
@@ -91,7 +91,7 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == TODOS ==
-* A better way to change the primary and secondary color, if possibile with che wp customizer
+* A better way to change the primary and secondary color, if possible with che wp customizer
 * Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
 * Rework sticky post + article author + footer style
 

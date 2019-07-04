@@ -38,9 +38,6 @@ function modul_r_theme_setup() {
 	// This theme uses wp_nav_menu() in Primary Navigation.
 	register_nav_menu('header-main',__( 'Primary Navigation',  'modul-r' ));
 
-	add_theme_support( 'custom-header' );
-	add_theme_support( 'custom-background' );
-
 	/*
 	* Switch default core markup for search form, comment form, and comments
 	* to output valid HTML5.
@@ -62,6 +59,9 @@ function modul_r_theme_setup() {
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
 	add_theme_support( 'custom-logo' );
+
+	add_theme_support( 'custom-header' );
+	add_theme_support( 'custom-background' );
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );

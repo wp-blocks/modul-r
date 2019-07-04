@@ -4,14 +4,14 @@
  * Displays the featured image of the post/page
  * you can pass single or multiple classes to the image wrapper
  */
-if ( ! function_exists('modul_r_post_image') ) :
-	function modul_r_post_image($class = null) {
-	    // Check if Thumbnail exists
-      if ( has_post_thumbnail()) : ?>
-          <div class="entry-image interactive<?php echo ' '.$class; ?>">
-              <?php the_post_thumbnail('modul-r-fullwidth', array('class' => 'fit-image wp-post-image')); ?>
-          </div>
-      <?php endif;
+if ( ! function_exists( 'modul_r_post_image' ) ) :
+  function modul_r_post_image( $class = null ) {
+    // Check if Thumbnail exists
+		if ( has_post_thumbnail() ) : ?>
+      <div class="entry-image interactive<?php echo ' ' . $class; ?>">
+			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
+      </div>
+		<?php endif;
 	}
 endif;
 
@@ -177,29 +177,29 @@ if ( ! function_exists('modul_r_social_sharer') ) :
       <h3><?php _e('Share this post',  'modul-r'); ?></h3>
 
       <!-- Facebook -->
-      <a href="http://www.facebook.com/sharer.php?u=<?php echo get_page_link(); ?>" target="_blank">
+      <a href="http://www.facebook.com/sharer.php?u=<?php echo get_page_link(); ?>" target="_blank" title="Share on Facebook">
         <i class="social-ico facebook"></i>
       </a>
 
 
       <!-- LinkedIn -->
-      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo get_page_link(); ?>" target="_blank">
+      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo get_page_link(); ?>" target="_blank" title="Share on Linkedin">
         <i class="social-ico linkedin"></i>
       </a>
 
       <!-- Twitter -->
-      <a href="https://twitter.com/intent/tweet?url=<?php echo get_page_link(); ?>&amp;text=<?php echo get_bloginfo('title'); ?> <?php the_title(); ?>" target="_blank">
+      <a href="https://twitter.com/intent/tweet?url=<?php echo get_page_link(); ?>&amp;text=<?php echo get_bloginfo('title'); ?> <?php the_title(); ?>" target="_blank" title="Share on Twitter">
         <i class="social-ico twitter"></i>
       </a>
 
 
       <!-- Email -->
-      <a href="mailto:?Subject=<?php echo get_bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>">
+      <a href="mailto:?Subject=<?php echo get_bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>" target="_blank" title="Send by mail">
         <i class="social-ico email"></i>
       </a>
 
       <!-- Print -->
-      <a href="javascript:" onclick="window.print()">
+      <a href="javascript:" onclick="window.print()" title="Print this page">
         <i class="social-ico print"></i>
       </a>
 
@@ -209,38 +209,38 @@ if ( ! function_exists('modul_r_social_sharer') ) :
 endif;
 
 /**
- * Displays the article relateds
+ * Displays the related articles
  */
-if ( ! function_exists('modul_r_relateds') ) :
+if ( ! function_exists( 'modul_r_relateds' ) ) :
 	function modul_r_relateds() {
-  ?>
-    <div class="relateds">
+		?>
+      <div class="relateds">
+		  <?php
+		  $args = array(
+			  'post_type'      => 'post',
+			  'orderby'        => 'rand',
+			  'posts_per_page' => 3,
+		  );
+
+		  $query = new WP_Query( $args );
+		  if ( $query->have_posts() ) : ?>
+
+            <h3><?php _e( 'You might be interested in...', 'modul-r' ); ?></h3>
+            <ul>
+
+				<?php while ( $query->have_posts() ) : $query->the_post();
+					get_template_part( 'template-parts/content/content', 'related' );
+				endwhile; ?>
+
+            </ul>
+
+			  <?php
+			  wp_reset_query();
+		  endif;
+		  ?>
+      </div>
 		<?php
-		$args = array(
-			'post_type' => 'post',
-			'orderby'   => 'rand',
-			'posts_per_page' => 3,
-		);
-
-		$query = new WP_Query( $args );
-		if ( $query->have_posts() ) : ?>
-
-      <h3><?php _e('You might be interested in...', 'modul-r'); ?></h3>
-      <ul>
-
-      <?php while ( $query->have_posts() ) : $query->the_post();
-        get_template_part( 'template-parts/content/content', 'related' );
-      endwhile; ?>
-
-      </ul>
-
-		<?php
-        wp_reset_query();
-        endif;
-     ?>
-    </div>
-  <?php
-  }
+	}
 endif;
 
 
@@ -261,9 +261,10 @@ endif;
  */
 if ( ! function_exists('modul_r_header_image') ) :
 	function modul_r_header_image() {
-    if (get_header_image()) {?>
-     <img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" class="site-header-image" />
-	  <?php }
+    $header_image= get_header_image();
+	  if ($header_image) {
+	    printf('<img src="%s" alt="%s" class="site-header-image" />', $header_image, get_bloginfo( 'title' ));
+    }
 	}
 endif;
 
@@ -295,7 +296,7 @@ if ( ! function_exists('modul_r_author') ) :
             <?php
 
             $website = get_the_author_meta( 'url', $post->post_author );
-            if ( $website ) {echo '<a href="' . $website . '" rel="nofollow" target="_blank"><i class="social-ico linkedin"></i></a>';}
+            if ( $website ) {echo '<a href="' . $website . '" rel="nofollow" target="_blank"><i class="social-ico www"></i></a>';}
 
             $twitter = get_the_author_meta( 'twitter', $post->post_author );
             if ( $twitter ) {echo '<a href="https://twitter.com/' . $twitter . '" rel="nofollow" target="_blank"><i class="social-ico twitter"></i></a>';}

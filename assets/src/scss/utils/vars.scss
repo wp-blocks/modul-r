@@ -29,7 +29,7 @@ $size__side-padding: 300px;
 // DISTANCES
 $size__margin: 8px;
 $size__padding: 64px;
-$size__padding-resp: 24px;
+$size__padding-resp: 20px;
 
 // HEADER
 $head__direction: row; // row or column
@@ -38,10 +38,10 @@ $nav__height: 48px;
 $size__branding-logo-ratio: $size__branding-height *.45;
 
 // HEADER RESP
-$head__height-responsive: 48px;
+$head__height-responsive: 60px;
 
 // HAMBURGER MENU
-$hamburger__size: 32px;
+$hamburger__size: 30px;
 $hamburger__weight: 3px;
 $hamburger__color: #{$color__primary};
 
