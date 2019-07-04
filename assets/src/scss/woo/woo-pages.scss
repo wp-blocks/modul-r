@@ -145,11 +145,27 @@ body.woocommerce {
   
     p.price,
     span.price {
-      color: #026c7c;
+      color: $color__woo-accent;
     }
     
-    .woocommerce-tabs .entry-content > * {
-      width: 100%;
+    .woocommerce-tabs {
+      &.wc-tabs-wrapper {
+        margin-left: -$size__padding-resp;
+        margin-right: -$size__padding-resp;
+  
+        ul.tabs {
+          
+          margin-bottom: 0;
+          
+          li a {
+            font-size: 13px;
+          }
+        }
+      }
+      .entry-content {
+        & > * {width: 100%;}
+        table {width: calc(100% - (#{$size__padding-resp * 2}));}
+      }
     }
   
     table.woocommerce-product-attributes {
@@ -164,7 +180,10 @@ body.woocommerce {
     }
   
     .related.products {
-      padding: ($size__padding * .5) $size__padding-resp ($size__padding * .25);
+      padding: ($size__padding * .5) 0 ($size__padding * .25);
+      ul.products li.product .woocommerce-loop-product__title {
+        font-size: $text__size - 2;
+      }
     }
     
   }

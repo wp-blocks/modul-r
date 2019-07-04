@@ -6,7 +6,7 @@ body.woocommerce {
     line-height: 1;
     padding-bottom: $size__margin * 4;
     @extend .ellipsis;
-    @media #{$mq__smaller-than-tablet} {padding: $size__margin * 2;}
+    @media #{$mq__smaller-than-tablet} {padding-bottom: $size__margin * 2;}
   }
   
   .woocommerce-result-count {
@@ -37,14 +37,14 @@ body.woocommerce {
 .woocommerce a.button.alt,
 .woocommerce button.button.alt,
 .woocommerce input.button.alt {
-  background-color: #026c7c;
-  &:hover { background-color: lighten(#026c7c, 5%);}
+  background-color: $color__woo-accent;
+  &:hover { background-color: lighten($color__woo-accent, 5%);}
 }
 
 .woocommerce button.button.alt.disabled {
-  background-color: lighten($color-_dark-grey, 10%);
+  background-color: lighten($color__dark-grey, 10%);
   &:hover {
-    background-color: $color-_dark-grey;
+    background-color: $color__dark-grey;
   }
 }
 
