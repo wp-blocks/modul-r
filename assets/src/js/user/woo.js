@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
             e.preventDefault();
           }
 
-          $(this).parents('.product-categories > li').siblings().removeClass('active');
+          $(this).parents('li.cat-parent').siblings().removeClass('active');
 
           $(this).siblings('.children').stop(true, true).slideToggle()
             .parents('.cat-item').siblings().children('.children').stop(true, true).slideUp();
