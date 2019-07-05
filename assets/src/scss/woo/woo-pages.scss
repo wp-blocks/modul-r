@@ -104,7 +104,6 @@ body.woocommerce {
     }
   
     .summary.entry-summary {
-      padding-top: $size__margin * 4;
       padding-left: $size__padding * .25;
       box-sizing: border-box;
       @media #{$mq__smaller-than-tablet} { padding-left: 0;}
@@ -183,6 +182,7 @@ body.woocommerce {
       padding: ($size__padding * .5) 0 ($size__padding * .25);
       ul.products li.product .woocommerce-loop-product__title {
         font-size: $text__size - 2;
+        @media #{$mq__smaller-than-tablet} {font-size: $text__size - 3;}
       }
     }
     

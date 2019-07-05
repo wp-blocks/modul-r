@@ -1708,7 +1708,6 @@ body.woocommerce.post-type-archive-product .woocommerce-products-header,body.woo
       height:100%; } }
 
 body.woocommerce div.product .summary.entry-summary{
-  padding-top:32px;
   padding-left:16px;
   box-sizing:border-box; }
   @media (max-width:1023px){
@@ -1772,6 +1771,9 @@ body.woocommerce div.product .related.products{
   padding:32px 0 16px; }
   body.woocommerce div.product .related.products ul.products li.product .woocommerce-loop-product__title{
     font-size:15px; }
+    @media (max-width:1023px){
+      body.woocommerce div.product .related.products ul.products li.product .woocommerce-loop-product__title{
+        font-size:13px; } }
 
 #secondary section ul{
   list-style-type:none;
