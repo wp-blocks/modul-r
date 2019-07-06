@@ -39,8 +39,14 @@
   @media #{$mq__tablet-portrait}{ width: 0;}
 }
 
+.grid__item.sticky,
+.grid__item.big-block {
+  width: 65.5%;
+  @media #{$mq__tablet} { width: 100% };
+}
 
-body.archive article.grid__item {
+
+.masonry-container article.grid__item {
   max-width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -75,25 +81,29 @@ body.archive article.grid__item {
     padding-bottom: $size__margin;
   }
   
-  
   h5 {
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 2.5px;
-    color: $color__dark-grey;
     text-align: left;
-    font-family: $font__family;
+    font-size: 11px;
+    a {
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-family: $font__family;
+      color: $color__dark-grey;
+    }
   }
   
   h2.entry-title {
     font-size: 24px;
     padding: 0;
     margin: 0;
+    text-align: left;
   }
   
   p {
     font-size: $text__size - 2;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
   }
  
 }

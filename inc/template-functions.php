@@ -39,18 +39,38 @@ endif;
  */
 if ( ! function_exists( 'modul_r_post_nav' ) ) :
 	function modul_r_post_nav() { ?>
-  <div class="post-navigation">
-    <h3><?php _e('Post navigation', 'modul-r'); ?></h3>
-    <div class="navigation">
-      <div class="alignleft">
-	  	  <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
+      <div class="post-navigation">
+        <h3><?php _e('Post navigation', 'modul-r'); ?></h3>
+        <div class="navigation">
+          <div class="alignleft">
+			  <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
+          </div>
+          <div class="alignright">
+			  <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
+          </div>
+        </div> <!-- end navigation -->
       </div>
-      <div class="alignright">
-  		  <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
+	<?php }
+endif;
+
+
+/**
+ * The masonry navigation
+ */
+if ( ! function_exists( 'modul_r_masonry_nav' ) ) :
+	function modul_r_masonry_nav() { ?>
+    <div class="masonry navigation">
+  		<?php next_posts_link(); ?>
+    </div>
+
+    <div class="page-load-status">
+      <div class="loader-ellips infinite-scroll-request">
+        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/src/img/elements/loader.svg" alt="wait! loading">
       </div>
-    </div> <!-- end navigation -->
-  </div>
-  <?php }
+      <p class="infinite-scroll-last"><?php _e('End of content',  'modul-r' ); ?></p>
+      <p class="infinite-scroll-error"><?php _e('No more pages to load',  'modul-r' ); ?></p>
+    </div>
+	<?php }
 endif;
 
 

@@ -25,11 +25,11 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: category.php:49
+#: category.php:49, front-page.php:43
 msgid "End of content"
 msgstr ""
 
-#: category.php:50
+#: category.php:50, front-page.php:44
 msgid "No more pages to load"
 msgstr ""
 

@@ -158,3 +158,15 @@ body.home {
   }
   
 }
+
+body.blog {
+  .page-header {
+    padding-top: $size__padding;
+    padding-bottom: $size__padding * .75;
+    
+    @media #{$mq__smaller-than-tablet} {
+      padding-top: $size__padding  * .5;
+      padding-bottom: $size__padding * .25;
+    }
+  }
+}

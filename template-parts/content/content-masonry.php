@@ -12,7 +12,7 @@
   <div class="article-wrapper">
 
     <header class="entry-header">
-      <h5><?php single_cat_title(); ?></h5>
+      <h5><?php the_category('&#47; '); ?></h5>
       <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
     </header>
 

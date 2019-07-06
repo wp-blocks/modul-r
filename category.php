@@ -32,23 +32,13 @@ get_header();
           </div>
         </div>
 
+	      <?php modul_r_masonry_nav(); ?>
+
         <?php
         // If no content, include the "No posts found" template.
         else :
           get_template_part( 'template-parts/content/content', 'none' );
         endif; ?>
-
-        <div class="masonry navigation">
-          <?php next_posts_link(); ?>
-        </div>
-
-        <div class="page-load-status">
-          <div class="loader-ellips infinite-scroll-request">
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/src/img/elements/loader.svg" alt="wait! loading">
-          </div>
-          <p class="infinite-scroll-last"><?php _e('End of content',  'modul-r' ); ?></p>
-          <p class="infinite-scroll-error"><?php _e('No more pages to load',  'modul-r' ); ?></p>
-        </div>
 
     </main><!-- /main -->
 </section><!-- /primary -->

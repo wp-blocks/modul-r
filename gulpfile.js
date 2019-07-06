@@ -281,24 +281,25 @@ const BuildAll = gulp.series(clean, gulp.parallel( imageMinify, createPot, build
 const BuildRelease = gulp.series(BuildAll, zipRelease);
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
-exports.createPot = createPot;
+
 exports.BuildAll = BuildAll;
 exports.BuildRelease = BuildRelease;
 
 exports.watch = watch;
 
+exports.style = style;
 exports.scripts = scripts;
+exports.createPot = createPot;
+exports.imageMinify = imageMinify;
+
 exports.vendorScript = vendorScript;
 exports.userScript = userScript;
-
-exports.style = style;
 exports.cssAtf = cssAtf;
 exports.CSS = CSS;
 exports.mainCSS = mainCSS;
 exports.buildCSS = buildCSS;
 exports.buildMainCSS = buildMainCSS;
 
-exports.imageMinify = imageMinify;
 exports.zipRelease = zipRelease;
 
 exports.default = BuildAll;

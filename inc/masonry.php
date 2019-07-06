@@ -9,7 +9,7 @@ if ( ! function_exists('modul_r_masonry_scripts') ) :
 	function modul_r_masonry_scripts(){
 
 		// customize with your category which will displayed with the masonry layout
-		if(is_category()){
+		if(is_category() || is_home()){
 			// Pull Masonry from the core of WordPress
 			wp_enqueue_script( 'imagesloaded', false, array('jquery', 'scripts-vendors'), null );
 			wp_enqueue_script( 'masonry', false, array('imagesloaded'), null );
@@ -26,6 +26,8 @@ if ( ! function_exists('modul_r_category_query') ) :
 			// alter the query for categories
 			if(is_category()){
 				$query->set('posts_per_page', 3);
+			} else if(is_home()) {
+				$query->set('posts_per_page', 5);
 			}
 
 		}
