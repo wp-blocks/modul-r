@@ -11,7 +11,7 @@
 
 	<header class="entry-header main-width alignwide">
 
-    <p class="breadcrumbs"><?php modul_r_breadcrumbs(); ?></p>
+    <?php modul_r_breadcrumbs(); ?>
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 

@@ -7,7 +7,7 @@
 
 	<header class="entry-header main-width alignwide">
 
-    <p class="breadcrumbs"><?php modul_r_breadcrumbs(); ?></p>
+    <?php modul_r_breadcrumbs(); ?>
 
 		<h1 class="entry-title"><?php _e( 'Nothing Found', 'modul-r' ); ?></h1>
 

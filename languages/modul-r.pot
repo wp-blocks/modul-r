@@ -105,15 +105,15 @@ msgstr ""
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:143
+#: inc/template-functions.php:144
 msgid "comments"
 msgstr ""
 
-#: inc/template-functions.php:177
+#: inc/template-functions.php:180
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:228
+#: inc/template-functions.php:231
 msgid "You might be interested in..."
 msgstr ""
 

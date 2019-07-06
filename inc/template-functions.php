@@ -116,37 +116,40 @@ if ( ! function_exists('modul_r_meta') ) :
     $comments_count = get_comment_count($post->ID);
 
 		?>
-    <div class="meta-wrapper">
+    <div class="post-meta">
+      <div class="meta-wrapper">
 
-      <p>
-        <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
-            <?php the_author_meta( 'display_name' ); ?>
-        </a>
-      </p>
+        <p>
+          <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+              <?php the_author_meta( 'display_name' ); ?>
+          </a>
+        </p>
 
-      <p><b> | </b></p>
+        <p><b> | </b></p>
 
-      <p>
-        <a href="<?php echo get_day_link( get_the_time('Y'), get_the_time('m'), get_the_time('d') ); ?>">
-        <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-          <?php echo apply_filters( 'the_date', get_the_date(), get_option( 'date_format' ), '', '' ); ?>
-        </time>
-        </a>
-      </p>
+        <p>
+          <a href="<?php echo get_day_link( get_the_time('Y'), get_the_time('m'), get_the_time('d') ); ?>">
+          <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
+            <?php echo apply_filters( 'the_date', get_the_date(), get_option( 'date_format' ), '', '' ); ?>
+          </time>
+          </a>
+        </p>
 
-      <?php if ( $comments_count['approved'] > 0 ) { ?>
+        <?php if ( $comments_count['approved'] > 0 ) { ?>
 
-      <p><b> | </b></p>
+        <p><b> | </b></p>
 
-      <p>
-        <a href="<?php the_permalink(); ?>#comments">
-	        <?php echo $comments_count['approved']; ?> <?php _e('comments',  'modul-r'); ?>
-        </a>
-      </p>
+        <p>
+          <a href="<?php the_permalink(); ?>#comments">
+            <?php echo $comments_count['approved']; ?> <?php _e('comments',  'modul-r'); ?>
+          </a>
+        </p>
 
-	    <?php } ?>
+        <?php } ?>
 
+      </div>
     </div>
+
 		<?php
 
 	}
@@ -159,9 +162,9 @@ endif;
 if ( ! function_exists('modul_r_breadcrumbs') ) :
 	function modul_r_breadcrumbs() {
 	  if ( function_exists('yoast_breadcrumb') ) {
-		  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+		  yoast_breadcrumb( '<p class="breadcrumbs">','</p>' );
 	  } else {
-	    the_category( ' &gt; ' );
+	    printf('<p class="breadcrumbs"><a href="%s">Home</a> / %s</p>', home_url(), get_the_category_list( ' &#47; ' ));
     }
   }
 endif;
