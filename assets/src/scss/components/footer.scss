@@ -25,7 +25,6 @@
     padding-top: $size__padding;
     padding-bottom: $size__padding * .5;
     display: flex;
-    flex-flow: wrap;
     
   
     @media #{$mq__smaller-than-tablet} {
@@ -34,7 +33,7 @@
     }
     
     .widget {
-      flex-grow: 1;
+      flex: 1 1 0;
       box-sizing: content-box;
       padding-left: $size__padding;
   
@@ -44,10 +43,12 @@
         padding-bottom: $size__padding * .5;
       }
       
+      li {
+        @extend .ellipsis;
+      }
+      
       &:first-of-type {
-        flex-shrink: 0;
         flex-grow: 2;
-        flex-basis: 300px;
         padding-left: 0;
         padding-right: $size__padding * 2;
   
@@ -62,10 +63,14 @@
           font-size: 24px;
         }
   
-        a {color: $color__dark-grey;}
+        a {
+          color: $color__dark-grey;
+        }
         
         img {max-width: 300px}
       }
+      
+      &:last-of-type {padding-left: 0;}
     }
     
     

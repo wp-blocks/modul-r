@@ -93,7 +93,7 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == TODOS ==
 * A better way to change the primary and secondary color, if possible with che wp customizer
 * Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
-* Rework sticky post + article author + footer style
+* Rework footer style
 
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
@@ -125,5 +125,5 @@ See the LICENSE file for more details.
 * fancybox.js https://fancyapps.com/fancybox/3/, © 2008 - 2019 fancyapps, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * slick.js https://kenwheeler.github.io/slick/, © 2017 Ken Wheeler, [MIT](http://opensource.org/licenses/MIT)
 * normalize.css http://necolas.github.io/normalize.css/, © 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
-* twentynineteen https://it.wordpress.org/themes/twentynineteen/, © 2019 the WordPress team, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* twentynineteen https://www.wordpress.org/themes/twentynineteen/, © 2019 the WordPress team, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * Google Fonts - Apache License, version 2.0
