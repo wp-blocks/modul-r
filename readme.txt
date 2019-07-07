@@ -93,7 +93,6 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == TODOS ==
 * A better way to change the primary and secondary color, if possible with che wp customizer
 * Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
-* Rework footer style
 
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
