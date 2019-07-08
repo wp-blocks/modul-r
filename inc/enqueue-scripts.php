@@ -44,3 +44,5 @@ add_action( 'wp_enqueue_scripts', 'modul_r_theme_scripts' ); // Add Theme admin 
  */
 if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 
+
+

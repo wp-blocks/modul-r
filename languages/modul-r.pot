@@ -25,14 +25,6 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: category.php:49, front-page.php:43
-msgid "End of content"
-msgstr ""
-
-#: category.php:50, front-page.php:44
-msgid "No more pages to load"
-msgstr ""
-
 #: comments.php:17
 msgid "No Responses"
 msgstr ""
@@ -89,31 +81,39 @@ msgstr ""
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:64
-msgid "Pages:"
-msgstr ""
-
 #: inc/template-functions.php:70
-msgid "Next page"
+msgid "End of content"
 msgstr ""
 
 #: inc/template-functions.php:71
+msgid "No more pages to load"
+msgstr ""
+
+#: inc/template-functions.php:84
+msgid "Pages:"
+msgstr ""
+
+#: inc/template-functions.php:90
+msgid "Next page"
+msgstr ""
+
+#: inc/template-functions.php:91
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:101
+#: inc/template-functions.php:121
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:144
+#: inc/template-functions.php:164
 msgid "comments"
 msgstr ""
 
-#: inc/template-functions.php:180
+#: inc/template-functions.php:200
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:231
+#: inc/template-functions.php:251
 msgid "You might be interested in..."
 msgstr ""
 
