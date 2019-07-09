@@ -277,29 +277,20 @@ function watchImages() {
 
 const style = gulp.parallel(mainCSS, CSS, cssAtf);
 const scripts = gulp.parallel(vendorScript, userScript, mainScript);
-const BuildAll = gulp.series(clean, gulp.parallel( imageMinify, createPot, buildMainCSS, buildCSS, cssAtf, scripts ));
-const BuildRelease = gulp.series(BuildAll, zipRelease);
+const build = gulp.series(clean, gulp.parallel( imageMinify, createPot, buildMainCSS, buildCSS, cssAtf, scripts ));
+const buildRelease = gulp.series(build, zipRelease);
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
 
-exports.BuildAll = BuildAll;
-exports.BuildRelease = BuildRelease;
-
+// exports
+exports.default = build;
 exports.watch = watch;
+exports.build = build;
+exports.buildRelease = buildRelease;
 
 exports.style = style;
 exports.scripts = scripts;
+
 exports.createPot = createPot;
 exports.imageMinify = imageMinify;
-
-exports.vendorScript = vendorScript;
-exports.userScript = userScript;
-exports.cssAtf = cssAtf;
-exports.CSS = CSS;
-exports.mainCSS = mainCSS;
-exports.buildCSS = buildCSS;
-exports.buildMainCSS = buildMainCSS;
-
 exports.zipRelease = zipRelease;
-
-exports.default = BuildAll;
