@@ -8,12 +8,12 @@ body.woocommerce {
   }
   
   #primary {
-    width: 100%;
+    width: calc( 100% - #{$sidebar__width + $size__padding} );
     padding-right: $size__padding;
     @media #{$mq__smaller-than-tablet} {padding-right: 0;}
   }
   
   #secondary {
-    min-width: 300px;
+    width: $sidebar__width;
   }
 }

@@ -17,13 +17,14 @@
     width: 100%;
   }
   
-  input[type="search"] {
+  [type="search"] {
     width: 100%;
     margin: 0;
     padding: $size__margin ($size__margin * 2);
+    font-size: $text__size - 2;
   }
   
-  input[type="submit"] {
+  [type="submit"] {
     width: 80px;
     margin: 0;
     border-radius: 0;

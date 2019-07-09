@@ -5,6 +5,7 @@ body.woocommerce {
     margin: 0;
     line-height: 1;
     padding-bottom: $size__margin * 4;
+    width: calc( 100% - #{$sidebar__width + $size__padding} );
     @extend .ellipsis;
     @media #{$mq__smaller-than-tablet} {padding-bottom: $size__margin * 2;}
   }

@@ -91,6 +91,12 @@ body.woocommerce {
   
   // the single product
   div.product {
+  
+    img.wp-post-image {
+      max-height: 50vh;
+      margin: auto;
+      object-fit: contain;
+    }
     
     .gallery__image {
       @media #{$mq__smaller-than-tablet} {
@@ -157,7 +163,8 @@ body.woocommerce {
           margin-bottom: 0;
           
           li a {
-            font-size: 13px;
+            font-size: $text__size - 1;
+            @media #{$mq__smaller-than-tablet} {font-size: $text__size - 3;}
           }
         }
       }
