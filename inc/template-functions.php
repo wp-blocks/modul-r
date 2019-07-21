@@ -141,7 +141,7 @@ if ( ! function_exists('modul_r_meta') ) :
       <div class="meta-wrapper">
 
         <p>
-          <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+          <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" rel="author" class="author-link" >
               <?php the_author_meta( 'display_name' ); ?>
           </a>
         </p>
@@ -150,9 +150,16 @@ if ( ! function_exists('modul_r_meta') ) :
 
         <p>
           <a href="<?php echo get_day_link( get_the_time('Y'), get_the_time('m'), get_the_time('d') ); ?>">
-          <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-            <?php echo apply_filters( 'the_date', get_the_date(), get_option( 'date_format' ), '', '' ); ?>
-          </time>
+
+            <?php if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) : ?>
+              <time class="entry-date published updated hide" datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ) ?>"><?php echo esc_html( get_the_date() ); ?></time>
+	          <?php else : ?>
+              <time class="entry-date published hide" datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+              <time class="updated hide" datetime="<?php echo esc_attr( get_the_modified_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_modified_date() ); ?></time>
+		        <?php endif; ?>
+
+	          <span><?php echo apply_filters( 'the_date', get_the_date(), get_option( 'date_format' ), '', '' ); ?></span>
+
           </a>
         </p>
 
@@ -253,11 +260,11 @@ if ( ! function_exists( 'modul_r_relateds' ) ) :
         <div class="relateds">
 
           <h3><?php esc_html_e( 'You might be interested in...', 'modul-r' ); ?></h3>
-          <ul>
+          <ul class="relateds-list">
 
-          <?php while ( $query->have_posts() ) : $query->the_post();
-            get_template_part( 'template-parts/content/content', 'related' );
-          endwhile; ?>
+            <?php while ( $query->have_posts() ) : $query->the_post();
+              get_template_part( 'template-parts/content/content', 'related' );
+            endwhile; ?>
 
           </ul>
 
@@ -309,28 +316,28 @@ if ( ! function_exists('modul_r_author') ) :
 
     <div class="article-metas">
 
-      <div class="article-author">
+      <div class="article-author h-card">
         <div class="author-image">
           <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
-            <span class="avatar"><?php echo get_avatar( get_the_author_meta( 'ID' ), '64', null, get_the_author() ); ?> </span>
+            <span class="avatar u-photo"><?php echo get_avatar( get_the_author_meta( 'ID' ), '64', null, get_the_author() ); ?> </span>
           </a>
         </div>
         <div class="author-details">
-          <div class="author-name">
-            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><h3><?php the_author_meta( 'display_name' ); ?></h3></a>
-          </div>
-          <div class="author-description">
+          <a class="u-url" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" rel="author">
+            <h3 class="p-name"><?php the_author_meta( 'display_name' ); ?></h3>
+          </a>
+          <div class="author-description p-note">
             <p><?php the_author_meta( 'description' ); ?></p>
             <?php
 
             $website = get_the_author_meta( 'url', $post->post_author );
-            if ( $website ) {echo '<a href="' . $website . '" rel="nofollow" target="_blank"><i class="social-ico www"></i></a>';}
+            if ( $website ) {echo '<a href="' . $website . '" class="u-url" rel="nofollow" target="_blank"><i class="social-ico www"></i></a>';}
 
             $twitter = get_the_author_meta( 'twitter', $post->post_author );
-            if ( $twitter ) {echo '<a href="https://twitter.com/' . $twitter . '" rel="nofollow" target="_blank"><i class="social-ico twitter"></i></a>';}
+            if ( $twitter ) {echo '<a href="https://twitter.com/' . $twitter . '" class="u-url" rel="nofollow" target="_blank"><i class="social-ico twitter"></i></a>';}
 
             $facebook = get_the_author_meta( 'facebook', $post->post_author );
-            if ( $facebook ) {echo '<a href="' . $facebook . '" rel="nofollow" target="_blank"><i class="social-ico facebook"></i></a>';}
+            if ( $facebook ) {echo '<a href="' . $facebook . '" class="u-url" rel="nofollow" target="_blank"><i class="social-ico facebook"></i></a>';}
 
             ?>
           </div>

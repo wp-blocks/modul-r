@@ -425,6 +425,9 @@ ul, ol, dl {
 .nowrap {
   white-space: nowrap; }
 
+.hide {
+  display: none; }
+
 .unselectable {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -889,7 +892,7 @@ body.woocommerce .site-content {
 .relateds h5 {
   color: #7452b1; }
 
-.relateds ul {
+.relateds ul.relateds-list {
   margin: 0;
   padding: 0; }
 

@@ -25,7 +25,7 @@
       margin-left: $size__margin * 4;
       margin-bottom: 0;
     
-      &:first-child { margin-left: 0}
+      &:first-child { margin-left: 0 }
       
       @media #{$mq__smaller-than-tablet} {
         margin-left: $size__margin;
@@ -64,7 +64,7 @@ $image-size: 150px;
     color: $color__secondary;
   }
   
-  ul {
+  ul.relateds-list {
     margin: 0;
     padding: 0;
   }
@@ -83,7 +83,7 @@ $image-size: 150px;
     }
     
     img {
-      float:left;
+      float: left;
       clear: both;
       width: $image-size;
       margin-right: $size__padding-resp;

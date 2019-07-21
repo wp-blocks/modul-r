@@ -3,55 +3,59 @@
 // -----------------------------------------------------------------------------
 
 .nowrap {
-    white-space: nowrap;
+  white-space: nowrap;
+}
+
+.hide {
+  display: none;
 }
 
 .unselectable {
-    user-select: none;
+  user-select: none;
 }
 
 .ellipsis {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .alignright {
-    float: right;
+  float: right;
 }
 
 .alignleft {
-    float: left;
+  float: left;
 }
 
 .aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .text-left {
-    text-align: left;
+  text-align: left;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
 }
 
 .text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 
 .elevation-01 {
-    box-shadow: 0 3px 8px -5px transparentize($color__black, .6)
+  box-shadow: 0 3px 8px -5px transparentize($color__black, .6)
 }
