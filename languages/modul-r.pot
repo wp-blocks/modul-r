@@ -25,35 +25,35 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: comments.php:17
+#: comments.php:18
 msgid "No Responses"
 msgstr ""
 
-#: comments.php:17
+#: comments.php:18
 msgid "One Response"
 msgstr ""
 
-#: comments.php:17
+#: comments.php:18
 msgid "% Responses"
 msgstr ""
 
-#: comments.php:17
+#: comments.php:18
 msgid "to %s"
 msgstr ""
 
-#: comments.php:36, comments.php:43
+#: comments.php:38, comments.php:45
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:41
+#: comments.php:43
 msgid "Be the first to write a comment."
 msgstr ""
 
-#: comments.php:48
+#: comments.php:50
 msgid "Comments"
 msgstr ""
 
-#: header.php:17
+#: header.php:20
 msgid "Skip to content"
 msgstr ""
 
@@ -109,15 +109,45 @@ msgstr ""
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:164
-msgid "comments"
+#: inc/template-functions.php:172
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/template-functions.php:195
+msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:200
+#: inc/template-functions.php:210
+msgid "Share this page"
+msgstr ""
+
+#: inc/template-functions.php:210
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:251
+#: inc/template-functions.php:214
+msgid "Share on Facebook"
+msgstr ""
+
+#: inc/template-functions.php:220
+msgid "Share on Linkedin"
+msgstr ""
+
+#: inc/template-functions.php:225
+msgid "Share on Twitter"
+msgstr ""
+
+#: inc/template-functions.php:231
+msgid "Send by mail"
+msgstr ""
+
+#: inc/template-functions.php:236
+msgid "Print this page"
+msgstr ""
+
+#: inc/template-functions.php:262
 msgid "You might be interested in..."
 msgstr ""
 
@@ -146,7 +176,7 @@ msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searc
 msgstr ""
 
 #. translators: %s: parent post link
-#: template-parts/content/content-single.php:31
+#: template-parts/content/content-single.php:29
 msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-title\">%s</span>"
 msgstr ""
 
