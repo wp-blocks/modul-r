@@ -10,8 +10,8 @@
   <div class="hero-title text-center">
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
     <p><?php bloginfo('description'); ?></p>
-    <a href="https://codekraft.it" class="button big"><?php _e('Contact us',  'modul-r'); ?></a>
-    <a href="https://github.com/erikyo/Modul-R" class="button big outline" ><?php _e('Download',  'modul-r'); ?></a>
+    <a href="https://codekraft.it" class="button big"><?php esc_html_e('Contact us',  'modul-r'); ?></a>
+    <a href="https://github.com/erikyo/Modul-R" class="button big outline" ><?php esc_html_e('Download',  'modul-r'); ?></a>
   </div>
 </div>
 
@@ -26,6 +26,7 @@
 </section>
 
 <footer class="entry-footer main-width">
+	<?php modul_r_social_sharer(); ?>
 	<?php modul_r_relateds(); ?>
 </footer>
 

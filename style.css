@@ -703,7 +703,6 @@ button.c-hamburger {
   width: 30px;
   min-width: inherit;
   height: 30px;
-  font-size: 0;
   text-indent: -9999px;
   box-shadow: none;
   border: none;
@@ -711,6 +710,8 @@ button.c-hamburger {
   cursor: pointer;
   transition: background 0.3s;
   background-color: transparent; }
+  button.c-hamburger i {
+    display: none; }
   button.c-hamburger span {
     display: block;
     position: absolute;

@@ -9,13 +9,13 @@
 
     <?php modul_r_breadcrumbs(); ?>
 
-		<h1 class="entry-title"><?php _e( 'Nothing Found', 'modul-r' ); ?></h1>
+		<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'modul-r' ); ?></h1>
 
 	</header>
 
   <div class="entry-content">
     <p class="text-center">
-      <?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'modul-r' ); ?>
+      <?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'modul-r' ); ?>
     </p>
   </div><!-- /entry-content -->
 

@@ -24,8 +24,8 @@ if ( ! function_exists( 'modul_r_archive_nav' ) ) :
 
 	  $pagination = get_the_posts_pagination( array(
 		  'mid_size'  => 5,
-		  'prev_text' => __( 'Prev', 'modul-r' ),
-		  'next_text' => __( 'Next', 'modul-r'),
+		  'prev_text' => esc_html__( 'Prev', 'modul-r' ),
+		  'next_text' => esc_html__( 'Next', 'modul-r'),
 	  ) );
 
 	  return $pagination;
@@ -40,13 +40,13 @@ endif;
 if ( ! function_exists( 'modul_r_post_nav' ) ) :
 	function modul_r_post_nav() { ?>
       <div class="post-navigation">
-        <h3><?php _e('Post navigation', 'modul-r'); ?></h3>
+        <h3><?php esc_html_e('Post navigation', 'modul-r'); ?></h3>
         <div class="navigation">
           <div class="alignleft">
-			  <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
+			      <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
           </div>
           <div class="alignright">
-			  <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
+			      <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
           </div>
         </div> <!-- end navigation -->
       </div>
@@ -65,10 +65,10 @@ if ( ! function_exists( 'modul_r_masonry_nav' ) ) :
 
     <div class="page-load-status">
       <div class="loader-ellips infinite-scroll-request">
-        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/src/img/elements/loader.svg" alt="wait! loading">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/src/img/elements/loader.svg" alt="wait! loading">
       </div>
-      <p class="infinite-scroll-last"><?php _e('End of content',  'modul-r' ); ?></p>
-      <p class="infinite-scroll-error"><?php _e('No more pages to load',  'modul-r' ); ?></p>
+      <p class="infinite-scroll-last"><?php esc_html_e('End of content',  'modul-r' ); ?></p>
+      <p class="infinite-scroll-error"><?php esc_html_e('No more pages to load',  'modul-r' ); ?></p>
     </div>
 	<?php }
 endif;
@@ -81,14 +81,14 @@ if ( ! function_exists( 'modul_r_page_links' ) ) :
 	function modul_r_page_links() {
 
 	  $defaults = array(
-		  'before'           => '<p>' . __( 'Pages:',  'modul-r' ),
+		  'before'           => '<p>' . esc_html__( 'Pages:',  'modul-r' ),
 		  'after'            => '</p>',
 		  'link_before'      => '',
 		  'link_after'       => '',
 		  'next_or_number'   => 'number',
 		  'separator'        => ' ',
-		  'nextpagelink'     => __( 'Next page',  'modul-r'),
-		  'previouspagelink' => __( 'Previous page',  'modul-r' ),
+		  'nextpagelink'     => esc_html__( 'Next page',  'modul-r'),
+		  'previouspagelink' => esc_html__( 'Previous page',  'modul-r' ),
 		  'pagelink'         => '%'
 	  );
 
@@ -118,7 +118,7 @@ if ( ! function_exists('modul_r_tags') ) :
 
 		if( has_tag() ): ?>
 			<div class="post-tags">
-				<h3><?php _e('Tags:',  'modul-r'); ?></h3>
+				<h3><?php esc_html_e('Tags:',  'modul-r'); ?></h3>
 				<ul><?php the_tags( '<li class="post-tag">', '</li><li class="post-tag">', '</li>');  ?></ul>
 			</div>
 		<?php endif;
@@ -133,7 +133,8 @@ if ( ! function_exists('modul_r_meta') ) :
 	function modul_r_meta() {
 
     global $post;
-    $comments_count = get_comment_count($post->ID);
+    $post_comments = get_comment_count($post->ID);
+	  $approved = $post_comments['approved'];
 
 		?>
     <div class="post-meta">
@@ -155,13 +156,13 @@ if ( ! function_exists('modul_r_meta') ) :
           </a>
         </p>
 
-        <?php if ( $comments_count['approved'] > 0 ) { ?>
+        <?php if ( $approved > 0 ) { ?>
 
         <p><b> | </b></p>
 
         <p>
           <a href="<?php the_permalink(); ?>#comments">
-            <?php echo $comments_count['approved']; ?> <?php _e('comments',  'modul-r'); ?>
+            <?php printf( _n( '%s comment', '%s comments', $approved, 'modul-r' ), $approved ); ?>
           </a>
         </p>
 
@@ -184,7 +185,7 @@ if ( ! function_exists('modul_r_breadcrumbs') ) :
 	  if ( function_exists('yoast_breadcrumb') ) {
 		  yoast_breadcrumb( '<p class="breadcrumbs">','</p>' );
 	  } else {
-	    printf('<p class="breadcrumbs"><a href="%s">%s</a> / %s</p>', home_url(), __('Home', 'modul-r'), get_the_category_list( ' &#47; ' ));
+	    printf('<p class="breadcrumbs"><a href="%s">%s</a> / %s</p>', home_url(), esc_html__('Home', 'modul-r'), get_the_category_list( ' &#47; ' ));
     }
   }
 endif;
@@ -197,32 +198,35 @@ if ( ! function_exists('modul_r_social_sharer') ) :
 	function modul_r_social_sharer() {
     ?>
     <div id="share-buttons">
-      <h3><?php _e('Share this post',  'modul-r'); ?></h3>
+
+      <h3>
+	      <?php is_page() ? esc_html_e( 'Share this page', 'modul-r' ) : esc_html_e( 'Share this post', 'modul-r' ) ; ?>
+      </h3>
 
       <!-- Facebook -->
-      <a href="http://www.facebook.com/sharer.php?u=<?php echo get_page_link(); ?>" target="_blank" title="Share on Facebook">
+      <a href="http://www.facebook.com/sharer.php?u=<?php echo get_page_link(); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Facebook', 'modul-r' ) ; ?>">
         <i class="social-ico facebook"></i>
       </a>
 
 
       <!-- LinkedIn -->
-      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo get_page_link(); ?>" target="_blank" title="Share on Linkedin">
+      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo get_page_link(); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Linkedin', 'modul-r' ) ; ?>">
         <i class="social-ico linkedin"></i>
       </a>
 
       <!-- Twitter -->
-      <a href="https://twitter.com/intent/tweet?url=<?php echo get_page_link(); ?>&amp;text=<?php echo get_bloginfo('title'); ?> <?php the_title(); ?>" target="_blank" title="Share on Twitter">
+      <a href="https://twitter.com/intent/tweet?url=<?php echo get_page_link(); ?>&amp;text=<?php echo get_bloginfo('title'); ?> <?php the_title(); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Twitter', 'modul-r' ); ?>">
         <i class="social-ico twitter"></i>
       </a>
 
 
       <!-- Email -->
-      <a href="mailto:?Subject=<?php echo get_bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>" target="_blank" title="Send by mail">
+      <a href="mailto:?Subject=<?php echo get_bloginfo('title'); ?>&amp;Body=<?php echo get_page_link(); ?>" target="_blank" title="<?php esc_attr_e( 'Send by mail', 'modul-r' ); ?>">
         <i class="social-ico email"></i>
       </a>
 
       <!-- Print -->
-      <a href="javascript:" onclick="window.print()" title="Print this page">
+      <a href="javascript:" onclick="window.print()" title="<?php esc_attr_e( 'Print this page', 'modul-r' ); ?>">
         <i class="social-ico print"></i>
       </a>
 
@@ -236,9 +240,7 @@ endif;
  */
 if ( ! function_exists( 'modul_r_relateds' ) ) :
 	function modul_r_relateds() {
-		?>
-      <div class="relateds">
-		  <?php
+
 		  $args = array(
 			  'post_type'      => 'post',
 			  'orderby'        => 'rand',
@@ -246,23 +248,26 @@ if ( ! function_exists( 'modul_r_relateds' ) ) :
 		  );
 
 		  $query = new WP_Query( $args );
+
 		  if ( $query->have_posts() ) : ?>
+        <div class="relateds">
 
-            <h3><?php _e( 'You might be interested in...', 'modul-r' ); ?></h3>
-            <ul>
+          <h3><?php esc_html_e( 'You might be interested in...', 'modul-r' ); ?></h3>
+          <ul>
 
-				<?php while ( $query->have_posts() ) : $query->the_post();
-					get_template_part( 'template-parts/content/content', 'related' );
-				endwhile; ?>
+          <?php while ( $query->have_posts() ) : $query->the_post();
+            get_template_part( 'template-parts/content/content', 'related' );
+          endwhile; ?>
 
-            </ul>
+          </ul>
 
-			  <?php
-			  wp_reset_query();
-		  endif;
-		  ?>
-      </div>
-		<?php
+        </div>
+
+      <?php
+
+      wp_reset_query();
+
+      endif;
 	}
 endif;
 

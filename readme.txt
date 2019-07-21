@@ -3,7 +3,7 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Stable tag: 1.0.24
+Stable tag: 1.0.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -63,8 +63,12 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 == Changelog ==
 
-= 1.0.24 =
-* Pre-release
+= 1.0.25 =
+* escape translations
+* accessibility tab shortcut (from guidelines 2019)
+* gulp file update
+* svg support moved to child theme
+* search form enhancement
 
 = 1.0.11 =
 * WooCommerce support

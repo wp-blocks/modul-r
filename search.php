@@ -13,13 +13,11 @@ get_header();
 
 				<header class="page-header">
 					<h1 class="page-title">
-			      <?php _e('Search results for:',  'modul-r'); ?> <?php echo get_search_query(); ?>
+			      <?php esc_html_e('Search results for:',  'modul-r'); ?> <?php echo get_search_query(); ?>
 					</h1>
 				</header><!-- /page-header -->
 
-				<?php while ( have_posts() ) :
-					the_post();
-
+				<?php while ( have_posts() ) : the_post();
 					get_template_part( 'template-parts/content/content', 'excerpt' );
 				endwhile;
 
@@ -30,8 +28,8 @@ get_header();
 			else :
 				get_template_part( 'template-parts/content/content', 'none' );
 
-			endif;
-			?>
+			endif; ?>
+
 		</main><!-- /main -->
 	</section><!-- /primary -->
 

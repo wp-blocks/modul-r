@@ -21,7 +21,6 @@ button.c-hamburger {
   width: $hamburger__size;
   min-width: inherit;
   height: $hamburger__size;
-  font-size: 0;
   text-indent: -9999px;
   box-shadow: none;
   border: none;
@@ -30,6 +29,10 @@ button.c-hamburger {
   transition: background 0.3s;
   background-color: transparent;
   
+  i {
+    display: none;
+  }
+
   span {
     display: block;
     position: absolute;
@@ -38,7 +41,8 @@ button.c-hamburger {
     right: 0;
     height: $hamburger__weight;
     background: $hamburger__color;
-    transition: background 0.15s 0.1s;transition-delay: 0.1s, 0s;
+    transition: background 0.15s 0.1s;
+    transition-delay: 0.1s, 0s;
     
     &::after,
     &::before {

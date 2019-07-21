@@ -14,7 +14,9 @@ if ( post_password_required() ) {
 
 // Display Comments Section
 if ( have_comments() ) : ?>
-  <h3 id="comments"><?php comments_number(__('No Responses',  'modul-r'), __('One Response',  'modul-r'), __('% Responses',  'modul-r'));?> <?php printf(__('to %s',  'modul-r'), the_title('', '', false)); ?></h3>
+  <h3 id="comments">
+      <?php comments_number( esc_html__('No Responses', 'modul-r'), esc_html__('One Response', 'modul-r'), esc_html__('% Responses', 'modul-r'));?> <?php printf( esc_html__('to %s', 'modul-r'), the_title('', '', false)); ?>
+  </h3>
 
   <div class="navigation">
     <div class="alignleft"><?php previous_comments_link() ?></div>
@@ -33,18 +35,18 @@ if ( have_comments() ) : ?>
 
 	<?php
 	if ( ! comments_open() ) : // There are comments but comments are now closed
-		echo"<p class='nocomments'>".__( 'Comments are closed.',  'modul-r' )."</p>";
+		echo"<p class='nocomments'>". esc_html__( 'Comments are closed.', 'modul-r' )."</p>";
 	endif;
 
 else : // I.E. There are no Comments
 	if ( comments_open() ) : // Comments are open, but there are none yet
 		echo "<p>".__( 'Be the first to write a comment.',  'modul-r' )."</p>";
 	else : // comments are closed
-		 echo "<p class='nocomments'>".__( 'Comments are closed.',  'modul-r' )."</p>";
+		 echo "<p class='nocomments'>". esc_html__( 'Comments are closed.', 'modul-r' )."</p>";
 	endif;
 endif;
 
 comment_form( array(
-	'title_reply' => __( 'Comments',  'modul-r' ),
+	'title_reply' => esc_html__( 'Comments',  'modul-r' ),
 	'comment_notes_after' => ''
 ) );

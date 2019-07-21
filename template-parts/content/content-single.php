@@ -26,7 +26,7 @@
       the_post_navigation(
         array(
           /* translators: %s: parent post link */
-          'prev_text' => sprintf( __( '<span class="meta-nav">Attachment published in</span><span class="post-title">%s</span>',  'modul-r' ), '%title' ),
+          'prev_text' => sprintf( esc_html__( '<span class="meta-nav">Attachment published in</span><span class="post-title">%s</span>',  'modul-r' ), '%title' ),
         )
       );
 
