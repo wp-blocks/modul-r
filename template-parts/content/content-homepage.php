@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page.php
+ * Template part for displaying homepage
  */
 
 ?>
@@ -15,9 +15,15 @@
   </div>
 </div>
 
-<div class="entry-content">
-  <?php the_content(); ?>
-</div><!-- /entry-content -->
+<section id="primary" class="content-area">
+  <main id="main" class="site-main">
+
+    <div class="entry-content">
+		  <?php the_content(); ?>
+    </div><!-- /entry-content -->
+
+  </main>
+</section>
 
 <footer class="entry-footer main-width">
 	<?php modul_r_page_links(); ?>

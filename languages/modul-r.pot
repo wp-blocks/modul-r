@@ -53,6 +53,10 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
+#: header.php:17
+msgid "Skip to content"
+msgstr ""
+
 #: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr ""

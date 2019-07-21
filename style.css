@@ -1834,6 +1834,48 @@ hr {
     height: calc(100% + 200px);
     margin-bottom: -100px !important; }
 
+/* Accessibility */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+  .screen-reader-text.skip-link {
+    display: block; }
+  .screen-reader-text:focus {
+    background-color: #17BEBB;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(68, 71, 78, 0.75);
+    clip: auto !important;
+    -webkit-clip-path: none;
+    clip-path: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    height: auto;
+    display: block;
+    right: 8px;
+    top: 8px;
+    z-index: 100000;
+    line-height: 1;
+    padding: 12px 24px;
+    text-decoration: none;
+    width: auto;
+    /* Above WP toolbar. */ }
+
+/* Do not show the outline on the skip link target. */
+#main[tabindex="-1"]:focus {
+  outline: 0; }
+
 .entry-comments {
   clear: both;
   margin-top: 48px;

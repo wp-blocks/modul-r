@@ -11,8 +11,15 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
 
-  <?php get_template_part( 'template-parts/header/header' ); ?>
+  <?php wp_body_open(); ?>
 
-  <div id="content" class="site-content">
+  <div id="page" class="site">
+
+    <a class="skip-link screen-reader-text" href="#main">
+      <?php _e( 'Skip to content', 'modul-r' ); ?>
+    </a>
+
+    <?php get_template_part( 'template-parts/header/header' ); ?>
+
+    <div id="content" class="site-content">
