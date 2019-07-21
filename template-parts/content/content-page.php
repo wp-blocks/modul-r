@@ -7,8 +7,6 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php modul_r_post_image('parallax'); ?>
-
 	<div class="entry-content">
 
     <header class="entry-header main-width">
