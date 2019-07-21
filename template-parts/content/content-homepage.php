@@ -26,6 +26,6 @@
 </section>
 
 <footer class="entry-footer main-width">
-	<?php modul_r_page_links(); ?>
+	<?php modul_r_relateds(); ?>
 </footer>
 

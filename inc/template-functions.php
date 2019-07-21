@@ -184,7 +184,7 @@ if ( ! function_exists('modul_r_breadcrumbs') ) :
 	  if ( function_exists('yoast_breadcrumb') ) {
 		  yoast_breadcrumb( '<p class="breadcrumbs">','</p>' );
 	  } else {
-	    printf('<p class="breadcrumbs"><a href="%s">Home</a> / %s</p>', home_url(), get_the_category_list( ' &#47; ' ));
+	    printf('<p class="breadcrumbs"><a href="%s">%s</a> / %s</p>', home_url(), __('Home', 'modul-r'), get_the_category_list( ' &#47; ' ));
     }
   }
 endif;

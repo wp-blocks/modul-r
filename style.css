@@ -885,24 +885,24 @@ body.woocommerce .site-content {
       color: #5c6069;
       font-weight: 400; }
 
-.site-main .relateds h5 {
+.relateds h5 {
   color: #7452b1; }
 
-.site-main .relateds ul {
+.relateds ul {
   margin: 0;
   padding: 0; }
 
-.site-main .relateds li {
+.relateds li {
   display: block;
   padding: 0;
   margin: 8px 0 48px;
   clear: both;
   font-weight: 400; }
-  .site-main .relateds li p {
+  .relateds li p {
     margin: 0;
     font-size: .9em;
     font-weight: 400; }
-  .site-main .relateds li img {
+  .relateds li img {
     float: left;
     clear: both;
     width: 150px;
@@ -910,7 +910,7 @@ body.woocommerce .site-content {
     margin-bottom: 20px;
     max-height: 150px; }
     @media (max-width: 1023px) {
-      .site-main .relateds li img {
+      .relateds li img {
         width: 75px;
         margin-right: 10px;
         margin-bottom: 10px; } }
