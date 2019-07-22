@@ -54,6 +54,16 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
+#. translators: %s: blog name
+#: header.php:12
+msgid "%s latest posts"
+msgstr ""
+
+#. translators: %s: blog name
+#: header.php:13
+msgid "%s latest comments"
+msgstr ""
+
 #: header.php:24
 msgid "Skip to content"
 msgstr ""
