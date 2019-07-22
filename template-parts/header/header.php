@@ -4,7 +4,7 @@
   $custom_logo = get_theme_mod( 'custom_logo' );
 ?>
 
-<header id="masthead" class="site-header" >
+<header id="masthead" class="site-header">
 
 	<div class="site-branding-container main-width alignwide">
 

@@ -138,11 +138,14 @@ if ( ! function_exists('modul_r_meta') ) :
 
 		?>
     <div class="post-meta">
+
+      <a href="<?php the_permalink(); ?>" rel="bookmark" class="hide"><?php the_title(); ?></a>
+
       <div class="meta-wrapper">
 
         <p>
-          <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" rel="author" class="author-link" >
-              <?php the_author_meta( 'display_name' ); ?>
+          <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" rel="author" class="h-card url" >
+            <span class="author fn"><?php the_author_meta( 'display_name' ); ?></span>
           </a>
         </p>
 
@@ -316,17 +319,17 @@ if ( ! function_exists('modul_r_author') ) :
 
     <div class="article-metas">
 
-      <div class="article-author h-card">
+      <div class="article-author author vcard">
         <div class="author-image">
           <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
             <span class="avatar u-photo"><?php echo get_avatar( get_the_author_meta( 'ID' ), '64', null, get_the_author() ); ?> </span>
           </a>
         </div>
         <div class="author-details">
-          <a class="u-url" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" rel="author">
-            <h3 class="p-name"><?php the_author_meta( 'display_name' ); ?></h3>
+          <a class="url" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" rel="author">
+            <h3 class="name fn n"><?php the_author_meta( 'display_name' ); ?></h3>
           </a>
-          <div class="author-description p-note">
+          <div class="author-description note">
             <p><?php the_author_meta( 'description' ); ?></p>
             <?php
 
