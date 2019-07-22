@@ -1,4 +1,4 @@
-<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer" role="contentinfo">
 
 	<?php if(is_active_sidebar('footer-main')): ?>
 		<div class="footer-widgets main-width alignwide">

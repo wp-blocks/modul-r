@@ -10,7 +10,7 @@ get_header();
 
 	  <?php modul_r_post_image('parallax'); ?>
 
-		<main id="main" class="site-main">
+		<main id="main" class="site-main" role="main">
 
 		<?php	while ( have_posts() ) : the_post();
 
