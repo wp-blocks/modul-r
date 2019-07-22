@@ -109,45 +109,45 @@ msgstr ""
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:172
+#: inc/template-functions.php:175
 msgid "%s comment"
 msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:195
+#: inc/template-functions.php:198
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:210
+#: inc/template-functions.php:213
 msgid "Share this page"
 msgstr ""
 
-#: inc/template-functions.php:210
+#: inc/template-functions.php:213
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:214
+#: inc/template-functions.php:217
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-functions.php:220
+#: inc/template-functions.php:223
 msgid "Share on Linkedin"
 msgstr ""
 
-#: inc/template-functions.php:225
+#: inc/template-functions.php:228
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-functions.php:231
+#: inc/template-functions.php:234
 msgid "Send by mail"
 msgstr ""
 
-#: inc/template-functions.php:236
+#: inc/template-functions.php:239
 msgid "Print this page"
 msgstr ""
 
-#: inc/template-functions.php:262
+#: inc/template-functions.php:265
 msgid "You might be interested in..."
 msgstr ""
 
