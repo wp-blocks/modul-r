@@ -8,7 +8,7 @@ if ( ! function_exists( 'modul_r_post_image' ) ) :
   function modul_r_post_image( $class = null ) {
     // Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
-      <div class="entry-image interactive<?php echo ' ' . $class; ?>">
+      <div class="entry-image interactive<?php echo ' ' . sanitize_html_class($class); ?>">
 			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
       </div>
 		<?php endif;
@@ -80,7 +80,7 @@ endif;
 if ( ! function_exists( 'modul_r_page_links' ) ) :
 	function modul_r_page_links() {
 
-	  $defaults = array(
+	  $args = array(
 		  'before'           => '<p>' . esc_html__( 'Pages:',  'modul-r' ),
 		  'after'            => '</p>',
 		  'link_before'      => '',
@@ -92,7 +92,7 @@ if ( ! function_exists( 'modul_r_page_links' ) ) :
 		  'pagelink'         => '%'
 	  );
 
-	  $pagination = wp_link_pages( $defaults );
+	  $pagination = wp_link_pages( $args );
 
 	  return $pagination;
   }
@@ -172,7 +172,10 @@ if ( ! function_exists('modul_r_meta') ) :
 
         <p>
           <a href="<?php the_permalink(); ?>#comments">
-            <?php printf( _n( '%s comment', '%s comments', $approved, 'modul-r' ), $approved ); ?>
+            <?php
+            /* translators: %s: the number of comments */
+            printf( _n( '%s comment', '%s comments', $approved, 'modul-r' ), $approved );
+            ?>
           </a>
         </p>
 

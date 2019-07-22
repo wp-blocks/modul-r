@@ -14,7 +14,7 @@ get_header();
       <header class="page-header">
         <?php the_archive_title( '<h1 class="page-title main-width">', '</h1>' ); ?>
         <?php if (is_author()) {
-          printf('<p>%s</p>', get_the_author_meta( 'description' ));
+          printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
         } else if (is_tag()) {
           echo tag_description();
         } ?>

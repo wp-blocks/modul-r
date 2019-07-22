@@ -14,22 +14,12 @@
 	</header>
 
 	<div class="entry-content">
-		<?php the_content();
-
-      modul_r_page_links();
-		?>
+		<?php the_content(); ?>
 	</div>
 
-  <footer class="article-footer main-width">
-
-    <div class="article-metas">
-
-	    <?php modul_r_social_sharer(); ?>
-
-      <?php modul_r_archive_nav(); ?>
-
-    </div>
-
+  <footer class="entry-footer main-width">
+	  <?php modul_r_social_sharer(); ?>
+	  <?php modul_r_relateds(); ?>
   </footer>
 
 </article>

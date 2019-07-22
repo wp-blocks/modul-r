@@ -13,7 +13,7 @@ get_header();
 
 				<header class="page-header">
 					<h1 class="page-title">
-			      <?php esc_html_e('Search results for:',  'modul-r'); ?> <?php echo get_search_query(); ?>
+			      <?php esc_html_e('Search results for:',  'modul-r'); ?> <?php the_search_query(); ?>
 					</h1>
 				</header><!-- /page-header -->
 
