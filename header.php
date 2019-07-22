@@ -1,13 +1,17 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#118886">
-    <style><?php // include the above the fold style and, remind, include is different than enqueue and the code will be added directly to the page
-	    include_once( get_stylesheet_directory() .'/assets/dist/css/atf.css' );
+    <meta name="theme-color" content="#118886"<?php // TODO: dynamic color ?>>
+    <style><?php
+      // include the above the fold style and, note this, include is different than enqueue so the code will be added directly to the page, just what we need!
+	    include_once( get_stylesheet_directory() . '/assets/dist/css/atf.css' );
 	  ?></style>
     <?php wp_head(); ?>
+    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url') ?>" title="<?php printf( __( '%s latest posts', 'sandbox' ), _wp_specialchars( get_bloginfo('name'), 1 ) ) ?>" />
+    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'sandbox' ), _wp_specialchars( get_bloginfo('name'), 1 ) ) ?>" />
+    <link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
 </head>
 
 <body <?php body_class(); ?>>
