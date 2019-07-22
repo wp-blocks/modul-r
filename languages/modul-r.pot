@@ -37,23 +37,24 @@ msgstr ""
 msgid "% Responses"
 msgstr ""
 
-#: comments.php:18
-msgid "to %s"
+#. translators: %s: post title
+#: comments.php:20
+msgid " to %s"
 msgstr ""
 
-#: comments.php:38, comments.php:45
+#: comments.php:39, comments.php:46
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:43
+#: comments.php:44
 msgid "Be the first to write a comment."
 msgstr ""
 
-#: comments.php:50
+#: comments.php:51
 msgid "Comments"
 msgstr ""
 
-#: header.php:20
+#: header.php:24
 msgid "Skip to content"
 msgstr ""
 
@@ -109,45 +110,46 @@ msgstr ""
 msgid "Tags:"
 msgstr ""
 
-#: inc/template-functions.php:175
+#. translators: %s: the number of comments
+#: inc/template-functions.php:177
 msgid "%s comment"
 msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:198
+#: inc/template-functions.php:201
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:213
+#: inc/template-functions.php:216
 msgid "Share this page"
 msgstr ""
 
-#: inc/template-functions.php:213
+#: inc/template-functions.php:216
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:217
+#: inc/template-functions.php:220
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-functions.php:223
+#: inc/template-functions.php:226
 msgid "Share on Linkedin"
 msgstr ""
 
-#: inc/template-functions.php:228
+#: inc/template-functions.php:231
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-functions.php:234
+#: inc/template-functions.php:237
 msgid "Send by mail"
 msgstr ""
 
-#: inc/template-functions.php:239
+#: inc/template-functions.php:242
 msgid "Print this page"
 msgstr ""
 
-#: inc/template-functions.php:265
+#: inc/template-functions.php:268
 msgid "You might be interested in..."
 msgstr ""
 
