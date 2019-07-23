@@ -31,10 +31,10 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// push primary and secondary color (if is set) into the stored style
 		if ($primary_color) {
-			$atf_css .= ".primary-color{color:{$primary_color};}";
+			$atf_css .= ".primary-color{color:{$primary_color};}.primary-background{background:{$primary_color};}";
 		}
 		if ($secondary_color) {
-			$atf_css .= ".secondary-color{color:{$secondary_color};}";
+			$atf_css .= ".secondary-color{color:{$secondary_color};}.secondary-background{background:{$secondary_color};}";
 		}
 
 		// push the header color into stored style if is present
