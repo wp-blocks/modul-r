@@ -54,16 +54,6 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#. translators: %s: blog name
-#: header.php:12
-msgid "%s latest posts"
-msgstr ""
-
-#. translators: %s: blog name
-#: header.php:13
-msgid "%s latest comments"
-msgstr ""
-
 #: header.php:24
 msgid "Skip to content"
 msgstr ""
@@ -94,6 +84,10 @@ msgstr ""
 
 #: inc/template-functions.php:43
 msgid "Post navigation"
+msgstr ""
+
+#: inc/template-functions.php:68
+msgid "wait! loading"
 msgstr ""
 
 #: inc/template-functions.php:70
@@ -172,11 +166,11 @@ msgid "Search results for:"
 msgstr ""
 
 #: template-parts/content/content-homepage.php:13
-msgid "Contact us"
+msgid "Shop"
 msgstr ""
 
 #: template-parts/content/content-homepage.php:14
-msgid "Download"
+msgid "News"
 msgstr ""
 
 #: template-parts/content/content-none.php:12

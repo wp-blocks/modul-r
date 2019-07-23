@@ -1,17 +1,12 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#118886"<?php // TODO: dynamic color ?>>
-    <style><?php
-      // include the above the fold style and, note this, include is different than enqueue so the code will be added directly to the page, just what we need!
-	    include_once( get_stylesheet_directory() . '/assets/dist/css/atf.css' );
-	  ?></style>
-    <?php wp_head(); ?>
-    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url') ?>" title="<?php /* translators: %s: blog name */ printf( esc_attr__( '%s latest posts', 'modul-r' ), _wp_specialchars( get_bloginfo('name'), 1 ) ) ?>" />
-    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php /* translators: %s: blog name */ printf( esc_attr__( '%s latest comments', 'modul-r' ), _wp_specialchars( get_bloginfo('name'), 1 ) ) ?>" />
-    <link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
+  <meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; " />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <?php wp_head(); ?>
+  <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+  <?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>>

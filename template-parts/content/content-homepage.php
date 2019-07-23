@@ -10,8 +10,8 @@
   <div class="hero-title text-center">
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
     <p><?php bloginfo('description'); ?></p>
-    <a href="https://codekraft.it" class="button big"><?php esc_html_e('Contact us',  'modul-r'); ?></a>
-    <a href="https://github.com/erikyo/Modul-R" class="button big outline" ><?php esc_html_e('Download',  'modul-r'); ?></a>
+    <a href="<?php echo esc_url( get_category_link(get_cat_ID('news')) ); ?>" class="button big"><?php esc_html_e('Lastest news', 'modul-r'); ?></a>
+    <a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="button big outline" ><?php esc_html_e('Shop', 'modul-r'); ?></a>
   </div>
 </div>
 

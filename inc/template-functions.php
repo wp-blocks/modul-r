@@ -65,7 +65,7 @@ if ( ! function_exists( 'modul_r_masonry_nav' ) ) :
 
     <div class="page-load-status">
       <div class="loader-ellips infinite-scroll-request">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/src/img/elements/loader.svg" alt="wait! loading">
+        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/src/img/elements/loader.svg" alt="<?php esc_attr_e('wait! loading',  'modul-r' ); ?>">
       </div>
       <p class="infinite-scroll-last"><?php esc_html_e('End of content',  'modul-r' ); ?></p>
       <p class="infinite-scroll-error"><?php esc_html_e('No more pages to load',  'modul-r' ); ?></p>
@@ -284,25 +284,23 @@ if ( ! function_exists( 'modul_r_relateds' ) ) :
 	}
 endif;
 
-
-/**
- * Change the color of the headline if changed in the customizer
- */
-if ( ! function_exists('modul_r_header_textcolor') ) :
-	function modul_r_header_textcolor() {
-    if (get_header_textcolor()) {
-      echo ' style="color:#' . get_header_textcolor(). '"';
-    }
+// add 'has-featured-image' to body class if post has a featured image
+if ( ! function_exists('modul_r_add_featured_image_body_class') ) :
+	function modul_r_add_featured_image_body_class( $classes ) {
+		global $post;
+		if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) && (is_page() || is_single())) {$classes[] = 'has-featured-image';}
+		return $classes;
 	}
 endif;
 
+add_filter( 'body_class', 'modul_r_add_featured_image_body_class' );
 
 /**
  * Add a background to the headline if changed in the customizer
  */
 if ( ! function_exists('modul_r_header_image') ) :
 	function modul_r_header_image() {
-    $header_image= get_header_image();
+    $header_image = get_header_image();
 	  if ($header_image) {
 	    printf('<img src="%s" alt="%s" class="site-header-image" />', $header_image, get_bloginfo( 'title' ));
     }

@@ -2,6 +2,7 @@ $button__height: 36px;
 
 %button {
   display: inline-flex;
+  justify-content: center;
   position: relative;
   
   transition: 150ms;
