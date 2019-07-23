@@ -62,6 +62,14 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
+#: inc/customizer.php:15
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer.php:27
+msgid "Secondary Color"
+msgstr ""
+
 #: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr ""

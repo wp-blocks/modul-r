@@ -7,7 +7,7 @@ Stable tag: 1.0.28
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
-Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready, accessibility-ready
+Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready
 
 Modul R is a powerful and flexible designed to be a starter theme to hack with a kit of reusable parts and functions with the website speed performance in mind. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with an hi tech SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
 
@@ -125,7 +125,7 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == Changelog ==
 
 = 1.0.28 =
-* above the fold style correctly enqueue
+* above the fold style correctly enqueued
 * custom theme colors
 * new screenshot
 
@@ -168,9 +168,8 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == TODOS ==
-* A better way to change the primary and secondary color, if possible with che wp customizer
 * Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
-* Microformats
+
 
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
