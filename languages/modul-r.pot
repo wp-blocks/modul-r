@@ -54,7 +54,11 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: header.php:24
+#: functions.php:39
+msgid "Primary Navigation"
+msgstr ""
+
+#: header.php:19
 msgid "Skip to content"
 msgstr ""
 
@@ -157,20 +161,16 @@ msgstr ""
 msgid "You might be interested in..."
 msgstr ""
 
-#: inc/theme-setup.php:39
-msgid "Primary Navigation"
-msgstr ""
-
 #: search.php:16
 msgid "Search results for:"
 msgstr ""
 
 #: template-parts/content/content-homepage.php:13
-msgid "Shop"
+msgid "Lastest news"
 msgstr ""
 
 #: template-parts/content/content-homepage.php:14
-msgid "News"
+msgid "Shop"
 msgstr ""
 
 #: template-parts/content/content-none.php:12
