@@ -12,7 +12,7 @@ if ( ! function_exists('modul_r_colors') ) :
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary-color', array(
 			'section' => 'colors',
-			'label'   => esc_html__( 'Primary Color', 'modul_r' ),
+			'label'   => esc_html__( 'Primary Color', 'modul-r' ),
 		) ) );
 
 		// Secondary color
@@ -24,7 +24,7 @@ if ( ! function_exists('modul_r_colors') ) :
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary-color', array(
 			'section' => 'colors',
-			'label'   => esc_html__( 'Secondary Color', 'modul_r' ),
+			'label'   => esc_html__( 'Secondary Color', 'modul-r' ),
 		) ) );
 	}
 endif;
