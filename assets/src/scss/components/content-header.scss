@@ -35,7 +35,6 @@
   margin: 0 auto ($size__margin * 2);
   text-align: center;
   font-size: 64px;
-  color: $color__secondary;
   @media #{$mq__smaller-than-tablet} {font-size: 52px;}
   @media #{$mq__phablet} {font-size: 42px;}
 }

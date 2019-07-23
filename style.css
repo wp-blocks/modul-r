@@ -832,8 +832,7 @@ body.woocommerce .site-content {
 .entry-title {
   margin: 0 auto 16px;
   text-align: center;
-  font-size: 64px;
-  color: #7452b1; }
+  font-size: 64px; }
   @media (max-width: 1023px) {
     .page-title,
     .entry-title {

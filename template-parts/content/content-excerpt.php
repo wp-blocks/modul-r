@@ -12,7 +12,7 @@
     <div class="article-wrapper<?php if( is_sticky() && is_home() && ! is_paged() ) {echo ' sticky';}  ?>">
 
       <header class="entry-header">
-        <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', get_permalink() ), '</a></h2>' ); ?>
+        <?php the_title( sprintf( '<h2 class="entry-title secondary-color"><a href="%s" rel="bookmark">', get_permalink() ), '</a></h2>' ); ?>
       </header><!-- /entry-header -->
 
       <div class="entry-content">

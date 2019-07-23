@@ -12,7 +12,7 @@ get_header();
 			<?php if ( have_posts() ) : ?>
 
 				<header class="page-header">
-					<h1 class="page-title">
+					<h1 class="page-title secondary-color">
 			      <?php esc_html_e('Search results for:',  'modul-r'); ?> <?php the_search_query(); ?>
 					</h1>
 				</header><!-- /page-header -->

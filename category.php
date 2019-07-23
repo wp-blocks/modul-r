@@ -12,7 +12,7 @@ get_header();
       <?php if ( have_posts() ) : ?>
 
         <header class="page-header">
-          <h1 class="page-title main-width"><?php single_cat_title(); ?></h1>
+          <h1 class="page-title main-width secondary-color"><?php single_cat_title(); ?></h1>
           <?php echo category_description(); ?>
         </header>
 

@@ -11,7 +11,7 @@ get_header();
 
       <div class="error-404 not-found">
         <header class="page-header main-width">
-          <h1 class="page-title"><?php esc_html_e('404', 'modul-r'); ?></h1>
+          <h1 class="page-title secondary-color"><?php esc_html_e('404', 'modul-r'); ?></h1>
           <h2 class="text-center"><?php esc_html_e('Page not found', 'modul-r'); ?></h2>
         </header><!-- /page-header -->
 

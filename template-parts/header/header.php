@@ -15,7 +15,7 @@
       <?php if ( $show_header_text ) : ?>
         <div class="header-text">
           <h2 class="site-title">
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo _wp_specialchars( get_bloginfo( 'name' ), 1 ) ?>" rel="home">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo _wp_specialchars( get_bloginfo( 'name' ), 1 ) ?>" rel="home" class="primary-color">
 		        <?php bloginfo( 'name' ); ?>
             </a>
           </h2>

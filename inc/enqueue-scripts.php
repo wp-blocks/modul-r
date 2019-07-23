@@ -39,7 +39,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// push the header color into stored style if is present
 		if (get_header_textcolor()) {
-			$atf_css .= '#masthead .site-branding-container .site-title a {color:#' . get_header_textcolor(). ';}';
+			$atf_css .= '#masthead .site-branding-container .site-title a.primary-color {color:#' . get_header_textcolor(). ';}';
 		}
 
 		// return the stored style
