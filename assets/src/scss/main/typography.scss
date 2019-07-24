@@ -16,11 +16,6 @@ h6 {
 	margin: ($size__margin * 2) 0 $size__margin;
 	padding: 0;
 	line-height: $text__line-height-headline;
-	
-	a:hover {
-		text-decoration: none;
-		color: $color__secondary;
-	}
 }
 
 

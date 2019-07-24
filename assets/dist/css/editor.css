@@ -67,14 +67,6 @@ h6 {
   margin: 16px 0 8px;
   padding: 0;
   line-height: 1.2; }
-  h1 a:hover,
-  h2 a:hover,
-  h3 a:hover,
-  h4 a:hover,
-  h5 a:hover,
-  h6 a:hover {
-    text-decoration: none;
-    color: #7452b1; }
 
 h1 {
   font-size: 42px; }
