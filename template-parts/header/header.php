@@ -34,7 +34,7 @@
             'theme_location'  => 'header-main',
             'menu_class'      => 'main-menu',
             'container_class' => 'menu-wrap',
-            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+            'items_wrap'      => '<ul id="%1$s" class="%2$s" role="navigation">%3$s</ul>',
           ) );
         ?>
 			</nav>

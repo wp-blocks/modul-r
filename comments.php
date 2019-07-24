@@ -41,7 +41,7 @@ if ( have_comments() ) : ?>
 
 else : // I.E. There are no Comments
 	if ( comments_open() ) : // Comments are open, but there are none yet
-		echo "<p>". esc_html__( 'Be the first to write a comment.',  'modul-r' )."</p>";
+		echo "<p>". esc_html__( 'No comments yet, be the first!',  'modul-r' )."</p>";
 	else : // comments are closed
 		 echo "<p class='nocomments'>". esc_html__( 'Comments are closed.', 'modul-r' )."</p>";
 	endif;

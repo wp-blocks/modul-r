@@ -114,6 +114,21 @@ Edit vars.scss file and recompile the style to customize the aspect of theme, is
     $scrollbar-line-color: scrollbar color
     $scrollbar-background-color: scrollbar background color
 
+= Paid versions =
+There aren't paid/pro versions, this one contains all the features I can add to it. However, I will provide support and updates.
+
+= Contribute =
+We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
+
+* Reporting a bug
+* Discussing the current state of the code
+* Submitting a fix
+* Proposing new features
+
+We use github to host code, to track issues and feature requests, as well as accept pull requests.
+By contributing, you agree that your contributions will be licensed under its GPLv2 License.
+
+[github](https://github.com/erikyo/modul-r)
 
 = More questions? =
 You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/theme-setup/)
