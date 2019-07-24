@@ -3,6 +3,7 @@ jQuery(document).ready(function($){
   $('nav li > .sub-menu').parent().hover(function () {
 
     var submenu = $(this).children('.sub-menu');
+
     if (!$(submenu).hasClass("active")) {
       $(submenu).addClass("active");
     } else {

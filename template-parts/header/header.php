@@ -26,6 +26,13 @@
       <?php endif; ?>
     </div>
 
+    <div class="menu-shadow" onclick="document.querySelector('#masthead').classList.toggle('active')"></div>
+    <div class="menu-resp unselectable" onclick="document.querySelector('#masthead').classList.toggle('active')">
+      <button class="c-hamburger">
+        <i class="menu-toggle"></i>
+        <span class="screen-reader-text">menu</span>
+      </button>
+    </div>
 
 		<?php if ( has_nav_menu( 'header-main' ) ) : ?>
 			<nav id="site-navigation" class="main-navigation">
@@ -39,13 +46,6 @@
         ?>
 			</nav>
 		<?php endif; ?>
-
-		<div class="menu-shadow" onclick="document.querySelector('#masthead').classList.toggle('active')"></div>
-		<div class="menu-resp unselectable" onclick="document.querySelector('#masthead').classList.toggle('active')">
-			<button class="c-hamburger">
-				<span><i class="material-icons">menu</i></span>
-			</button>
-		</div>
 
 	</div>
 

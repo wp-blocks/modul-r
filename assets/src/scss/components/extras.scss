@@ -175,10 +175,6 @@ hr {
   border-bottom: 1px solid transparentize($color__secondary, .6);
 }
 
-.screen-reader-text {
-  display: none;
-}
-
 .sticky {
   background-color: transparent;
   h1, h2 { color: $color__primary;}

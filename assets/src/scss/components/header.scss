@@ -161,6 +161,7 @@
       @media #{$mq__smaller-than-tablet} {
         max-height: $head__height-responsive - ($size__margin * 2);
         object-position: left;
+        margin: 0;
       }
     }
     

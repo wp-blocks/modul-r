@@ -10,8 +10,8 @@
   display: none;
 }
 
-.unselectable {
-  user-select: none;
+.unselectable::selection {
+  background-color: transparent;
 }
 
 .ellipsis {

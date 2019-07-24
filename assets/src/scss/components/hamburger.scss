@@ -28,12 +28,8 @@ button.c-hamburger {
   cursor: pointer;
   transition: background 0.3s;
   background-color: transparent;
-  
-  i {
-    display: none;
-  }
 
-  span {
+  i {
     display: block;
     position: absolute;
     top: $hamburger__size * .5;
