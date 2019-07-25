@@ -47,7 +47,7 @@ msgid "Comments are closed."
 msgstr ""
 
 #: comments.php:44
-msgid "Be the first to write a comment."
+msgid "No comments yet, be the first!"
 msgstr ""
 
 #: comments.php:51
