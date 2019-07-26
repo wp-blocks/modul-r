@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<section id="primary" class="content-area">
+<div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
       <?php if ( have_posts() ) : ?>
@@ -22,17 +22,17 @@ get_header();
             <div class="grid__col-sizer"></div>
             <div class="grid__gutter-sizer"></div>
 
-	          <?php
-	          // create the masonry wrapper
-	          while ( have_posts() ) : the_post();
-		          get_template_part( 'template-parts/content/content', 'masonry' );
-	          endwhile;
-	          ?>
+            <?php
+            // create the masonry wrapper
+            while ( have_posts() ) : the_post();
+              get_template_part( 'template-parts/content/content', 'masonry' );
+            endwhile;
+            ?>
 
           </div>
         </div>
 
-	      <?php modul_r_masonry_nav(); ?>
+        <?php modul_r_masonry_nav(); ?>
 
         <?php
         // If no content, include the "No posts found" template.
@@ -41,7 +41,7 @@ get_header();
         endif; ?>
 
     </main><!-- /main -->
-</section><!-- /primary -->
+</div><!-- /primary -->
 
 <?php
 get_footer();

@@ -7,7 +7,7 @@
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
+	<div id="primary" class="content-area">
 
 	  <?php modul_r_post_image('parallax'); ?>
 
@@ -20,7 +20,7 @@ get_header();
 			endwhile; ?>
 
 		</main><!-- /main -->
-	</section><!-- /primary -->
+	</div><!-- /primary -->
 
 <?php
 get_footer();

@@ -4,6 +4,7 @@
  */
 
 ?>
+
 <div class="article-container">
   <article id="post-<?php the_ID(); ?>" <?php post_class( array('main-width') ); ?>>
 

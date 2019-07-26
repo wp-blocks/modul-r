@@ -5,29 +5,29 @@
 
 ?>
 
-	<header class="entry-header main-width alignwide">
+<header class="entry-header main-width alignwide">
 
-    <?php modul_r_breadcrumbs(); ?>
+  <?php modul_r_breadcrumbs(); ?>
 
-		<h1 class="entry-title secondary-color"><?php esc_html_e( 'Nothing Found', 'modul-r' ); ?></h1>
+  <h1 class="entry-title secondary-color"><?php esc_html_e( 'Nothing Found', 'modul-r' ); ?></h1>
 
-	</header>
+</header>
 
-  <div class="entry-content">
-    <p class="text-center">
-      <?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'modul-r' ); ?>
-    </p>
-  </div><!-- /entry-content -->
+<div class="entry-content">
+  <p class="text-center">
+    <?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'modul-r' ); ?>
+  </p>
+</div><!-- /entry-content -->
 
-	<footer class="entry-footer main-width">
+<footer class="entry-footer main-width">
 
-    <div>
-		  <?php get_search_form(); ?>
-    </div>
+  <div>
+    <?php get_search_form(); ?>
+  </div>
 
-    <div class="entry-footer">
-		  <?php modul_r_relateds(); ?>
-    </div>
+  <div class="entry-footer">
+    <?php modul_r_relateds(); ?>
+  </div>
 
-	</footer><!-- /entry-footer -->
+</footer><!-- /entry-footer -->
 
