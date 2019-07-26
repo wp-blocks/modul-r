@@ -30,7 +30,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		}
 
 		// push primary and secondary color (if is set) into the stored style
-		if ($primary_color && $primary_color != 'blank') {
+		if ($primary_color) {
 			$atf_css .= ".primary-color{color:{$primary_color};}.primary-background{background:{$primary_color};}";
 		}
 		if ($secondary_color) {
@@ -38,8 +38,9 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		}
 
 		// push the header color into stored style if is present
-		if (get_header_textcolor()) {
-			$atf_css .= '#masthead .site-branding-container .site-title a.primary-color {color:#' . get_header_textcolor(). ';}';
+		$header_color = get_header_textcolor();
+		if ($header_color && $header_color != 'blank') {
+			$atf_css .= '#masthead .site-branding-container .site-title a.primary-color {color:#' . $header_color. ';}';
 		}
 
 		// return the stored style

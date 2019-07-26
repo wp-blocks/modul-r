@@ -228,7 +228,7 @@ if ( ! function_exists('modul_r_social_sharer') ) :
       </a>
 
       <!-- Twitter -->
-      <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_page_link()); ?>&amp;text=<?php esc_attr_e(urlencode(get_bloginfo('title'))); ?> <?php the_title(); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Twitter', 'modul-r' ); ?>">
+      <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_page_link()); ?>&amp;text=<?php esc_attr_e(urlencode(get_bloginfo('title'))); ?>+<?php urlencode(the_title()); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Twitter', 'modul-r' ); ?>">
         <i class="social-ico twitter"></i>
       </a>
 
