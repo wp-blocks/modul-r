@@ -228,13 +228,13 @@ if ( ! function_exists('modul_r_social_sharer') ) :
       </a>
 
       <!-- Twitter -->
-      <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_page_link()); ?>&amp;text=<?php esc_attr_e(urlencode(get_bloginfo('title'))); ?>+<?php urlencode(the_title()); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Twitter', 'modul-r' ); ?>">
+      <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_page_link()); ?>&amp;text=<?php  esc_attr_e(urlencode(get_bloginfo('title'))); ?>+<?php echo urlencode(get_the_title()); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Twitter', 'modul-r' ); ?>">
         <i class="social-ico twitter"></i>
       </a>
 
 
       <!-- Email -->
-      <a href="mailto:?Subject=<?php echo urlencode(get_bloginfo('title')); ?>&amp;Body=<?php echo urlencode(get_page_link()); ?>" target="_blank" title="<?php esc_attr_e( 'Send by mail', 'modul-r' ); ?>">
+      <a href="mailto:?Subject=<?php echo urlencode(esc_attr_e(get_bloginfo('title'))); ?>&amp;Body=<?php echo urlencode(get_page_link()); ?>" target="_blank" title="<?php esc_attr_e( 'Send by mail', 'modul-r' ); ?>">
         <i class="social-ico email"></i>
       </a>
 
