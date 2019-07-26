@@ -30,7 +30,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		}
 
 		// push primary and secondary color (if is set) into the stored style
-		if ($primary_color) {
+		if ($primary_color && $primary_color != 'blank') {
 			$atf_css .= ".primary-color{color:{$primary_color};}.primary-background{background:{$primary_color};}";
 		}
 		if ($secondary_color) {

@@ -10,6 +10,6 @@
 		  <?php the_post_thumbnail('thumbnail'); ?>
 	  <?php endif; ?>
     <h5 class="secondary-color"><?php the_title() ?></h5>
-    <p><?php the_excerpt() ?></p>
+    <?php the_excerpt() ?>
   </a>
 </li>

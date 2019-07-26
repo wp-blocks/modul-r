@@ -11,7 +11,7 @@
   position: absolute !important;
   width: 1px;
   word-wrap: normal !important;
-  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+  // Many screen reader and browser combinations announce broken words as they would appear visually.
   
   &.skip-link {display: block;}
   
@@ -42,3 +42,6 @@
 #main[tabindex="-1"]:focus {
   outline: 0;
 }
+
+// Define acronyms and abbreviations in the title attribute of the abbr element.
+abbr { cursor: help; }
