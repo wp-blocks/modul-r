@@ -15,7 +15,7 @@ if ( post_password_required() ) {
 // Display Comments Section
 if ( have_comments() ) : ?>
   <h3 id="comments">
-      <?php comments_number( esc_html__('No Responses', 'modul-r'), esc_html__('One Response', 'modul-r'), esc_html__('% Responses', 'modul-r'));
+      <?php comments_number( esc_html__('No responses', 'modul-r'), esc_html__('One response', 'modul-r'), esc_html__('% responses', 'modul-r'));
       /* translators: %s: post title */
       printf( esc_html__(' to %s', 'modul-r'), the_title('', '', false) );
       ?>

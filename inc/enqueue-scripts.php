@@ -19,12 +19,12 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// get the acf.css file and store into a variable
 		ob_start();
-		include 'wp-content/themes/modul-r/assets/dist/css/atf.css';
+		include get_template_directory() . '/assets/dist/css/atf.css';
 		$atf_css = ob_get_clean();
 
-		// if primary color is set apply to chrome arress bar else use the default color
+		// if primary color is set apply to chrome address bar else use the default color
 		if ($primary_color) {
-			echo '<meta name="theme-color" content="'. adjustBrightness($primary_color, 0.2 ) .'" />';
+			echo '<meta name="theme-color" content="'. modul_r_adjustBrightness($primary_color, 0.2 ) .'" />';
 		} else {
 			echo '<meta name="theme-color" content="#118886" />';
 		}

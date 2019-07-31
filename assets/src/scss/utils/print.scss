@@ -1,4 +1,9 @@
+
+
 @media #{$mq__print} {
+  
+  @page { margin: 1.8cm 1.4cm 2.7cm;}
+  
   body,#main,#content {
     color: #000
   }

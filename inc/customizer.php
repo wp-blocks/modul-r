@@ -39,7 +39,7 @@ add_action( 'customize_register', 'modul_r_colors' );
  *
  * @return  string
  */
-function adjustBrightness($hexCode, $adjustPercent) {
+function modul_r_adjustBrightness($hexCode, $adjustPercent) {
 	$hexCode = ltrim($hexCode, '#');
 
 	if (strlen($hexCode) == 3) {

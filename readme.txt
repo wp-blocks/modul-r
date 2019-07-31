@@ -194,7 +194,7 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 == TODOS ==
 * Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
-
+* Print style
 
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
