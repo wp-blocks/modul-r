@@ -9,6 +9,7 @@
   @media #{$mq__smaller-than-tablet} {
     height: $head__height-responsive;
     transform: inherit !important;
+    padding: 0;
   }
   
   .scrolled & {

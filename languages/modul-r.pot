@@ -26,15 +26,15 @@ msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
 #: comments.php:18
-msgid "No Responses"
+msgid "No responses"
 msgstr ""
 
 #: comments.php:18
-msgid "One Response"
+msgid "One response"
 msgstr ""
 
 #: comments.php:18
-msgid "% Responses"
+msgid "% responses"
 msgstr ""
 
 #. translators: %s: post title

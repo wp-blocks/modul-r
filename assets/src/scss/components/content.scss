@@ -2,7 +2,7 @@
 
 %website-width {
   // used for blocks sizes
-  width: $size__site-width - ($size__side-padding * 2) ;
+  width: $size__site-width - ($size__side-padding * 2);
   max-width: 100%;
   
   box-sizing: border-box;
@@ -25,12 +25,8 @@
   
   &.alignwide {
     width: $size__site-width;
-    padding-left: 0;
-    padding-right: 0;
-    @media #{$mq__theme-width} {
-      padding-left: $size__padding-resp;
-      padding-right: $size__padding-resp;
-    }
+    padding-left: $size__padding-resp;
+    padding-right: $size__padding-resp;
   }
   
 }
@@ -63,6 +59,7 @@ body.woocommerce .site-content {
   margin: $size__padding auto ($size__padding * .5);
   
   @media #{$mq__smaller-than-tablet} {
+    width: 100%;
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
   }

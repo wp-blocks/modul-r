@@ -13,7 +13,6 @@ $color__background: darken($color__white, 1%);
 $color__accent: $color__secondary;
 $color__woo-accent: #026c7c;
 
-
 // TEXT VARIABLES
 $text__line-height: 1.7;
 $text__line-height-headline: 1.2;
@@ -48,7 +47,9 @@ $hamburger__weight: 3px;
 $hamburger__color: #{$color__primary};
 
 // SIDEBAR
+$sidebar__position: right; // 'left' or 'right'
 $sidebar__width: 300px;
+$sidebar__margin: $size__padding;
 
 // SCROLLBAR
 $scrollbar-line-color: #{$color__primary};

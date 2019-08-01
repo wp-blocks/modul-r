@@ -19,7 +19,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// get the acf.css file and store into a variable
 		ob_start();
-		include get_template_directory() . '/assets/dist/css/atf.css';
+		include get_stylesheet_directory() . '/assets/dist/css/atf.css';
 		$atf_css = ob_get_clean();
 
 		// if primary color is set apply to chrome address bar else use the default color

@@ -20,9 +20,9 @@ $mq__phablet: "(max-width : 500px)";
 $mq__smartphone: "(max-width : 420px)";
 $mq__smallphone: "(max-width : 376px)";
 
-
 $mq__theme-width: "(max-width : #{$size__site-width + ($size__padding-resp * 2)})";
 $mq__content-width: "(max-width : #{$size__site-width - ($size__side-padding * 2) + ($size__padding-resp * 2) })";
+
 
 $mq__ie1011: "all and (-ms-high-contrast: none), (-ms-high-contrast: active)";
 
