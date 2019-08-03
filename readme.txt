@@ -141,6 +141,7 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 = 1.0.31 =
 * W3C validated
+* SASS sidebar configuration
 
 = 1.0.30 =
 * accessibility-ready tag removed
