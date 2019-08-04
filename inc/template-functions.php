@@ -209,6 +209,10 @@ endif;
  */
 if ( ! function_exists('modul_r_social_sharer') ) :
 	function modul_r_social_sharer() {
+  $sharer_page_link = urlencode(esc_attr(get_page_link()));
+  $sharer_blog_title = urlencode(esc_attr(get_bloginfo('title')));
+  $sharer_page_title = urlencode(esc_attr(get_the_title()));
+
     ?>
     <div id="share-buttons">
 
@@ -217,24 +221,24 @@ if ( ! function_exists('modul_r_social_sharer') ) :
       </h3>
 
       <!-- Facebook -->
-      <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode(get_page_link()); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Facebook', 'modul-r' ) ; ?>">
+      <a href="http://www.facebook.com/sharer.php?u=<?php echo $sharer_page_link; ?>" target="_blank" title="<?php esc_attr_e( 'Share on Facebook', 'modul-r' ) ; ?>">
         <i class="social-ico facebook"></i>
       </a>
 
 
       <!-- LinkedIn -->
-      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo urlencode(get_page_link()); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Linkedin', 'modul-r' ) ; ?>">
+      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $sharer_page_link; ?>" target="_blank" title="<?php esc_attr_e( 'Share on Linkedin', 'modul-r' ) ; ?>">
         <i class="social-ico linkedin"></i>
       </a>
 
       <!-- Twitter -->
-      <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_page_link()); ?>&amp;text=<?php esc_attr_e(urlencode(get_bloginfo('title'))); ?>+<?php echo urlencode(get_the_title()); ?>" target="_blank" title="<?php esc_attr_e( 'Share on Twitter', 'modul-r' ); ?>">
+      <a href="https://twitter.com/intent/tweet?url=<?php echo $sharer_page_link; ?>&amp;text=<?php echo $sharer_blog_title; ?>+<?php echo $sharer_page_title; ?>" target="_blank" title="<?php esc_attr_e( 'Share on Twitter', 'modul-r' ); ?>">
         <i class="social-ico twitter"></i>
       </a>
 
 
       <!-- Email -->
-      <a href="mailto:?Subject=<?php echo urlencode(esc_attr_e(get_bloginfo('title'))); ?>&amp;Body=<?php echo urlencode(get_page_link()); ?>" target="_blank" title="<?php esc_attr_e( 'Send by mail', 'modul-r' ); ?>">
+      <a href="mailto:?Subject=<?php echo $sharer_blog_title; ?>&amp;Body=<?php echo $sharer_page_link; ?>" target="_blank" title="<?php esc_attr_e( 'Send by mail', 'modul-r' ); ?>">
         <i class="social-ico email"></i>
       </a>
 
