@@ -84,7 +84,7 @@ const opts = {
     'Description: <%= wp.description %> ' ,
     'Theme URI: <%= homepage %> ' ,
     'Author: <%= author.name %> ' ,
-    'Author URI: <%= author.website %> ' ,
+    // 'Author URI: <%= author.website %> ' ,
     'Requires at least: WordPress 4.9.6 ' ,
     'Version: <%= version %> ' ,
     'License: GNU General Public License v3 or later ' ,
