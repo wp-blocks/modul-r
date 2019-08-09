@@ -47,7 +47,7 @@
   font-size: $text__size - 2;
   padding-bottom: $size__margin * 2 ;
   a {
-    color: $color__secondary;
+    color: lighten($color__secondary, 10%);
     font-weight: 600;
     &:last-of-type {
       color: $color__text;
