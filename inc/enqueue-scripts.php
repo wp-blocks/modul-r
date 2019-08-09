@@ -59,7 +59,7 @@ if ( ! function_exists( 'modul_r_theme_style' ) ) :
 		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array() );
 	}
 endif;
-add_action( 'wp_body_open', 'modul_r_theme_style' );
+add_action( 'get_footer', 'modul_r_theme_style' );
 
 
 /**

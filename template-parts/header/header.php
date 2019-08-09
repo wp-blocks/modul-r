@@ -30,7 +30,7 @@
     <div class="menu-resp unselectable" onclick="document.querySelector('#masthead').classList.toggle('active')">
       <button class="c-hamburger">
         <i class="menu-toggle"></i>
-        <span class="screen-reader-text">menu</span>
+        <span class="screen-reader-text"><?php _e( 'menu', 'modul-r' ); ?></span>
       </button>
     </div>
 
