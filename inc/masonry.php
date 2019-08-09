@@ -11,7 +11,7 @@ if ( ! function_exists('modul_r_masonry_scripts') ) :
 		// customize with your category which will displayed with the masonry layout
 		if(is_category() || is_home()){
 			// Pull Masonry from the core of WordPress
-			wp_enqueue_script( 'imagesloaded', false, array('jquery', 'scripts-vendors'), null );
+			wp_enqueue_script( 'imagesloaded', false, array('jquery', 'modul-r-scripts-vendors'), null );
 			wp_enqueue_script( 'masonry', false, array('imagesloaded'), null );
 		}
 	}
