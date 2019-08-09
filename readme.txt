@@ -12,7 +12,7 @@ Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, c
 Modul R is a powerful and flexible designed to be a starter theme to hack with a kit of reusable parts and functions with the website speed performance in mind. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with an hi tech SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
 
 == Description ==
-Modul R is a powerful and flexible theme that provides a fast way to create an awesome website. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with an hi tech SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
+Modul R is a powerful and flexible theme that provides a fast way to create an awesome website. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with preconfigured SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
 
 Modul R also provides a seamless integration with Gutemberg and Woocommerce.
 
@@ -141,6 +141,8 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 = 1.0.32 =
 * better sharing function (with escape fix)
+* homepage gfx rework (hero size, blocks distances)
+* screenshot update
 
 = 1.0.31 =
 * W3C validated
@@ -203,10 +205,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
 Screenshot Image
-https://stocksnap.io/photo/BTGQ0EUZ5Z
-https://stocksnap.io/photo/SNX6M0KJ2G
-https://stocksnap.io/photo/SFKZHJODOV
-https://stocksnap.io/photo/6FOTSJ06WB
+https://stocksnap.io/photo/7S3EZPGYWY
+https://stocksnap.io/photo/KY5UY9H1XI
+https://stocksnap.io/photo/4JI0WKCTOR
+https://stocksnap.io/photo/UF9ANXUWLL
 
 == Screenshots ==
 1. [https://modul-r.codekraft.it/screenshot.png  The homepage layout ]

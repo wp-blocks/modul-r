@@ -137,35 +137,35 @@ msgstr[1] ""
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:216
+#: inc/template-functions.php:220
 msgid "Share this page"
 msgstr ""
 
-#: inc/template-functions.php:216
+#: inc/template-functions.php:220
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:220
+#: inc/template-functions.php:224
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-functions.php:226
+#: inc/template-functions.php:230
 msgid "Share on Linkedin"
 msgstr ""
 
-#: inc/template-functions.php:231
+#: inc/template-functions.php:235
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-functions.php:237
+#: inc/template-functions.php:241
 msgid "Send by mail"
 msgstr ""
 
-#: inc/template-functions.php:242
+#: inc/template-functions.php:246
 msgid "Print this page"
 msgstr ""
 
-#: inc/template-functions.php:268
+#: inc/template-functions.php:272
 msgid "You might be interested in..."
 msgstr ""
 

@@ -9,7 +9,7 @@
   "homepage": "https://modul-r.codekraft.it/",
   "wp": {
     "themeName": "Modul-R",
-    "description": "Modul R is a powerful and flexible theme that provides a fast way to create an awesome website.",
+    "description": "Modul R is a powerful and flexible theme that provides a fast way to create an awesome website. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with preconfigured SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features! Modul R also provides a seamless integration with Gutemberg and Woocommerce.",
     "textDomain": "modul-r",
     "tags": "blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready",
     "licenseURI": "https://github.com/erikyo/modul-r/blob/master/LICENSE"

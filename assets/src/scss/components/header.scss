@@ -42,18 +42,21 @@
 
     .site-branding {
       width: 100%;
+      padding-top: $size__margin;
+      
       @if($head__direction == row) {
-        padding-top: $size__margin;
         padding-bottom: $size__margin;
         @media #{$mq__smaller-than-tablet} {
           padding-top: $size__margin * .5;
           padding-bottom: $size__margin * .5;
         }
       }
+      
       @if($head__direction == column) {
         height: $size__branding-height;
         @media #{$mq__smaller-than-tablet} {
           height: $size__branding-height - ($size__margin * .5);
+          padding-top: 0;
         }
 
         .header-text {

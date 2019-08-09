@@ -1,7 +1,8 @@
 body.home {
   
   .website-hero {
-    height: 66vh;
+    height: 55vh;
+    max-height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,9 +31,8 @@ body.home {
       padding-right: $size__padding-resp;
   
       h1, p {
-        text-shadow: 0 3px 3px transparentize($color__black, 0.2);
+        text-shadow: 0 2px 1px transparentize($color__black, 0.3);
       }
-      
       
       h1 {
         font-size: 64px;
@@ -86,15 +86,17 @@ body.home {
     & > .wp-block-columns:first-of-type {
       text-align: center;
       overflow: visible;
+      margin-bottom: $size__padding * .75;
       
       .wp-block-column {
         background: white;
         position: relative;
+        margin-top: $size__padding * -1.5;
+        margin-bottom: 0;
         margin-left: $size__padding * .5;
         margin-right: $size__padding * .5;
         height: 100%;
         z-index: 999;
-        margin-top: -100px;
         @media #{$mq__smaller-than-tablet} {
           margin-top: 0;
         }
@@ -125,6 +127,10 @@ body.home {
         margin: 0;
         opacity: .9;
         b, strong { color: $color__text;}
+      }
+      
+      & + h2 {
+        margin-top: 24px;
       }
     }
   }
