@@ -12,7 +12,7 @@
     <p><?php bloginfo('description'); ?></p>
       <?php
 
-        printf('<a href="%s" class="button big">%s</a>', esc_url( get_category_link(get_cat_ID('news')) ), esc_html__('Lastest news', 'modul-r'));
+        printf('<a href="%s" class="button big secondary-background">%s</a>', esc_url( get_category_link(get_cat_ID('news')) ), esc_html__('Lastest news', 'modul-r'));
 
         if ( class_exists( 'WooCommerce' ) ) {
           printf( '<a href="%s" class="button big outline" >%s</a>', esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ), esc_html__( 'Shop', 'modul-r' ) );

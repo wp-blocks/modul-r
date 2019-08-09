@@ -21,10 +21,25 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// push primary and secondary color (if is set) into the stored style
 		if ($primary_color) {
+			// inject the primary color css
 			$atf_css .= ".primary-color{color:{$primary_color};}.primary-background{background:{$primary_color};}";
+			// inject bold text color css
+			$atf_css .= "body blockquote:before, body b,body strong{color:{$primary_color};}";
+			// home columns title custom color
+			$atf_css .= "body.home .entry-content >.wp-block-columns:first-of-type h2 a {color:{$primary_color}!important; }";
+			// inject scrollbar color (10% darker)
+			$atf_css .= "body::-webkit-scrollbar-thumb:horizontal,body::-webkit-scrollbar-thumb:vertical{background-color:". modul_r_adjustBrightness($primary_color, -0.1) . ";}";
 		}
+
 		if ($secondary_color) {
+			// inject the secondary color css
 			$atf_css .= ".secondary-color{color:{$secondary_color};}.secondary-background{background:{$secondary_color};}";
+			// inject button background color css
+			$atf_css .= "body .button:not(.has-text-color),body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:{$secondary_color};}";
+			// inject links text color css
+			$atf_css .= "body a{color:{$secondary_color};}";
+			// inject quote border color
+			$atf_css .= "body .entry-content .wp-block-quote:not(.is-large), body .entry-content .wp-block-quote:not(.is-style-large) {border-left-color:{$secondary_color};}";
 		}
 
 		// push the header color into stored style if is present
