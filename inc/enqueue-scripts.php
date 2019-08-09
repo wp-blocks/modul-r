@@ -14,8 +14,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 	function modul_r_atf_style() {
 
 		// get the custom colors
-		$primary_color = get_theme_mod( 'primary-color' );
-		$secondary_color = get_theme_mod( 'secondary-color' );
+		$primary_color = esc_attr(get_theme_mod( 'primary-color' ));
+		$secondary_color = esc_attr(get_theme_mod( 'secondary-color' ));
 
 		// get the acf.css file and store into a variable
 		ob_start();
