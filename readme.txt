@@ -3,7 +3,7 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Stable tag: 1.0.33
+Stable tag: 1.0.34
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -138,6 +138,9 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == Changelog ==
+
+= 1.0.34 =
+* better use of custom color (theme colors were applied to buttons, links, bold text etc)
 
 = 1.0.33 =
 * removed author uri
