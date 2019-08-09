@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Load fonts
- */
-if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
-	function modul_r_theme_fonts() {
-		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Material+Icons', array(), null );
-	}
-endif;
-add_action( 'wp_body_open', 'modul_r_theme_fonts' );
-
 if ( ! function_exists( 'modul_r_atf_style' ) ) :
 	function modul_r_atf_style() {
 
@@ -52,6 +42,16 @@ endif;
 add_action( 'wp_head', 'modul_r_atf_style', 1 );
 
 /**
+ * Load fonts
+ */
+if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
+	function modul_r_theme_fonts() {
+		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Material+Icons', array(), null );
+	}
+endif;
+add_action( 'get_footer', 'modul_r_theme_fonts', 10 );
+
+/**
  * Enqueue main style
  */
 if ( ! function_exists( 'modul_r_theme_style' ) ) :
@@ -59,7 +59,7 @@ if ( ! function_exists( 'modul_r_theme_style' ) ) :
 		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array() );
 	}
 endif;
-add_action( 'get_footer', 'modul_r_theme_style' );
+add_action( 'get_footer', 'modul_r_theme_style', 11 );
 
 
 /**

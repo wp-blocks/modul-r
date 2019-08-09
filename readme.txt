@@ -143,6 +143,8 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * better sharing function (with escape fix)
 * homepage gfx rework (hero size, blocks distances)
 * screenshot update
+* if woocommerce plugin isn't active, the button in the homepage will show the "contacts" button otherwise it will show
+* WordPress guidelines compliance fixes
 
 = 1.0.31 =
 * W3C validated

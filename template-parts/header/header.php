@@ -1,7 +1,7 @@
 <?php
   $show_header_text = display_header_text();
   $description = get_bloginfo( 'description', 'display' );
-  $custom_logo = get_theme_mod( 'custom_logo' );
+  $custom_logo = esc_html(get_theme_mod( 'custom_logo' ));
 ?>
 
 <header id="masthead" class="site-header" role="banner">

@@ -173,12 +173,16 @@ msgstr ""
 msgid "Search results for:"
 msgstr ""
 
-#: template-parts/content/content-homepage.php:13
+#: template-parts/content/content-homepage.php:15
 msgid "Lastest news"
 msgstr ""
 
-#: template-parts/content/content-homepage.php:14
+#: template-parts/content/content-homepage.php:18
 msgid "Shop"
+msgstr ""
+
+#: template-parts/content/content-homepage.php:20
+msgid "Contact us"
 msgstr ""
 
 #: template-parts/content/content-none.php:12
@@ -208,4 +212,8 @@ msgstr ""
 
 #: template-parts/footer/footer.php:18
 msgid "Made with &hearts; by codekraft-studio."
+msgstr ""
+
+#: template-parts/header/header.php:33
+msgid "menu"
 msgstr ""
