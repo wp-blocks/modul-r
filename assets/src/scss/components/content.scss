@@ -8,9 +8,7 @@
   box-sizing: border-box;
   padding-left: $size__padding-resp;
   padding-right: $size__padding-resp;
-  margin: $size__padding auto ($size__padding * .5);
-  
-  @media #{$mq__theme-width} {}
+  margin: 0 auto ($size__padding * .75);
   
   @media #{$mq__smaller-than-tablet} {
     padding-left: $size__padding-resp;
@@ -29,6 +27,10 @@
     padding-right: $size__padding-resp;
   }
   
+  .has-sidebar .site-content &.alignwide {
+    width: 100%;
+  }
+  
 }
 
 .entry-image {
@@ -39,28 +41,58 @@
 }
 
 body.page,
-body.single,
-.website-hero {
+body.single {
   .entry-image {
     width: 100%;
-    height: 50vh;
-    max-height: 1000px;
+    height: 40vh;
+    max-height: 700px;
+    margin-bottom: $size__padding * .75;
   }
 }
 
-
-body.woocommerce .site-content {
-  width: $size__site-width;
-  max-width: 100%;
+// if there isn't a featured image compensate void space under the menu
+#masthead + #content {
   
-  box-sizing: border-box;
-  padding-left: $size__padding-resp;
-  padding-right: $size__padding-resp;
-  margin: $size__padding auto ($size__padding * .5);
+  padding-top: $size__padding * .75;
+  
+  @if($head__direction == column) {
+    margin-top: $nav__height + $size__branding-height + $size__margin;
+  } @elseif($head__direction == row) {
+    margin-top: $nav__height;
+  }
   
   @media #{$mq__smaller-than-tablet} {
-    width: 100%;
+    margin-top: $head__height-responsive;
+    padding-top: $size__padding * .5;
+  }
+}
+
+body.has-sidebar,
+body.woocommerce {
+  .site-content {
+    display: flex;
+    justify-content: center;
+  
+    @if ($sidebar__position = 'right') {
+      flex-direction: row-reverse;
+    }
+
+    width: $size__site-width;
+    max-width: 100%;
+  
+    box-sizing: border-box;
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
+    margin: $size__padding auto ($size__padding * .5);
+  
+    @media #{$mq__smaller-than-tablet} {
+      width: 100%;
+      padding-left: $size__padding-resp;
+      padding-right: $size__padding-resp;
+    }
+    
+    @media #{$mq__smaller-than-tablet} {
+      flex-direction: column;
+    }
   }
 }

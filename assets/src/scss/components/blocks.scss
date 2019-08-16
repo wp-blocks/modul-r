@@ -1,18 +1,17 @@
 /* Block styles */
 
-.site-main .entry-content > *,
-.entry .entry-content > * {
+.site-main .entry-content > * {
   
   @extend %website-width;
   
   margin-top: $size__padding;
   margin-bottom: $size__padding;
-  
-  > *:first-child {
+ 
+  &:first-child {
     margin-top: 0;
   }
   
-  > *:last-child {
+  &:last-child {
     margin-bottom: 0;
     clear: both;
   }
@@ -28,7 +27,8 @@
   }
   
   &.alignwide {
-    width: $size__site-width;
+    width: 100%;
+    max-width: $size__site-width;
     padding-left: $size__margin;
     padding-right: $size__margin;
     clear: both;
@@ -86,7 +86,7 @@
 .site-main {
   .entry-content {
     overflow-x: hidden;
-  
+
     h1,
     h2,
     h3,
@@ -337,21 +337,16 @@
   
   //! Latest posts grid view
   .wp-block-latest-posts.is-grid {
+    display: flex;
+    justify-content: space-between;
     li {
-      border-top: 1px solid $color__light-grey;
-      padding-top: $size__margin;
-      margin-bottom: $size__margin;
-      a {
-        &:after {
-          content: '';
-        }
-      }
-      &:last-child {
-        margin-bottom: auto;
-        a:after {
-          content: '';
-        }
-      }
+      border: 1px solid darken($color__white, 5%);
+      background-color: $color__white;
+      padding: $size__margin;
+      width: 47%;
+      margin: 0 0 $size__margin;
+      box-shadow: 0 4px 10px -16px $color__black;
+      line-height: 1.4;
     }
   }
   
@@ -708,7 +703,7 @@
   hr {
     height: 2px;
     margin-top: $size__padding;
-    margin-bottom: $size__padding * .25;
+    margin-bottom: $size__padding * .5;
     max-width: 2.25em;
     text-align: left;
     

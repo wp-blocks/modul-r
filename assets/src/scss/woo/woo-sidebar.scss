@@ -1,29 +1,5 @@
 #secondary {
   
-  section ul {
-    list-style-type: none;
-    margin: ($size__padding * .25) 0;
-    padding-left: 0;
-    ul {
-      padding-left: $size__padding * .25;
-    }
-  }
-  
-  h3 {
-    margin: $size__padding 0 $size__margin;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  a {
-    font-weight: 600;
-    font-size: 16px;
-  }
-  
-  ul {
-    margin: ($size__margin * 2) 0;
-  }
-  
   // the sidebar's product accordion
   ul.product-categories {
     
@@ -110,7 +86,7 @@
         object-fit: contain;
         margin-left: $size__margin;
       }
-      
     }
   }
+
 }

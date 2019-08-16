@@ -1,35 +1,12 @@
 body.woocommerce {
   
-  .site-content {
-    display: flex;
-    @if ($sidebar__position = 'right') {
-      flex-direction: row-reverse;
-    }
-  
-    @media #{$mq__smaller-than-tablet} {flex-direction: column;}
-  }
-  
   #primary {
-    width: calc( 100% - #{$sidebar__width + $size__padding} );
-    @if ($sidebar__position = 'right') {
-      padding-left: $sidebar__margin;
-    } @else {
-      padding-right: $sidebar__margin;
-    }
-    
     @media #{$mq__smaller-than-tablet} {
       width: 100%;
       padding-right: 0;
       padding-left: 0;
     }
     
-  }
-  
-  #secondary {
-    width: $sidebar__width;
-    @media #{$mq__smaller-than-tablet} {
-      width: 100%;
-    }
   }
   
 }
