@@ -41,7 +41,7 @@ function VisibleItemsTrigger(top) {
       // Parallax images
       // check if interactive box have a img child and get the distance from top
       if (entry.classList.contains('parallax')) {
-        var firstTop = window.pageYOffset + entry.getBoundingClientRect().top;
+        var firstTop = window.pageYOffset + entry.getBoundingClientRect().top + scrollOffset;
         var moveTopItem = -(firstTop - top) * parallaxDefaultSpeed;
         entry.getElementsByTagName('img')[0].style.transform = "translateY(" + moveTopItem + "px)";
       }

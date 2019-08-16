@@ -3,13 +3,13 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Stable tag: 1.0.34
+Stable tag: 1.0.35
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
 Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready
 
-Modul R is a powerful and flexible designed to be a starter theme to hack with a kit of reusable parts and functions with the website speed performance in mind. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with an hi tech SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
+Modul R is a powerful and flexible designed to be a starter theme to hack with a kit of reusable parts and functions with the website speed performance in mind. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with an hi tech with SASS style (with a lot of possible customizations), visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
 
 == Description ==
 Modul R is a powerful and flexible theme that provides a fast way to create an awesome website. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with preconfigured SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
@@ -139,6 +139,9 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 == Changelog ==
 
+= 1.0.35 =
+* customizer Sidebar option
+
 = 1.0.34 =
 * better use of custom color (theme colors were applied to buttons, links, bold text etc)
 
@@ -158,24 +161,12 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 = 1.0.30 =
 * accessibility-ready tag removed
-
-= 1.0.29 =
 * menu keyboard navigation
 * accessibility: added a "role" for the main sections
-
-= 1.0.28 =
 * above the fold style correctly enqueued
 * custom theme colors
 * new screenshot
-
-= 1.0.27 =
-* Header meta escape + fix
-
-= 1.0.26 =
-* some escaping fixes
 * better microdata / header meta enhancement + rss alternate link
-
-= 1.0.25 =
 * escape translations
 * accessibility tab shortcut (from guidelines 2019)
 * gulp file update

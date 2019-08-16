@@ -1,26 +1,29 @@
 <?php
 /**
  * The template for displaying all single posts
- *
  */
 
 get_header();
+
+// get theme option "sidebar enabled"
+$opt_sidebar = get_theme_mod('modul_r_settings_sidebar');
+
 ?>
 
-	<div id="primary" class="content-area">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
 
-	  <?php modul_r_post_image('parallax'); ?>
+      <?php while ( have_posts() ) : the_post();
 
-		<main id="main" class="site-main" role="main">
+        get_template_part( 'template-parts/content/content', 'page' );
 
-			<?php while ( have_posts() ) : the_post();
+      endwhile; ?>
 
-				get_template_part( 'template-parts/content/content', 'page' );
+    </main><!-- /main -->
+  </div><!-- /primary -->
 
-			endwhile; ?>
+  <?php if ($opt_sidebar === true) {
+    get_sidebar();
+  }; ?>
 
-		</main><!-- /main -->
-	</div><!-- /primary -->
-
-<?php
-get_footer();
+<?php get_footer();

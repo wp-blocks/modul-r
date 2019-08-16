@@ -1,7 +1,7 @@
 <?php
   $show_header_text = display_header_text();
-  $description = get_bloginfo( 'description', 'display' );
   $custom_logo = esc_html(get_theme_mod( 'custom_logo' ));
+  $description = get_bloginfo( 'description', 'display' );
 ?>
 
 <header id="masthead" class="site-header" role="banner">
@@ -10,7 +10,10 @@
 
     <?php modul_r_header_image(); ?>
 
-    <div class="site-branding<?php if ( $show_header_text ) {echo ' has-header-text';} if ( $custom_logo ) {echo ' has-custom-logo';} ?>">
+    <div class="site-branding<?php
+        if ( $show_header_text ) {echo ' has-header-text';}
+        if ( $custom_logo ) {echo ' has-custom-logo';}
+      ?>">
       <div class="site-logo"><?php the_custom_logo(); ?></div>
       <?php if ( $show_header_text ) : ?>
         <div class="header-text">

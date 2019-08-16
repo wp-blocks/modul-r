@@ -21,4 +21,11 @@
 
     <?php get_template_part( 'template-parts/header/header' ); ?>
 
+
+	  <?php if ( is_front_page() && !is_home() ) {
+	    modul_r_hero_image();
+	  } elseif ( (class_exists( 'WooCommerce' ) && !is_product() ) && (is_single() || is_page()) ) {
+	    modul_r_post_image('parallax');
+    } ?>
+
     <div id="content" class="site-content">

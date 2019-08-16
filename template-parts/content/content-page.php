@@ -7,14 +7,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+  <header class="entry-header main-width alignwide">
+	  <?php the_title( '<h1 class="entry-title secondary-color">', '</h1>' ); ?>
+  </header>
+
 	<div class="entry-content">
-
-    <header class="entry-header main-width">
-			<?php the_title( '<h1 class="entry-title secondary-color">', '</h1>' ); ?>
-    </header>
-
 		<?php	the_content();?>
-
 	</div><!-- /entry-content -->
 
   <footer class="entry-footer main-width">

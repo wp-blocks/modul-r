@@ -68,7 +68,7 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Material+Icons', array(), null );
 	}
 endif;
-add_action( 'get_footer', 'modul_r_theme_fonts', 10 );
+add_action( 'wp_enqueue_scripts', 'modul_r_theme_fonts', 10 );
 
 /**
  * Enqueue main style
@@ -78,7 +78,7 @@ if ( ! function_exists( 'modul_r_theme_style' ) ) :
 		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array() );
 	}
 endif;
-add_action( 'get_footer', 'modul_r_theme_style', 11 );
+add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 11 );
 
 
 /**

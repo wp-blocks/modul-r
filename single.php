@@ -4,22 +4,26 @@
  */
 
 get_header();
+
+// get theme option "sidebar enabled"
+$opt_sidebar = get_theme_mod('modul_r_settings_sidebar');
+
 ?>
 
-	<div id="primary" class="content-area">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
 
-	  <?php modul_r_post_image('parallax'); ?>
+      <?php	while ( have_posts() ) : the_post();
 
-		<main id="main" class="site-main" role="main">
+        get_template_part( 'template-parts/content/content', 'single' );
 
-		<?php	while ( have_posts() ) : the_post();
-
-			get_template_part( 'template-parts/content/content', 'single' );
-
-		endwhile;	?>
+      endwhile;	?>
 
     </main><!-- /main -->
-	</div><!-- /primary -->
+  </div><!-- /primary -->
 
-<?php
-get_footer();
+  <?php if ($opt_sidebar === true) {
+    get_sidebar();
+  }; ?>
+
+<?php get_footer();

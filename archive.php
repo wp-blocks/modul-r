@@ -16,7 +16,7 @@ get_header();
       <?php if (is_author()) {
         printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
       } else if (is_tag()) {
-        echo tag_description();
+        the_archive_description();
       } ?>
     </header>
 

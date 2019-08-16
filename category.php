@@ -12,8 +12,8 @@ get_header();
       <?php if ( have_posts() ) : ?>
 
         <header class="page-header">
-          <h1 class="page-title main-width secondary-color"><?php single_cat_title(); ?></h1>
-          <?php echo category_description(); ?>
+          <h1 class="page-title main-width secondary-color"><?php the_archive_title(); ?></h1>
+          <?php the_archive_description(); ?>
         </header>
 
         <div class="masonry-container">

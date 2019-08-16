@@ -1,6 +1,34 @@
 <?php
 
 /**
+ * Displays the hero of the homepage
+ */
+if ( ! function_exists( 'modul_r_hero_image' ) ) :
+	function modul_r_hero_image() {
+  ?>
+    <div class="website-hero text-center">
+    <?php modul_r_post_image('parallax'); ?>
+      <div class="hero-title text-center">
+      <?php the_title( '<h1 class="entry-title secondary-color">', '</h1>' ); ?>
+        <p><?php bloginfo('description'); ?></p>
+      <?php
+
+      printf('<a href="%s" class="button big secondary-background">%s</a>', esc_url( get_category_link(get_cat_ID('news')) ), esc_html__('Lastest news', 'modul-r'));
+
+      if ( class_exists( 'WooCommerce' ) ) {
+        printf( '<a href="%s" class="button big outline" >%s</a>', esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ), esc_html__( 'Shop', 'modul-r' ) );
+      } else {
+        printf( '<a href="%s" class="button big outline" >%s</a>', esc_url( get_category_link( get_cat_ID( 'contacts' ) ) ), esc_html__( 'Contact us', 'modul-r' ) );
+      }
+
+      ?>
+      </div>
+    </div>
+  <?php
+	}
+endif;
+
+/**
  * Displays the featured image of the post/page
  * you can pass single or multiple classes to the image wrapper
  */
@@ -198,7 +226,7 @@ if ( ! function_exists('modul_r_breadcrumbs') ) :
 	  if ( function_exists('yoast_breadcrumb') ) {
 		  yoast_breadcrumb( '<p class="breadcrumbs">','</p>' );
 	  } else {
-	    printf('<p class="breadcrumbs"><a href="%s">%s</a> / %s</p>', home_url(), esc_html__('Home', 'modul-r'), get_the_category_list( ' &#47; ' ));
+	    printf('<p class="breadcrumbs"><a href="%s">%s</a> / %s</p>', esc_url(home_url()) , esc_html__('Home', 'modul-r'), get_the_category_list(' &#47; ') );
     }
   }
 endif;
@@ -282,22 +310,33 @@ if ( ! function_exists( 'modul_r_relateds' ) ) :
 
       <?php
 
-      wp_reset_query();
+		  wp_reset_postdata();
 
       endif;
 	}
 endif;
 
 // add 'has-featured-image' to body class if post has a featured image
-if ( ! function_exists('modul_r_add_featured_image_body_class') ) :
-	function modul_r_add_featured_image_body_class( $classes ) {
+if ( ! function_exists('modul_r_custom_body_class') ) :
+	function modul_r_custom_body_class( $classes ) {
 		global $post;
-		if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) && (is_page() || is_single())) {$classes[] = 'has-featured-image';}
+
+		if (is_page() || is_single()) {
+
+      // add the class "has-featured-image" if page or article and it ha a post thumbnail set
+      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {$classes[] = 'has-featured-image';}
+
+      // get theme option "sidebar enabled"
+      $opt_sidebar = get_theme_mod('modul_r_settings_sidebar');
+      if ( $opt_sidebar === true ) {$classes[] = 'has-sidebar';}
+    }
+
+
 		return $classes;
 	}
 endif;
 
-add_filter( 'body_class', 'modul_r_add_featured_image_body_class' );
+add_filter( 'body_class', 'modul_r_custom_body_class' );
 
 /**
  * Add a background to the headline if changed in the customizer
