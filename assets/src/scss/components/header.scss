@@ -175,9 +175,8 @@
 
 // the wordpress admin bar fix
 @media screen and (max-width: 600px) {
- #wpadminbar {
+ body.logged-in > div:last-child {
    position: fixed !important;
-   top: -46px;
  }
 }
 
