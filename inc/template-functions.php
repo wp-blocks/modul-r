@@ -95,7 +95,18 @@ if ( ! function_exists( 'modul_r_masonry_nav' ) ) :
       <div class="loader-ellips infinite-scroll-request">
         <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/src/img/elements/loader.svg" alt="<?php esc_attr_e('wait! loading',  'modul-r' ); ?>">
       </div>
-      <p class="infinite-scroll-last"><?php esc_html_e('End of content',  'modul-r' ); ?></p>
+      <div class="infinite-scroll-last">
+        <div class="main-width alignwide">
+          <h4><?php esc_html_e("End of content... Maybe you're interested to other categories?",  'modul-r' ); ?></h4>
+          <div class="category-list-labels">
+            <?php wp_list_categories(array(
+	            'hierarchical' => false,
+	            'separator' => '',
+	            'title_li'  => ''
+            ) ); ?>
+          </div>
+        </div>
+      </div>
       <p class="infinite-scroll-error"><?php esc_html_e('No more pages to load',  'modul-r' ); ?></p>
     </div>
 	<?php }

@@ -168,6 +168,45 @@ $image-size: 150px;
   }
 }
 
+.category-list-labels {
+  padding-top: $size__padding * .5;
+  ul, li {
+    display: inline-block;
+  }
+  
+  li {
+    background: $color__white;
+    border-radius: 15px;
+    border: 1px solid $color__light-grey;
+    width: auto;
+    height: 30px;
+    line-height: 26px;
+    position: relative;
+    margin: 0 10px 10px 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+  
+    a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: $color__secondary;
+      text-decoration: none !important;
+    }
+  
+    a {
+      transition: 0.2s;
+    }
+  
+    &:hover {
+      a {
+        filter: brightness(115%);
+      }
+    }
+  }
+}
+
 // Extra
 .wp-block-separator,
 hr {

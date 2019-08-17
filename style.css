@@ -985,6 +985,34 @@ body.woocommerce .site-content {
   .post-navigation .navigation i {
     vertical-align: middle; }
 
+.category-list-labels {
+  padding-top: 32px; }
+  .category-list-labels ul, .category-list-labels li {
+    display: inline-block; }
+  .category-list-labels li {
+    background: #fff;
+    border-radius: 15px;
+    border: 1px solid #e3e3e3;
+    width: auto;
+    height: 30px;
+    line-height: 26px;
+    position: relative;
+    margin: 0 10px 10px 0;
+    padding: 0 10px;
+    box-sizing: border-box; }
+    .category-list-labels li a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #7452b1;
+      text-decoration: none !important; }
+    .category-list-labels li a {
+      transition: 0.2s; }
+    .category-list-labels li:hover a {
+      -webkit-filter: brightness(115%);
+      filter: brightness(115%); }
+
 .wp-block-separator,
 hr {
   border: none;
@@ -1891,6 +1919,11 @@ abbr {
     font-size: 12px;
     font-weight: 400;
     color: #5c6069; }
+  .entry-comments p.comments-closed,
+  .entry-comments p.no-comments-yet {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.7; }
   .entry-comments p.logged-in-as {
     font-weight: 600;
     float: right;
