@@ -33,7 +33,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		// Modul-R custom options
 		// Add a custom section
 		$wp_customize->add_section( 'theme options' , array(
-			'title'      => esc_html__('Modul-R Options','mudul-r'),
+			'title'      => esc_html__('Modul-R Options','modul-r'),
 			'priority'   => 50,
 		) );
 
@@ -48,8 +48,8 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		$wp_customize->add_control( 'modul_r_settings_sidebar', array(
 			'type' => 'checkbox',
 			'section' => 'theme options',
-			'label' => esc_html__( 'Show Sidebar', 'mudul-r' ),
-			'description' => esc_html__( 'Show the sidebar into single articles and pages', 'mudul-r' ),
+			'label' => esc_html__( 'Show Sidebar', 'modul-r' ),
+			'description' => esc_html__( 'Show the sidebar into single articles and pages', 'modul-r' ),
 		) );
 
 		// Sanitize function for checkbox value

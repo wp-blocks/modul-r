@@ -70,6 +70,18 @@ msgstr ""
 msgid "Secondary Color"
 msgstr ""
 
+#: inc/customizer.php:36
+msgid "Modul-R Options"
+msgstr ""
+
+#: inc/customizer.php:51
+msgid "Show Sidebar"
+msgstr ""
+
+#: inc/customizer.php:52
+msgid "Show the sidebar into single articles and pages"
+msgstr ""
+
 #: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr ""
@@ -114,70 +126,70 @@ msgstr ""
 msgid "wait! loading"
 msgstr ""
 
-#: inc/template-functions.php:98
-msgid "End of content"
+#: inc/template-functions.php:100
+msgid "End of content... Maybe you're interested to other categories?"
 msgstr ""
 
-#: inc/template-functions.php:99
+#: inc/template-functions.php:110
 msgid "No more pages to load"
 msgstr ""
 
-#: inc/template-functions.php:112
+#: inc/template-functions.php:123
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:118
+#: inc/template-functions.php:129
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:119
+#: inc/template-functions.php:130
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:149
+#: inc/template-functions.php:160
 msgid "Tags:"
 msgstr ""
 
 #. translators: %s: the number of comments
-#: inc/template-functions.php:205
+#: inc/template-functions.php:216
 msgid "%s comment"
 msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:229
+#: inc/template-functions.php:240
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:248
+#: inc/template-functions.php:259
 msgid "Share this page"
 msgstr ""
 
-#: inc/template-functions.php:248
+#: inc/template-functions.php:259
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:252
+#: inc/template-functions.php:263
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-functions.php:258
+#: inc/template-functions.php:269
 msgid "Share on Linkedin"
 msgstr ""
 
-#: inc/template-functions.php:263
+#: inc/template-functions.php:274
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-functions.php:269
+#: inc/template-functions.php:280
 msgid "Send by mail"
 msgstr ""
 
-#: inc/template-functions.php:274
+#: inc/template-functions.php:285
 msgid "Print this page"
 msgstr ""
 
-#: inc/template-functions.php:300
+#: inc/template-functions.php:311
 msgid "You might be interested in..."
 msgstr ""
 
