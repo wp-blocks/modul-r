@@ -91,6 +91,13 @@
       color: $color__dark-grey;
     }
   }
+  @media #{$mq__content-width} {
+    .entry-header {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
   
   h2.entry-title {
     font-size: 24px;

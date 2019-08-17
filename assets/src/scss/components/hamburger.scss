@@ -10,61 +10,61 @@
   @media #{$mq__smaller-than-tablet} {
     display: block;
   }
-}
 
-button.c-hamburger {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  width: $hamburger__size;
-  min-width: inherit;
-  height: $hamburger__size;
-  text-indent: -9999px;
-  box-shadow: none;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  transition: background 0.3s;
-  background-color: transparent;
-
-  i {
+  button.c-hamburger {
     display: block;
-    position: absolute;
-    top: $hamburger__size * .5;
-    left: 0;
-    right: 0;
-    height: $hamburger__weight;
-    background: $hamburger__color;
-    transition: background 0.15s 0.1s;
-    transition-delay: 0.1s, 0s;
-    
-    &::after,
-    &::before {
-      position: absolute;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: $hamburger__size;
+    min-width: inherit;
+    height: $hamburger__size;
+    text-indent: -9999px;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 0.3s;
+    background-color: transparent;
+  
+    i {
       display: block;
+      position: absolute;
+      top: $hamburger__size * .5;
       left: 0;
-      width: 100%;
+      right: 0;
       height: $hamburger__weight;
       background: $hamburger__color;
-      content: "";
-      transition-duration: .3s,.3s; transition-delay: 0.3s, 0s;
-    }
-    &::before {top: $hamburger__size * .3;transition-property: top, transform;}
-    &::after {bottom: $hamburger__size * .3;transition-property: bottom, transform;}
-  }
-  
-  .active & {
-    span {
-      background: 0 0;
-      transition-delay: 0.2s, 0.0s;
+      transition: background 0.15s 0.1s;
+      transition-delay: 0.1s, 0s;
       
-      &::before { top: 0; transform: rotate(45deg); }
-      &::after { bottom: 0; transform: rotate(-45deg); }
       &::after,
-      &::before { transition-delay: 0s, 0.3s;}
+      &::before {
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 100%;
+        height: $hamburger__weight;
+        background: $hamburger__color;
+        content: "";
+        transition-duration: .3s,.3s; transition-delay: 0.3s, 0s;
+      }
+      &::before {top: $hamburger__size * .3;transition-property: top, transform;}
+      &::after {bottom: $hamburger__size * .3;transition-property: bottom, transform;}
     }
     
+    .active & {
+      span {
+        background: 0 0;
+        transition-delay: 0.2s, 0.0s;
+        
+        &::before { top: 0; transform: rotate(45deg); }
+        &::after { bottom: 0; transform: rotate(-45deg); }
+        &::after,
+        &::before { transition-delay: 0s, 0.3s;}
+      }
+      
+    }
   }
 }

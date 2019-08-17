@@ -688,60 +688,59 @@ button,
   @media (max-width: 1023px) {
     .menu-resp {
       display: block; } }
-
-button.c-hamburger {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  width: 30px;
-  min-width: inherit;
-  height: 30px;
-  text-indent: -9999px;
-  box-shadow: none;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  transition: background 0.3s;
-  background-color: transparent; }
-  button.c-hamburger i {
+  .menu-resp button.c-hamburger {
     display: block;
-    position: absolute;
-    top: 15px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #17BEBB;
-    transition: background 0.15s 0.1s;
-    transition-delay: 0.1s, 0s; }
-    button.c-hamburger i::after, button.c-hamburger i::before {
-      position: absolute;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    min-width: inherit;
+    height: 30px;
+    text-indent: -9999px;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 0.3s;
+    background-color: transparent; }
+    .menu-resp button.c-hamburger i {
       display: block;
+      position: absolute;
+      top: 15px;
       left: 0;
-      width: 100%;
+      right: 0;
       height: 3px;
       background: #17BEBB;
-      content: "";
-      transition-duration: .3s,.3s;
-      transition-delay: 0.3s, 0s; }
-    button.c-hamburger i::before {
-      top: 9px;
-      transition-property: top, transform; }
-    button.c-hamburger i::after {
-      bottom: 9px;
-      transition-property: bottom, transform; }
-  .active button.c-hamburger span {
-    background: 0 0;
-    transition-delay: 0.2s, 0.0s; }
-    .active button.c-hamburger span::before {
-      top: 0;
-      transform: rotate(45deg); }
-    .active button.c-hamburger span::after {
-      bottom: 0;
-      transform: rotate(-45deg); }
-    .active button.c-hamburger span::after, .active button.c-hamburger span::before {
-      transition-delay: 0s, 0.3s; }
+      transition: background 0.15s 0.1s;
+      transition-delay: 0.1s, 0s; }
+      .menu-resp button.c-hamburger i::after, .menu-resp button.c-hamburger i::before {
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #17BEBB;
+        content: "";
+        transition-duration: .3s,.3s;
+        transition-delay: 0.3s, 0s; }
+      .menu-resp button.c-hamburger i::before {
+        top: 9px;
+        transition-property: top, transform; }
+      .menu-resp button.c-hamburger i::after {
+        bottom: 9px;
+        transition-property: bottom, transform; }
+    .active .menu-resp button.c-hamburger span {
+      background: 0 0;
+      transition-delay: 0.2s, 0.0s; }
+      .active .menu-resp button.c-hamburger span::before {
+        top: 0;
+        transform: rotate(45deg); }
+      .active .menu-resp button.c-hamburger span::after {
+        bottom: 0;
+        transform: rotate(-45deg); }
+      .active .menu-resp button.c-hamburger span::after, .active .menu-resp button.c-hamburger span::before {
+        transition-delay: 0s, 0.3s; }
 
 #secondary {
   width: 300px;
@@ -3436,6 +3435,10 @@ body.compensate-for-scrollbar {
       letter-spacing: 2.5px;
       font-family: "Montserrat", serif;
       color: #5c6069; }
+  @media (max-width: 840px) {
+    .masonry-container article.grid__item .entry-header {
+      padding-left: 0;
+      padding-right: 0; } }
   .masonry-container article.grid__item h2.entry-title {
     font-size: 24px;
     padding: 0;
