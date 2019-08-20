@@ -57,38 +57,40 @@
 }
 
 
-$image-size: 150px;
+
+
 .relateds {
+  $image-size: 150px;
   
   ul.relateds-list {
     margin: 0;
     padding: 0;
-  }
-  
-  li {
-    display: block;
-    padding: 0;
-    margin: $size__margin 0 ($size__padding * .75);
-    clear: both;
-    font-weight: 400;
     
-    p {
-      margin: 0;
-      font-size: .9em;
-      font-weight: 400;
-    }
-    
-    img {
-      float: left;
+    li {
+      display: block;
+      padding: 0;
+      margin: $size__margin 0 ($size__padding * .75);
       clear: both;
-      width: $image-size;
-      margin-right: $size__padding-resp;
-      margin-bottom: $size__padding-resp;
-      max-height: $image-size;
-      @media #{$mq__smaller-than-tablet} {
-        width:  $image-size * .5;
-        margin-right: $size__padding-resp * .5;
-        margin-bottom: $size__padding-resp * .5;
+      font-weight: 400;
+    
+      p {
+        margin: 0;
+        font-size: .9em;
+        font-weight: 400;
+      }
+    
+      img {
+        float: left;
+        clear: both;
+        width: $image-size;
+        margin-right: $size__padding-resp;
+        margin-bottom: $size__padding-resp;
+        max-height: $image-size;
+        @media #{$mq__smaller-than-tablet} {
+          width:  $image-size * .5;
+          margin-right: $size__padding-resp * .5;
+          margin-bottom: $size__padding-resp * .5;
+        }
       }
     }
   }
@@ -103,6 +105,7 @@ $image-size: 150px;
     line-height: 1.2;
     font-weight: 500;
     display: inline-table;
+    vertical-align: top;
     width: calc(100% - 30px);
     @media #{$mq__smaller-than-tablet} {
       font-size: 90%;

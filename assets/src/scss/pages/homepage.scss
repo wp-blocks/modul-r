@@ -10,6 +10,10 @@ body.home {
     align-content: center;
     position: relative;
     background-color: $color__dark-grey;
+  
+    @media #{$mq__smaller-than-tablet} {
+      height: 98vh;
+    }
     
     & > * {
       position: relative;
@@ -103,9 +107,8 @@ body.home {
         overflow: hidden;
   
         @media #{$mq__smaller-than-tablet} {
-          margin-top: 0;
-          margin-bottom: $size__margin * 2;
           padding-bottom: 0;
+          margin: 0 $size__padding-resp ($size__margin * 2);
         }
       }
   
@@ -132,7 +135,8 @@ body.home {
         
       }
       
-      h2 {
+      h2,
+      h3 {
         font-size: 24px;
         margin: ($size__margin * 3)  0 $size__margin;
         @media #{$mq__smaller-than-tablet} {
@@ -146,13 +150,13 @@ body.home {
         margin: 0;
         opacity: .9;
         @media #{$mq__smaller-than-tablet} {
-          line-height: 1.2;
+          font-size: 15px;
+          margin: ($size__margin * 0.25) 0 ($size__margin * 2);
+          display: table;
+          padding-left: 0;
         }
+        
         b, strong { color: $color__text;}
-      }
-      
-      & + h2 {
-        margin-top: 24px;
       }
     }
     

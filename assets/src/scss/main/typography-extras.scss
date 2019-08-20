@@ -60,12 +60,12 @@ code {
 	list-style: none;
 	
 	h3 {
-		display: inline-block;
-		vertical-align: sub;
+		display: inline;
+		vertical-align: middle;
 	}
 	
 	ul {
-		display: inline-block;
+		display: inline;
 		margin: 0;
 		padding-left: $size__margin * 2.5;
 	}

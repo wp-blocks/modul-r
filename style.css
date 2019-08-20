@@ -5,7 +5,7 @@ Description: Modul R is a powerful and flexible theme that provides a fast way t
 Theme URI: https://modul-r.codekraft.it/ 
 Author: Codekraft Studio 
 Requires at least: WordPress 4.9.6 
-Version: 1.0.35 
+Version: 1.1.0 
 License: GNU General Public License v3 or later 
 License: © 2019 Codekraft Studio 
 License URI: https://github.com/erikyo/modul-r/blob/master/LICENSE 
@@ -587,29 +587,28 @@ body.has-sidebar .site-content,body.woocommerce .site-content{
 .relateds ul.relateds-list{
   margin:0;
   padding:0; }
-
-.relateds li{
-  display:block;
-  padding:0;
-  margin:8px 0 48px;
-  clear:both;
-  font-weight:400; }
-  .relateds li p{
-    margin:0;
-    font-size:.9em;
-    font-weight:400; }
-  .relateds li img{
-    float:left;
+  .relateds ul.relateds-list li{
+    display:block;
+    padding:0;
+    margin:8px 0 48px;
     clear:both;
-    width:150px;
-    margin-right:20px;
-    margin-bottom:20px;
-    max-height:150px; }
-    @media (max-width:1023px){
-      .relateds li img{
-        width:75px;
-        margin-right:10px;
-        margin-bottom:10px; } }
+    font-weight:400; }
+    .relateds ul.relateds-list li p{
+      margin:0;
+      font-size:.9em;
+      font-weight:400; }
+    .relateds ul.relateds-list li img{
+      float:left;
+      clear:both;
+      width:150px;
+      margin-right:20px;
+      margin-bottom:20px;
+      max-height:150px; }
+      @media (max-width:1023px){
+        .relateds ul.relateds-list li img{
+          width:75px;
+          margin-right:10px;
+          margin-bottom:10px; } }
 
 .navigation{
   display:flex;
@@ -618,6 +617,7 @@ body.has-sidebar .site-content,body.woocommerce .site-content{
     line-height:1.2;
     font-weight:500;
     display:inline-table;
+    vertical-align:top;
     width:calc(100% - 30px); }
     @media (max-width:1023px){
       .navigation a{
@@ -2989,10 +2989,10 @@ code{
 .post-tags{
   list-style:none; }
   .post-tags h3{
-    display:inline-block;
-    vertical-align:sub; }
+    display:inline;
+    vertical-align:middle; }
   .post-tags ul{
-    display:inline-block;
+    display:inline;
     margin:0;
     padding-left:20px; }
   .post-tags li.post-tag{
