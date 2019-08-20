@@ -429,11 +429,15 @@ figure{
         transition-delay:0s, .3s; }
 
 #secondary{
+  min-width:300px;
   width:300px;
   padding-right:64px; }
   @media (max-width:1023px){
     #secondary{
-      width:100%; } }
+      min-width:inherit;
+      width:100%;
+      padding-left:0;
+      padding-right:0; } }
   #secondary section ul{
     list-style-type:none;
     margin:16px 0;

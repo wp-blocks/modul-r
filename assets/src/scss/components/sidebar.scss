@@ -1,4 +1,5 @@
 #secondary {
+  min-width: $sidebar__width;
   width: $sidebar__width;
   
   @if ($sidebar__position = 'right') {
@@ -8,7 +9,10 @@
   }
   
   @media #{$mq__smaller-than-tablet} {
+    min-width: inherit;
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
   
   section ul {
