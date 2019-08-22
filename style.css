@@ -782,6 +782,7 @@ button,
 
 .main-width.alignwide {
   width: 1400px;
+  max-width: 100%;
   padding-left: 20px;
   padding-right: 20px; }
 
@@ -3744,11 +3745,24 @@ code {
   @page {
     margin: 1.8cm 1.4cm 2.7cm; }
   body, #main, #content {
+    background: #fff;
     color: #000; }
+  #masthead {
+    display: none; }
   a, a:link, a:visited {
     color: #000;
     text-decoration: none; }
   #globalheader, #globalfooter, #directorynav, #tabs, .noprint, .hide {
-    display: none; } }
+    display: none; }
+  .site-footer .footer-widgets > * {
+    display: none; }
+  .site-footer .footer-widgets > :first-of-type {
+    display: block; }
+  .interactive * {
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important; }
+  .interactive.parallax img {
+    height: 100% !important;
+    margin: 0 !important; } }
 
 /*# sourceMappingURL=style.css.map */

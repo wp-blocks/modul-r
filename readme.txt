@@ -140,8 +140,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == Changelog ==
 
 = 1.1.0 =
-* Some css fix (sidebar, homepage etc)
 * Dependencies update
+* New customizer option "fullpage hero"
+* Customized gutenberg theme colors palette
+* Some css fix (mainly responsive style, sidebar, homepage etc)
 
 = 1.0.35 =
 * customizer Sidebar option

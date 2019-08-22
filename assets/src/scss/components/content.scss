@@ -23,6 +23,7 @@
   
   &.alignwide {
     width: $size__site-width;
+    max-width: 100%;
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
   }
