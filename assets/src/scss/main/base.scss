@@ -23,18 +23,3 @@ body {
   word-break: break-word;
   @media #{$mq__phablet} {font-size: $text__size - 2;}
 }
-
-iframe {
-  width: 100%;
-  max-width: 100%;
-}
-
-::selection {
-  background-color: transparentize($color__primary, 0.5) !important;
-  color: white;
-}
-
-.primary-color {color: $color__primary}
-.primary-background {background: $color__primary}
-.secondary-color {color: $color__secondary}
-.secondary-background {background: $color__secondary}

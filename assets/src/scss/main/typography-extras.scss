@@ -1,3 +1,13 @@
+iframe {
+	width: 100%;
+	max-width: 100%;
+}
+
+::selection {
+	background-color: transparentize($color__primary, 0.5) !important;
+	color: white;
+}
+
 pre {
 	width: 100%;
 	padding: ($size__padding * .5)  $size__padding;
@@ -31,7 +41,6 @@ blockquote {
 		font-size: $blockquote__icon-size;
 		color: $color__primary;
 	}
-	
 }
 
 code {

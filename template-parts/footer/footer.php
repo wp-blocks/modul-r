@@ -1,4 +1,4 @@
-<footer id="colophon" class="site-footer primary-background" role="contentinfo">
+<footer id="colophon" class="site-footer has-primary-background-color" role="contentinfo">
 
 	<?php if(is_active_sidebar('footer-main')): ?>
 		<div class="footer-widgets main-width alignwide">

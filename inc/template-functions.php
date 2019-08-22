@@ -11,11 +11,11 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     <div class="website-hero text-center<?php echo $opt_hero; ?>">
     <?php modul_r_post_image('parallax'); ?>
       <div class="hero-title text-center">
-      <?php the_title( '<h1 class="entry-title secondary-color">', '</h1>' ); ?>
+      <?php the_title( '<h1 class="entry-title has-secondary-color">', '</h1>' ); ?>
         <p><?php bloginfo('description'); ?></p>
       <?php
 
-      printf('<a href="%s" class="button big secondary-background">%s</a>', esc_url( get_category_link(get_cat_ID('news')) ), esc_html__('Lastest news', 'modul-r'));
+      printf('<a href="%s" class="button big has-secondary-background-color">%s</a>', esc_url( get_category_link(get_cat_ID('news')) ), esc_html__('Lastest news', 'modul-r'));
 
       if ( class_exists( 'WooCommerce' ) ) {
         printf( '<a href="%s" class="button big outline" >%s</a>', esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ), esc_html__( 'Shop', 'modul-r' ) );

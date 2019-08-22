@@ -36,14 +36,14 @@ if ( have_comments() ) : ?>
 
 	<?php
 	if ( ! comments_open() ) : // There are comments but comments are now closed
-		echo '<p class="comments-closed primary-color">'. esc_html__( 'Comments are closed.', 'modul-r' ).'</p>';
+		echo '<p class="comments-closed has-primary-color">'. esc_html__( 'Comments are closed.', 'modul-r' ).'</p>';
 	endif;
 
 else : // I.E. There are no Comments
 	if ( comments_open() ) : // Comments are open, but there are none yet
-		echo '<p class="no-comments-yet secondary-color">'. esc_html__( 'No comments yet, be the first!',  'modul-r' ).'</p>';
+		echo '<p class="no-comments-yet has-secondary-color">'. esc_html__( 'No comments yet, be the first!',  'modul-r' ).'</p>';
 	else : // comments are closed
-		 echo '<p class="comments-closed primary-color">'. esc_html__( 'Comments are closed.', 'modul-r' ).'</p>';
+		 echo '<p class="comments-closed has-primary-color">'. esc_html__( 'Comments are closed.', 'modul-r' ).'</p>';
 	endif;
 endif;
 
