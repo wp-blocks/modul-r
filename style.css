@@ -3741,6 +3741,7 @@ code {
 ::-webkit-scrollbar-corner {
   background-color: #fdfdfd; }
 
+/* The print style */
 @media print {
   @page {
     margin: 1.8cm 1.4cm 2.7cm; }
@@ -3754,10 +3755,13 @@ code {
     text-decoration: none; }
   #globalheader, #globalfooter, #directorynav, #tabs, .noprint, .hide {
     display: none; }
-  .site-footer .footer-widgets > * {
-    display: none; }
-  .site-footer .footer-widgets > :first-of-type {
-    display: block; }
+  .site-footer .footer-widgets {
+    -moz-column-break-inside: avoid;
+    break-inside: avoid; }
+    .site-footer .footer-widgets > * {
+      display: none; }
+    .site-footer .footer-widgets > :first-of-type {
+      display: block; }
   .interactive * {
     transition-duration: 0ms !important;
     transition-delay: 0ms !important; }

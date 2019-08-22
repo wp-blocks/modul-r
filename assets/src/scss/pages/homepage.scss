@@ -3,6 +3,7 @@ body.home {
   .website-hero {
     width: 100%;
     height: 55vh;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,6 +13,7 @@ body.home {
   
     @media #{$mq__smaller-than-tablet} {
       height: 80vh;
+      min-height: inherit;
     }
   
     &.fullpage-hero {

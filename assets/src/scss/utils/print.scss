@@ -1,4 +1,4 @@
-
+/* The print style */
 
 @media #{$mq__print} {
   
@@ -23,6 +23,7 @@
   }
   
   .site-footer .footer-widgets {
+    break-inside: avoid;
     > * {
       display: none;
     }
