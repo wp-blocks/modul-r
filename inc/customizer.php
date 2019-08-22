@@ -37,7 +37,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'priority'   => 50,
 		) );
 
-		// the sidebar checkbox
+		// the "Show Sidebar" checkbox
 		$wp_customize->add_setting( 'modul_r_settings_sidebar', array(
 			'capability' => 'edit_theme_options',
 			'default'   => '',
@@ -52,6 +52,21 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'description' => esc_html__( 'Show the sidebar into single articles and pages', 'modul-r' ),
 		) );
 
+		// the "Fullpage Hero" checkbox
+		$wp_customize->add_setting( 'modul_r_settings_hero', array(
+			'capability' => 'edit_theme_options',
+			'default'   => '',
+			'transport' => 'refresh',
+			'sanitize_callback' => 'modul_r_sanitize_checkbox',
+		) );
+
+		$wp_customize->add_control( 'modul_r_settings_hero', array(
+			'type' => 'checkbox',
+			'section' => 'theme options',
+			'label' => esc_html__( 'Fullpage Hero', 'modul-r' ),
+			'description' => esc_html__( 'The main image of the homepage will be 100% of the height of the page', 'modul-r' ),
+		) );
+
 		// Sanitize function for checkbox value
 		function modul_r_sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true == $checked ) ? true : false );
@@ -60,6 +75,49 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 	}
 endif;
 add_action( 'customize_register', 'modul_r_customizer_opt' );
+
+if ( ! function_exists('modul_r_theme_colors_setup') ) :
+	function modul_r_theme_colors_setup() {
+
+		// get the custom colors
+		$primary_color = esc_attr(get_theme_mod( 'primary-color' ));
+		$secondary_color = esc_attr(get_theme_mod( 'secondary-color' ));
+
+		add_theme_support( 'editor-color-palette', array(
+			array(
+				'name'  => __( 'Theme primary color', 'modul-r' ),
+				'slug'  => 'primary',
+				'color' => (isset($primary_color)) ? $primary_color : '#17bebb' ,
+			),
+			array(
+				'name'  => __( 'Theme primary color dark', 'modul-r' ),
+				'slug'  => 'primary-dark',
+				'color' => (isset($primary_color)) ? modul_r_adjustBrightness($primary_color, -0.3) : '#17bebb' ,
+			),
+			array(
+				'name'  => __( 'Theme secondary color', 'modul-r' ),
+				'slug'  => 'secondary',
+				'color' => (isset($secondary_color)) ? $secondary_color : '#7452b1' ,
+			),
+			array(
+				'name'  => __( 'Theme secondary color dark', 'modul-r' ),
+				'slug'  => 'secondary-dark',
+				'color' => (isset($secondary_color)) ? modul_r_adjustBrightness($secondary_color, -0.3) : '#7452b1' ,
+			),
+			array(
+				'name'  => __( 'Light gray', 'modul-r' ),
+				'slug'  => 'light-gray',
+				'color' => '#e3e3e3',
+			),
+			array(
+				'name'  => __( 'Dark gray', 'modul-r' ),
+				'slug'  => 'Dark-gray',
+				'color' => '#4e4e4e',
+			),
+		) );
+	}
+endif;
+add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
 
 /**
  * Increases or decreases the brightness of a color by a percentage of the current brightness.

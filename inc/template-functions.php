@@ -5,8 +5,10 @@
  */
 if ( ! function_exists( 'modul_r_hero_image' ) ) :
 	function modul_r_hero_image() {
+  // get theme option who set the hero's height to 100%
+  $opt_hero = (get_theme_mod('modul_r_settings_hero') === true) ? ' fullpage-hero' : '' ;
   ?>
-    <div class="website-hero text-center">
+    <div class="website-hero text-center<?php echo $opt_hero; ?>">
     <?php modul_r_post_image('parallax'); ?>
       <div class="hero-title text-center">
       <?php the_title( '<h1 class="entry-title secondary-color">', '</h1>' ); ?>
