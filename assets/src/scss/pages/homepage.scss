@@ -12,7 +12,7 @@ body.home {
     background-color: $color__dark-grey;
   
     @media #{$mq__smaller-than-tablet} {
-      height: 98vh;
+      height: 80vh;
     }
     
     & > * {
