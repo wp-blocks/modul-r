@@ -36,7 +36,9 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		add_image_size( 'modul-r-fullwidth', 1920, 9999 ); // 1920px width & unlimited height
 
 		// This theme uses wp_nav_menu() in Primary Navigation.
-		register_nav_menu('header-main',__( 'Primary Navigation',  'modul-r' ));
+		register_nav_menus( array(
+			'main-menu' => esc_html__( 'Primary',  'modul-r' )
+		) );
 
 		/*
 		* Switch default core markup for search form, comment form, and comments
