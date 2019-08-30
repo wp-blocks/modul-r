@@ -37,14 +37,16 @@
       </button>
     </div>
 
+    <nav id="site-navigation" class="main-navigation" role="navigation">
     <?php
       wp_nav_menu( array(
         'theme_location'  => 'main-menu',
         'menu_class'      => 'main-menu',
         'container_class' => 'menu-wrap',
-        'items_wrap'      => '<nav id="site-navigation" class="main-navigation" role="navigation"><ul id="%1$s" class="%2$s">%3$s</ul></nav>',
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
       ) );
     ?>
+    </nav>
 
 	</div>
 

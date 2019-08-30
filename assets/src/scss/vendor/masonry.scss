@@ -70,6 +70,7 @@
   }
   
   .entry-image {
+    display: flex;
     width: 100%;
     min-width: inherit;
     max-width: inherit;
@@ -78,26 +79,25 @@
   }
   
   .entry-header {
+    padding-top: $size__margin * 2;
     padding-bottom: $size__margin;
+    @media #{$mq__content-width} {
+        padding-left: 0;
+        padding-right: 0;
+    }
   }
   
-  h5 {
+  .category-list {
     text-align: left;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 600;
     a {
       text-transform: uppercase;
-      letter-spacing: 2.5px;
+      letter-spacing: 1.5px;
       font-family: $font__family;
       color: $color__dark-grey;
     }
   }
-  @media #{$mq__content-width} {
-    .entry-header {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-
   
   h2.entry-title {
     font-size: 24px;
