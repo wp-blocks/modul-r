@@ -3,7 +3,7 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -40,7 +40,7 @@ Runs (once) the Sass compile task on style.scss, the autoprefixer and then creat
   gulp scripts
 Traspile es6 to javascript (if needed) then uglify (minify), concat (merge all files into one) and creates the sourcemap.
   gulp watch
-You have to run this command during developement, and this command will be your best friend 🙂 It runs a file watcher on sass, scripts, and images folders and when triggered run the needed gulp task. It uses the latest version of gulp which allows these tasks to run in parallel, in order to have very short compilation times.
+You have to run this command during development, and this command will be your best friend 🙂 It runs a file watcher on sass, scripts, and images folders and when triggered run the needed gulp task. It uses the latest version of gulp which allows these tasks to run in parallel, in order to have very short compilation times.
   gulp imageMinify
 Minify images (PNG, JPEG, GIF and SVG) from assets/src/img then copy to assets/dist/img folder.
   gulp clean
@@ -141,6 +141,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == Changelog ==
+
+= 1.1.1 =
+* new tags
+* css fixes
 
 = 1.1.0 =
 * Dependencies update

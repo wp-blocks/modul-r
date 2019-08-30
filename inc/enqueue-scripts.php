@@ -22,7 +22,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		// push primary and secondary color (if is set) into the stored style
 		if ($primary_color) {
 			// the primary color css
-			$atf_css .= ".primary-color{color:{$primary_color}}.has-primary-background-color{background:{$primary_color}}";
+			$atf_css .= ".has-primary-color{color:{$primary_color}}.has-primary-background-color{background:{$primary_color}}";
 			// bold text color css
 			$atf_css .= "body blockquote:before, body b,body strong{color:{$primary_color}}";
 			// home columns title custom color
@@ -33,7 +33,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		if ($secondary_color) {
 			// the secondary color css
-			$atf_css .= ".secondary-color{color:{$secondary_color}}.has-secondary-background-color{background:{$secondary_color}}";
+			$atf_css .= ".has-secondary-color{color:{$secondary_color}}.has-secondary-background-color{background:{$secondary_color}}";
 			// button background color css
 			$atf_css .= "body .button:not(.has-text-color),body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:{$secondary_color}}";
 			// links text color, breadcrumbs link color

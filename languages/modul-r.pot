@@ -54,8 +54,8 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: functions.php:39
-msgid "Primary Navigation"
+#: functions.php:40
+msgid "Primary"
 msgstr ""
 
 #: header.php:19
@@ -82,6 +82,38 @@ msgstr ""
 msgid "Show the sidebar into single articles and pages"
 msgstr ""
 
+#: inc/customizer.php:66
+msgid "Fullpage Hero"
+msgstr ""
+
+#: inc/customizer.php:67
+msgid "The main image of the homepage will be 100% of the height of the page"
+msgstr ""
+
+#: inc/customizer.php:88
+msgid "Theme primary color"
+msgstr ""
+
+#: inc/customizer.php:93
+msgid "Theme primary color dark"
+msgstr ""
+
+#: inc/customizer.php:98
+msgid "Theme secondary color"
+msgstr ""
+
+#: inc/customizer.php:103
+msgid "Theme secondary color dark"
+msgstr ""
+
+#: inc/customizer.php:108
+msgid "Light gray"
+msgstr ""
+
+#: inc/customizer.php:113
+msgid "Dark gray"
+msgstr ""
+
 #: inc/sidebar.php:12
 msgid "Main Sidebar"
 msgstr ""
@@ -98,98 +130,98 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:16
+#: inc/template-functions.php:18
 msgid "Lastest news"
 msgstr ""
 
-#: inc/template-functions.php:19
+#: inc/template-functions.php:21
 msgid "Shop"
 msgstr ""
 
-#: inc/template-functions.php:21
+#: inc/template-functions.php:23
 msgid "Contact us"
 msgstr ""
 
-#: inc/template-functions.php:55
+#: inc/template-functions.php:57
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:56
+#: inc/template-functions.php:58
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:71
+#: inc/template-functions.php:73
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:96
+#: inc/template-functions.php:98
 msgid "wait! loading"
 msgstr ""
 
-#: inc/template-functions.php:100
+#: inc/template-functions.php:102
 msgid "End of content... Maybe you're interested to other categories?"
 msgstr ""
 
-#: inc/template-functions.php:110
+#: inc/template-functions.php:112
 msgid "No more pages to load"
 msgstr ""
 
-#: inc/template-functions.php:123
+#: inc/template-functions.php:125
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:129
+#: inc/template-functions.php:131
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:130
+#: inc/template-functions.php:132
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:160
+#: inc/template-functions.php:162
 msgid "Tags:"
 msgstr ""
 
 #. translators: %s: the number of comments
-#: inc/template-functions.php:216
+#: inc/template-functions.php:218
 msgid "%s comment"
 msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:240
+#: inc/template-functions.php:242
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:259
+#: inc/template-functions.php:261
 msgid "Share this page"
 msgstr ""
 
-#: inc/template-functions.php:259
+#: inc/template-functions.php:261
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:263
+#: inc/template-functions.php:265
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-functions.php:269
+#: inc/template-functions.php:271
 msgid "Share on Linkedin"
 msgstr ""
 
-#: inc/template-functions.php:274
+#: inc/template-functions.php:276
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-functions.php:280
+#: inc/template-functions.php:282
 msgid "Send by mail"
 msgstr ""
 
-#: inc/template-functions.php:285
+#: inc/template-functions.php:287
 msgid "Print this page"
 msgstr ""
 
-#: inc/template-functions.php:311
+#: inc/template-functions.php:313
 msgid "You might be interested in..."
 msgstr ""
 
