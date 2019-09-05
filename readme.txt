@@ -216,10 +216,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
 Screenshot Image
-https://stocksnap.io/photo/7S3EZPGYWY
-https://stocksnap.io/photo/KY5UY9H1XI
-https://stocksnap.io/photo/4JI0WKCTOR
-https://stocksnap.io/photo/UF9ANXUWLL
+https://stocksnap.io/photo/2XGW1D92VH
+https://stocksnap.io/photo/QXOAPTCZBF
+https://stocksnap.io/photo/XPOAYHCKJV
+https://stocksnap.io/photo/ZAXUKJTTZT
 
 == Screenshots ==
 1. [https://modul-r.codekraft.it/screenshot.png  The homepage layout ]
