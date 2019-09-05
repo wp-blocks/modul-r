@@ -1,14 +1,14 @@
 // COLOR VARIABLES
 $color__primary: #17bebb;
-$color__secondary: #7452b1;
-$color__black: #44474e;
+$color__secondary: #E91E63;
+$color__black: #323439;
 $color__dark-grey: lighten($color__black, 10%);
 $color__light-grey: #e3e3e3;
 $color__white: #fff;
 
 $color__text: $color__dark-grey;
 $color__text-light: lighten($color__dark-grey, 15%);
-$color__nav-background: transparentize($color__dark-grey, .05);
+$color__nav-background: transparentize($color__black, .05);
 $color__background: darken($color__white, 1%);
 $color__accent: $color__secondary;
 $color__woo-accent: #026c7c;

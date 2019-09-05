@@ -72,6 +72,12 @@ function scrollCallback() {
     vScrollTop > scrollOffset ? document.body.classList.add('scrolled') : document.body.classList.remove('scrolled');
   }
 
+  if (vScrollTop < 5) {
+    document.body.classList.add('top');
+  } else {
+    document.body.classList.remove('top');
+  }
+
   VisibleItemsTrigger(vScrollTop);
 
   lastScroll = vScrollTop;
@@ -79,11 +85,9 @@ function scrollCallback() {
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
-  vScrollTop = window.pageYOffset;
-
   scrollCallback();
 
-  window.addEventListener('scroll', throttle(scrollCallback, 16), true); // 1 frame each 16ms is about 60fps
-  window.addEventListener('resize', scrollCallback, true); // 1 frame each 16ms is about 60fps
+  window.addEventListener('scroll', throttle(scrollCallback, 5), true); // 1 time every 5ms
+  window.addEventListener('resize', scrollCallback, true);
 
 });

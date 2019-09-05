@@ -12,9 +12,13 @@
     padding: 0;
   }
   
+  .has-featured-image.top & {
+    background-color: transparentize($color__nav-background, 0.2);
+  }
+
   .scrolled & {
     box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);
-  
+    
     @if($head__direction == column) {
       transform: translateY(-#{$size__branding-height + $size__margin});
     }
