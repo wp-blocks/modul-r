@@ -142,6 +142,9 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 == Changelog ==
 
+= 1.1.3 =
+* cookie style moved to child theme
+
 = 1.1.2 =
 * customizer enhancements and fix
 * better menu centering
