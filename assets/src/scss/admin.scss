@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@import "utils/vars";
+@import "utils/media-queries";
+
+#customize-controls {
+  #accordion-section-colors > h3:before,
+  #accordion-section-theme_options > h3:before {
+    display: inline;
+    font-family: dashicons;
+    padding-right: 4px;
+    font-size: 22px;
+    line-height: 0;
+    vertical-align: sub;
+    color: #008ec2;
+  }
+  
+  /* Add icon to "Theme Options" tab */
+  #accordion-section-colors > h3:before {
+    content: "\f100";
+  }
+  
+  /* Add icon to "Theme Options" tab */
+  #accordion-section-theme_options > h3:before {
+    content: "\f111";
+    
+  }
+  
+}

@@ -32,7 +32,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
 		// Modul-R custom options
 		// Add a custom section
-		$wp_customize->add_section( 'theme options' , array(
+		$wp_customize->add_section( 'theme_options' , array(
 			'title'      => esc_html__('Modul-R Options','modul-r'),
 			'priority'   => 50,
 		) );
@@ -47,7 +47,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
 		$wp_customize->add_control( 'modul_r_settings_sidebar', array(
 			'type' => 'checkbox',
-			'section' => 'theme options',
+			'section' => 'theme_options',
 			'label' => esc_html__( 'Show Sidebar', 'modul-r' ),
 			'description' => esc_html__( 'Show the sidebar into single articles and pages', 'modul-r' ),
 		) );
@@ -62,7 +62,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
 		$wp_customize->add_control( 'modul_r_settings_hero', array(
 			'type' => 'checkbox',
-			'section' => 'theme options',
+			'section' => 'theme_options',
 			'label' => esc_html__( 'Fullpage Hero', 'modul-r' ),
 			'description' => esc_html__( 'The main image of the homepage will be 100% of the height of the page', 'modul-r' ),
 		) );
@@ -97,12 +97,12 @@ if ( ! function_exists('modul_r_theme_colors_setup') ) :
 			array(
 				'name'  => __( 'Theme secondary color', 'modul-r' ),
 				'slug'  => 'secondary',
-				'color' => (isset($secondary_color)) ? $secondary_color : '#7452b1' ,
+				'color' => (isset($secondary_color)) ? $secondary_color : '#e91e63' ,
 			),
 			array(
 				'name'  => __( 'Theme secondary color dark', 'modul-r' ),
 				'slug'  => 'secondary-dark',
-				'color' => (isset($secondary_color)) ? modul_r_adjustBrightness($secondary_color, -0.3) : '#7452b1' ,
+				'color' => (isset($secondary_color)) ? modul_r_adjustBrightness($secondary_color, -0.2) : '#a21041' ,
 			),
 			array(
 				'name'  => __( 'Light gray', 'modul-r' ),

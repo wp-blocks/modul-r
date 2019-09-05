@@ -61,6 +61,15 @@ endif;
 add_action( 'wp_head', 'modul_r_atf_style', 1 );
 
 /**
+ * Enqueue admin style
+ */
+function modul_r_admin_style() {
+	wp_register_style( 'modul-r-admin-css', get_template_directory_uri() . '/assets/dist/css/admin.css' );
+	wp_enqueue_style( 'modul-r-admin-css' );
+}
+add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
+
+/**
  * Load fonts
  */
 if ( ! function_exists( 'modul_r_theme_fonts' ) ) :

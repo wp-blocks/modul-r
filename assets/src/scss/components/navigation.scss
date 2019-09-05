@@ -2,7 +2,7 @@ $nav_padding: 0 ($size__margin * 4);
 
 .main-navigation {
   
-  .menu-wrap {
+  .main-menu {
     display: flex;
     height: 100%;
     align-items: center;
@@ -64,7 +64,7 @@ $nav_padding: 0 ($size__margin * 4);
     }
   }
   
-  .main-menu > li {
+  .menu > li {
     &:first-child a {
       padding-left: 0;
     }
@@ -76,7 +76,6 @@ $nav_padding: 0 ($size__margin * 4);
     li a { padding: $nav_padding !important;}
     
     a {@media #{$mq__smaller-than-tablet} {padding: 0 !important;}}
-    
   }
   
   .menu-shadow {

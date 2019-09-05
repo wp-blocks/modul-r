@@ -217,7 +217,8 @@ function buildMainCSS() {
 function CSS() {
   return gulp
     .src([
-      opts.devPath + 'scss/editor.scss'
+      opts.devPath + 'scss/editor.scss',
+      opts.devPath + 'scss/admin.scss'
     ])
     .pipe(sourcemaps.init())
     .pipe(sass(opts.sass))
@@ -233,7 +234,8 @@ function CSS() {
 function buildCSS() {
   return gulp
     .src([
-      opts.devPath + 'scss/editor.scss'
+      opts.devPath + 'scss/editor.scss',
+      opts.devPath + 'scss/admin.scss'
       ])
     .pipe(sass(opts.sass))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
