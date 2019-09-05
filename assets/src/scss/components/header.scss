@@ -16,7 +16,7 @@
     box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);
   
     @if($head__direction == column) {
-      transform: translateY(-$size__branding-height);
+      transform: translateY(-#{$size__branding-height + $size__margin});
     }
   }
   

@@ -105,7 +105,7 @@
     line-height: 1.2;
     font-weight: 500;
     display: inline-table;
-    vertical-align: top;
+    vertical-align: baseline;
     width: calc(100% - 30px);
     @media #{$mq__smaller-than-tablet} {
       font-size: 90%;

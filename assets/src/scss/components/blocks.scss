@@ -4,7 +4,7 @@
   
   @extend %website-width;
   
-  margin-top: $size__padding;
+  margin-top: $size__padding * .75;
   margin-bottom: $size__padding;
  
   &:first-child {
@@ -544,9 +544,20 @@
       margin-top: 0;
       margin-bottom: 0;
       overflow: hidden;
+      display: flex;
+      img {
+        align-self: center;
+      }
+    }
+    
+    @media #{$mq__tablet-portrait} {
+      .is-stacked-on-mobile {
+        min-height: 40vh;
+      }
     }
     
     &.padded-image {
+      
       img {
         max-height: 60vh;
         object-fit: contain;
@@ -555,9 +566,9 @@
       }
       
       @media #{$mq__tablet-portrait} {
-        img {padding: 0 ($size__padding * 0.5) 0 $size__padding;}
+        img {padding: $size__padding * 0.5;}
         &.has-media-on-the-right img{
-          padding: 0 ($size__padding * 0.5) $size__padding-resp $size__padding;
+          padding: $size__padding $size__padding $size__padding ($size__padding * 0.5);
         }
       }
       

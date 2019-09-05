@@ -2,7 +2,7 @@ body.search-results,
 body.archive {
   
   .page-header {
-    padding-bottom: $size__padding * .75;
+    padding-bottom: $size__padding;
   
     @media #{$mq__smaller-than-tablet} {
       padding-bottom: $size__padding * .25;

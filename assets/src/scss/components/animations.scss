@@ -4,60 +4,65 @@
   // &.visible      img on/off when visible
   // &.already-see  executes only one time
   
-    * {
-      transition-duration: $animations__lenght * 2;
+  * {
+    transition-duration: $animations__lenght * 2;
+  }
+  
+  &.long-delay * {
+    transition-delay: 3s;
+  }
+  
+  &.fade-in {
+    img {opacity: 0;}
+    &.already-see img {opacity: 1;}
+  }
+  
+  &.slide-left {
+    img {transform: translateX(-100px);}
+    &.visible img {transform: translateX(0);}
+  }
+  
+  &.enter-down {
+    img {transform: translateY(100%);}
+    &.already-see img {transform: translateY(0);}
+  }
+  
+  &.exit-right {
+    img {
+      opacity: 1;
+      transform: translateX(0);
+      transition-duration: $animations__lenght * 3;
     }
-    
-    &.long-delay * {
-      transition-delay: 3s;
-    }
-    
-    &.fade-in {
-      img {opacity: 0;}
-      &.already-see img {opacity: 1;}
-    }
-    
-    &.slide-left {
-      img {transform: translateX(-100px);}
-      &.visible img {transform: translateX(0);}
-    }
-    
-    &.enter-down {
-      img {transform: translateY(100%);}
-      &.already-see img {transform: translateY(0);}
-    }
-    
-    &.exit-right {
+    &.already-see {
       img {
-        opacity: 1;
-        transform: translateX(0);
-        transition-duration: $animations__lenght * 3;
-      }
-      &.already-see {
-        img {
-          opacity: 0;
-          transform: translateX(300%);
-        }
+        opacity: 0;
+        transform: translateX(300%);
       }
     }
-  
-  
-  
+  }
   
   &.parallax {
-    
     overflow: hidden;
     
     * {transition: inherit;}
-    
-    figure {
-      height: 100%;
-      overflow: hidden;
-    }
-    
-    img {
-      height: calc(100% + 200px);
-      margin-bottom: -100px !important;
-    }
   }
+}
+
+figure.parallax,
+.parallax figure {
+  height: 100%;
+  overflow: hidden;
+  
+  img {
+    height: calc(100% + 200px);
+    margin-bottom: -100px !important;
+  }
+  
+  figcaption {
+    position: absolute;
+    right: $size__padding_resp;
+    left: $size__padding_resp;
+  }
+  
+  max-height: 70vh;
 }
