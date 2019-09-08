@@ -2327,13 +2327,11 @@ body.woocommerce div.product span.price {
 body.woocommerce div.product .woocommerce-tabs.wc-tabs-wrapper {
   margin-left: -20px;
   margin-right: -20px; }
-  body.woocommerce div.product .woocommerce-tabs.wc-tabs-wrapper ul.tabs {
-    margin-bottom: 0; }
-    body.woocommerce div.product .woocommerce-tabs.wc-tabs-wrapper ul.tabs li a {
-      font-size: 16px; }
-      @media (max-width: 1023px) {
-        body.woocommerce div.product .woocommerce-tabs.wc-tabs-wrapper ul.tabs li a {
-          font-size: 14px; } }
+  body.woocommerce div.product .woocommerce-tabs.wc-tabs-wrapper ul.tabs li a {
+    font-size: 16px; }
+    @media (max-width: 1023px) {
+      body.woocommerce div.product .woocommerce-tabs.wc-tabs-wrapper ul.tabs li a {
+        font-size: 14px; } }
 
 body.woocommerce div.product .woocommerce-tabs .entry-content > * {
   width: 100%; }

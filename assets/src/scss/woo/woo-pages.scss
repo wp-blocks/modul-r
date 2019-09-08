@@ -159,15 +159,13 @@ body.woocommerce {
         margin-right: -$size__padding-resp;
   
         ul.tabs {
-          
-          margin-bottom: 0;
-          
           li a {
             font-size: $text__size - 1;
             @media #{$mq__smaller-than-tablet} {font-size: $text__size - 3;}
           }
         }
       }
+      
       .entry-content {
         & > * {width: 100%;}
         table {width: calc(100% - (#{$size__padding-resp * 2}));}

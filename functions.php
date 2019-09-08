@@ -1,5 +1,13 @@
 <?php
 
+// Modul-R defaults
+$modul_r_defaults = array(
+	'colors' => array(
+		'primary' => '#17BEBB',
+		'secondary' => '#E91E63',
+	),
+);
+
 if ( ! function_exists('modul_r_theme_setup') ) :
 	function modul_r_theme_setup() {
 		/*
@@ -27,7 +35,6 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 
 		/*
 		* Enable support for Post Thumbnails on posts and pages.
-		*
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
 		add_theme_support( 'post-thumbnails' );

@@ -31,10 +31,30 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		) ) );
 
 		// Modul-R custom options
-		// Add a custom section
-		$wp_customize->add_section( 'theme_options' , array(
+		$wp_customize->add_panel( 'modul_r_theme_options' , array(
 			'title'      => esc_html__('Modul-R Options','modul-r'),
-			'priority'   => 50,
+			'priority'   => 40,
+		) );
+
+		// Header Panel
+		$wp_customize->add_section( 'modul_r_settings_header' , array(
+			'title'      => esc_html__('Header','modul-r'),
+			'priority'   => 10,
+			'panel'      => 'modul_r_theme_options'
+		) );
+
+		// Footer Panel
+		$wp_customize->add_section( 'modul_r_settings_footer' , array(
+			'title'      => esc_html__('Footer','modul-r'),
+			'priority'   => 20,
+			'panel'      => 'modul_r_theme_options'
+		) );
+
+		// Sidebar Panel
+		$wp_customize->add_section( 'modul_r_settings_sidebar' , array(
+			'title'      => esc_html__('Sidebar','modul-r'),
+			'priority'   => 30,
+			'panel'      => 'modul_r_theme_options'
 		) );
 
 		// the "Show Sidebar" checkbox
@@ -47,9 +67,16 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
 		$wp_customize->add_control( 'modul_r_settings_sidebar', array(
 			'type' => 'checkbox',
-			'section' => 'theme_options',
+			'section' => 'modul_r_settings_sidebar',
 			'label' => esc_html__( 'Show Sidebar', 'modul-r' ),
 			'description' => esc_html__( 'Show the sidebar into single articles and pages', 'modul-r' ),
+		) );
+
+		// Homepage Panel
+		$wp_customize->add_section( 'modul_r_home_options' , array(
+			'title'      => esc_html__('Homepage','modul-r'),
+			'priority'   => 50,
+			'panel'      => 'modul_r_theme_options'
 		) );
 
 		// the "Fullpage Hero" checkbox
@@ -62,7 +89,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
 		$wp_customize->add_control( 'modul_r_settings_hero', array(
 			'type' => 'checkbox',
-			'section' => 'theme_options',
+			'section' => 'modul_r_home_options',
 			'label' => esc_html__( 'Fullpage Hero', 'modul-r' ),
 			'description' => esc_html__( 'The main image of the homepage will be 100% of the height of the page', 'modul-r' ),
 		) );
@@ -83,26 +110,50 @@ if ( ! function_exists('modul_r_theme_colors_setup') ) :
 		$primary_color = esc_attr(get_theme_mod( 'primary-color' ));
 		$secondary_color = esc_attr(get_theme_mod( 'secondary-color' ));
 
+		// check if custom color is set otherwise use the default colors
+		$primary_color = ($primary_color != "" && isset($primary_color)) ? $primary_color : esc_attr($GLOBALS['modul_r_defaults']['colors']['primary']);
+		$secondary_color = ($secondary_color != "" && isset($secondary_color)) ? $secondary_color : esc_attr($GLOBALS['modul_r_defaults']['colors']['secondary']);
+
 		add_theme_support( 'editor-color-palette', array(
+			array(
+				'name'  => __( 'Theme primary color light', 'modul-r' ),
+				'slug'  => 'primary-light',
+				'color' => modul_r_adjustBrightness($primary_color, +0.5),
+			),
 			array(
 				'name'  => __( 'Theme primary color', 'modul-r' ),
 				'slug'  => 'primary',
-				'color' => (isset($primary_color)) ? $primary_color : '#17bebb' ,
+				'color' => $primary_color ,
 			),
 			array(
 				'name'  => __( 'Theme primary color dark', 'modul-r' ),
 				'slug'  => 'primary-dark',
-				'color' => (isset($primary_color)) ? modul_r_adjustBrightness($primary_color, -0.3) : '#17bebb' ,
+				'color' => modul_r_adjustBrightness($primary_color, -0.5),
+			),
+			array(
+				'name'  => __( 'Theme secondary color light', 'modul-r' ),
+				'slug'  => 'secondary-light',
+				'color' => modul_r_adjustBrightness($secondary_color, +0.5),
 			),
 			array(
 				'name'  => __( 'Theme secondary color', 'modul-r' ),
 				'slug'  => 'secondary',
-				'color' => (isset($secondary_color)) ? $secondary_color : '#e91e63' ,
+				'color' => $secondary_color,
 			),
 			array(
 				'name'  => __( 'Theme secondary color dark', 'modul-r' ),
 				'slug'  => 'secondary-dark',
-				'color' => (isset($secondary_color)) ? modul_r_adjustBrightness($secondary_color, -0.2) : '#a21041' ,
+				'color' => modul_r_adjustBrightness($secondary_color, -0.5),
+			),
+			array(
+				'name'  => __( 'White', 'modul-r' ),
+				'slug'  => 'white',
+				'color' => '#ffffff',
+			),
+			array(
+				'name'  => __( 'White Smoke', 'modul-r' ),
+				'slug'  => 'whitesmoke',
+				'color' => '#f3f3f3',
 			),
 			array(
 				'name'  => __( 'Light gray', 'modul-r' ),
@@ -110,9 +161,19 @@ if ( ! function_exists('modul_r_theme_colors_setup') ) :
 				'color' => '#e3e3e3',
 			),
 			array(
+				'name'  => __( 'Gray', 'modul-r' ),
+				'slug'  => 'gray',
+				'color' => '#888888',
+			),
+			array(
 				'name'  => __( 'Dark gray', 'modul-r' ),
-				'slug'  => 'Dark-gray',
+				'slug'  => 'dark-gray',
 				'color' => '#4e4e4e',
+			),
+			array(
+				'name'  => __( 'Black', 'modul-r' ),
+				'slug'  => 'black',
+				'color' => '#222222',
 			),
 		) );
 	}
