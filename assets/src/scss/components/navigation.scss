@@ -1,5 +1,9 @@
 $nav_padding: 0 ($size__margin * 4);
 
+.header-landscape .main-navigation .main-menu {
+  padding: 0 $size__padding-resp;
+}
+
 .main-navigation {
   
   .main-menu {
@@ -16,19 +20,15 @@ $nav_padding: 0 ($size__margin * 4);
  
   ul {
     display: flex;
+    justify-content: center;
     height: $nav__height;
     margin: 0;
-
-    @if($head__direction == column) {
-      padding: 0 $size__padding-resp;
-    }
  
     @media #{$mq__smaller-than-tablet} {
       flex-direction: column;
       justify-content: flex-start;
       box-sizing: border-box;
     }
- 
   }
   
   li {

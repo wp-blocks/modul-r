@@ -1,12 +1,10 @@
 #secondary {
+  
+  .sidebar-right & {padding-left: $sidebar__margin;}
+  .sidebar-left & {padding-right: $sidebar__margin;}
+  
   min-width: $sidebar__width;
   width: $sidebar__width;
-  
-  @if ($sidebar__position = 'right') {
-    padding-right: $sidebar__margin;
-  } @else {
-    padding-left: $sidebar__margin;
-  }
   
   @media #{$mq__smaller-than-tablet} {
     min-width: inherit;

@@ -6,7 +6,7 @@
 get_header();
 
 // get theme option "sidebar enabled"
-$opt_sidebar = get_theme_mod('modul_r_settings_sidebar');
+$opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
 
 ?>
 

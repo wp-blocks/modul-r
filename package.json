@@ -1,7 +1,10 @@
 {
   "name": "modul-r",
-  "version": "1.1.2",
-  "main": "Codekraft",
+  "version": "1.2.0",
+  "repository": "https://github.com/erikyo/modul-r",
+  "license": "GPL-3.0",
+  "main": "Modul R",
+  "description": "Modul R Wordpress Theme",
   "author": {
     "name": "Codekraft Studio",
     "website": "https://codekraft.it/"
@@ -19,7 +22,6 @@
     "build": "node node_modules/gulp/bin/gulp build",
     "postinstall": "node node_modules/gulp/bin/gulp build"
   },
-  "license": "GPL-3.0",
   "style": "./style.css",
   "devDependencies": {
     "@babel/core": "^7.5.5",

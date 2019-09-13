@@ -24,7 +24,7 @@ $font__family-headline: 'Montserrat', serif;
 $animations__lenght : .35s;
 
 // MEASURES
-$size__site-width: 1400px;
+$size__site-width: 1500px;
 $size__side-padding: 300px;
 
 // DISTANCES
@@ -33,10 +33,9 @@ $size__padding: 64px;
 $size__padding-resp: 20px;
 
 // HEADER
-$head__direction: row; // row or column
 $size__branding-height: 60px;
 $nav__height: 48px;
-$size__branding-logo-ratio: $size__branding-height *.53;
+$size__branding-logo-ratio: $size__branding-height *.5;
 
 // HEADER RESP
 $head__height-responsive: 60px;
@@ -47,7 +46,6 @@ $hamburger__weight: 3px;
 $hamburger__color: #{$color__primary};
 
 // SIDEBAR
-$sidebar__position: right; // 'left' or 'right'
 $sidebar__width: 300px;
 $sidebar__margin: $size__padding;
 

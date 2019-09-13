@@ -5,24 +5,30 @@
  */
 if ( ! function_exists( 'modul_r_hero_image' ) ) :
 	function modul_r_hero_image() {
-  // get theme option who set the hero's height to 100%
-  $opt_hero = (get_theme_mod('modul_r_settings_hero') === true) ? ' fullpage-hero' : '' ;
+  // fullscreen hero image
+  $hero_fullscreen = (get_theme_mod('modul_r_hero_fullpage') === true) ? ' fullpage-hero' : '' ;
+	// the hero title and subtitle
+  $hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
+  $hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
+  $hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
+  $hero_subtitle = ($hero_subtitle != '') ? $hero_subtitle : get_bloginfo('description') ;
+	// get (if present) the id of the call to actions
+  $hero_call_to_action = intval(get_theme_mod('modul_r_hero_call_to_action'));
+  $hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
+
   ?>
-    <div class="website-hero text-center<?php echo $opt_hero; ?>">
+    <div class="website-hero text-center<?php echo $hero_fullscreen; ?>">
     <?php modul_r_post_image('parallax'); ?>
       <div class="hero-title text-center">
-      <?php the_title( '<h1 class="entry-title has-secondary-color">', '</h1>' ); ?>
-        <p><?php bloginfo('description'); ?></p>
+        <h1 class="entry-title has-secondary-color"><?php echo $hero_title; ?></h1>
+        <p><?php echo $hero_subtitle; ?></p>
       <?php
-
-      printf('<a href="%s" class="button big has-secondary-background-color">%s</a>', esc_url( get_category_link(get_cat_ID('news')) ), esc_html__('Lastest news', 'modul-r'));
-
-      if ( class_exists( 'WooCommerce' ) ) {
-        printf( '<a href="%s" class="button big outline" >%s</a>', esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ), esc_html__( 'Shop', 'modul-r' ) );
-      } else {
-        printf( '<a href="%s" class="button big outline" >%s</a>', esc_url( get_category_link( get_cat_ID( 'contacts' ) ) ), esc_html__( 'Contact us', 'modul-r' ) );
-      }
-
+        if ($hero_call_to_action > 0) {
+          printf('<a href="%s" class="button big has-secondary-background-color">%s</a>', esc_url( get_page_link($hero_call_to_action) ), esc_html(get_the_title($hero_call_to_action))) ;
+        }
+        if ($hero_call_to_action_2 > 0) {
+          printf('<a href="%s" class="button big outline">%s</a>', esc_url( get_category_link($hero_call_to_action_2) ), esc_html(get_cat_name($hero_call_to_action_2))) ;
+        }
       ?>
       </div>
     </div>
@@ -340,15 +346,19 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
       if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {$classes[] = 'has-featured-image';}
 
       // get theme option "sidebar enabled"
-      $opt_sidebar = get_theme_mod('modul_r_settings_sidebar');
-      if ( $opt_sidebar === true ) {$classes[] = 'has-sidebar';}
+      $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
+      if ( $opt_sidebar === true ) {
+        $classes[] = 'has-sidebar';
+      }
     }
 
+	  // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
+    $sidebar_position = (get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
+	  $classes[] = $sidebar_position;
 
 		return $classes;
 	}
 endif;
-
 add_filter( 'body_class', 'modul_r_custom_body_class' );
 
 /**

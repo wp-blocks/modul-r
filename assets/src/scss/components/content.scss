@@ -70,13 +70,14 @@ body.single {
 
 body.has-sidebar,
 body.woocommerce {
+  
+  &.sidebar-left .site-content {
+    flex-direction: row-reverse;
+  }
+  
   .site-content {
     display: flex;
     justify-content: center;
-  
-    @if ($sidebar__position = 'right') {
-      flex-direction: row-reverse;
-    }
 
     width: $size__site-width;
     max-width: 100%;

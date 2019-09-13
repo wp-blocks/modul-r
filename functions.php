@@ -66,7 +66,7 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		// Add support for core custom logo, header text color, website background.
 		add_theme_support( 'custom-logo' );
 		add_theme_support( 'custom-header' );
-		add_theme_support( 'custom-background' );
+		add_theme_support( 'custom-background', array( 'default-color' => '#f3f3f3'	) );
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );

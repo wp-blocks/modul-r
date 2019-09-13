@@ -94,7 +94,6 @@ Edit vars.scss file and recompile the style to customize the aspect of theme, is
     $size__padding-resp: website side padding
 
     // HEADER
-    $head__direction: use "row" or "column". The header layout can be landscape (logo and menu on the same level) or portrait (centered layout with the menu under the logo)
     $size__branding-height: in the column layout set the logo height
     $nav__height: in the column layout set the height of the menu
     $size__branding-logo-ratio: branding height / the logo ratio. might be useful if the logo looks smaller or bigger than required
@@ -141,6 +140,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == Changelog ==
+
+= 1.2.0 =
+* revisited customizer section with header, footer, sidebar & homepage configuration
+* revisited color scheme (lighter and darker version of the primary and secondary + 6 color gradient white to black)
 
 = 1.1.3 =
 * cookie style moved to child theme

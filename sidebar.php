@@ -6,6 +6,7 @@
 if ( ! is_active_sidebar( 'Main Sidebar' ) ) {
 	return;
 }
+
 ?>
 
 <div id="secondary" class="sidebar widget-area" role="complementary">

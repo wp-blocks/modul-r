@@ -15,13 +15,15 @@
   .has-featured-image.top & {
     background-color: transparentize($color__nav-background, 0.2);
   }
-
+  
+  // if the page is scrolled shows a shadow under the header
   .scrolled & {
     box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);
-    
-    @if($head__direction == column) {
-      transform: translateY(-#{$size__branding-height + $size__margin});
-    }
+  }
+  
+  // hides the logo in portrait header when the page is scrolled
+  .scrolled &.header-portrait  {
+    transform: translateY(-#{$size__branding-height + $size__margin});
   }
   
   .site-header-image {
@@ -32,10 +34,72 @@
     opacity: 0.1;
   }
   
+  &.header-portrait .site-branding-container {
+    
+    flex-direction: column;
+    
+    .site-branding {
+      height: $size__branding-height;
+      @media #{$mq__smaller-than-tablet} {
+        height: $size__branding-height - ($size__margin * .5);
+        padding-top: 0;
+      }
+      
+      .header-text {
+        justify-content: center;
+        text-align: center;
+        @media #{$mq__smaller-than-tablet} {
+          justify-content: flex-start;
+          text-align: left;
+        }
+      }
+      
+      &.has-header-text.has-custom-logo {
+        justify-content: center;
+      }
+    }
+    
+    .custom-logo {
+      height: $size__branding-logo-ratio;
+      align-self: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+  }
+  
+  &.header-landscape .site-branding-container {
+    
+    flex-direction: row;
+    
+    .site-branding {
+      padding-bottom: $size__margin;
+      @media #{$mq__smaller-than-tablet} {
+        padding-top: $size__margin * .5;
+        padding-bottom: $size__margin * .5;
+      }
+      
+      &.has-header-text.has-custom-logo {
+        justify-content: flex-start;
+      }
+    }
+    
+    .custom-logo {
+      object-position: left;
+      height: $nav__height * .5;
+    }
+  
+    .main-navigation {
+      height: $nav__height;
+      align-self: flex-end;
+    }
+    
+  }
+  
   // the container of the logo/site title
   .site-branding-container {
+    
     display: flex;
-    flex-direction: $head__direction;
     justify-content: space-between;
     margin-top: 0;
     margin-bottom: 0;
@@ -47,41 +111,10 @@
     .site-branding {
       width: 100%;
       padding-top: $size__margin;
-      
-      @if($head__direction == row) {
-        padding-bottom: $size__margin;
-        @media #{$mq__smaller-than-tablet} {
-          padding-top: $size__margin * .5;
-          padding-bottom: $size__margin * .5;
-        }
-      }
-      
-      @if($head__direction == column) {
-        height: $size__branding-height;
-        @media #{$mq__smaller-than-tablet} {
-          height: $size__branding-height - ($size__margin * .5);
-          padding-top: 0;
-        }
-
-        .header-text {
-          justify-content: center;
-          text-align: center;
-          @media #{$mq__smaller-than-tablet} {
-            justify-content: flex-start;
-            text-align: left;
-          }
-        }
-      }
-      
+  
       &.has-header-text.has-custom-logo {
         display: flex;
         flex-direction: row;
-        @if($head__direction == row) {
-          justify-content: flex-start;
-        }
-        @if($head__direction == column) {
-          justify-content: center;
-        }
         .header-text {
           text-align: left;
         }
@@ -116,7 +149,7 @@
     .site-title,
     .site-description {
       @if ($head__direction == row) {
-        display: inline-block;
+        //display: inline-block;
       }
       margin: 0;
       line-height: 1.05;
@@ -156,16 +189,7 @@
     .custom-logo {
       object-fit: contain;
       width: auto;
-      height: $size__branding-logo-ratio;
-  
-      @if($head__direction == row) {
-        object-position: left;
-      } @elseif($head__direction == column) {
-        align-self: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      
+     
       @media #{$mq__smaller-than-tablet} {
         max-height: $head__height-responsive - ($size__margin * 2);
         object-position: left;

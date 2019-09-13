@@ -96,16 +96,17 @@ body.home {
   .entry-content {
     overflow: visible;
     
-    & > .wp-block-columns:first-of-type {
-      text-align: center;
+    & > .wp-block-columns:first-child {
       overflow: visible;
+      text-align: center;
+      margin-top: ($size__padding * -1.5);
       margin-bottom: $size__padding * .75;
       @media #{$mq__smaller-than-tablet} {text-align: left;}
       
       .wp-block-column {
         background: white;
         position: relative;
-        margin: ($size__padding * -.5) ($size__padding * .5) 0;
+        margin: 0 ($size__padding * .5);
         height: 100%;
         z-index: 999;
         box-shadow: 0 5px 30px -20px transparentize($color__dark-grey, .3);
@@ -173,8 +174,9 @@ body.home {
   //animations
   .entry-content > .has-3-columns.animated {
     .wp-block-column {
+      overflow: hidden;
       transition: $animations__lenght * 4;
-      transform: translateY(100%);
+      transform: translateY(30%);
       opacity: 0;
       transition-delay: $animations__lenght * 1.5;
       

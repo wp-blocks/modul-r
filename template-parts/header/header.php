@@ -2,9 +2,10 @@
   $show_header_text = display_header_text();
   $custom_logo = esc_html(get_theme_mod( 'custom_logo' ));
   $description = get_bloginfo( 'description', 'display' );
+  $menu_direction = (get_theme_mod('modul_r_header_direction') === 'portrait') ? ' header-portrait' : ' header-landscape' ;
 ?>
 
-<header id="masthead" class="site-header" role="banner">
+<header id="masthead" class="site-header<?php echo $menu_direction; ?>" role="banner">
 
 	<div class="site-branding-container main-width alignwide">
 
@@ -13,7 +14,7 @@
     <div class="site-branding<?php
         if ( $show_header_text ) {echo ' has-header-text';}
         if ( $custom_logo ) {echo ' has-custom-logo';}
-      ?>">
+        ?>">
       <div class="site-logo"><?php the_custom_logo(); ?></div>
       <?php if ( $show_header_text ) : ?>
         <div class="header-text">
