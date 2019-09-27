@@ -5,7 +5,7 @@ Description: Modul R is a powerful and flexible theme that provides a fast way t
 Theme URI: https://modul-r.codekraft.it/ 
 Author: Codekraft Studio 
 Requires at least: WordPress 4.9.6 
-Version: 1.1.2 
+Version: 1.2.1 
 License: GNU General Public License v3 or later 
 License: © 2019 Codekraft Studio 
 License URI: https://github.com/erikyo/modul-r/blob/master/LICENSE 
@@ -328,7 +328,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", sans-serif;
   color: #323439;
   font-weight: 300; }
 
@@ -379,7 +379,7 @@ h5, h6 {
 /* Text and lists */
 li,
 p {
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 17px;
   color: #4a4d54; }
   @media (max-width: 1260px) {
@@ -578,7 +578,7 @@ button,
   border: none;
   border-radius: 30px;
   outline: none;
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 19px;
   font-weight: 700;
   text-decoration: none !important;
@@ -745,10 +745,11 @@ button,
 #secondary {
   min-width: 300px;
   width: 300px; }
-  .sidebar-right #secondary {
-    padding-left: 64px; }
-  .sidebar-left #secondary {
-    padding-right: 64px; }
+  @media (min-width: 1366px) {
+    .sidebar-right #secondary {
+      padding-left: 64px; }
+    .sidebar-left #secondary {
+      padding-right: 64px; } }
   @media (max-width: 1023px) {
     #secondary {
       min-width: inherit;
@@ -803,9 +804,14 @@ body.single .entry-image {
   max-height: 700px;
   margin-bottom: 48px; }
 
+@media (min-width: 1366px) {
+  #masthead.header-landscape + #content {
+    margin-top: 48px; }
+  #masthead.header-portrait + #content {
+    margin-top: 116px; } }
+
 #masthead + #content {
-  padding-top: 48px;
-  margin-top: 116px; }
+  padding-top: 48px; }
   @media (max-width: 1023px) {
     #masthead + #content {
       margin-top: 60px;
@@ -814,6 +820,10 @@ body.single .entry-image {
 body.has-sidebar.sidebar-left .site-content,
 body.woocommerce.sidebar-left .site-content {
   flex-direction: row-reverse; }
+  @media (max-width: 1023px) {
+    body.has-sidebar.sidebar-left .site-content,
+    body.woocommerce.sidebar-left .site-content {
+      flex-direction: column; } }
 
 body.has-sidebar .site-content,
 body.woocommerce .site-content {
@@ -830,10 +840,7 @@ body.woocommerce .site-content {
     body.woocommerce .site-content {
       width: 100%;
       padding-left: 20px;
-      padding-right: 20px; } }
-  @media (max-width: 1023px) {
-    body.has-sidebar .site-content,
-    body.woocommerce .site-content {
+      padding-right: 20px;
       flex-direction: column; } }
 
 .entry-header {
@@ -1303,7 +1310,7 @@ hr {
 .entry-content .has-drop-cap {
   margin-bottom: 32px; }
   .entry-content .has-drop-cap:not(:focus):first-letter {
-    font-family: "Montserrat", serif;
+    font-family: "Montserrat", sans-serif;
     line-height: 1;
     font-weight: 600;
     margin: 0 16px 0 0; }
@@ -1326,7 +1333,7 @@ hr {
       font-style: normal; }
   .entry-content .wp-block-pullquote cite {
     display: inline-block;
-    font-family: "Montserrat", serif;
+    font-family: "Montserrat", sans-serif;
     line-height: 1.6;
     text-transform: none;
     color: #4a4d54; }
@@ -1476,7 +1483,7 @@ hr {
   .entry-content .wp-block-cover .wp-block-cover-image-text,
   .entry-content .wp-block-cover .wp-block-cover-text,
   .entry-content .wp-block-cover h2 {
-    font-family: "Montserrat", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
     line-height: 1.2;
     padding: 0;
@@ -1585,7 +1592,7 @@ hr {
     width: 100%; }
 
 .entry-content .wp-block-file {
-  font-family: "Montserrat", serif; }
+  font-family: "Montserrat", sans-serif; }
   .entry-content .wp-block-file .wp-block-file__button {
     display: table;
     border: none;
@@ -1636,7 +1643,7 @@ hr {
       padding-right: calc(2 * 8px); } }
 
 .entry-content .wp-block-latest-comments .wp-block-latest-comments__comment-meta {
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold; }
   .entry-content .wp-block-latest-comments .wp-block-latest-comments__comment-meta .wp-block-latest-comments__comment-date {
     font-weight: normal; }
@@ -1736,7 +1743,7 @@ hr {
   .site-footer .footer-info {
     background-color: #323439;
     padding: 8px 0; }
-    @media (min-width: 1024px) {
+    @media (min-width: 1366px) {
       .site-footer .footer-info {
         text-align: right; } }
     .site-footer .footer-info p {
@@ -2380,7 +2387,8 @@ body.woocommerce div.product .related.products {
   font-weight: 600; }
 
 #secondary ul.product-categories .current-cat > a {
-  color: #E91E63; }
+  -webkit-filter: brightness(115%);
+  filter: brightness(115%); }
 
 #secondary ul.product-categories .toggle i {
   opacity: .5;
@@ -2392,7 +2400,8 @@ body.woocommerce div.product .related.products {
 #secondary ul.product-categories .cat-parent.active > a i {
   opacity: 1;
   transform: rotate(90deg);
-  color: #E91E63; }
+  -webkit-filter: brightness(115%);
+  filter: brightness(115%); }
 
 #secondary ul.product_list_widget a {
   display: block; }
@@ -3412,7 +3421,7 @@ body.compensate-for-scrollbar {
     .masonry-container article.grid__item .category-list a {
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      font-family: "Montserrat", serif;
+      font-family: "Montserrat", sans-serif;
       color: #4a4d54; }
   .masonry-container article.grid__item h2.entry-title {
     font-size: 24px;

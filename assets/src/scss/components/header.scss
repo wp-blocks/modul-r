@@ -64,6 +64,10 @@
       align-self: center;
       margin-left: auto;
       margin-right: auto;
+  
+      @media #{$mq__smaller-than-tablet} {
+        margin-left: 0;
+      }
     }
     
   }
@@ -85,15 +89,12 @@
     }
     
     .custom-logo {
-      object-position: left;
       height: $nav__height * .5;
     }
   
     .main-navigation {
-      height: $nav__height;
       align-self: flex-end;
     }
-    
   }
   
   // the container of the logo/site title
@@ -148,9 +149,6 @@
     // Site title & description (no custom logo)
     .site-title,
     .site-description {
-      @if ($head__direction == row) {
-        //display: inline-block;
-      }
       margin: 0;
       line-height: 1.05;
       text-overflow: ellipsis;
@@ -192,7 +190,6 @@
      
       @media #{$mq__smaller-than-tablet} {
         max-height: $head__height-responsive - ($size__margin * 2);
-        object-position: left;
         margin: 0;
       }
     }

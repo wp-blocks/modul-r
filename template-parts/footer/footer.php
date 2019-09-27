@@ -3,7 +3,7 @@
 	<?php
 
 
-    if(is_active_sidebar('footer-main')) {  ?>
+    if(is_active_sidebar('footer-main') || get_theme_mod( 'modul_r_footer_show_credits' ) === true ) {  ?>
       <div class="footer-widgets main-width alignwide">
 
 	      <?php

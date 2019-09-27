@@ -3,7 +3,7 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -133,6 +133,10 @@ By contributing, you agree that your contributions will be licensed under its GP
 You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/theme-setup/)
 
 == Upgrade Notice ==
+
+= 1.2.0 - Sept 13, 2019 =
+* Hudge changes in customizer section...  go and check all the new features. From the sass configuration the variables to set the header and sidebar direction have been removed since they are now changed by the customizer
+
 = 1.1.0 - Aug 22, 2019 =
 * Menu name change: set the primary menu to "main-menu"
 
@@ -140,6 +144,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == Changelog ==
+
+= 1.2.1 =
+* translations and docs update
+* fixed sidebar and hamburger menu style regression
 
 = 1.2.0 =
 * revisited customizer section with header, footer, sidebar & homepage configuration

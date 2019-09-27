@@ -5,18 +5,18 @@
  */
 if ( ! function_exists( 'modul_r_hero_image' ) ) :
 	function modul_r_hero_image() {
-  // fullscreen hero image
-  $hero_fullscreen = (get_theme_mod('modul_r_hero_fullpage') === true) ? ' fullpage-hero' : '' ;
-	// the hero title and subtitle
-  $hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
-  $hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
-  $hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
-  $hero_subtitle = ($hero_subtitle != '') ? $hero_subtitle : get_bloginfo('description') ;
-	// get (if present) the id of the call to actions
-  $hero_call_to_action = intval(get_theme_mod('modul_r_hero_call_to_action'));
-  $hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
+    // fullscreen hero image
+    $hero_fullscreen = (get_theme_mod('modul_r_hero_fullpage') === true) ? ' fullpage-hero' : '' ;
+    // the hero title and subtitle
+    $hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
+    $hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
+    $hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
+    $hero_subtitle = ($hero_subtitle != '') ? $hero_subtitle : get_bloginfo('description') ;
+    // get (if present) the id of the call to actions
+    $hero_call_to_action = intval(get_theme_mod('modul_r_hero_call_to_action'));
+    $hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
+    ?>
 
-  ?>
     <div class="website-hero text-center<?php echo $hero_fullscreen; ?>">
     <?php modul_r_post_image('parallax'); ?>
       <div class="hero-title text-center">

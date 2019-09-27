@@ -29,7 +29,7 @@
     }
     .current-cat {
       & > a {
-        color: $color__secondary;
+        filter: brightness(115%);
       }
     }
     
@@ -45,7 +45,7 @@
     .cat-parent.active > a i {
       opacity: 1;
       transform: rotate(90deg);
-      color: $color__secondary;
+      filter: brightness(115%);
     }
     
   }

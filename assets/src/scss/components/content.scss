@@ -52,19 +52,26 @@ body.single {
 }
 
 // if there isn't a featured image compensate void space under the menu
-#masthead + #content {
+#masthead {
   
-  padding-top: $size__padding * .75;
+  @media #{$mq__larger-than-tablet} {
+    &.header-landscape + #content {
+      margin-top: $nav__height;
+    }
   
-  @if($head__direction == column) {
-    margin-top: $nav__height + $size__branding-height + $size__margin;
-  } @elseif($head__direction == row) {
-    margin-top: $nav__height;
+    &.header-portrait + #content {
+      margin-top: $nav__height + $size__branding-height + $size__margin;
+    }
   }
   
-  @media #{$mq__smaller-than-tablet} {
-    margin-top: $head__height-responsive;
-    padding-top: $size__padding * .5;
+  
+  & + #content {
+    padding-top: $size__padding * .75;
+    
+    @media #{$mq__smaller-than-tablet} {
+      margin-top: $head__height-responsive;
+      padding-top: $size__padding * .5;
+    }
   }
 }
 
@@ -73,6 +80,10 @@ body.woocommerce {
   
   &.sidebar-left .site-content {
     flex-direction: row-reverse;
+  
+    @media #{$mq__smaller-than-tablet} {
+      flex-direction: column;
+    }
   }
   
   .site-content {
@@ -91,9 +102,6 @@ body.woocommerce {
       width: 100%;
       padding-left: $size__padding-resp;
       padding-right: $size__padding-resp;
-    }
-    
-    @media #{$mq__smaller-than-tablet} {
       flex-direction: column;
     }
   }

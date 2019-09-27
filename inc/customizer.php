@@ -60,8 +60,8 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 				'section'  => 'modul_r_settings_header',
 				'type'     => 'radio',
 				'choices'  => array(
-					'portrait'  => esc_html__( 'portrait', 'modul-r' ),
-					'landscape' => esc_html__( 'landscape', 'modul-r' ),
+					'portrait'  => esc_html__( 'Portrait', 'modul-r' ),
+					'landscape' => esc_html__( 'Landscape', 'modul-r' ),
 				),
 			)
 		);
@@ -161,8 +161,8 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 				'section'  => 'modul_r_settings_sidebar',
 				'type'     => 'radio',
 				'choices'  => array(
-					'left'  => esc_html__( 'left', 'modul-r' ),
-					'right' => esc_html__( 'right', 'modul-r' ),
+					'left'  => esc_html__( 'Left', 'modul-r' ),
+					'right' => esc_html__( 'Right', 'modul-r' ),
 				),
 			)
 		);

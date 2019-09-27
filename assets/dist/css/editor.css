@@ -14,7 +14,7 @@ html {
 body {
   box-sizing: border-box;
   min-height: 100%;
-  font-family: "Montserrat", serif, sans-serif;
+  font-family: "Montserrat", sans-serif, sans-serif;
   color: #4a4d54;
   font-size: 17px;
   line-height: 1.7;
@@ -139,7 +139,7 @@ h3,
 h4,
 h5,
 h6, .wp-block.editor-post-title__block .editor-post-title__input {
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", sans-serif;
   color: #323439;
   font-weight: 300; }
 
@@ -192,7 +192,7 @@ li, .editor-styles-wrapper li, .editor-styles-wrapper p,
 p,
 .editor-styles-wrapper li,
 .editor-styles-wrapper p {
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 17px;
   color: #4a4d54; }
   @media (max-width: 1260px) {

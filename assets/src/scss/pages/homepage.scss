@@ -36,11 +36,7 @@ body.home {
     }
     
     .hero-title {
-      @if($head__direction == column) {
-        padding-top: ($nav__height + $size__branding-height) * .5;
-      } @elseif($head__direction == row) {
-        padding-top: $nav__height * .5;
-      }
+      padding-top: $nav__height;
       padding-left: $size__padding-resp;
       padding-right: $size__padding-resp;
   

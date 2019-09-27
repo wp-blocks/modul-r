@@ -7,11 +7,6 @@
 
         <?php if ( have_posts() ) : ?>
 
-          <header class="page-header">
-            <h1 class="page-title main-width"><?php bloginfo( 'name' ); ?></h1>
-            <?php bloginfo( 'description' ); ?>
-          </header>
-
           <div class="masonry-container">
             <div id ="masonry-wrapper" class="main-width alignwide">
 

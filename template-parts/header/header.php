@@ -2,7 +2,7 @@
   $show_header_text = display_header_text();
   $custom_logo = esc_html(get_theme_mod( 'custom_logo' ));
   $description = get_bloginfo( 'description', 'display' );
-  $menu_direction = (get_theme_mod('modul_r_header_direction') === 'portrait') ? ' header-portrait' : ' header-landscape' ;
+  $menu_direction = (get_theme_mod('modul_r_header_direction') === 'landscape') ? ' header-landscape' : ' header-portrait' ;
 ?>
 
 <header id="masthead" class="site-header<?php echo $menu_direction; ?>" role="banner">
@@ -31,6 +31,7 @@
     </div>
 
     <div class="menu-shadow" onclick="document.querySelector('#masthead').classList.toggle('active')"></div>
+
     <div class="menu-resp unselectable" onclick="document.querySelector('#masthead').classList.toggle('active')">
       <button class="c-hamburger">
         <i class="menu-toggle"></i>
@@ -39,13 +40,13 @@
     </div>
 
     <nav id="site-navigation" class="main-navigation" role="navigation">
-    <?php
-      wp_nav_menu( array(
-        'theme_location'  => 'main-menu',
-        'menu_class'      => 'menu',
-        'items_wrap'      => '<div class="main-menu"><ul id="%1$s" class="%2$s">%3$s</ul></div>',
-      ) );
-    ?>
+      <?php
+        wp_nav_menu( array(
+          'theme_location'  => 'main-menu',
+          'menu_class'      => 'menu',
+          'items_wrap'      => '<div class="main-menu"><ul id="%1$s" class="%2$s">%3$s</ul></div>',
+        ) );
+      ?>
     </nav>
 
 	</div>

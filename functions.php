@@ -28,7 +28,7 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		add_theme_support( 'title-tag' );
 
 		/*
-		* Wordpress define content width
+		* WordPress define content width
 		* https://codex.wordpress.org/Content_Width
 		*/
 		if ( ! isset( $content_width ) ) $content_width = 900;
