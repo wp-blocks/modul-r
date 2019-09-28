@@ -95,8 +95,7 @@ Edit vars.scss file and recompile the style to customize the aspect of theme, is
 
     // HEADER
     $size__branding-height: in the column layout set the logo height
-    $nav__height: in the column layout set the height of the menu
-    $size__branding-logo-ratio: branding height / the logo ratio. might be useful if the logo looks smaller or bigger than required
+    $size__nav-height: in the column layout set the height of the menu
 
     // HEADER RESP
     $head__height-responsive: the responsive menu height
@@ -146,8 +145,9 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == Changelog ==
 
 = 1.2.1 =
-* translations and docs update
-* fixed sidebar and hamburger menu style regression
+* Translations and docs update
+* Fixed sidebar and hamburger menu style regression
+* Theme option header color, better use of the stored color along the theme
 
 = 1.2.0 =
 * revisited customizer section with header, footer, sidebar & homepage configuration

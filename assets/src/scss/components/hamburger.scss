@@ -32,10 +32,10 @@
       display: block;
       position: absolute;
       top: $hamburger__size * .5;
+      background: $hamburger__color;
       left: 0;
       right: 0;
       height: $hamburger__weight;
-      background: $hamburger__color;
       transition: background 0.15s 0.1s;
       transition-delay: 0.1s, 0s;
       

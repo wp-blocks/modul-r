@@ -16,8 +16,8 @@ get_header();
           <?php the_archive_description(); ?>
         </header>
 
-        <div class="masonry-container">
-          <div id ="masonry-wrapper" class="main-width alignwide">
+        <div class="masonry-container main-width alignwide">
+          <div id="masonry-wrapper">
 
             <div class="grid__col-sizer"></div>
             <div class="grid__gutter-sizer"></div>

@@ -1,8 +1,3 @@
-.masonry-container {
-  padding-left: $size__padding-resp;
-  padding-right: $size__padding-resp;
-}
-
 #masonry-wrapper {
   position: relative;
   overflow: hidden;
@@ -27,23 +22,32 @@
   }
 }
 
+$gutter_size: 3%;
+$number_of_columns: 3;
+$total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
+
 .grid__item,
 .grid__col-sizer {
-  width: 31%;
+  width: calc( ( 100% - #{$total_gutter_space} ) /  #{$number_of_columns} );
   @media #{$mq__tablet} { width: 48% };
   @media #{$mq__tablet-portrait}{ width: 100%;}
 }
 
-.grid__gutter-sizer { width: 3.5%;
+.grid__gutter-sizer { width: $gutter_size;
   @media #{$mq__tablet} { width: 4% };
   @media #{$mq__tablet-portrait}{ width: 0;}
 }
 
 .grid__item.sticky,
 .grid__item.big-block {
-  width: 65.5%;
+  width: calc( ( ( ( 100% - #{$total_gutter_space} ) / #{$number_of_columns} ) * 2 )  + #{$gutter_size} );
   @media #{$mq__tablet} { width: 100% };
 }
+
+.grid__item.full-block {
+  width: 100%;
+}
+
 
 
 .masonry-container article.grid__item {
@@ -55,7 +59,7 @@
   background-color: $color__white;
   box-shadow: 0 3px 12px -8px transparentize($color__black, .7);
   padding: 0;
-  margin: 0 ($size__margin * .25) 40px;
+  margin: 0 0 ($size__padding * .5);
   
   @media #{$mq__tablet-portrait}{
     padding-right: 0;

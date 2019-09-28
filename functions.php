@@ -5,6 +5,7 @@ $modul_r_defaults = array(
 	'colors' => array(
 		'primary' => '#17BEBB',
 		'secondary' => '#E91E63',
+		'header' => '#323439',
 	),
 );
 

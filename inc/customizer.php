@@ -7,6 +7,18 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
 		// Template custom colors
 
+		// Header color
+		$wp_customize->add_setting( 'header-color', array(
+			'default'   => esc_attr($GLOBALS['modul_r_defaults']['colors']['header']),
+			'transport' => 'refresh',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header-color', array(
+			'section' => 'colors',
+			'label'   => esc_html__( 'Header Color', 'modul-r' ),
+			'priority' => 0,
+		) ) );
+
 		// Primary color
 		$wp_customize->add_setting( 'primary-color', array(
 			'default'   => esc_attr($GLOBALS['modul_r_defaults']['colors']['primary']),

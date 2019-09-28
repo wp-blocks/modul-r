@@ -24,8 +24,6 @@
   &.alignwide {
     width: $size__site-width;
     max-width: 100%;
-    padding-left: $size__padding-resp;
-    padding-right: $size__padding-resp;
   }
   
   .has-sidebar .site-content &.alignwide {
@@ -56,11 +54,11 @@ body.single {
   
   @media #{$mq__larger-than-tablet} {
     &.header-landscape + #content {
-      margin-top: $nav__height;
+      padding-top: $size__nav-height + $size__padding;
     }
   
     &.header-portrait + #content {
-      margin-top: $nav__height + $size__branding-height + $size__margin;
+      padding-top: $size__nav-height + $size__branding-height + $size__margin + $size__padding;
     }
   }
   
@@ -97,6 +95,10 @@ body.woocommerce {
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
     margin: $size__padding auto ($size__padding * .5);
+    
+    .content-area {
+      width: 100%;
+    }
   
     @media #{$mq__smaller-than-tablet} {
       width: 100%;

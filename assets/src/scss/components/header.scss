@@ -1,9 +1,12 @@
+.header-color {
+  background-color: $color__nav-background;
+}
+
 #masthead {
   position: fixed;
   z-index: 1000;
   top: 0;
   width: 100%;
-  background-color: $color__nav-background;
   transition: $animations__lenght;
   
   @media #{$mq__smaller-than-tablet} {
@@ -12,34 +15,128 @@
     padding: 0;
   }
   
-  .has-featured-image.top & {
-    background-color: transparentize($color__nav-background, 0.2);
-  }
+  // UTILS && ANIMATIONS
+  // if has a featured image and is at the top of the page...
+  .has-featured-image.top & { background-color: transparentize($color__nav-background, 0.2);}
   
-  // if the page is scrolled shows a shadow under the header
-  .scrolled & {
-    box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);
-  }
+  // if the page was scrolled shows a shadow under the header
+  .scrolled & { box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);}
   
   // hides the logo in portrait header when the page is scrolled
-  .scrolled &.header-portrait  {
-    transform: translateY(-#{$size__branding-height + $size__margin});
-  }
+  .scrolled &.header-portrait  { transform: translateY(-#{$size__branding-height + $size__margin});}
   
+  // the background image
   .site-header-image {
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
-    opacity: 0.1;
   }
   
-  &.header-portrait .site-branding-container {
+  
+  // Logo/site title container
+  .header-wrapper {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    @media #{$mq__smaller-than-tablet} {height: 100%;}
+    
+    .site-branding {
+      width: 100%;
+      height: $size__branding-height;
+      padding-top: $size__margin;
+  
+      @media #{$mq__smaller-than-tablet} {
+        text-align: left;
+        width: calc(100% - #{$hamburger__size * 1.5} )
+      }
+  
+      // Custom logo
+      .custom-logo-link {
+        display: flex;
+        height: 100%;
+        align-items: center;
+    
+        .custom-logo {
+          object-fit: contain;
+          height: 66%;
+          width: 100%;
+      
+          @media #{$mq__smaller-than-tablet} {
+            max-height: $head__height-responsive - ($size__margin * 2);
+            width: auto;
+            margin: 0;
+          }
+        }
+      }
+  
+      &.has-custom-logo .site-logo {
+        height: 100%;
+        width: 100%;
+      }
+      
+      &.has-header-text.has-custom-logo {
+        display: flex;
+        flex-direction: row;
+        
+        .site-logo {
+          margin-right: $size__margin;
+  
+          @media #{$mq__smaller-than-tablet} {width: auto;}
+        }
+        .custom-logo {object-position: right;}
+        
+        .header-text {
+          text-align: left;
+          margin-left: $size__margin;
+        }
+      }
+    }
+    
+    // Site title & description (no custom logo)
+    .header-text {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  
+      .site-title,
+      .site-description {
+        margin: 0;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+  
+      .site-title {
+        font-size: 26px;
+        line-height: ($size__branding-height - ($size__margin * 2)) * .66;
+        @media #{$mq__smaller-than-tablet} {
+          line-height: ($head__height-responsive - $size__margin) * .66;
+        }
+      }
+  
+      .site-description {
+        display: inline-block;
+        color: white;
+        font-weight: 300;
+        font-size: 11px;
+        line-height: ($size__branding-height - ($size__margin * 2)) * .33;
+        @media #{$mq__smaller-than-tablet} {
+          line-height: ($head__height-responsive - $size__margin) * .33;
+        }
+      }
+    }
+  }
+  
+  
+  //  PORTRAIT
+  &.header-portrait .header-wrapper {
     
     flex-direction: column;
     
     .site-branding {
-      height: $size__branding-height;
       @media #{$mq__smaller-than-tablet} {
         height: $size__branding-height - ($size__margin * .5);
         padding-top: 0;
@@ -49,7 +146,6 @@
         justify-content: center;
         text-align: center;
         @media #{$mq__smaller-than-tablet} {
-          justify-content: flex-start;
           text-align: left;
         }
       }
@@ -60,156 +156,72 @@
     }
     
     .custom-logo {
-      height: $size__branding-logo-ratio;
       align-self: center;
-      margin-left: auto;
-      margin-right: auto;
   
       @media #{$mq__smaller-than-tablet} {
         margin-left: 0;
       }
     }
-    
   }
   
-  &.header-landscape .site-branding-container {
-    
+  
+  // LANDSCAPE
+  &.header-landscape .header-wrapper {
     flex-direction: row;
+    height: $size__nav-height;
     
     .site-branding {
+      height: 100%;
       padding-bottom: $size__margin;
+      box-sizing: border-box;
       @media #{$mq__smaller-than-tablet} {
         padding-top: $size__margin * .5;
         padding-bottom: $size__margin * .5;
       }
       
-      &.has-header-text.has-custom-logo {
-        justify-content: flex-start;
+      .custom-logo {
+        object-position: left;
+        width: auto;
       }
-    }
-    
-    .custom-logo {
-      height: $nav__height * .5;
+      
+      &.has-header-text.has-custom-logo .site-logo {
+        width: auto;
+      }
     }
   
     .main-navigation {
       align-self: flex-end;
     }
-  }
-  
-  // the container of the logo/site title
-  .site-branding-container {
     
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0;
-    margin-bottom: 0;
-  
-    @media #{$mq__smaller-than-tablet} {
-      height: 100%;
-    }
-
-    .site-branding {
-      width: 100%;
-      padding-top: $size__margin;
-  
-      &.has-header-text.has-custom-logo {
-        display: flex;
-        flex-direction: row;
-        .header-text {
-          text-align: left;
-        }
-    
-        .site-logo {
-          margin-right: $size__margin * 2;
-      
-          @media #{$mq__phablet} {
-            width:auto;
-            text-align: center;
-          }
-        }
-      }
-      
-      .header-text {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        @media #{$mq__smaller-than-tablet} {
-          justify-content: center;
-        }
-      }
-  
+    .main-menu {
+      padding: 0 0 0 $size__padding-resp;
       @media #{$mq__smaller-than-tablet} {
-        text-align: left;
-        width: calc(100% - #{$hamburger__size * 1.5} )
+        padding: 0 $size__padding-resp;
       }
-      
     }
-    
-    // Site title & description (no custom logo)
-    .site-title,
-    .site-description {
-      margin: 0;
-      line-height: 1.05;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    
+  
     .site-title {
-      font-size: 26px;
+      font-size: ($size__nav-height - ($size__margin * 2)) * .6;;
+      line-height: ($size__nav-height - ($size__margin * 2)) * .7;
     }
-
+  
     .site-description {
-      display: inline-block;
-      color: white;
-      font-weight: 300;
-      font-size: 11px;
-    }
-  
-    // Custom logo
-    .has-custom-logo .site-logo {
-      height: 100%;
-      box-sizing: content-box;
-  
-      @media #{$mq__smaller-than-tablet} {
-        height: 100%;
-        max-width: 60%;
-      }
-    }
-    
-    .custom-logo-link {
-      display: flex;
-      height: 100%;
-      align-items: center;
-    }
-
-    .custom-logo {
-      object-fit: contain;
-      width: auto;
-     
-      @media #{$mq__smaller-than-tablet} {
-        max-height: $head__height-responsive - ($size__margin * 2);
-        margin: 0;
-      }
+      font-size: ($size__nav-height - ($size__margin * 2)) * .3;
+      line-height: ($size__nav-height - ($size__margin * 2)) * .3;
     }
     
   }
+  
 }
+
 
 
 // the wordpress admin bar fix
 @media screen and (max-width: 600px) {
- body.logged-in > div:last-child {
-   position: fixed !important;
- }
+ body.logged-in > div:last-child {position: fixed !important;}
 }
 
 .admin-bar #masthead {
   top: 32px;
   @media screen and (max-width: 782px) { top: 46px; }
-}
-
-body.woocommerce .site-content {
-  margin-top: 0;
 }

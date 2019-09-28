@@ -5,9 +5,9 @@
   $menu_direction = (get_theme_mod('modul_r_header_direction') === 'landscape') ? ' header-landscape' : ' header-portrait' ;
 ?>
 
-<header id="masthead" class="site-header<?php echo $menu_direction; ?>" role="banner">
+<header id="masthead" class="site-header header-color<?php echo $menu_direction; ?>" role="banner">
 
-	<div class="site-branding-container main-width alignwide">
+	<div class="header-wrapper main-width alignwide">
 
     <?php modul_r_header_image(); ?>
 
@@ -15,7 +15,9 @@
         if ( $show_header_text ) {echo ' has-header-text';}
         if ( $custom_logo ) {echo ' has-custom-logo';}
         ?>">
+
       <div class="site-logo"><?php the_custom_logo(); ?></div>
+
       <?php if ( $show_header_text ) : ?>
         <div class="header-text">
           <h1 class="site-title">
@@ -28,13 +30,12 @@
           <?php endif; ?>
         </div>
       <?php endif; ?>
-    </div>
 
-    <div class="menu-shadow" onclick="document.querySelector('#masthead').classList.toggle('active')"></div>
+    </div>
 
     <div class="menu-resp unselectable" onclick="document.querySelector('#masthead').classList.toggle('active')">
       <button class="c-hamburger">
-        <i class="menu-toggle"></i>
+        <i class="menu-toggle has-primary-background-color"></i>
         <span class="screen-reader-text"><?php _e( 'menu', 'modul-r' ); ?></span>
       </button>
     </div>
@@ -48,7 +49,8 @@
         ) );
       ?>
     </nav>
+    <div class="menu-shadow" onclick="document.querySelector('#masthead').classList.toggle('active')"></div>
 
-	</div>
+  </div>
 
 </header>

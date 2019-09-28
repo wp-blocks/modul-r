@@ -6,6 +6,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		// get the custom colors
 		$primary_color = esc_attr(get_theme_mod( 'primary-color' ));
 		$secondary_color = esc_attr(get_theme_mod( 'secondary-color' ));
+		$header_color = esc_attr(get_theme_mod( 'header-color' ));
+		$header_text_color = get_header_textcolor();
 
 		// get the acf.css file and store into a variable
 		ob_start();
@@ -13,18 +15,26 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$atf_css = ob_get_clean();
 
 		// if primary color is set apply to chrome address bar else use the default color
-		if ($primary_color) {
-			echo '<meta name="theme-color" content="'. modul_r_adjustBrightness($primary_color, 0.2 ) .'" />';
+		if ($header_color) {
+			echo '<meta name="theme-color" content="'. modul_r_adjustBrightness($header_color, 0.2 ) .'" />';
+			$atf_css .= "body .header-color {background-color: ". $header_color .";}.has-featured-image.top #masthead {background-color: ". $header_color ."cc;}";
 		} else {
-			echo '<meta name="theme-color" content="#118886" />';
+			echo '<meta name="theme-color" content="'. modul_r_adjustBrightness(esc_attr($GLOBALS['modul_r_defaults']['colors']['header']), 0.2 ) .'" />';
+		}
+
+		// push the header color into stored style if is present
+		if ($header_text_color && $header_text_color != 'blank') {
+			$atf_css .= '#masthead a {color:#' . $header_text_color. ';}';
 		}
 
 		// push primary and secondary color (if is set) into the stored style
 		if ($primary_color) {
 			// the primary color css
-			$atf_css .= ".has-primary-color{color:{$primary_color}}.has-primary-background-color{background:{$primary_color}}";
+			$atf_css .= ".has-primary-color,#masthead .site-branding a{color:{$primary_color}}.has-primary-background-color{background:{$primary_color}}";
 			// bold text color css
 			$atf_css .= "body blockquote:before, body b,body strong{color:{$primary_color}}";
+			// the hamburger color
+			$atf_css .= 'body .menu-resp button.c-hamburger i,body .menu-resp button.c-hamburger i::after,body .menu-resp button.c-hamburger i::before {background:' . $primary_color. ';}';
 			// home columns title custom color
 			$atf_css .= "body.home .entry-content >.wp-block-columns:first-of-type h2 a{color:{$primary_color}!important}";
 			// scrollbar color (10% darker)
@@ -44,12 +54,6 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 			$atf_css .= "body .entry-content .wp-block-quote:not(.is-large),body .entry-content .wp-block-quote:not(.is-style-large){border-left-color:{$secondary_color}}";
 			// separators border color
 			$atf_css .= "body .wp-block-separator,body hr {border-bottom-color:{$secondary_color}}";
-		}
-
-		// push the header color into stored style if is present
-		$header_color = get_header_textcolor();
-		if ($header_color && $header_color != 'blank') {
-			$atf_css .= '#masthead .site-branding-container .site-title a.primary-color {color:#' . $header_color. ';}';
 		}
 
 		// return the stored style

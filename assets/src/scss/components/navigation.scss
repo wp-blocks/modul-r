@@ -1,11 +1,7 @@
 $nav_padding: 0 ($size__margin * 4);
 
-.header-landscape .main-navigation .main-menu {
-  padding: 0 $size__padding-resp;
-}
-
 .main-navigation {
-  
+
   .main-menu {
     display: flex;
     height: 100%;
@@ -21,7 +17,7 @@ $nav_padding: 0 ($size__margin * 4);
   ul {
     display: flex;
     justify-content: center;
-    height: $nav__height;
+    height: $size__nav-height;
     margin: 0;
  
     @media #{$mq__smaller-than-tablet} {
@@ -40,8 +36,8 @@ $nav_padding: 0 ($size__margin * 4);
     a {
       display: block;
       white-space: nowrap;
-      height: $nav__height;
-      line-height: $nav__height;
+      height: $size__nav-height;
+      line-height: $size__nav-height;
       padding: $nav_padding;
       box-sizing: border-box;
   
@@ -107,7 +103,7 @@ $nav_padding: 0 ($size__margin * 4);
       width: 100%;
       opacity: 0;
       right: 100%;
-      background-color: $color__black;
+      background-color: transparentize($color__black, .5);
       transition: 200ms opacity;
       transform: translateX(0) !important;
     }
