@@ -5,7 +5,7 @@ Description: Modul R is a powerful and flexible theme that provides a fast way t
 Theme URI: https://modul-r.codekraft.it/ 
 Author: Codekraft Studio 
 Requires at least: WordPress 4.9.6 
-Version: 1.2.1 
+Version: 1.2.2 
 License: GNU General Public License v3 or later 
 License: © 2019 Codekraft Studio 
 License URI: https://github.com/erikyo/modul-r/blob/master/LICENSE 
@@ -514,7 +514,7 @@ body.has-sidebar .site-content,body.woocommerce .site-content{
   box-sizing:border-box;
   padding-left:20px;
   padding-right:20px;
-  margin:64px auto 32px; }
+  margin:0 auto 32px; }
   body.has-sidebar .site-content .content-area,body.woocommerce .site-content .content-area{
     width:100%; }
   @media (max-width:1023px){
@@ -1805,6 +1805,7 @@ body.woocommerce div.product .summary.entry-summary{
       padding-left:0; } }
 
 body.woocommerce div.product .product_title.entry-title{
+  margin:0;
   font-size:38px;
   text-align:left; }
   @media (max-width:1023px){
