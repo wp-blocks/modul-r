@@ -116,6 +116,7 @@ body.woocommerce {
     }
     
     .product_title.entry-title {
+      margin: 0;
       font-size: 38px;
       text-align: left;
       @media #{$mq__smaller-than-tablet} {font-size: 30px;}
