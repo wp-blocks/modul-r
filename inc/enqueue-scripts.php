@@ -16,8 +16,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// if primary color is set apply to chrome address bar else use the default color
 		if ($header_color) {
-			echo '<meta name="theme-color" content="'. modul_r_adjustBrightness($header_color, 0.2 ) .'" />';
-			$atf_css .= "body .header-color {background-color: ". $header_color .";}.has-featured-image.top #masthead {background-color: ". $header_color ."cc;}";
+			$atf_css .= "body .header-color {background-color: ". $header_color .";}.has-featured-image.top #masthead {background-color: ". $header_color ."dd;}";
+			$atf_css .= "@media (max-width: 1023px) {.main-navigation {background-color: ". modul_r_adjustBrightness($header_color, 0.2) ."ee;}}";
 		} else {
 			echo '<meta name="theme-color" content="'. modul_r_adjustBrightness(esc_attr($GLOBALS['modul_r_defaults']['colors']['header']), 0.2 ) .'" />';
 		}
@@ -53,12 +53,16 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 			// quote border color
 			$atf_css .= "body .entry-content .wp-block-quote:not(.is-large),body .entry-content .wp-block-quote:not(.is-style-large){border-left-color:{$secondary_color}}";
 			// separators border color
-			$atf_css .= "body .wp-block-separator,body hr {border-bottom-color:{$secondary_color}}";
+			$atf_css .= "body .wp-block-separator,body hr {border-bottom-color:$secondary_color}";
 		}
 
 		// return the stored style
 		if ($atf_css != "" ) {
 			echo '<style id="modul-r-inline-css" type="text/css">'. $atf_css . '</style>';
+		}
+
+		if ($header_color) {
+			echo '<meta name="theme-color" content="' . modul_r_adjustBrightness( $header_color, 0.2 ) . '" />';
 		}
 	}
 endif;
