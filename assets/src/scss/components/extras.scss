@@ -15,7 +15,6 @@
 .post-meta {
   
   .meta-wrapper {
-    padding-top: $size__margin * 2;
     display: inline-flex;
     
     p {
@@ -46,6 +45,9 @@
 .breadcrumbs {
   font-size: $text__size - 2;
   padding-bottom: $size__margin * 2 ;
+  
+  @media #{$mq__smaller-than-tablet} {padding-bottom: $size__margin ;}
+  
   a {
     opacity: 0.8;
     font-weight: 600;
