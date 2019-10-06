@@ -36,6 +36,9 @@
   text-align: center;
   font-size: 64px;
   width: 75%;
-  @media #{$mq__smaller-than-tablet} {font-size: 52px;}
-  @media #{$mq__phablet} {font-size: 42px;}
+  @media #{$mq__smaller-than-tablet} {
+    font-size: 52px;
+    width: 100%
+  }
+  @media #{$mq__phablet} {font-size: 36px;}
 }
