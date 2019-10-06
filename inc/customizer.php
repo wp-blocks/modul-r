@@ -1,7 +1,5 @@
 <?php
 
-
-
 if ( ! function_exists('modul_r_customizer_opt') ) :
 	function modul_r_customizer_opt( $wp_customize ) {
 
