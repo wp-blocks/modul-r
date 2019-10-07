@@ -18,7 +18,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     ?>
 
     <div class="website-hero text-center<?php echo $hero_fullscreen; ?>">
-    <?php modul_r_post_image('parallax'); ?>
+    <?php modul_r_post_image('parallax has-primary-background-color'); ?>
       <div class="hero-title text-center">
         <h1 class="entry-title has-secondary-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
@@ -44,7 +44,7 @@ if ( ! function_exists( 'modul_r_post_image' ) ) :
   function modul_r_post_image( $class = null ) {
     // Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
-      <div class="entry-image interactive<?php echo ' ' . sanitize_html_class($class); ?>">
+      <div class="entry-image interactive<?php echo ' ' . esc_attr($class); ?>">
 			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
       </div>
 		<?php endif;

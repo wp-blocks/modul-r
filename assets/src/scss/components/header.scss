@@ -49,7 +49,10 @@
   
       @media #{$mq__smaller-than-tablet} {
         text-align: left;
-        width: calc(100% - #{$hamburger__size * 1.5} )
+        width: calc(100% - #{$hamburger__size * 1.5} );
+        & {
+          justify-content: flex-start !important;
+        }
       }
   
       // Custom logo
@@ -61,7 +64,8 @@
         .custom-logo {
           object-fit: contain;
           height: 66%;
-          width: 100%;
+          max-width: 100%;
+          width: auto;
       
           @media #{$mq__smaller-than-tablet} {
             max-height: $head__height-responsive - ($size__margin * 2);
@@ -73,7 +77,6 @@
   
       &.has-custom-logo .site-logo {
         height: 100%;
-        width: 100%;
       }
       
       &.has-header-text.has-custom-logo {
@@ -96,10 +99,10 @@
     
     // Site title & description (no custom logo)
     .header-text {
-      width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: center;
   
       .site-title,
       .site-description {
@@ -138,12 +141,10 @@
     
     .site-branding {
       @media #{$mq__smaller-than-tablet} {
-        height: $size__branding-height - ($size__margin * .5);
         padding-top: 0;
       }
       
       .header-text {
-        justify-content: center;
         text-align: center;
         @media #{$mq__smaller-than-tablet} {
           text-align: left;
@@ -169,6 +170,9 @@
   &.header-landscape .header-wrapper {
     flex-direction: row;
     height: $size__nav-height;
+    @media #{$mq__smaller-than-tablet} {
+      height: 100%;
+    }
     
     .site-branding {
       height: 100%;

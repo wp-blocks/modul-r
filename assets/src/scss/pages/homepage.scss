@@ -33,6 +33,9 @@ body.home {
       width: 100%;
       height: 100%;
       max-height: 700px;
+      @media #{$mq__smaller-than-tablet} {
+        max-height: inherit;
+      }
     }
     
     .hero-title {
@@ -52,19 +55,33 @@ body.home {
   
         @media #{$mq__smaller-than-tablet} {
           font-size: 48px;
+          width: 100%;
         }
+        @media #{$mq__smartphone} {font-size: 36px;}
       }
       
       p {
         font-size: 19px;
         font-style: italic;
+        @media #{$mq__smaller-than-tablet} {
+          font-size: 17px;
+          line-height: $text__line-height-headline;
+        }
       }
       
       a {
         margin-top: 32px;
+        @media #{$mq__smaller-than-tablet} {
+          font-size: 17px;
+          padding: 10px 16px;
+        }
       }
       
     }
+  }
+  
+  .site-content {
+    margin-top: $size__padding;
   }
   
   .wp-block-columns {
@@ -95,7 +112,7 @@ body.home {
     & > .wp-block-columns:first-child {
       overflow: visible;
       text-align: center;
-      margin-top: ($size__padding * -1.5);
+      margin-top: ($size__padding * -2.5);
       margin-bottom: $size__padding * .75;
       @media #{$mq__smaller-than-tablet} {text-align: left;}
       
