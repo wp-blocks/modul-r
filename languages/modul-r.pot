@@ -62,171 +62,171 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/customizer.php:18
+#: inc/customizer.php:16
 msgid "Header Color"
 msgstr ""
 
-#: inc/customizer.php:30
+#: inc/customizer.php:28
 msgid "Primary Color"
 msgstr ""
 
-#: inc/customizer.php:41
+#: inc/customizer.php:39
 msgid "Secondary Color"
 msgstr ""
 
-#: inc/customizer.php:47
+#: inc/customizer.php:45
 msgid "Modul-R Options"
 msgstr ""
 
-#: inc/customizer.php:56
+#: inc/customizer.php:54
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:70
+#: inc/customizer.php:68
 msgid "Header layout"
 msgstr ""
 
-#: inc/customizer.php:71
+#: inc/customizer.php:69
 msgid "The header layout can be landscape (logo and menu on the same line) or portrait (centered layout with the menu under the logo)"
 msgstr ""
 
-#: inc/customizer.php:75
+#: inc/customizer.php:73
 msgid "Portrait"
 msgstr ""
 
-#: inc/customizer.php:76
+#: inc/customizer.php:74
 msgid "Landscape"
 msgstr ""
 
-#: inc/customizer.php:85, inc/sidebar.php:22
+#: inc/customizer.php:83, inc/sidebar.php:22
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:100
+#: inc/customizer.php:98
 msgid "Enable footer credits section"
 msgstr ""
 
-#: inc/customizer.php:101
+#: inc/customizer.php:99
 msgid "Shows website logo and the text you insert in the textarea below"
 msgstr ""
 
-#: inc/customizer.php:113
+#: inc/customizer.php:111
 msgid "Show logo"
 msgstr ""
 
-#: inc/customizer.php:126
+#: inc/customizer.php:124
 msgid "Credits"
 msgstr ""
 
-#: inc/customizer.php:144
+#: inc/customizer.php:142
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer.php:158
+#: inc/customizer.php:156
 msgid "Show Sidebar"
 msgstr ""
 
-#: inc/customizer.php:159
+#: inc/customizer.php:157
 msgid "Show the sidebar into single articles and pages"
 msgstr ""
 
-#: inc/customizer.php:171
+#: inc/customizer.php:169
 msgid "Sidebar position"
 msgstr ""
 
-#: inc/customizer.php:172
+#: inc/customizer.php:170
 msgid "The sidebar can be showed at the left or at the right of the content. This customization also affect the WooCommerce sidebar."
 msgstr ""
 
-#: inc/customizer.php:176
+#: inc/customizer.php:174
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:177
+#: inc/customizer.php:175
 msgid "Right"
 msgstr ""
 
-#: inc/customizer.php:186
+#: inc/customizer.php:184
 msgid "Homepage"
 msgstr ""
 
-#: inc/customizer.php:200
+#: inc/customizer.php:198
 msgid "Fullpage Hero"
 msgstr ""
 
-#: inc/customizer.php:201
+#: inc/customizer.php:199
 msgid "The main image of the homepage will be 100% of the height of the page"
 msgstr ""
 
-#: inc/customizer.php:214
+#: inc/customizer.php:212
 msgid "Hero headline"
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:213
 msgid "Write a catchy phrase as homepage headline"
 msgstr ""
 
-#: inc/customizer.php:228
+#: inc/customizer.php:226
 msgid "Subtitle"
 msgstr ""
 
-#: inc/customizer.php:241
+#: inc/customizer.php:239
 msgid "Call to action"
 msgstr ""
 
-#: inc/customizer.php:242
+#: inc/customizer.php:240
 msgid "Choose an important page"
 msgstr ""
 
-#: inc/customizer.php:268
+#: inc/customizer.php:266
 msgid "Select an important category"
 msgstr ""
 
-#: inc/customizer.php:311
+#: inc/customizer.php:309
 msgid "Theme primary color light"
 msgstr ""
 
-#: inc/customizer.php:316
+#: inc/customizer.php:314
 msgid "Theme primary color"
 msgstr ""
 
-#: inc/customizer.php:321
+#: inc/customizer.php:319
 msgid "Theme primary color dark"
 msgstr ""
 
-#: inc/customizer.php:326
+#: inc/customizer.php:324
 msgid "Theme secondary color light"
 msgstr ""
 
-#: inc/customizer.php:331
+#: inc/customizer.php:329
 msgid "Theme secondary color"
 msgstr ""
 
-#: inc/customizer.php:336
+#: inc/customizer.php:334
 msgid "Theme secondary color dark"
 msgstr ""
 
-#: inc/customizer.php:341
+#: inc/customizer.php:339
 msgid "White"
 msgstr ""
 
-#: inc/customizer.php:346
+#: inc/customizer.php:344
 msgid "White Smoke"
 msgstr ""
 
-#: inc/customizer.php:351
+#: inc/customizer.php:349
 msgid "Light gray"
 msgstr ""
 
-#: inc/customizer.php:356
+#: inc/customizer.php:354
 msgid "Gray"
 msgstr ""
 
-#: inc/customizer.php:361
+#: inc/customizer.php:359
 msgid "Dark gray"
 msgstr ""
 
-#: inc/customizer.php:366
+#: inc/customizer.php:364
 msgid "Black"
 msgstr ""
 
