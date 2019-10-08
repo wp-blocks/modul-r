@@ -3,6 +3,21 @@
 if ( ! function_exists('modul_r_customizer_opt') ) :
 	function modul_r_customizer_opt( $wp_customize ) {
 
+		// Creates custom title and description for theme customizer controls
+		class modul_r_custom_text_control extends WP_Customize_Control {
+			public $type = 'customtext';
+			public $extra = '';
+			public $add_class = '';
+			public function render_content() {
+				?>
+				<label <?php if ($this->add_class != '') { echo 'class="' . $this->add_class . '"'; }?>>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+					<span><?php echo esc_html( $this->extra ); ?></span>
+				</label>
+				<?php
+			}
+		}
+
 		// Template custom colors
 
 		// Header color
@@ -177,14 +192,32 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			)
 		);
 
-
-
 		// Homepage Section
 		$wp_customize->add_section( 'modul_r_home_options' , array(
 			'title'      => esc_html__('Homepage','modul-r'),
 			'priority'   => 50,
 			'panel'      => 'modul_r_theme_options'
 		) );
+
+		if ( get_option( 'show_on_front' ) !== 'page') {
+			// Warning Message if the homepage is not a page
+			$wp_customize->add_setting('modul_r_hero_options[customtext]', array(
+					'default' => '',
+					'type' => 'customtext_control',
+					'capability' => 'edit_theme_options',
+					'transport' => 'refresh',
+				)
+			);
+			$wp_customize->add_control( new modul_r_custom_text_control( $wp_customize, 'customtext_control', array(
+					'label' => esc_html__( 'Warning! Set a page as homepage to enable this section', 'modul-r' ),
+					'section' => 'modul_r_home_options',
+					'settings' => 'modul_r_hero_options[customtext]',
+					'extra' => esc_html__( 'To set a page as homepage you have to go to the customizer than select homepage settings and set a static page as homepage (and select a page)', 'modul-r' ),
+					'add_class' => 'homepage_is_not_a_page'
+				) )
+			);
+		}
+
 
 		// the "Fullpage Hero" checkbox
 		$wp_customize->add_setting( 'modul_r_hero_fullpage', array(
@@ -197,6 +230,19 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'section' => 'modul_r_home_options',
 			'label' => esc_html__( 'Fullpage Hero', 'modul-r' ),
 			'description' => esc_html__( 'The main image of the homepage will be 100% of the height of the page', 'modul-r' ),
+		) );
+
+		// the "Fullpage Hero" checkbox
+		$wp_customize->add_setting( 'modul_r_hero_opacity', array(
+			'default'   => '100',
+			'transport' => 'refresh',
+			'sanitize_callback' => 'sanitize_title',
+		) );
+		$wp_customize->add_control( 'modul_r_hero_opacity', array(
+			'type' => 'number',
+			'section' => 'modul_r_home_options',
+			'label' => esc_html__( 'Hero Image opacity', 'modul-r' ),
+			'description' => esc_html__( 'insert a number beetween 1 and 100 (1 - 100% opacity)', 'modul-r' ),
 		) );
 
 		// Hero headline
