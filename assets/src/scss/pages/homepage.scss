@@ -10,6 +10,7 @@ body.home {
     align-content: center;
     position: relative;
     background-color: $color__light-grey;
+    margin-bottom: $size__padding;
   
     @media #{$mq__smaller-than-tablet} {
       height: 80vh;
@@ -80,10 +81,6 @@ body.home {
     }
   }
   
-  .site-content {
-    margin-top: $size__padding;
-  }
-  
   .wp-block-columns {
     
     @media #{$mq__smaller-than-tablet} {
@@ -112,7 +109,7 @@ body.home {
     & > .wp-block-columns:first-child {
       overflow: visible;
       text-align: center;
-      margin-top: ($size__padding * -2.5);
+      margin-top: ($size__padding * -2);
       margin-bottom: $size__padding * .75;
       @media #{$mq__smaller-than-tablet} {text-align: left;}
       
