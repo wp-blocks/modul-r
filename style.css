@@ -2944,11 +2944,11 @@ iframe{
   max-width:100%; }
 
 ::-moz-selection{
-  background-color:rgba(23, 190, 187, .5) !important;
+  background-color:rgba(23, 190, 187, .5);
   color:#fff; }
 
 ::selection{
-  background-color:rgba(23, 190, 187, .5) !important;
+  background-color:rgba(23, 190, 187, .5);
   color:#fff; }
 
 pre{
