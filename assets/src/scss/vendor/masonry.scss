@@ -91,16 +91,8 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
     }
   }
   
-  .category-list {
+  .breadcrumbs {
     text-align: left;
-    font-size: 12px;
-    font-weight: 600;
-    a {
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-family: $font__family;
-      color: $color__dark-grey;
-    }
   }
   
   h2.entry-title {
