@@ -170,7 +170,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
 	  // show special thanks in the bottom section of the footer
 	  $wp_customize->add_setting( 'modul_r_footer_thanks_show', array(
-		  'default'   => false,
+		  'default'   => true,
 		  'transport' => 'refresh',
 		  'sanitize_callback' => 'modul_r_sanitize_checkbox',
 	  ) );

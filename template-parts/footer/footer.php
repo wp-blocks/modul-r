@@ -36,9 +36,9 @@
         $special_thanks = esc_html(get_theme_mod( 'modul_r_footer_thanks_txt' ));
 	      if ( $special_thanks === '' ) { ?>
             <a href="<?php esc_url( __( '//wordpress.org/', 'modul-r' ) ); ?>"><?php esc_html_e( 'Proudly powered by WordPress', 'modul-r' ); ?></a> -
-            <a href="<?php echo esc_url( __( '//codekraft.it', 'modul-r' ) ); ?>"><?php esc_html_e( 'Modul R is made with &hearts; by codekraft-studio.', 'modul-r' ); ?></a> -
+            <a href="<?php echo esc_url( __( '//codekraft.it', 'modul-r' ) ); ?>"><?php esc_html_e( 'Modul R is made with &hearts; by codekraft-studio', 'modul-r' ); ?></a> -
 	      <?php } else {
-	        echo $special_thanks . ' - ';
+	        esc_html_e($special_thanks . ' - ') ;
         }
       } ?>
 
