@@ -115,142 +115,150 @@ msgid "Show logo"
 msgstr ""
 
 #: inc/customizer.php:141
-msgid "Your Setting with file input"
+msgid "Upload a image here if you want to override the website logo"
 msgstr ""
 
-#: inc/customizer.php:158
+#: inc/customizer.php:157
 msgid "Credits"
 msgstr ""
 
-#: inc/customizer.php:181
-msgid "Hide Credits to WordPress and to theme creators"
+#: inc/customizer.php:180
+msgid "Show Special thanks"
 msgstr ""
 
-#: inc/customizer.php:188
+#: inc/customizer.php:193
+msgid "Special Thanks Override"
+msgstr ""
+
+#: inc/customizer.php:194
+msgid "Leave empty to show the default special thanks (thanks to Wordpress and theme author)"
+msgstr ""
+
+#: inc/customizer.php:201
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer.php:202
+#: inc/customizer.php:215
 msgid "Show Sidebar"
 msgstr ""
 
-#: inc/customizer.php:203
+#: inc/customizer.php:216
 msgid "Show the sidebar into single articles and pages"
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:228
 msgid "Sidebar position"
 msgstr ""
 
-#: inc/customizer.php:216
+#: inc/customizer.php:229
 msgid "The sidebar can be showed at the left or at the right of the content. This customization also affect the WooCommerce sidebar."
 msgstr ""
 
-#: inc/customizer.php:220
+#: inc/customizer.php:233
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:221
+#: inc/customizer.php:234
 msgid "Right"
 msgstr ""
 
-#: inc/customizer.php:228
+#: inc/customizer.php:241
 msgid "Homepage"
 msgstr ""
 
-#: inc/customizer.php:243
+#: inc/customizer.php:256
 msgid "Warning! Set a page as homepage to enable this section"
 msgstr ""
 
-#: inc/customizer.php:246
+#: inc/customizer.php:259
 msgid "To set a page as homepage you have to go to the customizer than select homepage settings and set a static page as homepage (and select a page)"
 msgstr ""
 
-#: inc/customizer.php:262
+#: inc/customizer.php:275
 msgid "Fullpage Hero"
 msgstr ""
 
-#: inc/customizer.php:263
+#: inc/customizer.php:276
 msgid "The main image of the homepage will be 100% of the height of the page"
 msgstr ""
 
-#: inc/customizer.php:275
+#: inc/customizer.php:288
 msgid "Hero Image opacity"
 msgstr ""
 
-#: inc/customizer.php:276
+#: inc/customizer.php:289
 msgid "insert a number beetween 1 and 100 (1 - 100% opacity)"
 msgstr ""
 
-#: inc/customizer.php:292
+#: inc/customizer.php:305
 msgid "Hero headline"
 msgstr ""
 
-#: inc/customizer.php:293
+#: inc/customizer.php:306
 msgid "Write a catchy phrase as homepage headline"
 msgstr ""
 
-#: inc/customizer.php:306
+#: inc/customizer.php:319
 msgid "Subtitle"
 msgstr ""
 
-#: inc/customizer.php:319
+#: inc/customizer.php:332
 msgid "Call to action"
 msgstr ""
 
-#: inc/customizer.php:320
+#: inc/customizer.php:333
 msgid "Choose an important page"
 msgstr ""
 
-#: inc/customizer.php:346
+#: inc/customizer.php:359
 msgid "Select an important category"
 msgstr ""
 
-#: inc/customizer.php:407
+#: inc/customizer.php:420
 msgid "Theme primary color light"
 msgstr ""
 
-#: inc/customizer.php:412
+#: inc/customizer.php:425
 msgid "Theme primary color"
 msgstr ""
 
-#: inc/customizer.php:417
+#: inc/customizer.php:430
 msgid "Theme primary color dark"
 msgstr ""
 
-#: inc/customizer.php:422
+#: inc/customizer.php:435
 msgid "Theme secondary color light"
 msgstr ""
 
-#: inc/customizer.php:427
+#: inc/customizer.php:440
 msgid "Theme secondary color"
 msgstr ""
 
-#: inc/customizer.php:432
+#: inc/customizer.php:445
 msgid "Theme secondary color dark"
 msgstr ""
 
-#: inc/customizer.php:437
+#: inc/customizer.php:450
 msgid "White"
 msgstr ""
 
-#: inc/customizer.php:442
+#: inc/customizer.php:455
 msgid "White Smoke"
 msgstr ""
 
-#: inc/customizer.php:447
+#: inc/customizer.php:460
 msgid "Light gray"
 msgstr ""
 
-#: inc/customizer.php:452
+#: inc/customizer.php:465
 msgid "Gray"
 msgstr ""
 
-#: inc/customizer.php:457
+#: inc/customizer.php:470
 msgid "Dark gray"
 msgstr ""
 
-#: inc/customizer.php:462
+#: inc/customizer.php:475
 msgid "Black"
 msgstr ""
 
@@ -313,39 +321,39 @@ msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:248
+#: inc/template-functions.php:249, inc/template-functions.php:251
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:267
+#: inc/template-functions.php:271
 msgid "Share this page"
 msgstr ""
 
-#: inc/template-functions.php:267
+#: inc/template-functions.php:271
 msgid "Share this post"
 msgstr ""
 
-#: inc/template-functions.php:271
+#: inc/template-functions.php:275
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-functions.php:277
+#: inc/template-functions.php:281
 msgid "Share on Linkedin"
 msgstr ""
 
-#: inc/template-functions.php:282
+#: inc/template-functions.php:286
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-functions.php:288
+#: inc/template-functions.php:292
 msgid "Send by mail"
 msgstr ""
 
-#: inc/template-functions.php:293
+#: inc/template-functions.php:297
 msgid "Print this page"
 msgstr ""
 
-#: inc/template-functions.php:319
+#: inc/template-functions.php:323
 msgid "You might be interested in..."
 msgstr ""
 
@@ -366,20 +374,20 @@ msgstr ""
 msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-title\">%s</span>"
 msgstr ""
 
-#: template-parts/footer/footer.php:39
+#: template-parts/footer/footer.php:38
 msgid "//wordpress.org/"
 msgstr ""
 
-#: template-parts/footer/footer.php:39
+#: template-parts/footer/footer.php:38
 msgid "Proudly powered by WordPress"
 msgstr ""
 
-#: template-parts/footer/footer.php:40
+#: template-parts/footer/footer.php:39
 msgid "//codekraft.it"
 msgstr ""
 
-#: template-parts/footer/footer.php:40
-msgid "Made with &hearts; by codekraft-studio."
+#: template-parts/footer/footer.php:39
+msgid "Modul R is made with &hearts; by codekraft-studio."
 msgstr ""
 
 #: template-parts/header/header.php:39
