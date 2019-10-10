@@ -64,6 +64,7 @@ body.single {
   
   
   & + #content {
+    overflow-x: hidden;
     padding-top: $size__padding * .75;
     
     @media #{$mq__smaller-than-tablet} {
