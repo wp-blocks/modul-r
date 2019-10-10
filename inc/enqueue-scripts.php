@@ -40,6 +40,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 			$atf_css .= 'body.home .entry-content >.wp-block-columns:first-of-type h2 a{color:'.$primary_color.'!important}';
 			// scrollbar color (10% darker)
 			$atf_css .= 'body::-webkit-scrollbar-thumb:horizontal,body::-webkit-scrollbar-thumb:vertical,body .slick-dots li.slick-active button{background-color:'. modul_r_adjustBrightness($primary_color, -0.1).'}';
+			// scrollbar color (10% darker)
+			$atf_css .= '::selection {background-color: '.$primary_color.'aa !important;}';
 		}
 
 		if ($secondary_color) {
