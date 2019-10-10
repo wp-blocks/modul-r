@@ -13,48 +13,54 @@
 }
 
 .post-meta {
-  
   .meta-wrapper {
     display: inline-flex;
     
     p {
-      color: $color__text;
-      font-size: $text__size - 2;
+      color: $color__dark-grey;
+      font-size: $text__size - 4;
       font-weight: 300;
-      margin-left: $size__margin * 4;
       margin-bottom: 0;
-    
-      &:first-child { margin-left: 0 }
+      margin-left: $size__margin;
+      margin-right: $size__margin;
       
       @media #{$mq__smaller-than-tablet} {
-        margin-left: $size__margin;
-        font-size: 13px;
+        font-size: $text__size - 6;
       }
     }
     
     a {
-      color: $color__text;
-      font-weight: 400;
-      text-align: center;
-      min-width: 100px;
-      display: block;
+      color: $color__dark-grey;
+      font-weight: 600;
+      text-transform: uppercase;
     }
   }
 }
 
 .breadcrumbs {
-  font-size: $text__size - 2;
-  padding-bottom: $size__margin * 2 ;
-  
-  @media #{$mq__smaller-than-tablet} {padding-bottom: $size__margin ;}
+  font-size: $text__size - 6;
+  margin-bottom: $size__margin;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: lighten($color__dark-grey, 40%);
   
   a {
-    opacity: 0.8;
+    color: $color__dark-grey;
     font-weight: 600;
+    text-transform: uppercase;
+    margin-left: $size__margin * .5;
+    margin-right: $size__margin * .5;
+    transition: $animations__lenght;
+    opacity: .5;
+    
     &:last-of-type {
-      color: $color__text;
-      font-weight: 400;
+      opacity: .8;
     }
+    
+    &:hover {
+      opacity: 1;
+    }
+    
   }
 }
 
