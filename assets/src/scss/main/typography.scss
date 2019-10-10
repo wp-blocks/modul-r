@@ -20,8 +20,9 @@ h6 {
 
 
 h1 {
-	font-size: 42px;
-	@media #{$mq__tablet} {font-size: 36px;}
+	font-size: 60px;
+	@media #{$mq__tablet} {font-size: 50px;}
+	@media #{$mq__phablet} {font-size: 32px;}
 }
 
 h2 {
