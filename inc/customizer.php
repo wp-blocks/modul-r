@@ -114,7 +114,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'description' => esc_html__( 'Shows website logo and the text you insert in the textarea below', 'modul-r' ),
 		) );
 
-		// show logo checkbox in credits section
+	  // show logo checkbox in credits section
 		$wp_customize->add_setting( 'modul_r_footer_credits_show_logo', array(
 			'default'   => '',
 			'transport' => 'refresh',
@@ -125,6 +125,24 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'section' => 'modul_r_settings_footer',
 			'label' => esc_html__( 'Show logo', 'modul-r' ),
 		) );
+
+	  // upload footer logo
+	  $wp_customize->add_setting( 'modul_r_footer_custom_logo', array(
+		    'default' => '',
+		    'transport' => 'refresh',
+			  'sanitize_callback' => 'modul_r_sanitize_file'
+		  )
+	  );
+	  $wp_customize->add_control(
+	      new WP_Customize_Upload_Control(
+			  $wp_customize,
+			  'modul_r_footer_custom_logo',
+			  array(
+				  'label'      => __( 'Upload a image here if you want to override the website logo', 'modul-r' ),
+				  'section'    => 'modul_r_settings_footer'
+			  )
+		  )
+	  );
 
 		// the credits title
 		$wp_customize->add_setting( 'modul_r_footer_credits_title', array(
@@ -150,6 +168,32 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'section' => 'modul_r_settings_footer',
 		) );
 
+	  // show special thanks in the bottom section of the footer
+	  $wp_customize->add_setting( 'modul_r_footer_thanks_show', array(
+		  'default'   => false,
+		  'transport' => 'refresh',
+		  'sanitize_callback' => 'modul_r_sanitize_checkbox',
+	  ) );
+	  $wp_customize->add_control( 'modul_r_footer_thanks_show', array(
+		  'type' => 'checkbox',
+		  'section' => 'modul_r_settings_footer',
+		  'label' => esc_html__( 'Show Special thanks', 'modul-r' ),
+	  ) );
+
+	  // custom Special thanks
+	  $wp_customize->add_setting( 'modul_r_footer_thanks_txt', array(
+		  'capability' => 'edit_theme_options',
+		  'default' => '',
+		  'sanitize_callback' => 'sanitize_text_field',
+	  ) );
+
+	  $wp_customize->add_control( 'modul_r_footer_thanks_txt', array(
+		  'type' => 'text',
+		  'section' => 'modul_r_settings_footer',
+		  'label' => esc_html__( 'Special Thanks Override', 'modul-r' ),
+	    'description' => esc_html__( 'Leave empty to show the default special thanks (thanks to Wordpress and theme author)', 'modul-r' ),
+	  ) );
+
 
 
 		// Sidebar Section
@@ -161,7 +205,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
 		// the "Show Sidebar" checkbox
 		$wp_customize->add_setting( 'modul_r_sidebar_enabled', array(
-			'default'   => '',
+			'default'   => false,
 			'transport' => 'refresh',
 			'sanitize_callback' => 'modul_r_sanitize_checkbox',
 		) );
@@ -232,17 +276,20 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'description' => esc_html__( 'The main image of the homepage will be 100% of the height of the page', 'modul-r' ),
 		) );
 
-		// the "Fullpage Hero" checkbox
+		// Hero image opacity
 		$wp_customize->add_setting( 'modul_r_hero_opacity', array(
 			'default'   => '100',
 			'transport' => 'refresh',
-			'sanitize_callback' => 'sanitize_title',
+			'sanitize_callback' => 'absint',
 		) );
 		$wp_customize->add_control( 'modul_r_hero_opacity', array(
 			'type' => 'number',
 			'section' => 'modul_r_home_options',
 			'label' => esc_html__( 'Hero Image opacity', 'modul-r' ),
 			'description' => esc_html__( 'insert a number beetween 1 and 100 (1 - 100% opacity)', 'modul-r' ),
+      'input_attrs' => array(
+        'min' => '1', 'step' => '1', 'max' => '100',
+      ),
 		) );
 
 		// Hero headline
@@ -334,6 +381,24 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			// If $cat_id term exist, return it; otherwise, return the default.
 			return ( term_exists( $cat_id ) != 0 ? $cat_id : $setting->default );
 		}
+
+	  // Sanitize function for file input
+	  function modul_r_sanitize_file( $file, $setting ) {
+
+		  //allowed file types
+		  $mimes = array(
+			  'jpg|jpeg|jpe' => 'image/jpeg',
+			  'gif'          => 'image/gif',
+			  'png'          => 'image/png',
+			  'svg'          => 'image/svg'
+		  );
+
+		  //check file type from file name
+		  $file_ext = wp_check_filetype( $file, $mimes );
+
+		  //if file has a valid mime type return it, otherwise return default
+		  return ( $file_ext['ext'] ? $file : $setting->default );
+	  }
 
 	}
 endif;

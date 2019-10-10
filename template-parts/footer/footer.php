@@ -1,9 +1,6 @@
 <footer id="colophon" class="site-footer has-primary-background-color" role="contentinfo">
 
-	<?php
-
-
-    if(is_active_sidebar('footer-main') || get_theme_mod( 'modul_r_footer_show_credits' ) === true ) {  ?>
+	<?php if( is_active_sidebar('footer-main') || get_theme_mod( 'modul_r_footer_show_credits' ) === true ) { ?>
       <div class="footer-widgets main-width alignwide">
 
 	      <?php
@@ -11,7 +8,11 @@
           if ( get_theme_mod( 'modul_r_footer_show_credits' ) === true ) {
             echo '<section id="footer-credits" class="widget credits">';
               if ( get_theme_mod( 'modul_r_footer_credits_show_logo' ) === true ) {
-                echo '<div class="site-logo">' . the_custom_logo() . '</div>';
+	              if ( get_theme_mod( 'modul_r_footer_custom_logo' ) != '' ) {
+		              echo '<div class="site-logo"><img class="custom-logo custom-footer-logo" src="' . esc_url(get_theme_mod( 'modul_r_footer_custom_logo' )) . '"></div>';
+	              } else {
+                  echo '<div class="site-logo">' . the_custom_logo() . '</div>';
+                }
               }
 
               printf('<h2>%s</h2>', esc_html(get_theme_mod( 'modul_r_footer_credits_title' )));
@@ -29,14 +30,28 @@
 	<div class="footer-info">
 
 		<p class="main-width alignwide">
-      <a href="<?php esc_url( __( '//wordpress.org/', 'modul-r' )); ?>"><?php esc_html_e('Proudly powered by WordPress',  'modul-r'); ?></a> -
-      &copy; <?php echo date_i18n( 'Y' ) ?> <?php echo str_replace(array( 'http://', 'https://' ), '', esc_url(home_url()) ) ; ?> -
+    <?php
+      // Credits section
+      if ( get_theme_mod( 'modul_r_footer_thanks_show' ) !== false ) {
+        $special_thanks = esc_html(get_theme_mod( 'modul_r_footer_thanks_txt' ));
+	      if ( $special_thanks === '' ) { ?>
+            <a href="<?php esc_url( __( '//wordpress.org/', 'modul-r' ) ); ?>"><?php esc_html_e( 'Proudly powered by WordPress', 'modul-r' ); ?></a> -
+            <a href="<?php echo esc_url( __( '//codekraft.it', 'modul-r' ) ); ?>"><?php esc_html_e( 'Modul R is made with &hearts; by codekraft-studio.', 'modul-r' ); ?></a> -
+	      <?php } else {
+	        echo $special_thanks . ' - ';
+        }
+      } ?>
 
-      <?php if ( function_exists( 'the_privacy_policy_link' ) ) {
+		<?php
+      // Privacy policy link
+      if ( function_exists( 'the_privacy_policy_link' ) ) {
         the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span> - ' );
       } ?>
 
-      <a href="<?php echo esc_url( __('//codekraft.it', 'modul-r') ); ?>"><?php esc_html_e('Made with &hearts; by codekraft-studio.',  'modul-r'); ?></a>
+    <?php
+      // Website credits section (year - url)
+      echo '&copy; ' . date_i18n( 'Y' ) ?> <?php echo str_replace(array( 'http://', 'https://' ), '', esc_url(home_url()) ) ;
+    ?>
 		</p>
 
 	</div>

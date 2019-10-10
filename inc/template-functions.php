@@ -245,7 +245,11 @@ if ( ! function_exists('modul_r_breadcrumbs') ) :
 	  if ( function_exists('yoast_breadcrumb') ) {
 		  yoast_breadcrumb( '<p class="breadcrumbs">','</p>' );
 	  } else {
-	    printf('<p class="breadcrumbs"><a href="%s">%s</a> / %s</p>', esc_url(home_url()) , esc_html__('Home', 'modul-r'), get_the_category_list(' &#47; ') );
+	    if (is_single()) {
+	      printf('<p class="breadcrumbs"><a href="%s">%s</a> / %s</p>', esc_url(home_url()) , esc_html__('Home', 'modul-r'), get_the_category_list(' &#47; ') );
+      } else {
+	      printf('<p class="breadcrumbs"><a href="%s">%s</a> / <a href="%s">%s</a></p>', esc_url(home_url()) , esc_html__('Home', 'modul-r'), get_permalink(), get_the_title() );
+      }
     }
   }
 endif;

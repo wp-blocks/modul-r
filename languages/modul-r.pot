@@ -62,171 +62,195 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/customizer.php:16
+#: inc/customizer.php:31
 msgid "Header Color"
 msgstr ""
 
-#: inc/customizer.php:28
+#: inc/customizer.php:43
 msgid "Primary Color"
 msgstr ""
 
-#: inc/customizer.php:39
+#: inc/customizer.php:54
 msgid "Secondary Color"
 msgstr ""
 
-#: inc/customizer.php:45
+#: inc/customizer.php:60
 msgid "Modul-R Options"
 msgstr ""
 
-#: inc/customizer.php:54
+#: inc/customizer.php:69
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:68
+#: inc/customizer.php:83
 msgid "Header layout"
 msgstr ""
 
-#: inc/customizer.php:69
+#: inc/customizer.php:84
 msgid "The header layout can be landscape (logo and menu on the same line) or portrait (centered layout with the menu under the logo)"
 msgstr ""
 
-#: inc/customizer.php:73
+#: inc/customizer.php:88
 msgid "Portrait"
 msgstr ""
 
-#: inc/customizer.php:74
+#: inc/customizer.php:89
 msgid "Landscape"
 msgstr ""
 
-#: inc/customizer.php:83, inc/sidebar.php:22
+#: inc/customizer.php:98, inc/sidebar.php:22
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:98
+#: inc/customizer.php:113
 msgid "Enable footer credits section"
 msgstr ""
 
-#: inc/customizer.php:99
+#: inc/customizer.php:114
 msgid "Shows website logo and the text you insert in the textarea below"
 msgstr ""
 
-#: inc/customizer.php:111
+#: inc/customizer.php:126
 msgid "Show logo"
 msgstr ""
 
-#: inc/customizer.php:124
+#: inc/customizer.php:141
+msgid "Your Setting with file input"
+msgstr ""
+
+#: inc/customizer.php:158
 msgid "Credits"
 msgstr ""
 
-#: inc/customizer.php:142
+#: inc/customizer.php:181
+msgid "Hide Credits to WordPress and to theme creators"
+msgstr ""
+
+#: inc/customizer.php:188
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer.php:156
+#: inc/customizer.php:202
 msgid "Show Sidebar"
 msgstr ""
 
-#: inc/customizer.php:157
+#: inc/customizer.php:203
 msgid "Show the sidebar into single articles and pages"
 msgstr ""
 
-#: inc/customizer.php:169
+#: inc/customizer.php:215
 msgid "Sidebar position"
 msgstr ""
 
-#: inc/customizer.php:170
+#: inc/customizer.php:216
 msgid "The sidebar can be showed at the left or at the right of the content. This customization also affect the WooCommerce sidebar."
 msgstr ""
 
-#: inc/customizer.php:174
+#: inc/customizer.php:220
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:175
+#: inc/customizer.php:221
 msgid "Right"
 msgstr ""
 
-#: inc/customizer.php:184
+#: inc/customizer.php:228
 msgid "Homepage"
 msgstr ""
 
-#: inc/customizer.php:198
+#: inc/customizer.php:243
+msgid "Warning! Set a page as homepage to enable this section"
+msgstr ""
+
+#: inc/customizer.php:246
+msgid "To set a page as homepage you have to go to the customizer than select homepage settings and set a static page as homepage (and select a page)"
+msgstr ""
+
+#: inc/customizer.php:262
 msgid "Fullpage Hero"
 msgstr ""
 
-#: inc/customizer.php:199
+#: inc/customizer.php:263
 msgid "The main image of the homepage will be 100% of the height of the page"
 msgstr ""
 
-#: inc/customizer.php:212
+#: inc/customizer.php:275
+msgid "Hero Image opacity"
+msgstr ""
+
+#: inc/customizer.php:276
+msgid "insert a number beetween 1 and 100 (1 - 100% opacity)"
+msgstr ""
+
+#: inc/customizer.php:292
 msgid "Hero headline"
 msgstr ""
 
-#: inc/customizer.php:213
+#: inc/customizer.php:293
 msgid "Write a catchy phrase as homepage headline"
 msgstr ""
 
-#: inc/customizer.php:226
+#: inc/customizer.php:306
 msgid "Subtitle"
 msgstr ""
 
-#: inc/customizer.php:239
+#: inc/customizer.php:319
 msgid "Call to action"
 msgstr ""
 
-#: inc/customizer.php:240
+#: inc/customizer.php:320
 msgid "Choose an important page"
 msgstr ""
 
-#: inc/customizer.php:266
+#: inc/customizer.php:346
 msgid "Select an important category"
 msgstr ""
 
-#: inc/customizer.php:309
+#: inc/customizer.php:407
 msgid "Theme primary color light"
 msgstr ""
 
-#: inc/customizer.php:314
+#: inc/customizer.php:412
 msgid "Theme primary color"
 msgstr ""
 
-#: inc/customizer.php:319
+#: inc/customizer.php:417
 msgid "Theme primary color dark"
 msgstr ""
 
-#: inc/customizer.php:324
+#: inc/customizer.php:422
 msgid "Theme secondary color light"
 msgstr ""
 
-#: inc/customizer.php:329
+#: inc/customizer.php:427
 msgid "Theme secondary color"
 msgstr ""
 
-#: inc/customizer.php:334
+#: inc/customizer.php:432
 msgid "Theme secondary color dark"
 msgstr ""
 
-#: inc/customizer.php:339
+#: inc/customizer.php:437
 msgid "White"
 msgstr ""
 
-#: inc/customizer.php:344
+#: inc/customizer.php:442
 msgid "White Smoke"
 msgstr ""
 
-#: inc/customizer.php:349
+#: inc/customizer.php:447
 msgid "Light gray"
 msgstr ""
 
-#: inc/customizer.php:354
+#: inc/customizer.php:452
 msgid "Gray"
 msgstr ""
 
-#: inc/customizer.php:359
+#: inc/customizer.php:457
 msgid "Dark gray"
 msgstr ""
 
-#: inc/customizer.php:364
+#: inc/customizer.php:462
 msgid "Black"
 msgstr ""
 
@@ -342,19 +366,19 @@ msgstr ""
 msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-title\">%s</span>"
 msgstr ""
 
-#: template-parts/footer/footer.php:32
+#: template-parts/footer/footer.php:39
 msgid "//wordpress.org/"
 msgstr ""
 
-#: template-parts/footer/footer.php:32
+#: template-parts/footer/footer.php:39
 msgid "Proudly powered by WordPress"
 msgstr ""
 
-#: template-parts/footer/footer.php:39
+#: template-parts/footer/footer.php:40
 msgid "//codekraft.it"
 msgstr ""
 
-#: template-parts/footer/footer.php:39
+#: template-parts/footer/footer.php:40
 msgid "Made with &hearts; by codekraft-studio."
 msgstr ""
 

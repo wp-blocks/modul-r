@@ -8,7 +8,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <header class="entry-header main-width alignwide">
+
+	  <?php modul_r_breadcrumbs(); ?>
+
 	  <?php the_title( '<h1 class="entry-title has-secondary-color">', '</h1>' ); ?>
+
+    <?php modul_r_meta(); ?>
+
   </header>
 
 	<div class="entry-content">

@@ -47,10 +47,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 			$atf_css .= '.has-secondary-color{color:'.$secondary_color.'}.has-secondary-background-color{background:'.$secondary_color.'}';
 			// button background color css
 			$atf_css .= 'body .button:not(.has-text-color),body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:'.$secondary_color.'}';
-			// links text color, breadcrumbs link color
+			// links text color
 			$atf_css .= 'body a{color:'.$secondary_color.'}';
-			// breadcrumbs link color
-			$atf_css .= 'body .breadcrumbs a{color:'. modul_r_adjustBrightness($secondary_color, 0.2).'}';
 			// quote border color
 			$atf_css .= 'body .entry-content .wp-block-quote:not(.is-large),body .entry-content .wp-block-quote:not(.is-style-large){border-left-color:'.$secondary_color.'}';
 			// separators border color
