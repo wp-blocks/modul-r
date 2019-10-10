@@ -191,7 +191,20 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		  'type' => 'text',
 		  'section' => 'modul_r_settings_footer',
 		  'label' => esc_html__( 'Special Thanks Override', 'modul-r' ),
-	    'description' => esc_html__( 'Leave empty to show the default special thanks (thanks to Wordpress and theme author)', 'modul-r' ),
+		  'description' => esc_html__( 'Leave empty to show the default special thanks (thanks to Wordpress and theme author)', 'modul-r' ),
+	  ) );
+
+	  // custom Special thanks url
+	  $wp_customize->add_setting( 'modul_r_footer_thanks_url', array(
+		  'capability' => 'edit_theme_options',
+		  'default' => '',
+		  'sanitize_callback' => 'esc_url',
+	  ) );
+
+	  $wp_customize->add_control( 'modul_r_footer_thanks_url', array(
+		  'type' => 'url',
+		  'section' => 'modul_r_settings_footer',
+		  'description' => esc_html__( 'special thanks link (leave empty if you want a normal text without links)', 'modul-r' ),
 	  ) );
 
 

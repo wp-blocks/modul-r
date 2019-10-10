@@ -30,23 +30,25 @@
 	<div class="footer-info">
 
 		<p class="main-width alignwide">
-    <?php
-      // Credits section
-      if ( get_theme_mod( 'modul_r_footer_thanks_show' ) !== false ) {
-        $special_thanks = esc_html(get_theme_mod( 'modul_r_footer_thanks_txt' ));
-	      if ( $special_thanks === '' ) { ?>
-            <a href="<?php esc_url( __( '//wordpress.org/', 'modul-r' ) ); ?>"><?php esc_html_e( 'Proudly powered by WordPress', 'modul-r' ); ?></a> -
-            <a href="<?php echo esc_url( __( '//codekraft.it', 'modul-r' ) ); ?>"><?php esc_html_e( 'Modul R is made with &hearts; by codekraft-studio', 'modul-r' ); ?></a> -
-	      <?php } else {
-	        esc_html_e($special_thanks . ' - ') ;
-        }
-      } ?>
+    <?php // Credits section
+    if ( get_theme_mod( 'modul_r_footer_thanks_show' ) !== false ) {
+	    $special_thanks = esc_html( get_theme_mod( 'modul_r_footer_thanks_txt' ) );
+	    if ( $special_thanks === '' ) { ?>
+          <a href="<?php esc_url( __( '//wordpress.org/', 'modul-r' ) ); ?>"><?php esc_html_e( 'Proudly powered by WordPress', 'modul-r' ); ?></a> -
+          <a href="<?php echo esc_url( __( '//codekraft.it', 'modul-r' ) ); ?>"><?php esc_html_e( 'Modul R is made with &hearts; by codekraft-studio', 'modul-r' ); ?></a> -
+	    <?php } else {
+		    $special_thanks_url = get_theme_mod( 'modul_r_footer_thanks_url' );
+		    $special_thanks_url === '' ?
+            printf( '<span>%s</span> - ', esc_html( $special_thanks ) ) :
+            printf( '<a href="%s" target="_blank">%s</a> - ', esc_url( $special_thanks_url ), esc_html( $special_thanks ) );
+	    }
+    } ?>
 
 		<?php
-      // Privacy policy link
-      if ( function_exists( 'the_privacy_policy_link' ) ) {
-        the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span> - ' );
-      } ?>
+		// Privacy policy link
+		if ( function_exists( 'the_privacy_policy_link' ) ) {
+			the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span> - ' );
+		} ?>
 
     <?php
       // Website credits section (year - url)
