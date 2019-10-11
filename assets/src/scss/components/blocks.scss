@@ -759,7 +759,10 @@
   
   //! Table
   .wp-block-table {
-    width: auto;
+    
+    border-collapse: separate;
+  
+    tr { border-collapse: collapse; }
     
     th,
     td {
@@ -768,6 +771,7 @@
     }
     
     &.alignwide {width: $size__site-width;}
+    
     &.alignfull {width: 100%;}
   }
   
