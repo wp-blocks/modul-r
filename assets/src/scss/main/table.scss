@@ -1,9 +1,10 @@
 table {
   width:100%;
   max-width:100%;
-  border-collapse:collapse;
   
   tr {
+    border-collapse:collapse;
+    
     th,
     td {
       padding: $size__margin * 1.5;
@@ -16,4 +17,7 @@ table {
       border-bottom: 1px solid $color__light-grey;
     }
   }
+}
+
+.entry-content .wp-block-table {
 }
