@@ -96,8 +96,6 @@ body.home {
       h4,
       p {
         margin-top: $size__margin * 2;
-        padding-left: 6%;
-        padding-right: 6%;
       }
     }
   }
@@ -110,72 +108,99 @@ body.home {
       overflow: visible;
       text-align: center;
       margin-top: ($size__padding * -2);
-      margin-bottom: $size__padding * .75;
-      @media #{$mq__smaller-than-tablet} {text-align: left;}
+      margin-bottom: $size__padding;
+      display: flex;
+      flex-wrap: wrap;
+  
+      @media #{$mq__smaller-than-tablet} {
+        text-align: left;
+        height: 60vh;
+      }
       
       .wp-block-column {
-        background: white;
-        position: relative;
+        background: $color__white;
         margin: 0 ($size__padding * .5);
-        height: 100%;
-        z-index: 999;
-        box-shadow: 0 5px 30px -20px transparentize($color__dark-grey, .3);
-        padding: 0 0 ($size__padding * .5);
-        border-radius: 2px;
+        box-shadow: 0 8px 30px -20px transparentize($color__dark-grey, .3);
+        padding: 0 $size__padding-resp ($size__padding-resp * 1.5);
+        border-radius: $size__margin / 2;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex: 1 0 20%;
   
         @media #{$mq__smaller-than-tablet} {
           padding-bottom: 0;
-          margin: 0 $size__padding-resp ($size__margin * 2);
-        }
-      }
-  
-      .wp-block-image {
-        @media #{$mq__smaller-than-tablet} {
-          width: 33%;
-          height: 100%;
-          float: left;
-          margin-bottom: 0;
-          margin-right: $size__margin * 3;
-        }
-  
-        figure {
-          display: block;
-          width: 100%;
-          margin: 0 0 ($size__margin * .5);
-          @media #{$mq__smaller-than-tablet} {margin: 0;}
-        }
-  
-        img {
-          width: 100%;
-          height: 220px;
-          @media #{$mq__smaller-than-tablet} {height: 120px;}
+          margin-bottom: $size__margin * 2;
         }
         
-      }
-      
-      h2,
-      h3 {
-        font-size: 24px;
-        margin: ($size__margin * 3)  0 $size__margin;
-        @media #{$mq__smaller-than-tablet} {
-          font-size: 19px;
-          margin: ($size__margin * 2) 0 ($size__margin * .25);
+        > * {
+          display: flex;
+          align-items: center;
         }
-      }
       
-      p {
-        line-height: 1.4;
-        margin: 0;
-        opacity: .9;
-        @media #{$mq__smaller-than-tablet} {
-          font-size: 15px;
-          margin: ($size__margin * 0.25) 0 ($size__margin * 2);
-          display: table;
-          padding-left: 0;
+  
+        .wp-block-image {
+          justify-content: center;
+  
+          @media #{$mq__smaller-than-tablet} {
+            flex-basis: 100%;
+            margin: 0;
+            width: 30%;
+          }
+    
+          figure {
+            display: block;
+            width: 100%;
+            margin: 0 0 ($size__margin * .5);
+            @media #{$mq__smaller-than-tablet} {
+              margin: 0;
+              padding-right: $size__margin * 3;
+            }
+          }
+    
+          img {
+            object-fit: contain;
+            margin: ($size__padding * .5) auto $size__margin;
+            height: 120px;
+            @media #{$mq__smaller-than-tablet} {
+              margin: ($size__margin * 2) auto;
+            }
+          }
         }
         
-        b, strong { color: $color__text;}
+        h2,
+        h3 {
+          font-size: 24px;
+          margin: $size__margin  auto;
+          
+          @media #{$mq__smaller-than-tablet} {
+            flex-basis: 40%;
+            align-items: flex-end;
+            justify-items: flex-start;
+            justify-content: flex-start;
+            width: 70%;
+            font-size: 19px;
+            margin: 0;
+          }
+        }
+        
+        p {
+          line-height: 1.4;
+          margin: 0;
+          
+          @media #{$mq__smaller-than-tablet} {
+            flex-basis: 60%;
+            align-items: flex-start;
+            justify-items: flex-start;
+            justify-content: flex-start;
+            width: 70%;
+            font-size: 15px;
+            padding: 0;
+          }
+    
+          b, strong { color: $color__text;}
+        }
       }
     }
     
@@ -195,8 +220,7 @@ body.home {
   
       @media #{$mq__smaller-than-tablet} {
         transition-delay: inherit;
-        &:nth-of-type(1) { transition-delay: inherit; margin-top: -$size__padding * .5 }
-        &:nth-of-type(2) { }
+        &:nth-of-type(1) { transition-delay: inherit; }
         &:nth-of-type(2) { transition-delay: $animations__lenght * .5}
         &:nth-of-type(3) { transition-delay: $animations__lenght * 1}
       }
