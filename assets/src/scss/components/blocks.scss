@@ -787,10 +787,9 @@
       font-size: $text__size;
       text-decoration: none;
       font-weight: bold;
-      color: #fff;
+      color: $color__white;
       margin-left: 0;
       margin-top: calc(0.75 * #{$size__margin});
-      
       
       &:hover {
         filter: brightness(120%);
