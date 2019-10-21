@@ -9,7 +9,6 @@ textarea {
   border: 1px solid $color__light-grey;
   
   font-size: $text__size;
-  color: $color__text;
   
   transition:350ms;
 }
@@ -37,12 +36,19 @@ input {
 [type="checkbox"], [type="radio"] {
   margin: 0;
   display: inline;
-  vertical-align: sub;
+  vertical-align: middle;
 }
 
 .input-label {
   font-size: $text__size * .5;
-  color: $color__text;
+}
+
+label {
+  input + span {
+    font-size: $text__size - 2;
+    line-height: $text__size + 2;
+    opacity: .8;
+  }
 }
 
 textarea {

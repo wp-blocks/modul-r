@@ -17,10 +17,10 @@
   
   // UTILS && ANIMATIONS
   // if has a featured image and is at the top of the page...
-  .has-featured-image.top & { background-color: transparentize($color__nav-background, 0.2);}
+  .has-featured-image.top & { transition: 1s;background-color: transparentize($color__nav-background, 0.1);}
   
   // if the page was scrolled shows a shadow under the header
-  .scrolled & { box-shadow: 0 3px 8px -4px  transparentize($color__black, 0.5);}
+  .scrolled & { box-shadow: 0 3px 10px -5px  transparentize($color__black, 0.3);}
   
   // hides the logo in portrait header when the page is scrolled
   .scrolled &.header-portrait  { transform: translateY(-#{$size__branding-height + $size__margin});}

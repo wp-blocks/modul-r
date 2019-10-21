@@ -5,7 +5,7 @@ $button__height: 36px;
   justify-content: center;
   position: relative;
   
-  transition: 150ms;
+  transition: $animations__lenght * .5;
   cursor: pointer;
   
   min-width: 64px;
@@ -47,6 +47,10 @@ $button__height: 36px;
   &.outline {
     background: transparent !important;
     border: 2px solid $color__white;
+  }
+  
+  &:disabled {
+    filter: saturate(0);
   }
 }
 

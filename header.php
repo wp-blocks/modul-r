@@ -6,7 +6,8 @@
   <?php wp_head(); ?>
   <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-  <?php endif; ?>
+  <?php endif;
+  ?>
 </head>
 
 <body <?php body_class(); ?>>

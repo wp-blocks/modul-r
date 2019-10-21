@@ -2,7 +2,6 @@
 
 %headline_style {
 	font-family: $font__family-headline;
-	color: $color__black;
 	font-weight: 300;
 }
 
@@ -53,7 +52,6 @@ li,
 p {
 	font-family: $font__family;
 	font-size: $text__size;
-	color: $color__text;
 	
 	@media #{$mq__tablet} {font-size: $text__size - 1;}
 	@media #{$mq__phablet} {font-size: $text__size - 2;}
@@ -69,8 +67,7 @@ b, strong, a {
 	font-weight: 600;
 }
 
-b,
-strong {
+p b {
 	color: $color__primary;
 }
 

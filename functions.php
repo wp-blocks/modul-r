@@ -6,6 +6,12 @@ $modul_r_defaults = array(
 		'primary' => '#17BEBB',
 		'secondary' => '#E91E63',
 		'header' => '#323439',
+		'white' => '#ffffff',
+		'white-smoke' => '#f3f3f3',
+		'gray-light' => '#e3e3e3',
+		'gray' => '#888888',
+		'gray-dark' => '#4e4e4e',
+		'black' => '#222222',
 	),
 );
 

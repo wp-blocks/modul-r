@@ -52,9 +52,9 @@ $nav_padding: 0 ($size__margin * 4);
       
     }
   
-    .current-menu-item,
-    .current-menu-ancestor,
-    .current-menu-parent {
+    &.current-menu-item,
+    &.current-menu-ancestor,
+    &.current-menu-parent {
       a {
         opacity: 1;
       }

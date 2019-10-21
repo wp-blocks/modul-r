@@ -2,7 +2,7 @@ body.home {
   
   .website-hero {
     width: 100%;
-    height: 55vh;
+    height: 60vh;
     min-height: 600px;
     display: flex;
     flex-direction: column;
@@ -55,10 +55,11 @@ body.home {
         margin: 0 auto;
   
         @media #{$mq__smaller-than-tablet} {
-          font-size: 48px;
+          font-size: 44px;
           width: 100%;
         }
         @media #{$mq__smartphone} {font-size: 36px;}
+        @media #{$mq__smallphone} {font-size: 30px;}
       }
       
       p {
@@ -68,6 +69,7 @@ body.home {
           font-size: 17px;
           line-height: $text__line-height-headline;
         }
+        @media #{$mq__smallphone} {font-size: 15px;}
       }
       
       a {
@@ -114,14 +116,14 @@ body.home {
   
       @media #{$mq__smaller-than-tablet} {
         text-align: left;
-        height: 60vh;
+        margin-bottom: $size__padding * .5;
       }
       
       .wp-block-column {
         background: $color__white;
         margin: 0 ($size__padding * .5);
-        box-shadow: 0 8px 30px -20px transparentize($color__dark-grey, .3);
         padding: 0 $size__padding-resp ($size__padding-resp * 1.5);
+        box-shadow: 0 8px 30px -20px transparentize($color__dark-grey, .3);
         border-radius: $size__margin / 2;
         overflow: hidden;
         display: flex;
@@ -131,7 +133,11 @@ body.home {
   
         @media #{$mq__smaller-than-tablet} {
           padding-bottom: 0;
-          margin-bottom: $size__margin * 2;
+          margin: 0 $size__padding-resp ($size__margin * 2);
+          height: 160px;
+        }
+        @media #{$mq__phablet} {
+          padding: 0 ($size__padding-resp * .5);
         }
         
         > * {
@@ -156,6 +162,11 @@ body.home {
             @media #{$mq__smaller-than-tablet} {
               margin: 0;
               padding-right: $size__margin * 3;
+              padding-left: $size__margin;
+            }
+            @media #{$mq__phablet} {
+              padding-right: $size__padding-resp;
+              padding-left: $size__padding-resp *.5;
             }
           }
     
@@ -164,7 +175,8 @@ body.home {
             margin: ($size__padding * .5) auto $size__margin;
             height: 120px;
             @media #{$mq__smaller-than-tablet} {
-              margin: ($size__margin * 2) auto;
+              margin: 0 auto;
+              padding: ($size__margin * 2) auto;
             }
           }
         }
@@ -176,12 +188,16 @@ body.home {
           
           @media #{$mq__smaller-than-tablet} {
             flex-basis: 40%;
-            align-items: flex-end;
             justify-items: flex-start;
             justify-content: flex-start;
+            align-items: flex-end;
             width: 70%;
             font-size: 19px;
             margin: 0;
+          }
+          @media #{$mq__phablet} {
+            flex-basis: 60px;
+            font-size: 18px;
           }
         }
         
@@ -190,13 +206,15 @@ body.home {
           margin: 0;
           
           @media #{$mq__smaller-than-tablet} {
-            flex-basis: 60%;
-            align-items: flex-start;
+            flex-basis: auto;
             justify-items: flex-start;
             justify-content: flex-start;
             width: 70%;
             font-size: 15px;
             padding: 0;
+          }
+          @media #{$mq__phablet} {
+            font-size: 90%;
           }
     
           b, strong { color: $color__text;}

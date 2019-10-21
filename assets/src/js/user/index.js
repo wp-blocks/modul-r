@@ -22,7 +22,15 @@ jQuery(document).ready(function($){
           centerMode: true,
           responsive: [
             {
-              breakpoint: 1024,
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: false
+              }
+            },{
+              breakpoint: 400,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,

@@ -12,7 +12,7 @@ get_header();
       <div class="error-404 not-found">
 
         <header class="entry-header main-width alignwide">
-          <h1 class="page-title has-secondary-color"><?php esc_html_e('404', 'modul-r'); ?></h1>
+          <h1 class="page-title has-primary-color"><?php esc_html_e('404', 'modul-r'); ?></h1>
           <h2 class="text-center"><?php esc_html_e('Page not found', 'modul-r'); ?></h2>
         </header><!-- /page-header -->
 
