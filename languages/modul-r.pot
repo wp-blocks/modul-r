@@ -13,15 +13,15 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:14
+#: 404.php:15
 msgid "404"
 msgstr ""
 
-#: 404.php:15
+#: 404.php:16
 msgid "Page not found"
 msgstr ""
 
-#: 404.php:20
+#: 404.php:21
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
@@ -54,11 +54,11 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: functions.php:48
+#: functions.php:54
 msgid "Primary"
 msgstr ""
 
-#: header.php:19
+#: header.php:20
 msgid "Skip to content"
 msgstr ""
 
@@ -219,11 +219,11 @@ msgid "Select an important category"
 msgstr ""
 
 #: inc/customizer.php:433
-msgid "Theme primary color light"
+msgid "Theme primary color"
 msgstr ""
 
 #: inc/customizer.php:438
-msgid "Theme primary color"
+msgid "Theme primary color light"
 msgstr ""
 
 #: inc/customizer.php:443
@@ -231,11 +231,11 @@ msgid "Theme primary color dark"
 msgstr ""
 
 #: inc/customizer.php:448
-msgid "Theme secondary color light"
+msgid "Theme secondary color"
 msgstr ""
 
 #: inc/customizer.php:453
-msgid "Theme secondary color"
+msgid "Theme secondary color light"
 msgstr ""
 
 #: inc/customizer.php:458
@@ -378,20 +378,20 @@ msgstr ""
 msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-title\">%s</span>"
 msgstr ""
 
-#: template-parts/footer/footer.php:37
+#: template-parts/footer/footer.php:44
 msgid "//wordpress.org/"
 msgstr ""
 
-#: template-parts/footer/footer.php:37
+#: template-parts/footer/footer.php:44
 msgid "Proudly powered by WordPress"
 msgstr ""
 
-#: template-parts/footer/footer.php:38
+#: template-parts/footer/footer.php:45
 msgid "//codekraft.it"
 msgstr ""
 
-#: template-parts/footer/footer.php:38
-msgid "Modul R is made with &hearts; by codekraft-studio"
+#: template-parts/footer/footer.php:45
+msgid "made with &hearts; by codekraft-studio"
 msgstr ""
 
 #: template-parts/header/header.php:39
