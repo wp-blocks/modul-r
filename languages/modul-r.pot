@@ -170,99 +170,99 @@ msgstr ""
 msgid "Homepage"
 msgstr ""
 
-#: inc/customizer.php:269
+#: inc/customizer.php:270
 msgid "Warning! Set a page as homepage to enable this section"
 msgstr ""
 
-#: inc/customizer.php:272
+#: inc/customizer.php:273
 msgid "To set a page as homepage you have to go to the customizer than select homepage settings and set a static page as homepage (and select a page)"
 msgstr ""
 
-#: inc/customizer.php:288
+#: inc/customizer.php:289
 msgid "Fullpage Hero"
 msgstr ""
 
-#: inc/customizer.php:289
+#: inc/customizer.php:290
 msgid "The main image of the homepage will be 100% of the height of the page"
 msgstr ""
 
-#: inc/customizer.php:301
+#: inc/customizer.php:302
 msgid "Hero Image opacity"
 msgstr ""
 
-#: inc/customizer.php:302
+#: inc/customizer.php:303
 msgid "insert a number beetween 1 and 100 (1 - 100% opacity)"
 msgstr ""
 
-#: inc/customizer.php:318
+#: inc/customizer.php:319
 msgid "Hero headline"
 msgstr ""
 
-#: inc/customizer.php:319
+#: inc/customizer.php:320
 msgid "Write a catchy phrase as homepage headline"
 msgstr ""
 
-#: inc/customizer.php:332
+#: inc/customizer.php:333
 msgid "Subtitle"
 msgstr ""
 
-#: inc/customizer.php:345
+#: inc/customizer.php:346
 msgid "Call to action"
 msgstr ""
 
-#: inc/customizer.php:346
+#: inc/customizer.php:347
 msgid "Choose an important page"
 msgstr ""
 
-#: inc/customizer.php:372
+#: inc/customizer.php:373
 msgid "Select an important category"
 msgstr ""
 
-#: inc/customizer.php:433
+#: inc/customizer.php:434
 msgid "Theme primary color"
 msgstr ""
 
-#: inc/customizer.php:438
+#: inc/customizer.php:439
 msgid "Theme primary color light"
 msgstr ""
 
-#: inc/customizer.php:443
+#: inc/customizer.php:444
 msgid "Theme primary color dark"
 msgstr ""
 
-#: inc/customizer.php:448
+#: inc/customizer.php:449
 msgid "Theme secondary color"
 msgstr ""
 
-#: inc/customizer.php:453
+#: inc/customizer.php:454
 msgid "Theme secondary color light"
 msgstr ""
 
-#: inc/customizer.php:458
+#: inc/customizer.php:459
 msgid "Theme secondary color dark"
 msgstr ""
 
-#: inc/customizer.php:463
+#: inc/customizer.php:464
 msgid "White"
 msgstr ""
 
-#: inc/customizer.php:468
+#: inc/customizer.php:469
 msgid "White Smoke"
 msgstr ""
 
-#: inc/customizer.php:473
+#: inc/customizer.php:474
 msgid "Light gray"
 msgstr ""
 
-#: inc/customizer.php:478
+#: inc/customizer.php:479
 msgid "Gray"
 msgstr ""
 
-#: inc/customizer.php:483
+#: inc/customizer.php:484
 msgid "Dark gray"
 msgstr ""
 
-#: inc/customizer.php:488
+#: inc/customizer.php:489
 msgid "Black"
 msgstr ""
 

@@ -51,19 +51,20 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 			$atf_css .= 'body .menu-resp button.c-hamburger i,body .menu-resp button.c-hamburger i::after,body .menu-resp button.c-hamburger i::before {background:' . $colors['primary']. ';}';
 			// selection
 			$atf_css .= '::selection {background-color: '.$colors['primary'].'aa !important;}';
+			// scrollbar color (10% darker) & slick dots
+			$atf_css .= 'body::-webkit-scrollbar-thumb:horizontal,body::-webkit-scrollbar-thumb:vertical,body .slick-dots li.slick-active button{background-color:'. modul_r_adjustBrightness($colors['primary'], -0.1).'}';
 		}
 
 		if ($colors['secondary']) {
 			// button background color css
-			// $atf_css .= 'body .button:not(.has-text-color),body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:'.$colors['secondary'].'}';
+			$atf_css .= 'body .button:not(.has-text-color),
+			body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:'.$colors['secondary'].'}';
 			// links text color
 			$atf_css .= 'body a{color:'.$colors['secondary'].'}';
 			// quote border color
 			$atf_css .= 'body .entry-content .wp-block-quote:not(.is-large),body .entry-content .wp-block-quote:not(.is-style-large){border-left-color:'.$colors['secondary'].'}';
 			// separators border color
 			$atf_css .= 'body .wp-block-separator,body hr {border-bottom-color:'.$colors['secondary'].'}';
-			// scrollbar color (10% darker) & slick dots
-			$atf_css .= 'body::-webkit-scrollbar-thumb:horizontal,body::-webkit-scrollbar-thumb:vertical,body .slick-dots li.slick-active button{background-color:'. modul_r_adjustBrightness($colors['secondary'], -0.1).'}';
 		}
 
 		// Push the header color into stored style if is present

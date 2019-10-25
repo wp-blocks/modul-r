@@ -263,6 +263,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 					'type' => 'customtext_control',
 					'capability' => 'edit_theme_options',
 					'transport' => 'refresh',
+		      'sanitize_callback' => 'absint',
 				)
 			);
 			$wp_customize->add_control( new modul_r_custom_text_control( $wp_customize, 'customtext_control', array(
