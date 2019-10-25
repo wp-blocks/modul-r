@@ -153,13 +153,15 @@
       
       &.has-header-text.has-custom-logo {
         justify-content: center;
+        margin-right: 0;
       }
     }
     
     .custom-logo {
-      align-self: center;
-  
+      margin-left: auto;
+      margin-right: auto;
       @media #{$mq__smaller-than-tablet} {
+        margin-right: 0;
         margin-left: 0;
       }
     }
