@@ -4,7 +4,7 @@
 $modul_r_defaults = array(
 	'colors' => array(
 		'primary' => '#17BEBB',
-		'secondary' => '#E91E63',
+		'secondary' => '#33658A',
 		'header' => '#323439',
 		'white' => '#ffffff',
 		'white-smoke' => '#f3f3f3',

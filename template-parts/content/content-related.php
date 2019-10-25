@@ -9,7 +9,11 @@
 	  <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
 		  <?php the_post_thumbnail('thumbnail'); ?>
 	  <?php endif; ?>
-    <h5 class="has-secondary-color"><?php the_title() ?></h5>
-    <?php the_excerpt() ?>
   </a>
+  <a href="<?php the_permalink() ?>">
+    <h5 class="has-secondary-color"><?php the_title() ?></h5>
+  </a>
+  <span class="display-table">
+    <?php the_excerpt() ?>
+  </span>
 </li>

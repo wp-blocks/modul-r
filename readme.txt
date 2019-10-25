@@ -151,6 +151,7 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * Responsive style enhancement
 * Dependencies update
 * Customizer hero opacity option
+* Custom color scheme reworked
 
 = 1.2.1 =
 * Translations and docs update
