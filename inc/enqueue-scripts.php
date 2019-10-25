@@ -34,6 +34,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		// set the custom header color
 		$atf_css .= 'body .header-color {background-color: ' . $header_color . ';}.has-featured-image.top #masthead {background-color: ' . $header_color . 'dd;}';
 		$atf_css .= '@media (max-width: 1023px) {.main-navigation {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . 'ee;}}';
+		$atf_css .= 'ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.1) . ';}ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . ';}';
+		$atf_css .= 'ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness($header_color, 0.3) . ';}';
 
 		// create the custom colors scheme
 		foreach ($colors as $key => $color) {
@@ -57,8 +59,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		if ($colors['secondary']) {
 			// button background color css
-			$atf_css .= 'body .button:not(.has-text-color),
-			body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:'.$colors['secondary'].'}';
+			$atf_css .= 'body .button:not(.has-text-color),body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:'.$colors['secondary'].'}';
 			// links text color
 			$atf_css .= 'body a{color:'.$colors['secondary'].'}';
 			// quote border color
