@@ -56,6 +56,10 @@
   text-align: justify;
 }
 
+.display-table {
+  display:table
+}
+
 .elevation-01 {
   box-shadow: 0 3px 8px -5px transparentize($color__black, .6)
 }
