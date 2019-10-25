@@ -144,6 +144,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 == Changelog ==
 
+= 1.2.3 =
+* Submenu header color
+* Better primary content width
+
 = 1.2.2 =
 * Primary container margin glitch fix
 * Enhanced featured image, logo & site title centering

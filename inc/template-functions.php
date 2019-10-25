@@ -344,7 +344,7 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 	function modul_r_custom_body_class( $classes ) {
 		global $post;
 
-		if (is_page() || is_single()) {
+		if ((is_page() || is_single()) && !is_front_page()) {
 
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
       if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {$classes[] = 'has-featured-image';}
