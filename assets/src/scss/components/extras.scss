@@ -135,6 +135,7 @@
 .nav-links {
   flex-basis: 100%;
   text-align: center;
+  margin-top: $size__margin * 2;
   
   * {
     margin: 0 $size__margin;
@@ -158,8 +159,8 @@
     color: darken($color__light-grey, 20%);
     transition: $animations__lenght;
     
-    &.current {color: $color__dark-grey;}
-    &:hover {color: $color__primary;}
+    &.current,
+    &:hover {color: $color__dark-grey;}
     
     &.next,
     &.prev {

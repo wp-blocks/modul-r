@@ -1,7 +1,7 @@
 /* MODUL R Style */
 
 /* Utils */
-// @import "utils/normalize";
+@import "utils/normalize";
 @import "utils/vars";
 @import "utils/media-queries";
 
@@ -10,7 +10,7 @@
 @import "main/colors";
 @import "woo/woo-base";
 // @import "main/fonts";
-// @import "main/typography";
+@import "main/typography";
 // @import "main/helpers";
 // @import "main/table";
 // @import "main/inputs";

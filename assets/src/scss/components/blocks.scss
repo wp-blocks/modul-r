@@ -556,6 +556,8 @@
   
   //! Media Text
   .wp-block-media-text{
+
+    &.alignwide {padding:0;}
     
     .wp-block-media-text__media {
       margin-top: 0;
@@ -569,7 +571,7 @@
     
     @media #{$mq__tablet-portrait} {
       .is-stacked-on-mobile {
-        min-height: 40vh;
+        min-height: 30vh;
       }
     }
     

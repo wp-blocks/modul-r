@@ -216,6 +216,8 @@ body.home {
           @media #{$mq__phablet} {
             font-size: 90%;
           }
+  
+          a {font-weight: 400;}
     
           b, strong { color: $color__text;}
         }

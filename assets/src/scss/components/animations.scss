@@ -4,7 +4,8 @@
   // &.visible      img on/off when visible
   // &.already-see  executes only one time
   
-  > * {
+  > *,
+  img {
     transition-duration: $animations__lenght * 2;
   }
   
