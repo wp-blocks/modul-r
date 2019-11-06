@@ -12,7 +12,7 @@
     margin-bottom: $size__padding * .25;
     font-weight: 600;
     font-size: 21px;
-    border-bottom: 1px solid $color__black;
+    border-bottom: 1px solid transparentize($color__black, .8);
     
     @media #{$mq__smaller-than-tablet} {font-size: 18px;}
   }
@@ -31,18 +31,18 @@
       padding: 0;
       margin: 0;
       ul {
-        margin-left: $size__padding-resp
+        margin-left: $size__padding-resp * .5;
       }
     }
     
     li {
       list-style-type: none;
-      padding: 0 0 $size__margin;
+      padding: 0;
       margin: 0;
+      line-height: 2.2;
       
       a {
         @extend .ellipsis;
-        font-size: $text__size - 2;
         font-weight: 400;
       }
       

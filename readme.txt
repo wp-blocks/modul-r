@@ -3,7 +3,7 @@ Contributors: Codekraft
 Requires at least: 4.9.6
 Tested up to: WordPress 5.2
 Requires PHP: 5.6
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -143,6 +143,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == Changelog ==
+
+= 1.2.5 =
+* Dependencies update
+* Footer style enhancement
 
 = 1.2.4 =
 * Main container width fix on small screens
