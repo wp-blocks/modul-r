@@ -37,7 +37,7 @@
   }
 }
 
-.breadcrumbs {
+p.breadcrumbs {
   font-size: $text__size - 6;
   margin-bottom: $size__margin;
   font-weight: 600;
@@ -135,7 +135,7 @@
 .nav-links {
   flex-basis: 100%;
   text-align: center;
-  margin-top: $size__margin * 2;
+  margin-top: $size__padding * .5;
   
   * {
     margin: 0 $size__margin;

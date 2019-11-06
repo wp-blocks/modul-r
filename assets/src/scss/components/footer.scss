@@ -4,21 +4,17 @@
   
   h3,
   p,
-  a {
-    color: $color__white;
-  }
+  a {color: $color__white;}
   
   h3 {
     white-space: nowrap;
-    padding-bottom: $size__padding * .25;
+    padding-bottom: $size__margin;
+    margin-bottom: $size__padding * .25;
     font-weight: 600;
-    font-size: 24px;
-    border-bottom: 1px solid transparentize($color__black, .8);
+    font-size: 21px;
+    border-bottom: 1px solid $color__black;
     
-    @media #{$mq__smaller-than-tablet} {
-      padding-top: 0;
-      font-size: 21px;
-    }
+    @media #{$mq__smaller-than-tablet} {font-size: 18px;}
   }
   
   .footer-widgets {
@@ -41,13 +37,13 @@
     
     li {
       list-style-type: none;
-      padding: 0;
+      padding: 0 0 $size__margin;
       margin: 0;
       
       a {
-        display: block;
         @extend .ellipsis;
-        padding-bottom: $size__margin;
+        font-size: $text__size - 2;
+        font-weight: 400;
       }
       
       .post-date {
@@ -70,13 +66,9 @@
       padding-bottom: $size__padding * .5;
     }
     
-    &:first-of-type {
-      margin-left: 0;
-    }
+    &:first-of-type {margin-left: 0;}
     
-    &:last-of-type {
-      margin-right: 0;
-    }
+    &:last-of-type {margin-right: 0;}
     
     &.credits {
       flex-grow: 2;
@@ -88,8 +80,7 @@
         padding-bottom: 0;
       }
       
-      img {max-width: 300px}
-      
+      img {max-width: 280px}
     }
     
   }
