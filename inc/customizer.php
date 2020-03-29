@@ -373,6 +373,50 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'description' => esc_html__( 'Select an important category', 'modul-r' ),
 		) );
 
+		
+		// Sidebar Social Share options
+		$wp_customize->add_section( 'modul_r_settings_social_share' , array(
+			'title'      => esc_html__('Social Share Options','modul-r'),
+			'priority'   => 60,
+			'panel'      => 'modul_r_theme_options'
+		) );
+
+
+		// the "Show Social Share options" checkbox
+		$wp_customize->add_setting( 'modul_r_social_share_enabled', array(
+			'default'   => true,
+			'transport' => 'refresh',
+			'sanitize_callback' => 'modul_r_sanitize_checkbox',
+		) );
+		$wp_customize->add_control( 'modul_r_social_share_enabled', array(
+			'type' => 'checkbox',
+			'section' => 'modul_r_settings_social_share',
+			'label' => esc_html__( 'Show Social Share Options', 'modul-r' ),
+			'description' => esc_html__( 'Show social media sharing icons on single posts and pages', 'modul-r' ),
+		) );
+
+
+		// Set social sharing options to show for pages, single posts or both
+		$wp_customize->add_setting( 'modul_r_social_share_visibility', array(
+			'capability' => 'edit_theme_options',
+			'default'   => 'all',
+			'transport' => 'refresh',
+			'sanitize_callback' => 'sanitize_text_field',
+		) );
+		$wp_customize->add_control( 'modul_r_social_share_visibility',
+			array(
+				'label'    => esc_html__( 'Social Share Options Visibility', 'modul-r' ),
+				'description' => esc_html__( 'Set social sharing options to show for pages, single posts or both', 'modul-r' ),
+				'section'  => 'modul_r_settings_social_share',
+				'type'     => 'radio',
+				'choices'  => array(
+					'pages'  => esc_html__( 'Pages only', 'modul-r' ),
+					'posts' => esc_html__( 'Single posts only', 'modul-r' ),
+					'all' => esc_html__( 'Pages and single Posts', 'modul-r' ),
+				),
+			)
+		);
+
 		// Sanitize function for checkbox value
 		function modul_r_sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true == $checked ) ? true : false );
