@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
           autoplay: true
         });
       } else if (sliders[i].classList.contains('slider-multi')) {
-        $(sliders[i]).slick({
+        $(sliders[i]+'ul.blocks-gallery-grid').slick({
           lazyLoad: 'ondemand',
           dots: true,
           infinite: true,
