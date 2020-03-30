@@ -1,4 +1,4 @@
-# Copyright (C) 2019 modul-r-theme
+# Copyright (C) 2020 modul-r-theme
 # This file is distributed under the same license as the modul-r-theme package.
 msgid ""
 msgstr ""
