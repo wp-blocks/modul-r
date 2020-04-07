@@ -90,66 +90,6 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 endif;
 add_action( 'wp_head', 'modul_r_atf_style', 1 );
 
-
-if ( ! function_exists( 'modul_r_editor_style' ) ) :
-	function modul_r_editor_style() {
-
-		// get the custom colors
-
-		// main colors
-		$colors = array();
-		$colors['primary'] = (get_theme_mod( 'primary-color' ) != '') ? sanitize_hex_color(get_theme_mod( 'primary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['primary']);
-		$colors['primary-light'] = modul_r_adjustBrightness($colors['primary'], 0.4);
-		$colors['primary-dark'] = modul_r_adjustBrightness($colors['primary'], -0.4);
-		$colors['secondary'] = (get_theme_mod( 'secondary-color' ) != '') ? sanitize_hex_color(get_theme_mod( 'secondary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['secondary']);
-		$colors['secondary-light'] = modul_r_adjustBrightness($colors['secondary'], 0.4);
-		$colors['secondary-dark'] = modul_r_adjustBrightness($colors['secondary'], -0.4);
-		$colors['white'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white']);
-		$colors['white-smoke'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white-smoke']);
-		$colors['gray-light'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray-light']);
-		$colors['gray'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray']);
-		$colors['gray-dark'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray-dark']);
-		$colors['black'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['black']);
-
-		// get the acf.css file and store into a variable
-
-		$atf_css = '';
-
-		// create the custom colors scheme
-		foreach ($colors as $key => $color) {
-			$atf_css .= '.editor-styles-wrapper .has-'.$key.'-color,.editor-styles-wrapper .wp-block-pullquote.is-style-solid-color blockquote.has-'.$key.'-color,.editor-styles-wrapper .wp-block-pullquote.is-style-solid-color blockquote.has-'.$key.'-color p{color:'.$color.'}';
-			$atf_css .= '.editor-styles-wrapper .has-'.$key.'-background-color,.editor-styles-wrapper .wp-block-pullquote.is-style-solid-color.has-'.$key.'-background-color{background:'.$color.'}.editor-styles-wrapper .editor-styles-wrapper .has-'.$key.'-background-color:before{background:'.$color.' !important}';
-		}
-
-		// push primary and secondary color (if is set) into the stored style
-		if ($colors['primary']) {
-			// bold text color css
-			$atf_css .= 'body .editor-styles-wrapper blockquote:before,body .editor-styles-wrapper p b,body .editor-styles-wrapper p strong{color:'.$colors['primary'].'}';
-			// scrollbar color (10% darker)
-			$atf_css .= '.editor-styles-wrapper ::selection {background-color: '.$colors['primary'].'aa !important;}';
-		}
-
-		if ($colors['secondary']) {
-			// button background color css
-			$atf_css .= 'body .editor-styles-wrapper .button {background:'.$colors['secondary'].'}';
-			// links text color
-			$atf_css .= 'body .editor-styles-wrapper a{color:'.$colors['secondary'].'}';
-			// quote border color
-			$atf_css .= 'body .editor-styles-wrapper .wp-block-quote:not(.is-large),body .editor-styles-wrapper .wp-block-quote:not(.is-style-large){border-left-color:'.$colors['secondary'].'}';
-			// separators border color
-			$atf_css .= 'body .editor-styles-wrapper .wp-block-separator,body .editor-styles-wrapper hr {border-bottom-color:'.$colors['secondary'].'}';
-		}
-
-		// Return the stored style
-		if ($atf_css != "" ) {
-			echo '<style id="modul-r-editor-inline-css" type="text/css">'. $atf_css . '</style>';
-		}
-
-	}
-endif;
-add_action( 'enqueue_block_editor_assets', 'modul_r_editor_style' );
-
-
 /**
  * Enqueue admin style
  */
