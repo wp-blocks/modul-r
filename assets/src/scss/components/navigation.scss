@@ -1,14 +1,15 @@
 $nav_padding: 0 ($size__margin * 4);
 
 .main-navigation {
-
+  
+  // THE MAIN LEVEL MENU
   .main-menu {
     display: flex;
     height: 100%;
     align-items: center;
     justify-content: center;
   
-    @media #{$mq__smaller-than-tablet} {
+    @media #{$mq__responsive_brekpoint} {
       align-items: flex-start;
       justify-content: flex-start;
     }
@@ -21,7 +22,7 @@ $nav_padding: 0 ($size__margin * 4);
     margin: 0;
     padding: 0;
  
-    @media #{$mq__smaller-than-tablet} {
+    @media #{$mq__responsive_brekpoint} {
       flex-direction: column;
       justify-content: flex-start;
       box-sizing: border-box;
@@ -61,7 +62,9 @@ $nav_padding: 0 ($size__margin * 4);
     }
   }
   
+  // THE SUBMENUS
   .menu > li {
+    
     &:first-child a {
       padding-left: 0;
     }
@@ -79,7 +82,7 @@ $nav_padding: 0 ($size__margin * 4);
     display: none;
   }
   
-  @media #{$mq__smaller-than-tablet} {
+  @media #{$mq__responsive_brekpoint} {
     background-color: darken($color__nav-background, 5%);
     height: calc(100vh - #{$head__height-responsive});
     z-index: 190;
@@ -110,11 +113,22 @@ $nav_padding: 0 ($size__margin * 4);
     }
   }
   
+  @media #{$mq__responsive-size_brekpoint} {
+    
+    height: calc(100vh - #{$head__height-responsive});
+    padding: ($size__padding-resp * 1.5) $size__padding-resp;
+    
+    & + .menu-shadow,
+    & {
+      top: $head__height-responsive;
+    }
+    
+  }
+  
 }
 
-@media #{$mq__smaller-than-tablet} {
+@media #{$mq__responsive_brekpoint} {
   #masthead {
-    height: $head__height-responsive;
     
     &.active {
       .main-navigation {
@@ -145,6 +159,14 @@ ul.sub-menu {
   background-color: lighten($color__nav-background, 2%);
   transition: $animations__lenght * .5;
   transition-delay: 0ms;
+  
+  @media #{$mq__responsive_brekpoint} {
+    position: inherit;
+    background-color: inherit !important;
+    top: inherit!important;
+    left: inherit!important;
+    opacity: 1;
+  }
 
   ul.sub-menu {
     top: 0;

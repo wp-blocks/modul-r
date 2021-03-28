@@ -9,7 +9,7 @@
   width: 100%;
   transition: $animations__lenght;
   
-  @media #{$mq__smaller-than-tablet} {
+  @media #{$mq__responsive-size_brekpoint} {
     height: $head__height-responsive;
     transform: inherit !important;
     padding: 0;
@@ -33,6 +33,62 @@
     left: 0;
   }
   
+  .show-on-mobile {
+    display: none;
+    @media #{$mq__responsive_brekpoint} {
+      display: block;
+    }
+  }
+  
+  %header-top-right-position {
+    position: absolute;
+    z-index: 1020;
+    top: 0;
+    right: $size__padding-resp;
+    height: 100%;
+    @media #{$mq__responsive_brekpoint} {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+  }
+  
+  // the menu icons near the hamburger
+  .menu-resp {
+    @extend %header-top-right-position;
+  }
+  
+  // the menu icons near the hamburger
+  .menu-icons-container {
+  
+    $icons-height: 21px;
+    
+    @extend %header-top-right-position;
+    right: ($size__padding-resp * 3) + $hamburger__size ;
+    
+    .button {
+      min-width: $icons-height;
+      margin: auto 0 auto ($size__margin * 2);
+      padding:0;
+      
+      border-radius: $icons-height + ($size__margin * 1.5);
+      border: 0;
+      box-shadow: 0 0 0 1.5px $color__accent inset;
+  
+      span {
+        font-size: 14px;
+        height: $icons-height;
+        line-height: $icons-height + 2;
+        padding: $size__margin * 1.5 $size__margin * 3;
+      }
+  
+      i {
+        font-size: $icons-height;
+        line-height: $icons-height;
+        padding: $size__margin * 1.5;
+      }
+    }
+  }
   
   // Logo/site title container
   .header-wrapper {
@@ -40,14 +96,14 @@
     margin-top: 0;
     margin-bottom: 0;
     
-    @media #{$mq__smaller-than-tablet} {height: 100%;}
+    @media #{$mq__responsive-size_brekpoint} {height: 100%;}
     
     .site-branding {
       width: 100%;
       height: $size__branding-height;
       padding-top: $size__margin;
   
-      @media #{$mq__smaller-than-tablet} {
+      @media #{$mq__responsive-size_brekpoint} {
         text-align: left;
         width: calc(100% - #{$hamburger__size * 2} );
         & {
@@ -63,7 +119,7 @@
     
         .custom-logo {
           object-fit: contain;
-          height: 66%;
+          height: $size__branding-height;
           max-width: 100%;
           width: auto;
       
@@ -86,7 +142,7 @@
         .site-logo {
           margin-right: $size__margin;
   
-          @media #{$mq__smaller-than-tablet} {width: auto;}
+          @media #{$mq__responsive-size_brekpoint} {width: auto;}
         }
         .custom-logo {object-position: right;}
         
@@ -115,7 +171,7 @@
       .site-title {
         font-size: 26px;
         line-height: ($size__branding-height - ($size__margin * 2)) * .66;
-        @media #{$mq__smaller-than-tablet} {
+        @media #{$mq__responsive-size_brekpoint} {
           line-height: ($head__height-responsive - $size__margin) * .66;
         }
       }
@@ -126,7 +182,7 @@
         font-weight: 300;
         font-size: 11px;
         line-height: ($size__branding-height - ($size__margin * 2)) * .33;
-        @media #{$mq__smaller-than-tablet} {
+        @media #{$mq__responsive-size_brekpoint} {
           line-height: ($head__height-responsive - $size__margin) * .33;
         }
       }
@@ -140,13 +196,13 @@
     flex-direction: column;
     
     .site-branding {
-      @media #{$mq__smaller-than-tablet} {
+      @media #{$mq__responsive-size_brekpoint} {
         padding-top: 0;
       }
       
       .header-text {
         text-align: center;
-        @media #{$mq__smaller-than-tablet} {
+        @media #{$mq__responsive-size_brekpoint} {
           text-align: left;
         }
       }
@@ -160,7 +216,7 @@
     .custom-logo {
       margin-left: auto;
       margin-right: auto;
-      @media #{$mq__smaller-than-tablet} {
+      @media #{$mq__responsive-size_brekpoint} {
         margin-right: 0;
         margin-left: 0;
       }
@@ -172,7 +228,7 @@
   &.header-landscape .header-wrapper {
     flex-direction: row;
     height: $size__nav-height;
-    @media #{$mq__smaller-than-tablet} {
+    @media #{$mq__responsive-size_brekpoint} {
       height: 100%;
     }
     
@@ -180,7 +236,7 @@
       height: 100%;
       padding-bottom: $size__margin;
       box-sizing: border-box;
-      @media #{$mq__smaller-than-tablet} {
+      @media #{$mq__responsive-size_brekpoint} {
         padding-top: $size__margin * .5;
         padding-bottom: $size__margin * .5;
       }
@@ -201,7 +257,7 @@
     
     .main-menu {
       padding: 0 0 0 $size__padding-resp;
-      @media #{$mq__smaller-than-tablet} {
+      @media #{$mq__responsive-size_brekpoint} {
         padding: 0 $size__padding-resp;
       }
     }
