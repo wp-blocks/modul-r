@@ -1,7 +1,7 @@
 <?php
 
 // Modul-R defaults
-if (!$modul_r_defaults) {
+if (isset($modul_r_defaults)) {
 	$modul_r_defaults = array(
 		'colors' => array(
 			'primary' => '#17BEBB',
