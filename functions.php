@@ -1,19 +1,21 @@
 <?php
 
 // Modul-R defaults
-$modul_r_defaults = array(
-	'colors' => array(
-		'primary' => '#17BEBB',
-		'secondary' => '#33658A',
-		'header' => '#323439',
-		'white' => '#ffffff',
-		'white-smoke' => '#f3f3f3',
-		'gray-light' => '#e3e3e3',
-		'gray' => '#888888',
-		'gray-dark' => '#4e4e4e',
-		'black' => '#222222',
-	),
-);
+if (!$modul_r_defaults) {
+	$modul_r_defaults = array(
+		'colors' => array(
+			'primary' => '#17BEBB',
+			'secondary' => '#33658A',
+			'header' => '#323439',
+			'white' => '#ffffff',
+			'white-smoke' => '#f3f3f3',
+			'gray-light' => '#e3e3e3',
+			'gray' => '#888888',
+			'gray-dark' => '#4e4e4e',
+			'black' => '#222222',
+		),
+	);
+}
 
 if ( ! function_exists('modul_r_theme_setup') ) :
 	function modul_r_theme_setup() {
