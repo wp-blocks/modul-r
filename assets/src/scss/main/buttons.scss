@@ -46,7 +46,8 @@ $button__height: 36px;
   
   &.outline {
     background: transparent !important;
-    border: 2px solid $color__white;
+    border: 2px solid $color__accent;
+    color: $color__accent;
   }
   
   &:disabled {

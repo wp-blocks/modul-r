@@ -123,7 +123,7 @@
           max-width: 100%;
           width: auto;
       
-          @media #{$mq__smaller-than-tablet} {
+          @media #{$mq__responsive-size_brekpoint} {
             max-height: $head__height-responsive - ($size__margin * 2);
             width: auto;
             margin: 0;
