@@ -1,3 +1,4 @@
+// TODO: remove or check if is used
 .header-color {
   background-color: $color__nav-background;
 }
@@ -178,7 +179,6 @@
   
       .site-description {
         display: inline-block;
-        color: white;
         font-weight: 300;
         font-size: 11px;
         line-height: ($size__branding-height - ($size__margin * 2)) * .33;
@@ -187,6 +187,7 @@
         }
       }
     }
+    
   }
   
   
@@ -210,6 +211,16 @@
       &.has-header-text.has-custom-logo {
         justify-content: center;
         margin-right: 0;
+      }
+    }
+  
+    .main-navigation {
+      ul {
+        height: auto;
+        margin-top: $size__margin;
+      }
+      li a {
+        line-height: 2.5;
       }
     }
     
@@ -253,12 +264,27 @@
   
     .main-navigation {
       align-self: flex-end;
+      width: 100%;
+      
+      ul {
+        justify-content: flex-end;
+      }
+      
+      li a {
+        line-height: $size__nav-height;
+        @media #{$mq__responsive-size_brekpoint} {
+          line-height: $size__navresponsive-nav-line-height;
+          height: auto;
+        }
+      }
     }
     
     .main-menu {
+      justify-content: flex-end;
       padding: 0 0 0 $size__padding-resp;
       @media #{$mq__responsive-size_brekpoint} {
         padding: 0 $size__padding-resp;
+        justify-content: flex-start;
       }
     }
   
@@ -273,9 +299,8 @@
     }
     
   }
-  
+ 
 }
-
 
 
 // the wordpress admin bar fix

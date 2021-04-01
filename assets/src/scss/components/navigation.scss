@@ -22,11 +22,7 @@ $nav_padding: 0 ($size__margin * 4);
     margin: 0;
     padding: 0;
  
-    @media #{$mq__responsive_brekpoint} {
-      flex-direction: column;
-      justify-content: flex-start;
-      box-sizing: border-box;
-    }
+    @media #{$mq__responsive_brekpoint} {display: block;}
   }
   
   li {
@@ -50,6 +46,11 @@ $nav_padding: 0 ($size__margin * 4);
       transition: $animations__lenght;
       
       &:hover {opacity: 1;}
+  
+      @media #{$mq__responsive_brekpoint} {
+        height: auto;
+        line-height: $size__navresponsive-nav-line-height;
+      }
       
     }
   
