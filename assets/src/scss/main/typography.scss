@@ -17,7 +17,6 @@ h6 {
 	line-height: $text__line-height-headline;
 }
 
-
 h1 {
 	font-size: 56px;
 	@media #{$mq__tablet} {font-size: 50px;}
@@ -67,12 +66,7 @@ b, strong, a {
 	font-weight: 600;
 }
 
-p b {
-	color: $color__primary;
-}
-
 a {
-	color: $color__accent;
 	text-decoration: none;
 }
 

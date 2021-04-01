@@ -18,7 +18,8 @@ input {
   
   &[type="text"],
   &[type="email"],
-  &[type="url"] {
+  &[type="url"],
+  &[type="tel"] {
     width: 100%;
     padding-left: $size__margin * .5;
     box-shadow: 0 1px 0 $color__light-grey;
