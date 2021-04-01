@@ -1,19 +1,28 @@
 <?php
 
 // Modul-R defaults
-if (isset($modul_r_defaults)) {
+if (!isset($modul_r_defaults)) {
 	$modul_r_defaults = array(
 		'colors' => array(
 			'primary' => '#17BEBB',
 			'secondary' => '#33658A',
-			'header' => '#323439',
 			'white' => '#ffffff',
-			'white-smoke' => '#f3f3f3',
+			'white-smoke' => '#fcfcfc',
 			'gray-light' => '#e3e3e3',
 			'gray' => '#888888',
 			'gray-dark' => '#4e4e4e',
 			'black' => '#222222',
 		),
+		'style' => array(
+			'background' => 'white-smoke',
+			'title-color' => 'white',
+			'text-color' => 'gray',
+			'header-color' => 'white',
+			'header-text-color' => 'gray',
+			'footer-color' => 'white',
+			'footer-bottom-color' => 'white',
+			'footer-text-color' => 'gray',
+		)
 	);
 }
 
@@ -24,9 +33,6 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		* Translations can be filed in the /languages/ directory.
 		*/
 		load_theme_textdomain( 'modul-r', get_template_directory() . '/languages' );
-
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
 
 		/*
 		* Let WordPress manage the document title.
@@ -73,9 +79,41 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 
 
 		// Add support for core custom logo, header text color, website background.
-		add_theme_support( 'custom-logo' );
-		add_theme_support( 'custom-header', array( 'default-text-color' => '#f3f3f3' ) );
-		add_theme_support( 'custom-background', array( 'default-color' => '#fcfcfc'	) );
+		add_theme_support( 'custom-logo' , array(
+			'height'      => 100,
+			'width'       => 300,
+			'flex-height' => true,
+			'flex-width'  => true,
+			'header-text' => array( 'site-title', 'site-description' ),
+		));
+
+		add_theme_support( 'custom-header', array(
+			'default-image'          => '',
+			'width'                  => 0,
+			'height'                 => 0,
+			'flex-height'            => false,
+			'flex-width'             => false,
+			'uploads'                => true,
+			'random-default'         => false,
+			'header-text'            => true,
+			'default-text-color'     => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-text-color']]),
+			'wp-head-callback'       => '',
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => '',
+		));
+
+		add_theme_support( 'custom-background', array(
+			'default-color'          => str_replace('#', '', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['background']] ),
+			'default-image'          => '',
+			'default-preset'         => 'default', // 'default', 'fill', 'fit', 'repeat', 'custom'
+			'default-position-x'     => 'left',    // 'left', 'center', 'right'
+			'default-position-y'     => 'top',     // 'top', 'center', 'bottom'
+			'default-size'           => 'auto',    // 'auto', 'contain', 'cover'
+			'default-repeat'         => 'repeat',  // 'repeat-x', 'repeat-y', 'repeat', 'no-repeat'
+			'default-attachment'     => 'scroll',  // 'scroll', 'fixed'
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => '',
+		) );
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -95,6 +133,9 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 
 		// Add support for responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
+
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
 	}
 endif;
