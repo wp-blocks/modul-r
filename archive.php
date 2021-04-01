@@ -11,14 +11,16 @@ get_header();
 
   <?php if ( have_posts() ) : ?>
 
+    <?php if ( !has_post_thumbnail() ) : ?>
     <header class="page-header">
-      <?php the_archive_title( '<h1 class="page-title main-width has-primary-color">', '</h1>' ); ?>
+      <?php the_archive_title( '<h1 class="page-title main-width has-title-color">', '</h1>' ); ?>
       <?php if (is_author()) {
         printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
       } else if (is_tag()) {
         the_archive_description();
       } ?>
     </header>
+    <?php endif; ?>
 
     <?php // Start the Loop.
     while ( have_posts() ) : the_post();

@@ -16,7 +16,6 @@
   }
 }
 
-
 .main-width {
   
   @extend %website-width;
@@ -24,6 +23,10 @@
   &.alignwide {
     width: $size__site-width;
     max-width: 100%;
+  }
+  
+  &.alignfull {
+    width: 100%;
   }
   
   .has-sidebar .site-content &.alignwide {
@@ -40,12 +43,12 @@
 }
 
 body.page,
-body.single {
+body.single,
+body.archive {
   .entry-image {
     width: 100%;
     height: 40vh;
     max-height: 700px;
-    margin-bottom: $size__padding * .75;
   }
 }
 
