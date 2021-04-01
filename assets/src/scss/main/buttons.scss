@@ -19,18 +19,20 @@ $button__height: 36px;
   font-family: $font__family;
   font-size: $text__size + 2;
   font-weight: 700;
+  letter-spacing: 2px;
   text-decoration: none !important;
+  text-transform: uppercase;
   white-space: normal;
   overflow-wrap: break-word;
   
-  &:not(.has-background) {
-    background-color: $color__white;
-    color: $color__accent;
+  &:not(.has-background):not(.outline) {
+    // background-color: $color__white;
+    // color: $color__accent;
   }
 
-  &:not(.has-text-color) {
-    background: $color__accent;
-    color: $color__white;
+  &:not(.has-text-color):not(.outline) {
+    // background: $color__accent;
+    // color: $color__white;
   }
   
   &:hover {
@@ -46,8 +48,6 @@ $button__height: 36px;
   
   &.outline {
     background: transparent !important;
-    border: 2px solid $color__accent;
-    color: $color__accent;
   }
   
   &:disabled {
