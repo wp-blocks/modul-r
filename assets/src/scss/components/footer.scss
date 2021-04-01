@@ -2,10 +2,6 @@
   margin-top: $size__padding * 1.5;
   clear: both;
   
-  h3,
-  p,
-  a {color: $color__white;}
-  
   h3 {
     white-space: nowrap;
     padding-bottom: $size__margin;
@@ -49,7 +45,7 @@
       .post-date {
         font-size: 13px;
         margin-left: $size__margin;
-        color: transparentize($color__white, .5);
+        opacity: .5;
       }
     }
   }
@@ -59,7 +55,7 @@
     box-sizing: content-box;
     margin-right: $size__padding * 1.5;
     width: 100%;
-    max-width: $size__site-width * .2;
+    max-width: $size__site-width * .25;
     
     @media #{$mq__responsive-size_brekpoint} {
       margin-left: 0 !important;
@@ -81,14 +77,16 @@
         padding-top: $size__padding * .5;
         padding-bottom: 0;
       }
-      
-      img {max-width: 280px}
+  
+      img {
+        width: 280px;
+        max-width: 100%;
+      }
     }
     
   }
   
   .footer-info {
-    background-color: $color__black;
     padding: $size__margin 0;
     
     @media #{$mq__larger-than-tablet} {
