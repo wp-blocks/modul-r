@@ -282,6 +282,7 @@ endif;
 
 /**
  * Displays the article shares buttons
+ * @param string $type | choose links or share to get the link or to get the sharing action / print or email functions
  */
 if ( ! function_exists('modul_r_social_sharer') ) :
 	function modul_r_social_sharer($type = 'links') {
@@ -348,10 +349,12 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 	function modul_r_custom_body_class( $classes ) {
 		global $post;
 
-		if ((is_page() || is_single()) && !is_front_page()) {
+		if (is_page() || is_single() || is_archive()) {
 
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
-      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {$classes[] = 'has-featured-image';}
+      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID)) {
+        $classes[] = 'has-featured-image';
+      }
 
       // get theme option "sidebar enabled"
       $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
