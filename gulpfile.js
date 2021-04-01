@@ -3,10 +3,10 @@ const gulp = require('gulp');
 
 // Utilities
 const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require("autoprefixer");
+const sourcemaps = require('gulp-sourcemaps');
+const postcss = require('gulp-postcss');
 const fs = require('fs');
 const newer = require('gulp-newer');
 const imagemin = require('gulp-imagemin');
@@ -23,6 +23,9 @@ const zip = require('gulp-zip');
 
 // Misc/global vars
 const pkg = JSON.parse(fs.readFileSync('./package.json'));
+
+// Use node sass as compiler
+sass.compiler = require('node-sass');
 
 // Task options
 const opts = {
