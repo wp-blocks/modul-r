@@ -15,7 +15,7 @@
 
     <header class="entry-header">
       <h5 class="breadcrumbs"><?php the_category(' &#47; '); ?></h5>
-      <?php the_title( sprintf( '<a href="%s" rel="bookmark"><h2 class="entry-title has-primary-color">', esc_url( get_permalink() ) ), '</h2></a>' ); ?>
+      <?php the_title( sprintf( '<a href="%s" rel="bookmark"><h2 class="entry-title has-title-color">', esc_url( get_permalink() ) ), '</h2></a>' ); ?>
     </header>
 
     <div class="entry-content">

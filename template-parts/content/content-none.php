@@ -9,7 +9,7 @@
 
   <?php modul_r_breadcrumbs(); ?>
 
-  <h1 class="entry-title has-primary-color"><?php esc_html_e( 'Nothing Found', 'modul-r' ); ?></h1>
+  <h1 class="entry-title has-title-color"><?php esc_html_e( 'Nothing Found', 'modul-r' ); ?></h1>
 
 </header>
 
