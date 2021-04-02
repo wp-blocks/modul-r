@@ -21,7 +21,7 @@ $mq__smartphone: "(max-width : 420px)";
 $mq__smallphone: "(max-width : 376px)";
 
 // the header menu breakpoint
-$mq__responsive_brekpoint: "(max-width : #{$head__responsive_brekpoint-width})";
+$mq__responsive_brekpoint: "(max-width : #{$head__responsive_breakpoint-width})";
 // the content breakpoint
 $mq__responsive-size_brekpoint: $mq__tablet-portrait;
 
