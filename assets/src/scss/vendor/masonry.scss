@@ -85,10 +85,15 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   .entry-header {
     padding-top: $size__margin * 2;
     padding-bottom: $size__margin;
+    margin: 0;
     @media #{$mq__content-width} {
         padding-left: 0;
         padding-right: 0;
     }
+  }
+  
+  .entry-header {
+    padding-top:0;
   }
   
   .breadcrumbs {

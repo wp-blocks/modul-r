@@ -148,7 +148,7 @@ add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
  */
 if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	function modul_r_theme_fonts() {
-		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Material+Icons&display=swap', array(), null );
+		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&Material+Icons&display=swap', array(), null );
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_fonts', 10 );
