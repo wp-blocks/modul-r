@@ -1,16 +1,16 @@
 // WooCommerce category accordion
 jQuery(document).ready(function($) {
 
-  if ($('ul.product-categories').length > 0) {
+  if ($('.sidebar ul.product-categories').length > 0) {
 
-    $('.product-categories li.cat-parent > a').prepend('<span class="toggle"><i class="material-icons has-primary-color">arrow_forward</i></span>');
-    $('.product-categories .children').hide();
-    $('.product-categories li.current-cat-parent > .children, .product-categories li.current-cat > .children').show();
-    $('.product-categories li.current-cat, .product-categories li.current-cat-parent').addClass('active');
+    $('.sidebar .product-categories li.cat-parent > a').prepend('<span class="toggle"><i class="material-icons has-primary-color">arrow_forward</i></span>');
+    $('.sidebar .product-categories .children').hide();
+    $('.sidebar .product-categories li.current-cat-parent > .children, .product-categories li.current-cat > .children').show();
+    $('.sidebar .product-categories li.current-cat, .product-categories li.current-cat-parent').addClass('active');
 
     $(function () {
 
-      $('.product-categories').find('a').on('click', function (e) {
+      $('.sidebar .product-categories').find('a').on('click', function (e) {
 
         const catItem = $(this).parent('.cat-item');
 
