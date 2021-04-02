@@ -613,7 +613,7 @@ if ( ! function_exists('modul_r_theme_colors_setup') ) :
       array(
         'name'  => __( 'Theme primary color', 'modul-r' ),
         'slug'  => 'primary',
-        'color' => $primary_color ,
+        'color' => $primary_color,
       ),
 			array(
 				'name'  => __( 'Theme primary color light', 'modul-r' ),

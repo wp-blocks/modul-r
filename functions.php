@@ -4,8 +4,8 @@
 if (!isset($modul_r_defaults)) {
 	$modul_r_defaults = array(
 		'colors' => array(
-			'primary' => '#17BEBB',
-			'secondary' => '#33658A',
+			'primary' => '#16bebb',
+			'secondary' => '#D66853',
 			'white' => '#ffffff',
 			'white-smoke' => '#fcfcfc',
 			'gray-light' => '#e3e3e3',
@@ -15,10 +15,10 @@ if (!isset($modul_r_defaults)) {
 		),
 		'style' => array(
 			'background' => 'white-smoke',
-			'title-color' => 'white',
-			'text-color' => 'gray',
-			'header-color' => 'white',
-			'header-text-color' => 'gray',
+			'title-color' => 'black',
+			'text-color' => 'black',
+			'header-color' => 'gray-dark',
+			'header-text-color' => 'white',
 			'footer-color' => 'white',
 			'footer-bottom-color' => 'white',
 			'footer-text-color' => 'gray',

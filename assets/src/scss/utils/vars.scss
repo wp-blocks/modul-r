@@ -1,6 +1,6 @@
 // COLOR VARIABLES
-$color__primary: #17bebb;
-$color__secondary: #33658A;
+$color__primary: #16bebb;
+$color__secondary: #D66853;
 $color__black: #323439;
 $color__dark-grey: lighten($color__black, 10%);
 $color__light-grey: #e3e3e3;
@@ -34,7 +34,8 @@ $size__padding: 64px;
 $size__padding-resp: 20px;
 
 // HEADER
-$size__branding-height: 80px;
+$size__branding-height: 40px;
+$size__branding-max-width: 350px;
 $size__nav-height: 48px;
 $size__nav-responsive-line-height: 3;
 $size__logo-height: 100%;

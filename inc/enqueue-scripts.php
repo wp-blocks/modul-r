@@ -10,7 +10,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$colors['primary'] = get_theme_mod( 'primary-color' ) ? sanitize_hex_color(get_theme_mod( 'primary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['primary']);
 		$colors['primary-light'] = modul_r_adjustBrightness($colors['primary'], 0.4);
 		$colors['primary-dark'] = modul_r_adjustBrightness($colors['primary'], -0.4);
-		$colors['secondary'] = get_theme_mod( 'secondary-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'secondary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['secondary']);
+		$colors['secondary'] = get_theme_mod( 'secondary-color' ) ? sanitize_hex_color(get_theme_mod( 'secondary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['secondary']);
 		$colors['secondary-light'] = modul_r_adjustBrightness($colors['secondary'], 0.4);
 		$colors['secondary-dark'] = modul_r_adjustBrightness($colors['secondary'], -0.4);
 		$colors['white'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white']);
@@ -25,18 +25,17 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$text_color = get_theme_mod( 'text-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'text-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['title-color']]);
 
 		// Colors
-		$header_color = get_theme_mod( 'header-color' ) ? sanitize_hex_color(get_theme_mod( 'header-color' )) : $GLOBALS['modul_r_defaults']['color'][$GLOBALS['modul_r_defaults']['style']['header-color']];
+		$header_color = get_theme_mod( 'header-color' ) ? sanitize_hex_color(get_theme_mod( 'header-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']];
 		$hero_opacity = get_theme_mod( 'modul_r_hero_opacity' ) > 0 ? intval(get_theme_mod( 'modul_r_hero_opacity' )) : 100;
-		$header_text_color = get_theme_mod( 'header-text-color' ) && get_theme_mod( 'header-text-color' ) != 'blank' ? sanitize_hex_color(get_theme_mod( 'header-text-color' )) : get_header_textcolor();
+		$header_text_color = get_theme_mod( 'header-text-color' ) && get_theme_mod( 'header-text-color' ) != 'blank' ? sanitize_hex_color(get_theme_mod( 'header-text-color' )) : '#'.get_header_textcolor();
 
-		$footer_color = get_theme_mod( 'footer-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-color' )) : $GLOBALS['modul_r_defaults']['color'][$GLOBALS['modul_r_defaults']['style']['footer-color']];
-		$footer_bottom_color = get_theme_mod( 'footer-bottom-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-bottom-color' )) : $GLOBALS['modul_r_defaults']['color'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']];
-		$footer_text_color = get_theme_mod( 'footer-text-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-text-color' )) : $GLOBALS['modul_r_defaults']['color'][$GLOBALS['modul_r_defaults']['style']['footer-text-color']];
+		$footer_color = get_theme_mod( 'footer-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-color']];
+		$footer_bottom_color = get_theme_mod( 'footer-bottom-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-bottom-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']];
+		$footer_text_color = get_theme_mod( 'footer-text-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-text-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-text-color']];
 
 		// get the acf.css file and store into a variable
 		ob_start();
-		include get_stylesheet_directory() . '/assets/dist/css/atf.css';
-		$atf_css = ob_get_clean();
+		$atf_css = "";
 
 		// TYPOGRAPY
 		$atf_css .= 'h1, h2, .entry-title, .has-title-color {color: ' . $title_color . ';}';
@@ -49,10 +48,13 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		// On top of the screen set the opacity to 0
 		if (get_theme_mod( 'modul_r_header_opacity' ) > 0){
 			$atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_color . '00;}';
+		} else {
+			// if has a featured image and is at the top of the page....has-featured-image.top
+			$atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_color . 'dd;}';
 		}
 
 		// Set the responsive header opacity
-		$atf_css .= '@media (max-width: 768px) {.main-navigation {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . 'ee;}}';
+		$atf_css .= '@media (max-width: 768px) {body .main-navigation {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . 'ee;}}';
 
 		// Set the nav background colors
 		$atf_css .= 'ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.1) . ';}';
@@ -84,6 +86,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// push primary and secondary color (if is set) into the stored style
 		if ($colors['primary']) {
+			// color related style
+			$atf_css .= '.has-primary-color{color:'.$colors['primary'].'}.has-primary-background-color{color:'.$colors['primary'].'}';
 			// bold text color css
 			$atf_css .= 'body blockquote:before{color:'.$colors['primary'].'}';
 			// selection
@@ -93,6 +97,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		}
 
 		if ($colors['secondary']) {
+			// color related style
+			$atf_css .= '.has-secondary-color{color:'.$colors['secondary'].'}.has-secondary-background-color{color:'.$colors['secondary'].'}';
 			// button background color css
 			$atf_css .= 'body .button:not(.has-text-color),body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:'.$colors['secondary'].'}';
 			$atf_css .= 'input.outline[type="submit"], input.outline[type="button"], input.outline[type="reset"], button.outline, .outline.button, .entry-content .wp-block-button .outline.wp-block-button__link {border: 2px solid '.$colors['secondary'].'; color:'.$colors['secondary'].'}';
@@ -112,6 +118,9 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		if ($hero_opacity != 100) {
 			$atf_css .= 'body.home .hero .entry-image img {opacity:'. ($hero_opacity/100) .'}';
 		}
+
+		include get_stylesheet_directory() . '/assets/dist/css/atf.css';
+		$atf_css .= ob_get_clean();
 
 		// Finally return the stored style
 		if ($atf_css != "" ) {
