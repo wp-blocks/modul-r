@@ -185,11 +185,9 @@ ul.sub-menu {
   transition-delay: 0ms;
   
   @media #{$mq__responsive_brekpoint} {
-    position: inherit;
-    background-color: inherit !important;
-    top: inherit!important;
-    left: inherit!important;
-    opacity: 1;
+    left: inherit;
+    top: 0;
+    right: 0;
   }
 
   ul.sub-menu {

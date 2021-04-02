@@ -264,11 +264,6 @@
       align-self: flex-end;
       width: 100%;
       
-      @media #{$mq__responsive_brekpoint} {
-        justify-content: flex-start;
-        padding: 0;
-      }
-      
       ul {
         justify-content: flex-end;
       }
@@ -285,8 +280,8 @@
     .main-menu {
       justify-content: flex-end;
       padding: 0 0 0 $size__padding-resp;
-      @media #{$mq__responsive-size_brekpoint} {
-        padding: 0 $size__padding-resp;
+      @media #{$mq__responsive_brekpoint} {
+        padding: 0;
         justify-content: flex-start;
       }
     }
