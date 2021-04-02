@@ -7,7 +7,7 @@ if (!isset($modul_r_defaults)) {
 			'primary' => '#16bebb',
 			'secondary' => '#6f4cad',
 			'white' => '#ffffff',
-			'white-smoke' => '#fcfcfc',
+			'white-smoke' => '#f6f6f6',
 			'gray-light' => '#e3e3e3',
 			'gray' => '#888888',
 			'gray-dark' => '#4e4e4e',
@@ -20,7 +20,7 @@ if (!isset($modul_r_defaults)) {
 			'header-color' => 'gray-dark',
 			'header-text-color' => 'white',
 			'footer-color' => 'white',
-			'footer-bottom-color' => 'white',
+			'footer-bottom-color' => 'white-smoke',
 			'footer-text-color' => 'gray-dark',
 		)
 	);

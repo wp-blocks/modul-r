@@ -426,13 +426,13 @@ body.has-sidebar .site-content,body.woocommerce .site-content{
     font-weight:600;
     text-transform:uppercase; }
 
-p.breadcrumbs{
+.breadcrumbs{
   font-size:11px;
   margin-bottom:8px;
   font-weight:600;
   letter-spacing:1.5px;
   color:#b0b3ba; }
-  p.breadcrumbs a{
+  .breadcrumbs a{
     color:#4a4d54;
     font-weight:600;
     text-transform:uppercase;
@@ -440,9 +440,9 @@ p.breadcrumbs{
     margin-right:4px;
     transition:.35s;
     opacity:.5; }
-    p.breadcrumbs a:last-of-type{
+    .breadcrumbs a:last-of-type{
       opacity:.8; }
-    p.breadcrumbs a:hover{
+    .breadcrumbs a:hover{
       opacity:1; }
 
 .relateds ul.relateds-list{
