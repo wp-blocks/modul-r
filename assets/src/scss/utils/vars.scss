@@ -1,6 +1,6 @@
 // COLOR VARIABLES
 $color__primary: #16bebb;
-$color__secondary: #D66853;
+$color__secondary: #6f4cad;
 $color__black: #323439;
 $color__dark-grey: lighten($color__black, 10%);
 $color__light-grey: #e3e3e3;
@@ -10,7 +10,7 @@ $color__text: $color__dark-grey;
 $color__text-light: lighten($color__dark-grey, 15%);
 $color__nav-background: transparentize($color__black, .05);
 $color__background: darken($color__white, 1%);
-$color__icons: $color__secondary;
+$color__icons: $color__dark-grey;
 $color__accent: $color__secondary;
 $color__woo-accent: #026c7c;
 

@@ -21,8 +21,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$colors['black'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['black']);
 
 		// Typography colors
-		$title_color = get_theme_mod( 'title-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'title-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['text-color']]);
-		$text_color = get_theme_mod( 'text-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'text-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['title-color']]);
+		$title_color = get_theme_mod( 'title-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'title-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['title-color']]);
+		$text_color = get_theme_mod( 'text-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'text-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['text-color']]);
 
 		// Colors
 		$header_color = get_theme_mod( 'header-color' ) ? sanitize_hex_color(get_theme_mod( 'header-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']];
@@ -57,9 +57,9 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$atf_css .= '@media (max-width: 768px) {body .main-navigation {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . 'ee;}}';
 
 		// Set the nav background colors
-		$atf_css .= 'ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.1) . ';}';
-		$atf_css .= 'ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . ';}';
-		$atf_css .= 'ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness($header_color, 0.3) . ';}';
+		$atf_css .= 'body ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.1) . ';}';
+		$atf_css .= 'body ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . ';}';
+		$atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness($header_color, 0.3) . ';}';
 
 		// Set header links color
 		$atf_css .= '.main-navigation li a, #masthead .header-wrapper .header-text .site-description, .header-text-color {color:' . $header_text_color. ';}';
