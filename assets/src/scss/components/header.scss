@@ -264,6 +264,11 @@
       align-self: flex-end;
       width: 100%;
       
+      @media #{$mq__responsive_brekpoint} {
+        justify-content: flex-start;
+        padding: 0;
+      }
+      
       ul {
         justify-content: flex-end;
       }
