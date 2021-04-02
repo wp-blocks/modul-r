@@ -273,7 +273,7 @@
       li a {
         line-height: $size__nav-height;
         @media #{$mq__responsive-size_brekpoint} {
-          line-height: $size__navresponsive-nav-line-height;
+          line-height: $size__nav-responsive-line-height;
           height: auto;
         }
       }
