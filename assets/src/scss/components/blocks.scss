@@ -635,17 +635,13 @@
   .wp-block-cover {
     position: relative;
     min-height: 430px;
-    padding: $size__margin;
+    padding: 0;
     background-color: initial;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    
-    @media #{$mq__smaller-than-tablet} {
-      padding: $size__margin 10%;
-    }
     
     .wp-block-cover__inner-container {
       max-width: $size__site-width - ($size__side-padding * 2);
@@ -670,7 +666,7 @@
       width: 100%;
       
       @media #{$mq__smaller-than-tablet} {
-        padding: $size__margin calc(2 * #{$size__margin});
+        padding: $size__margin ($size__margin * 2);
       }
     }
     
