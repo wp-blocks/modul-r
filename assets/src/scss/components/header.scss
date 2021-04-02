@@ -236,7 +236,7 @@
   &.header-landscape .header-wrapper {
     flex-direction: row;
     height: $size__nav-height;
-    @media #{$mq__responsive-size_brekpoint} {
+    @media #{$mq__responsive_brekpoint} {
       height: 100%;
     }
     
@@ -244,7 +244,7 @@
       height: 100%;
       padding-bottom: $size__margin;
       box-sizing: border-box;
-      @media #{$mq__responsive-size_brekpoint} {
+      @media #{$mq__responsive_brekpoint} {
         padding-top: $size__margin * .5;
         padding-bottom: $size__margin * .5;
       }
@@ -270,7 +270,7 @@
       
       li a {
         line-height: $size__nav-height;
-        @media #{$mq__responsive-size_brekpoint} {
+        @media #{$mq__responsive_brekpoint} {
           line-height: $size__nav-responsive-line-height;
           height: auto;
         }
