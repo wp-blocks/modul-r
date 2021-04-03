@@ -152,6 +152,7 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_fonts', 10 );
+add_action( 'admin_enqueue_scripts', 'modul_r_theme_fonts', 10 );
 
 /**
  * Enqueue main style

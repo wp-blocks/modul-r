@@ -74,6 +74,7 @@
       box-shadow: 0 0 0 1.5px $color__accent inset;
   
       span {
+        display: block;
         font-size: 14px;
         height: $icons-height;
         line-height: $icons-height + 2;

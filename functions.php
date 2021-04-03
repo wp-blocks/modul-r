@@ -46,7 +46,7 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		* WordPress define content width
 		* https://codex.wordpress.org/Content_Width
 		*/
-		if ( ! isset( $content_width ) ) $content_width = 900;
+		if ( ! isset( $content_width ) ) $content_width = 1200;
 
 		/*
 		* Enable support for Post Thumbnails on posts and pages.
