@@ -64,16 +64,15 @@ body.archive {
       padding-top: $size__nav-height + $size__branding-height + $size__margin + $size__padding;
     }
   }
+}
+
+#content {
+  overflow-x: hidden;
+  padding-top: $size__padding * .75;
   
-  
-  & + #content {
-    overflow-x: hidden;
-    padding-top: $size__padding * .75;
-    
-    @media #{$mq__smaller-than-tablet} {
-      margin-top: $head__height-responsive;
-      padding-top: $size__padding * .5;
-    }
+  @media #{$mq__smaller-than-tablet} {
+    margin-top: $head__height-responsive;
+    padding-top: $size__padding * .5;
   }
 }
 

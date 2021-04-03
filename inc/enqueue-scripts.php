@@ -62,8 +62,9 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness($header_color, 0.3) . ';}';
 
 		// Set header links color
-		$atf_css .= '.main-navigation li a, #masthead .header-wrapper .header-text .site-description, .header-text-color {color:' . $header_text_color. ';}';
+		$atf_css .= '.main-navigation li a, #masthead .header-wrapper .header-text .site-description, .has-header-text-color {color:' . $header_text_color. ';}';
 		$atf_css .= '.has-header-text-background-color {background-color:' . $header_text_color. ';}';
+		$atf_css .= '.has-header-text-background-border-color {border-color:' . $header_text_color. '66 !important;}';
 
 		// the hamburger color
 		$atf_css .= 'body .menu-resp button.c-hamburger i,body .menu-resp button.c-hamburger i::after,body .menu-resp button.c-hamburger i::before {background:' . $header_text_color. ';}';

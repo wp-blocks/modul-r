@@ -66,25 +66,30 @@
     
     .button {
       min-width: $icons-height;
-      margin: auto 0 auto ($size__margin * 2);
-      padding:0;
+      margin: auto 0 auto ($size__margin * 1.5);
+      padding: ($size__margin * 1.5);
       
       border-radius: $icons-height + ($size__margin * 1.5);
-      border: 0;
-      box-shadow: 0 0 0 1.5px $color__accent inset;
+      border: 1.5px solid transparentize($color__light-grey, .5);
+  
+      opacity: 0.75;
+      transition: $animations__lenght;
+      
+      &:hover {
+        opacity: 1;
+      }
   
       span {
         display: block;
         font-size: 14px;
         height: $icons-height;
         line-height: $icons-height + 2;
-        padding: $size__margin * 1.5 $size__margin * 3;
       }
   
       i {
         font-size: $icons-height;
         line-height: $icons-height;
-        padding: $size__margin * 1.5;
+        vertical-align: middle;
       }
     }
   }

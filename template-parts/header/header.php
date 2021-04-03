@@ -35,14 +35,14 @@
 
 	  <?php if ( class_exists( 'woocommerce' ) ) : ?>
       <div class="menu-icons-container show-on-mobile unselectable" >
-        <a class="button text outline">
-          <span><?php _e( 'Shop', 'modul-r' ) ?></span>
+        <a class="button text outline has-header-text-background-border-color">
+          <span class="has-header-text-color"><?php _e( 'Shop', 'modul-r' ) ?></span>
         </a>
-        <a class="button icon outline">
-          <i class="material-icons">search</i>
+        <a class="button icon outline has-header-text-background-border-color">
+          <i class="material-icons has-header-text-color">search</i>
         </a>
-        <a class="button icon outline">
-          <i class="material-icons">shopping_cart</i>
+        <a class="button icon outline has-header-text-background-border-color">
+          <i class="material-icons has-header-text-color">shopping_cart</i>
         </a>
       </div>
     <?php endif; ?>
