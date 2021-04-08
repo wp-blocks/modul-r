@@ -527,7 +527,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		$wp_customize->add_control( 'modul_r_social_share_enabled', array(
 			'type' => 'checkbox',
 			'section' => 'modul_r_settings_social_share',
-			'label' => esc_html__( 'Show Social Share Options', 'modul-r' ),
+			'label' => esc_html__( 'Show Social Share Icons', 'modul-r' ),
 			'description' => esc_html__( 'Show social media sharing icons on single posts and pages', 'modul-r' ),
 		) );
 
@@ -552,6 +552,22 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 				),
 			)
 		);
+
+	  $social_enabled = array( 'Facebook', 'Instagram', 'Twitter', 'YouTube' );
+
+	  foreach ($social_enabled as $social) {
+		  $wp_customize->add_setting( 'modul_r_social_' . $social, array(
+			  'capability'        => 'edit_theme_options',
+			  'default'           => "",
+			  'sanitize_callback' => 'sanitize_text_field',
+		  ) );
+		  $wp_customize->add_control( 'modul_r_social_' . $social, array(
+			  'type'        => 'input',
+			  'section'     => 'modul_r_settings_social_share',
+			  'label'       => $social,
+			  'description' => $social . ' url link',
+		  ) );
+	  }
 
 		// Sanitize function for checkbox value
 		function modul_r_sanitize_checkbox( $checked ) {

@@ -22,7 +22,8 @@ if (!isset($modul_r_defaults)) {
 			'footer-color' => 'white',
 			'footer-bottom-color' => 'white-smoke',
 			'footer-text-color' => 'gray-dark',
-		)
+		),
+		'social_media_enabled' => array( 'Facebook', 'Instagram', 'Twitter', 'Linkedin', 'YouTube', 'www' )
 	);
 }
 

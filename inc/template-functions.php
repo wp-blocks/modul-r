@@ -286,9 +286,7 @@ endif;
  */
 if ( ! function_exists('modul_r_social_sharer') ) :
 	function modul_r_social_sharer($type = 'links') {
-  $sharer_page_link = urlencode(esc_attr(get_page_link()));
-  $sharer_blog_title = urlencode(esc_attr(get_bloginfo('title')));
-  $sharer_page_title = urlencode(esc_attr(get_the_title()));
+
   $opt_social_share_enabled = get_theme_mod('modul_r_social_share_enabled');
   $opt_social_share_visibility = get_theme_mod('modul_r_social_share_visibility');
 
@@ -296,12 +294,12 @@ if ( ! function_exists('modul_r_social_sharer') ) :
 
     if($opt_social_share_enabled == true):
 	    if ( $opt_social_share_visibility === 'all' ) {
-		    get_template_part( 'template-parts/fragments/content', 'social-links' );
+		    get_template_part( 'template-parts/fragments/content', 'social-share' );
 	    } else {
 		    if ( $wp_post_type === 'post' && $opt_social_share_visibility === 'posts' ) {
-			    get_template_part( 'template-parts/fragments/content', 'social-links' );
+			    get_template_part( 'template-parts/fragments/content', 'social-share' );
 		    } else if ( $wp_post_type === 'page' && $opt_social_share_visibility === 'pages' ) {
-			    get_template_part( 'template-parts/fragments/content', 'social-links' );
+			    get_template_part( 'template-parts/fragments/content', 'social-share' );
 		    }
 	    }
 	endif;
