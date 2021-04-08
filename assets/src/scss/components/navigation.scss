@@ -107,7 +107,7 @@ $nav_padding: 0 ($size__margin * 4);
     // if you want to append the menu to the edge of the header
     // height: calc(100vh - #{$size__nav-height});
     // padding: ($size__padding-resp * 1.5) $size__padding-resp;
-    z-index: 190;
+    z-index: 1020;
     width: 90%;
     max-width: $size__responsive-menu-width;
     box-sizing: border-box;

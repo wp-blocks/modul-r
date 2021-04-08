@@ -40,7 +40,6 @@
   
   %header-top-right-position {
     position: absolute;
-    z-index: 1020;
     top: 0;
     right: $size__padding-resp;
     height: 100%;
@@ -54,20 +53,22 @@
   // the menu icons near the hamburger
   .menu-resp {
     @extend %header-top-right-position;
+    z-index: 1030;
   }
   
   // the menu icons near the hamburger
   .menu-icons-container {
   
-    $icons-height: 21px;
+    $icons-height: 20px;
     
     @extend %header-top-right-position;
+    z-index: 1010;
     right: ($size__padding-resp * 3) + $hamburger__size ;
     
     .button {
       min-width: $icons-height;
-      margin: auto 0 auto ($size__margin * 1.5);
-      padding: ($size__margin * 1.5);
+      margin: auto 0 auto ($size__margin * 1.25);
+      padding: ($size__margin * 1.25);
       
       border-radius: $icons-height + ($size__margin * 1.5);
       border: 1.5px solid transparentize($color__light-grey, .5);
@@ -75,13 +76,17 @@
       opacity: 0.75;
       transition: $animations__lenght;
       
+      &.text {
+        padding: ($size__margin * 1.25) ($size__margin * 2.5);
+      }
+      
       &:hover {
         opacity: 1;
       }
   
       span {
         display: block;
-        font-size: 14px;
+        font-size: $text__size - 4;
         height: $icons-height;
         line-height: $icons-height + 2;
       }
