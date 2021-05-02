@@ -6,22 +6,15 @@ body {
 html {
   background-color: #fcfcfc;
   max-width: 100%;
-  overflow-x: hidden;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased; }
 
 body {
-  box-sizing: border-box;
   min-height: 100%;
-  font-family: "Montserrat", sans-serif, sans-serif;
-  color: #4a4d54;
-  font-size: 17px;
-  line-height: 1.7;
-  word-break: break-word; }
-  @media (max-width: 500px) {
-    body {
-      font-size: 15px; } }
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; }
 
 .has-primary-background-color,
 .has-primary-light-background-color,
@@ -40,6 +33,16 @@ body {
   color: #4a4d54; }
 
 /* Headlines */
+body {
+  font-family: "Montserrat", sans-serif, sans-serif;
+  color: #4a4d54;
+  font-size: 17px;
+  line-height: 1.7;
+  word-break: break-word; }
+  @media (max-width: 500px) {
+    body {
+      font-size: 15px; } }
+
 h1,
 h2,
 h3,

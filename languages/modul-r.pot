@@ -53,7 +53,7 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: functions.php:62
+#: functions.php:63
 msgid "Primary"
 msgstr ""
 
@@ -290,7 +290,7 @@ msgid "Social Share Options"
 msgstr ""
 
 #: inc/customizer.php:530
-msgid "Show Social Share Options"
+msgid "Show Social Share Icons"
 msgstr ""
 
 #: inc/customizer.php:531
@@ -317,51 +317,51 @@ msgstr ""
 msgid "Pages and single Posts"
 msgstr ""
 
-#: inc/customizer.php:614
+#: inc/customizer.php:630
 msgid "Theme primary color"
 msgstr ""
 
-#: inc/customizer.php:619
+#: inc/customizer.php:635
 msgid "Theme primary color light"
 msgstr ""
 
-#: inc/customizer.php:624
+#: inc/customizer.php:640
 msgid "Theme primary color dark"
 msgstr ""
 
-#: inc/customizer.php:629
+#: inc/customizer.php:645
 msgid "Theme secondary color"
 msgstr ""
 
-#: inc/customizer.php:634
+#: inc/customizer.php:650
 msgid "Theme secondary color light"
 msgstr ""
 
-#: inc/customizer.php:639
+#: inc/customizer.php:655
 msgid "Theme secondary color dark"
 msgstr ""
 
-#: inc/customizer.php:644
+#: inc/customizer.php:660
 msgid "White"
 msgstr ""
 
-#: inc/customizer.php:649
+#: inc/customizer.php:665
 msgid "White Smoke"
 msgstr ""
 
-#: inc/customizer.php:654
+#: inc/customizer.php:670
 msgid "Light gray"
 msgstr ""
 
-#: inc/customizer.php:659
+#: inc/customizer.php:675
 msgid "Gray"
 msgstr ""
 
-#: inc/customizer.php:664
+#: inc/customizer.php:680
 msgid "Dark gray"
 msgstr ""
 
-#: inc/customizer.php:669
+#: inc/customizer.php:685
 msgid "Black"
 msgstr ""
 
@@ -428,7 +428,7 @@ msgstr[1] ""
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:328
+#: inc/template-functions.php:326
 msgid "You might be interested in..."
 msgstr ""
 
@@ -465,31 +465,23 @@ msgstr ""
 msgid "made with &hearts; by codekraft-studio"
 msgstr ""
 
-#: template-parts/fragments/content-social-links.php:4
-msgid "Share this page"
-msgstr ""
-
-#: template-parts/fragments/content-social-links.php:4
-msgid "Share this post"
-msgstr ""
-
-#: template-parts/fragments/content-social-links.php:8, template-parts/fragments/content-social-share.php:4
+#: template-parts/fragments/content-social-share.php:10
 msgid "Share on Facebook"
 msgstr ""
 
-#: template-parts/fragments/content-social-links.php:14, template-parts/fragments/content-social-share.php:10
+#: template-parts/fragments/content-social-share.php:16
 msgid "Share on Linkedin"
 msgstr ""
 
-#: template-parts/fragments/content-social-links.php:19, template-parts/fragments/content-social-share.php:15
+#: template-parts/fragments/content-social-share.php:21
 msgid "Share on Twitter"
 msgstr ""
 
-#: template-parts/fragments/content-social-links.php:24
+#: template-parts/fragments/content-social-share.php:26
 msgid "Send by mail"
 msgstr ""
 
-#: template-parts/fragments/content-social-links.php:29
+#: template-parts/fragments/content-social-share.php:31
 msgid "Print this page"
 msgstr ""
 

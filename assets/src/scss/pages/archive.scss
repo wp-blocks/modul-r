@@ -1,19 +1,6 @@
 body.search-results,
 body.archive {
   
-  .page-header {
-    padding-bottom: $size__padding;
-  
-    @media #{$mq__smaller-than-tablet} {
-      padding-bottom: $size__padding * .25;
-    }
-  }
-  
-  .content-head-spacer {
-    display: block;
-    height: 50px;
-  }
-  
   // background mask of the article
   .site-main {
     overflow-x: hidden;

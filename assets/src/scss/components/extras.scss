@@ -270,7 +270,7 @@ body .hero {
   }
   
   .hero-title {
-    padding-top: $size__nav-height;
+    padding-top: $size__branding-height + $size__nav-height;
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
     

@@ -109,7 +109,6 @@
     
     .site-branding {
       width: 100%;
-      height: $size__branding-height;
       padding-top: $size__margin;
   
       @media #{$mq__responsive-size_brekpoint} {
@@ -128,7 +127,7 @@
     
         .custom-logo {
           object-fit: contain;
-          height: $size__branding-height;
+          height: $size__logo-size;
           max-width: 100%;
           width: auto;
       
@@ -141,12 +140,13 @@
       }
   
       &.has-custom-logo .site-logo {
-        height: 100%;
+        height: $size__branding-height;
       }
       
       &.has-header-text.has-custom-logo {
         display: flex;
         flex-direction: row;
+        align-items: center;
         
         .site-logo {
           margin-right: $size__margin;
@@ -164,7 +164,7 @@
     
     // Site title & description (no custom logo)
     .header-text {
-      height: 100%;
+      height: $size__logo-size;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -178,21 +178,15 @@
       }
   
       .site-title {
-        font-size: 26px;
-        line-height: ($size__branding-height - ($size__margin * 2)) * .66;
-        @media #{$mq__responsive-size_brekpoint} {
-          line-height: ($head__height-responsive - $size__margin) * .66;
-        }
+        font-size: $size__branding-height * .65;
+        line-height: $size__branding-height * .75;
       }
   
       .site-description {
         display: inline-block;
         font-weight: 300;
-        font-size: 11px;
-        line-height: ($size__branding-height - ($size__margin * 2)) * .33;
-        @media #{$mq__responsive-size_brekpoint} {
-          line-height: ($head__height-responsive - $size__margin) * .33;
-        }
+        font-size: $size__branding-height * .25;
+        line-height: $size__branding-height * .25;
       }
     }
     
@@ -221,14 +215,11 @@
         margin-right: 0;
       }
     }
-  
+    
     .main-navigation {
+      margin-top: $size__margin;
       ul {
         height: auto;
-        margin-top: $size__margin;
-      }
-      li a {
-        line-height: 2.5;
       }
     }
     
@@ -252,8 +243,7 @@
     }
     
     .site-branding {
-      height: 100%;
-      padding-bottom: $size__margin;
+      padding-top: 0;
       box-sizing: border-box;
       @media #{$mq__responsive_brekpoint} {
         padding-top: $size__margin * .5;
@@ -263,10 +253,19 @@
       .custom-logo {
         object-position: left;
         width: auto;
+        height: $size__logo-size;
+      }
+  
+      .header-text {
+        .site-title {
+          font-size: $size__branding-height * .4;
+          line-height: $size__branding-height * .5;
+        }
       }
       
-      &.has-header-text.has-custom-logo .site-logo {
+      .site-logo {
         width: auto;
+        height: $size__nav-height;
         max-width: $size__branding-max-width;
       }
     }
@@ -295,16 +294,6 @@
         padding: 0;
         justify-content: flex-start;
       }
-    }
-  
-    .site-title {
-      font-size: ($size__nav-height - ($size__margin * 2)) * .6;;
-      line-height: ($size__nav-height - ($size__margin * 2)) * .7;
-    }
-  
-    .site-description {
-      font-size: ($size__nav-height - ($size__margin * 2)) * .3;
-      line-height: ($size__nav-height - ($size__margin * 2)) * .3;
     }
     
   }

@@ -58,6 +58,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// Set the nav background colors
 		$atf_css .= 'body ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.1) . ';}';
+		$atf_css .= 'body.has-featured-image.top #masthead ul.sub-menu {background-color: ' . $header_color . 'cc;}';
 		$atf_css .= 'body ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . ';}';
 		$atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness($header_color, 0.3) . ';}';
 

@@ -180,7 +180,7 @@ ul.sub-menu {
   padding: 0;
   overflow: hidden;
 
-  background-color: lighten($color__nav-background, 2%);
+  background-color: darken($color__nav-background, 2%);
   transition: $animations__lenght * .5;
   transition-delay: 0ms;
   
@@ -193,7 +193,7 @@ ul.sub-menu {
   ul.sub-menu {
     top: 0;
     left: 100%;
-    background-color: lighten($color__nav-background, 5%);
+    background-color: darken($color__nav-background, 5%);
   }
   
   &:focus-within,
