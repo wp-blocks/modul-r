@@ -1,4 +1,13 @@
 /* Headlines */
+body {
+	font-family: $font__family, sans-serif;
+	color: $color__text;
+	font-size: $text__size;
+	line-height: $text__line-height;
+	word-break: break-word;
+	
+	@media #{$mq__phablet} {font-size: $text__size - 2;}
+}
 
 %headline_style {
 	font-family: $font__family-headline;
@@ -16,7 +25,6 @@ h6 {
 	padding: 0;
 	line-height: $text__line-height-headline;
 }
-
 
 h1 {
 	font-size: 56px;
@@ -67,12 +75,7 @@ b, strong, a {
 	font-weight: 600;
 }
 
-p b {
-	color: $color__primary;
-}
-
 a {
-	color: $color__accent;
 	text-decoration: none;
 }
 

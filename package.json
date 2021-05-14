@@ -1,6 +1,6 @@
 {
   "name": "modul-r",
-  "version": "1.2.4",
+  "version": "1.2.9",
   "repository": "https://github.com/erikyo/modul-r",
   "license": "GPL-3.0",
   "main": "Modul R",
@@ -24,11 +24,11 @@
   },
   "style": "./style.css",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
     "autoprefixer": "^9.7.5",
     "cssnano": "^4.1.10",
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
@@ -36,12 +36,12 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^3.2.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1",
-    "gulp-wp-pot": "^2.3.6",
-    "gulp-zip": "^5.0.1"
+    "gulp-wp-pot": "^2.5.0",
+    "gulp-zip": "^5.1.0"
   }
 }

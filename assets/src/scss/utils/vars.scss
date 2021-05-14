@@ -1,6 +1,6 @@
 // COLOR VARIABLES
-$color__primary: #17bebb;
-$color__secondary: #33658A;
+$color__primary: #16bebb;
+$color__secondary: #6f4cad;
 $color__black: #323439;
 $color__dark-grey: lighten($color__black, 10%);
 $color__light-grey: #e3e3e3;
@@ -10,6 +10,7 @@ $color__text: $color__dark-grey;
 $color__text-light: lighten($color__dark-grey, 15%);
 $color__nav-background: transparentize($color__black, .05);
 $color__background: darken($color__white, 1%);
+$color__icons: $color__dark-grey;
 $color__accent: $color__secondary;
 $color__woo-accent: #026c7c;
 
@@ -33,11 +34,16 @@ $size__padding: 64px;
 $size__padding-resp: 20px;
 
 // HEADER
+$size__branding-max-width: 350px;
 $size__branding-height: 60px;
-$size__nav-height: 48px;
+$size__logo-size: 80%;
+$size__nav-height: 60px;
+$size__nav-responsive-line-height: 3;
+$size__responsive-menu-width: 360px;
 
 // HEADER RESP
-$head__height-responsive: 60px;
+$head__responsive_breakpoint-width: 768px;
+$head__height-responsive: 80px;
 
 // HAMBURGER MENU
 $hamburger__size: 30px;

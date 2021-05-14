@@ -11,7 +11,7 @@
 
     <?php modul_r_breadcrumbs(); ?>
 
-		<?php the_title( '<h1 class="entry-title has-primary-color">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title has-title-color">', '</h1>' ); ?>
 
     <?php modul_r_meta(); ?>
 

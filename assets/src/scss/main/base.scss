@@ -7,19 +7,14 @@ body {
 html {
   background-color: $color__background;
   max-width: 100%;
-  overflow-x: hidden;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
-  box-sizing: border-box;
   min-height: 100%;
-  font-family: $font__family, sans-serif;
-  color: $color__text;
-  font-size: $text__size;
-  line-height: $text__line-height;
-  word-break: break-word;
-  @media #{$mq__phablet} {font-size: $text__size - 2;}
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }

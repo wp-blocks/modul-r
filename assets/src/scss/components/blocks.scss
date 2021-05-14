@@ -86,7 +86,7 @@
 .site-main {
   .entry-content {
     overflow-x: hidden;
-
+    
     h1,
     h2,
     h3,
@@ -133,6 +133,13 @@
   .wp-block-gallery {
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
+    &.alignfull {
+      padding:0;
+      .blocks-gallery-grid {
+        margin: 0;
+        padding: 0;
+      }
+    }
   }
   
   .wp-block-media-text {
@@ -340,13 +347,8 @@
     display: flex;
     justify-content: space-between;
     li {
-      border: 1px solid darken($color__white, 5%);
       background-color: $color__white;
-      padding: $size__margin;
-      width: 47%;
-      margin: 0 0 $size__margin;
-      box-shadow: 0 4px 10px -16px $color__black;
-      line-height: 1.4;
+      margin: 0;
     }
   }
   
@@ -631,17 +633,13 @@
   .wp-block-cover {
     position: relative;
     min-height: 430px;
-    padding: $size__margin;
+    padding: 0;
     background-color: initial;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    
-    @media #{$mq__smaller-than-tablet} {
-      padding: $size__margin 10%;
-    }
     
     .wp-block-cover__inner-container {
       max-width: $size__site-width - ($size__side-padding * 2);
@@ -666,7 +664,7 @@
       width: 100%;
       
       @media #{$mq__smaller-than-tablet} {
-        padding: $size__margin calc(2 * #{$size__margin});
+        padding: $size__margin ($size__margin * 2);
       }
     }
     

@@ -10,12 +10,7 @@
 
     <div class="entry-content">
 		  <?php the_content(); ?>
-    </div><!-- /entry-content -->
-
-    <footer class="entry-footer main-width">
-	    <?php modul_r_social_sharer(); ?>
-	    <?php modul_r_relateds(); ?>
-    </footer>
+    </div>
 
   </main>
 </div>

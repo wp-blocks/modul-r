@@ -11,10 +11,14 @@ get_header();
 
       <?php if ( have_posts() ) : ?>
 
-        <header class="page-header">
-          <h1 class="page-title main-width has-primary-color"><?php the_archive_title(); ?></h1>
-          <?php the_archive_description(); ?>
-        </header>
+	      <?php if ( !has_post_thumbnail() ) : ?>
+          <header class="page-header">
+            <h1 class="page-title main-width has-title-color"><?php the_archive_title(); ?></h1>
+            <?php the_archive_description(); ?>
+          </header>
+        <?php else: ?>
+          <div aria-hidden="true" class="wp-block-spacer content-head-spacer"></div>
+        <?php endif; ?>
 
         <div class="masonry-container main-width alignwide">
           <div id="masonry-wrapper">

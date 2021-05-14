@@ -18,6 +18,7 @@
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
+::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:vertical,
 ::-webkit-scrollbar-thumb:horizontal {
   background-color: $scrollbar-line-color;

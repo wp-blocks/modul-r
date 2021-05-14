@@ -10,27 +10,29 @@ $button__height: 36px;
   
   min-width: 64px;
   margin: 0;
-  padding: ($size__margin * 1.5) ($size__margin * 3);
+  padding: ($size__margin * 1.2) ($size__margin * 2.4);
   
   border: none;
   border-radius: 30px;
   outline: none;
   
   font-family: $font__family;
-  font-size: $text__size + 2;
+  font-size: $text__size;
   font-weight: 700;
+  letter-spacing: 2px;
   text-decoration: none !important;
+  text-transform: uppercase;
   white-space: normal;
   overflow-wrap: break-word;
   
-  &:not(.has-background) {
-    background-color: $color__white;
-    color: $color__accent;
+  &:not(.has-background):not(.outline) {
+    // background-color: $color__white;
+    // color: $color__accent;
   }
 
-  &:not(.has-text-color) {
-    background: $color__accent;
-    color: $color__white;
+  &:not(.has-text-color):not(.outline) {
+    // background: $color__accent;
+    // color: $color__white;
   }
   
   &:hover {
@@ -46,7 +48,6 @@ $button__height: 36px;
   
   &.outline {
     background: transparent !important;
-    border: 2px solid $color__white;
   }
   
   &:disabled {

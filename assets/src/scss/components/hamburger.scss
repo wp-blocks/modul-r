@@ -1,21 +1,11 @@
 // The animated header button
-
 .menu-resp {
-  display: none;
-  position: absolute;
-  z-index: 1020;
-  top: ($head__height-responsive - $hamburger__size) * .5;
-  right: $size__padding-resp;
-  
-  @media #{$mq__smaller-than-tablet} {
-    display: block;
-  }
 
   button.c-hamburger {
     display: block;
     position: relative;
     overflow: hidden;
-    margin: 0;
+    margin: auto;
     padding: 0;
     width: $hamburger__size;
     min-width: inherit;

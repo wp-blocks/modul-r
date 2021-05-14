@@ -17,14 +17,14 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     $hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
     ?>
 
-    <div class="website-hero text-center<?php echo $hero_fullscreen; ?>">
-    <?php modul_r_post_image('parallax has-primary-background-color'); ?>
+    <div class="hero<?php echo $hero_fullscreen; ?>">
+    <?php modul_r_post_image('parallax header-color'); ?>
       <div class="hero-title text-center">
-        <h1 class="entry-title has-secondary-color"><?php echo $hero_title; ?></h1>
+        <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
       <?php
         if ($hero_call_to_action > 0) {
-          printf('<a href="%s" class="button big has-secondary-background-color">%s</a>', esc_url( get_page_link($hero_call_to_action) ), esc_html(get_the_title($hero_call_to_action))) ;
+          printf('<a href="%s" class="button big has-header-background-color">%s</a>', esc_url( get_page_link($hero_call_to_action) ), esc_html(get_the_title($hero_call_to_action))) ;
         }
         if ($hero_call_to_action_2 > 0) {
           printf('<a href="%s" class="button big outline">%s</a>', esc_url( get_category_link($hero_call_to_action_2) ), esc_html(get_cat_name($hero_call_to_action_2))) ;
@@ -50,6 +50,31 @@ if ( ! function_exists( 'modul_r_post_image' ) ) :
 		<?php endif;
 	}
 endif;
+
+/**
+ * Displays the featured image of the archive page
+ */
+if ( ! function_exists( 'modul_r_archive_image' ) ) :
+	function modul_r_archive_image( $class = null ) {
+		// Check if Thumbnail exists
+		if ( has_post_thumbnail() ) : ?>
+          <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
+            <div class="entry-image">
+			        <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
+            </div>
+            <div class="hero-title text-center">
+	            <?php the_archive_title( '<h1 class="page-title main-width has-title-color">', '</h1>' ); ?>
+	            <?php if (is_author()) {
+		            printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
+	            } else {
+		            the_archive_description();
+	            } ?>
+            </div>
+          </div>
+		<?php endif;
+	}
+endif;
+
 
 
 /**
@@ -257,26 +282,26 @@ endif;
 
 /**
  * Displays the article shares buttons
+ * @param string $type | choose links or share to get the link or to get the sharing action / print or email functions
  */
 if ( ! function_exists('modul_r_social_sharer') ) :
-	function modul_r_social_sharer() {
-  $sharer_page_link = urlencode(esc_attr(get_page_link()));
-  $sharer_blog_title = urlencode(esc_attr(get_bloginfo('title')));
-  $sharer_page_title = urlencode(esc_attr(get_the_title()));
+	function modul_r_social_sharer($type = 'links') {
+
   $opt_social_share_enabled = get_theme_mod('modul_r_social_share_enabled');
   $opt_social_share_visibility = get_theme_mod('modul_r_social_share_visibility');
+
   $wp_post_type = get_post_type();
 
     if($opt_social_share_enabled == true):
-		if($opt_social_share_visibility === 'all'){
-			get_template_part( 'template-parts/content/content', 'social' );
-		}else{
-			if($wp_post_type === 'post' && $opt_social_share_visibility === 'posts'){
-				get_template_part( 'template-parts/content/content', 'social' );
-			}else if($wp_post_type === 'page' && $opt_social_share_visibility === 'pages'){
-				get_template_part( 'template-parts/content/content', 'social' );
-			}
-		}
+	    if ( $opt_social_share_visibility === 'all' ) {
+		    get_template_part( 'template-parts/fragments/content', 'social-share' );
+	    } else {
+		    if ( $wp_post_type === 'post' && $opt_social_share_visibility === 'posts' ) {
+			    get_template_part( 'template-parts/fragments/content', 'social-share' );
+		    } else if ( $wp_post_type === 'page' && $opt_social_share_visibility === 'pages' ) {
+			    get_template_part( 'template-parts/fragments/content', 'social-share' );
+		    }
+	    }
 	endif;
 	}
 endif;
@@ -322,10 +347,12 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 	function modul_r_custom_body_class( $classes ) {
 		global $post;
 
-		if ((is_page() || is_single()) && !is_front_page()) {
+		if (is_page() || is_single() || is_archive()) {
 
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
-      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {$classes[] = 'has-featured-image';}
+      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID)) {
+        $classes[] = 'has-featured-image';
+      }
 
       // get theme option "sidebar enabled"
       $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');

@@ -18,19 +18,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			}
 		}
 
-		// Template custom colors
-
-		// Header color
-		$wp_customize->add_setting( 'header-color', array(
-			'default'   => esc_attr($GLOBALS['modul_r_defaults']['colors']['header']),
-			'transport' => 'refresh',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header-color', array(
-			'section' => 'colors',
-			'label'   => esc_html__( 'Header Color', 'modul-r' ),
-			'priority' => 0,
-		) ) );
+		// Template color scheme
 
 		// Primary color
 		$wp_customize->add_setting( 'primary-color', array(
@@ -42,6 +30,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'section' => 'colors',
 			'label'   => esc_html__( 'Primary Color', 'modul-r' ),
 		) ) );
+
 
 		// Secondary color
 		$wp_customize->add_setting( 'secondary-color', array(
@@ -55,12 +44,88 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		) ) );
 
 
+	  // Typography colors
+	  $wp_customize->add_setting( 'title-color', array(
+		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['title-color'] ] ),
+		  'transport'         => 'refresh',
+		  'sanitize_callback' => 'sanitize_hex_color',
+	  ) );
+	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title-color', array(
+		  'section'  => 'colors',
+		  'label'    => esc_html__( 'Title Color', 'modul-r' )
+	  ) ) );
+
+	  $wp_customize->add_setting( 'text-color', array(
+		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] ),
+		  'transport'         => 'refresh',
+		  'sanitize_callback' => 'sanitize_hex_color',
+	  ) );
+	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text-color', array(
+		  'section'  => 'colors',
+		  'label'    => esc_html__( 'Text Color', 'modul-r' )
+	  ) ) );
+
+
+
+	  // Header colors
+	  $wp_customize->add_setting( 'header-color', array(
+		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] ),
+		  'transport'         => 'refresh',
+		  'sanitize_callback' => 'sanitize_hex_color',
+	  ) );
+	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header-color', array(
+		  'section'  => 'colors',
+		  'label'    => esc_html__( 'Header Color', 'modul-r' )
+	  ) ) );
+
+	  $wp_customize->add_setting( 'header-text-color', array(
+		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ] ),
+		  'transport'         => 'refresh',
+		  'sanitize_callback' => 'sanitize_hex_color',
+	  ) );
+	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header-text-color', array(
+		  'section'  => 'colors',
+		  'label'    => esc_html__( 'Header text Color', 'modul-r' )
+	  ) ) );
+
+
+	  // Footer colors
+	  $wp_customize->add_setting( 'footer-color', array(
+		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-color'] ] ),
+		  'transport'         => 'refresh',
+		  'sanitize_callback' => 'sanitize_hex_color',
+	  ) );
+	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer-color', array(
+		  'section'  => 'colors',
+		  'label'    => esc_html__( 'Footer Color', 'modul-r' )
+	  ) ) );
+
+	  $wp_customize->add_setting( 'footer-bottom-color', array(
+		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-bottom-color'] ] ),
+		  'transport'         => 'refresh',
+		  'sanitize_callback' => 'sanitize_hex_color',
+	  ) );
+	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer-bottom-color', array(
+		  'section'  => 'colors',
+		  'label'    => esc_html__( 'Footer bottom color', 'modul-r' )
+	  ) ) );
+
+	  $wp_customize->add_setting( 'footer-text-color', array(
+		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-text-color'] ] ),
+		  'transport'         => 'refresh',
+		  'sanitize_callback' => 'sanitize_hex_color',
+	  ) );
+	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer-text-color', array(
+		  'section'  => 'colors',
+		  'label'    => esc_html__( 'Footer text Color', 'modul-r' )
+	  ) ) );
+
+
+
 		// Modul-R custom options
 		$wp_customize->add_panel( 'modul_r_theme_options' , array(
-			'title'      => esc_html__('Modul-R Options','modul-r'),
-			'priority'   => 40,
+			'title'      => esc_html__('Modul-R Options','modul-r')
 		) );
-
 
 
 		// Header Panel
@@ -91,6 +156,43 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			)
 		);
 
+	  // let the user select the header width
+	  $wp_customize->add_setting( 'modul_r_header_width', array(
+		  'capability' => 'edit_theme_options',
+		  'default'   => 'alignwide',
+		  'transport' => 'refresh',
+		  'sanitize_callback' => 'sanitize_text_field',
+	  ) );
+	  $wp_customize->add_control( 'modul_r_header_width',
+		  array(
+			  'label'    => esc_html__( 'Header width', 'modul-r' ),
+			  'description' => esc_html__( 'The header width can be wide (page content + page margins) or full (100% of the window width - page margins)', 'modul-r' ),
+			  'section'  => 'modul_r_settings_header',
+			  'type'     => 'radio',
+			  'choices'  => array(
+				  'standard-width'  => esc_html__( 'Standard', 'modul-r' ),
+				  'alignwide' => esc_html__( 'Wide', 'modul-r' ),
+				  'alignfull' => esc_html__( 'Full', 'modul-r' ),
+			  ),
+		  )
+	  );
+
+	  // select dropdown for portrait or landscape header layout
+	  $wp_customize->add_setting( 'modul_r_header_opacity', array(
+		  'capability' => 'edit_theme_options',
+		  'default'   => false,
+		  'transport' => 'refresh',
+		  'sanitize_callback' => 'modul_r_sanitize_checkbox',
+	  ) );
+	  $wp_customize->add_control( 'modul_r_header_opacity',
+		  array(
+		  'type' => 'checkbox',
+	    'label'    => esc_html__( 'Transparent Header', 'modul-r' ),
+	    'description' => esc_html__( 'Select this option if you want to make the header transparent on hero image (only on page top)', 'modul-r' ),
+	    'section'  => 'modul_r_settings_header',
+		  )
+	  );
+
 
 
 		// Footer Section
@@ -99,6 +201,27 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'priority'   => 20,
 			'panel'      => 'modul_r_theme_options'
 		) );
+
+	  // let the user select the footer width
+	  $wp_customize->add_setting( 'modul_r_footer_width', array(
+		  'capability' => 'edit_theme_options',
+		  'default'   => 'alignwide',
+		  'transport' => 'refresh',
+		  'sanitize_callback' => 'sanitize_text_field',
+	  ) );
+	  $wp_customize->add_control( 'modul_r_footer_width',
+		  array(
+			  'label'    => esc_html__( 'Footer width', 'modul-r' ),
+			  'description' => esc_html__( 'The footer width can be wide (page content + page margins) or full (100% of the window width - page margins)', 'modul-r' ),
+			  'section'  => 'modul_r_settings_footer',
+			  'type'     => 'radio',
+			  'choices'  => array(
+				  'standard-width'  => esc_html__( 'Standard', 'modul-r' ),
+				  'alignwide' => esc_html__( 'Wide', 'modul-r' ),
+				  'alignfull' => esc_html__( 'Full', 'modul-r' ),
+			  ),
+		  )
+	  );
 
 		// the "Show website credits" checkbox
 		$wp_customize->add_setting( 'modul_r_footer_show_credits', array(
@@ -150,7 +273,6 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'default' => esc_html(get_bloginfo('name')),
 			'sanitize_callback' => 'sanitize_text_field',
 		) );
-
 		$wp_customize->add_control( 'modul_r_footer_credits_title', array(
 			'type' => 'text',
 			'section' => 'modul_r_settings_footer',
@@ -167,6 +289,20 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'type' => 'textarea',
 			'section' => 'modul_r_settings_footer',
 		) );
+
+	  $wp_customize->add_setting( 'modul_r_footer_socials_show', array(
+		  'default'   => '',
+		  'transport' => 'refresh',
+		  'sanitize_callback' => 'modul_r_sanitize_checkbox',
+	  ) );
+	  $wp_customize->add_control( 'modul_r_footer_socials_show', array(
+		  'type' => 'checkbox',
+		  'section' => 'modul_r_settings_footer',
+		  'label' => esc_html__( 'Show social media links', 'modul-r' ),
+	    'description' => esc_html__( 'Shows the icon of social media (credits section need to be enabled)', 'modul-r' ),
+	  ) );
+
+
 
 	  // show special thanks in the bottom section of the footer
 	  $wp_customize->add_setting( 'modul_r_footer_thanks_show', array(
@@ -391,7 +527,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		$wp_customize->add_control( 'modul_r_social_share_enabled', array(
 			'type' => 'checkbox',
 			'section' => 'modul_r_settings_social_share',
-			'label' => esc_html__( 'Show Social Share Options', 'modul-r' ),
+			'label' => esc_html__( 'Show Social Share Icons', 'modul-r' ),
 			'description' => esc_html__( 'Show social media sharing icons on single posts and pages', 'modul-r' ),
 		) );
 
@@ -416,6 +552,22 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 				),
 			)
 		);
+
+	  $social_enabled = array( 'Facebook', 'Instagram', 'Twitter', 'YouTube' );
+
+	  foreach ($social_enabled as $social) {
+		  $wp_customize->add_setting( 'modul_r_social_' . $social, array(
+			  'capability'        => 'edit_theme_options',
+			  'default'           => "",
+			  'sanitize_callback' => 'sanitize_text_field',
+		  ) );
+		  $wp_customize->add_control( 'modul_r_social_' . $social, array(
+			  'type'        => 'input',
+			  'section'     => 'modul_r_settings_social_share',
+			  'label'       => $social,
+			  'description' => $social . ' url link',
+		  ) );
+	  }
 
 		// Sanitize function for checkbox value
 		function modul_r_sanitize_checkbox( $checked ) {
@@ -477,7 +629,7 @@ if ( ! function_exists('modul_r_theme_colors_setup') ) :
       array(
         'name'  => __( 'Theme primary color', 'modul-r' ),
         'slug'  => 'primary',
-        'color' => $primary_color ,
+        'color' => $primary_color,
       ),
 			array(
 				'name'  => __( 'Theme primary color light', 'modul-r' ),
