@@ -1,7 +1,7 @@
 === Modul R ===
-Contributors: Codekraft
+Contributors: codekraft
 Requires at least: 4.9.6
-Tested up to: WordPress 5.2
+Tested up to: 5.2
 Requires PHP: 5.6
 Stable tag: 1.2.9
 License: GPLv2 or later

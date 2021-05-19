@@ -87,10 +87,12 @@ const opts = {
     'Description: <%= wp.description %> ' ,
     'Theme URI: <%= homepage %> ' ,
     'Author: <%= author.name %> ' ,
-    // 'Author URI: <%= author.website %> ' ,
-    'Requires at least: WordPress 4.9.6 ' ,
+    'Author URI: <%= author.website %> ' ,
+    'Requires at least: 4.9.6 ' ,
+    'Tested up to: 5.2 ' ,
+    'Requires PHP: 5.6 ' ,
     'Version: <%= version %> ' ,
-    'License: GNU General Public License v3 or later ' ,
+    'License: GPLv2 or later ' ,
     'License: © <%= new Date().getFullYear() %> <%= author.name %> ' ,
     'License URI: <%= wp.licenseURI %> ' ,
     'Text Domain: <%= wp.textDomain %> ' ,
@@ -110,7 +112,14 @@ function clean() {
     '**/Thumbs.db',
     '**/.DS_Store',
     opts.rootPath + '*.css.map',
-    opts.rootPath + 'assets/**/*.map',
+    opts.rootPath + 'assets/**/*.map'
+  ]).then( paths => {
+    console.log('Successfully deleted files and folders:\n', paths.join('\n'));
+  });
+}
+
+function cleanAssets() {
+  return del([
     opts.distPath + '**'
   ]).then( paths => {
     console.log('Successfully deleted files and folders:\n', paths.join('\n'));
@@ -282,8 +291,8 @@ function watchImages() {
 
 const style = gulp.parallel(mainCSS, CSS, cssAtf);
 const scripts = gulp.parallel(vendorScript, userScript, mainScript);
-const build = gulp.series(clean, gulp.parallel( imageMinify, createPot, buildMainCSS, buildCSS, cssAtf, scripts ));
-const buildRelease = gulp.series(build, zipRelease);
+const build = gulp.series(cleanAssets, gulp.parallel( imageMinify, createPot, buildMainCSS, buildCSS, cssAtf, scripts ));
+const buildRelease = gulp.series(build, clean, zipRelease);
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
 
