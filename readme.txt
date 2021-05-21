@@ -3,7 +3,7 @@ Contributors: codekraft
 Requires at least: 4.9.6
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.2.9
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -143,6 +143,9 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == Changelog ==
+
+= 1.3.0 =
+* header icons fix
 
 = 1.2.9 =
 * Dependencies update
