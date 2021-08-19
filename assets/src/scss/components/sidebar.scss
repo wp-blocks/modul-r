@@ -15,27 +15,18 @@
     padding-right: 0;
   }
   
-  section ul {
-    list-style-type: none;
-    margin: ($size__padding * .25) 0;
-    padding-left: 0;
-    ul {
-      padding-left: $size__padding * .25;
-    }
+  section {
+    padding-bottom: $size__padding * .75;
   }
   
   h3 {
-    margin: 0 0 $size__margin;
+    margin: 0 0 $size__margin * .5;
     font-size: 20px;
     font-weight: 600;
   }
   
   a {
-    font-weight: 600;
-    font-size: 16px;
-  }
-  
-  ul {
-    margin: ($size__margin * 2) 0;
+    font-weight: 500;
+    font-size: $text__size - 1;
   }
 }

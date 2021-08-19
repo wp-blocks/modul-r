@@ -70,6 +70,10 @@ body.archive {
   overflow-x: hidden;
   padding-top: $size__padding * .75;
   
+  p {
+    line-height: $text__line-height-content;
+  }
+  
   @media #{$mq__smaller-than-tablet} {
     margin-top: $head__height-responsive;
     padding-top: $size__padding * .5;

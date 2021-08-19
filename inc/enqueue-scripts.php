@@ -13,6 +13,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$colors['secondary'] = get_theme_mod( 'secondary-color' ) ? sanitize_hex_color(get_theme_mod( 'secondary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['secondary']);
 		$colors['secondary-light'] = modul_r_adjustBrightness($colors['secondary'], 0.4);
 		$colors['secondary-dark'] = modul_r_adjustBrightness($colors['secondary'], -0.4);
+		// base colors
 		$colors['white'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white']);
 		$colors['white-smoke'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white-smoke']);
 		$colors['gray-light'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray-light']);
@@ -36,7 +37,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$atf_css = "";
 
 		// TYPOGRAPY
-		$atf_css .= 'h1, h2, .entry-title, .has-title-color {color: ' . $title_color . ';}';
+		$atf_css .= 'h1, .entry-title, .has-title-color {color: ' . $title_color . ';}';
 		$atf_css .= 'p, a, li, .has-text-color {color: ' . $text_color . ';}';
 
 		// HEADER

@@ -286,7 +286,7 @@ body .hero {
       font-style: italic;
       @media #{$mq__smaller-than-tablet} {
         font-size: 17px;
-        line-height: $text__line-height-headline;
+        line-height: $text__line-height;
       }
       @media #{$mq__smallphone} {font-size: 15px;}
     }

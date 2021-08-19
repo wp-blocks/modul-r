@@ -15,8 +15,8 @@ $color__accent: $color__secondary;
 $color__woo-accent: #026c7c;
 
 // TEXT VARIABLES
-$text__line-height: 1.7;
-$text__line-height-headline: 1.2;
+$text__line-height: 1.3;
+$text__line-height-content: 1.7;
 $text__size: 17px;
 $font__family-headline: 'Montserrat', sans-serif;
 $font__family: 'Montserrat', sans-serif;
@@ -51,7 +51,7 @@ $hamburger__weight: 3px;
 $hamburger__color: $color__primary;
 
 // SIDEBAR
-$sidebar__width: 300px;
+$sidebar__width: 380px;
 $sidebar__margin: $size__padding;
 
 // SCROLLBAR
