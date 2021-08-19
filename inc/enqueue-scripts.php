@@ -25,10 +25,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$text_color = get_theme_mod( 'text-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'text-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['text-color']]);
 
 		// Colors
-		$header_color = get_theme_mod( 'header-color' ) ? sanitize_hex_color(get_theme_mod( 'header-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']];
-		$hero_opacity = get_theme_mod( 'modul_r_hero_opacity' ) > 0 ? intval(get_theme_mod( 'modul_r_hero_opacity' )) : 100;
+        $header_color = get_theme_mod( 'header-color' ) ? sanitize_hex_color(get_theme_mod( 'header-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']];
 		$header_text_color = get_theme_mod( 'header-text-color' ) && get_theme_mod( 'header-text-color' ) != 'blank' ? sanitize_hex_color(get_theme_mod( 'header-text-color' )) : '#'.get_header_textcolor();
-
 		$footer_color = get_theme_mod( 'footer-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-color']];
 		$footer_bottom_color = get_theme_mod( 'footer-bottom-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-bottom-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']];
 		$footer_text_color = get_theme_mod( 'footer-text-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-text-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-text-color']];
@@ -117,9 +115,12 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$atf_css .= 'body::-webkit-scrollbar-thumb:horizontal,body::-webkit-scrollbar-thumb:vertical{background-color:'. modul_r_adjustBrightness($colors['primary'], -0.1).'}';
 
 		// HERO
-		if ($hero_opacity != 100) {
-			$atf_css .= 'body.home .hero .entry-image img {opacity:'. ($hero_opacity/100) .'}';
-		}
+        $hero_opacity = get_theme_mod( 'modul_r_hero_opacity' ) !== null ? intval(get_theme_mod( 'modul_r_hero_opacity' )) : 100;
+        $hero_height_home = get_theme_mod( 'modul_r_hero_height_homepage' ) !== null ? intval(get_theme_mod( 'modul_r_hero_height_homepage' )) : 100;
+        $hero_height = get_theme_mod( 'modul_r_hero_height' ) !== null ? intval(get_theme_mod( 'modul_r_hero_height' )) : 60;
+		if ($hero_opacity != 100) $atf_css .= 'body.home .hero .entry-image img {opacity:'. ($hero_opacity/100) .'}';
+        if ($hero_height) $atf_css .= "body .hero {height:{$hero_height}vh}";
+        if ($hero_height_home) $atf_css .= "body.home .hero {height:{$hero_height_home}vh}";
 
 		include get_stylesheet_directory() . '/assets/dist/css/atf.css';
 		$atf_css .= ob_get_clean();

@@ -6,8 +6,6 @@
 if ( ! function_exists( 'modul_r_hero_image' ) ) :
 	function modul_r_hero_image() {
     // fullscreen hero image
-    $hero_fullscreen = (get_theme_mod('modul_r_hero_fullpage') === true) ? ' fullpage-hero' : '' ;
-    // the hero title and subtitle
     $hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
     $hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
     $hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
@@ -17,7 +15,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     $hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
     ?>
 
-    <div class="hero<?php echo $hero_fullscreen; ?>">
+    <div class="hero">
     <?php modul_r_post_image('parallax header-color'); ?>
       <div class="hero-title text-center">
         <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>

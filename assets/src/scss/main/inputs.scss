@@ -72,3 +72,184 @@ select, textarea {
   width: 100%;
   border-radius:4px;
 }
+
+
+
+
+
+.wpcf7  {
+  
+  $color__sent: #46b450;
+  $color__info: #00a0d2;
+  $color__warning: #f56e28;
+  $color__invalid: #ffb900;
+  $color__error: #dc3232;
+  
+  // Customization
+  $loader-background: #23282d;
+  $loader-color: #fbfbfc;
+  
+  .screen-reader-response {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    width: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  form {
+    
+    // Responses
+    .wpcf7-response-output {
+      margin: 2em 0.5em 1em;
+      padding: 0.2em 1em;
+      border: 2px solid $color__info; /* Blue */
+    }
+  
+    &.init .wpcf7-response-output,
+    &.resetting .wpcf7-response-output,
+    &.submitting .wpcf7-response-output {
+      display: none;
+    }
+  
+    &.sent .wpcf7-response-output {
+      border-color: $color__sent; /* Green */
+    }
+  
+    &.failed .wpcf7-response-output,
+    &.aborted .wpcf7-response-output {
+      border-color: $color__error; /* Red */
+    }
+  
+    &.spam .wpcf7-response-output {
+      border-color: $color__warning; /* Orange */
+    }
+  
+    &.invalid .wpcf7-response-output,
+    &.unaccepted .wpcf7-response-output {
+      border-color: $color__invalid; /* Yellow */
+    }
+    
+  }
+  
+  .wpcf7-form-control-wrap {
+    position: relative;
+  }
+  
+  .wpcf7-not-valid-tip {
+    color: $color__error; /* Red */
+    font-size: 1em;
+    font-weight: normal;
+    display: block;
+  }
+  
+  .use-floating-validation-tip .wpcf7-not-valid-tip {
+    position: relative;
+    top: -2ex;
+    left: 1em;
+    z-index: 100;
+    border: 1px solid $color__error;
+    background: #fff;
+    padding: .2em .8em;
+    width: 24em;
+  }
+  
+  // List items
+  .wpcf7-list-item {
+    display: inline-block;
+    margin: 0 0 0 1em;
+  
+    &-label::before,
+    &-label::after {
+      content: " ";
+    }
+  }
+  
+  // Ajax-Loader
+  .ajax-loader {
+    visibility: hidden;
+    display: inline-block;
+    background-color: $loader-background; /* Dark Gray 800 */
+    opacity: 0.75;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 100%;
+    padding: 0;
+    margin: 0 24px;
+    position: relative;
+  
+    form.submitting & {
+      visibility: visible;
+    }
+  
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: $loader-color; /* Light Gray 100 */
+      top: 4px;
+      left: 4px;
+      width: 6px;
+      height: 6px;
+      border: none;
+      border-radius: 100%;
+      transform-origin: 8px 8px;
+      animation-name: spin;
+      animation-duration: 1000ms;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+  
+      @media (prefers-reduced-motion: reduce) {
+        animation-name: blink;
+        animation-duration: 2000ms;
+      }
+    }
+  }
+  
+  // Animations
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes blink {
+    from {
+      opacity: 0;
+    }
+    
+    50% {
+      opacity: 1;
+    }
+    
+    to {
+      opacity: 0;
+    }
+  }
+  
+  // Input Fields
+  input[type="file"] {
+    cursor: pointer;
+  
+    &:disabled {
+      cursor: default;
+    }
+  }
+  
+  .wpcf7-submit:disabled {
+    cursor: not-allowed;
+  }
+  
+  input[type="url"],
+  input[type="email"],
+  input[type="tel"] {
+    direction: ltr;
+  }
+}

@@ -413,18 +413,37 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		}
 
 
-		// the "Fullpage Hero" checkbox
-		$wp_customize->add_setting( 'modul_r_hero_fullpage', array(
-			'default'   => '',
-			'transport' => 'refresh',
-			'sanitize_callback' => 'modul_r_sanitize_checkbox',
-		) );
-		$wp_customize->add_control( 'modul_r_hero_fullpage', array(
-			'type' => 'checkbox',
-			'section' => 'modul_r_home_options',
-			'label' => esc_html__( 'Fullpage Hero', 'modul-r' ),
-			'description' => esc_html__( 'The main image of the homepage will be 100% of the height of the page', 'modul-r' ),
-		) );
+    // Homepage Hero image height
+    $wp_customize->add_setting( 'modul_r_hero_height_homepage', array(
+        'default'   => '70',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ) );
+    $wp_customize->add_control( 'modul_r_hero_height_homepage', array(
+        'type' => 'number',
+        'section' => 'modul_r_home_options',
+        'label' => esc_html__( 'Homepage Hero vertical height', 'modul-r' ),
+        'description' => esc_html__( 'Enter the vertical percentage of the screen occupied by the hero.', 'modul-r' ),
+        'input_attrs' => array(
+            'min' => '0', 'step' => '1', 'max' => '100',
+        ),
+    ) );
+
+    // Hero image height
+    $wp_customize->add_setting( 'modul_r_hero_height', array(
+        'default'   => '50',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ) );
+    $wp_customize->add_control( 'modul_r_hero_height', array(
+        'type' => 'number',
+        'section' => 'modul_r_home_options',
+        'label' => esc_html__( 'Hero vertical height', 'modul-r' ),
+        'description' => esc_html__( 'Enter the vertical percentage of the screen occupied by the hero.', 'modul-r' ),
+        'input_attrs' => array(
+            'min' => '0', 'step' => '1', 'max' => '100',
+        ),
+    ) );
 
 		// Hero image opacity
 		$wp_customize->add_setting( 'modul_r_hero_opacity', array(
