@@ -348,20 +348,19 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 		if (is_page() || is_single() || is_archive()) {
 
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
-      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID)) {
+      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) && empty(is_product()) ) {
         $classes[] = 'has-featured-image';
       }
 
       // get theme option "sidebar enabled"
       $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
-      if ( $opt_sidebar === true ) {
+      if ( $opt_sidebar === true && !is_front_page() && empty(is_shop()) && !is_archive()) {
         $classes[] = 'has-sidebar';
+
+        // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
+        $classes[] = (get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
       }
     }
-
-	  // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
-    $sidebar_position = (get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
-	  $classes[] = $sidebar_position;
 
 		return $classes;
 	}
