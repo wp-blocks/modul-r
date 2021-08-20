@@ -58,7 +58,16 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
 		if ( has_post_thumbnail() ) : ?>
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
-			        <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
+			        <?php if ( is_shop() && get_theme_mod( 'modul_r_woo' )) {
+                $wooOptions = get_theme_mod( 'modul_r_woo' );
+                  if ( !empty($wooOptions['shop_hero'] ) ) {
+                      $shop_hero_id = attachment_url_to_postid( esc_url_raw( $wooOptions['shop_hero'] ) );
+                      echo wp_get_attachment_image($shop_hero_id, 'large');
+                  }
+              } else {
+                the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) );
+              }?>
+
             </div>
             <div class="hero-title text-center">
 	            <?php the_archive_title( '<h1 class="page-title main-width has-title-color">', '</h1>' ); ?>

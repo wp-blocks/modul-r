@@ -422,8 +422,8 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
     $wp_customize->add_control( 'modul_r_hero_height_homepage', array(
         'type' => 'number',
         'section' => 'modul_r_home_options',
-        'label' => esc_html__( 'Homepage Hero vertical height', 'modul-r' ),
-        'description' => esc_html__( 'Enter the vertical percentage of the screen occupied by the hero.', 'modul-r' ),
+        'label' => esc_html__( 'Hero vertical height', 'modul-r' ),
+        'description' => esc_html__( 'Homepage', 'modul-r' ),
         'input_attrs' => array(
             'min' => '0', 'step' => '1', 'max' => '100',
         ),
@@ -438,8 +438,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
     $wp_customize->add_control( 'modul_r_hero_height', array(
         'type' => 'number',
         'section' => 'modul_r_home_options',
-        'label' => esc_html__( 'Hero vertical height', 'modul-r' ),
-        'description' => esc_html__( 'Enter the vertical percentage of the screen occupied by the hero.', 'modul-r' ),
+        'description' => esc_html__( 'default hero height', 'modul-r' ),
         'input_attrs' => array(
             'min' => '0', 'step' => '1', 'max' => '100',
         ),
@@ -527,6 +526,31 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'section' => 'modul_r_home_options',
 			'description' => esc_html__( 'Select an important category', 'modul-r' ),
 		) );
+
+		// Woo options
+		$wp_customize->add_section( 'modul_r_settings_Woo' , array(
+        'title'      => esc_html__('Woo Options','modul-r'),
+        'priority'   => 55,
+        'panel'      => 'modul_r_theme_options'
+    ) );
+
+		// the "Show Woo options" checkbox
+		$wp_customize->add_setting( 'modul_r_woo[shop_hero]', array(
+        'default'   => null,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'modul_r_sanitize_file'
+        )
+    );
+      $wp_customize->add_control(
+          new WP_Customize_Upload_Control(
+              $wp_customize,
+              'modul_r_woo[shop_hero]',
+              array(
+                  'label'      => __( 'Choose an image for the shop page wallpaper', 'modul-r' ),
+                  'section'    => 'modul_r_settings_Woo'
+              )
+          )
+      );
 
 		
 		// Sidebar Social Share options
