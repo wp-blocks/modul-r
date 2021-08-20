@@ -58,7 +58,7 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
 		if ( has_post_thumbnail() ) : ?>
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
-			        <?php if ( is_shop() && get_theme_mod( 'modul_r_woo' )) {
+			        <?php if ( is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
                 $wooOptions = get_theme_mod( 'modul_r_woo' );
                   if ( !empty($wooOptions['shop_hero'] ) ) {
                       $shop_hero_id = attachment_url_to_postid( esc_url_raw( $wooOptions['shop_hero'] ) );
@@ -354,21 +354,20 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 	function modul_r_custom_body_class( $classes ) {
 		global $post;
 
-		if (is_page() || is_single() || is_archive()) {
-
+		if (  is_page() || ( is_single() && empty(is_product()) ) || ( is_archive() && empty(is_product_category())) || ( !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
-      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) && empty(is_product()) ) {
+      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {
         $classes[] = 'has-featured-image';
       }
+    }
 
-      // get theme option "sidebar enabled"
-      $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
-      if ( $opt_sidebar === true && !is_front_page() && empty(is_shop()) && !is_archive()) {
+    // get theme option "sidebar enabled"
+    $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
+    if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || is_page() ) ) {
         $classes[] = 'has-sidebar';
 
         // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
-        $classes[] = (get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
-      }
+        $classes[] = ( get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
     }
 
 		return $classes;
