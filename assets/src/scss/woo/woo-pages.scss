@@ -79,8 +79,6 @@ body.woocommerce {
   &.post-type-archive-product,
   &.tax-product_cat {
     .woocommerce-products-header {
-      padding: ($size__padding * .5) 0;
-      @media #{$mq__smaller-than-tablet} {padding: ($size__padding * .25) 0;}
     }
   }
   
