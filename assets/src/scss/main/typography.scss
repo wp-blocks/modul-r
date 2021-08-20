@@ -2,6 +2,7 @@
 body {
 	font-family: $font__family, sans-serif;
 	color: $color__text;
+	font-weight: $text__weight;
 	font-size: $text__size;
 	line-height: $text__line-height;
 	word-break: break-word;
@@ -11,7 +12,7 @@ body {
 
 %headline_style {
 	font-family: $font__family-headline;
-	font-weight: 300;
+	font-weight: $text__weight-headline;
 }
 
 h1,
@@ -23,7 +24,6 @@ h6 {
 	@extend %headline_style;
 	margin: ($size__margin * 2) 0 $size__margin;
 	padding: 0;
-	line-height: $text__line-height-headline;
 }
 
 h1 {
@@ -70,8 +70,7 @@ p {
 	line-height: $text__line-height;
 }
 
-
-b, strong, a {
+b, strong {
 	font-weight: 600;
 }
 
@@ -80,8 +79,9 @@ a {
 }
 
 ul, ol, dl {
-	margin-top: $size__padding * .5;
+	margin-top: $size__padding * .25;
 	margin-bottom: $size__padding * .5;
+	padding: 0 0 0 $size__margin * 3;
 	
 	li, dt {
 		line-height: $text__line-height;

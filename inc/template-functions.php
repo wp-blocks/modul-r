@@ -6,8 +6,6 @@
 if ( ! function_exists( 'modul_r_hero_image' ) ) :
 	function modul_r_hero_image() {
     // fullscreen hero image
-    $hero_fullscreen = (get_theme_mod('modul_r_hero_fullpage') === true) ? ' fullpage-hero' : '' ;
-    // the hero title and subtitle
     $hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
     $hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
     $hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
@@ -17,7 +15,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     $hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
     ?>
 
-    <div class="hero<?php echo $hero_fullscreen; ?>">
+    <div class="hero">
     <?php modul_r_post_image('parallax header-color'); ?>
       <div class="hero-title text-center">
         <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
@@ -60,7 +58,16 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
 		if ( has_post_thumbnail() ) : ?>
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
-			        <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
+			        <?php if ( is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
+                $wooOptions = get_theme_mod( 'modul_r_woo' );
+                  if ( !empty($wooOptions['shop_hero'] ) ) {
+                      $shop_hero_id = attachment_url_to_postid( esc_url_raw( $wooOptions['shop_hero'] ) );
+                      echo wp_get_attachment_image($shop_hero_id, 'large');
+                  }
+              } else {
+                the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) );
+              }?>
+
             </div>
             <div class="hero-title text-center">
 	            <?php the_archive_title( '<h1 class="page-title main-width has-title-color">', '</h1>' ); ?>
@@ -347,23 +354,21 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 	function modul_r_custom_body_class( $classes ) {
 		global $post;
 
-		if (is_page() || is_single() || is_archive()) {
-
+		if (  is_page() || ( is_single() && empty(is_product()) ) || ( is_archive() && empty(is_product_category())) || ( !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
-      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID)) {
+      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {
         $classes[] = 'has-featured-image';
-      }
-
-      // get theme option "sidebar enabled"
-      $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
-      if ( $opt_sidebar === true ) {
-        $classes[] = 'has-sidebar';
       }
     }
 
-	  // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
-    $sidebar_position = (get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
-	  $classes[] = $sidebar_position;
+    // get theme option "sidebar enabled"
+    $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
+    if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || is_page() ) ) {
+        $classes[] = 'has-sidebar';
+
+        // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
+        $classes[] = ( get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
+    }
 
 		return $classes;
 	}

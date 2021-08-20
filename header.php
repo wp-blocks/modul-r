@@ -27,7 +27,7 @@
 	    modul_r_hero_image();
 	  } else if ( !( class_exists( 'WooCommerce' ) && is_product() ) && (is_single() || is_page()) ) {
 	    modul_r_post_image('parallax');
-    } else if (is_archive()) {
+    } else if (( class_exists( 'WooCommerce' ) && !is_product_category()) && is_archive()) {
 	    modul_r_archive_image('parallax');
     }?>
 

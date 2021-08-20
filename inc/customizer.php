@@ -413,18 +413,36 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		}
 
 
-		// the "Fullpage Hero" checkbox
-		$wp_customize->add_setting( 'modul_r_hero_fullpage', array(
-			'default'   => '',
-			'transport' => 'refresh',
-			'sanitize_callback' => 'modul_r_sanitize_checkbox',
-		) );
-		$wp_customize->add_control( 'modul_r_hero_fullpage', array(
-			'type' => 'checkbox',
-			'section' => 'modul_r_home_options',
-			'label' => esc_html__( 'Fullpage Hero', 'modul-r' ),
-			'description' => esc_html__( 'The main image of the homepage will be 100% of the height of the page', 'modul-r' ),
-		) );
+    // Homepage Hero image height
+    $wp_customize->add_setting( 'modul_r_hero_height_homepage', array(
+        'default'   => '70',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ) );
+    $wp_customize->add_control( 'modul_r_hero_height_homepage', array(
+        'type' => 'number',
+        'section' => 'modul_r_home_options',
+        'label' => esc_html__( 'Hero vertical height', 'modul-r' ),
+        'description' => esc_html__( 'Homepage', 'modul-r' ),
+        'input_attrs' => array(
+            'min' => '0', 'step' => '1', 'max' => '100',
+        ),
+    ) );
+
+    // Hero image height
+    $wp_customize->add_setting( 'modul_r_hero_height', array(
+        'default'   => '50',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ) );
+    $wp_customize->add_control( 'modul_r_hero_height', array(
+        'type' => 'number',
+        'section' => 'modul_r_home_options',
+        'description' => esc_html__( 'default hero height', 'modul-r' ),
+        'input_attrs' => array(
+            'min' => '0', 'step' => '1', 'max' => '100',
+        ),
+    ) );
 
 		// Hero image opacity
 		$wp_customize->add_setting( 'modul_r_hero_opacity', array(
@@ -508,6 +526,31 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'section' => 'modul_r_home_options',
 			'description' => esc_html__( 'Select an important category', 'modul-r' ),
 		) );
+
+		// Woo options
+		$wp_customize->add_section( 'modul_r_settings_Woo' , array(
+        'title'      => esc_html__('Woo Options','modul-r'),
+        'priority'   => 55,
+        'panel'      => 'modul_r_theme_options'
+    ) );
+
+		// the "Show Woo options" checkbox
+		$wp_customize->add_setting( 'modul_r_woo[shop_hero]', array(
+        'default'   => null,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'modul_r_sanitize_file'
+        )
+    );
+      $wp_customize->add_control(
+          new WP_Customize_Upload_Control(
+              $wp_customize,
+              'modul_r_woo[shop_hero]',
+              array(
+                  'label'      => __( 'Choose an image for the shop page wallpaper', 'modul-r' ),
+                  'section'    => 'modul_r_settings_Woo'
+              )
+          )
+      );
 
 		
 		// Sidebar Social Share options

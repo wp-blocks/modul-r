@@ -33,21 +33,6 @@
       <?php endif; ?>
     </div>
 
-	  <?php if ( class_exists( 'woocommerce' ) ) : ?>
-      <div class="menu-icons-container show-on-mobile unselectable" >
-        <a class="button text outline has-header-text-background-border-color">
-          <span class="has-header-text-color"><?php _e( 'Shop', 'modul-r' ) ?></span>
-        </a>
-        <a class="button icon outline has-header-text-background-border-color">
-          <i class="material-icons has-header-text-color">search</i>
-        </a>
-        <a class="button icon outline has-header-text-background-border-color">
-          <i class="material-icons has-header-text-color">shopping_cart</i>
-        </a>
-      </div>
-    <?php endif; ?>
-
-
     <div class="menu-resp show-on-mobile unselectable" onclick="document.querySelector('#masthead').classList.toggle('active')">
       <button class="c-hamburger">
         <i class="menu-toggle has-header-text-background-color"></i>

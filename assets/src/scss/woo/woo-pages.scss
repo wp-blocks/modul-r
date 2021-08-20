@@ -22,11 +22,10 @@ body.woocommerce {
     
       .woocommerce-loop-product__title {
         font-weight: 600;
-        padding: 0 0 ($size__margin * .5);
+        padding: 0 0 ($size__margin * .75);
         margin: 0;
         font-size: $text__size;
-        line-height: $text__size * 1.5;
-        height: $text__size * 3;
+        text-align: center;
       }
       
       a.button {
@@ -66,7 +65,7 @@ body.woocommerce {
       
       p.price,
       span.price {
-        color: $color__primary;
+        color: $color__dark-grey;
         line-height: 2;
         font-size: 12px;
         display: block;
@@ -80,8 +79,6 @@ body.woocommerce {
   &.post-type-archive-product,
   &.tax-product_cat {
     .woocommerce-products-header {
-      padding: ($size__padding * .5) 0;
-      @media #{$mq__smaller-than-tablet} {padding: ($size__padding * .25) 0;}
     }
   }
   
