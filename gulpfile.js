@@ -2,7 +2,7 @@
 const gulp = require('gulp');
 
 // Utilities
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('cssnano');
 const autoprefixer = require("autoprefixer");
 const sourcemaps = require('gulp-sourcemaps');
@@ -23,9 +23,6 @@ const zip = require('gulp-zip');
 
 // Misc/global vars
 const pkg = JSON.parse(fs.readFileSync('./package.json'));
-
-// Use node sass as compiler
-sass.compiler = require('node-sass');
 
 // Task options
 const opts = {
@@ -61,7 +58,8 @@ const opts = {
   },
 
   sass: {
-    outputStyle: 'nested'
+    dev: {outputStyle: 'expanded'},
+    build: {outputStyle: 'compressed'}
   },
 
   imagemin: {
@@ -186,7 +184,7 @@ function vendorScript() {
 function cssAtf() {
   return gulp
     .src(opts.devPath + 'scss/atf.scss')
-    .pipe(sass(opts.sass))
+    .pipe(sass(opts.sass.build))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.build),
@@ -200,7 +198,7 @@ function mainCSS() {
   return gulp
     .src(opts.devPath + 'scss/style.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass(opts.sass))
+    .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.dev)
@@ -214,7 +212,7 @@ function mainCSS() {
 function buildMainCSS() {
   return gulp
     .src(opts.devPath + 'scss/style.scss')
-    .pipe(sass(opts.sass))
+    .pipe(sass(opts.sass.build))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(gulp.dest(opts.rootPath))
     .pipe(postcss([
@@ -233,7 +231,7 @@ function CSS() {
       opts.devPath + 'scss/admin.scss'
     ])
     .pipe(sourcemaps.init())
-    .pipe(sass(opts.sass))
+    .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.dev)
@@ -249,7 +247,7 @@ function buildCSS() {
       opts.devPath + 'scss/editor.scss',
       opts.devPath + 'scss/admin.scss'
       ])
-    .pipe(sass(opts.sass))
+    .pipe(sass(opts.sass.build))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.build),

@@ -24,10 +24,10 @@
   },
   "style": "./style.css",
   "devDependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/preset-env": "^7.13.12",
-    "autoprefixer": "^9.7.5",
-    "cssnano": "^4.1.10",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "autoprefixer": "9.8.6",
+    "cssnano": "4.1.10",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -36,12 +36,14 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^3.2.0",
-    "gulp-postcss": "^9.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-postcss": "9.0.0",
+    "postcss": "8.0.0",
+    "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1",
     "gulp-wp-pot": "^2.5.0",
-    "gulp-zip": "^5.1.0"
+    "gulp-zip": "^5.1.0",
+    "sass": "^1.38.0"
   }
 }

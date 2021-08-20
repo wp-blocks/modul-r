@@ -42,7 +42,7 @@ body.home {
         margin: 0 ($size__padding * .5);
         padding: 0 $size__padding-resp ($size__padding-resp * 1.5);
         box-shadow: 0 8px 30px -20px transparentize($color__dark-grey, .3);
-        border-radius: $size__margin / 2;
+        border-radius: $size__margin * .5;
         overflow: hidden;
         display: flex;
         flex-direction: column;
