@@ -8,7 +8,7 @@ Author URI: https://codekraft.it/
 Requires at least: 4.9.6 
 Tested up to: 5.2 
 Requires PHP: 5.6 
-Version: 1.3.0
+Version: 1.3.1 
 License: GPLv2 or later 
 License: © 2021 Codekraft Studio 
 License URI: https://github.com/erikyo/modul-r/blob/master/LICENSE 
@@ -129,6 +129,140 @@ input,textarea{
 select,textarea{
   width:100%;
   border-radius:4px; }
+
+.wpcf7 .screen-reader-response{
+  position:absolute;
+  overflow:hidden;
+  clip:rect(1px, 1px, 1px, 1px);
+  height:1px;
+  width:1px;
+  margin:0;
+  padding:0;
+  border:0; }
+
+.wpcf7 form .wpcf7-response-output{
+  margin:2em .5em 1em;
+  padding:.2em 1em;
+  border:2px solid #00a0d2; }
+
+.wpcf7 form.init .wpcf7-response-output,.wpcf7 form.resetting .wpcf7-response-output,.wpcf7 form.submitting .wpcf7-response-output{
+  display:none; }
+
+.wpcf7 form.sent .wpcf7-response-output{
+  border-color:#46b450; }
+
+.wpcf7 form.aborted .wpcf7-response-output,.wpcf7 form.failed .wpcf7-response-output{
+  border-color:#dc3232; }
+
+.wpcf7 form.spam .wpcf7-response-output{
+  border-color:#f56e28; }
+
+.wpcf7 form.invalid .wpcf7-response-output,.wpcf7 form.unaccepted .wpcf7-response-output{
+  border-color:#ffb900; }
+
+.wpcf7 .wpcf7-form-control-wrap{
+  position:relative; }
+
+.wpcf7 .wpcf7-not-valid-tip{
+  color:#dc3232;
+  font-size:1em;
+  font-weight:400;
+  display:block; }
+
+.wpcf7 .use-floating-validation-tip .wpcf7-not-valid-tip{
+  position:relative;
+  top:-2ex;
+  left:1em;
+  z-index:100;
+  border:1px solid #dc3232;
+  background:#fff;
+  padding:.2em .8em;
+  width:24em; }
+
+.wpcf7 .wpcf7-list-item{
+  display:inline-block;
+  margin:0 0 0 1em; }
+  .wpcf7 .wpcf7-list-item-label:after,.wpcf7 .wpcf7-list-item-label:before{
+    content:" "; }
+
+.wpcf7 .ajax-loader{
+  visibility:hidden;
+  display:inline-block;
+  background-color:#23282d;
+  opacity:.75;
+  width:24px;
+  height:24px;
+  border:none;
+  border-radius:100%;
+  padding:0;
+  margin:0 24px;
+  position:relative; }
+  form.submitting .wpcf7 .ajax-loader{
+    visibility:visible; }
+  .wpcf7 .ajax-loader:before{
+    content:"";
+    position:absolute;
+    background-color:#fbfbfc;
+    top:4px;
+    left:4px;
+    width:6px;
+    height:6px;
+    border:none;
+    border-radius:100%;
+    transform-origin:8px 8px;
+    -webkit-animation-name:spin;
+    animation-name:spin;
+    -webkit-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-timing-function:linear;
+    animation-timing-function:linear;
+    -webkit-animation-iteration-count:infinite;
+    animation-iteration-count:infinite; }
+    @media (prefers-reduced-motion:reduce){
+      .wpcf7 .ajax-loader:before{
+        -webkit-animation-name:blink;
+        animation-name:blink;
+        -webkit-animation-duration:2s;
+        animation-duration:2s; } }
+
+@-webkit-keyframes spin{
+  0%{
+    transform:rotate(0deg); }
+  to{
+    transform:rotate(1turn); } }
+
+@keyframes spin{
+  0%{
+    transform:rotate(0deg); }
+  to{
+    transform:rotate(1turn); } }
+
+@-webkit-keyframes blink{
+  0%{
+    opacity:0; }
+  50%{
+    opacity:1; }
+  to{
+    opacity:0; } }
+
+@keyframes blink{
+  0%{
+    opacity:0; }
+  50%{
+    opacity:1; }
+  to{
+    opacity:0; } }
+
+.wpcf7 input[type=file]{
+  cursor:pointer; }
+  .wpcf7 input[type=file]:disabled{
+    cursor:default; }
+
+.wpcf7 .wpcf7-submit:disabled{
+  cursor:not-allowed; }
+
+.wpcf7 input[type=email],.wpcf7 input[type=tel],.wpcf7 input[type=url]{
+  direction:ltr; }
 
 img{
   height:auto;
@@ -268,34 +402,28 @@ figure{
       transition-delay:0s, .3s; }
 
 #secondary{
-  min-width:300px;
-  width:300px; }
+  min-width:380px;
+  width:380px; }
   @media (min-width:1024px){
     .sidebar-right #secondary{
-      padding-left:64px; }
+      padding-left:96px; }
     .sidebar-left #secondary{
-      padding-right:64px; } }
+      padding-right:96px; } }
   @media (max-width:1023px){
     #secondary{
       min-width:inherit;
       width:100%;
       padding-left:0;
       padding-right:0; } }
-  #secondary section ul{
-    list-style-type:none;
-    margin:16px 0;
-    padding-left:0; }
-    #secondary section ul ul{
-      padding-left:16px; }
+  #secondary section{
+    padding-bottom:48px; }
   #secondary h3{
-    margin:0 0 8px;
+    margin:0 0 4px;
     font-size:20px;
     font-weight:600; }
   #secondary a{
-    font-weight:600;
+    font-weight:500;
     font-size:16px; }
-  #secondary ul{
-    margin:16px 0; }
 
 .main-width,.site-main .entry-content>*{
   width:900px;
@@ -334,6 +462,8 @@ body.archive .entry-image,body.page .entry-image,body.single .entry-image{
 #content{
   overflow-x:hidden;
   padding-top:48px; }
+  #content p{
+    line-height:1.7; }
   @media (max-width:1023px){
     #content{
       margin-top:80px;
@@ -359,7 +489,7 @@ body.has-sidebar .site-content,body.woocommerce .site-content{
   padding-right:20px;
   margin:0 auto 32px; }
   body.has-sidebar .site-content .content-area,body.woocommerce .site-content .content-area{
-    width:calc(100% - 364px); }
+    width:calc(100% - 476px); }
     @media (max-width:1023px){
       body.has-sidebar .site-content .content-area,body.woocommerce .site-content .content-area{
         width:100%; } }
@@ -382,7 +512,7 @@ body.has-sidebar .site-content,body.woocommerce .site-content{
   max-width:1500px;
   margin-left:auto;
   margin-right:auto;
-  margin-top:32px;
+  margin-top:16px;
   text-align:center; }
   @media (max-width:940px){
     .entry-header,.page-header,.woocommerce-products-header{
@@ -566,8 +696,6 @@ body.has-sidebar .site-content,body.woocommerce .site-content{
 
 body .hero{
   width:100%;
-  height:72vh;
-  min-height:600px;
   display:-ms-flexbox;
   display:flex;
   -ms-flex-direction:column;
@@ -576,19 +704,9 @@ body .hero{
   justify-content:center;
   -ms-flex-line-pack:center;
   align-content:center;
-  position:relative;
   background-color:rgba(26, 27, 30, .95); }
-  @media (max-width:1023px){
-    body .hero{
-      height:80vh;
-      min-height:inherit; } }
-  body .hero.fullpage-hero{
-    height:100vh;
-    max-height:100vh; }
-    body .hero.fullpage-hero .entry-image{
-      max-height:1200px; }
-  body .hero>*{
-    position:relative; }
+  body .hero,body .hero>*{
+  position:relative; }
   body .hero .entry-image{
     position:absolute;
     top:0;
@@ -625,7 +743,7 @@ body .hero{
       @media (max-width:1023px){
         body .hero .hero-title p{
           font-size:17px;
-          line-height:1.2; } }
+          line-height:1.3; } }
       @media (max-width:376px){
         body .hero .hero-title p{
           font-size:15px; } }
@@ -829,7 +947,7 @@ body .hero{
     margin:0; }
 
 .entry-content .wp-block-preformatted{
-  line-height:2.55;
+  line-height:1.95;
   padding:32px 64px; }
 
 .entry-content .wp-block-verse{
@@ -1023,7 +1141,7 @@ body .hero{
   .entry-content .wp-block-cover-image .wp-block-cover-image-text,.entry-content .wp-block-cover-image .wp-block-cover-text,.entry-content .wp-block-cover-image h2,.entry-content .wp-block-cover .wp-block-cover-image-text,.entry-content .wp-block-cover .wp-block-cover-text,.entry-content .wp-block-cover h2{
     font-family:Montserrat,sans-serif;
     font-weight:700;
-    line-height:1.2;
+    line-height:1.3;
     padding:0;
     margin:20px auto; }
     @media (max-width:1023px){
@@ -1471,7 +1589,7 @@ abbr{
 .search-form{
   display:-ms-flexbox;
   display:flex;
-  max-width:360px;
+  max-width:380px;
   margin:0 auto;
   border-radius:4px;
   overflow:hidden;
@@ -1679,11 +1797,10 @@ body.woocommerce ul.products{
       box-sizing:border-box; }
     body.woocommerce ul.products li.product .woocommerce-loop-product__title{
       font-weight:600;
-      padding:0 0 4px;
+      padding:0 0 6px;
       margin:0;
       font-size:17px;
-      line-height:25.5px;
-      height:51px; }
+      text-align:center; }
     body.woocommerce ul.products li.product a.button{
       font-size:10px;
       border:1px solid #e3e3e3;
@@ -1714,17 +1831,11 @@ body.woocommerce ul.products{
         line-height:30px;
         opacity:.99; }
     body.woocommerce ul.products li.product p.price,body.woocommerce ul.products li.product span.price{
-      color:#16bebb;
+      color:#4a4d54;
       line-height:2;
       font-size:12px;
       display:block;
       text-align:center; }
-
-body.woocommerce.post-type-archive-product .woocommerce-products-header,body.woocommerce.tax-product_cat .woocommerce-products-header{
-  padding:32px 0; }
-  @media (max-width:1023px){
-    body.woocommerce.post-type-archive-product .woocommerce-products-header,body.woocommerce.tax-product_cat .woocommerce-products-header{
-      padding:16px 0; } }
 
 body.woocommerce div.product img.wp-post-image{
   max-height:50vh;
@@ -2713,12 +2824,10 @@ body.compensate-for-scrollbar{
 
 #masonry-wrapper{
   position:relative;
-  overflow:hidden;
   transition-duration:.8s;
   transition-delay:.2s;
   padding:0;
-  margin-top:8px;
-  margin-bottom:8px; }
+  margin-top:32px; }
 
 .masonry.navigation{
   text-align:center;
@@ -2768,7 +2877,7 @@ body.compensate-for-scrollbar{
   flex-direction:column;
   border-radius:3px;
   background-color:#fff;
-  box-shadow:0 3px 12px -8px rgba(50, 52, 57, .3);
+  box-shadow:0 2px 12px -6px rgba(50, 52, 57, .5);
   padding:0;
   margin:0 0 32px; }
   @media (max-width:767px){
@@ -2778,7 +2887,7 @@ body.compensate-for-scrollbar{
     width:auto;
     margin-left:20px;
     margin-right:20px;
-    padding-top:8px;
+    padding-top:12px;
     padding-bottom:32px; }
   .masonry-container article.grid__item .entry-image{
     display:-ms-flexbox;
@@ -2790,19 +2899,17 @@ body.compensate-for-scrollbar{
     .masonry-container article.grid__item .entry-image img{
       max-height:600px; }
   .masonry-container article.grid__item .entry-header{
-    padding-top:16px;
+    padding-top:8px;
     padding-bottom:8px;
     margin:0; }
     @media (max-width:940px){
       .masonry-container article.grid__item .entry-header{
         padding-left:0;
         padding-right:0; } }
-  .masonry-container article.grid__item .entry-header{
-    padding-top:0; }
   .masonry-container article.grid__item .breadcrumbs{
     text-align:left; }
   .masonry-container article.grid__item h2.entry-title{
-    font-size:24px;
+    font-size:19px;
     padding:0;
     margin:0;
     text-align:left;

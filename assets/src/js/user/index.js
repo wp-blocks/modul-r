@@ -1,5 +1,5 @@
 
-jQuery(document).ready(function($){
+jQuery(document).ready(function($) {
 
   // a slick slider
   const sliders = document.getElementsByClassName("slider");
@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
           autoplay: true
         });
       } else if (sliders[i].classList.contains('slider-multi')) {
-        $(sliders[i]+'ul.blocks-gallery-grid').slick({
+        $(sliders[i] + 'ul.blocks-gallery-grid').slick({
           lazyLoad: 'ondemand',
           dots: true,
           infinite: true,
@@ -29,7 +29,7 @@ jQuery(document).ready(function($){
                 infinite: true,
                 dots: false
               }
-            },{
+            }, {
               breakpoint: 400,
               settings: {
                 slidesToShow: 1,
@@ -45,15 +45,14 @@ jQuery(document).ready(function($){
   }
 
 
-
   if ($('.lightbox')) {
 
     $('.lightbox a').fancybox({
 
-      caption : function() {
+      caption: function () {
         let altcaption = $(this).children('img').attr('alt').length ? $(this).children('img').attr('alt') : '';
         let figcaption = $(this).next('figcaption').length > 0 ? $(this).next('figcaption').text() : '';
-        let imgcaption = (figcaption !== '' ? figcaption : (altcaption !== '' ? altcaption : '')) ;
+        let imgcaption = (figcaption !== '' ? figcaption : (altcaption !== '' ? altcaption : ''));
         return imgcaption;
       }
 
@@ -63,7 +62,7 @@ jQuery(document).ready(function($){
 
   if ($('.lightbox-gallery')) {
 
-    $('.lightbox-gallery a').click(function() {
+    $('.lightbox-gallery a').click(function () {
 
       let galleryImages;
 
@@ -75,21 +74,21 @@ jQuery(document).ready(function($){
 
       let gallery = [];
 
-      galleryImages.each(function( index, galleryItem ) {
+      galleryImages.each(function (index, galleryItem) {
 
         let altcaption = $(this).children('img').attr('alt').length ? $(this).children('img').attr('alt') : '';
         let figcaption = $(this).next('figcaption').length > 0 ? $(this).next('figcaption').text() : '';
-        let imgcaption = (figcaption !== '' ? figcaption : (altcaption !== '' ? altcaption : '')) ;
+        let imgcaption = (figcaption !== '' ? figcaption : (altcaption !== '' ? altcaption : ''));
 
         gallery.push({
-          src : galleryItem.href,
-          opts : {
+          src: galleryItem.href,
+          opts: {
             caption: imgcaption + '<br/><span class="fancybox-counter"><span data-fancybox-index></span> of <span data-fancybox-count></span></span>'
           }
         })
       });
 
-      $.fancybox.open( gallery, { loop: false }, $(this).index() );
+      $.fancybox.open(gallery, {loop: false}, $(this).index());
       return false;
 
     });
