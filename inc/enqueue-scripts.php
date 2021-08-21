@@ -36,7 +36,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		ob_start();
 		$atf_css = "";
 
-		// TYPOGRAPY
+		// TYPOGRAPHY
 		$atf_css .= 'h1, .entry-title, .has-title-color {color: ' . $title_color . ';}';
 		$atf_css .= 'p, a, li, .has-text-color {color: ' . $text_color . ';}';
 
@@ -152,7 +152,7 @@ add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
  */
 if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	function modul_r_theme_fonts() {
-		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&Material+Icons&display=swap', array(), null );
+		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Material+Icons&display=swap', array(), null );
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_fonts', 10 );
