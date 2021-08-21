@@ -527,20 +527,21 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			'description' => esc_html__( 'Select an important category', 'modul-r' ),
 		) );
 
-		// Woo options
-		$wp_customize->add_section( 'modul_r_settings_Woo' , array(
-        'title'      => esc_html__('Woo Options','modul-r'),
-        'priority'   => 55,
-        'panel'      => 'modul_r_theme_options'
-    ) );
+    if ( class_exists( 'WooCommerce' ) ) {
+      // Woo options
+      $wp_customize->add_section( 'modul_r_settings_Woo' , array(
+          'title'      => esc_html__('Woo Options','modul-r'),
+          'priority'   => 55,
+          'panel'      => 'modul_r_theme_options'
+      ) );
 
-		// the "Show Woo options" checkbox
-		$wp_customize->add_setting( 'modul_r_woo[shop_hero]', array(
-        'default'   => null,
-        'transport' => 'refresh',
-        'sanitize_callback' => 'modul_r_sanitize_file'
-        )
-    );
+      // the "Show Woo options" checkbox
+      $wp_customize->add_setting( 'modul_r_woo[shop_hero]', array(
+          'default'   => null,
+          'transport' => 'refresh',
+          'sanitize_callback' => 'modul_r_sanitize_file'
+          )
+      );
       $wp_customize->add_control(
           new WP_Customize_Upload_Control(
               $wp_customize,
@@ -551,7 +552,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
               )
           )
       );
-
+    }
 		
 		// Sidebar Social Share options
 		$wp_customize->add_section( 'modul_r_settings_social_share' , array(
