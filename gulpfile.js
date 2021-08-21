@@ -18,6 +18,7 @@ const wpPot = require('gulp-wp-pot');
 
 // Gulp plugins
 const header = require('gulp-header');
+const gulpif = require('gulp-if');
 const del = require("del");
 const rename = require('gulp-rename');
 const notify = require("gulp-notify");
@@ -172,28 +173,43 @@ function createPot() {
     .pipe(gulp.dest(opts.rootPath + 'languages/' + pkg.name + '.pot'));
 }
 
+// return if is the build environment or not
+function isBuild(env) {
+  return (env === 'build');
+}
+
 // User Scripts
-function userScript() {
+function userScript(env = 'dev') {
   return gulp
     .src(opts.devPath + 'js/user/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['@babel/env']
     }))
-    .pipe(uglify())
+    .pipe(gulpif(isBuild(env), uglify()))
     .pipe(concat('scripts.js'))
     .pipe(sourcemaps.write('.', { sourceRoot: '/' }))
     .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 
+// User Scripts Build (with uglify)
+async function userScriptBuild() {
+  userScript('build');
+}
+
 // Vendor scripts concat
-function vendorScript() {
+function vendorScript(env = 'dev') {
   return gulp
     .src(opts.devPath + 'js/vendor/*.js')
     .pipe(newer(opts.distPath + 'js/vendor-scripts.js'))
-    .pipe(uglify())
+    .pipe(gulpif(isBuild(env), uglify()))
     .pipe(concat('vendor-scripts.js'))
     .pipe(gulp.dest(opts.distPath + 'js/'));
+}
+
+// Vendor Scripts Build (with uglify)
+async function vendorScriptBuild() {
+  vendorScript('build');
 }
 
 
@@ -227,6 +243,7 @@ function mainCSS(env = 'dev') {
     .pipe(gulp.dest(opts.rootPath));
 }
 
+// compile style.scss for release
 async function mainCSSbuild() {
   mainCSS('build');
 }
@@ -276,12 +293,14 @@ function watchCode() {
 }
 
 function watchImages() {
-  gulp.watch(opts.devPath + 'img/**/*', images );
+  gulp.watch(opts.devPath + 'img/**/*', optimizeThemeImg );
 }
 
 const style = gulp.parallel(mainCSS, backendCSS, atfCSS);
+const buildStyle = gulp.parallel(mainCSSbuild, backendCSS, atfCSS);
 const scripts = gulp.parallel(vendorScript, userScript);
-const build = gulp.series(cleanAssets, gulp.parallel( optimizeThemeImg, scripts, mainCSSbuild, backendCSS, atfCSS, createPot ));
+const buildScripts = gulp.parallel(vendorScriptBuild, userScriptBuild);
+const build = gulp.series(cleanAssets, gulp.parallel( optimizeThemeImg, buildScripts, buildStyle, createPot ));
 const buildRelease = gulp.series(build, clean, zipRelease);
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
@@ -297,4 +316,3 @@ exports.scripts = scripts;
 exports.optimizeThemeImg = optimizeThemeImg;
 exports.optimizeWPUploads = optimizeWPUploads;
 exports.createPot = createPot;
-exports.zipRelease = zipRelease;
