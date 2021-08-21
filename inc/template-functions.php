@@ -363,7 +363,7 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 
     // get theme option "sidebar enabled"
     $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
-    if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || is_page() ) ) {
+    if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || (is_page() && !is_front_page()) ) ) {
         $classes[] = 'has-sidebar';
 
         // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
