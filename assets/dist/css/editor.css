@@ -1,1 +1,172 @@
-body,html{margin:0;padding:0}html{background-color:#fcfcfc;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}body,html{max-width:100%}body{min-height:100%;box-sizing:border-box;overflow-x:hidden}.has-black-background-color,.has-gray-dark-background-color,.has-primary-background-color,.has-primary-dark-background-color,.has-primary-light-background-color,.has-secondary-background-color,.has-secondary-dark-background-color,.has-secondary-light-background-color{color:#fcfcfc}.has-gray-light-background-color,.has-white-background-color,.has-white-smoke-background-color,body{color:#4a4d54}body{font-family:Montserrat,sans-serif;font-weight:400;font-size:17px;line-height:1.3;word-break:break-word}@media(max-width:500px){body{font-size:15px}}.wp-block.editor-post-title__block .editor-post-title__input,h1,h2,h3,h4,h5,h6{font-family:Montserrat,sans-serif;font-weight:500}h1,h2,h3,h4,h5,h6{margin:16px 0 8px;padding:0}h1{font-size:56px}@media(max-width:1260px){h1{font-size:50px}}@media(max-width:500px){h1{font-size:32px}}h2{font-size:36px}@media(max-width:1260px){h2{font-size:28px}}h3{font-size:28px}@media(max-width:1260px){h3{font-size:22px}}@media(max-width:767px){h3{font-size:20px}}h4{font-size:22px}@media(max-width:1260px){h4{font-size:19px}}h5,h6{font-weight:500;font-size:17px}@media(max-width:1260px){h5,h6{font-size:15px}}.editor-styles-wrapper li,.editor-styles-wrapper p,li,p{font-family:Montserrat,sans-serif;font-size:17px}@media(max-width:1260px){.editor-styles-wrapper li,.editor-styles-wrapper p,li,p{font-size:16px}}@media(max-width:500px){.editor-styles-wrapper li,.editor-styles-wrapper p,li,p{font-size:15px}}.editor-styles-wrapper li,.editor-styles-wrapper p,p{margin:0 0 8px;line-height:1.3}b,strong{font-weight:600}a{text-decoration:none}dl,ol,ul{margin-top:16px;margin-bottom:32px;padding:0 0 0 24px}.editor-styles-wrapper dl li,.editor-styles-wrapper dl p,.editor-styles-wrapper ol li,.editor-styles-wrapper ol p,.editor-styles-wrapper ul li,.editor-styles-wrapper ul p,dl .editor-styles-wrapper li,dl .editor-styles-wrapper p,dl dt,dl li,ol .editor-styles-wrapper li,ol .editor-styles-wrapper p,ol dt,ol li,ul .editor-styles-wrapper li,ul .editor-styles-wrapper p,ul dt,ul li{line-height:1.3;margin-bottom:12px}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #fcfcfc;
+  max-width: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.has-primary-background-color,
+.has-primary-light-background-color,
+.has-primary-dark-background-color,
+.has-secondary-background-color,
+.has-secondary-light-background-color,
+.has-secondary-dark-background-color,
+.has-black-background-color,
+.has-gray-dark-background-color,
+.has-gray-dark-background-color {
+  color: #fcfcfc;
+}
+
+.has-white-background-color,
+.has-white-smoke-background-color,
+.has-gray-light-background-color {
+  color: #4a4d54;
+}
+
+/* Headlines */
+body {
+  font-family: "Montserrat", sans-serif, sans-serif;
+  color: #4a4d54;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.3;
+  word-break: break-word;
+}
+@media (max-width : 500px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+.wp-block.editor-post-title__block .editor-post-title__input, h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 16px 0 8px;
+  padding: 0;
+}
+
+h1 {
+  font-size: 56px;
+}
+@media (max-width : 1260px) {
+  h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width : 500px) {
+  h1 {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 36px;
+}
+@media (max-width : 1260px) {
+  h2 {
+    font-size: 28px;
+  }
+}
+
+h3 {
+  font-size: 28px;
+}
+@media (max-width : 1260px) {
+  h3 {
+    font-size: 22px;
+  }
+}
+@media (max-width : 767px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+h4 {
+  font-size: 22px;
+}
+@media (max-width : 1260px) {
+  h4 {
+    font-size: 19px;
+  }
+}
+
+h5, h6 {
+  font-weight: 500;
+  font-size: 17px;
+}
+@media (max-width : 1260px) {
+  h5, h6 {
+    font-size: 15px;
+  }
+}
+
+/* Text and lists */
+li, .editor-styles-wrapper li, .editor-styles-wrapper p,
+p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+}
+@media (max-width : 1260px) {
+  li, .editor-styles-wrapper li, .editor-styles-wrapper p,
+p {
+    font-size: 16px;
+  }
+}
+@media (max-width : 500px) {
+  li, .editor-styles-wrapper li, .editor-styles-wrapper p,
+p {
+    font-size: 15px;
+  }
+}
+
+p, .editor-styles-wrapper li, .editor-styles-wrapper p {
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ol, dl {
+  margin-top: 16px;
+  margin-bottom: 32px;
+  padding: 0 0 0 24px;
+}
+ul li, ul .editor-styles-wrapper li, .editor-styles-wrapper ul li, ul .editor-styles-wrapper p, .editor-styles-wrapper ul p, ul dt, ol li, ol .editor-styles-wrapper li, .editor-styles-wrapper ol li, ol .editor-styles-wrapper p, .editor-styles-wrapper ol p, ol dt, dl li, dl .editor-styles-wrapper li, .editor-styles-wrapper dl li, dl .editor-styles-wrapper p, .editor-styles-wrapper dl p, dl dt {
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+/*# sourceMappingURL=editor.css.map */

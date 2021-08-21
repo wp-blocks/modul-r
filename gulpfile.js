@@ -134,15 +134,6 @@ function cleanAssets() {
   });
 }
 
-// Minify images
-gulp.task('webp-convert', (imgFolder, destFolder) =>
-  gulp
-    .src(opts.devPath + 'img/**/*.{jpeg,jpg,png,JPEG,JPG,PNG}')
-    .pipe(imagemin([imageminWebp()]))
-    .pipe(rename({ extname: '.webp' }))
-    .pipe(gulp.dest(opts.distPath + 'img/'))
-);
-
 function imageMinify(imgFolder, destFolder) {
   return gulp
     .src(imgFolder + '**/*.{jpeg,jpg,png,gif,svg,JPEG,JPG,PNG,GIF,SVG}')
