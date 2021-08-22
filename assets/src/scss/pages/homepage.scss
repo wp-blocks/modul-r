@@ -24,8 +24,6 @@ body.home {
   
     // if it's the first element of the content
     & > .wp-block-columns:first-child {
-      overflow: visible;
-      text-align: center;
       margin-top: ($size__padding * -1.5);
       margin-bottom: $size__padding;
       display: flex;
@@ -90,10 +88,9 @@ body.home {
     
           img {
             object-fit: contain;
-            margin: ($size__padding * .5) auto $size__margin;
+            margin: 0 auto $size__margin;
             @media #{$mq__smaller-than-tablet} {
               margin: 0 auto;
-              padding: ($size__margin * 2) auto;
             }
           }
         }
@@ -101,7 +98,6 @@ body.home {
         h2,
         h3 {
           font-size: 24px;
-          margin: $size__margin  auto;
           
           @media #{$mq__smaller-than-tablet} {
             flex-basis: 40%;

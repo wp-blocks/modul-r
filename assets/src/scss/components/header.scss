@@ -110,6 +110,7 @@
     .site-branding {
       width: 100%;
       padding-top: $size__margin;
+      display: flex;
   
       @media #{$mq__responsive-size_brekpoint} {
         text-align: left;
@@ -141,6 +142,7 @@
   
       &.has-custom-logo .site-logo {
         height: $size__branding-height;
+        margin: auto 0;
       }
       
       &.has-header-text.has-custom-logo {
@@ -151,7 +153,9 @@
         .site-logo {
           margin-right: $size__margin;
   
-          @media #{$mq__responsive-size_brekpoint} {width: auto;}
+          @media #{$mq__responsive-size_brekpoint} {
+            width: auto;
+          }
         }
         .custom-logo {object-position: right;}
         

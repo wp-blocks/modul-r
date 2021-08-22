@@ -7,16 +7,25 @@
   }
 }
 
+.page-title,
+.entry-title {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  @media #{$mq__smaller-than-tablet} {
+    width: 100%
+  }
+}
+
 .page-header,
 .entry-header,
 .woocommerce-products-header {
   display: block;
   width: 100%;
   max-width: $size__site-width;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: $size__padding * .25;
   text-align: center;
+  margin: 0 auto ($size__margin * 3);
   
   @media #{$mq__content-width} {
     max-width: 100%;
@@ -28,15 +37,5 @@
   p {
     margin: 0 auto;
     max-width: $size__site-width * .5;
-  }
-}
-
-.page-title,
-.entry-title {
-  margin: 0 auto ($size__margin * 3);
-  text-align: center;
-  width: 75%;
-  @media #{$mq__smaller-than-tablet} {
-    width: 100%
   }
 }

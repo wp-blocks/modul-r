@@ -6,35 +6,38 @@
   #accordion-panel-modul_r_theme_options h3:before,
   #sub-accordion-panel-modul_r_theme_options h3:before {
     display: inline;
-    font-family: dashicons;
+    font-family: "Material Icons";
     padding-right: 4px;
     font-size: 20px;
     line-height: 0;
     vertical-align: sub;
-    color: #666;
+    color: #000;
     transition: 175ms;
-    opacity: 0.99999;
+    opacity: .7;
   }
   
   /* Add icon to "Theme Options" tab */
-  #accordion-section-colors h3:before {content: "\f100";}
+  #accordion-section-colors h3:before {content: "\e40a";}
   
   /* Add icon to "Theme Options" tab */
-  #accordion-panel-modul_r_theme_options h3:before {content: "\f108";}
+  #accordion-panel-modul_r_theme_options h3:before {content: "\e8b8";}
   
   /* Add icon to "Header" tab */
-  #accordion-section-modul_r_settings_header h3:before {content: "\f317";}
+  #accordion-section-modul_r_settings_header h3:before {content: "\e232";}
   
   /* Add icon to "Footer" tab */
-  #accordion-section-modul_r_settings_footer h3:before {content: "\f316";}
+  #accordion-section-modul_r_settings_footer h3:before {content: "\e229";}
   
   /* Add icon to "Sidebar" tab */
-  #accordion-section-modul_r_settings_sidebar h3:before {content: "\f504";}
+  #accordion-section-modul_r_settings_sidebar h3:before {content: "\e230";}
   
   /* Add icon to "Homepage" tab */
-  #accordion-section-modul_r_home_options h3:before {content: "\f337";}
+  #accordion-section-modul_r_home_options h3:before {content: "\e88a";}
+  
+  /* Add icon to "woo" tab */
+  #accordion-section-modul_r_settings_Woo h3:before {content: "\e8cb";}
   
   /* Add icon to "Social Share" tab */
-  #accordion-section-modul_r_settings_social_share h3:before {content: "\2605";}
+  #accordion-section-modul_r_settings_social_share h3:before {content: "\e80d";}
 
 }

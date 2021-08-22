@@ -2,8 +2,15 @@
   
   min-width: $sidebar__width;
   width: $sidebar__width;
+  padding: 0 $size__padding-resp;
+  box-sizing: border-box;
+  
+  .search-form {
+    max-width: 100%;
+  }
   
   @media #{$mq__larger-than-tablet} {
+    padding: 0 $size__padding-resp;
     .sidebar-right & {padding-left: $sidebar__margin;}
     .sidebar-left & {padding-right: $sidebar__margin;}
   }
@@ -11,8 +18,6 @@
   @media #{$mq__smaller-than-tablet} {
     min-width: inherit;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
   }
   
   section {

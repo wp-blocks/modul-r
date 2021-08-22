@@ -118,7 +118,7 @@
   ul, ol, dl {
     padding: 0 ($size__padding-resp * 2);
     margin-top: $size__padding * .5;
-    margin-bottom: $size__padding * .5;
+    margin-bottom: $size__padding * .25;
     list-style-position: inside;
     line-height: $text__line-height-content;
     
@@ -838,9 +838,10 @@
   //! Code
   .wp-block-code {
     border-radius: 0;
-    max-width: #{$size__site-width - ($size__side-padding * 2)};
-    
-    code {}
+    code {
+      white-space: pre;
+      overflow-x: auto;
+    }
   }
   
   //! Columns
