@@ -7,10 +7,10 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// Main colors
 		$colors = array();
-		$colors['primary'] = get_theme_mod( 'primary-color' ) ? sanitize_hex_color(get_theme_mod( 'primary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['primary']);
+		$colors['primary'] = !empty(get_theme_mod( 'primary-color' )) ? sanitize_hex_color(get_theme_mod( 'primary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['primary']);
 		$colors['primary-light'] = modul_r_adjustBrightness($colors['primary'], 0.4);
 		$colors['primary-dark'] = modul_r_adjustBrightness($colors['primary'], -0.4);
-		$colors['secondary'] = get_theme_mod( 'secondary-color' ) ? sanitize_hex_color(get_theme_mod( 'secondary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['secondary']);
+		$colors['secondary'] = !empty(get_theme_mod( 'secondary-color' )) ? sanitize_hex_color(get_theme_mod( 'secondary-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['secondary']);
 		$colors['secondary-light'] = modul_r_adjustBrightness($colors['secondary'], 0.4);
 		$colors['secondary-dark'] = modul_r_adjustBrightness($colors['secondary'], -0.4);
 		// base colors
@@ -22,22 +22,22 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$colors['black'] = sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['black']);
 
 		// Typography colors
-		$title_color = get_theme_mod( 'title-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'title-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['title-color']]);
-		$text_color = get_theme_mod( 'text-color' ) != '' ? sanitize_hex_color(get_theme_mod( 'text-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['text-color']]);
+		$title_color = !empty(get_theme_mod( 'title-color' )) ? sanitize_hex_color(get_theme_mod( 'title-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['title-color']]);
+		$text_color = !empty(get_theme_mod( 'text-color' )) ? sanitize_hex_color(get_theme_mod( 'text-color' )) : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['text-color']]);
 
 		// Colors
-        $header_color = get_theme_mod( 'header-color' ) ? sanitize_hex_color(get_theme_mod( 'header-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']];
-		$header_text_color = get_theme_mod( 'header-text-color' ) && get_theme_mod( 'header-text-color' ) != 'blank' ? sanitize_hex_color(get_theme_mod( 'header-text-color' )) : '#'.get_header_textcolor();
-		$footer_color = get_theme_mod( 'footer-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-color']];
-		$footer_bottom_color = get_theme_mod( 'footer-bottom-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-bottom-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']];
-		$footer_text_color = get_theme_mod( 'footer-text-color' ) ? sanitize_hex_color(get_theme_mod( 'footer-text-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-text-color']];
+        $header_color = !empty(get_theme_mod( 'header-color' )) ? sanitize_hex_color(get_theme_mod( 'header-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']];
+		$header_text_color = !empty(get_theme_mod( 'header-text-color' )) ? sanitize_hex_color(get_theme_mod( 'header-text-color' )) : '#'.get_header_textcolor();
+		$footer_color = !empty(get_theme_mod( 'footer-color' )) ? sanitize_hex_color(get_theme_mod( 'footer-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-color']];
+		$footer_bottom_color = !empty(get_theme_mod( 'footer-bottom-color' )) ? sanitize_hex_color(get_theme_mod( 'footer-bottom-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']];
+		$footer_text_color = !empty(get_theme_mod( 'footer-text-color' )) ? sanitize_hex_color(get_theme_mod( 'footer-text-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-text-color']];
 
 		// get the acf.css file and store into a variable
 		ob_start();
 		$atf_css = "";
 
 		// TYPOGRAPHY
-		$atf_css .= 'h1, .entry-title, .has-title-color {color: ' . $title_color . ';}';
+		$atf_css .= '.entry-title, .has-title-color {color: ' . $title_color . ';}';
 		$atf_css .= 'p, a, li, .has-text-color {color: ' . $text_color . ';}';
 
 		// HEADER
