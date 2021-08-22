@@ -136,11 +136,6 @@ body.woocommerce {
         }
         .qty {font-size: 18px;}
       }
-      .qty,
-      .button {
-        height: $size__padding * .75;
-      }
-      .button { border-radius: 0 $form-radius $form-radius 0; }
     }
   
     p.price,

@@ -85,20 +85,20 @@
 /* Typography styles */
 .site-main {
   .entry-content {
-    overflow-x: hidden;
-    
+    line-height: $text__line-height-content;
+
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      margin-top: $size__padding;
+      margin-top: 0;
       margin-bottom: $size__padding * .25;
     }
   
     p {
-      margin-top: $size__padding * .25;
+      margin-top: 0;
       margin-bottom: $size__padding * .25;
     
       & + h1,
@@ -120,6 +120,7 @@
     margin-top: $size__padding * .5;
     margin-bottom: $size__padding * .5;
     list-style-position: inside;
+    line-height: $text__line-height-content;
     
     li, dt {
       padding-left: $size__margin;

@@ -16,6 +16,12 @@
     color: $color__dark-grey;
   }
   
+  p.comment-notes {
+    font-size: 13px;
+    font-style: italic;
+    color: $color__dark-grey;
+  }
+  
   p.comments-closed,
   p.no-comments-yet {
     text-align: center;
