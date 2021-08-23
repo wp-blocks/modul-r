@@ -95,6 +95,7 @@
     h6 {
       margin-top: 0;
       margin-bottom: $size__padding * .25;
+      line-height: $text__line-height;
     }
   
     p {
@@ -499,10 +500,6 @@
   //! Image
   .wp-block-image {
     
-    img {
-      display: block;
-    }
-    
     .aligncenter {
       
       @media #{$mq__smaller-than-tablet} {
@@ -847,8 +844,6 @@
   //! Columns
   .wp-block-columns {
     
-    overflow-x: hidden;
-    
     &.alignfull {
       padding-left: $size__padding-resp;
       padding-right: $size__padding-resp;
@@ -878,8 +873,8 @@
       
       &.alignfull,
       &.alignfull .wp-block-column {
-        padding-left: calc(2 * #{$size__margin});
-        padding-right: calc(2 * #{$size__margin});
+        padding-left: $size__margin * 2;
+        padding-right: $size__margin * 2;
       }
     }
   }

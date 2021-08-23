@@ -42,7 +42,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// HEADER
 		// set the header color
-		$atf_css .= 'body .header-color {background-color: ' . $header_color . ';}.has-featured-image.top #masthead {background-color: ' . $header_color . 'dd;}';
+		$atf_css .= 'body .header-color, body.has-featured-image.top #masthead.active {background-color: ' . $header_color . ';} .has-featured-image.top #masthead {background-color: ' . $header_color . 'dd;}';
 
 		// On top of the screen set the opacity to 0
 		if (get_theme_mod( 'modul_r_header_opacity' ) > 0){
@@ -53,7 +53,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		}
 
 		// Set the responsive header opacity
-		$atf_css .= '@media (max-width: 768px) {body .main-navigation {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . 'ee;}}';
+		$atf_css .= '@media (max-width: 960px) {body .main-navigation {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . 'ee;}}';
 
 		// Set the nav background colors
 		$atf_css .= 'body ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.1) . ';}';

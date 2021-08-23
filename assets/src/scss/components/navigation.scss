@@ -1,4 +1,5 @@
 $nav_padding: 0 ($size__margin * 4);
+$nav_padding_resp: 0 ($size__margin * 3);
 
 .main-navigation {
   
@@ -26,7 +27,10 @@ $nav_padding: 0 ($size__margin * 4);
     margin: 0;
     padding: 0;
  
-    @media #{$mq__responsive_brekpoint} {display: block;}
+    @media #{$mq__responsive_brekpoint} {
+      display: block;
+      max-width: 100%;
+    }
   }
   
   li {
@@ -50,17 +54,26 @@ $nav_padding: 0 ($size__margin * 4);
       
       &:hover {opacity: 1;}
   
+      @media #{$mq__laptop} {
+        padding: $nav_padding_resp;
+      }
+  
       @media #{$mq__responsive_brekpoint} {
         height: auto;
         line-height: $size__nav-responsive-line-height;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
       
     }
   
-    li a {
-      font-weight: 400;
-      opacity: .7;
-      line-height: $size__nav-height * .66;
+    @media #{$mq__responsive_brekpoint} {
+      li a {
+        font-weight: 400;
+        opacity: .7;
+        line-height: $size__nav-height * .66;
+      }
     }
   
     &.current-menu-item,

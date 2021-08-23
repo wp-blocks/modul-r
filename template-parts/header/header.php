@@ -13,11 +13,13 @@
     <?php modul_r_header_image(); ?>
 
     <div class="site-branding<?php
-        if ( $show_header_text ) {echo ' has-header-text';}
-        if ( $custom_logo ) {echo ' has-custom-logo';}
+        if ( $show_header_text ) echo ' has-header-text';
+        if ( $custom_logo ) {
+            echo ' has-custom-logo';
+        }
         ?>">
 
-      <div class="site-logo"><?php the_custom_logo(); ?></div>
+      <?php if ( $custom_logo ) echo '<div class="site-logo">'. get_custom_logo().'</div>'; ?>
 
       <?php if ( $show_header_text ) : ?>
         <div class="header-text">

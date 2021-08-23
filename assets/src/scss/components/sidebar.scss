@@ -15,7 +15,7 @@
     .sidebar-left & {padding-right: $sidebar__margin;}
   }
   
-  @media #{$mq__smaller-than-tablet} {
+  @media #{$mq__responsive_brekpoint} {
     min-width: inherit;
     width: 100%;
   }

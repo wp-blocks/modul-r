@@ -237,11 +237,6 @@ body .hero {
   align-content: center;
   position: relative;
   background-color: darken($color__nav-background, 10%);
- 
-  &.fullpage-hero {
-    .entry-image {
-    }
-  }
   
   & > * {
     position: relative;
@@ -262,6 +257,12 @@ body .hero {
     padding-top: $size__branding-height + $size__nav-height;
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
+    margin: auto;
+    
+    .page-title {
+      max-width: $size__site-width * .75;
+      width: 100%;
+    }
     
     h1, p {
       text-shadow: 0 2px 4px transparentize($color__black, 0.3);

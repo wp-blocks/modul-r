@@ -18,7 +18,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     <div class="hero">
     <?php modul_r_post_image('parallax header-color'); ?>
       <div class="hero-title text-center">
-        <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
+        <h1 class="page-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
       <?php
         if ($hero_call_to_action > 0) {
@@ -365,10 +365,10 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
     $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
     if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || (is_page() && !is_front_page()) ) ) {
         $classes[] = 'has-sidebar';
-
-        // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
-        $classes[] = ( get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
     }
+
+    // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
+    $classes[] = ( get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
 
 		return $classes;
 	}

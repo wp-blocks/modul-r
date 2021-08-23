@@ -41,93 +41,65 @@ body.home {
         padding: 0 $size__padding-resp ($size__padding-resp * 1.5);
         box-shadow: 0 8px 30px -20px transparentize($color__dark-grey, .3);
         border-radius: $size__margin * .5;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+        justify-content: center;
         flex: 1 0 20%;
   
         @media #{$mq__smaller-than-tablet} {
           padding-bottom: 0;
+          align-items: flex-start;
           margin: 0 $size__padding-resp ($size__margin * 2);
           height: 160px;
         }
-        @media #{$mq__phablet} {
-          padding: 0 ($size__padding-resp * .5);
-        }
-        
-        > * {
-          display: flex;
-          align-items: center;
-        }
-      
   
         .wp-block-image {
           justify-content: center;
+          margin: 0 (-$size__padding-resp);
+          flex: auto;
   
           @media #{$mq__smaller-than-tablet} {
-            flex-basis: 100%;
-            margin: 0;
+            margin: 0 $size__padding-resp 0 (-$size__padding-resp) ;
             width: 30%;
+            height: 100%;
           }
-    
+  
+          img {
+            height: 100%;
+            object-fit: inherit;
+            padding-top: $size__margin * 2;
+  
+            @media #{$mq__smaller-than-tablet} {
+              width: 70%;
+              padding: 15% 30%;
+              height: 70%;
+            }
+          }
+
           figure {
             display: block;
             width: 100%;
-            margin: 0 0 ($size__margin * .5);
-            @media #{$mq__smaller-than-tablet} {
-              margin: 0;
-              padding-right: $size__margin * 3;
-              padding-left: $size__margin;
-            }
-            @media #{$mq__phablet} {
-              padding-right: $size__padding-resp;
-              padding-left: $size__padding-resp *.5;
-            }
-          }
-    
-          img {
-            object-fit: contain;
-            margin: 0 auto $size__margin;
-            @media #{$mq__smaller-than-tablet} {
-              margin: 0 auto;
-            }
+            height: 100%;
+            margin: 0;
           }
         }
         
         h2,
-        h3 {
-          font-size: 24px;
-          
-          @media #{$mq__smaller-than-tablet} {
-            flex-basis: 40%;
-            justify-items: flex-start;
-            justify-content: flex-start;
-            align-items: flex-end;
-            width: 70%;
-            font-size: 19px;
-            margin: 0;
-          }
-          @media #{$mq__phablet} {
-            flex-basis: 60px;
-            font-size: 18px;
-          }
+        h3,
+        h4 {
+          margin-top: $size__margin * 2;
+          margin-bottom: 0;
         }
         
         p {
-          line-height: 1.4;
           margin: 0;
           
           @media #{$mq__smaller-than-tablet} {
-            flex-basis: auto;
-            justify-items: flex-start;
-            justify-content: flex-start;
-            width: 70%;
-            font-size: 15px;
+            font-size: 14px;
+            width: 65%;
             padding: 0;
-          }
-          @media #{$mq__phablet} {
-            font-size: 90%;
+            text-align: left;
           }
   
           a {font-weight: 400;}
@@ -136,7 +108,7 @@ body.home {
         }
       }
     }
-    
+ 
   }
   
   //animations

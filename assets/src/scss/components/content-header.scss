@@ -12,7 +12,8 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 80%;
+  margin-bottom: $size__padding-resp;
   @media #{$mq__smaller-than-tablet} {
     width: 100%
   }
@@ -21,11 +22,12 @@
 .page-header,
 .entry-header,
 .woocommerce-products-header {
+  
   display: block;
   width: 100%;
   max-width: $size__site-width;
   text-align: center;
-  margin: 0 auto ($size__margin * 3);
+  margin: 0 auto $size__padding-resp;
   
   @media #{$mq__content-width} {
     max-width: 100%;
@@ -37,5 +39,6 @@
   p {
     margin: 0 auto;
     max-width: $size__site-width * .5;
+    line-height: $text__line-height-content;
   }
 }
