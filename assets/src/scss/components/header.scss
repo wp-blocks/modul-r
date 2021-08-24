@@ -112,7 +112,7 @@
   
       @media #{$mq__responsive-size_brekpoint} {
         text-align: left;
-        width: calc(100% - #{$hamburger__size * 2} );
+        padding-right: $hamburger__size * 2;
         justify-content: flex-start !important;
       }
   
@@ -262,7 +262,7 @@
       .site-logo {
         margin-left: 0;
         width: auto;
-        height: $size__nav-height;
+        height: 100%;
       }
       
       .custom-logo {
@@ -270,6 +270,9 @@
         width: auto;
         height: $size__logo-size;
         max-width: $size__branding-max-width;
+        @media #{$mq__responsive_brekpoint} {
+          max-width: inherit;
+        }
       }
   
       .header-text {
@@ -286,7 +289,7 @@
         }
       }
     }
-  
+
     .main-navigation {
       align-self: flex-end;
       width: 100%;
