@@ -30,7 +30,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
       ?>
       </div>
     </div>
-  <?php
+    <?php
 	}
 endif;
 
@@ -39,13 +39,14 @@ endif;
  * you can pass single or multiple classes to the image wrapper
  */
 if ( ! function_exists( 'modul_r_post_image' ) ) :
-  function modul_r_post_image( $class = null ) {
+  function modul_r_post_image( $class = null  ) {
     // Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
-      <div class="hero entry-image interactive<?php echo ' ' . esc_attr($class); ?>">
+      <div class="entry-image interactive<?php echo ' ' . esc_attr($class); ?>">
 			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
       </div>
-		<?php endif;
+		  <?php
+    endif;
 	}
 endif;
 
@@ -56,6 +57,7 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
 	function modul_r_archive_image( $class = null ) {
 		// Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
+        <div class="hero" >
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
 			        <?php if ( is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
@@ -78,6 +80,7 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
 	            } ?>
             </div>
           </div>
+        </div>
 		<?php endif;
 	}
 endif;

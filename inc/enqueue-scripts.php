@@ -120,8 +120,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
         $hero_height_home = get_theme_mod( 'modul_r_hero_height_homepage' ) !== null ? intval(get_theme_mod( 'modul_r_hero_height_homepage' )) : 100;
         $hero_height = get_theme_mod( 'modul_r_hero_height' ) !== null ? intval(get_theme_mod( 'modul_r_hero_height' )) : 60;
 		if ($hero_opacity != 100) $atf_css .= 'body.home .hero .entry-image img {opacity:'. ($hero_opacity/100) .'}';
-        if ($hero_height) $atf_css .= "body .hero {height:{$hero_height}vh}";
-        if ($hero_height_home) $atf_css .= "body.home .hero {height:{$hero_height_home}vh}";
+        if ($hero_height) $atf_css .= "html body .hero {max-height:{$hero_height}vh}";
+        if ($hero_height_home) $atf_css .= "html body.home .hero {max-height:{$hero_height_home}vh}";
 
 		include get_stylesheet_directory() . '/assets/dist/css/atf.css';
 		$atf_css .= ob_get_clean();

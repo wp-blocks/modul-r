@@ -1,24 +1,5 @@
 body.home {
   
-  .wp-block-columns {
-    
-    @media #{$mq__smaller-than-tablet} {
-      flex-direction: column;
-      .wp-block-column {
-        padding-bottom: $size__padding * .5;
-      }
-    }
-    
-    .wp-block-column {
-      h2,
-      h3,
-      h4,
-      p {
-        margin-top: $size__margin * 2;
-      }
-    }
-  }
-  
   .entry-content {
     overflow: visible;
   
@@ -29,8 +10,9 @@ body.home {
       display: flex;
       flex-wrap: wrap;
       position: relative;
-  
+
       @media #{$mq__smaller-than-tablet} {
+        flex-direction: column;
         text-align: left;
         margin-bottom: $size__padding * .5;
       }
@@ -41,6 +23,7 @@ body.home {
         padding: 0 $size__padding-resp ($size__padding-resp * 1.5);
         box-shadow: 0 4px 24px -12px transparentize($color__dark-grey, .2);
         border-radius: $size__margin * .5;
+        line-height: $text__line-height;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -56,7 +39,7 @@ body.home {
   
         .wp-block-image {
           justify-content: center;
-          margin: 0 (-$size__padding-resp);
+          margin: 0 (-$size__padding-resp) $size__padding-resp;
           flex: auto;
   
           @media #{$mq__smaller-than-tablet} {
@@ -88,7 +71,7 @@ body.home {
         h2,
         h3,
         h4 {
-          margin-top: $size__margin * 2;
+          margin-top: 0;
           margin-bottom: 0;
         }
         
@@ -108,7 +91,7 @@ body.home {
         }
       }
     }
- 
+
   }
   
   //animations

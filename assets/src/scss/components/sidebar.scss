@@ -4,18 +4,20 @@
   width: $sidebar__width;
   padding: 0 $size__padding-resp;
   box-sizing: border-box;
-  
+
   .search-form {
     max-width: 100%;
   }
   
   @media #{$mq__larger-than-tablet} {
-    padding: 0 $size__padding-resp;
+    padding: 0;
     .sidebar-right & {padding-left: $sidebar__margin;}
     .sidebar-left & {padding-right: $sidebar__margin;}
   }
   
   @media #{$mq__responsive_brekpoint} {
+    padding-top: ($size__padding-resp * 2);
+    border-top: 1px solid #eee;
     min-width: inherit;
     width: 100%;
   }

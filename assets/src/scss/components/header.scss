@@ -271,7 +271,7 @@
         height: $size__logo-size;
         max-width: $size__branding-max-width;
         @media #{$mq__responsive_brekpoint} {
-          max-width: inherit;
+          max-width: 100%;
         }
       }
   
