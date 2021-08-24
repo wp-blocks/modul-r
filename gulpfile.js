@@ -2,7 +2,7 @@
 const gulp = require('gulp');
 
 // Utilities
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('cssnano');
 const autoprefixer = require("autoprefixer");
 const sourcemaps = require('gulp-sourcemaps');
@@ -10,6 +10,7 @@ const postcss = require('gulp-postcss');
 const fs = require('fs');
 const newer = require('gulp-newer');
 const imagemin = require('gulp-imagemin');
+const imageminWebp = require('imagemin-webp');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
@@ -17,15 +18,14 @@ const wpPot = require('gulp-wp-pot');
 
 // Gulp plugins
 const header = require('gulp-header');
+const gulpif = require('gulp-if');
 const del = require("del");
+const rename = require('gulp-rename');
 const notify = require("gulp-notify");
 const zip = require('gulp-zip');
 
 // Misc/global vars
 const pkg = JSON.parse(fs.readFileSync('./package.json'));
-
-// Use node sass as compiler
-sass.compiler = require('node-sass');
 
 // Task options
 const opts = {
@@ -43,14 +43,14 @@ const opts = {
   },
 
   cssnano: {
-    compressed: {
+    dev: {
       preset: ['default', {
         reduceIdents: {
           keyframes: false
         }
       }]
     },
-    extended: {
+    build: {
       preset: ['default', {
         reduceIdents: {
           keyframes: false
@@ -61,7 +61,8 @@ const opts = {
   },
 
   sass: {
-    outputStyle: 'nested'
+    dev: {outputStyle: 'expanded'},
+    build: {outputStyle: 'compressed'}
   },
 
   imagemin: {
@@ -80,6 +81,14 @@ const opts = {
     })
   },
 
+  // https://github.com/imagemin/imagemin-webp
+  imageminWebp: {
+    quality: 80,
+    alphaQuality: 70,
+    metadata: 'none'
+  },
+
+
   banner: [
     '@charset "UTF-8";',
     '/*!' ,
@@ -89,7 +98,7 @@ const opts = {
     'Author: <%= author.name %> ' ,
     'Author URI: <%= author.website %> ' ,
     'Requires at least: 4.9.6 ' ,
-    'Tested up to: 5.2 ' ,
+    'Tested up to: <%= author.wp_tested %> ' ,
     'Requires PHP: 5.6 ' ,
     'Version: <%= version %> ' ,
     'License: GPLv2 or later ' ,
@@ -126,16 +135,30 @@ function cleanAssets() {
   });
 }
 
-// Minify images
-function imageMinify() {
+function imageMinify(imgFolder, destFolder) {
   return gulp
-  .src(opts.devPath + 'img/**')
-  .pipe(newer(opts.distPath + 'img/'))
-  .pipe(
-    imagemin(opts.imagemin.settings)
-    .on('error', notify.onError('Error: <%= error.message %>,title: "Imagemin Error"'))
-  )
-  .pipe(gulp.dest(opts.distPath + 'img/'));
+    .src(imgFolder + '**/*.{jpeg,jpg,png,gif,svg,JPEG,JPG,PNG,GIF,SVG}')
+    .pipe(newer(opts.distPath))
+    .pipe(
+      imagemin(opts.imagemin.settings)
+        .on('error', notify.onError('Error: <%= error.message %>,title: "Imagemin Error"'))
+    )
+    .pipe(gulp.dest(destFolder));
+}
+async function imageToWebP(imgFolder, destFolder) {
+  return gulp
+    .src(imgFolder + '**/*.{jpeg,jpg,png,JPEG,JPG,PNG}')
+    .pipe(imagemin([imageminWebp(opts.imageminWebp)]))
+    .pipe(rename({ extname: '.webp' }))
+    .pipe(gulp.dest(destFolder))
+}
+async function optimizeThemeImg() {
+  imageMinify(opts.devPath + 'img/', opts.distPath + 'img/' );
+  imageToWebP(opts.devPath + 'img/', opts.distPath + 'img/');
+}
+async function optimizeWPUploads() {
+  imageMinify('../../uploads/', '../../uploads/');
+  imageToWebP('../../uploads/', '../../uploads/');
 }
 
 // WordPress pot translation file
@@ -150,60 +173,69 @@ function createPot() {
     .pipe(gulp.dest(opts.rootPath + 'languages/' + pkg.name + '.pot'));
 }
 
-// Main Scripts
-function mainScript() {
-  return gulp
-    .src(opts.devPath + 'js/*.js')
-    .pipe(gulp.dest(opts.distPath + 'js/'));
+// return if is the build environment or not
+function isBuild(env) {
+  return (env === 'build');
 }
 
 // User Scripts
-function userScript() {
+function userScript(env = 'dev') {
   return gulp
     .src(opts.devPath + 'js/user/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['@babel/env']
     }))
-    .pipe(uglify())
+    .pipe(gulpif(isBuild(env), uglify()))
     .pipe(concat('scripts.js'))
     .pipe(sourcemaps.write('.', { sourceRoot: '/' }))
     .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 
+// User Scripts Build (with uglify)
+async function userScriptBuild() {
+  userScript('build');
+}
+
 // Vendor scripts concat
-function vendorScript() {
+function vendorScript(env = 'dev') {
   return gulp
     .src(opts.devPath + 'js/vendor/*.js')
     .pipe(newer(opts.distPath + 'js/vendor-scripts.js'))
-    .pipe(uglify())
+    .pipe(gulpif(isBuild(env), uglify()))
     .pipe(concat('vendor-scripts.js'))
     .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 
+// Vendor Scripts Build (with uglify)
+async function vendorScriptBuild() {
+  vendorScript('build');
+}
+
 
 // CSS Style functions
-function cssAtf() {
+function atfCSS() {
   return gulp
     .src(opts.devPath + 'scss/atf.scss')
-    .pipe(sass(opts.sass))
+    .pipe(sass(opts.sass.build))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.build),
-      cssnano(opts.cssnano.compressed)
+      cssnano(opts.cssnano.build)
     ]))
     .pipe(gulp.dest(opts.distPath + 'css/'));
 }
 
 // compile style.scss (the main WordPress style)
-function mainCSS() {
+function mainCSS(env = 'dev') {
   return gulp
     .src(opts.devPath + 'scss/style.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass(opts.sass))
+    .pipe(sass(opts.sass[env]))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
-      autoprefixer(opts.autoprefixer.dev)
+      autoprefixer(opts.autoprefixer[env]),
+      cssnano(opts.cssnano[env])
     ]))
     .pipe(header(opts.banner, pkg))
     .pipe(gulp.dest(opts.rootPath))
@@ -211,50 +243,26 @@ function mainCSS() {
     .pipe(gulp.dest(opts.rootPath));
 }
 
-function buildMainCSS() {
-  return gulp
-    .src(opts.devPath + 'scss/style.scss')
-    .pipe(sass(opts.sass))
-    .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
-    .pipe(gulp.dest(opts.rootPath))
-    .pipe(postcss([
-      autoprefixer(opts.autoprefixer.build),
-      cssnano(opts.cssnano.extended)
-    ]))
-    .pipe(header(opts.banner, pkg))
-    .pipe(gulp.dest(opts.rootPath));
+// compile style.scss for release
+async function mainCSSbuild() {
+  mainCSS('build');
 }
 
 // compile all other styles that's name is not style.scss or atf
-function CSS() {
+function backendCSS() {
   return gulp
     .src([
       opts.devPath + 'scss/editor.scss',
       opts.devPath + 'scss/admin.scss'
     ])
     .pipe(sourcemaps.init())
-    .pipe(sass(opts.sass))
+    .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.dev)
     ]))
     .pipe(gulp.dest(opts.distPath + 'css/'))
     .pipe(sourcemaps.write('.', { sourceRoot: '/' }))
-    .pipe(gulp.dest(opts.distPath + 'css/'));
-}
-
-function buildCSS() {
-  return gulp
-    .src([
-      opts.devPath + 'scss/editor.scss',
-      opts.devPath + 'scss/admin.scss'
-      ])
-    .pipe(sass(opts.sass))
-    .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
-    .pipe(postcss([
-      autoprefixer(opts.autoprefixer.build),
-      cssnano(opts.cssnano.compressed)
-    ]))
     .pipe(gulp.dest(opts.distPath + 'css/'));
 }
 
@@ -285,13 +293,14 @@ function watchCode() {
 }
 
 function watchImages() {
-  gulp.watch(opts.devPath + 'img/**/*', imageMinify );
+  gulp.watch(opts.devPath + 'img/**/*', optimizeThemeImg );
 }
 
-
-const style = gulp.parallel(mainCSS, CSS, cssAtf);
-const scripts = gulp.parallel(vendorScript, userScript, mainScript);
-const build = gulp.series(cleanAssets, gulp.parallel( imageMinify, createPot, buildMainCSS, buildCSS, cssAtf, scripts ));
+const style = gulp.parallel(mainCSS, backendCSS, atfCSS);
+const buildStyle = gulp.parallel(mainCSSbuild, backendCSS, atfCSS);
+const scripts = gulp.parallel(vendorScript, userScript);
+const buildScripts = gulp.parallel(vendorScriptBuild, userScriptBuild);
+const build = gulp.series(cleanAssets, gulp.parallel( optimizeThemeImg, buildScripts, buildStyle, createPot ));
 const buildRelease = gulp.series(build, clean, zipRelease);
 const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 
@@ -304,7 +313,6 @@ exports.buildRelease = buildRelease;
 
 exports.style = style;
 exports.scripts = scripts;
-
+exports.optimizeThemeImg = optimizeThemeImg;
+exports.optimizeWPUploads = optimizeWPUploads;
 exports.createPot = createPot;
-exports.imageMinify = imageMinify;
-exports.zipRelease = zipRelease;

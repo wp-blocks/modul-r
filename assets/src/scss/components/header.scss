@@ -108,15 +108,12 @@
     @media #{$mq__responsive-size_brekpoint} {height: 100%;}
     
     .site-branding {
-      width: 100%;
-      padding-top: $size__margin;
+      align-items: flex-start;
   
       @media #{$mq__responsive-size_brekpoint} {
         text-align: left;
-        width: calc(100% - #{$hamburger__size * 2} );
-        & {
-          justify-content: flex-start !important;
-        }
+        padding-right: $hamburger__size * 2;
+        justify-content: flex-start !important;
       }
   
       // Custom logo
@@ -151,7 +148,9 @@
         .site-logo {
           margin-right: $size__margin;
   
-          @media #{$mq__responsive-size_brekpoint} {width: auto;}
+          @media #{$mq__responsive-size_brekpoint} {
+            width: auto;
+          }
         }
         .custom-logo {object-position: right;}
         
@@ -172,21 +171,12 @@
       .site-title,
       .site-description {
         margin: 0;
-        text-overflow: ellipsis;
-        overflow: hidden;
         white-space: nowrap;
-      }
-  
-      .site-title {
-        font-size: $size__branding-height * .65;
-        line-height: $size__branding-height * .75;
       }
   
       .site-description {
         display: inline-block;
         font-weight: 300;
-        font-size: $size__branding-height * .25;
-        line-height: $size__branding-height * .25;
       }
     }
     
@@ -197,6 +187,9 @@
   &.header-portrait .header-wrapper {
     
     flex-direction: column;
+    @media #{$mq__responsive-size_brekpoint} {
+      justify-content: center;
+    }
     
     .site-branding {
       @media #{$mq__responsive-size_brekpoint} {
@@ -205,8 +198,20 @@
       
       .header-text {
         text-align: center;
+        margin-right: auto;
         @media #{$mq__responsive-size_brekpoint} {
           text-align: left;
+        }
+  
+  
+        .site-title {
+          font-size: $size__branding-height * .50;
+          line-height: 1;
+        }
+  
+        .site-description {
+          font-size: $size__branding-height * .20;
+          line-height: 1;
         }
       }
       
@@ -217,20 +222,23 @@
     }
     
     .main-navigation {
-      margin-top: $size__margin;
       ul {
         height: auto;
       }
     }
     
-    .custom-logo {
+    .site-logo {
       margin-left: auto;
-      margin-right: auto;
-      @media #{$mq__responsive-size_brekpoint} {
-        margin-right: 0;
-        margin-left: 0;
+      .custom-logo {
+        margin-left: auto;
+        margin-right: auto;
+        @media #{$mq__responsive-size_brekpoint} {
+          margin-right: 0;
+          margin-left: 0;
+        }
       }
     }
+    
   }
   
   
@@ -245,31 +253,43 @@
     .site-branding {
       padding-top: 0;
       box-sizing: border-box;
+      width: 100%;
       @media #{$mq__responsive_brekpoint} {
         padding-top: $size__margin * .5;
         padding-bottom: $size__margin * .5;
+      }
+  
+      .site-logo {
+        margin-left: 0;
+        width: auto;
+        height: 100%;
       }
       
       .custom-logo {
         object-position: left;
         width: auto;
         height: $size__logo-size;
+        max-width: $size__branding-max-width;
+        @media #{$mq__responsive_brekpoint} {
+          max-width: 100%;
+        }
       }
   
       .header-text {
         .site-title {
-          font-size: $size__branding-height * .4;
-          line-height: $size__branding-height * .5;
+          font-size: $size__nav-height * .33;
+          line-height: 1;
+        }
+  
+        .site-description {
+          display: inline-block;
+          font-weight: 300;
+          font-size: $size__nav-height * .22;
+          line-height: 1;
         }
       }
-      
-      .site-logo {
-        width: auto;
-        height: $size__nav-height;
-        max-width: $size__branding-max-width;
-      }
     }
-  
+
     .main-navigation {
       align-self: flex-end;
       width: 100%;

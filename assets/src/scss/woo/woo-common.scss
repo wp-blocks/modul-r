@@ -24,12 +24,18 @@ body.woocommerce {
     & > span {
       display: block;
       font-weight: 600;
+      line-height: $text__line-height-content;
       span, a {font-weight: 400;}
     }
   }
   
   // product lightbox background reset
-  .pswp__button {background: transparent;}
+  .pswp__button {
+    background-color: transparent;
+    min-width: inherit;
+    padding: 0;
+    border-radius: 0;
+  }
   
 }
 

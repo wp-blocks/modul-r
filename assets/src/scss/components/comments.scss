@@ -16,11 +16,17 @@
     color: $color__dark-grey;
   }
   
+  p.comment-notes {
+    font-size: 13px;
+    font-style: italic;
+    color: $color__dark-grey;
+  }
+  
   p.comments-closed,
   p.no-comments-yet {
     text-align: center;
     font-style: italic;
-    opacity: 0.7;
+    font-weight: 600;
   }
   
   p.logged-in-as {
@@ -29,6 +35,10 @@
     font-size: 13px;
     line-height: 20px;
     margin: -30px 0 0;
+  
+    @media #{$mq__phablet} {
+      margin: 0;
+    }
   }
   
 }

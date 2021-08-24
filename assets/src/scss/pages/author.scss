@@ -10,7 +10,10 @@
     float: left;
     max-width: $size__padding;
     margin-right: $size__padding * .5;
-    @media #{$mq__tablet} { max-width: $size__padding; }
+    @media #{$mq__tablet} {
+      max-width: $size__padding * .75;
+      margin-right: $size__padding-resp;
+    }
     img{
       margin: 0;
       border-radius: 50%;

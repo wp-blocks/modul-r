@@ -53,7 +53,7 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: functions.php:63
+#: functions.php:66
 msgid "Primary"
 msgstr ""
 
@@ -285,91 +285,91 @@ msgstr ""
 msgid "Select an important category"
 msgstr ""
 
-#: inc/customizer.php:532
+#: inc/customizer.php:533
 msgid "Woo Options"
 msgstr ""
 
-#: inc/customizer.php:549
+#: inc/customizer.php:550
 msgid "Choose an image for the shop page wallpaper"
 msgstr ""
 
-#: inc/customizer.php:558
+#: inc/customizer.php:559
 msgid "Social Share Options"
 msgstr ""
 
-#: inc/customizer.php:573
+#: inc/customizer.php:574
 msgid "Show Social Share Icons"
 msgstr ""
 
-#: inc/customizer.php:574
+#: inc/customizer.php:575
 msgid "Show social media sharing icons on single posts and pages"
 msgstr ""
 
-#: inc/customizer.php:587
+#: inc/customizer.php:588
 msgid "Social Share Options Visibility"
 msgstr ""
 
-#: inc/customizer.php:588
+#: inc/customizer.php:589
 msgid "Set social sharing options to show for pages, single posts or both"
 msgstr ""
 
-#: inc/customizer.php:592
+#: inc/customizer.php:593
 msgid "Pages only"
 msgstr ""
 
-#: inc/customizer.php:593
+#: inc/customizer.php:594
 msgid "Single posts only"
 msgstr ""
 
-#: inc/customizer.php:594
+#: inc/customizer.php:595
 msgid "Pages and single Posts"
 msgstr ""
 
-#: inc/customizer.php:673
+#: inc/customizer.php:674
 msgid "Theme primary color"
 msgstr ""
 
-#: inc/customizer.php:678
+#: inc/customizer.php:679
 msgid "Theme primary color light"
 msgstr ""
 
-#: inc/customizer.php:683
+#: inc/customizer.php:684
 msgid "Theme primary color dark"
 msgstr ""
 
-#: inc/customizer.php:688
+#: inc/customizer.php:689
 msgid "Theme secondary color"
 msgstr ""
 
-#: inc/customizer.php:693
+#: inc/customizer.php:694
 msgid "Theme secondary color light"
 msgstr ""
 
-#: inc/customizer.php:698
+#: inc/customizer.php:699
 msgid "Theme secondary color dark"
 msgstr ""
 
-#: inc/customizer.php:703
+#: inc/customizer.php:704
 msgid "White"
 msgstr ""
 
-#: inc/customizer.php:708
+#: inc/customizer.php:709
 msgid "White Smoke"
 msgstr ""
 
-#: inc/customizer.php:713
+#: inc/customizer.php:714
 msgid "Light gray"
 msgstr ""
 
-#: inc/customizer.php:718
+#: inc/customizer.php:719
 msgid "Gray"
 msgstr ""
 
-#: inc/customizer.php:723
+#: inc/customizer.php:724
 msgid "Dark gray"
 msgstr ""
 
-#: inc/customizer.php:728
+#: inc/customizer.php:729
 msgid "Black"
 msgstr ""
 
@@ -385,58 +385,58 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:95
+#: inc/template-functions.php:98
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:96
+#: inc/template-functions.php:99
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:111
+#: inc/template-functions.php:114
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:136
+#: inc/template-functions.php:139
 msgid "wait! loading"
 msgstr ""
 
-#: inc/template-functions.php:140
+#: inc/template-functions.php:143
 msgid "End of content... Maybe you're interested to other categories?"
 msgstr ""
 
-#: inc/template-functions.php:150
+#: inc/template-functions.php:153
 msgid "No more pages to load"
 msgstr ""
 
-#: inc/template-functions.php:163
+#: inc/template-functions.php:166
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:169
+#: inc/template-functions.php:172
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:170
+#: inc/template-functions.php:173
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:200
+#: inc/template-functions.php:203
 msgid "Tags:"
 msgstr ""
 
 #. translators: %s: the number of comments
-#: inc/template-functions.php:256
+#: inc/template-functions.php:259
 msgid "%s comment"
 msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:283, inc/template-functions.php:281
+#: inc/template-functions.php:286, inc/template-functions.php:284
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:333
+#: inc/template-functions.php:336
 msgid "You might be interested in..."
 msgstr ""
 
@@ -493,6 +493,6 @@ msgstr ""
 msgid "Print this page"
 msgstr ""
 
-#: template-parts/header/header.php:39
+#: template-parts/header/header.php:41
 msgid "menu"
 msgstr ""

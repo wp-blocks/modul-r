@@ -133,6 +133,13 @@ $slick-arrow-color: white !default;
 $slick-prev-character: "<" !default;
 $slick-next-character: ">" !default;
 
+// fix since wp5.8 - galleries are by default display:flex so we need to reset the default style
+.slider-single,
+.slider-multi {
+  display: block;
+}
+
+
 .slick-prev,
 .slick-next {
   position: absolute;
@@ -151,9 +158,6 @@ $slick-next-character: ">" !default;
   outline: none;
   &:hover, &:focus {
     outline: none;
-    // WTF?
-    // background: transparent;
-    // color: transparent;
     &:before {
       opacity: $slick-opacity-on-hover;
     }

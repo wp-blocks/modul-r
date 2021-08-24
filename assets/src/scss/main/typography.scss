@@ -22,34 +22,40 @@ h4,
 h5,
 h6 {
 	@extend %headline_style;
-	margin: ($size__margin * 2) 0 $size__margin;
+	margin: 0 0 $size__margin;
 	padding: 0;
 }
 
 h1 {
 	font-size: 56px;
-	@media #{$mq__tablet} {font-size: 50px;}
-	@media #{$mq__phablet} {font-size: 32px;}
+	@media #{$mq__tablet} {font-size: 46px;}
+	@media #{$mq__phablet} {font-size: 36px;}
 }
 
 h2 {
 	font-size: 36px;
 	@media #{$mq__tablet} {font-size: 28px;}
+  @media #{$mq__phablet} {font-size: 22px;}
+}
+
+.woocommerce h2 {
+		font-size: 28px;
+		@media #{$mq__tablet} {font-size: 24px;}
+		@media #{$mq__phablet} {font-size: 18px;}
 }
 
 h3 {
 	font-size: 28px;
 	@media #{$mq__tablet} {font-size: 22px;}
-	@media #{$mq__tablet-portrait} {font-size: 20px;}
+	@media #{$mq__tablet-portrait} {font-size: 18px;}
 }
 
 h4 {
 	font-size: 22px;
-	@media #{$mq__tablet} {font-size: 19px;}
+	@media #{$mq__tablet} {font-size: 18px;}
 }
 
 h5, h6 {
-	font-weight: 500;
 	font-size: $text__size;
 	@media #{$mq__tablet} {font-size: $text__size - 2;}
 }
@@ -67,7 +73,6 @@ p {
 
 p {
 	margin: 0 0 $size__margin;
-	line-height: $text__line-height;
 }
 
 b, strong {

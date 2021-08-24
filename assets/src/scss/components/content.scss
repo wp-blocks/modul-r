@@ -42,42 +42,35 @@
   }
 }
 
-body.page,
-body.single,
-body.archive {
-  .entry-image {
-    width: 100%;
-    height: 40vh;
-    max-height: 700px;
-  }
+.site-content {
+  padding-top: $size__padding * .5;
 }
 
 // if there isn't a featured image compensate void space under the menu
 #masthead {
   
-  @media #{$mq__larger-than-tablet} {
-    &.header-landscape + #content {
-      padding-top: $size__nav-height + $size__padding;
-    }
-  
-    &.header-portrait + #content {
-      padding-top: $size__nav-height + $size__branding-height + $size__margin + $size__padding;
+  + .site-content {
+    padding-top: $size__nav-height + $size__padding * .5;
+    @media #{$mq__responsive_brekpoint} {
+      padding-top: $head__height-responsive + $size__padding * .5;
     }
   }
-}
 
-#content {
-  overflow-x: hidden;
-  padding-top: $size__padding * .75;
-  
-  p {
-    line-height: $text__line-height-content;
+  &.header-portrait + .site-content {
+    padding-top: $size__nav-height + $size__branding-height + $size__padding * 1.5;
+    @media #{$mq__responsive_brekpoint} {
+      padding-top: $head__height-responsive + $size__padding * .5;
+    }
   }
+
   
-  @media #{$mq__smaller-than-tablet} {
-    margin-top: $head__height-responsive;
-    padding-top: $size__padding * .5;
+  body.has-featured-image & + .site-content {
+    padding-top: $size__padding * .75;
+    @media #{$mq__responsive_brekpoint} {
+      padding-top: 0;
+    }
   }
+
 }
 
 body.has-sidebar,
@@ -86,8 +79,16 @@ body.woocommerce {
   &.sidebar-left .site-content {
     flex-direction: row-reverse;
   
-    @media #{$mq__smaller-than-tablet} {
+    @media #{$mq__responsive_brekpoint} {
       flex-direction: column;
+    }
+  }
+  
+  &.has-featured-image .site-content {
+    padding-top: $size__padding * .5;
+  
+    @media #{$mq__responsive_brekpoint} {
+      padding-top: $size__padding_resp;
     }
   }
   
@@ -97,22 +98,23 @@ body.woocommerce {
 
     width: $size__site-width;
     max-width: 100%;
-  
+
     box-sizing: border-box;
-    padding-left: $size__padding-resp;
-    padding-right: $size__padding-resp;
-    margin: 0 auto ($size__padding * .5);
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
+  
+    @media #{$mq__responsive_brekpoint} {
+      width: 100%;
+      flex-direction: column;
+    }
   
     .content-area {
       width: calc(100% - #{$sidebar__width + $sidebar__margin});
-      @media #{$mq__smaller-than-tablet} {width: 100%;}
-    }
-  
-    @media #{$mq__smaller-than-tablet} {
-      width: 100%;
-      padding-left: $size__padding-resp;
-      padding-right: $size__padding-resp;
-      flex-direction: column;
+      @media #{$mq__responsive_brekpoint} {
+        width: 100%;
+      }
     }
   }
 }

@@ -3,8 +3,8 @@ body.archive {
   
   // background mask of the article
   .site-main {
-    overflow-x: hidden;
     .article-container {
+      
       &:nth-child(2n + 2) {
         position: relative;
         &:before {
@@ -20,8 +20,21 @@ body.archive {
           background-color: transparentize($color__black, .95);
         }
       }
+      
+      
+      @media #{$mq__smaller-than-tablet} {
+        &:first-of-type {
+          .entry-image {
+            display: none !important;
+          }
+        }
+      }
+      
     }
   }
+  
+  
+  
   
   article {
     display: flex;
@@ -47,10 +60,10 @@ body.archive {
       margin-right: $size__padding * .75;
   
       @media #{$mq__smaller-than-tablet} {
-        width: calc(100% + #{$size__padding-resp * 3});
+        width: calc(100% + #{$size__padding-resp * 5});
         min-width: inherit;
-        max-width: calc(100% + #{$size__padding-resp * 3});
-        margin: (-$size__padding * .75) #{$size__padding-resp * - 1.5} $size__padding-resp;
+        max-width: calc(100% + #{$size__padding-resp * 5});
+        margin: (-$size__padding * .75) #{$size__padding-resp * - 2.5} $size__padding-resp;
         img {
           transform: rotate(-1deg);
         }

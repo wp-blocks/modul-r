@@ -3,6 +3,9 @@
 // Modul-R defaults
 if (!isset($modul_r_defaults)) {
 	$modul_r_defaults = array(
+		'layout' => array(
+		    'content_width' => 1200
+        ),
 		'colors' => array(
 			'primary' => '#16bebb',
 			'secondary' => '#6f4cad',
@@ -47,7 +50,7 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		* WordPress define content width
 		* https://codex.wordpress.org/Content_Width
 		*/
-		if ( ! isset( $content_width ) ) $content_width = 1200;
+		if ( ! isset( $content_width ) ) $content_width = $GLOBALS['modul_r_defaults']['layout']['content_width'];
 
 		/*
 		* Enable support for Post Thumbnails on posts and pages.
@@ -77,7 +80,6 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 				'caption',
 			)
 		);
-
 
 		// Add support for core custom logo, header text color, website background.
 		add_theme_support( 'custom-logo' , array(

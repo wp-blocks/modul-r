@@ -18,7 +18,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     <div class="hero">
     <?php modul_r_post_image('parallax header-color'); ?>
       <div class="hero-title text-center">
-        <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
+        <h1 class="page-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
       <?php
         if ($hero_call_to_action > 0) {
@@ -30,7 +30,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
       ?>
       </div>
     </div>
-  <?php
+    <?php
 	}
 endif;
 
@@ -39,13 +39,14 @@ endif;
  * you can pass single or multiple classes to the image wrapper
  */
 if ( ! function_exists( 'modul_r_post_image' ) ) :
-  function modul_r_post_image( $class = null ) {
+  function modul_r_post_image( $class = null  ) {
     // Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
       <div class="entry-image interactive<?php echo ' ' . esc_attr($class); ?>">
 			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
       </div>
-		<?php endif;
+		  <?php
+    endif;
 	}
 endif;
 
@@ -56,6 +57,7 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
 	function modul_r_archive_image( $class = null ) {
 		// Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
+        <div class="hero" >
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
 			        <?php if ( is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
@@ -78,6 +80,7 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
 	            } ?>
             </div>
           </div>
+        </div>
 		<?php endif;
 	}
 endif;
@@ -363,12 +366,12 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 
     // get theme option "sidebar enabled"
     $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
-    if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || is_page() ) ) {
+    if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || (is_page() && !is_front_page()) ) ) {
         $classes[] = 'has-sidebar';
-
-        // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
-        $classes[] = ( get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
     }
+
+    // set the sidebar position. it's outside page/single conditional because it's used also with WooCommerce.
+    $classes[] = ( get_theme_mod('modul_r_sidebar_position') == 'left') ? ' sidebar-left' : ' sidebar-right' ;
 
 		return $classes;
 	}

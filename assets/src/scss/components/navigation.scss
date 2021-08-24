@@ -1,6 +1,11 @@
 $nav_padding: 0 ($size__margin * 4);
+$nav_padding_resp: 0 ($size__margin * 3);
 
 .main-navigation {
+  
+  @media #{$mq__responsive_brekpoint} {
+    overflow-y: auto;
+  }
   
   // THE MAIN LEVEL MENU
   .main-menu {
@@ -22,7 +27,10 @@ $nav_padding: 0 ($size__margin * 4);
     margin: 0;
     padding: 0;
  
-    @media #{$mq__responsive_brekpoint} {display: block;}
+    @media #{$mq__responsive_brekpoint} {
+      display: block;
+      max-width: 100%;
+    }
   }
   
   li {
@@ -41,16 +49,31 @@ $nav_padding: 0 ($size__margin * 4);
   
       font-weight: 600;
       text-decoration: none !important;
-      opacity: 0.8;
+      opacity: .8;
       transition: $animations__lenght;
       
       &:hover {opacity: 1;}
   
+      @media #{$mq__laptop} {
+        padding: $nav_padding_resp;
+      }
+  
       @media #{$mq__responsive_brekpoint} {
         height: auto;
         line-height: $size__nav-responsive-line-height;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
       
+    }
+  
+    @media #{$mq__responsive_brekpoint} {
+      li a {
+        font-weight: 400;
+        opacity: .7;
+        line-height: $size__nav-height * .66;
+      }
     }
   
     &.current-menu-item,
@@ -167,7 +190,7 @@ $nav_padding: 0 ($size__margin * 4);
   }
 }
 
-ul.sub-menu {
+body ul.sub-menu {
   position: absolute;
   z-index: 1010;
   flex-direction: column;
@@ -180,20 +203,25 @@ ul.sub-menu {
   padding: 0;
   overflow: hidden;
 
-  background-color: darken($color__nav-background, 2%);
   transition: $animations__lenght * .5;
   transition-delay: 0ms;
   
   @media #{$mq__responsive_brekpoint} {
-    left: inherit;
-    top: 0;
-    right: 0;
+    position: inherit;
+    opacity: 1;
+    background-color: transparent !important;
+    padding-left: $size__padding-resp * .5;
   }
 
   ul.sub-menu {
     top: 0;
     left: 100%;
-    background-color: darken($color__nav-background, 5%);
+  
+    @media #{$mq__responsive_brekpoint} {
+      position: inherit;
+      left: inherit;
+      background-color: transparent;
+    }
   }
   
   &:focus-within,
@@ -204,9 +232,5 @@ ul.sub-menu {
     clip: inherit;
     overflow: visible;
     opacity: 1;
-  }
-  
-  li {
-    &:hover {background-color: darken($color__nav-background, 8%);}
   }
 }

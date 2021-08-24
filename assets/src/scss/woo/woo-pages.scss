@@ -128,6 +128,7 @@ body.woocommerce {
       $form-radius: 4px;
       margin-top: $size__margin * 2;
       div.quantity {
+        display: flex;
         margin: 0;
         input {
           margin: 0;
@@ -135,12 +136,12 @@ body.woocommerce {
           border-radius: $form-radius 0 0 $form-radius;
         }
         .qty {font-size: 18px;}
+        
+        + button {
+          border-radius: 0;
+          height: 49px;
+        }
       }
-      .qty,
-      .button {
-        height: $size__padding * .75;
-      }
-      .button { border-radius: 0 $form-radius $form-radius 0; }
     }
   
     p.price,
