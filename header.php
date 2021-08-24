@@ -30,8 +30,8 @@
             modul_r_post_image('parallax', true);
             echo '</div>';
           }
-      } else if (( class_exists( 'WooCommerce' ) && !is_product_category()) && is_archive()) {
-        modul_r_archive_image('parallax', true);
+      } else if ( !( class_exists( 'WooCommerce' ) && is_product_category() ) && is_archive() ) {
+          modul_r_archive_image('parallax', true);
       }?>
 
     <div id="content" class="site-content">

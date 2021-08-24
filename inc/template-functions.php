@@ -60,7 +60,7 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
         <div class="hero" >
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
-			        <?php if ( is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
+			        <?php if ( class_exists( 'WooCommerce' ) && is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
                 $wooOptions = get_theme_mod( 'modul_r_woo' );
                   if ( !empty($wooOptions['shop_hero'] ) ) {
                       $shop_hero_id = attachment_url_to_postid( esc_url_raw( $wooOptions['shop_hero'] ) );
@@ -356,8 +356,9 @@ endif;
 if ( ! function_exists('modul_r_custom_body_class') ) :
 	function modul_r_custom_body_class( $classes ) {
 		global $post;
+		$woo_enabled = class_exists( 'WooCommerce' );
 
-		if (  is_page() || ( is_single() && empty(is_product()) ) || ( is_archive() && empty(is_product_category())) || ( !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
+		if (  is_page() || ( is_single() && ($woo_enabled && !is_product()) ) || ( is_archive() && ($woo_enabled && !is_product_category())) || ( ($woo_enabled && is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
       if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {
         $classes[] = 'has-featured-image';
@@ -366,7 +367,7 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 
     // get theme option "sidebar enabled"
     $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
-    if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || (is_page() && !is_front_page()) ) ) {
+    if ( $opt_sidebar === true && ( ( is_archive() && ($woo_enabled && is_product_category()) ) || $woo_enabled && is_shop() || is_single() || (is_page() && !is_front_page()) ) ) {
         $classes[] = 'has-sidebar';
     }
 
