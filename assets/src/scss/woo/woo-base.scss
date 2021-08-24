@@ -1,13 +1,14 @@
 body.woocommerce {
   
-  #primary {
-    width: 100%;
-    
-    @media #{$mq__smaller-than-tablet} {
-      width: 100%;
-      padding-right: 0;
-      padding-left: 0;
+  @media #{$mq__smaller-than-tablet} {
+    .site-content {
+      padding-left: $size__padding_resp;
+      padding-right: $size__padding_resp;
     }
+  }
+  
+  &.sidebar-left .site-content {
+    padding-right: $size__padding_resp;
   }
   
 }

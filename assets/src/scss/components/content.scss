@@ -80,7 +80,7 @@ body.archive {
   }
 
   &.header-portrait + .site-content {
-    padding-top: $size__nav-height + $size__branding-height + $size__padding;
+    padding-top: $size__nav-height + $size__branding-height + $size__padding * 1.5;
     @media #{$mq__responsive_brekpoint} {
       padding-top: $head__height-responsive + $size__padding * .5;
     }

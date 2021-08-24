@@ -42,7 +42,7 @@ if ( ! function_exists( 'modul_r_post_image' ) ) :
   function modul_r_post_image( $class = null ) {
     // Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
-      <div class="entry-image interactive<?php echo ' ' . esc_attr($class); ?>">
+      <div class="hero entry-image interactive<?php echo ' ' . esc_attr($class); ?>">
 			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
       </div>
 		<?php endif;
