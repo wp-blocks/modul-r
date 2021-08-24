@@ -30,7 +30,12 @@ body.woocommerce {
   }
   
   // product lightbox background reset
-  .pswp__button {background: transparent;}
+  .pswp__button {
+    background-color: transparent;
+    min-width: inherit;
+    padding: 0;
+    border-radius: 0;
+  }
   
 }
 

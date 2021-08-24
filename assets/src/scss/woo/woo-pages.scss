@@ -127,8 +127,8 @@ body.woocommerce {
     form.cart {
       $form-radius: 4px;
       margin-top: $size__margin * 2;
-      display: flex;
       div.quantity {
+        display: flex;
         margin: 0;
         input {
           margin: 0;
@@ -139,6 +139,7 @@ body.woocommerce {
         
         + button {
           border-radius: 0;
+          height: 49px;
         }
       }
     }

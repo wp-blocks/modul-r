@@ -47,7 +47,7 @@ $button__height: 36px;
   }
   
   &.outline {
-    background: transparent !important;
+    background-color: transparent !important;
   }
   
   &:disabled {
@@ -62,8 +62,8 @@ input[type="reset"],
 button,
 .button {
   @extend %button;
-  
-  background: $color__accent;
+
+  background-color: $color__accent;
   color: $color__white;
   
   & + & {

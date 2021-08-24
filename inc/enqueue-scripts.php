@@ -101,7 +101,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 			// color related style
 			$atf_css .= '.has-secondary-color{color:'.$colors['secondary'].'}.has-secondary-background-color{color:'.$colors['secondary'].'}';
 			// button background color css
-			$atf_css .= 'body .button:not(.has-text-color),body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background:'.$colors['secondary'].'}';
+			$atf_css .= 'body .button:not(.has-text-color),body .entry-content .wp-block-button .wp-block-button__link:not(.has-text-color),body button:not(.has-text-color),body input:not(.has-text-color)[type=button],body input:not(.has-text-color)[type=reset],body input:not(.has-text-color)[type=submit]{background-color:'.$colors['secondary'].'}';
 			$atf_css .= 'input.outline[type="submit"], input.outline[type="button"], input.outline[type="reset"], button.outline, .outline.button, .entry-content .wp-block-button .outline.wp-block-button__link {border: 2px solid '.$colors['secondary'].'; color:'.$colors['secondary'].'}';
 			// links text color
 			$atf_css .= 'body a{color:'.$colors['secondary'].'}';
