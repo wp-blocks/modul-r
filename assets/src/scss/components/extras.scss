@@ -258,6 +258,7 @@ body .hero {
     padding-left: $size__padding-resp;
     padding-right: $size__padding-resp;
     margin: auto;
+    z-index: 2;
     
     .page-title {
       max-width: $size__site-width * .75;
