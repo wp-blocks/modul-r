@@ -21,10 +21,11 @@ if (!isset($modul_r_defaults)) {
 			'title-color' => 'primary',
 			'text-color' => 'black',
 			'header-color' => 'gray-dark',
-			'header-text-color' => 'white',
-			'footer-color' => 'white',
-			'footer-bottom-color' => 'white-smoke',
-			'footer-text-color' => 'gray-dark',
+			'header_titlecolor' => 'primary',
+			'header_textcolor' => 'white',
+			'footer-color' => 'gray-dark',
+			'footer-bottom-color' => 'black',
+			'footer-text-color' => 'white-smoke',
 		),
 		'social_media_enabled' => array( 'Facebook', 'Instagram', 'Twitter', 'Linkedin', 'YouTube', 'www' )
 	);
@@ -99,14 +100,14 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 			'uploads'                => true,
 			'random-default'         => false,
 			'header-text'            => true,
-			'default-text-color'     => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-text-color']]),
+			'default-text-color'     => str_replace('#', '', sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header_textcolor']])),
 			'wp-head-callback'       => '',
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => '',
 		));
 
 		add_theme_support( 'custom-background', array(
-			'default-color'          => str_replace('#', '', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['background']] ),
+			'default-color'          => str_replace('#', '', sanitize_hex_color($GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['background']])),
 			'default-image'          => '',
 			'default-preset'         => 'default', // 'default', 'fill', 'fit', 'repeat', 'custom'
 			'default-position-x'     => 'left',    // 'left', 'center', 'right'
