@@ -18,10 +18,15 @@
   
   // UTILS && ANIMATIONS
   // if the page was scrolled shows a shadow under the header
-  .scrolled & { box-shadow: 0 3px 10px -5px  transparentize($color__black, 0.3);}
+  .scrolled & {
+    box-shadow: 0 3px 10px -5px  transparentize($color__black, 0.3);
+    @media #{$mq__responsive-size_brekpoint} {
+      transform: inherit !important;
+    }
+  }
   
   // hides the logo in portrait header when the page is scrolled
-  .scrolled &.header-portrait  { transform: translateY(-#{$size__branding-height + $size__margin});}
+  .scrolled &.header-portrait  {transform: translateY(-#{$size__branding-height});}
   
   // the background image
   .site-header-image {
@@ -109,6 +114,7 @@
     
     .site-branding {
       align-items: flex-start;
+      height: $size__branding-height;
   
       @media #{$mq__responsive-size_brekpoint} {
         text-align: left;
@@ -163,7 +169,7 @@
     
     // Site title & description (no custom logo)
     .header-text {
-      height: $size__logo-size;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -199,13 +205,17 @@
       .header-text {
         text-align: center;
         margin-right: auto;
+        padding-top: $size__margin;
+        padding-bottom: $size__margin;
         @media #{$mq__responsive-size_brekpoint} {
           text-align: left;
+          padding-top: 0;
+          padding-bottom: 0;
         }
   
   
         .site-title {
-          font-size: $size__branding-height * .50;
+          font-size: $size__branding-height * .40;
           line-height: 1;
         }
   
@@ -254,6 +264,7 @@
       padding-top: 0;
       box-sizing: border-box;
       width: 100%;
+      height: 100%;
       @media #{$mq__responsive_brekpoint} {
         padding-top: $size__margin * .5;
         padding-bottom: $size__margin * .5;

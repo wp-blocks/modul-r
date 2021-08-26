@@ -5,6 +5,13 @@ img {
   object-fit: cover;
 }
 
+.image-border img {
+  padding: $size__margin;
+  background: $color__light-grey;
+  margin: $size__margin;
+  box-sizing: border-box;
+}
+
 p img {
   &.alignleft {
     padding-right: $size__padding-resp * .5;

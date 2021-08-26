@@ -500,11 +500,6 @@
   //! Image
   .wp-block-image {
 
-    .image-border {
-      padding: 20px;
-      background: red;
-    }
-    
     .aligncenter {
       
       @media #{$mq__smaller-than-tablet} {
@@ -550,7 +545,7 @@
       @media #{$mq__smaller-than-tablet} {
         width: 100%;
         img {
-          width: 100%;
+          display: block;
           margin-left: auto;
           margin-right: auto;
         }
@@ -560,75 +555,59 @@
   }
   
   //! Media Text
-  .wp-block-media-text{
+  .wp-block-media-text {
 
     &.alignwide {padding:0;}
-    
+
+    &.alignfull {max-width: inherit;}
+
     .wp-block-media-text__media {
-      margin-top: 0;
-      margin-bottom: 0;
       overflow: hidden;
-      display: flex;
       img {
         align-self: center;
       }
     }
-    
-    @media #{$mq__tablet-portrait} {
-      .is-stacked-on-mobile {
-        min-height: 30vh;
-      }
-    }
-    
-    &.padded-image {
-      
-      img {
-        max-height: 60vh;
-        object-fit: contain;
-        padding: $size__padding ($size__padding * 0.5) $size__padding $size__padding;
-        box-sizing: border-box;
-      }
-      
-      @media #{$mq__tablet-portrait} {
-        img {padding: $size__padding * 0.5;}
-        &.has-media-on-the-right img{
-          padding: $size__padding $size__padding $size__padding ($size__padding * 0.5);
-        }
-      }
-      
-    }
-    
-    .wp-block-media-text__media img{
-      object-position: right;
-    }
-    
+
     &.has-media-on-the-right {
       .wp-block-media-text__media img{
         object-position: left;
       }
+      .wp-block-media-text__content {
+        padding-right: $size__padding;
+        padding-left: $size__padding * .5;
+        margin-left: auto;
+      }
     }
-    
+
+    @media #{$mq__tablet-portrait} {
+      .is-stacked-on-mobile .wp-block-media-text__media {
+        min-height: 30vh;
+      }
+    }
+
     .wp-block-media-text__content {
       max-width: $size__site-width * .4;
-      padding-right: inherit;
+      padding-right: $size__padding * .5;
       padding-left: $size__padding;
       padding-top: $size__padding * .5;
       padding-bottom: $size__padding * .5;
-      
+
+      > * {
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
       @media #{$mq__smaller-than-tablet} {
         padding-left: $size__padding-resp !important;
         padding-right: $size__padding-resp !important;
       }
     }
-    
-    &.has-media-on-the-right {
-      .wp-block-media-text__content {
-        float: right;
-        padding-left: inherit;
-        padding-right: $size__padding;
-        margin-left: auto;
-      }
-    }
+
   }
   
   //! Cover Image
