@@ -27,8 +27,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// Colors
         $header_color = get_theme_mod( 'header-color' ) !== false ? sanitize_hex_color(get_theme_mod( 'header-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']];
-		$header_titlecolor = get_theme_mod( 'header_titlecolor' ) !== false ? sanitize_hex_color(get_theme_mod( 'header_titlecolor' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header_titlecolor']];
-		$header_text_color = get_theme_mod( 'header_textcolor' ) !== false ? '#'.get_header_textcolor() : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header_textcolor']];
+		$header_title_color = get_theme_mod( 'header_textcolor', get_theme_support( 'custom-header', 'default-text-color' ) ) ? '#'.get_header_textcolor() : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-title-color']];
+		$header_text_color = get_theme_mod( 'header-text-color' ) !== false ? sanitize_hex_color(get_theme_mod( 'header-text-color' ))  : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-text-color']];
 		$footer_color = get_theme_mod( 'footer-color' ) !== false ? sanitize_hex_color(get_theme_mod( 'footer-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-color']];
 		$footer_bottom_color = get_theme_mod( 'footer-bottom-color' ) !== false ? sanitize_hex_color(get_theme_mod( 'footer-bottom-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']];
 		$footer_text_color = get_theme_mod( 'footer-text-color' ) !== false ? sanitize_hex_color(get_theme_mod( 'footer-text-color' )) : $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-text-color']];
@@ -63,7 +63,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness($header_color, 0.3) . ';}';
 
         // Set header title color
-        $atf_css .= '.has-header-text h1 a {color:' . $header_titlecolor. ';}';
+        $atf_css .= '.has-header-text h1 a {color:' . $header_title_color. ';}';
 
         // Set header text and links color
         $atf_css .= '.main-navigation li a, #masthead .header-wrapper .header-text .site-description, .has-header-text-color {color:' . $header_text_color. ';}';

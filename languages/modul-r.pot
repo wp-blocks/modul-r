@@ -53,7 +53,7 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: functions.php:66
+#: functions.php:67
 msgid "Primary"
 msgstr ""
 
@@ -81,295 +81,295 @@ msgstr ""
 msgid "Header Color"
 msgstr ""
 
-#: inc/customizer.php:88
+#: inc/customizer.php:90
 msgid "Header text Color"
 msgstr ""
 
-#: inc/customizer.php:100
+#: inc/customizer.php:102
 msgid "Footer Color"
 msgstr ""
 
-#: inc/customizer.php:110
-msgid "Footer bottom color"
+#: inc/customizer.php:112
+msgid "Footer bottom Color"
 msgstr ""
 
-#: inc/customizer.php:120
+#: inc/customizer.php:122
 msgid "Footer text Color"
 msgstr ""
 
-#: inc/customizer.php:127
+#: inc/customizer.php:129
 msgid "Modul-R Options"
 msgstr ""
 
-#: inc/customizer.php:134
+#: inc/customizer.php:136
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:148
+#: inc/customizer.php:150
 msgid "Header layout"
 msgstr ""
 
-#: inc/customizer.php:149
+#: inc/customizer.php:151
 msgid "The header layout can be landscape (logo and menu on the same line) or portrait (centered layout with the menu under the logo)"
 msgstr ""
 
-#: inc/customizer.php:153
+#: inc/customizer.php:155
 msgid "Portrait"
 msgstr ""
 
-#: inc/customizer.php:154
+#: inc/customizer.php:156
 msgid "Landscape"
 msgstr ""
 
-#: inc/customizer.php:168
+#: inc/customizer.php:170
 msgid "Header width"
 msgstr ""
 
-#: inc/customizer.php:169
+#: inc/customizer.php:171
 msgid "The header width can be wide (page content + page margins) or full (100% of the window width - page margins)"
 msgstr ""
 
-#: inc/customizer.php:173, inc/customizer.php:219
+#: inc/customizer.php:175, inc/customizer.php:221
 msgid "Standard"
 msgstr ""
 
-#: inc/customizer.php:174, inc/customizer.php:220
+#: inc/customizer.php:176, inc/customizer.php:222
 msgid "Wide"
 msgstr ""
 
-#: inc/customizer.php:175, inc/customizer.php:221
+#: inc/customizer.php:177, inc/customizer.php:223
 msgid "Full"
 msgstr ""
 
-#: inc/customizer.php:190
+#: inc/customizer.php:192
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/customizer.php:191
+#: inc/customizer.php:193
 msgid "Select this option if you want to make the header transparent on hero image (only on page top)"
 msgstr ""
 
-#: inc/customizer.php:200, inc/sidebar.php:22
+#: inc/customizer.php:202, inc/sidebar.php:22
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:214
+#: inc/customizer.php:216
 msgid "Footer width"
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:217
 msgid "The footer width can be wide (page content + page margins) or full (100% of the window width - page margins)"
 msgstr ""
 
-#: inc/customizer.php:236
+#: inc/customizer.php:238
 msgid "Enable footer credits section"
 msgstr ""
 
-#: inc/customizer.php:237
+#: inc/customizer.php:239
 msgid "Shows website logo and the text you insert in the textarea below"
 msgstr ""
 
-#: inc/customizer.php:249
+#: inc/customizer.php:251
 msgid "Show logo"
 msgstr ""
 
-#: inc/customizer.php:264
+#: inc/customizer.php:266
 msgid "Upload a image here if you want to override the website logo"
 msgstr ""
 
-#: inc/customizer.php:279
+#: inc/customizer.php:281
 msgid "Credits"
 msgstr ""
 
-#: inc/customizer.php:301
+#: inc/customizer.php:303
 msgid "Show social media links"
 msgstr ""
 
-#: inc/customizer.php:302
+#: inc/customizer.php:304
 msgid "Shows the icon of social media (credits section need to be enabled)"
 msgstr ""
 
-#: inc/customizer.php:316
+#: inc/customizer.php:318
 msgid "Show Special thanks"
 msgstr ""
 
-#: inc/customizer.php:329
+#: inc/customizer.php:331
 msgid "Special Thanks Override"
 msgstr ""
 
-#: inc/customizer.php:330
+#: inc/customizer.php:332
 msgid "Leave empty to show the default special thanks (thanks to Wordpress and theme author)"
 msgstr ""
 
-#: inc/customizer.php:343
+#: inc/customizer.php:345
 msgid "special thanks link (leave empty if you want a normal text without links)"
 msgstr ""
 
-#: inc/customizer.php:350
+#: inc/customizer.php:352
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer.php:364
+#: inc/customizer.php:366
 msgid "Show Sidebar"
 msgstr ""
 
-#: inc/customizer.php:365
+#: inc/customizer.php:367
 msgid "Show the sidebar into single articles and pages"
 msgstr ""
 
-#: inc/customizer.php:377
+#: inc/customizer.php:379
 msgid "Sidebar position"
 msgstr ""
 
-#: inc/customizer.php:378
+#: inc/customizer.php:380
 msgid "The sidebar can be showed at the left or at the right of the content. This customization also affect the WooCommerce sidebar."
 msgstr ""
 
-#: inc/customizer.php:382
+#: inc/customizer.php:384
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:383
+#: inc/customizer.php:385
 msgid "Right"
 msgstr ""
 
-#: inc/customizer.php:390, inc/customizer.php:426
+#: inc/customizer.php:392, inc/customizer.php:428
 msgid "Homepage"
 msgstr ""
 
-#: inc/customizer.php:406
+#: inc/customizer.php:408
 msgid "Warning! Set a page as homepage to enable this section"
 msgstr ""
 
-#: inc/customizer.php:409
+#: inc/customizer.php:411
 msgid "To set a page as homepage you have to go to the customizer than select homepage settings and set a static page as homepage (and select a page)"
 msgstr ""
 
-#: inc/customizer.php:425
+#: inc/customizer.php:427
 msgid "Hero vertical height"
 msgstr ""
 
-#: inc/customizer.php:441
+#: inc/customizer.php:443
 msgid "default hero height"
 msgstr ""
 
-#: inc/customizer.php:456
+#: inc/customizer.php:458
 msgid "Hero Image opacity"
 msgstr ""
 
-#: inc/customizer.php:457
+#: inc/customizer.php:459
 msgid "insert a number beetween 1 and 100 (1 - 100% opacity)"
 msgstr ""
 
-#: inc/customizer.php:473
+#: inc/customizer.php:475
 msgid "Hero headline"
 msgstr ""
 
-#: inc/customizer.php:474
+#: inc/customizer.php:476
 msgid "Write a catchy phrase as homepage headline"
 msgstr ""
 
-#: inc/customizer.php:487
+#: inc/customizer.php:489
 msgid "Subtitle"
 msgstr ""
 
-#: inc/customizer.php:500
+#: inc/customizer.php:502
 msgid "Call to action"
 msgstr ""
 
-#: inc/customizer.php:501
+#: inc/customizer.php:503
 msgid "Choose an important page"
 msgstr ""
 
-#: inc/customizer.php:527
+#: inc/customizer.php:529
 msgid "Select an important category"
 msgstr ""
 
-#: inc/customizer.php:533
+#: inc/customizer.php:535
 msgid "Woo Options"
 msgstr ""
 
-#: inc/customizer.php:550
+#: inc/customizer.php:552
 msgid "Choose an image for the shop page wallpaper"
 msgstr ""
 
-#: inc/customizer.php:559
+#: inc/customizer.php:561
 msgid "Social Share Options"
 msgstr ""
 
-#: inc/customizer.php:574
+#: inc/customizer.php:576
 msgid "Show Social Share Icons"
 msgstr ""
 
-#: inc/customizer.php:575
+#: inc/customizer.php:577
 msgid "Show social media sharing icons on single posts and pages"
 msgstr ""
 
-#: inc/customizer.php:588
+#: inc/customizer.php:590
 msgid "Social Share Options Visibility"
 msgstr ""
 
-#: inc/customizer.php:589
+#: inc/customizer.php:591
 msgid "Set social sharing options to show for pages, single posts or both"
 msgstr ""
 
-#: inc/customizer.php:593
+#: inc/customizer.php:595
 msgid "Pages only"
 msgstr ""
 
-#: inc/customizer.php:594
+#: inc/customizer.php:596
 msgid "Single posts only"
 msgstr ""
 
-#: inc/customizer.php:595
+#: inc/customizer.php:597
 msgid "Pages and single Posts"
 msgstr ""
 
-#: inc/customizer.php:674
+#: inc/customizer.php:676
 msgid "Theme primary color"
 msgstr ""
 
-#: inc/customizer.php:679
+#: inc/customizer.php:681
 msgid "Theme primary color light"
 msgstr ""
 
-#: inc/customizer.php:684
+#: inc/customizer.php:686
 msgid "Theme primary color dark"
 msgstr ""
 
-#: inc/customizer.php:689
+#: inc/customizer.php:691
 msgid "Theme secondary color"
 msgstr ""
 
-#: inc/customizer.php:694
+#: inc/customizer.php:696
 msgid "Theme secondary color light"
 msgstr ""
 
-#: inc/customizer.php:699
+#: inc/customizer.php:701
 msgid "Theme secondary color dark"
 msgstr ""
 
-#: inc/customizer.php:704
+#: inc/customizer.php:706
 msgid "White"
 msgstr ""
 
-#: inc/customizer.php:709
+#: inc/customizer.php:711
 msgid "White Smoke"
 msgstr ""
 
-#: inc/customizer.php:714
+#: inc/customizer.php:716
 msgid "Light gray"
 msgstr ""
 
-#: inc/customizer.php:719
+#: inc/customizer.php:721
 msgid "Gray"
 msgstr ""
 
-#: inc/customizer.php:724
+#: inc/customizer.php:726
 msgid "Dark gray"
 msgstr ""
 
-#: inc/customizer.php:729
+#: inc/customizer.php:731
 msgid "Black"
 msgstr ""
 
@@ -493,6 +493,6 @@ msgstr ""
 msgid "Print this page"
 msgstr ""
 
-#: template-parts/header/header.php:41
+#: template-parts/header/header.php:39
 msgid "menu"
 msgstr ""
