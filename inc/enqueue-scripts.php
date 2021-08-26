@@ -120,10 +120,10 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$atf_css .= 'body::-webkit-scrollbar-thumb:horizontal,body::-webkit-scrollbar-thumb:vertical{background-color:'. modul_r_adjustBrightness($colors['primary'], -0.1).'}';
 
 		// HERO
-        $hero_opacity = get_theme_mod( 'modul_r_hero_opacity' ) !== null ? intval(get_theme_mod( 'modul_r_hero_opacity' )) : 100;
-        $hero_height_home = get_theme_mod( 'modul_r_hero_height_homepage' ) !== null ? intval(get_theme_mod( 'modul_r_hero_height_homepage' )) : 100;
-        $hero_height = get_theme_mod( 'modul_r_hero_height' ) !== null ? intval(get_theme_mod( 'modul_r_hero_height' )) : 60;
-		if ($hero_opacity != 100) $atf_css .= 'body.home .hero .entry-image img {opacity:'. ($hero_opacity/100) .'}';
+        $hero_opacity = get_theme_mod( 'modul_r_hero_opacity' ) !== false ? intval(get_theme_mod( 'modul_r_hero_opacity' )) : 100;
+        $hero_height_home = get_theme_mod( 'modul_r_hero_height_homepage' ) !== false ? intval(get_theme_mod( 'modul_r_hero_height_homepage' )) : 70;
+        $hero_height = get_theme_mod( 'modul_r_hero_height' ) !== false ? intval(get_theme_mod( 'modul_r_hero_height' )) : 45;
+		if ($hero_opacity != 100) $atf_css .= 'body .hero img {opacity:'. ($hero_opacity/100) .'}';
         if ($hero_height) $atf_css .= "html body .hero {max-height:{$hero_height}vh}";
         if ($hero_height_home) $atf_css .= "html body.home .hero {max-height:{$hero_height_home}vh}";
 
