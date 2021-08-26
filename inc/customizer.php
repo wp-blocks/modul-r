@@ -78,14 +78,14 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		  'label'    => esc_html__( 'Header Color', 'modul-r' )
 	  ) ) );
 
-	  $wp_customize->add_setting( 'header-text-color', array(
-		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ] ),
+	  $wp_customize->add_setting( 'header_titlecolor', array(
+		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header_titlecolor'] ] ),
 		  'transport'         => 'refresh',
 		  'sanitize_callback' => 'sanitize_hex_color',
 	  ) );
-	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header-text-color', array(
+	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_titlecolor', array(
 		  'section'  => 'colors',
-		  'label'    => esc_html__( 'Header text Color', 'modul-r' )
+		  'label'    => esc_html__( 'Header Title Color', 'modul-r' )
 	  ) ) );
 
 
