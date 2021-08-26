@@ -358,7 +358,7 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 		global $post;
 		$woo_enabled = class_exists( 'WooCommerce' );
 
-		if (  is_page() || ( is_single() && ($woo_enabled && !is_product()) ) || ( is_archive() && ($woo_enabled && !is_product_category())) || ( ($woo_enabled && is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
+		if (  is_page() || ( is_single() && !($woo_enabled && is_product()) ) || ( is_archive() && !($woo_enabled && is_product_category())) || ( ($woo_enabled && is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
       if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {
         $classes[] = 'has-featured-image';
