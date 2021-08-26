@@ -62,10 +62,10 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		$atf_css .= 'body ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_color, 0.2) . ';}';
 		$atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness($header_color, 0.3) . ';}';
 
-        // Set header links color
+        // Set header title color
         $atf_css .= '.has-header-text h1 a {color:' . $header_titlecolor. ';}';
 
-        // Set header links color
+        // Set header text and links color
         $atf_css .= '.main-navigation li a, #masthead .header-wrapper .header-text .site-description, .has-header-text-color {color:' . $header_text_color. ';}';
         $atf_css .= '.has-header-text-background-color {background-color:' . $header_text_color. ';}';
 		$atf_css .= '.has-header-text-background-border-color {border-color:' . $header_text_color. '66 !important;}';
