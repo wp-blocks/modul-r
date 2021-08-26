@@ -5,6 +5,7 @@
 @import "main/colors";
 @import "main/fonts";
 @import "main/typography";
+@import "main/typography-extras";
 
 .wp-block.editor-post-title__block .editor-post-title__input{
   @extend %headline_style;
