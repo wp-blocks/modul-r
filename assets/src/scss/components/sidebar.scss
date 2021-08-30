@@ -1,8 +1,8 @@
 #secondary {
   
-  min-width: $sidebar__width;
-  width: $sidebar__width;
-  padding: 0 $size__padding-resp;
+  min-width: var(--sizes--sidebar--width);
+  width: var(--sizes--sidebar--width);
+  padding: 0 var(--sizes--responsive--side-margin);
   box-sizing: border-box;
 
   .search-form {
@@ -11,29 +11,23 @@
   
   @media #{$mq__larger-than-tablet} {
     padding: 0;
-    .sidebar-right & {padding-left: $sidebar__margin;}
-    .sidebar-left & {padding-right: $sidebar__margin;}
+    .sidebar-right & {padding-left: var(--sizes--sidebar--side-margin);}
+    .sidebar-left & {padding-right: var(--sizes--sidebar--side-margin);}
   }
   
-  @media #{$mq__responsive_brekpoint} {
-    padding-top: ($size__padding-resp * 2);
-    border-top: 1px solid #eee;
+  @media #{$mq__responsive_breakpoint} {
+    padding-top: var(--sizes--margin-l);
+    border-top: 1px solid rgba(var(--wp--preset--color--black), 0.05);
     min-width: inherit;
     width: 100%;
   }
-  
+
   section {
-    padding-bottom: $size__padding * .75;
+    padding-bottom: var(--sizes--margin-l);
   }
   
   h3 {
-    margin: 0 0 $size__margin * .5;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  a {
-    font-weight: 500;
-    font-size: $text__size - 1;
+    margin: 0 0 var(--sizes--margin-xs);
+    font-size: var(--typography--default--font-size--l);
   }
 }

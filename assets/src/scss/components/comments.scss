@@ -1,49 +1,45 @@
 .entry-comments {
   clear: both;
-  margin-top: $size__padding * .75;
-  padding-top: $size__padding;
-  border-top: 1px solid $color__light-grey;
+  margin-top: var(--sizes--margin-m);
+  padding-top: var(--sizes--margin-xl);
+  border-top: 1px solid rgba(var(--wp--preset--color--black), 0.05);
   
   > p {
-    font-size: 1.3em;
-    margin-bottom: $size__padding;
-    font-weight: 300;
+    font-size: var(--typography--default--font-size--l);
+    margin-bottom: var(--sizes--margin-xl);
+    font-weight: var(--typography--default--font-weight--light);
   }
   
   .navigation a {
-    font-size: 12px;
-    font-weight: 400;
-    color: $color__dark-grey;
+    font-size: var(--typography--default--font-size--s);
+    font-weight: var(--typography--default--font-weight--regular);
+    color: var(--wp--preset--color--gray-dark);
   }
   
   p.comment-notes {
-    font-size: 13px;
+    font-size: var(--typography--default--font-size--s);
     font-style: italic;
-    color: $color__dark-grey;
+    color: var(--wp--preset--color--gray-dark);
   }
   
   p.comments-closed,
   p.no-comments-yet {
     text-align: center;
     font-style: italic;
-    font-weight: 600;
+    font-weight: var(--typography--default--font-weight--bold);
   }
   
   p.logged-in-as {
-    font-weight: 600;
+    font-weight: var(--typography--default--font-weight--bold);
     float: right;
-    font-size: 13px;
-    line-height: 20px;
-    margin: -30px 0 0;
-  
-    @media #{$mq__phablet} {
-      margin: 0;
-    }
+    font-size: var(--typography--default--font-size--s);
+    line-height: 1;
+    margin: 0;
   }
   
 }
 
-
+// commentlist variables
 $comments__avatar-size: 64px;
 
 .site-main ol.commentlist {
@@ -53,18 +49,18 @@ $comments__avatar-size: 64px;
   ul,
   ol {
     padding: 0;
-    margin-top: $size__padding * .25;
-    margin-bottom: $size__padding * .25;
+    margin-top: var(--sizes--margin-m);
+    margin-bottom: var(--sizes--margin-m);
     list-style: none;
   }
   
   li {
     margin: 0;
     display: block;
-    padding: ($size__margin * 2) 0 ($size__margin * 4) 0;
+    padding: var(--sizes--margin-m) 0 var(--sizes--margin-l) 0;
     
     li {
-      padding-left: $size__margin * 4;
+      padding-left: var(--sizes--margin-l);
     }
   }
   
@@ -84,9 +80,8 @@ $comments__avatar-size: 64px;
     line-height: $comments__avatar-size * .66;
     a,
     b {
-      color: $color__secondary;
-      font-weight: 600;
-      font-size: 23px;
+      color: var(--wp--preset--color--secondary);
+      font-size: var(--typography--default--font-size--xl);
     }
   }
   
@@ -95,20 +90,18 @@ $comments__avatar-size: 64px;
     line-height: 1;
   
     a {
-      font-size: 12px;
-      font-weight: 400;
-      color: lighten($color__dark-grey, 20%);
+      font-size: var(--typography--default--font-size--xs);
+      color: var(--wp--preset--color--gray);
     }
   
     .comment-edit-link {
       opacity: 0;
-      transition: 350ms;
-      background-color: $color__secondary;
-      margin-left: $size__margin * 2;
-      padding: ($size__margin * .5) ($size__margin * 1.5);
-      border-radius: $size__margin * 2;
-      color: $color__white;
-      font-weight: 600;
+      transition: $animations__lenght;
+      background-color: var(--wp--preset--color--secondary);
+      margin-left: var(--sizes--margin-m);
+      padding: var(--sizes--margin-xs) var(--sizes--margin-s);
+      border-radius: var(--sizes--margin-m);
+      color: var(--wp--preset--color--white);
     }
   }
   
@@ -117,11 +110,11 @@ $comments__avatar-size: 64px;
   }
   
   .comment-content {
-    background: $color__white;
-    border: 1px solid darken($color__white, 5%);
-    padding: $size__padding * .25;
+    background: var(--wp--preset--color--white);
+    border: 1px solid var(--wp--preset--color--white-smoke);
+    padding: var(--sizes--margin-m);
     margin-left: $comments__avatar-size * 1.25;
-    margin-top: $size__margin;
+    margin-top: var(--sizes--margin--);
   
     max-height: 800px;
     overflow-y: auto;
@@ -132,19 +125,18 @@ $comments__avatar-size: 64px;
   .reply {
     text-align: right;
     a {
-      color: $color__light-grey;
+      color: var(--wp--preset--color--gray-light);
       clear: both;
-      padding: ($size__margin * .5) ($size__margin * 1.5);
-      border-radius: $size__margin * 2;
+      padding: var(--sizes--margin-xs) var(--sizes--margin-s);
+      border-radius: var(--sizes--margin-m);
       display: inline-block;
-      line-height: 1.2;
-      margin-top: $size__margin * 1.5;
-      font-size: 14px;
+      line-height: var(--typography--default--line-height);
+      margin-top: var(--sizes--margin-s);
       transition: $animations__lenght;
   
       &:hover {
-        background-color: $color__secondary;
-        color: $color__white;
+        background-color: var(--wp--preset--color--secondary);
+        color: var(--wp--preset--color--white);
       }
     }
   }
@@ -156,7 +148,7 @@ $comments__avatar-size: 64px;
   
   > small {
     display: block;
-    font-size: $text__size;
+    font-size: var(--typography--default--font-size--m);
   }
   
   label {
@@ -164,8 +156,14 @@ $comments__avatar-size: 64px;
     display: inline-block;
   }
   
-  form p {
-    margin-bottom: $size__margin * 2;
+  form {
+    p {
+      margin-bottom: var(--sizes--margin-m);
+    }
+    a {
+      font-weight: var(--typography--default--font-weight--regular);
+    }
+
   }
 
   input[type="text"], input[type="email"], input[type="url"] {
@@ -174,22 +172,18 @@ $comments__avatar-size: 64px;
   
   .comment-form-cookies-consent {
     display: flex;
-    margin: ($size__margin * 2) 0;
+    margin: var(--sizes--margin-m) 0;
     
     label {
       font-size: 14px;
       line-height: 1;
-      margin-left: $size__margin;
+      margin-left: var(--sizes--margin--);
     }
   }
   
   .form-submit {
-    margin-top: $size__margin * 2;
+    margin-top: var(--sizes--margin-l);
     text-align: right;
-    input {
-      font-size: 16px;
-      padding: 10px 16px;
-    }
   }
 }
 

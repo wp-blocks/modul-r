@@ -30,9 +30,9 @@
 
 $Socials: email, print, facebook, twitter, youtube, linkedin, www;
 
+
 i.social-ico {
-  
-  $social__size: 36px;
+  $social__size: 32px;
   
   display: inline-block;
   width: $social__size;
@@ -43,7 +43,7 @@ i.social-ico {
   transition: $animations__lenght;
   padding:0;
   margin: $size__margin ($social__size * .5) $size__margin 0;
-  
+
   &:before,
   &:hover {
     filter: brightness(1.2);
@@ -72,65 +72,82 @@ i.social-ico {
 
 
 
-%arrow-right {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="#{colorEncode($color__dark-grey)}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 5,5 45,40 5,75 "> </polyline></svg>');
+@mixin material_icon($icon, $size, $color: "var(--wp--preset--color--black)") {
+  &:before {
+    font-family: "Material Icons";
+    content: $icon;
+    display: block;
+    line-height: 1;
+    font-size: #{$size}px;
+    color: #{$color};
+  }
 }
-
-%arrow-left {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve"> <polyline fill="none" stroke="#{colorEncode($color__dark-grey)}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" points=" 45,75 5,40 45,5 "> </polyline></svg>');
-}
-
 
 $arrowSize: 60px;
 
 .arrow {
-  background-color: transparent;
   border-radius: 50%;
-  width: $arrowSize;
-  height: $arrowSize;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  padding: $arrowSize * .25;
   min-width: inherit;
-  background-size: $arrowSize * .25;
-  background-repeat: no-repeat;
-  background-position: center;
   border:0;
+  text-align: center;
+  width: auto;
+  height: auto;
+  font-size: 0;
+  transition: background-color $animations__lenght;
   
   &:hover {
-    background-color: transparentize($color__dark-grey, .9);
     filter: inherit;
+    background-color: rgba(var(--wp--preset--color--black--decimal), .05);
   }
   
   @media #{$mq__smaller-than-tablet} {
     $arrowSize: 24px;
-    padding: $arrowSize * 0.25;
-    width: $arrowSize;
-    height: $arrowSize;
-    background-size: $arrowSize * .25;
+    padding: $arrowSize * 0.125;
+    font-size: $arrowSize;
+  }
+
+  &-prev {
+    @include material-icon( '\e2ea', 36 );
+    left: $arrowSize * .5;
   }
   
   &-next {
-    @extend %arrow-right;
-    margin-right: $arrowSize * .5;
-  }
-  
-  &-prev {
-    @extend %arrow-left;
-    margin-left: $arrowSize * .5;
+    @include material-icon( '\e5e1', 36 );
+    right: $arrowSize * .5;
   }
 }
 
 //reset slick arrow
-.slick-prev:before, .slick-next:before {display: none !important;}
-.fancybox-navigation svg {display: none;}
+.fancybox-button svg {display: none;}
 
-.fancybox-navigation .fancybox-button--arrow_right,
+.fancybox-navigation .fancybox-button--arrow_right {
+  @extend .arrow;
+  div {
+    @extend .arrow-next;
+  }
+}
+.fancybox-navigation .fancybox-button--arrow_left {
+  @extend .arrow;
+  div {
+    @extend .arrow-prev;
+  }
+}
+.fancybox-navigation .fancybox-button--arrow_left,
+.fancybox-navigation .fancybox-button--arrow_right {
+  background-color: rgba( var(--wp--preset--color--white--decimal), 0 );
+  &:hover {background-color: rgba( var(--wp--preset--color--white--decimal), .5 );}
+  div:before {color: var(--wp--preset--color--white);}
+  &:disabled {opacity: .5;}
+}
+
+
+
 .slider button.slick-next {
   @extend .arrow;
   @extend .arrow-next;
 }
-
-.fancybox-navigation .fancybox-button--arrow_left,
 .slider button.slick-prev {
   @extend .arrow;
   @extend .arrow-prev;
@@ -142,7 +159,6 @@ $arrowSize: 60px;
     margin-left: $arrowSize * .5;
   }
 }
-
 .slider button.slick-next {
   margin-right: $arrowSize * -1;
   @media #{$mq__smaller-than-tablet} {
@@ -151,8 +167,3 @@ $arrowSize: 60px;
 }
 
 
-.fancybox-navigation .fancybox-button--arrow_left:disabled,
-.fancybox-navigation .fancybox-button--arrow_right:disabled {
-  opacity: .5;
-}
-  

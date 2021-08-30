@@ -5,11 +5,11 @@
 
 ?>
 
-<header class="entry-header main-width alignwide">
+<header class="entry-header page-header main-width text-center">
 
   <?php modul_r_breadcrumbs(); ?>
 
-  <h1 class="entry-title has-title-color"><?php esc_html_e( 'Nothing Found', 'modul-r' ); ?></h1>
+  <h1 class="entry-title page-title has-title-color"><?php esc_html_e( 'Nothing Found', 'modul-r' ); ?></h1>
 
 </header>
 

@@ -4,27 +4,26 @@ body.woocommerce {
   .woocommerce-breadcrumb {
     margin: 0;
     line-height: 1;
-    padding-bottom: $size__margin * 4;
+    padding-bottom: var(--sizes--margin-l);
     @extend .ellipsis;
-    @media #{$mq__smaller-than-tablet} {padding-bottom: $size__margin * 2;}
+    @media #{$mq__smaller-than-tablet} {padding-bottom: var(--sizes--margin-m);}
   }
   
   .woocommerce-result-count {
-    line-height: $size__padding * .75;
-    @media #{$mq__smaller-than-tablet} {font-size: $text__size - 4}
+    @media #{$mq__smaller-than-tablet} {font-size: var(--typography--default--font-size--s)}
   }
   .woocommerce-ordering {
     a, span, option, select {
-      @media #{$mq__smaller-than-tablet} {font-size: $text__size - 4}
+      @media #{$mq__smaller-than-tablet} {font-size: var(--typography--default--font-size--s)}
     }
   }
   
   .product_meta {
-    margin-top: $size__margin * 2;
+    margin-top: var(--sizes--margin-m);
     & > span {
       display: block;
-      font-weight: 600;
-      line-height: $text__line-height-content;
+      font-weight: var(--typography--default--font-weight--bold);
+      line-height: var(--typography--default--line-height--wide);
       span, a {font-weight: 400;}
     }
   }
@@ -43,22 +42,24 @@ body.woocommerce {
 .woocommerce a.button.alt,
 .woocommerce button.button.alt,
 .woocommerce input.button.alt {
-  background-color: $color__woo-accent;
-  &:hover { background-color: lighten($color__woo-accent, 5%);}
+  background-color: var(--wp--preset--color--secondary);
+  &:hover {
+    background-color: rgba(var(--wp--preset--color--secondary--decimal), .1);
+  }
 }
 
 .woocommerce button.button.alt.disabled {
-  background-color: lighten($color__dark-grey, 10%);
+  background-color: var(--wp--preset--color--gray);
   &:hover {
-    background-color: $color__dark-grey;
+    background-color: var(--wp--preset--color--gray-dark);
   }
 }
 
 // Select2 custom style
 .select2-selection__rendered {
-  line-height: $size__padding * .75 !important;
+  line-height: var(--sizes--margin-l) !important;
 }
 .select2-container .select2-selection--single,
 .select2-selection__arrow {
-  height: $size__padding * .75 !important;
+  height: var(--sizes--margin-l) !important;
 }

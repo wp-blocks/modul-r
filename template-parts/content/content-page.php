@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-  <header class="entry-header main-width alignwide">
+  <header class="entry-header page-header main-width text-center">
 	  <?php the_title( '<h1 class="entry-title has-title-color">', '</h1>' ); ?>
   </header>
 

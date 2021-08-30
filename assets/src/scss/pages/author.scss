@@ -8,11 +8,11 @@
 
   .avatar{
     float: left;
-    max-width: $size__padding;
-    margin-right: $size__padding * .5;
+    max-width: var(--sizes--margin-xl);
+    margin-right: var(--sizes--margin-l);
     @media #{$mq__tablet} {
-      max-width: $size__padding * .75;
-      margin-right: $size__padding-resp;
+      max-width: $avatar_size;
+      margin-right: var(--sizes--responsive--side-margin);
     }
     img{
       margin: 0;
@@ -28,8 +28,8 @@
   }
   
   .author-description p {
-    font-size: 13px;
-    margin: 8px 0 ;
-    line-height: 1.8;
+    font-size: var(--typography--default--font-size--s);
+    margin: var(--sizes--margin--) 0 ;
+    line-height: var(--typography--default--line-height--wide);
   }
 }

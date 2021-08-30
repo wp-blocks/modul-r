@@ -5,7 +5,9 @@ body {
 }
 
 html {
-  background-color: $color__background;
+  background-color: var(--wp--preset--color--white-smoke);
+  /* ios viewport bug fix */
+  height: calc( var(--vh, 1vh) * 100 );
   max-width: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -13,6 +15,7 @@ html {
 }
 
 body {
+  height: -webkit-fill-available;
   min-height: 100%;
   max-width: 100%;
   box-sizing: border-box;

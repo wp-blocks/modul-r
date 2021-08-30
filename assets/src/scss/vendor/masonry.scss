@@ -13,8 +13,7 @@
   
   a {
     flex-basis: 100%;
-    color: $color__light-grey;
-    font-weight: 300;
+    color: var(--wp--preset--color--gray-light);
     opacity: 0;
   }
 }
@@ -53,10 +52,11 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   display: flex;
   flex-direction: column;
   border-radius: 3px;
-  background-color: $color__white;
-  box-shadow: 0 2px 12px -6px transparentize($color__black, .5);
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--gray-light);
+  box-shadow: 0 2px 12px -6px rgba(var(--wp--preset--color--black--decimal), .5);
   padding: 0;
-  margin: 0 0 ($size__padding * .5);
+  margin: 0 0 var(--sizes--margin-l);
   
   @media #{$mq__tablet-portrait}{
     padding-right: 0;
@@ -64,10 +64,10 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   
   .article-wrapper {
     width: auto;
-    margin-left: $size__padding-resp;
-    margin-right: $size__padding-resp;
-    padding-top: $size__margin * 1.5;
-    padding-bottom: $size__margin * 4;
+    margin-left: var(--sizes--responsive--side-margin);
+    margin-right: var(--sizes--responsive--side-margin);
+    padding-top: var(--sizes--margin-s);
+    padding-bottom: var(--sizes--margin-l);
   }
   
   .entry-image {
@@ -83,12 +83,12 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   }
   
   .entry-header {
-    padding-top: $size__margin;
-    padding-bottom: $size__margin;
+    padding: var(--sizes--margin--) 0;
     margin: 0;
+    width: 100%;
     @media #{$mq__content-width} {
-        padding-left: 0;
-        padding-right: 0;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
   
@@ -97,26 +97,22 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   }
   
   h2.entry-title {
-    font-size: $text__size + 2;
+    font-size: var(--typography--default--font-size--l);
     padding: 0;
     margin: 0;
     text-align: left;
-    font-weight: 600;
   }
   
   p {
-    font-size: $text__size - 2;
-    line-height: 1.6;
+    font-size: var(--typography--default--font-size--s);
     margin: 0;
     padding: 0;
   }
  
 }
 
-
-
 .page-load-status {
   display: none; /* hidden by default */
-  padding-top: $size__padding * .5;
+  padding-top: var(--sizes--margin-l);
   text-align: center;
 }

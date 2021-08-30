@@ -17,8 +17,8 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
 
     <div class="hero">
     <?php modul_r_post_image('parallax header-color'); ?>
-      <div class="hero-title text-center">
-        <h1 class="page-title has-title-color"><?php echo $hero_title; ?></h1>
+      <div class="entry-header hero-title">
+        <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
       <?php
         if ($hero_call_to_action > 0) {
@@ -71,8 +71,8 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
               }?>
 
             </div>
-            <div class="hero-title text-center">
-	            <?php the_archive_title( '<h1 class="page-title main-width has-title-color">', '</h1>' ); ?>
+            <div class="hero-title text-center main-width">
+	            <?php the_archive_title( '<h1 class="page-title has-title-color">', '</h1>' ); ?>
 	            <?php if (is_author()) {
 		            printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
 	            } else {

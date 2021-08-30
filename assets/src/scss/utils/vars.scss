@@ -1,64 +1,32 @@
 // COLOR VARIABLES
-$color__primary: #16bebb;
-$color__secondary: #6f4cad;
-$color__black: #323439;
-$color__dark-grey: lighten($color__black, 10%);
-$color__light-grey: #e3e3e3;
-$color__white: #fff;
-
-$color__text: $color__dark-grey;
-$color__text-light: lighten($color__dark-grey, 15%);
-$color__nav-background: transparentize($color__black, .05);
-$color__background: darken($color__white, 1%);
-$color__icons: $color__dark-grey;
-$color__accent: $color__secondary;
-$color__woo-accent: #026c7c;
-
-// TEXT VARIABLES
-$text__line-height: 1.3;
-$text__line-height-content: 1.7;
-$text__size: 17px;
-$text__weight: 400;
-$text__weight-headline: 600;
-$font__family: 'Montserrat', sans-serif;
-$font__family-headline: 'Montserrat', sans-serif;
+$color__icons: #222222;
 
 // ANIMATIONS
 $animations__lenght : .35s;
 
-// MEASURES
-$size__site-width: 1500px;
-$size__side-padding: 300px;
+// SIZES
+$base_unit: 8px;
+$size__margin: $base_unit;
+$size__padding: $base_unit * 8;
 
-// DISTANCES
-$size__margin: 8px;
-$size__padding: 64px;
-$size__padding-resp: 20px;
+$size__padding-resp: $base_unit * 2.5;
 
 // HEADER
-$size__branding-max-width: 350px;
-$size__branding-height: 80px;
-$size__logo-size: 80%;
-$size__nav-height: 60px;
-$size__nav-responsive-line-height: 3;
-$size__responsive-menu-width: 360px;
+$size__site-width: 1500px;
+$size__side-padding: 300px;
+$size__nav-line-height: 2.2;
+$size__nav-responsive-line-height: 2.5;
+$size__responsive-menu-max-width: 360px;
 
 // HEADER RESP
 $head__responsive_breakpoint-width: 960px;
-$head__height-responsive: 80px;
 
 // HAMBURGER MENU
 $hamburger__size: 30px;
 $hamburger__weight: 3px;
-$hamburger__color: $color__primary;
-
-// SIDEBAR
-$sidebar__margin: $size__padding;
-$sidebar__width: 380px + $sidebar__margin;
 
 // SCROLLBAR
-$scrollbar-line-color: $color__primary;
-$scrollbar-background-color: $color__light-grey;
+$scrollbar-border-radius: 2px;
 
-// EXTRAS
-$blockquote__icon-size: 60px;
+// AVATAR
+$avatar_size: 64px;

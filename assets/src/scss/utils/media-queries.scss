@@ -11,7 +11,6 @@
 $mq__largemonitors: "(min-width : 1991px)";
 $mq__desktop: "(max-width : 1600px)";
 $mq__laptop: "(max-width : 1366px)";
-$mq__smaller-than-laptops: "(max-width : 1365px)";
 $mq__larger-than-tablet: "(min-width : 1024px)";
 $mq__smaller-than-tablet: "(max-width : 1023px)";
 $mq__tablet: "(max-width : 1260px)";
@@ -21,9 +20,9 @@ $mq__smartphone: "(max-width : 420px)";
 $mq__smallphone: "(max-width : 376px)";
 
 // the header menu breakpoint
-$mq__responsive_brekpoint: "(max-width : #{$head__responsive_breakpoint-width})";
+$mq__responsive_breakpoint: "(max-width : #{$head__responsive_breakpoint-width})";
 // the content breakpoint
-$mq__responsive-size_brekpoint: $mq__tablet-portrait;
+$mq__responsive-size_breakpoint: $mq__tablet-portrait;
 
 $mq__theme-width: "(max-width : #{$size__site-width + ($size__padding-resp * 2)})";
 $mq__content-width: "(max-width : #{$size__site-width - ($size__side-padding * 2) + ($size__padding-resp * 2) })";
