@@ -7,7 +7,7 @@ if (!isset($modul_r_defaults)) {
 			'primary' => '#16bebb',
 			'secondary' => '#6f4cad',
 			'white' => '#ffffff',
-			'white-smoke' => '#f6f6f6',
+			'white-smoke' => '#f3f3f3',
 			'gray-light' => '#e3e3e3',
 			'gray' => '#888888',
 			'gray-dark' => '#4e4e4e',
@@ -46,6 +46,8 @@ if (!isset($modul_r_defaults)) {
                 array( 'name' => 'font-size--xl', 'default' => 26, 'input' => 'number', 'input_type' => 'int', 'unit' => 'px' ),
                 array( 'name' => 'font-size--xxl', 'default' => 40, 'input' => 'number', 'input_type' => 'int', 'unit' => 'px' ),
                 array( 'name' => 'font-size--xxxl', 'default' => 56, 'input' => 'number', 'input_type' => 'int', 'unit' => 'px' ),
+            ),
+            'font_weight' => array(
                 array( 'name' => 'font-weight--bold', 'default' => 600, 'input' => 'select', 'select_type' => 'weights' ),
                 array( 'name' => 'font-weight--regular', 'default' => 400, 'input' => 'select', 'select_type' => 'weights' ),
                 array( 'name' => 'font-weight--light', 'default' => 300, 'input' => 'select', 'select_type' => 'weights' )

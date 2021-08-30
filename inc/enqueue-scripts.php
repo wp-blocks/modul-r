@@ -24,8 +24,32 @@ add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
  */
 if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	function modul_r_theme_fonts() {
-		wp_enqueue_style( 'modul-r-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap', array(), null );
-		wp_enqueue_style( 'modul-r-icons', 'https://fonts.googleapis.com/css2?family=Material+Icons&display=swap', array(), null );
+
+    $font_family[] = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_title' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
+    $font_family[] = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false && get_theme_mod( 'modul_r_typography_font_family_title' ) !== get_theme_mod( 'modul_r_typography_font_family_text' ) ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_text' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
+
+    $font_query = array();
+    $font_weight = array();
+    foreach ( $GLOBALS['modul_r_defaults']['customizer_options']['font_weight'] as $option ) {
+        if ( get_theme_mod( 'modul_r_defaults_'.$option['name'] ) ) {
+            $weight = $GLOBALS['modul_r_defaults']['customizer_options']['weights'][intval(get_theme_mod( 'modul_r_defaults_'.$option['name'] ))];
+            $font_weight[] = intval($weight);
+        }
+    }
+
+    if (!empty($font_weight) && !empty($font_family)) {
+
+      sort($font_weight,SORT_NUMERIC );
+
+      foreach ($font_family as $font) {
+        $font_query[] = "family=$font:wght@" . implode(";", $font_weight );
+      }
+
+    }
+
+    if ($font_query) wp_enqueue_style( 'modul-r-fonts', "https://fonts.googleapis.com/css2?" . implode("&", $font_query) . "&display=swap", array(), null );
+
+		wp_enqueue_style( "modul-r-icons", "https://fonts.googleapis.com/css2?family=Material+Icons&display=swap", array(), null );
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_fonts', 10 );

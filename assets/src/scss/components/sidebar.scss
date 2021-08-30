@@ -27,7 +27,15 @@
   }
   
   h3 {
-    margin: 0 0 var(--sizes--margin-xs);
+    margin: 0 0 var(--sizes--margin--);
     font-size: var(--typography--default--font-size--l);
+  }
+
+  li {
+    margin: 0 0 var(--sizes--margin--) 20px;
+  }
+
+  a {
+    color: var(--color--text)
   }
 }

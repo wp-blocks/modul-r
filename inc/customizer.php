@@ -525,7 +525,10 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
         'description' => esc_html__( 'Select the font family', 'modul-r' ),
     ) );
 
+    // add the font weight select
+    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], 'typography_options', $wp_customize );
 
+      // add the font line height / font size selection
     add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['typography'], 'typography_options', $wp_customize );
 
 
@@ -1069,6 +1072,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
         }
 
         $typography = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--default--");
+        $font_weights = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], "--typography--default--");
         $header_sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--");
         $sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--sizes--");
 
@@ -1106,14 +1110,15 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "--sizes--responsive--side-margin: ". $baseunit * 2.5 . "px;" .
 
            $typography .
+           $font_weights .
 
           "--typography--title--line-height:var(--typography--default--line-height);" .
           "--typography--title--font-size: var(--typography--default--font-size--xxl);" .
-          "--typography--title--font-family: '".$font_family_title."', sans-serif;" .
+          "--typography--title--font-family: '".str_replace("+", " ", $font_family_title)."', sans-serif;" .
           "--typography--title--font-weight: var(--typography--default--font-weight--bold);" .
           "--typography--content--line-height: var(--typography--default--line-height--wide);" .
           "--typography--content--font-size: var(--typography--default--font-size--m);" .
-          "--typography--content--font-family: '".$font_family_text."', sans-serif;" .
+          "--typography--content--font-family: '".str_replace("+", " ", $font_family_text)."', sans-serif;" .
           "--typography--content--font-weight: var(--typography--default--font-weight--regular);" .
 
           "--sizes--content--width: {$content_width}px;" .
