@@ -202,6 +202,15 @@ iframe {
   color: white;
 }
 
+pre {
+  width: 100%;
+  padding: var(--sizes--margin-m) var(--sizes--margin-l);
+  background: var(--wp--preset--color--white-smoke);
+  border: 1px solid var(--wp--preset--color--gray-light);
+  white-space: pre-wrap;
+  box-sizing: border-box;
+}
+
 cite {
   font-style: italic;
 }

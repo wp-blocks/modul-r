@@ -284,7 +284,7 @@
       .custom-logo {
         object-position: left;
         width: auto;
-        height: var(--header--nav--height);
+        height: var(--header--logo--height);
         @media #{$mq__responsive_breakpoint} {
           max-width: 100%;
         }
