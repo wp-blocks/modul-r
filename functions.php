@@ -4,8 +4,8 @@
 if (!isset($modul_r_defaults)) {
 	$modul_r_defaults = array(
 		'colors' => array(
-			'primary' => '#16bebb',
-			'secondary' => '#6f4cad',
+			'primary' => '#6f4cad',
+			'secondary' => '#16bebb',
 			'white' => '#ffffff',
 			'white-smoke' => '#fafafa',
 			'gray-light' => '#e3e3e3',
