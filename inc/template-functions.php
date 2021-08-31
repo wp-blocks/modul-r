@@ -20,14 +20,18 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
       <div class="entry-header hero-title">
         <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
-      <?php
-        if ($hero_call_to_action > 0) {
-          printf('<a href="%s" class="button big has-header-background-color">%s</a>', esc_url( get_page_link($hero_call_to_action) ), esc_html(get_the_title($hero_call_to_action))) ;
-        }
-        if ($hero_call_to_action_2 > 0) {
-          printf('<a href="%s" class="button big outline">%s</a>', esc_url( get_category_link($hero_call_to_action_2) ), esc_html(get_cat_name($hero_call_to_action_2))) ;
-        }
-      ?>
+        <?php
+          if ($hero_call_to_action > 0 || $hero_call_to_action_2 > 0 ) {
+              echo '<span class="hero-cta-wrapper">';
+              if ( $hero_call_to_action > 0 ) {
+                  printf( '<span class="wp-block-button is-style-big"><a href="%s" class="wp-block-button__link has-header-background-color">%s</a></span>', esc_url( get_page_link( $hero_call_to_action ) ), esc_html( get_the_title( $hero_call_to_action ) ) );
+              }
+              if ( $hero_call_to_action_2 > 0 ) {
+                  printf( '<span class="wp-block-button is-style-outline is-style-big"><a href="%s" class="wp-block-button__link">%s</a></span>', esc_url( get_category_link( $hero_call_to_action_2 ) ), esc_html( get_cat_name( $hero_call_to_action_2 ) ) );
+              }
+              echo '</span>';
+          }
+        ?>
       </div>
     </div>
     <?php

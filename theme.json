@@ -30,8 +30,8 @@
   },
   "styles": {
     "color": {
-      "title": "var(--wp--preset--color--title)",
-      "text": "var(--wp--preset--color--text)"
+      "title": "var(color--title)",
+      "text": "var(color--text)"
     }
   }
 }

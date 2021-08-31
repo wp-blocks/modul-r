@@ -108,7 +108,7 @@ body.woocommerce {
     }
   
     .content-area {
-      width: calc(100% - var(--sizes--sidebar--width) + var(--sizes--sidebar--side-margin));
+      width: calc(100% - ( var(--sizes--sidebar--width) + var(--sizes--sidebar--side-margin)) );
       @media #{$mq__responsive_breakpoint} {
         width: 100%;
       }
@@ -120,9 +120,6 @@ body.woocommerce {
 .site .entry-content > * {
 
   @extend %website-width;
-
-  margin-top: var(--sizes--margin-l);
-  margin-bottom: var(--sizes--margin-xl);
 
   &:first-child {
     margin-top: 0;

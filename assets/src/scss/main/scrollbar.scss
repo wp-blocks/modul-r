@@ -20,7 +20,7 @@
   &-thumb,
   &-thumb:vertical,
   &-thumb:horizontal {
-    background-color:var(--wp--preset--color--primary);
+    background-color:var(--wp--preset--color--secondary);
     border-radius: $scrollbar-border-radius;
     -webkit-box-shadow: inset 0 0 6px rgba(var(--wp--preset--color--black--decimal), 0.15);
   }

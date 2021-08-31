@@ -16,7 +16,7 @@
   &.skip-link {display: block;}
   
   &:focus {
-    background-color: var(--wp--preset--color--primary);
+    background-color: var(--wp--preset--color--secondary);
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(var(--wp--preset--color--black--decimal), .5 );
     clip: auto !important;

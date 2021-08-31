@@ -235,7 +235,7 @@ $slick-next-character: ">" !default;
   }
   
   li.slick-active button {
-    background-color:var(--wp--preset--color--secondary);
+    background-color:var(--wp--preset--color--primary);
     width: $size__margin + 8;
     height: $size__margin + 8;
     margin-top: $size__margin * -.5;

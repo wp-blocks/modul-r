@@ -154,6 +154,7 @@ h5, h6 {
 /* Text and lists */
 li, .editor-styles-wrapper li, .editor-styles-wrapper p,
 p {
+  list-style: none;
   font-size: var(--typography--default--font-size--m);
 }
 @media (max-width : 500px) {
@@ -173,7 +174,7 @@ b, strong {
 
 a {
   text-decoration: none;
-  color: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--primary);
 }
 
 ul, ol, dl {
@@ -201,20 +202,6 @@ iframe {
   color: white;
 }
 
-pre {
-  width: 100%;
-  padding: var(--sizes--margin-l) var(--sizes--margin-xl);
-  background: var(--wp--preset--color--white);
-  border: 1px solid var(--wp--preset--color--gray-light);
-  white-space: pre-wrap;
-  box-sizing: border-box;
-}
-
-code {
-  font-weight: var(--typography--default--font-weight--regular);
-  word-wrap: break-word;
-}
-
 cite {
   font-style: italic;
 }
@@ -226,6 +213,11 @@ cite {
   position: relative;
   border: 1px solid var(--wp--preset--color--gray-light);
 }
+@media (max-width : 940px) {
+  .site .entry-content blockquote {
+    padding: var(--sizes--margin-m) 90px;
+  }
+}
 .site .entry-content blockquote:before {
   font-family: "Material Icons";
   content: "\e244";
@@ -233,19 +225,12 @@ cite {
   top: -4px;
   left: 16px;
   font-size: 60px;
-  color: var(--wp--preset--color--primary);
-}
-.site .entry-content blockquote.wp-block-quote blockquote {
-  border: 0;
-}
-.site .entry-content blockquote.wp-block-quote:not(.is-large), .site .entry-content blockquote.wp-block-quote:not(.is-style-large) {
-  border-left: 2px solid var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--secondary);
 }
 .site .entry-content blockquote p, .site .entry-content blockquote .editor-styles-wrapper li, .editor-styles-wrapper .site .entry-content blockquote li,
 .site .entry-content blockquote cite {
   font-size: 1em;
   font-style: italic;
-  font-family: var(--typography--title--font-family);
   line-height: var(--typography--default--line-height--wide);
   font-weight: var(--typography--default--font-weight--light);
   text-transform: none;
@@ -298,8 +283,10 @@ cite {
   .site-main .entry-content table,
 .site-main .entry-content pre,
 .site-main .entry-content blockquote {
-    padding-left: var(--sizes--responsive--side-margin);
     padding-right: var(--sizes--responsive--side-margin);
+    margin-left: var(--sizes--responsive--side-margin);
+    margin-right: var(--sizes--responsive--side-margin);
+    width: auto;
   }
   .site-main .entry-content table {
     width: calc(100% - var(--sizes--margin-m));
@@ -320,17 +307,18 @@ cite {
 .post-tags li.post-tag, .post-tags .editor-styles-wrapper p.post-tag, .editor-styles-wrapper .post-tags p.post-tag {
   margin: 0 16px 10px 0;
   padding: 0 10px 0 25px;
+  line-height: 20px;
 }
 
 .post-tag {
-  background: var(--wp--preset--color--secondary);
+  background: var(--wp--preset--color--primary);
   border-radius: 3px 0 0 3px;
   display: inline-block;
-  height: 22px;
-  line-height: 18px;
   position: relative;
+  line-height: 20px;
 }
 .post-tag a {
+  height: 22px;
   font-size: 11px;
   font-weight: var(--typography--default--font-weight--bold);
   letter-spacing: 1px;
@@ -355,7 +343,7 @@ cite {
 .post-tag::after {
   background: transparent;
   border-bottom: 11px solid transparent;
-  border-left: 10px solid var(--wp--preset--color--secondary);
+  border-left: 10px solid var(--wp--preset--color--primary);
   border-top: 11px solid transparent;
   content: "";
   position: absolute;
@@ -363,13 +351,13 @@ cite {
   top: 0;
 }
 .post-tag:hover {
-  background-color: var(--wp--preset--color--secondary);
+  background-color: var(--wp--preset--color--primary);
 }
 .post-tag:hover a {
   color: white;
 }
 .post-tag:hover::after {
-  border-left-color: var(--wp--preset--color--secondary);
+  border-left-color: var(--wp--preset--color--primary);
 }
 
 hr {

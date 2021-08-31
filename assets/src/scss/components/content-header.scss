@@ -9,6 +9,10 @@
     }
   }
 
+  .has-sidebar & .entry-header {
+    width: 100%;
+  }
+
   .page-header {
     margin-bottom: var(--sizes--margin-xl);
 

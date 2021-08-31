@@ -17,7 +17,7 @@ body.archive {
           left: -100px;
           right: -100px;
           content: '';
-          background-color: var(--wp--preset--color--white-smoke);
+          background-color: rgba(var(--wp--preset--color--black--decimal), .05);
         }
       }
       
@@ -48,6 +48,7 @@ body.archive {
   
     .article-wrapper {
       max-width: 100%;
+      width: 100%;
     }
     
     .entry-image {
@@ -86,8 +87,10 @@ body.archive {
     }
     
     .entry-header {
+      padding-left: 0;
+      padding-right: 0;
       margin: 0;
-  
+
       .entry-title {
         width: 100%;
         font-size: var(--typography--default--font-size--xl);

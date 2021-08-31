@@ -7,7 +7,7 @@
   overflow: hidden;
   position: relative;
   
-  @extend .elevation-01;
+  @extend %elevation--01;
   
   input {
     height: 48px;

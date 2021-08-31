@@ -80,7 +80,7 @@ $comments__avatar-size: 64px;
     line-height: $comments__avatar-size * .66;
     a,
     b {
-      color: var(--wp--preset--color--secondary);
+      color: var(--wp--preset--color--primary);
       font-size: var(--typography--default--font-size--xl);
     }
   }
@@ -97,7 +97,7 @@ $comments__avatar-size: 64px;
     .comment-edit-link {
       opacity: 0;
       transition: $animations__lenght;
-      background-color: var(--wp--preset--color--secondary);
+      background-color: var(--wp--preset--color--primary);
       margin-left: var(--sizes--margin-m);
       padding: var(--sizes--margin-xs) var(--sizes--margin-s);
       border-radius: var(--sizes--margin-m);
@@ -135,7 +135,7 @@ $comments__avatar-size: 64px;
       transition: $animations__lenght;
   
       &:hover {
-        background-color: var(--wp--preset--color--secondary);
+        background-color: var(--wp--preset--color--primary);
         color: var(--wp--preset--color--white);
       }
     }

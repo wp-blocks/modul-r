@@ -60,6 +60,7 @@ h5, h6 {
 /* Text and lists */
 li,
 p {
+	list-style: none;
 	font-size: var(--typography--default--font-size--m);
   @media #{$mq__phablet} {font-size: var(--typography--default--font-size--s);}
 }
@@ -74,7 +75,7 @@ b, strong {
 
 a {
 	text-decoration: none;
-	color: var(--wp--preset--color--secondary);
+	color: var(--wp--preset--color--primary);
 }
 
 ul, ol, dl {

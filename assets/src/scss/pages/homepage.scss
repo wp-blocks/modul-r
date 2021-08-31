@@ -22,7 +22,6 @@ body.home {
         margin: 0 var(--sizes--margin-l);
         padding: 0 var(--sizes--margin-m) var(--sizes--margin-l);
         border: 1px solid var(--wp--preset--color--gray-light);
-        box-shadow: 0 4px 20px -10px rgba(var(--wp--preset--color--black--decimal), .8);
         border-radius: var(--sizes--margin-xs);
         line-height: var(--typography--default--line-height);
         display: flex;
@@ -30,6 +29,7 @@ body.home {
         flex-wrap: wrap;
         justify-content: center;
         flex: 1 0 20%;
+        box-shadow: 0 4px 20px -10px rgba(var(--wp--preset--color--black--decimal), .8);
   
         @media #{$mq__smaller-than-tablet} {
           padding-bottom: 0;

@@ -54,7 +54,7 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   border-radius: 3px;
   background-color: var(--wp--preset--color--white);
   border: 1px solid var(--wp--preset--color--gray-light);
-  box-shadow: 0 2px 12px -6px rgba(var(--wp--preset--color--black--decimal), .5);
+  @extend %elevation--01;
   padding: 0;
   margin: 0 0 var(--sizes--margin-l);
   

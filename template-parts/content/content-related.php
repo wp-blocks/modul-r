@@ -11,7 +11,7 @@
 	  <?php endif; ?>
   </a>
   <a href="<?php the_permalink() ?>">
-    <h5 class="has-secondary-color"><?php the_title() ?></h5>
+    <h5 class="has-primary-color"><?php the_title() ?></h5>
   </a>
   <span class="display-table">
     <?php the_excerpt() ?>

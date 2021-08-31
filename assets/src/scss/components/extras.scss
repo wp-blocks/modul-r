@@ -45,6 +45,7 @@
   color: var(--wp--preset--color--gray-dark);
   
   a {
+    font-family: var(--typography--content--font-family), sans-serif;
     color: var(--wp--preset--color--gray-dark);
     font-weight: var(--typography--default--font-weight--bold);
     text-transform: uppercase;
@@ -140,7 +141,8 @@
     $pagenumber__size: 36px;
     
     display: inline-block;
-    padding: 0 ($pagenumber__size * .20);
+    padding: 0 ($pagenumber__size * .2);
+    margin-bottom: $pagenumber__size * .3;
     width: $pagenumber__size;
     height: $pagenumber__size;
     vertical-align: middle;
@@ -160,6 +162,8 @@
     &.next,
     &.prev {
       width: auto;
+      padding-left: $pagenumber__size;
+      padding-right: $pagenumber__size;
     }
     
   }
@@ -214,7 +218,7 @@
 // Extra
 .sticky {
   background-color: transparent;
-  h1, h2 { color: var(--wp--preset--color--primary)}
+  h1, h2 { color: var(--wp--preset--color--secondary)}
 }
 
 
@@ -245,14 +249,14 @@
   
   .hero-title {
     box-sizing: border-box;
-    padding-top: calc(var(--header--nav--height) + var(--header--branding--height));
+    padding-top: calc( var(--header--nav--height) + var(--header--branding--height) );
     margin: auto;
     z-index: 2;
     max-width: var(--sizes--content--width);
     width: 100%;
     
     h1, p {
-      text-shadow: 0 2px 4px rgba( var(--wp--preset--color--black--decimal), .5);
+      @extend %text_shadow--01;
       color: var(--wp--preset--color--white);
     }
     
@@ -266,20 +270,30 @@
     }
     
     p {
-      font-size: var(--typography--default--font-size--m);
+      font-size: calc(var(--typography--default--font-size--m) + 1px);
+      line-height: calc(var(--typography--default--font-size--m) * 1.4 );
       font-style: italic;
+      margin: 0 auto var(--sizes--margin--);
       @media #{$mq__smaller-than-tablet} {
-        font-size: var(--typography--default--font-size--m);
+        font-size: var(--typography--default--font-size--s);
         line-height: var(--typography--default--line-height);
       }
-      @media #{$mq__smallphone} {font-size: 15px;}
+      @media #{$mq__smallphone} {font-size: var(--typography--default--font-size--xs);}
     }
 
-    a {
-      margin-top: 32px;
+    .wp-block-button {
+      margin-top: var(--typography--default--font-size--m);
       @media #{$mq__smaller-than-tablet} {
         font-size: var(--typography--default--font-size--m);
-        padding: 10px 16px;
+        padding: var(--typography--default--font-size--s) var(--typography--default--font-size--l);
+      }
+
+      &.is-style-outline {
+        .wp-block-button__link {
+          &:not(.has-background):not(.has-text-color) {
+            color: var(--wp--preset--color--white);
+          }
+        }
       }
     }
 

@@ -44,7 +44,7 @@ body.woocommerce {
         width: $add-to-cart;
         display: block;
         text-align: center;
-        background: var(--wp--preset--color--secondary);
+        background: var(--wp--preset--color--primary);
         color: white;
         padding: 0;
         margin: 0;
@@ -145,7 +145,7 @@ body.woocommerce {
   
     p.price,
     span.price {
-      color: var(--wp--preset--color--secondary);
+      color: var(--wp--preset--color--primary);
     }
     
     .woocommerce-tabs {
@@ -174,7 +174,7 @@ body.woocommerce {
         padding-left: var(--sizes--responsive--side-margin);
       }
       tr:nth-child(even) th {
-        background-color: var(--wp--preset--color--secondary-dark);;
+        background-color: var(--wp--preset--color--primary-dark);;
       }
     }
   

@@ -42,9 +42,9 @@ body.woocommerce {
 .woocommerce a.button.alt,
 .woocommerce button.button.alt,
 .woocommerce input.button.alt {
-  background-color: var(--wp--preset--color--secondary);
+  background-color: var(--wp--preset--color--primary);
   &:hover {
-    background-color: rgba(var(--wp--preset--color--secondary--decimal), .1);
+    background-color: rgba(var(--wp--preset--color--primary--decimal), .1);
   }
 }
 

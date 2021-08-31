@@ -8,20 +8,6 @@ iframe {
 	color: white;
 }
 
-pre {
-	width: 100%;
-	padding: var(--sizes--margin-l)  var(--sizes--margin-xl);
-	background: var(--wp--preset--color--white);
-	border: 1px solid var(--wp--preset--color--gray-light);
-	white-space: pre-wrap;
-  box-sizing: border-box;
-}
-
-code {
-	font-weight: var(--typography--default--font-weight--regular);
-	word-wrap: break-word;
-}
-
 
 //! Blockquote / Pullquote
 
@@ -38,7 +24,9 @@ cite {
 	padding: ($blockquote__icon-size * .5) $blockquote__icon-size * 1.5;
 	position:relative;
 	border: 1px solid var(--wp--preset--color--gray-light);
-
+	@media #{$mq__content-width} {
+		padding: var(--sizes--margin-m) $blockquote__icon-size * 1.5;
+	}
 	&:before {
 		font-family: 'Material Icons';
 		content: "\E244";
@@ -46,25 +34,13 @@ cite {
 		top: -4px;
 		left: 16px;
 		font-size: $blockquote__icon-size;
-		color: var(--wp--preset--color--primary);
-	}
-
-	&.wp-block-quote {
-		blockquote {
-			border: 0;
-		}
-
-		&:not(.is-large),
-		&:not(.is-style-large) {
-			border-left: 2px solid var(--wp--preset--color--primary);
-		}
+		color: var(--wp--preset--color--secondary);
 	}
 
 	p,
 	cite {
 		font-size: 1em;
 		font-style: italic;
-		font-family: var(--typography--title--font-family);
 		line-height: var(--typography--default--line-height--wide);
 		font-weight: var(--typography--default--font-weight--light);
 		text-transform: none;
@@ -141,8 +117,10 @@ cite {
 		table,
 		pre,
 		blockquote {
-			padding-left: var(--sizes--responsive--side-margin);
 			padding-right: var(--sizes--responsive--side-margin);
+			margin-left: var(--sizes--responsive--side-margin);
+			margin-right: var(--sizes--responsive--side-margin);
+			width: auto;
 		}
 		
 		table {
@@ -169,18 +147,20 @@ cite {
 	li.post-tag {
 		margin: 0 16px 10px 0;
 		padding: 0 10px 0 25px;
+		line-height: 20px;
 	}
 }
 
 .post-tag {
-	background: var(--wp--preset--color--secondary);
+	$post-tag-height: 22px;
+	background: var(--wp--preset--color--primary);
 	border-radius: 3px 0 0 3px;
 	display: inline-block;
-	height: 22px;
-	line-height: 18px;
 	position: relative;
+	line-height: 20px;
 	
 	a {
+		height: $post-tag-height;
 		font-size: 11px;
 		font-weight: var(--typography--default--font-weight--bold);
 		letter-spacing: 1px;
@@ -208,7 +188,7 @@ cite {
 	&::after {
 		background: transparent;
 		border-bottom: 11px solid transparent;
-		border-left: 10px solid var(--wp--preset--color--secondary);
+		border-left: 10px solid var(--wp--preset--color--primary);
 		border-top: 11px solid transparent;
 		content: '';
 		position: absolute;
@@ -217,14 +197,14 @@ cite {
 	}
 	
 	&:hover {
-		background-color: var(--wp--preset--color--secondary);
+		background-color: var(--wp--preset--color--primary);
 		a {
 			color: white;
 		}
 	}
 	
 	&:hover::after {
-		border-left-color: var(--wp--preset--color--secondary);
+		border-left-color: var(--wp--preset--color--primary);
 	}
 }
 

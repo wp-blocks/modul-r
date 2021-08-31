@@ -1,5 +1,6 @@
 %input_model {
   background-color: var(--wp--preset--color--white);
+  color: var(--color--text);
   outline:none!important;
   border: 1px solid var(--wp--preset--color--gray-light);
   font-size: var(--typography--default--font-size--m);
@@ -13,8 +14,8 @@
 
   &:focus,
   &:hover {
-    background-color: rgba(var(--wp--preset--color--secondary--decimal), .025);
-    box-shadow: 0 1px 0 var(--wp--preset--color--secondary);
+    background-color: rgba(var(--wp--preset--color--primary--decimal), .025);
+    box-shadow: 0 1px 0 var(--wp--preset--color--primary);
   }
 }
 

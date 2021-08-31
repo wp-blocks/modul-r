@@ -30,7 +30,16 @@
   
   /* Add icon to "Sidebar" tab */
   #accordion-section-modul_r_settings_sidebar h3:before {content: "\e230";}
-  
+
+  /* Add icon to "Typography" tab */
+  #accordion-section-modul_r_typography_options h3:before {content: "\e262";}
+
+  /* Add icon to "Layout" tab */
+  #accordion-section-modul_r_layout_options h3:before {content: "\e25e";}
+
+  /* Add icon to "Hero" tab */
+  #accordion-section-modul_r_hero_options h3:before {content: "\e3c4";}
+
   /* Add icon to "Homepage" tab */
   #accordion-section-modul_r_home_options h3:before {content: "\e88a";}
   
