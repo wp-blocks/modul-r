@@ -9,7 +9,7 @@
 
 	<?php modul_r_post_image(); ?>
 
-  <header class="entry-header main-width">
+  <header class="entry-header page-header main-width text-center">
 		<?php the_title( '<h1 class="entry-title has-title-color">', '</h1>' ); ?>
 	</header>
 

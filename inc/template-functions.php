@@ -17,17 +17,21 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
 
     <div class="hero">
     <?php modul_r_post_image('parallax header-color'); ?>
-      <div class="hero-title text-center">
-        <h1 class="page-title has-title-color"><?php echo $hero_title; ?></h1>
+      <div class="entry-header hero-title">
+        <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
-      <?php
-        if ($hero_call_to_action > 0) {
-          printf('<a href="%s" class="button big has-header-background-color">%s</a>', esc_url( get_page_link($hero_call_to_action) ), esc_html(get_the_title($hero_call_to_action))) ;
-        }
-        if ($hero_call_to_action_2 > 0) {
-          printf('<a href="%s" class="button big outline">%s</a>', esc_url( get_category_link($hero_call_to_action_2) ), esc_html(get_cat_name($hero_call_to_action_2))) ;
-        }
-      ?>
+        <?php
+          if ($hero_call_to_action > 0 || $hero_call_to_action_2 > 0 ) {
+              echo '<span class="hero-cta-wrapper">';
+              if ( $hero_call_to_action > 0 ) {
+                  printf( '<span class="wp-block-button is-style-big"><a href="%s" class="wp-block-button__link has-header-background-color">%s</a></span>', esc_url( get_page_link( $hero_call_to_action ) ), esc_html( get_the_title( $hero_call_to_action ) ) );
+              }
+              if ( $hero_call_to_action_2 > 0 ) {
+                  printf( '<span class="wp-block-button is-style-outline is-style-big"><a href="%s" class="wp-block-button__link">%s</a></span>', esc_url( get_category_link( $hero_call_to_action_2 ) ), esc_html( get_cat_name( $hero_call_to_action_2 ) ) );
+              }
+              echo '</span>';
+          }
+        ?>
       </div>
     </div>
     <?php
@@ -60,7 +64,7 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
         <div class="hero" >
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
-			        <?php if ( is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
+			        <?php if ( class_exists( 'WooCommerce' ) && is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
                 $wooOptions = get_theme_mod( 'modul_r_woo' );
                   if ( !empty($wooOptions['shop_hero'] ) ) {
                       $shop_hero_id = attachment_url_to_postid( esc_url_raw( $wooOptions['shop_hero'] ) );
@@ -71,8 +75,8 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
               }?>
 
             </div>
-            <div class="hero-title text-center">
-	            <?php the_archive_title( '<h1 class="page-title main-width has-title-color">', '</h1>' ); ?>
+            <div class="hero-title text-center main-width">
+	            <?php the_archive_title( '<h1 class="page-title has-title-color">', '</h1>' ); ?>
 	            <?php if (is_author()) {
 		            printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
 	            } else {
@@ -356,8 +360,9 @@ endif;
 if ( ! function_exists('modul_r_custom_body_class') ) :
 	function modul_r_custom_body_class( $classes ) {
 		global $post;
+		$woo_enabled = class_exists( 'WooCommerce' );
 
-		if (  is_page() || ( is_single() && empty(is_product()) ) || ( is_archive() && empty(is_product_category())) || ( !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
+		if (  is_page() || ( is_single() && !($woo_enabled && is_product()) ) || ( is_archive() && !($woo_enabled && is_product_category())) || ( ($woo_enabled && is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
       if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {
         $classes[] = 'has-featured-image';
@@ -366,7 +371,7 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 
     // get theme option "sidebar enabled"
     $opt_sidebar = get_theme_mod('modul_r_sidebar_enabled');
-    if ( $opt_sidebar === true && ( ( is_archive() && !empty( is_product_category()) ) || !empty(is_shop()) && get_theme_mod( 'modul_r_woo' ) || is_single() || (is_page() && !is_front_page()) ) ) {
+    if ( $opt_sidebar === true && ( ( is_archive() && ($woo_enabled && is_product_category()) ) || $woo_enabled && is_shop() || is_single() || (is_page() && !is_front_page()) ) ) {
         $classes[] = 'has-sidebar';
     }
 

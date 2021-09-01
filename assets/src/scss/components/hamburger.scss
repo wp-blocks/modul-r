@@ -19,40 +19,60 @@
     background-color: transparent;
   
     i {
-      display: block;
-      position: absolute;
-      top: $hamburger__size * .5;
-      background: $hamburger__color;
-      left: 0;
-      right: 0;
-      height: $hamburger__weight;
-      transition: background 0.15s 0.1s;
-      transition-delay: 0.1s, 0s;
-      
+
+      &,
       &::after,
       &::before {
-        position: absolute;
+        background-color: var(--element--hamburger--color);
         display: block;
+        position: absolute;
+        height: $hamburger__weight;
         left: 0;
         width: 100%;
-        height: $hamburger__weight;
-        background: $hamburger__color;
+      }
+
+      & {
+        top: $hamburger__size * .5;
+        transition: background 0.15s 0.1s;
+        transition-delay: 0.1s, 0s;
+      }
+
+      &::before {
+        top: $hamburger__size * .3;
+        transition-property: top, transform;
+      }
+
+      &::after {
+        bottom: $hamburger__size * .3;
+        transition-property: bottom, transform;
+      }
+
+      &::after,
+      &::before {
         content: "";
         transition-duration: .3s,.3s; transition-delay: 0.3s, 0s;
       }
-      &::before {top: $hamburger__size * .3;transition-property: top, transform;}
-      &::after {bottom: $hamburger__size * .3;transition-property: bottom, transform;}
     }
     
     .active & {
       i {
         background: 0 0;
         transition-delay: 0.2s, 0.0s;
-        
-        &::before { top: 0; transform: rotate(45deg); }
-        &::after { bottom: 0; transform: rotate(-45deg); }
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          bottom: 0;
+          transform: rotate(-45deg);
+        }
+
         &::after,
-        &::before { transition-delay: 0s, 0.3s;}
+        &::before {
+          transition-delay: 0s, 0.3s;
+        }
       }
       
     }

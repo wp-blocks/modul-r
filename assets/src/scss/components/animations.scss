@@ -61,8 +61,8 @@ figure.parallax,
   
   figcaption {
     position: absolute;
-    right: $size__padding_resp;
-    left: $size__padding_resp;
+    right: var(--sizes--responsive--side-margin);
+    left: var(--sizes--responsive--side-margin);
   }
   
   max-height: 70vh;

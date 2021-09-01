@@ -8,13 +8,12 @@
 .has-black-background-color,
 .has-gray-dark-background-color,
 .has-gray-dark-background-color {
-  
   // Use white text against these backgrounds by default.
-  color: $color__background;
+  color: var(--wp--preset--color--white);
 }
 
 .has-white-background-color,
 .has-white-smoke-background-color,
 .has-gray-light-background-color {
-  color: $color__text;
+  color: var(--color--text);
 }

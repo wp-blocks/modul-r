@@ -1,187 +1,180 @@
-$nav_padding: 0 ($size__margin * 4);
-$nav_padding_resp: 0 ($size__margin * 3);
-
 .main-navigation {
   
-  @media #{$mq__responsive_brekpoint} {
+  @media #{$mq__responsive_breakpoint} {
     overflow-y: auto;
   }
-  
+
   // THE MAIN LEVEL MENU
   .main-menu {
     display: flex;
     height: 100%;
     align-items: center;
     justify-content: center;
-  
-    @media #{$mq__responsive_brekpoint} {
+
+    @media #{$mq__responsive_breakpoint} {
       align-items: flex-start;
       justify-content: flex-start;
     }
   }
- 
+
   ul {
     display: flex;
     justify-content: center;
-    height: $size__nav-height;
+    height: var(--header--nav--height);
     margin: 0;
     padding: 0;
- 
-    @media #{$mq__responsive_brekpoint} {
+
+    @media #{$mq__responsive_breakpoint} {
       display: block;
       max-width: 100%;
     }
   }
-  
+
   li {
     display: block;
     position: relative;
     margin: 0;
     padding: 0;
-  
+
     a {
       display: block;
       white-space: nowrap;
-      height: $size__nav-height;
-      line-height: $size__nav-height;
-      padding: $nav_padding;
+      height: var(--header--nav--height);
+      line-height: var(--header--nav--height);
+      padding: 0 var(--sizes--margin-l);
       box-sizing: border-box;
-  
-      font-weight: 600;
+      color: var(--header--text-color);
+
+      font-weight: var(--typography--default--font-weight--bold);
       text-decoration: none !important;
       opacity: .8;
       transition: $animations__lenght;
-      
+
       &:hover {opacity: 1;}
-  
+
       @media #{$mq__laptop} {
-        padding: $nav_padding_resp;
+        padding: 0 var(--sizes--margin-m);
       }
-  
-      @media #{$mq__responsive_brekpoint} {
+
+      @media #{$mq__responsive_breakpoint} {
         height: auto;
-        line-height: $size__nav-responsive-line-height;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+        font-weight: var(--typography--default--font-weight--regular);
+        font-size: calc(var(--typography--default--font-size--m) - 2px);
+        line-height: $size__nav-responsive-line-height;
       }
-      
+
     }
-  
-    @media #{$mq__responsive_brekpoint} {
-      li a {
-        font-weight: 400;
-        opacity: .7;
-        line-height: $size__nav-height * .66;
-      }
-    }
-  
+
     &.current-menu-item,
     &.current-menu-ancestor,
     &.current-menu-parent {
       a {
+        font-weight: var(--typography--default--font-weight--bold);
         opacity: 1;
       }
     }
   }
-  
+
   // THE SUBMENUS
   .menu > li {
-    
+
     &:first-child a {
       padding-left: 0;
     }
-    
+
     &:last-child a {
       padding-right: 0;
     }
-   
+
     li a {
-      padding: $nav_padding !important;
-      @media #{$mq__responsive_brekpoint} {
-        padding: 0!important;
+      padding: 0 var(--sizes--margin-l) !important;
+      @media #{$mq__responsive_breakpoint} {
+        padding: 0 !important;
       }
     }
-    
+
     a {
-      line-height: 2.5;
+      line-height: $size__nav-line-height;
       height: inherit;
-      @media #{$mq__responsive_brekpoint} {
+      @media #{$mq__responsive_breakpoint} {
         padding: 0;
       }
     }
-  
-    @media #{$mq__responsive_brekpoint} {
+
+    @media #{$mq__responsive_breakpoint} {
       .sub-menu {
-        padding-left: $size__margin *2;
+        padding-left: var(--sizes--margin-m);
       }
     }
-    
+
   }
-  
+
   .menu-shadow {
     display: none;
   }
-  
-  @media #{$mq__responsive_brekpoint} {
-    background-color: darken($color__nav-background, 5%);
+
+  @media #{$mq__responsive_breakpoint} {
+    background-color: rgba(var(--header--background--dark--decimal),.9);
     height: 100vh;
-    padding: $size__nav-height $size__padding-resp ($size__padding-resp * 1.5);
+    padding: var(--header--nav--height) var(--sizes--margin-m) var(--sizes--margin-l);
     // if you want to append the menu to the edge of the header
-    // height: calc(100vh - #{$size__nav-height});
-    // padding: ($size__padding-resp * 1.5) $size__padding-resp;
+    // height: calc(100vh - var(--header--nav--height));
+    // padding: var(--sizes--margin-l) var(--sizes--responsive--side-margin);
     z-index: 1020;
     width: 90%;
-    max-width: $size__responsive-menu-width;
+    max-width: $size__responsive-menu-max-width;
     box-sizing: border-box;
     transform: translateX(100%);
     right: 0;
-    
+
     & + .menu-shadow,
     & {
       position: absolute;
       top: 0;
       // if you want to append the menu to the edge of the header
-      // top: $size__nav-height;
+      // top: var(--header--nav--height);
       bottom: 0;
       transition: 350ms;
       transition-delay: 50ms;
     }
-    
+
     & + .menu-shadow {
       display: block;
       height: 100vh;
       width: 100%;
       opacity: 0;
       right: 100%;
-      background-color: transparentize($color__black, .5);
+      background-color: rgba( var(--wp--preset--color--black--decimal), .5);
       transition: 200ms opacity;
       transform: translateX(0) !important;
     }
   }
-  
-  @media #{$mq__responsive-size_brekpoint} {
-    
-    height: calc(100vh - #{$head__height-responsive});
-    padding: ($size__padding-resp * 1.5) $size__padding-resp;
-    
+
+  @media #{$mq__responsive_breakpoint} {
+
+    height: calc(100vh - var(--header--branding--height));
+    padding: var(--sizes--margin-l) var(--sizes--responsive--side-margin);
+
     & + .menu-shadow,
     & {
-      top: $head__height-responsive;
+      top: var(--header--branding--height);
     }
-    
+
   }
-  
+
 }
 
-@media #{$mq__responsive_brekpoint} {
+@media #{$mq__responsive_breakpoint} {
   #masthead {
-    
+
     &.active {
       .main-navigation {
         transform: translateX(0);
       }
-    
+
       .main-navigation + .menu-shadow {
         opacity: 1;
         right: 0;
@@ -190,7 +183,7 @@ $nav_padding_resp: 0 ($size__margin * 3);
   }
 }
 
-body ul.sub-menu {
+.site ul.sub-menu {
   position: absolute;
   z-index: 1010;
   flex-direction: column;
@@ -205,19 +198,19 @@ body ul.sub-menu {
 
   transition: $animations__lenght * .5;
   transition-delay: 0ms;
-  
-  @media #{$mq__responsive_brekpoint} {
+
+  @media #{$mq__responsive_breakpoint} {
     position: inherit;
     opacity: 1;
     background-color: transparent !important;
-    padding-left: $size__padding-resp * .5;
+    padding-left: var(--sizes--margin--);
   }
 
   ul.sub-menu {
     top: 0;
     left: 100%;
-  
-    @media #{$mq__responsive_brekpoint} {
+
+    @media #{$mq__responsive_breakpoint} {
       position: inherit;
       left: inherit;
       background-color: transparent;

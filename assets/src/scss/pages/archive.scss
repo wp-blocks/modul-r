@@ -17,7 +17,7 @@ body.archive {
           left: -100px;
           right: -100px;
           content: '';
-          background-color: transparentize($color__black, .95);
+          background-color: rgba(var(--wp--preset--color--black--decimal), .05);
         }
       }
       
@@ -32,45 +32,43 @@ body.archive {
       
     }
   }
-  
-  
-  
-  
+
   article {
     display: flex;
     margin: 0 auto;
-    padding: $size__padding 0;
+    padding: var(--sizes--margin-xl) 0;
     min-height: 100px;
     position: relative;
     z-index: 2;
   
     @media #{$mq__smaller-than-tablet} {
       flex-direction: column;
-      padding: ($size__padding * .75) $size__padding-resp;
+      padding: var(--sizes--margin-l) var(--sizes--responsive--side-margin);
     }
   
     .article-wrapper {
       max-width: 100%;
+      width: 100%;
     }
     
     .entry-image {
       $archive_image: 280px;
       min-width: $archive_image;
       max-width: $archive_image;
-      margin-right: $size__padding * .75;
+      margin-right: var(--sizes--margin-l);
   
       @media #{$mq__smaller-than-tablet} {
-        width: calc(100% + #{$size__padding-resp * 5});
+        width: calc(100% + var(--sizes--margin-s));
         min-width: inherit;
-        max-width: calc(100% + #{$size__padding-resp * 5});
-        margin: (-$size__padding * .75) #{$size__padding-resp * - 2.5} $size__padding-resp;
+        max-width: calc(100% + var(--sizes--margin-s));
+        margin: var(--sizes--margin-l) calc(var(--sizes--margin-m)  * -2.5) var(--sizes--responsive--side-margin);
         img {
           transform: rotate(-1deg);
         }
       }
   
       + .article-wrapper {
-        min-width: calc(100% - #{$archive_image + ($size__padding * .75)});
+        min-width: calc( 100% - #{$archive_image} + var(--sizes--margin-l) );
         @media #{$mq__smaller-than-tablet} {width: 100%;}
       }
       
@@ -89,12 +87,14 @@ body.archive {
     }
     
     .entry-header {
-      padding:0;
-  
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0;
+
       .entry-title {
         width: 100%;
-        font-size: 28px;
-        margin: 0 0 $size__margin;
+        font-size: var(--typography--default--font-size--xl);
+        margin: 0 0 var(--sizes--margin--);
         padding: 0;
         text-align: left;
         @media #{$mq__smaller-than-tablet} {font-size: 24px;}
@@ -116,15 +116,13 @@ body.archive {
   
     .entry-footer {
       .post-meta {
-        padding: ($size__padding * .25) 0 0;
+        padding: var(--sizes--margin-m) 0 0;
       }
       .meta-wrapper {
-        margin: 0;
-        padding: 0;
         p {
-          font-size: 12px;
+          font-size: var(--typography--default--font-size--xs);
           text-transform: uppercase;
-          margin-left: $size__margin;
+          margin-left: var(--sizes--margin--);
           &:first-of-type { margin-left: 0}
         }
       }

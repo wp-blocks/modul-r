@@ -16,21 +16,20 @@
   &.skip-link {display: block;}
   
   &:focus {
-    background-color: $color__primary;
+    background-color: var(--wp--preset--color--secondary);
     border-radius: 3px;
-    box-shadow: 0 0 2px 2px transparentize($color__black, 0.25);
+    box-shadow: 0 0 2px 2px rgba(var(--wp--preset--color--black--decimal), .5 );
     clip: auto !important;
     clip-path: none;
-    color: $color__white;
-    font-size: $text__size - 1;
-    font-weight: 600;
+    color: var(--wp--preset--color--white);
+    font-weight: bolder;
     height: auto;
     display: block;
-    right: $size__margin;
-    top: $size__margin;
+    right: var(--sizes--margin--);
+    top: var(--sizes--margin--);
     z-index: 100000;
     line-height: 1;
-    padding: ($size__margin * 1.5) ($size__margin * 3);
+    padding: var(--sizes--margin--) var(--sizes--margin-l);
     text-decoration: none;
     width: auto;
     /* Above WP toolbar. */

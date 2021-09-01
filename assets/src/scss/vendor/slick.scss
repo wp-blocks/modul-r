@@ -192,27 +192,28 @@ $slick-next-character: ">" !default;
     width: 100%;
     height: auto;
   }
-  padding: $size__margin * .5;
+  padding: var(--sizes--margin-xs);
 }
 
 .slick-dots {
+  $slick_dot_size: 8px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   
   margin: 0;
-  padding: $size__margin 0;
+  padding: var(--sizes--margin--) 0;
   
   list-style-type: none;
   
   li {
-    margin: 0 $size__margin;
+    margin: 0 var(--sizes--margin--);
   }
   
   button {
     display: block;
-    width: $size__margin;
-    height: $size__margin;
+    width: $slick_dot_size;
+    height: $slick_dot_size;
     margin: 0;
     padding: 0;
     min-width: inherit;
@@ -220,13 +221,13 @@ $slick-next-character: ">" !default;
     
     border: none;
     border-radius: 100%;
-    background-color: $color__light-grey;
+    background-color: var(--wp--preset--color--gray-light);
     &:hover,
     &:focus{
-      width: $size__margin + 4;
-      height: $size__margin + 4;
-      margin-top: $size__margin * -.25;
-      background-color: darken($color__light-grey,10%);
+      width: $slick_dot_size * 1.25;
+      height: $slick_dot_size * 1.25;
+      margin-top: -$slick_dot_size * .25;
+      background-color:  var(--wp--preset--color--gray);
       filter: inherit;
     }
     
@@ -234,7 +235,7 @@ $slick-next-character: ">" !default;
   }
   
   li.slick-active button {
-    background-color: $color__secondary;
+    background-color:var(--wp--preset--color--primary);
     width: $size__margin + 8;
     height: $size__margin + 8;
     margin-top: $size__margin * -.5;

@@ -5,8 +5,8 @@ body.home {
   
     // if it's the first element of the content
     & > .wp-block-columns:first-child {
-      margin-top: ($size__padding * -1.5);
-      margin-bottom: $size__padding;
+      margin-top: calc(var(--sizes--margin-xl) * -1.5);
+      margin-bottom: var(--sizes--margin-xl);
       display: flex;
       flex-wrap: wrap;
       position: relative;
@@ -14,36 +14,37 @@ body.home {
       @media #{$mq__smaller-than-tablet} {
         flex-direction: column;
         text-align: left;
-        margin-bottom: $size__padding * .5;
+        margin-bottom: var(--sizes--margin-l);
       }
       
       .wp-block-column {
-        background: $color__white;
-        margin: 0 ($size__padding * .5);
-        padding: 0 $size__padding-resp ($size__padding-resp * 1.5);
-        box-shadow: 0 4px 24px -12px transparentize($color__dark-grey, .2);
-        border-radius: $size__margin * .5;
-        line-height: $text__line-height;
+        background: var(--wp--preset--color--white);
+        margin: 0 var(--sizes--margin-l);
+        padding: 0 var(--sizes--margin-m) var(--sizes--margin-l);
+        border: 1px solid var(--wp--preset--color--gray-light);
+        border-radius: var(--sizes--margin-xs);
+        line-height: var(--typography--default--line-height);
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
         flex: 1 0 20%;
+        box-shadow: 0 4px 20px -10px rgba(var(--wp--preset--color--black--decimal), .8);
   
         @media #{$mq__smaller-than-tablet} {
           padding-bottom: 0;
           align-items: flex-start;
-          margin: 0 $size__padding-resp ($size__margin * 2);
+          margin: 0 var(--sizes--margin-m) var(--sizes--margin-m);
           height: 160px;
         }
   
         .wp-block-image {
           justify-content: center;
-          margin: 0 (-$size__padding-resp) $size__padding-resp;
+          margin: 0 calc(var(--sizes--margin-m) * -1) var(--sizes--responsive--side-margin);
           flex: auto;
   
           @media #{$mq__smaller-than-tablet} {
-            margin: 0 $size__padding-resp 0 (-$size__padding-resp) ;
+            margin: 0 var(--sizes--margin-m) 0 0;
             width: 30%;
             height: 100%;
           }
@@ -51,12 +52,13 @@ body.home {
           img {
             height: 100%;
             object-fit: inherit;
-            padding-top: $size__margin * 2;
+            padding-top: var(--sizes--margin-m);
   
             @media #{$mq__smaller-than-tablet} {
-              width: 70%;
-              padding: 15% 30%;
-              height: 70%;
+              width: 100%;
+              padding: 15% 15%;
+              height: 100%;
+              box-sizing: border-box;
             }
           }
 
@@ -87,7 +89,7 @@ body.home {
   
           a {font-weight: 400;}
     
-          b, strong { color: $color__text;}
+          b, strong { color: var(--color--text);}
         }
       }
     }
@@ -126,12 +128,12 @@ body.home {
 
 body.blog {
   .page-header {
-    padding-top: $size__padding;
-    padding-bottom: $size__padding * .75;
+    padding-top: var(--sizes--margin-xl);
+    padding-bottom: var(--sizes--margin-l);
     
     @media #{$mq__smaller-than-tablet} {
-      padding-top: $size__padding  * .5;
-      padding-bottom: $size__padding * .25;
+      padding-top: var(--sizes--margin-l);
+      padding-bottom: var(--sizes--margin-m);
     }
   }
 }

@@ -4,6 +4,9 @@
   /* Add icon to "Header" tab */
   /* Add icon to "Footer" tab */
   /* Add icon to "Sidebar" tab */
+  /* Add icon to "Typography" tab */
+  /* Add icon to "Layout" tab */
+  /* Add icon to "Hero" tab */
   /* Add icon to "Homepage" tab */
   /* Add icon to "woo" tab */
   /* Add icon to "Social Share" tab */
@@ -35,6 +38,15 @@
 }
 #customize-controls #accordion-section-modul_r_settings_sidebar h3:before {
   content: "\e230";
+}
+#customize-controls #accordion-section-modul_r_typography_options h3:before {
+  content: "\e262";
+}
+#customize-controls #accordion-section-modul_r_layout_options h3:before {
+  content: "\e25e";
+}
+#customize-controls #accordion-section-modul_r_hero_options h3:before {
+  content: "\e3c4";
 }
 #customize-controls #accordion-section-modul_r_home_options h3:before {
   content: "\e88a";

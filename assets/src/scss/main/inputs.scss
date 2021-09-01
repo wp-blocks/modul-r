@@ -1,40 +1,39 @@
-input,
-select,
-textarea {
-  box-sizing: border-box;
-  padding: 12px 8px;
-  margin:0;
-  background: white;
+%input_model {
+  background-color: var(--wp--preset--color--white);
+  color: var(--color--text);
   outline:none!important;
-  border: 1px solid $color__light-grey;
-  
-  font-size: $text__size;
-  
+  border: 1px solid var(--wp--preset--color--gray-light);
+  font-size: var(--typography--default--font-size--m);
+  font-weight: var(--typography--default--font-weight--regular);
+  box-sizing: border-box;
+  border-radius:4px 4px 0 0;
+  padding: 12px 8px;
   transition:350ms;
-}
+  margin: 0 0 var(--sizes--margin--);
+  line-height: var(--typography--default--line-height);
 
-input {
-  border: 0 solid transparent;
-  
-  &[type="text"],
-  &[type="number"],
-  &[type="email"],
-  &[type="url"],
-  &[type="date"],
-  &[type="tel"] {
-    width: 100%;
-    padding-left: $size__margin * .5;
-    box-shadow: 0 1px 0 $color__light-grey;
-    
-    &:hover {
-      box-shadow: 0 1px 0 $color__secondary;
-    }
-  
-    &:focus {
-      box-shadow: 0 2px 0 $color__secondary;
-    }
+  &:focus,
+  &:hover {
+    background-color: rgba(var(--wp--preset--color--primary--decimal), .025);
+    box-shadow: 0 1px 0 var(--wp--preset--color--primary);
   }
 }
+
+select,
+textarea,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="password"],
+input[type="tel"] {
+  @extend %input_model;
+  padding-left: var(--sizes--margin--);
+  padding-right: var(--sizes--margin--);
+  box-shadow: 0 0 0 var(--wp--preset--color--gray-light);
+}
+
 
 [type="checkbox"], [type="radio"] {
   margin: 0;
@@ -43,14 +42,19 @@ input {
 }
 
 .input-label {
-  font-size: $text__size * .5;
+  font-size: var(--typography--default--font-size--xs);
 }
 
-label {
+form label {
+  color: var(--wp--preset--color--gray-dark);
+  font-size: calc(var(--typography--default--font-size--m) - 1px);
+
   input + span {
-    font-size: $text__size - 2;
-    line-height: $text__size + 2;
     opacity: .8;
+  }
+
+  input:not(button):not(input[type="submit"]) {
+    width: 100%;
   }
 }
 
@@ -64,13 +68,4 @@ textarea {
 
 fieldset {
   margin: $size__margin 0;
-}
-
-input, textarea {
-  margin-bottom: $size__margin;
-}
-
-select, textarea {
-  width: 100%;
-  border-radius:4px;
 }

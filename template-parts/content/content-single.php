@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header main-width alignwide">
+	<header class="entry-header page-header main-width text-center">
 
     <?php modul_r_breadcrumbs(); ?>
 

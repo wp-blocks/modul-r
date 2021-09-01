@@ -7,14 +7,14 @@ table {
     
     th,
     td {
-      padding: $size__margin * 1.5;
+      padding: var(--sizes--margin-s);
     }
     th {
-      background: $color__secondary;
+      background: var(--wp--preset--color--primary);
       color: #fff;
     }
     td {
-      border-bottom: 1px solid $color__light-grey;
+      border-bottom: 1px solid var(--wp--preset--color--gray-light);
     }
   }
 }

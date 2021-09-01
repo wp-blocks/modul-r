@@ -1,6 +1,6 @@
 // TODO: remove or check if is used
 .header-color {
-  background-color: $color__nav-background;
+  background-color: var(--header--nav-background);
 }
 
 #masthead {
@@ -9,20 +9,26 @@
   top: 0;
   width: 100%;
   transition: $animations__lenght;
+  color: var(--header--text-color);
   
-  @media #{$mq__responsive-size_brekpoint} {
-    height: $head__height-responsive;
+  @media #{$mq__responsive_breakpoint} {
+    height: var(--header--branding--height);
     transform: inherit !important;
     padding: 0;
   }
-  
+
   // UTILS && ANIMATIONS
   // if the page was scrolled shows a shadow under the header
-  .scrolled & { box-shadow: 0 3px 10px -5px  transparentize($color__black, 0.3);}
-  
+  .scrolled & {
+    box-shadow: 0 3px 10px -5px rgba( var(--wp--preset--color--black--decimal), .7);
+    @media #{$mq__responsive_breakpoint} {
+      transform: inherit !important;
+    }
+  }
+
   // hides the logo in portrait header when the page is scrolled
-  .scrolled &.header-portrait  { transform: translateY(-#{$size__branding-height + $size__margin});}
-  
+  .scrolled &.header-portrait  { transform: translateY( calc( var(--header--branding--height) * -1 ) ); }
+
   // the background image
   .site-header-image {
     position: absolute;
@@ -30,67 +36,66 @@
     height: 100%;
     left: 0;
   }
-  
+
   .show-on-mobile {
     display: none;
-    @media #{$mq__responsive_brekpoint} {
+    @media #{$mq__responsive_breakpoint} {
       display: block;
     }
   }
-  
+
   %header-top-right-position {
     position: absolute;
     top: 0;
-    right: $size__padding-resp;
+    right: var(--sizes--responsive--side-margin);
     height: 100%;
-    @media #{$mq__responsive_brekpoint} {
+    @media #{$mq__responsive_breakpoint} {
       display: flex;
       justify-content: center;
       align-content: center;
     }
   }
-  
+
   // the menu icons near the hamburger
   .menu-resp {
     @extend %header-top-right-position;
     z-index: 1030;
   }
-  
+
   // the menu icons near the hamburger
   .menu-icons-container {
-  
     $icons-height: 20px;
-    
+
     @extend %header-top-right-position;
     z-index: 1010;
-    right: ($size__padding-resp * 3) + $hamburger__size ;
-    
+    right: var(--sizes--margin-m) + $hamburger__size ;
+
     .button {
       min-width: $icons-height;
-      margin: auto 0 auto ($size__margin * 1.25);
-      padding: ($size__margin * 1.25);
-      
-      border-radius: $icons-height + ($size__margin * 1.5);
-      border: 1.5px solid transparentize($color__light-grey, .5);
-  
+      margin: auto 0 auto var(--sizes--margin--);
+      padding: var(--sizes--margin-m);
+
+      border-radius: $icons-height + var(--sizes--margin-s);
+      border: 1.5px solid var(--wp--preset--color--gray-light);
+
       opacity: 0.75;
       transition: $animations__lenght;
-      
+
       &.text {
-        padding: ($size__margin * 1.25) ($size__margin * 2.5);
+        padding: ($size__margin * 1.25) var(--sizes--margin-m);
       }
-      
+
       &:hover {
         opacity: 1;
       }
-  
+
       span {
         display: block;
-        font-size: $text__size - 4;
+        font-size: var(--typography--default--font-size--s);
         height: $icons-height;
         line-height: $icons-height + 2;
       }
-  
+
       i {
         font-size: $icons-height;
         line-height: $icons-height;
@@ -98,141 +103,151 @@
       }
     }
   }
-  
+
   // Logo/site title container
   .header-wrapper {
     display: flex;
     margin-top: 0;
     margin-bottom: 0;
-    
-    @media #{$mq__responsive-size_brekpoint} {height: 100%;}
-    
+
+    @media #{$mq__responsive-size_breakpoint} {height: 100%;}
+
     .site-branding {
       align-items: flex-start;
-  
-      @media #{$mq__responsive-size_brekpoint} {
+      height: var(--header--branding--height);
+
+      @media #{$mq__responsive-size_breakpoint} {
         text-align: left;
         padding-right: $hamburger__size * 2;
         justify-content: flex-start !important;
       }
-  
+
       // Custom logo
       .custom-logo-link {
         display: flex;
         height: 100%;
         align-items: center;
-    
+
         .custom-logo {
           object-fit: contain;
-          height: $size__logo-size;
-          max-width: 100%;
+          height: var(--header--logo--height);
           width: auto;
-      
-          @media #{$mq__responsive-size_brekpoint} {
-            max-height: $head__height-responsive - ($size__margin * 2);
+          max-width: var(--header--branding--max-width);
+
+          @media #{$mq__responsive-size_breakpoint} {
+            max-height: calc(var(--header--branding--height) - var(--sizes--margin-m));
             width: auto;
             margin: 0;
           }
         }
       }
-  
-      &.has-custom-logo .site-logo {
-        height: $size__branding-height;
+
+      .site-logo {
+        height: var(--header--branding--height);
       }
-      
+
       &.has-header-text.has-custom-logo {
         display: flex;
         flex-direction: row;
         align-items: center;
-        
+
         .site-logo {
-          margin-right: $size__margin;
-  
-          @media #{$mq__responsive-size_brekpoint} {
+          margin-right: var(--sizes--margin--);
+
+          @media #{$mq__responsive-size_breakpoint} {
             width: auto;
           }
         }
         .custom-logo {object-position: right;}
-        
+
         .header-text {
           text-align: left;
-          margin-left: $size__margin;
+          margin-left: var(--sizes--margin--);
         }
       }
     }
-    
+
     // Site title & description (no custom logo)
     .header-text {
-      height: $size__logo-size;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-  
+
+      .site-title a {
+        color: var(--header--title-color);
+      }
+
       .site-title,
       .site-description {
         margin: 0;
         white-space: nowrap;
       }
-  
+
       .site-description {
         display: inline-block;
-        font-weight: 300;
+        font-weight: var(--typography--default--font-weight--light);
+        color: var(--header--text-color);
       }
     }
-    
+
   }
-  
-  
+
+
   //  PORTRAIT
   &.header-portrait .header-wrapper {
-    
+
     flex-direction: column;
-    @media #{$mq__responsive-size_brekpoint} {
+    @media #{$mq__responsive-size_breakpoint} {
       justify-content: center;
     }
-    
+
     .site-branding {
-      @media #{$mq__responsive-size_brekpoint} {
+      @media #{$mq__responsive-size_breakpoint} {
         padding-top: 0;
       }
-      
+
       .header-text {
         text-align: center;
         margin-right: auto;
-        @media #{$mq__responsive-size_brekpoint} {
+        padding-top: var(--sizes--margin--);
+        padding-bottom: var(--sizes--margin--);
+
+        @media #{$mq__responsive_breakpoint} {
           text-align: left;
+          padding-top: 0;
+          padding-bottom: 0;
         }
-  
-  
+
         .site-title {
-          font-size: $size__branding-height * .50;
+          font-size: calc( var(--header--branding--height) * .4 );
           line-height: 1;
         }
-  
+
         .site-description {
-          font-size: $size__branding-height * .20;
+          font-size: calc( var(--header--branding--height) * .2 );
           line-height: 1;
         }
       }
-      
+
       &.has-header-text.has-custom-logo {
         justify-content: center;
         margin-right: 0;
       }
     }
-    
+
     .main-navigation {
       ul {
         height: auto;
       }
     }
-    
+
     .site-logo {
       margin-left: auto;
       .custom-logo {
         margin-left: auto;
         margin-right: auto;
-        @media #{$mq__responsive-size_brekpoint} {
+        @media #{$mq__responsive-size_breakpoint} {
           margin-right: 0;
           margin-left: 0;
         }
@@ -245,8 +260,8 @@
   // LANDSCAPE
   &.header-landscape .header-wrapper {
     flex-direction: row;
-    height: $size__nav-height;
-    @media #{$mq__responsive_brekpoint} {
+    height: var(--header--nav--height);
+    @media #{$mq__responsive_breakpoint} {
       height: 100%;
     }
     
@@ -254,37 +269,37 @@
       padding-top: 0;
       box-sizing: border-box;
       width: 100%;
-      @media #{$mq__responsive_brekpoint} {
-        padding-top: $size__margin * .5;
-        padding-bottom: $size__margin * .5;
+      height: 100%;
+      @media #{$mq__responsive_breakpoint} {
+        padding-top: var(--sizes--margin-xs);
+        padding-bottom: var(--sizes--margin-xs);
       }
   
       .site-logo {
+        height: 100%;
         margin-left: 0;
         width: auto;
-        height: 100%;
       }
       
       .custom-logo {
         object-position: left;
         width: auto;
-        height: $size__logo-size;
-        max-width: $size__branding-max-width;
-        @media #{$mq__responsive_brekpoint} {
+        height: var(--header--logo--height);
+        @media #{$mq__responsive_breakpoint} {
           max-width: 100%;
         }
       }
   
       .header-text {
         .site-title {
-          font-size: $size__nav-height * .33;
+          font-size: calc(var(--header--nav--height) * .3);
           line-height: 1;
         }
   
         .site-description {
           display: inline-block;
-          font-weight: 300;
-          font-size: $size__nav-height * .22;
+          font-weight: var(--typography--default--font-weight--light);
+          font-size: calc(var(--header--nav--height) * .2);
           line-height: 1;
         }
       }
@@ -299,8 +314,8 @@
       }
       
       li a {
-        line-height: $size__nav-height;
-        @media #{$mq__responsive_brekpoint} {
+        line-height: var(--header--nav--height);
+        @media #{$mq__responsive_breakpoint} {
           line-height: $size__nav-responsive-line-height;
           height: auto;
         }
@@ -309,8 +324,8 @@
     
     .main-menu {
       justify-content: flex-end;
-      padding: 0 0 0 $size__padding-resp;
-      @media #{$mq__responsive_brekpoint} {
+      padding: 0 0 0 var(--sizes--responsive--side-margin);
+      @media #{$mq__responsive_breakpoint} {
         padding: 0;
         justify-content: flex-start;
       }
