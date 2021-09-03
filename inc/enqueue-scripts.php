@@ -86,12 +86,21 @@ add_action( 'wp_footer', 'modul_r_fix_content_height', 10 );
  */
 if ( ! function_exists( 'modul_r_theme_style' ) ) :
 	function modul_r_theme_style() {
-      wp_dequeue_style( 'global-styles' );
 		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array() );
 	}
 endif;
 add_action( 'wp_footer', 'modul_r_theme_style', 1 );
 
+/**
+ * Dequeue global wordpress style
+ */
+if ( ! function_exists( 'modul_r_remove_global_style' ) ) :
+    function modul_r_remove_global_style() {
+        wp_deregister_style( 'global-styles' );
+        wp_dequeue_style( 'global-styles' );
+    }
+endif;
+add_action( 'wp_enqueue_scripts', 'modul_r_remove_global_style' );
 
 /**
  * Load scripts
