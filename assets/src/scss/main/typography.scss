@@ -83,7 +83,7 @@ ul, ol, dl {
 	margin-bottom: var(--sizes--margin-m);
 	padding: 0;
 	
-	li, dt {
+	li, dt, dd {
 		line-height: var(--typography--default--line-height);
 		margin: 0;
 	}

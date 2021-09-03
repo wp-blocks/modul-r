@@ -7,7 +7,7 @@ if (!isset($modul_r_defaults)) {
 			'primary' => '#6f4cad',
 			'secondary' => '#16bebb',
 			'white' => '#ffffff',
-			'white-smoke' => '#fafafa',
+			'white-smoke' => '#f1f1f1',
 			'gray-light' => '#e3e3e3',
 			'gray' => '#888888',
 			'gray-dark' => '#4e4e4e',

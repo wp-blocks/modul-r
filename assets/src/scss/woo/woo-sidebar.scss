@@ -12,7 +12,6 @@
       line-height: 42px;
       margin: 0;
       @extend .ellipsis;
-      border-top: 1px solid var(--color--text);
     }
   
     & > li:first-child { border: 0; }

@@ -16,7 +16,7 @@
   .page-header {
     margin-bottom: var(--sizes--margin-xl);
 
-    @media #{$mq__smaller-than-tablet} {
+    @media #{$mq__responsive-size_breakpoint} {
       margin-bottom: var(--sizes--margin-m);
     }
   }
@@ -34,7 +34,7 @@
   a {
     color: var(--color--title);
   }
-  @media #{$mq__smaller-than-tablet} {
+  @media #{$mq__responsive-size_breakpoint} {
     width: 100%
   }
 }
@@ -47,8 +47,8 @@
   max-width: var(--sizes--content--width-wide);
   text-align: center;
   margin: 0 auto var(--sizes--margin-m);
-  
-  @media #{$mq__content-width} {
+
+  @media #{$mq__responsive-size_breakpoint} {
     max-width: 100%;
     width: auto;
     padding-left: var(--sizes--responsive--side-margin);
@@ -59,6 +59,10 @@
     margin: 0 auto;
     width: var(--sizes--entry-title--width);
     line-height: var(--typography--default--line-height--wide);
+
+    @media #{$mq__responsive-size_breakpoint} {
+      width: auto;
+    }
 
     &.breadcrumbs {
       width: 100%;

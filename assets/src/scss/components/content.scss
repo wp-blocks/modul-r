@@ -186,4 +186,15 @@ body.woocommerce {
       margin-right: auto;
     }
   }
+
+  &.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @media #{$mq__tablet} {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
