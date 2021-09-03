@@ -149,7 +149,7 @@ async function imageToWebP(imgFolder, destFolder) {
   return gulp
     .src(imgFolder + '**/*.{jpeg,jpg,png,JPEG,JPG,PNG}')
     .pipe(imagemin([imageminWebp(opts.imageminWebp)]))
-    .pipe(rename({ extname: '.webp' }))
+    .pipe(rename(function (path) { path.extname = path.extname + '.webp' }))
     .pipe(gulp.dest(destFolder))
 }
 async function optimizeThemeImg() {
