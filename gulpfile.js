@@ -83,8 +83,8 @@ const opts = {
 
   // https://github.com/imagemin/imagemin-webp
   imageminWebp: {
-    quality: 80,
-    alphaQuality: 70,
+    quality: 85,
+    alphaQuality: 75,
     metadata: 'none'
   },
 
