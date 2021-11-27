@@ -290,6 +290,13 @@
 
     &.alignfull {max-width: inherit;}
 
+    &.is-image-fill {
+      min-height: 50vh;
+      @media #{$mq__tablet-portrait} {
+        min-height: 250px;
+      }
+    }
+
     .wp-block-media-text__media {
       overflow: hidden;
       img {
