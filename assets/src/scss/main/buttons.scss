@@ -10,7 +10,7 @@ $button__height: 36px;
   margin: 0;
   padding: ($button__height  * .3) ($button__height  * .6);
 
-  border-style: solid;
+  border-style: none;
   outline: none;
 
   font-weight: var(--typography--default--font-weight--bold);
@@ -49,7 +49,7 @@ $button__height: 36px;
 
     .wp-block-button__link {
 
-      border-style: solid;
+      border-style: none;
 
       &:active {
         border-color: var(--wp--preset--color--secondary-light);
@@ -161,4 +161,8 @@ button,
   & + & {
     margin-left: var(--sizes--margin-s);
   }
+}
+
+p + .wp-block-buttons {
+  margin-top: var(--sizes--margin-l);
 }
