@@ -1082,6 +1082,13 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
         $header_sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--");
         $sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--sizes--");
 
+        $colors_css = '';
+        // create the custom colors scheme
+        foreach ($colors as $key => $color) {
+            $colors_css .= '.has-'.$key.'-color{color:'.$color.'}';
+            $colors_css .= '.has-'.$key.'-background-color{background-color:'.$color.'}';
+        }
+
         echo "<style>body {" .
           "--wp--preset--color--primary: {$colors['primary']};" .
           "--wp--preset--color--primary-light: {$colors['primary-light']};" .
@@ -1150,7 +1157,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "--element--hamburger--color: var(--header--text-color);" .
           "--sizes--entry-title--width: 66%;" .
 
-          "}</style>";
+          "}".$colors_css ."</style>";
     }
 endif;
 add_action( 'wp_head', 'modul_r_css_props', 99 );
