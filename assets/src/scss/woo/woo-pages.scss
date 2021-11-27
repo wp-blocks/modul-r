@@ -125,10 +125,12 @@ body.woocommerce {
     
     form.cart {
       $form-radius: 4px;
+      $quantity-height: 48px;
       margin-top: var(--sizes--margin-m);
       div.quantity {
         display: flex;
         margin: 0;
+        height: $quantity-height;
         input {
           margin: 0;
           border: 1px solid #e3e3e3;
@@ -138,14 +140,15 @@ body.woocommerce {
         
         + button {
           border-radius: 0;
-          height: 49px;
+          height: $quantity-height + 1;
         }
       }
     }
   
     p.price,
     span.price {
-      color: var(--wp--preset--color--primary);
+      color: var(--wp--preset--color--gray);
+      font-size: 40px;
     }
     
     .woocommerce-tabs {
@@ -186,6 +189,28 @@ body.woocommerce {
       }
     }
     
+  }
+
+  // Reviews
+  .comment-form-rating {
+    $star-size: 32px;
+    margin: var(--sizes--margin-l) 0;
+    .rating {
+      display: inline;
+      line-height: $star-size;
+    }
+    .stars {
+      display: inline;
+      vertical-align: bottom;
+      line-height: $star-size;
+      font-size: $star-size;
+      a {
+        color: var(--wc-orange);
+      }
+      &.selected a.active~a::before {
+        color: var(--wp--preset--color--gray-light);
+      }
+    }
   }
   
 }

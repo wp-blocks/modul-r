@@ -13,9 +13,29 @@ pre {
 	padding: var(--sizes--margin-m)  var(--sizes--margin-l);
 	background: var(--wp--preset--color--white-smoke);
 	border: 1px solid var(--wp--preset--color--gray-light);
-	white-space: pre-wrap;
 	box-sizing: border-box;
+	border-radius: 3px;
+	max-width: calc(100% - var(--sizes--responsive--side-margin) * 2);
+	overflow-x: auto;
+
+	code {
+		border: 0;
+		width: 100%;
+		display: inherit;
+	}
 }
+
+code {
+	border: 1px solid var(--wp--preset--color--gray-light);
+	background-color: var(--wp--preset--color--white-smoke);
+	padding: var(--sizes--margin-xs) var(--sizes--margin-s);
+	margin-top: var(--sizes--margin-xs);
+	margin-bottom: var(--sizes--margin-xs);
+	border-radius: 3px;
+	display: inline-block;
+	word-break: break-word;
+}
+
 
 //! Blockquote / Pullquote
 cite {
@@ -23,7 +43,6 @@ cite {
 }
 
 .site .entry-content blockquote {
-	$blockquote__icon-size: 60px;
 
 	color:var(--color--text);
 	min-height: $blockquote__icon-size;
@@ -31,9 +50,11 @@ cite {
 	padding: ($blockquote__icon-size * .5) $blockquote__icon-size * 1.5;
 	position:relative;
 	border: 1px solid var(--wp--preset--color--gray-light);
-	@media #{$mq__content-width} {
+
+	@media #{$mq__responsive-size_breakpoint} {
 		padding: var(--sizes--margin-m) $blockquote__icon-size * 1.5;
 	}
+
 	&:before {
 		font-family: 'Material Icons';
 		content: "\E244";
@@ -51,6 +72,8 @@ cite {
 		line-height: var(--typography--default--line-height--wide);
 		font-weight: var(--typography--default--font-weight--light);
 		text-transform: none;
+		padding-top: var(--sizes--margin-m);
+		margin-bottom: var(--sizes--margin-s);
 		em {
 			font-style: normal;
 		}
@@ -59,18 +82,10 @@ cite {
 	&.is-large,
 	&.is-style-large {
 		max-width: 100%;
-
-		p {
-			font-style: italic;
-			padding-top: var(--sizes--margin-s);
-			margin-bottom: var(--sizes--margin-s);
-		}
-
 	}
 
 	&.wp-block-pullquote {
-
-		@media #{$mq__theme-width} {
+		@media #{$mq__responsive-size_breakpoint} {
 			padding: var(--sizes--margin--) var(--sizes--margin-m);
 		}
 	}
@@ -119,7 +134,7 @@ cite {
 
 
 
-@media #{$mq__content-width} {
+@media #{$mq__responsive-size_breakpoint} {
 	.site-main .entry-content {
 		table,
 		pre,
@@ -165,7 +180,7 @@ cite {
 	display: inline-block;
 	position: relative;
 	line-height: 20px;
-	
+
 	a {
 		height: $post-tag-height;
 		font-size: 11px;
@@ -177,7 +192,7 @@ cite {
 	}
 	
 	&, &::before, &::after, a {
-		transition: 0.2s;
+		transition: background-color 0.2s;
 	}
 	
 	&::before {

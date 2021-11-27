@@ -83,8 +83,8 @@ const opts = {
 
   // https://github.com/imagemin/imagemin-webp
   imageminWebp: {
-    quality: 80,
-    alphaQuality: 70,
+    quality: 85,
+    alphaQuality: 75,
     metadata: 'none'
   },
 
@@ -149,7 +149,7 @@ async function imageToWebP(imgFolder, destFolder) {
   return gulp
     .src(imgFolder + '**/*.{jpeg,jpg,png,JPEG,JPG,PNG}')
     .pipe(imagemin([imageminWebp(opts.imageminWebp)]))
-    .pipe(rename({ extname: '.webp' }))
+    .pipe(rename(function (path) { path.extname = path.extname + '.webp' }))
     .pipe(gulp.dest(destFolder))
 }
 async function optimizeThemeImg() {

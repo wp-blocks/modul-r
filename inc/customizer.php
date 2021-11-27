@@ -1077,17 +1077,23 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           return $vars;
         }
 
+        // Build the color palette
+        function modul_r_generate_color_palette( $colors ) {
+            if ( empty( $colors ) || !is_array( $colors ) ) {
+                return '';
+            }
+            $css_palette = '';
+            foreach ( $colors as $c_name => $color ) {
+                $css_palette .= ".has-$c_name-color{color:$color}.has-$c_name-background-color{background-color:$color}";
+            }
+            return $css_palette;
+        }
+
         $typography = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--default--");
         $font_weights = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], "--typography--default--");
         $header_sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--");
         $sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--sizes--");
-
-        $colors_css = '';
-        // create the custom colors scheme
-        foreach ($colors as $key => $color) {
-            $colors_css .= '.has-'.$key.'-color{color:'.$color.'}';
-            $colors_css .= '.has-'.$key.'-background-color{background-color:'.$color.'}';
-        }
+        $color_css_classes = modul_r_generate_color_palette($colors);
 
         echo "<style>body {" .
           "--wp--preset--color--primary: {$colors['primary']};" .
@@ -1157,7 +1163,9 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "--element--hamburger--color: var(--header--text-color);" .
           "--sizes--entry-title--width: 66%;" .
 
-          "}".$colors_css ."</style>";
+          "}".
+           $color_css_classes.
+          "</style>";
     }
 endif;
 add_action( 'wp_head', 'modul_r_css_props', 99 );

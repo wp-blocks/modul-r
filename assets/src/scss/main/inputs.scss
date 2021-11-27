@@ -14,7 +14,6 @@
 
   &:focus,
   &:hover {
-    background-color: rgba(var(--wp--preset--color--primary--decimal), .025);
     box-shadow: 0 1px 0 var(--wp--preset--color--primary);
   }
 }

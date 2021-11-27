@@ -1,5 +1,3 @@
-$button__height: 36px;
-
 %button {
   justify-content: center;
   position: relative;
@@ -20,6 +18,11 @@ $button__height: 36px;
   white-space: normal;
   overflow-wrap: break-word;
 
+  @media #{$mq__smaller-than-tablet} {
+    font-size: calc(var(--typography--default--font-size--m) - 2);
+    padding: ($button__height  * .3) ($button__height  * .4);
+  }
+
   &:hover {
     border-color: var(--wp--preset--color--secondary-light);
   }
@@ -37,6 +40,15 @@ $button__height: 36px;
 
   .wp-block-button__link {
     @extend %button;
+
+    border-width: 2px;
+    color: var(--wp--preset--color--white);
+    background-color: var(--wp--preset--color--secondary);
+    border-color: var(--wp--preset--color--secondary);
+
+    a.wp-block-button__link {
+      padding: ($button__height  * .3) ($button__height  * .6);
+    }
   }
 
   // Squared

@@ -45,6 +45,8 @@
     display: flex;
     
     @media #{$mq__smaller-than-tablet} {
+      padding-top: var(--sizes--margin-s);
+      padding-bottom: var(--sizes--margin-s);
       flex-direction: column-reverse;
       width: 100%;
     }

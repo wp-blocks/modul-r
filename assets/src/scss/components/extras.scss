@@ -15,7 +15,7 @@
   .meta-wrapper {
     display: inline-flex;
     margin-top: var(--sizes--margin--);
-    
+
     p {
       width: auto;
       color: var(--wp--preset--color--gray-dark);
@@ -88,13 +88,13 @@
         float: left;
         clear: both;
         width: $image-size;
-        margin-right: var(--sizes--margin--);
-        margin-bottom: var(--sizes--margin--);
+        margin-right: var(--sizes--margin-l);
+        margin-bottom: var(--sizes--margin-m);
         max-height: $image-size;
         @media #{$mq__smaller-than-tablet} {
           width:  $image-size * .5;
-          margin-right: var(--sizes--margin-m);
-          margin-bottom: var(--sizes--margin-m);
+          margin-right: var(--sizes--margin-l);
+          margin-bottom: var(--sizes--margin-l);
         }
       }
     }
@@ -278,15 +278,10 @@
         font-size: var(--typography--default--font-size--s);
         line-height: var(--typography--default--line-height);
       }
-      @media #{$mq__smallphone} {font-size: var(--typography--default--font-size--xs);}
     }
 
     .wp-block-button {
       margin-top: var(--typography--default--font-size--m);
-      @media #{$mq__smaller-than-tablet} {
-        font-size: var(--typography--default--font-size--m);
-        padding: var(--typography--default--font-size--s) var(--typography--default--font-size--l);
-      }
 
       &.is-style-outline {
         .wp-block-button__link {

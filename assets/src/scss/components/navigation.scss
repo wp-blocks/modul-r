@@ -68,11 +68,13 @@
 
     }
 
-    &.current-menu-item,
+    &.current-menu-item a {
+      font-weight: var(--typography--default--font-weight--bold);
+      opacity: 1;
+    }
     &.current-menu-ancestor,
     &.current-menu-parent {
       a {
-        font-weight: var(--typography--default--font-weight--bold);
         opacity: 1;
       }
     }

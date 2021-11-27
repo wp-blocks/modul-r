@@ -58,10 +58,10 @@ body.archive {
       margin-right: var(--sizes--margin-l);
   
       @media #{$mq__smaller-than-tablet} {
-        width: calc(100% + var(--sizes--margin-s));
+        width: calc(100% + var(--sizes--margin-xl) * 2);
         min-width: inherit;
-        max-width: calc(100% + var(--sizes--margin-s));
-        margin: var(--sizes--margin-l) calc(var(--sizes--margin-m)  * -2.5) var(--sizes--responsive--side-margin);
+        max-width: calc(100% + var(--sizes--margin-xl) * 2);
+        margin: calc(var(--sizes--margin-l) * -1) calc(var(--sizes--margin-xl) * -1) var(--sizes--responsive--side-margin);
         img {
           transform: rotate(-1deg);
         }

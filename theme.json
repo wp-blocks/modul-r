@@ -30,8 +30,8 @@
   },
   "styles": {
     "color": {
-      "title": "var(color--title)",
-      "text": "var(color--text)"
+      "title": "var(--color--title)",
+      "text": "var(--color--text)"
     }
   }
 }
