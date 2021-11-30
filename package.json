@@ -1,7 +1,7 @@
 {
   "name": "modul-r",
   "version": "1.4.1",
-  "wp_tested": "5.8",
+  "wp_tested": "5.8.2",
   "repository": "https://github.com/erikyo/modul-r",
   "license": "GPL-3.0",
   "main": "Modul R",

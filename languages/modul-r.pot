@@ -53,12 +53,16 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: functions.php:124
+#: functions.php:125
 msgid "Primary"
 msgstr ""
 
 #: header.php:20
 msgid "Skip to content"
+msgstr ""
+
+#: inc/customizer.php:145, inc/customizer.php:130
+msgid "Select "
 msgstr ""
 
 #: inc/customizer.php:163

@@ -284,8 +284,7 @@ cite {
 }
 
 @media (max-width : 767px) {
-  .site-main .entry-content table,
-.site-main .entry-content pre,
+  .site-main .entry-content pre,
 .site-main .entry-content blockquote {
     padding-right: var(--size--responsive--side-margin);
     margin-left: var(--size--responsive--side-margin);
@@ -294,6 +293,12 @@ cite {
   }
   .site-main .entry-content table {
     width: calc(100% - var(--size--margin-m));
+  }
+}
+@media (max-width : 767px) and (max-width : 767px) {
+  .site-main .entry-content table {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 .post-tags {
