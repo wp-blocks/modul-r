@@ -253,7 +253,11 @@
     z-index: 2;
     max-width: var(--size--content--width);
     width: 100%;
-    
+
+    @media #{$mq__smaller-than-tablet} {
+      padding-top: var(--header--branding--height);
+    }
+
     h1, p {
       @extend %text_shadow--01;
       color: var(--wp--preset--color--white);
@@ -263,9 +267,14 @@
       font-size: var(--element--hero--title--font-size);
       margin: 0 auto;
       
-      @media #{$mq__smaller-than-tablet} {width: 100%;}
+      @media #{$mq__smaller-than-tablet} {
+        width: 100%;
+        font-size: calc(var(--element--hero--title--font-size) * .8);
+      }
 
-      @media #{$mq__phablet} {font-size: calc(var(--element--hero--title--font-size) * .8);}
+      @media #{$mq__phablet} {
+        font-size: calc(var(--element--hero--title--font-size) * .66);
+      }
     }
     
     p {
