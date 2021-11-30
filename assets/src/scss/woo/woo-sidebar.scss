@@ -89,3 +89,12 @@
   }
 
 }
+
+#secondary,
+#colophon {
+  ul.cart_list li a,
+  ul.product_list_widget li a {
+    display: inline;
+    font-weight: 700;
+  }
+}

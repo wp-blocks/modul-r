@@ -127,7 +127,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
                       'type'        => 'select',
                       'choices'     => array_combine($this_font_family,$this_font_family),
                       'section'     => 'modul_r_' . $group,
-                      'description' => esc_html__("Select {$setting['for']} {$setting['name']}", 'modul-r'),
+                      'description' => esc_html__("Select ", 'modul-r'). $setting['for'] ." ". $setting['name'],
                   ) );
 
               } else if ( $setting['type'] === 'font_weight' ) {
@@ -142,7 +142,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
                       'type'        => 'select',
                       'choices'     => array_combine($weight_selected_value, $weight_selected_value),
                       'section'     => 'modul_r_' . $group,
-                      'description' => esc_html__("Select {$setting['for']} {$setting['name']}", 'modul-r'),
+                      'description' => esc_html__("Select ", 'modul-r'). $setting['for'] ." ". $setting['name'],
                   ) );
 
               }

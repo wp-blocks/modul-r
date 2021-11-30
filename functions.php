@@ -81,7 +81,8 @@ if (!isset($modul_r_defaults)) {
                 array( 'name' => 'nav--height', 'default' => 60, 'input' => 'number', 'input_type' => 'int', 'unit' => 'px' ),
             ),
             'sizes' => array(
-                array( 'name' => 'sidebar--width', 'default' => 420, 'input' => 'number', 'input_type' => 'int', 'unit' => 'px' )
+                array( 'name' => 'sidebar--width', 'default' => 420, 'input' => 'number', 'input_type' => 'int', 'unit' => 'px' ),
+                array( 'name' => 'footer-widget--width', 'default' => 300, 'input' => 'number', 'input_type' => 'int', 'unit' => 'px' )
             )
         )
 	);
