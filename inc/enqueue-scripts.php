@@ -34,7 +34,7 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
         $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_font-family']['default'];
     $font_weight_title = get_theme_mod( 'modul_r_typography_options_title_font-weight' ) !== false ?
         get_theme_mod( 'modul_r_typography_options_title_font-weight' ) :
-        $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_weight']['default'];
+        $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_font-weight']['default'];
 
     // content font
     $font_weights = array();
@@ -44,9 +44,9 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
         $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['text_font-family']['default'];
 
     foreach ( array('text_bold','text_regular','text_light') as $options ) {
-        if ( get_theme_mod( 'modul_r_typography_options_'.$options ) ) {
-            $font_weights[] = intval(get_theme_mod( 'modul_r_typography_options_'.$options ));
-        }
+        $font_weights[] = ( get_theme_mod( 'modul_r_typography_options_'.$options ) ) ?
+             intval(get_theme_mod( 'modul_r_typography_options_'.$options )) :
+             intval($GLOBALS['modul_r_defaults']['customizer_options']['font_styles'][$options]['default']);
     }
 
     // combine the title and the content text query if needed
