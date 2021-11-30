@@ -43,7 +43,7 @@ $menu_width = get_theme_mod('modul_r_footer_width') ? ' ' . get_theme_mod('modul
     }
 
     // Credits section
-    if ( get_theme_mod( 'modul_r_footer_thanks_show' ) !== false ) {
+    if ( !empty(get_theme_mod( 'modul_r_footer_thanks_show' )) ) {
 	    $special_thanks = esc_html( get_theme_mod( 'modul_r_footer_thanks_txt' ) );
 	    if ( $special_thanks === '' ) { ?>
           <a href="<?php esc_url( __( '//wordpress.org/', 'modul-r' ) ); ?>"><?php esc_html_e( 'Proudly powered by WordPress', 'modul-r' ); ?></a> &
