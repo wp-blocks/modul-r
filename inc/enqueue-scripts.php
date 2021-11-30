@@ -25,28 +25,42 @@ add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
 if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	function modul_r_theme_fonts() {
 
-    $font_family[] = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_title' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
-    $font_family[] = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false && get_theme_mod( 'modul_r_typography_font_family_title' ) !== get_theme_mod( 'modul_r_typography_font_family_text' ) ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_text' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
-
     $font_query = array();
-    $font_weight = array();
-    foreach ( $GLOBALS['modul_r_defaults']['customizer_options']['font_weight'] as $option ) {
-        if ( get_theme_mod( 'modul_r_defaults_'.$option['name'] ) ) {
-            $weight = $GLOBALS['modul_r_defaults']['customizer_options']['weights'][intval(get_theme_mod( 'modul_r_defaults_'.$option['name'] ))];
-            $font_weight[] = intval($weight);
+
+    // title font
+    $title_font_family= get_theme_mod( 'modul_r_typography_options_title_font-family' );
+    $font_family_title = ($title_font_family !== false) ?
+        $title_font_family :
+        $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_font-family']['default'];
+    $font_weight_title = get_theme_mod( 'modul_r_typography_options_title_font-weight' ) !== false ?
+        get_theme_mod( 'modul_r_typography_options_title_font-weight' ) :
+        $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_weight']['default'];
+
+    // content font
+    $font_weights = array();
+    $text_font_family= get_theme_mod( 'modul_r_typography_options_text_font-family' );
+    $font_family_text = $text_font_family !== false ?
+        $text_font_family :
+        $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['text_font-family']['default'];
+
+    foreach ( array('text_bold','text_regular','text_light') as $options ) {
+        if ( get_theme_mod( 'modul_r_typography_options_'.$options ) ) {
+            $font_weights[] = intval(get_theme_mod( 'modul_r_typography_options_'.$options ));
         }
     }
 
-    if (!empty($font_weight) && !empty($font_family)) {
-
-      sort($font_weight,SORT_NUMERIC );
-
-      foreach ($font_family as $font) {
-        $font_query[] = "family=$font:wght@" . implode(";", $font_weight );
-      }
-
+    // combine the title and the content text query if needed
+    if ($font_family_title !== $font_family_text) {
+        $font_query[] = "family=$font_family_title:wght@" . $font_weight_title;
+        sort($font_weights);
+        $font_query[] = "family=$font_family_text:wght@" . implode(";", array_unique($font_weights) );
+    } else {
+        $sorted_weights = array_unique(array_merge( $font_weights, array(intval($font_weight_title))));
+        sort($sorted_weights);
+        $font_query[] = "family=$font_family_title:wght@" . implode(";", $sorted_weights );
     }
 
+    // enqueue google font
     if ($font_query) wp_enqueue_style( 'modul-r-fonts', "https://fonts.googleapis.com/css2?" . implode("&", $font_query) . "&display=swap", array(), null );
 
 		wp_enqueue_style( "modul-r-icons", "https://fonts.googleapis.com/css2?family=Material+Icons&display=swap", array(), null );
@@ -92,7 +106,7 @@ endif;
 add_action( 'wp_footer', 'modul_r_theme_style', 1 );
 
 /**
- * Dequeue global wordpress style
+ * Dequeue global WordPress style
  */
 if ( ! function_exists( 'modul_r_remove_global_style' ) ) :
     function modul_r_remove_global_style() {

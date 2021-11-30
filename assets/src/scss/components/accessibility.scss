@@ -25,11 +25,11 @@
     font-weight: bolder;
     height: auto;
     display: block;
-    right: var(--sizes--margin--);
-    top: var(--sizes--margin--);
+    right: var(--size--margin--);
+    top: var(--size--margin--);
     z-index: 100000;
     line-height: 1;
-    padding: var(--sizes--margin--) var(--sizes--margin-l);
+    padding: var(--size--margin--) var(--size--margin-l);
     text-decoration: none;
     width: auto;
     /* Above WP toolbar. */

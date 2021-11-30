@@ -3,14 +3,14 @@
   color: var(--color--text);
   outline:none!important;
   border: 1px solid var(--wp--preset--color--gray-light);
-  font-size: var(--typography--default--font-size--m);
-  font-weight: var(--typography--default--font-weight--regular);
+  font-size: var(--typography--font-size--m);
+  font-weight: var(--typography--text--regular);
   box-sizing: border-box;
   border-radius:4px 4px 0 0;
   padding: 12px 8px;
   transition:350ms;
-  margin: 0 0 var(--sizes--margin--);
-  line-height: var(--typography--default--line-height);
+  margin: 0 0 var(--size--margin--);
+  line-height: var(--typography--line-height);
 
   &:focus,
   &:hover {
@@ -28,8 +28,8 @@ input[type="date"],
 input[type="password"],
 input[type="tel"] {
   @extend %input_model;
-  padding-left: var(--sizes--margin--);
-  padding-right: var(--sizes--margin--);
+  padding-left: var(--size--margin--);
+  padding-right: var(--size--margin--);
   box-shadow: 0 0 0 var(--wp--preset--color--gray-light);
 }
 
@@ -41,12 +41,12 @@ input[type="tel"] {
 }
 
 .input-label {
-  font-size: var(--typography--default--font-size--xs);
+  font-size: var(--typography--font-size--xs);
 }
 
 form label {
   color: var(--wp--preset--color--gray-dark);
-  font-size: calc(var(--typography--default--font-size--m) - 1px);
+  font-size: calc(var(--typography--font-size--m) - 1px);
 
   input + span {
     opacity: .8;

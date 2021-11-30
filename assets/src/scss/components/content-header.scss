@@ -1,7 +1,7 @@
 // Page Header
 .site {
   .entry-header {
-    width: var(--sizes--entry-title--width);
+    width: var(--size--entry-title--width);
     max-width: 100%;
 
     @media #{$mq__smaller-than-tablet} {
@@ -14,10 +14,10 @@
   }
 
   .page-header {
-    margin-bottom: var(--sizes--margin-xl);
+    margin-bottom: var(--size--margin-xl);
 
     @media #{$mq__responsive-size_breakpoint} {
-      margin-bottom: var(--sizes--margin-m);
+      margin-bottom: var(--size--margin-m);
     }
   }
 }
@@ -44,21 +44,21 @@
   
   display: block;
   width: 100%;
-  max-width: var(--sizes--content--width-wide);
+  max-width: var(--size--content--width-wide);
   text-align: center;
-  margin: 0 auto var(--sizes--margin-m);
+  margin: 0 auto var(--size--margin-m);
 
   @media #{$mq__responsive-size_breakpoint} {
     max-width: 100%;
     width: auto;
-    padding-left: var(--sizes--responsive--side-margin);
-    padding-right: var(--sizes--responsive--side-margin);
+    padding-left: var(--size--responsive--side-margin);
+    padding-right: var(--size--responsive--side-margin);
   }
   
   p {
     margin: 0 auto;
-    width: var(--sizes--entry-title--width);
-    line-height: var(--typography--default--line-height--wide);
+    width: var(--size--entry-title--width);
+    line-height: var(--typography--line-height--wide);
 
     @media #{$mq__responsive-size_breakpoint} {
       width: auto;

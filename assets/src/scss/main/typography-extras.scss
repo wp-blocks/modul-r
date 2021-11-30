@@ -10,12 +10,12 @@ iframe {
 
 pre {
 	width: 100%;
-	padding: var(--sizes--margin-m)  var(--sizes--margin-l);
+	padding: var(--size--margin-m)  var(--size--margin-l);
 	background: var(--wp--preset--color--white-smoke);
 	border: 1px solid var(--wp--preset--color--gray-light);
 	box-sizing: border-box;
 	border-radius: 3px;
-	max-width: calc(100% - var(--sizes--responsive--side-margin) * 2);
+	max-width: calc(100% - var(--size--responsive--side-margin) * 2);
 	overflow-x: auto;
 
 	code {
@@ -28,9 +28,9 @@ pre {
 code {
 	border: 1px solid var(--wp--preset--color--gray-light);
 	background-color: var(--wp--preset--color--white-smoke);
-	padding: var(--sizes--margin-xs) var(--sizes--margin-s);
-	margin-top: var(--sizes--margin-xs);
-	margin-bottom: var(--sizes--margin-xs);
+	padding: var(--size--margin-xs) var(--size--margin-s);
+	margin-top: var(--size--margin-xs);
+	margin-bottom: var(--size--margin-xs);
 	border-radius: 3px;
 	display: inline-block;
 	word-break: break-word;
@@ -52,7 +52,7 @@ cite {
 	border: 1px solid var(--wp--preset--color--gray-light);
 
 	@media #{$mq__responsive-size_breakpoint} {
-		padding: var(--sizes--margin-m) $blockquote__icon-size * 1.5;
+		padding: var(--size--margin-m) $blockquote__icon-size * 1.5;
 	}
 
 	&:before {
@@ -69,11 +69,11 @@ cite {
 	cite {
 		font-size: 1em;
 		font-style: italic;
-		line-height: var(--typography--default--line-height--wide);
-		font-weight: var(--typography--default--font-weight--light);
+		line-height: var(--typography--line-height--wide);
+		font-weight: var(--typography--text--light);
 		text-transform: none;
-		padding-top: var(--sizes--margin-m);
-		margin-bottom: var(--sizes--margin-s);
+		padding-top: var(--size--margin-m);
+		margin-bottom: var(--size--margin-s);
 		em {
 			font-style: normal;
 		}
@@ -86,7 +86,7 @@ cite {
 
 	&.wp-block-pullquote {
 		@media #{$mq__responsive-size_breakpoint} {
-			padding: var(--sizes--margin--) var(--sizes--margin-m);
+			padding: var(--size--margin--) var(--size--margin-m);
 		}
 	}
 
@@ -139,14 +139,14 @@ cite {
 		table,
 		pre,
 		blockquote {
-			padding-right: var(--sizes--responsive--side-margin);
-			margin-left: var(--sizes--responsive--side-margin);
-			margin-right: var(--sizes--responsive--side-margin);
+			padding-right: var(--size--responsive--side-margin);
+			margin-left: var(--size--responsive--side-margin);
+			margin-right: var(--size--responsive--side-margin);
 			width: auto;
 		}
 		
 		table {
-			width: calc(100% - var(--sizes--margin-m));
+			width: calc(100% - var(--size--margin-m));
 		}
 	}
 }
@@ -163,7 +163,7 @@ cite {
 	ul {
 		display: inline;
 		margin: 0;
-		padding-left: var(--sizes--margin-m);
+		padding-left: var(--size--margin-m);
 	}
 	
 	li.post-tag {
@@ -184,7 +184,7 @@ cite {
 	a {
 		height: $post-tag-height;
 		font-size: 11px;
-		font-weight: var(--typography--default--font-weight--bold);
+		font-weight: var(--typography--text--bold);
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		color: var(--wp--preset--color--white);

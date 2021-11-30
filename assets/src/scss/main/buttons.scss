@@ -1,34 +1,57 @@
 %button {
   justify-content: center;
+
   position: relative;
   display: inline-flex;
   transition: $animations__lenght * .75;
   cursor: pointer;
+  user-select: none;
 
-  margin: 0;
-  padding: ($button__height  * .3) ($button__height  * .6);
-
-  border-style: none;
-  outline: none;
-
-  font-weight: var(--typography--default--font-weight--bold);
+  font-size: var(--typography--font-size--m);
+  font-weight: var(--typography--text--bold);
   letter-spacing: 2px;
+  line-height: 1;
   text-decoration: none !important;
   text-transform: uppercase;
   white-space: normal;
   overflow-wrap: break-word;
+  border-radius: 1000px;
 
-  @media #{$mq__smaller-than-tablet} {
-    font-size: calc(var(--typography--default--font-size--m) - 2);
-    padding: ($button__height  * .3) ($button__height  * .4);
+  margin: 0;
+  border: 0;
+  outline: none;
+  padding: ($button__height  * .4) ($button__height  * .6);
+
+  &:not(.has-background) {
+    background-color: var(--wp--preset--color--secondary);
+  }
+
+  &:not(.has-text-color) {
+    color: rgba( var(--wp--preset--color--white--decimal), .9);
+  }
+
+
+  &.has-white-background-color,
+  &.has-gray-light-background-color {
+    &:hover {
+      color: var(--wp--preset--color--grey-dark);
+    }
   }
 
   &:hover {
-    border-color: var(--wp--preset--color--secondary-light);
+    box-shadow: 0 0 0 3px rgba( var(--wp--preset--color--white--decimal), .3) inset;
   }
 
-  &:focus {
-    background-color: var(--wp--preset--color--secondary-light);
+  @media #{$mq__smaller-than-tablet} {
+    font-size: calc(var(--typography--font-size--m) - 2);
+    padding: ($button__height  * .3) ($button__height  * .4);
+  }
+
+  &:not(.has-background) {
+    &:active,
+    &:focus {
+      background-color: var(--wp--preset--color--secondary-light);
+    }
   }
 
   &:disabled {
@@ -40,15 +63,12 @@
 
   .wp-block-button__link {
     @extend %button;
+  }
 
-    border-width: 2px;
+  &.has-gray-background-color:not(.has-text-color),
+  &.has-dark-gray-background-color:not(.has-text-color),
+  &.has-black-background-color:not(.has-text-color) {
     color: var(--wp--preset--color--white);
-    background-color: var(--wp--preset--color--secondary);
-    border-color: var(--wp--preset--color--secondary);
-
-    a.wp-block-button__link {
-      padding: ($button__height  * .3) ($button__height  * .6);
-    }
   }
 
   // Squared
@@ -61,21 +81,16 @@
 
     .wp-block-button__link {
 
-      border-style: none;
-
       &:active {
-        border-color: var(--wp--preset--color--secondary-light);
-        color: var(--wp--preset--color--white) !important;
+        box-shadow: 0 0 0 3px rgba( var(--wp--preset--color--white--decimal), .2) inset;
+        &.has-white-background-color {
+          color: var(--wp--preset--color--secondary);
+          background-color: var(--wp--preset--color--white);
+        }
       }
 
       &:hover {
-        border-color: var(--wp--preset--color--secondary-light);
-        color: var(--wp--preset--color--white) !important;
-      }
-
-      &:focus {
-        color: var(--wp--preset--color--white) !important;
-        background-color: var(--wp--preset--color--secondary-light);
+        box-shadow: 0 0 0 3px rgba( var(--wp--preset--color--white--decimal), .5) inset;
       }
     }
   }
@@ -84,62 +99,38 @@
   &.is-style-outline {
 
     .wp-block-button__link {
-
-      border-width: 2px;
+      box-shadow: 0 0 0 3px var(--wp--preset--color--secondary) inset;
+      opacity: .9;
 
       &:not(.has-background) {
         background: transparent;
+        &:active {
+          background: rgba( var(--wp--preset--color--black--decimal), .05);
+        }
       }
 
-      &:not(.has-background):not(.has-text-color) {
-        background: transparent;
+      &:not(.has-text-color) {
         color: var(--wp--preset--color--secondary);
-      }
-
-      &.has-background:not(.has-text-color) {
-        color: currentColor;
-        border-color: currentColor;
-      }
-
-      &.has-background.has-gray-background-color:not(.has-text-color),
-      &.has-background.has-dark-gray-background-color:not(.has-text-color),
-      &.has-background.has-black-background-color:not(.has-text-color) {
-        color: var(--wp--preset--color--white);
-      }
-
-      .is-dark-theme & {
-
-        &:not(.has-text-color) {
-
-          &.has-background {
-            color: var(--wp--preset--color--white);
-          }
-
-          &.has-background.has-gray-background-color,
-          &.has-background.has-dark-gray-background-color,
-          &.has-background.has-black-background-color {
-            color: var(--wp--preset--color--white);
-          }
+        &:active,
+        &:hover {
+          color: var(--wp--preset--color--secondary-light);
         }
       }
 
       &.has-text-color,
       &.has-background.has-text-color {
-        border-color: currentColor;
+        box-shadow: 0 0 0 3px currentColor inset;
       }
 
-      &:active,
+
       &:hover {
-        border-color: var(--wp--preset--color--secondary-light);
-
-        &.has-text-color {
-          border-color: var(--wp--preset--color--secondary-light);
-        }
+        opacity: 1;
+        box-shadow: 0 0 0 3px currentColor inset;
+        &.has-primary-color { color: var(--wp--preset--color--primary-light);}
+        &.has-secondary-color { color: var(--wp--preset--color--secondary-light);}
       }
-
-      &:focus {
-        border-color: var(--wp--preset--color--white) !important;
-        background: transparent !important;
+      &:active {
+        box-shadow: 0 0 0 0 currentColor inset !important;
       }
     }
   }
@@ -153,17 +144,6 @@ input[type="reset"],
 button,
 .button {
   @extend %button;
-
-  color: var(--wp--preset--color--white);
-  background-color: var(--wp--preset--color--secondary);
-
-  &.outline {
-    background-color: transparent !important;
-  }
-
-  .is-style-squared .wp-block-button__link {
-    border-radius: 0;
-  }
 }
 
 .wp-block-button,
@@ -171,7 +151,7 @@ button,
 .button {
   input[type="submit"] + input[type="reset"],
   & + & {
-    margin-left: var(--sizes--margin-s);
+    margin-left: var(--size--margin-s);
   }
 }
 

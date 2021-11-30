@@ -69,6 +69,7 @@ function modul_r_get_theme_color($theme_mod_color, $default_color = "#FF0000") {
  * Customizer options
  */
 if ( ! function_exists('modul_r_customizer_opt') ) :
+
 	function modul_r_customizer_opt( $wp_customize ) {
 
 		// Creates custom title and description for theme customizer controls
@@ -87,10 +88,12 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		}
 
 		function add_setting_from_array($settings_array, $group, $wp_customize) {
+
 		  foreach ($settings_array as $setting) {
 
           // the wide content width
-          if ($setting['input'] === 'number') {
+          if (isset($setting['input']) && $setting['input'] === 'number') {
+
               $wp_customize->add_setting( 'modul_r_defaults_' . $setting['name'], array(
                   'capability'        => 'edit_theme_options',
                   'default'           => abs($setting['default']),
@@ -108,24 +111,42 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
                   ),
               ) );
 
-          } else if ($setting['input'] === 'select') {
+          } else {
 
-              // Font Family - title
-              $wp_customize->add_setting( 'modul_r_defaults_' . $setting['name'], array(
+              $wp_customize->add_setting( "modul_r_{$group}_{$setting['for']}_{$setting['name']}", array(
                   'capability'        => 'edit_theme_options',
-                  'default' => array_search( abs($setting['default']), $GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']]),
+                  'default'           => $setting['default'],
                   'sanitize_callback' => 'modul_r_sanitize_select',
               ) );
 
-              $wp_customize->add_control( 'modul_r_defaults_' . $setting['name'], array(
-                  'type'    => 'select',
-                  'choices' => $GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']],
-                  'section'     => 'modul_r_' . $group,
-                  'description' => esc_html__( 'Select', 'modul-r' ) . ' ' . $setting['name'] ,
-              ) );
+              if ( $setting['type'] === 'font_family' ) {
 
+                  $this_font_family= array_keys( $GLOBALS['modul_r_defaults']['customizer_options']['font_family'] );
+
+                  $wp_customize->add_control( "modul_r_{$group}_{$setting['for']}_{$setting['name']}", array(
+                      'type'        => 'select',
+                      'choices'     => array_combine($this_font_family,$this_font_family),
+                      'section'     => 'modul_r_' . $group,
+                      'description' => esc_html__("Select {$setting['for']} {$setting['name']}", 'modul-r'),
+                  ) );
+
+              } else if ( $setting['type'] === 'font_weight' ) {
+
+                  $this_font_family = get_theme_mod( "modul_r_{$group}_{$setting['for']}_font-family" );
+
+                  $weight_selected_value = $this_font_family !== false ?
+                      $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ $this_font_family ]['weights'] :
+                      $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ $settings_array[ $setting['for']."_font-family"]['default'] ]['weights'] ;
+
+                  $wp_customize->add_control( "modul_r_{$group}_{$setting['for']}_{$setting['name']}", array(
+                      'type'        => 'select',
+                      'choices'     => array_combine($weight_selected_value, $weight_selected_value),
+                      'section'     => 'modul_r_' . $group,
+                      'description' => esc_html__("Select {$setting['for']} {$setting['name']}", 'modul-r'),
+                  ) );
+
+              }
           }
-
       }
     }
 
@@ -497,36 +518,8 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
         'panel'      => 'modul_r_theme_options'
     ) );
 
-    // Font Family - title
-    $wp_customize->add_setting( 'modul_r_typography_font_family_title', array(
-        'capability' => 'edit_theme_options',
-        'default' => 0,
-        'sanitize_callback' => 'modul_r_sanitize_select',
-    ) );
-
-    $wp_customize->add_control( 'modul_r_typography_font_family_title', array(
-        'type'    => 'select',
-        'choices' => $GLOBALS['modul_r_defaults']['customizer_options']['font_family'],
-        'section' => 'modul_r_typography_options',
-        'description' => esc_html__( 'Select the font family for the titles', 'modul-r' ),
-    ) );
-
-    // Font Family - text
-    $wp_customize->add_setting( 'modul_r_typography_font_family_text', array(
-        'capability' => 'edit_theme_options',
-        'default' => 0,
-        'sanitize_callback' => 'modul_r_sanitize_select',
-    ) );
-
-    $wp_customize->add_control( 'modul_r_typography_font_family_text', array(
-        'type'    => 'select',
-        'choices' => $GLOBALS['modul_r_defaults']['customizer_options']['font_family'],
-        'section' => 'modul_r_typography_options',
-        'description' => esc_html__( 'Select the default font family', 'modul-r' ),
-    ) );
-
     // add the font weight select
-    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], 'typography_options', $wp_customize );
+    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['font_styles'], 'typography_options', $wp_customize );
 
       // add the font line height / font size selection
     add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['typography'], 'typography_options', $wp_customize );
@@ -843,7 +836,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 
     function modul_r_sanitize_select( $selected, $setting ) {
         // Ensure $selected options is an absolute integer then return the selected option
-        return absint( $selected );
+        return esc_attr( $selected );
     }
       function modul_r_sanitize_abs( $selected ) {
           // Ensure $selected options is an absolute integer then return the selected option
@@ -1046,7 +1039,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
         $text_color = get_theme_mod( 'text-color' ) !== false ? sanitize_hex_color( get_theme_mod( 'text-color' ) ) : sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] );
 
         // Colors
-        $header_title_color       = get_theme_mod( 'header_textcolor', get_theme_support( 'custom-header', 'default-text-color' ) ) ? '#' . get_header_textcolor() : $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-title-color'] ];
+        $header_title_color       = get_theme_mod( 'header_textcolor', get_theme_support( 'custom-header', 'default-text-color' ) ) ? '#' . get_header_textcolor() : $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ];
         $header_background        = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
         $header_text_color        = modul_r_get_theme_color( 'header-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ] );
         $footer_background        = modul_r_get_theme_color( 'footer-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-color'] ] );
@@ -1057,21 +1050,27 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
         $content_width      = get_theme_mod( 'modul_r_content_width' ) !== false ? intval( get_theme_mod( 'modul_r_content_width' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width'] );
         $content_width_wide = get_theme_mod( 'modul_r_content_width_wide' ) !== false ? intval( get_theme_mod( 'modul_r_content_width_wide' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width_wide'] );
 
-        $font_family_title = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_title' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
-        $font_family_text  = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_text' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
+        $font_family_title = get_theme_mod( 'modul_r_typography_options_title_font_family' ) !== false ?
+            str_replace( "+", " ", get_theme_mod( 'modul_r_typography_options_title_font_family' ) ) :
+            $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_font-family']['default'];
+
 
         // Typography
         function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
           $vars = '';
-          foreach ( $var_set as $option ) {
-            if ( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) {
-              if ($option['input'] !== 'select') {
-                $vars .= $suffix . $option['name'] . ":" . abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
+          foreach ( $var_set as $key => $option ) {
+            if ($option['input'] !== 'select') {
+              if ( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) {
+                  $vars .= $suffix . $option['name'] . ":" . abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
               } else {
-                  $vars .= $suffix . $option['name'] . ":" . $GLOBALS['modul_r_defaults']['customizer_options'][$option['select_type']][abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) )] . ';';
+                  $vars .= $suffix . $option['name'] . ":" . $option['default'] . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
               }
             } else {
-                $vars .= $suffix . $option['name'] . ":" . $option['default'] . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
+              $this_prop = get_theme_mod( 'modul_r_typography_options_' . $option['for'] . "_" . $option['name'] );
+              $prop = ($this_prop !== false) ?
+                  ($option['type'] === 'font_family') ? str_replace( "+", " ", $this_prop ) : $this_prop :
+                  $GLOBALS['modul_r_defaults']['customizer_options']['font_styles'][$option['for'] . "_" . $option['name']]['default'];
+              $vars .= $suffix . $option['for'] . '--' . $option['name'] . ":" . $prop . ';';
             }
           }
           return $vars;
@@ -1089,10 +1088,10 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
             return $css_palette;
         }
 
-        $typography = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--default--");
-        $font_weights = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], "--typography--default--");
+        $typography = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--");
+        $font_styles = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['font_styles'], "--typography--");
         $header_sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--");
-        $sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--sizes--");
+        $sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--size--");
         $color_css_classes = modul_r_generate_color_palette($colors);
 
         echo "<style>body {" .
@@ -1119,30 +1118,26 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "--color--title: var(--wp--preset--color--primary);" .
           "--color--text: $text_color;" .
 
-          "--sizes--margin-xs: " . $baseunit * .5 . "px;" .
-          "--sizes--margin--: {$baseunit}px;" .
-          "--sizes--margin-s: " . $baseunit * 1.5 . "px;" .
-          "--sizes--margin-m: " . $baseunit * 2 . "px;" .
-          "--sizes--margin-l: " . $baseunit * 4 . "px;" .
-          "--sizes--margin-xl: ". $baseunit * 8 . "px;" .
-          "--sizes--responsive--side-margin: ". $baseunit * 2.5 . "px;" .
+          "--size--margin-xs: " . $baseunit * .5 . "px;" .
+          "--size--margin--: {$baseunit}px;" .
+          "--size--margin-s: " . $baseunit * 1.5 . "px;" .
+          "--size--margin-m: " . $baseunit * 2 . "px;" .
+          "--size--margin-l: " . $baseunit * 4 . "px;" .
+          "--size--margin-xl: ". $baseunit * 8 . "px;" .
+          "--size--responsive--side-margin: ". $baseunit * 2.5 . "px;" .
 
            $typography .
-           $font_weights .
+           $font_styles .
 
-          "--typography--title--line-height:var(--typography--default--line-height);" .
-          "--typography--title--font-size: var(--typography--default--font-size--xxl);" .
-          "--typography--title--font-family: '".str_replace("+", " ", $font_family_title)."', sans-serif;" .
-          "--typography--title--font-weight: var(--typography--default--font-weight--bold);" .
-          "--typography--content--line-height: var(--typography--default--line-height--wide);" .
-          "--typography--content--font-size: var(--typography--default--font-size--m);" .
-          "--typography--content--font-family: '".str_replace("+", " ", $font_family_text)."', sans-serif;" .
-          "--typography--content--font-weight: var(--typography--default--font-weight--regular);" .
+          "--typography--title--line-height:var(--typography--line-height);" .
+          "--typography--title--font-size: var(--typography--font-size--xxl);" .
+          "--typography--content--line-height: var(--typography--line-height--wide);" .
+          "--typography--content--font-size: var(--typography--font-size--m);" .
 
-          "--sizes--content--width: {$content_width}px;" .
-          "--sizes--content--side-padding: " . ($content_width_wide - $content_width) * .5 ."px;" .
-          "--sizes--content--width-wide: {$content_width_wide}px;" .
-          "--sizes--sidebar--side-margin: var(--sizes--margin-xl);" .
+          "--size--content--width: {$content_width}px;" .
+          "--size--content--side-padding: " . ($content_width_wide - $content_width) * .5 ."px;" .
+          "--size--content--width-wide: {$content_width_wide}px;" .
+          "--size--sidebar--side-margin: var(--size--margin-xl);" .
 
 
           "--header--background: $header_background;" .

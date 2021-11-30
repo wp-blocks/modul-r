@@ -1,47 +1,47 @@
 .entry-comments {
   clear: both;
   background-color: var(--wp--preset--color--white-smoke);
-  margin-top: var(--sizes--margin-l);
-  padding-top: var(--sizes--margin-l);
-  padding-bottom: var(--sizes--margin--);
+  margin-top: var(--size--margin-l);
+  padding-top: var(--size--margin-l);
+  padding-bottom: var(--size--margin--);
   border-radius: 3px;
 
   @media #{$mq__responsive_breakpoint} {
     width: auto;
-    margin-top: var(--sizes--margin-m);
-    margin-left: calc(var(--sizes--responsive--side-margin) * .5);
-    margin-right: calc(var(--sizes--responsive--side-margin) * .5);
+    margin-top: var(--size--margin-m);
+    margin-left: calc(var(--size--responsive--side-margin) * .5);
+    margin-right: calc(var(--size--responsive--side-margin) * .5);
   }
   
   > p {
-    font-size: var(--typography--default--font-size--l);
-    margin-bottom: var(--sizes--margin-xl);
-    font-weight: var(--typography--default--font-weight--light);
+    font-size: var(--typography--font-size--l);
+    margin-bottom: var(--size--margin-xl);
+    font-weight: var(--typography--text--light);
   }
   
   .navigation a {
-    font-size: var(--typography--default--font-size--s);
-    font-weight: var(--typography--default--font-weight--regular);
+    font-size: var(--typography--font-size--s);
+    font-weight: var(--typography--text--regular);
     color: var(--wp--preset--color--gray-dark);
   }
   
   p.comment-notes {
-    font-size: var(--typography--default--font-size--s);
+    font-size: var(--typography--font-size--s);
     font-style: italic;
     color: var(--wp--preset--color--gray-dark);
   }
 
   p.comments-closed,
   p.no-comments-yet {
-    margin-top: var(--sizes--margin-m);
+    margin-top: var(--size--margin-m);
     text-align: center;
     font-style: italic;
   }
   
   p.logged-in-as {
-    font-weight: var(--typography--default--font-weight--bold);
+    font-weight: var(--typography--title--font-weight);
     float: right;
-    font-size: var(--typography--default--font-size--s);
+    font-size: var(--typography--font-size--s);
     line-height: 1;
     margin: 0;
   }
@@ -57,17 +57,17 @@
   ol {
     padding: 0;
     margin-top: 0;
-    margin-bottom: var(--sizes--margin-m);
+    margin-bottom: var(--size--margin-m);
     list-style: none;
   }
   
   li {
     margin: 0;
     display: block;
-    padding: var(--sizes--margin--) 0 var(--sizes--margin-m) 0;
+    padding: var(--size--margin--) 0 var(--size--margin-m) 0;
     
     li {
-      padding-left: var(--sizes--margin-l);
+      padding-left: var(--size--margin-l);
     }
   }
 
@@ -92,10 +92,10 @@
     a,
     b {
       color: var(--wp--preset--color--primary);
-      font-size: var(--typography--default--font-size--xl);
+      font-size: var(--typography--font-size--xl);
 
       @media #{$mq__responsive-size_breakpoint} {
-        font-size: var(--typography--default--font-size--l);
+        font-size: var(--typography--font-size--l);
       }
     }
   }
@@ -105,7 +105,7 @@
     line-height: 1;
   
     a {
-      font-size: var(--typography--default--font-size--xs);
+      font-size: var(--typography--font-size--xs);
       color: var(--wp--preset--color--gray);
     }
   
@@ -113,9 +113,9 @@
       opacity: 0;
       transition: $animations__lenght;
       background-color: var(--wp--preset--color--primary);
-      margin-left: var(--sizes--margin-m);
-      padding: var(--sizes--margin-xs) var(--sizes--margin-s);
-      border-radius: var(--sizes--margin-m);
+      margin-left: var(--size--margin-m);
+      padding: var(--size--margin-xs) var(--size--margin-s);
+      border-radius: var(--size--margin-m);
       color: var(--wp--preset--color--white);
     }
   }
@@ -127,9 +127,9 @@
   .comment-content {
     background: var(--wp--preset--color--white);
     border: 1px solid var(--wp--preset--color--white-smoke);
-    padding: var(--sizes--margin-m);
+    padding: var(--size--margin-m);
     margin-left: $comments__avatar-size * 1.25;
-    margin-top: var(--sizes--margin--);
+    margin-top: var(--size--margin--);
   
     max-height: 800px;
     overflow-y: auto;
@@ -146,11 +146,11 @@
     color: var(--wp--preset--color--gray-dark);
     border: 1px solid var(--wp--preset--color--gray-light);
     clear: both;
-    padding: var(--sizes--margin-xs) var(--sizes--margin-s);
-    border-radius: var(--sizes--margin-m);
+    padding: var(--size--margin-xs) var(--size--margin-s);
+    border-radius: var(--size--margin-m);
     display: inline-block;
-    line-height: var(--typography--default--line-height);
-    margin-top: var(--sizes--margin-s);
+    line-height: var(--typography--line-height);
+    margin-top: var(--size--margin-s);
     transition: $animations__lenght;
 
     &:hover {
@@ -165,7 +165,7 @@
   
   > small {
     display: block;
-    font-size: var(--typography--default--font-size--m);
+    font-size: var(--typography--font-size--m);
   }
   
   label {
@@ -175,10 +175,10 @@
   
   form {
     p {
-      margin-bottom: var(--sizes--margin-m);
+      margin-bottom: var(--size--margin-m);
     }
     a {
-      font-weight: var(--typography--default--font-weight--regular);
+      font-weight: var(--typography--text--regular);
     }
 
   }
@@ -189,17 +189,17 @@
   
   .comment-form-cookies-consent {
     display: flex;
-    margin: var(--sizes--margin-m) 0;
+    margin: var(--size--margin-m) 0;
     
     label {
       font-size: 14px;
       line-height: 1;
-      margin-left: var(--sizes--margin--);
+      margin-left: var(--size--margin--);
     }
   }
   
   .form-submit {
-    margin-top: var(--sizes--margin-l);
+    margin-top: var(--size--margin-l);
     text-align: right;
   }
 }

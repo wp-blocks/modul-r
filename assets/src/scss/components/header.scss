@@ -47,7 +47,7 @@
   %header-top-right-position {
     position: absolute;
     top: 0;
-    right: var(--sizes--responsive--side-margin);
+    right: var(--size--responsive--side-margin);
     height: 100%;
     @media #{$mq__responsive_breakpoint} {
       display: flex;
@@ -68,21 +68,21 @@
 
     @extend %header-top-right-position;
     z-index: 1010;
-    right: var(--sizes--margin-m) + $hamburger__size ;
+    right: var(--size--margin-m) + $hamburger__size ;
 
     .button {
       min-width: $icons-height;
-      margin: auto 0 auto var(--sizes--margin--);
-      padding: var(--sizes--margin-m);
+      margin: auto 0 auto var(--size--margin--);
+      padding: var(--size--margin-m);
 
-      border-radius: $icons-height + var(--sizes--margin-s);
+      border-radius: $icons-height + var(--size--margin-s);
       border: 1.5px solid var(--wp--preset--color--gray-light);
 
       opacity: 0.75;
       transition: $animations__lenght;
 
       &.text {
-        padding: ($size__margin * 1.25) var(--sizes--margin-m);
+        padding: ($size__margin * 1.25) var(--size--margin-m);
       }
 
       &:hover {
@@ -91,7 +91,7 @@
 
       span {
         display: block;
-        font-size: var(--typography--default--font-size--s);
+        font-size: var(--typography--font-size--s);
         height: $icons-height;
         line-height: $icons-height + 2;
       }
@@ -135,7 +135,7 @@
           max-width: var(--header--branding--max-width);
 
           @media #{$mq__responsive-size_breakpoint} {
-            max-height: calc(var(--header--branding--height) - var(--sizes--margin-m));
+            max-height: calc(var(--header--branding--height) - var(--size--margin-m));
             width: auto;
             margin: 0;
           }
@@ -152,9 +152,10 @@
         align-items: center;
 
         .site-logo {
-          margin-right: var(--sizes--margin--);
+          margin-right: var(--size--margin--);
 
           @media #{$mq__responsive-size_breakpoint} {
+            margin-left: 0;
             width: auto;
           }
         }
@@ -162,7 +163,7 @@
 
         .header-text {
           text-align: left;
-          margin-left: var(--sizes--margin--);
+          margin-left: var(--size--margin--);
         }
       }
     }
@@ -186,7 +187,7 @@
 
       .site-description {
         display: inline-block;
-        font-weight: var(--typography--default--font-weight--light);
+        font-weight: var(--typography--text--light);
         color: var(--header--text-color);
       }
     }
@@ -210,8 +211,8 @@
       .header-text {
         text-align: center;
         margin-right: auto;
-        padding-top: var(--sizes--margin--);
-        padding-bottom: var(--sizes--margin--);
+        padding-top: var(--size--margin--);
+        padding-bottom: var(--size--margin--);
 
         @media #{$mq__responsive_breakpoint} {
           text-align: left;
@@ -271,8 +272,8 @@
       width: 100%;
       height: 100%;
       @media #{$mq__responsive_breakpoint} {
-        padding-top: var(--sizes--margin-xs);
-        padding-bottom: var(--sizes--margin-xs);
+        padding-top: var(--size--margin-xs);
+        padding-bottom: var(--size--margin-xs);
       }
   
       .site-logo {
@@ -298,7 +299,7 @@
 
         .site-description {
           display: inline-block;
-          font-weight: var(--typography--default--font-weight--light);
+          font-weight: var(--typography--text--light);
           font-size: calc(var(--header--nav--height) * .2);
           line-height: 1;
         }
@@ -324,7 +325,7 @@
     
     .main-menu {
       justify-content: flex-end;
-      padding: 0 0 0 var(--sizes--responsive--side-margin);
+      padding: 0 0 0 var(--size--responsive--side-margin);
       @media #{$mq__responsive_breakpoint} {
         padding: 0;
         justify-content: flex-start;

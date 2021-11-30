@@ -22,14 +22,14 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
         <p><?php echo $hero_subtitle; ?></p>
         <?php
           if ($hero_call_to_action > 0 || $hero_call_to_action_2 > 0 ) {
-              echo '<span class="hero-cta-wrapper">';
+              echo '<div class="hero-cta-wrapper wp-block-buttons is-content-justification-center">';
               if ( $hero_call_to_action > 0 ) {
-                  printf( '<span class="wp-block-button is-style-big"><a href="%s" class="wp-block-button__link has-header-background-color">%s</a></span>', esc_url( get_page_link( $hero_call_to_action ) ), esc_html( get_the_title( $hero_call_to_action ) ) );
+                  printf( '<div class="wp-block-button is-style-big"><a href="%s" class="wp-block-button__link has-header-background-color">%s</a></div>', esc_url( get_page_link( $hero_call_to_action ) ), esc_html( get_the_title( $hero_call_to_action ) ) );
               }
               if ( $hero_call_to_action_2 > 0 ) {
-                  printf( '<span class="wp-block-button is-style-outline is-style-big"><a href="%s" class="wp-block-button__link">%s</a></span>', esc_url( get_category_link( $hero_call_to_action_2 ) ), esc_html( get_cat_name( $hero_call_to_action_2 ) ) );
+                  printf( '<div class="wp-block-button is-style-outline"><a href="%s" class="wp-block-button__link">%s</a></div>', esc_url( get_category_link( $hero_call_to_action_2 ) ), esc_html( get_cat_name( $hero_call_to_action_2 ) ) );
               }
-              echo '</span>';
+              echo '</div>';
           }
         ?>
       </div>

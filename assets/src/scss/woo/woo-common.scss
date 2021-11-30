@@ -4,26 +4,26 @@ body.woocommerce {
   .woocommerce-breadcrumb {
     margin: 0;
     line-height: 1;
-    padding-bottom: var(--sizes--margin-l);
+    padding-bottom: var(--size--margin-l);
     @extend .ellipsis;
-    @media #{$mq__smaller-than-tablet} {padding-bottom: var(--sizes--margin-m);}
+    @media #{$mq__smaller-than-tablet} {padding-bottom: var(--size--margin-m);}
   }
   
   .woocommerce-result-count {
-    @media #{$mq__smaller-than-tablet} {font-size: var(--typography--default--font-size--s)}
+    @media #{$mq__smaller-than-tablet} {font-size: var(--typography--font-size--s)}
   }
   .woocommerce-ordering {
     a, span, option, select {
-      @media #{$mq__smaller-than-tablet} {font-size: var(--typography--default--font-size--s)}
+      @media #{$mq__smaller-than-tablet} {font-size: var(--typography--font-size--s)}
     }
   }
   
   .product_meta {
-    margin-top: var(--sizes--margin-m);
+    margin-top: var(--size--margin-m);
     & > span {
       display: block;
-      font-weight: var(--typography--default--font-weight--bold);
-      line-height: var(--typography--default--line-height--wide);
+      font-weight: var(--typography--title--font-weight);
+      line-height: var(--typography--line-height--wide);
       span, a {font-weight: 400;}
     }
   }
@@ -57,9 +57,9 @@ body.woocommerce {
 
 // Select2 custom style
 .select2-selection__rendered {
-  line-height: var(--sizes--margin-l) !important;
+  line-height: var(--size--margin-l) !important;
 }
 .select2-container .select2-selection--single,
 .select2-selection__arrow {
-  height: var(--sizes--margin-l) !important;
+  height: var(--size--margin-l) !important;
 }

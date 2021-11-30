@@ -36,14 +36,14 @@ body.archive {
   article {
     display: flex;
     margin: 0 auto;
-    padding: var(--sizes--margin-xl) 0;
+    padding: var(--size--margin-xl) 0;
     min-height: 100px;
     position: relative;
     z-index: 2;
   
     @media #{$mq__smaller-than-tablet} {
       flex-direction: column;
-      padding: var(--sizes--margin-l) var(--sizes--responsive--side-margin);
+      padding: var(--size--margin-l) var(--size--responsive--side-margin);
     }
   
     .article-wrapper {
@@ -55,20 +55,20 @@ body.archive {
       $archive_image: 280px;
       min-width: $archive_image;
       max-width: $archive_image;
-      margin-right: var(--sizes--margin-l);
+      margin-right: var(--size--margin-l);
   
       @media #{$mq__smaller-than-tablet} {
-        width: calc(100% + var(--sizes--margin-xl) * 2);
+        width: calc(100% + var(--size--margin-xl) * 2);
         min-width: inherit;
-        max-width: calc(100% + var(--sizes--margin-xl) * 2);
-        margin: calc(var(--sizes--margin-l) * -1) calc(var(--sizes--margin-xl) * -1) var(--sizes--responsive--side-margin);
+        max-width: calc(100% + var(--size--margin-xl) * 2);
+        margin: calc(var(--size--margin-l) * -1) calc(var(--size--margin-xl) * -1) var(--size--responsive--side-margin);
         img {
           transform: rotate(-1deg);
         }
       }
   
       + .article-wrapper {
-        min-width: calc( 100% - #{$archive_image} + var(--sizes--margin-l) );
+        min-width: calc( 100% - #{$archive_image} + var(--size--margin-l) );
         @media #{$mq__smaller-than-tablet} {width: 100%;}
       }
       
@@ -93,8 +93,8 @@ body.archive {
 
       .entry-title {
         width: 100%;
-        font-size: var(--typography--default--font-size--xl);
-        margin: 0 0 var(--sizes--margin--);
+        font-size: var(--typography--font-size--xl);
+        margin: 0 0 var(--size--margin--);
         padding: 0;
         text-align: left;
         @media #{$mq__smaller-than-tablet} {font-size: 24px;}
@@ -116,13 +116,13 @@ body.archive {
   
     .entry-footer {
       .post-meta {
-        padding: var(--sizes--margin-m) 0 0;
+        padding: var(--size--margin-m) 0 0;
       }
       .meta-wrapper {
         p {
-          font-size: var(--typography--default--font-size--xs);
+          font-size: var(--typography--font-size--xs);
           text-transform: uppercase;
-          margin-left: var(--sizes--margin--);
+          margin-left: var(--size--margin--);
           &:first-of-type { margin-left: 0}
         }
       }

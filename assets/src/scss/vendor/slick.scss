@@ -192,7 +192,7 @@ $slick-next-character: ">" !default;
     width: 100%;
     height: auto;
   }
-  padding: var(--sizes--margin-xs);
+  padding: var(--size--margin-xs);
 }
 
 .slick-dots {
@@ -202,12 +202,12 @@ $slick-next-character: ">" !default;
   flex-wrap: wrap;
   
   margin: 0;
-  padding: var(--sizes--margin--) 0;
+  padding: var(--size--margin--) 0;
   
   list-style-type: none;
   
   li {
-    margin: 0 var(--sizes--margin--);
+    margin: 0 var(--size--margin--);
   }
   
   button {

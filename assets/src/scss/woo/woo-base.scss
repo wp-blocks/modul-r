@@ -2,13 +2,13 @@ body.woocommerce {
   
   @media #{$mq__smaller-than-tablet} {
     .site-content {
-      padding-left: var(--sizes--responsive--side-margin);
-      padding-right: var(--sizes--responsive--side-margin);
+      padding-left: var(--size--responsive--side-margin);
+      padding-right: var(--size--responsive--side-margin);
     }
   }
   
   &.sidebar-left .site-content {
-    padding-right: var(--sizes--responsive--side-margin);
+    padding-right: var(--size--responsive--side-margin);
   }
   
 }

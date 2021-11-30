@@ -5,7 +5,7 @@
     
     ul {
       margin: 0;
-      padding-left: var(--sizes--margin-l);
+      padding-left: var(--size--margin-l);
     }
   
     li {
@@ -23,7 +23,7 @@
     
     .current-cat-parent,.current-cat {
       & > a {
-        font-weight: var(--typography--default--font-weight--bold);
+        font-weight: var(--typography--title--font-weight);
       }
     }
     .current-cat {
@@ -38,7 +38,7 @@
         transition: $animations__lenght;
         vertical-align: middle;
         margin-top: -2px;
-        margin-right: var(--sizes--margin--);
+        margin-right: var(--size--margin--);
       }
     }
     .cat-parent.active > a i {
@@ -55,9 +55,9 @@
     a {display: block;}
     
     li {
-      height: var(--typography--default--line-height);
+      height: var(--typography--line-height);
       border-top: 1px solid rgba(var(--wp--preset--color--black), 0.05);
-      font-size: var(--typography--default--font-size--xs);
+      font-size: var(--typography--font-size--xs);
       line-height: 1;
       
       &:first-child { border: 0;}
@@ -72,9 +72,9 @@
       
       .product-title {
         color: var(--color--text);
-        font-weight: var(--typography--default--font-weight--bold);
-        padding-top: var(--sizes--margin--);
-        line-height: var(--typography--default--line-height);
+        font-weight: var(--typography--title--font-weight);
+        padding-top: var(--size--margin--);
+        line-height: var(--typography--line-height);
         display: block;
         @extend .ellipsis;
       }
@@ -83,7 +83,7 @@
         width: $list-line-size;
         height: $list-line-size;
         object-fit: contain;
-        margin-left: var(--sizes--margin--);
+        margin-left: var(--size--margin--);
       }
     }
   }

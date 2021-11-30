@@ -56,7 +56,7 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   border: 1px solid var(--wp--preset--color--gray-light);
   @extend %elevation--01;
   padding: 0;
-  margin: 0 0 var(--sizes--margin-l);
+  margin: 0 0 var(--size--margin-l);
   
   @media #{$mq__tablet-portrait}{
     padding-right: 0;
@@ -64,10 +64,10 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   
   .article-wrapper {
     width: auto;
-    margin-left: var(--sizes--responsive--side-margin);
-    margin-right: var(--sizes--responsive--side-margin);
-    padding-top: var(--sizes--margin-s);
-    padding-bottom: var(--sizes--margin-l);
+    margin-left: var(--size--responsive--side-margin);
+    margin-right: var(--size--responsive--side-margin);
+    padding-top: var(--size--margin-s);
+    padding-bottom: var(--size--margin-l);
   }
   
   .entry-image {
@@ -83,7 +83,7 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   }
   
   .entry-header {
-    padding: var(--sizes--margin--) 0;
+    padding: var(--size--margin--) 0;
     margin: 0;
     width: 100%;
     @media #{$mq__content-width} {
@@ -97,14 +97,14 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
   }
   
   h2.entry-title {
-    font-size: var(--typography--default--font-size--l);
+    font-size: var(--typography--font-size--l);
     padding: 0;
     margin: 0;
     text-align: left;
   }
   
   p {
-    font-size: var(--typography--default--font-size--s);
+    font-size: var(--typography--font-size--s);
     margin: 0;
     padding: 0;
   }
@@ -113,6 +113,6 @@ $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size;
 
 .page-load-status {
   display: none; /* hidden by default */
-  padding-top: var(--sizes--margin-l);
+  padding-top: var(--size--margin-l);
   text-align: center;
 }

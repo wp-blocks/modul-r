@@ -1,8 +1,8 @@
 #secondary {
   
-  min-width: var(--sizes--sidebar--width);
-  width: var(--sizes--sidebar--width);
-  padding: 0 var(--sizes--responsive--side-margin);
+  min-width: var(--size--sidebar--width);
+  width: var(--size--sidebar--width);
+  padding: 0 var(--size--responsive--side-margin);
   box-sizing: border-box;
 
   .search-form {
@@ -11,28 +11,28 @@
   
   @media #{$mq__larger-than-tablet} {
     padding: 0;
-    .sidebar-right & {padding-left: var(--sizes--sidebar--side-margin);}
-    .sidebar-left & {padding-right: var(--sizes--sidebar--side-margin);}
+    .sidebar-right & {padding-left: var(--size--sidebar--side-margin);}
+    .sidebar-left & {padding-right: var(--size--sidebar--side-margin);}
   }
   
   @media #{$mq__responsive_breakpoint} {
-    padding-top: var(--sizes--margin-l);
+    padding-top: var(--size--margin-l);
     border-top: 1px solid rgba(var(--wp--preset--color--black), 0.05);
     min-width: inherit;
     width: 100%;
   }
 
   section {
-    padding-bottom: var(--sizes--margin-l);
+    padding-bottom: var(--size--margin-l);
   }
   
   h3 {
-    margin: 0 0 var(--sizes--margin--);
-    font-size: var(--typography--default--font-size--l);
+    margin: 0 0 var(--size--margin--);
+    font-size: var(--typography--font-size--l);
   }
 
   li {
-    margin: 0 0 var(--sizes--margin-s) 20px;
+    margin: 0 0 var(--size--margin-s) 20px;
   }
 
   a {

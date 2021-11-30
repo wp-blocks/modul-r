@@ -45,36 +45,18 @@ body {
   overflow-x: hidden;
 }
 
-.has-primary-background-color,
-.has-primary-light-background-color,
-.has-primary-dark-background-color,
-.has-secondary-background-color,
-.has-secondary-light-background-color,
-.has-secondary-dark-background-color,
-.has-black-background-color,
-.has-gray-dark-background-color,
-.has-gray-dark-background-color {
-  color: var(--wp--preset--color--white);
-}
-
-.has-white-background-color,
-.has-white-smoke-background-color,
-.has-gray-light-background-color {
-  color: var(--color--text);
-}
-
 /* Headlines */
 body {
-  font-family: var(--typography--content--font-family), sans-serif;
+  font-family: var(--typography--text--font-family), sans-serif;
   color: var(--color--text);
-  font-weight: var(--typography--default--font-weight--regular);
-  font-size: var(--typography--default--font-size--m);
-  line-height: var(--typography--default--line-height);
+  font-weight: var(--typography--text--regular);
+  font-size: var(--typography--font-size--m);
+  line-height: var(--typography--line-height);
   word-break: break-word;
 }
 @media (max-width : 500px) {
   body {
-    font-size: var(--typography--default--font-size--s);
+    font-size: var(--typography--font-size--s);
   }
 }
 
@@ -94,60 +76,60 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 var(--sizes--margin--);
+  margin: 0 0 var(--size--margin--);
   padding: 0;
 }
 
 h1 {
-  font-size: var(--typography--default--font-size--xxxl);
+  font-size: var(--typography--font-size--xxxl);
 }
 @media (max-width : 500px) {
   h1 {
-    font-size: var(--typography--default--font-size--xxl);
+    font-size: var(--typography--font-size--xxl);
   }
 }
 
 h2 {
-  font-size: var(--typography--default--font-size--xxl);
+  font-size: var(--typography--font-size--xxl);
 }
 @media (max-width : 500px) {
   h2 {
-    font-size: var(--typography--default--font-size--l);
+    font-size: var(--typography--font-size--l);
   }
 }
 .woocommerce h2 {
-  font-size: var(--typography--default--font-size--xl);
+  font-size: var(--typography--font-size--xl);
 }
 @media (max-width : 500px) {
   .woocommerce h2 {
-    font-size: var(--typography--default--font-size--l);
+    font-size: var(--typography--font-size--l);
   }
 }
 
 h3 {
-  font-size: var(--typography--default--font-size--xl);
+  font-size: var(--typography--font-size--xl);
 }
 @media (max-width : 767px) {
   h3 {
-    font-size: var(--typography--default--font-size--m);
+    font-size: var(--typography--font-size--m);
   }
 }
 
 h4 {
-  font-size: var(--typography--default--font-size--l);
+  font-size: var(--typography--font-size--l);
 }
 @media (max-width : 1260px) {
   h4 {
-    font-size: var(--typography--default--font-size--m);
+    font-size: var(--typography--font-size--m);
   }
 }
 
 h5, h6 {
-  font-size: var(--typography--default--font-size--m);
+  font-size: var(--typography--font-size--m);
 }
 @media (max-width : 1260px) {
   h5, h6 {
-    font-size: var(--typography--default--font-size--s);
+    font-size: var(--typography--font-size--s);
   }
 }
 
@@ -155,21 +137,21 @@ h5, h6 {
 li, .editor-styles-wrapper li, .editor-styles-wrapper p,
 p {
   list-style: none;
-  font-size: var(--typography--default--font-size--m);
+  font-size: var(--typography--font-size--m);
 }
 @media (max-width : 500px) {
   li, .editor-styles-wrapper li, .editor-styles-wrapper p,
 p {
-    font-size: var(--typography--default--font-size--s);
+    font-size: var(--typography--font-size--s);
   }
 }
 
 p, .editor-styles-wrapper li, .editor-styles-wrapper p {
-  margin: 0 0 var(--sizes--margin--);
+  margin: 0 0 var(--size--margin--);
 }
 
 b, strong {
-  font-weight: var(--typography--default--font-weight--bold);
+  font-weight: var(--typography--text--bold);
 }
 
 a {
@@ -178,12 +160,10 @@ a {
 }
 
 ul, ol, dl {
-  margin-top: var(--sizes--margin-m);
-  margin-bottom: var(--sizes--margin-m);
   padding: 0;
 }
 ul li, ul .editor-styles-wrapper li, .editor-styles-wrapper ul li, ul .editor-styles-wrapper p, .editor-styles-wrapper ul p, ul dt, ul dd, ol li, ol .editor-styles-wrapper li, .editor-styles-wrapper ol li, ol .editor-styles-wrapper p, .editor-styles-wrapper ol p, ol dt, ol dd, dl li, dl .editor-styles-wrapper li, .editor-styles-wrapper dl li, dl .editor-styles-wrapper p, .editor-styles-wrapper dl p, dl dt, dl dd {
-  line-height: var(--typography--default--line-height);
+  line-height: var(--typography--line-height);
   margin: 0;
 }
 
@@ -204,12 +184,12 @@ iframe {
 
 pre {
   width: 100%;
-  padding: var(--sizes--margin-m) var(--sizes--margin-l);
+  padding: var(--size--margin-m) var(--size--margin-l);
   background: var(--wp--preset--color--white-smoke);
   border: 1px solid var(--wp--preset--color--gray-light);
   box-sizing: border-box;
   border-radius: 3px;
-  max-width: calc(100% - var(--sizes--responsive--side-margin) * 2);
+  max-width: calc(100% - var(--size--responsive--side-margin) * 2);
   overflow-x: auto;
 }
 pre code {
@@ -221,9 +201,9 @@ pre code {
 code {
   border: 1px solid var(--wp--preset--color--gray-light);
   background-color: var(--wp--preset--color--white-smoke);
-  padding: var(--sizes--margin-xs) var(--sizes--margin-s);
-  margin-top: var(--sizes--margin-xs);
-  margin-bottom: var(--sizes--margin-xs);
+  padding: var(--size--margin-xs) var(--size--margin-s);
+  margin-top: var(--size--margin-xs);
+  margin-bottom: var(--size--margin-xs);
   border-radius: 3px;
   display: inline-block;
   word-break: break-word;
@@ -242,7 +222,7 @@ cite {
 }
 @media (max-width : 767px) {
   .site .entry-content blockquote {
-    padding: var(--sizes--margin-m) 90px;
+    padding: var(--size--margin-m) 90px;
   }
 }
 .site .entry-content blockquote:before {
@@ -258,11 +238,11 @@ cite {
 .site .entry-content blockquote cite {
   font-size: 1em;
   font-style: italic;
-  line-height: var(--typography--default--line-height--wide);
-  font-weight: var(--typography--default--font-weight--light);
+  line-height: var(--typography--line-height--wide);
+  font-weight: var(--typography--text--light);
   text-transform: none;
-  padding-top: var(--sizes--margin-m);
-  margin-bottom: var(--sizes--margin-s);
+  padding-top: var(--size--margin-m);
+  margin-bottom: var(--size--margin-s);
 }
 .site .entry-content blockquote p em, .site .entry-content blockquote .editor-styles-wrapper li em, .editor-styles-wrapper .site .entry-content blockquote li em,
 .site .entry-content blockquote cite em {
@@ -273,7 +253,7 @@ cite {
 }
 @media (max-width : 767px) {
   .site .entry-content blockquote.wp-block-pullquote {
-    padding: var(--sizes--margin--) var(--sizes--margin-m);
+    padding: var(--size--margin--) var(--size--margin-m);
   }
 }
 
@@ -307,13 +287,13 @@ cite {
   .site-main .entry-content table,
 .site-main .entry-content pre,
 .site-main .entry-content blockquote {
-    padding-right: var(--sizes--responsive--side-margin);
-    margin-left: var(--sizes--responsive--side-margin);
-    margin-right: var(--sizes--responsive--side-margin);
+    padding-right: var(--size--responsive--side-margin);
+    margin-left: var(--size--responsive--side-margin);
+    margin-right: var(--size--responsive--side-margin);
     width: auto;
   }
   .site-main .entry-content table {
-    width: calc(100% - var(--sizes--margin-m));
+    width: calc(100% - var(--size--margin-m));
   }
 }
 .post-tags {
@@ -326,7 +306,7 @@ cite {
 .post-tags ul {
   display: inline;
   margin: 0;
-  padding-left: var(--sizes--margin-m);
+  padding-left: var(--size--margin-m);
 }
 .post-tags li.post-tag, .post-tags .editor-styles-wrapper p.post-tag, .editor-styles-wrapper .post-tags p.post-tag {
   margin: 0 16px 10px 0;
@@ -344,7 +324,7 @@ cite {
 .post-tag a {
   height: 22px;
   font-size: 11px;
-  font-weight: var(--typography--default--font-weight--bold);
+  font-weight: var(--typography--text--bold);
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--wp--preset--color--white);

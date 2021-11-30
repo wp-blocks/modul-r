@@ -1,13 +1,13 @@
 /* Headlines */
 body {
-	font-family: var(--typography--content--font-family), sans-serif;
+	font-family: var(--typography--text--font-family), sans-serif;
 	color: var(--color--text);
-	font-weight: var(--typography--default--font-weight--regular);
-	font-size: var(--typography--default--font-size--m);
-	line-height: var(--typography--default--line-height);
+	font-weight: var(--typography--text--regular);
+	font-size: var(--typography--font-size--m);
+	line-height: var(--typography--line-height);
 	word-break: break-word;
 	
-	@media #{$mq__phablet} {font-size: var(--typography--default--font-size--s);}
+	@media #{$mq__phablet} {font-size: var(--typography--font-size--s);}
 }
 
 %headline_style {
@@ -22,38 +22,38 @@ h4,
 h5,
 h6 {
 	@extend %headline_style;
-	margin: 0 0 var(--sizes--margin--);
+	margin: 0 0 var(--size--margin--);
 	padding: 0;
 }
 
 h1 {
-	font-size: var(--typography--default--font-size--xxxl);
-	@media #{$mq__phablet} {font-size: var(--typography--default--font-size--xxl);}
+	font-size: var(--typography--font-size--xxxl);
+	@media #{$mq__phablet} {font-size: var(--typography--font-size--xxl);}
 }
 
 h2 {
-	font-size: var(--typography--default--font-size--xxl);
-  @media #{$mq__phablet} {font-size: var(--typography--default--font-size--l);}
+	font-size: var(--typography--font-size--xxl);
+  @media #{$mq__phablet} {font-size: var(--typography--font-size--l);}
 
 	.woocommerce & {
-		font-size: var(--typography--default--font-size--xl);
-		@media #{$mq__phablet} {font-size: var(--typography--default--font-size--l);}
+		font-size: var(--typography--font-size--xl);
+		@media #{$mq__phablet} {font-size: var(--typography--font-size--l);}
 	}
 }
 
 h3 {
-	font-size: var(--typography--default--font-size--xl);
-	@media #{$mq__tablet-portrait} {font-size: var(--typography--default--font-size--m);}
+	font-size: var(--typography--font-size--xl);
+	@media #{$mq__tablet-portrait} {font-size: var(--typography--font-size--m);}
 }
 
 h4 {
-	font-size: var(--typography--default--font-size--l);
-	@media #{$mq__tablet} {font-size: var(--typography--default--font-size--m);}
+	font-size: var(--typography--font-size--l);
+	@media #{$mq__tablet} {font-size: var(--typography--font-size--m);}
 }
 
 h5, h6 {
-	font-size: var(--typography--default--font-size--m);
-	@media #{$mq__tablet} {font-size: var(--typography--default--font-size--s);}
+	font-size: var(--typography--font-size--m);
+	@media #{$mq__tablet} {font-size: var(--typography--font-size--s);}
 }
 
 
@@ -61,16 +61,16 @@ h5, h6 {
 li,
 p {
 	list-style: none;
-	font-size: var(--typography--default--font-size--m);
-  @media #{$mq__phablet} {font-size: var(--typography--default--font-size--s);}
+	font-size: var(--typography--font-size--m);
+  @media #{$mq__phablet} {font-size: var(--typography--font-size--s);}
 }
 
 p {
-	margin: 0 0 var(--sizes--margin--);
+	margin: 0 0 var(--size--margin--);
 }
 
 b, strong {
-	font-weight: var(--typography--default--font-weight--bold);
+	font-weight: var(--typography--text--bold);
 }
 
 a {
@@ -79,12 +79,10 @@ a {
 }
 
 ul, ol, dl {
-	margin-top: var(--sizes--margin-m);
-	margin-bottom: var(--sizes--margin-m);
 	padding: 0;
-	
+
 	li, dt, dd {
-		line-height: var(--typography--default--line-height);
+		line-height: var(--typography--line-height);
 		margin: 0;
 	}
 }

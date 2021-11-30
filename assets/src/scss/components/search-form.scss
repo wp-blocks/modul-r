@@ -1,7 +1,7 @@
 .search-form {
   
   display: flex;
-  max-width: var(--sizes--sidebar--width);
+  max-width: var(--size--sidebar--width);
   margin: 0 auto;
   border-radius: 4px;
   overflow: hidden;
@@ -20,8 +20,8 @@
   [type="search"] {
     width: 100%;
     margin: 0;
-    padding: $size__margin var(--sizes--margin-m);
-    font-size: var(--typography--default--font-size--s);
+    padding: $size__margin var(--size--margin-m);
+    font-size: var(--typography--font-size--s);
     border: 1px solid var(--wp--preset--color--gray-light);
     outline: 0;
     box-shadow: inherit !important;
@@ -50,7 +50,7 @@
   
   
   #primary & {
-    margin: var(--sizes--margin-xl) auto;
+    margin: var(--size--margin-xl) auto;
   }
 }
 

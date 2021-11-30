@@ -2,55 +2,54 @@
 .entry-footer {
   clear: both;
   & > div {
-    padding-top: var(--sizes--margin-xl);
+    padding-top: var(--size--margin-xl);
   }
 }
 
 .page-links {
   clear: both;
-  padding-top: var(--sizes--margin-xl);
+  padding-top: var(--size--margin-xl);
 }
 
 .post-meta {
   .meta-wrapper {
     display: inline-flex;
-    margin-top: var(--sizes--margin--);
+    margin-top: var(--size--margin--);
 
     p {
       width: auto;
       color: var(--wp--preset--color--gray-dark);
-      font-size: var(--typography--default--font-size--s);
+      font-size: var(--typography--font-size--s);
       margin-bottom: 0;
-      margin-left: var(--sizes--margin--);
-      margin-right: var(--sizes--margin--);
+      margin-left: var(--size--margin--);
+      margin-right: var(--size--margin--);
       
       @media #{$mq__smaller-than-tablet} {
-        font-size: var(--typography--default--font-size--xs);
+        font-size: var(--typography--font-size--xs);
       }
     }
     
     a {
       color: var(--wp--preset--color--gray-dark);
-      font-weight: var(--typography--default--font-weight--bold);
+      font-weight: var(--typography--title--font-weight);
       text-transform: uppercase;
     }
   }
 }
 
 .breadcrumbs {
-  font-size: var(--typography--default--font-size--xs);
-  margin-bottom: var(--sizes--margin--);
-  font-weight: var(--typography--default--font-weight--bold);
+  font-size: var(--typography--font-size--xs);
+  margin-bottom: var(--size--margin--);
+  font-weight: var(--typography--title--font-weight);
   letter-spacing: 1.5px;
   color: var(--wp--preset--color--gray-dark);
   
   a {
-    font-family: var(--typography--content--font-family), sans-serif;
     color: var(--wp--preset--color--gray-dark);
-    font-weight: var(--typography--default--font-weight--bold);
+    font-weight: var(--typography--title--font-weight);
     text-transform: uppercase;
-    margin-left: var(--sizes--margin-xs);
-    margin-right: var(--sizes--margin-xs);
+    margin-left: var(--size--margin-xs);
+    margin-right: var(--size--margin-xs);
     opacity: .5;
     
     &:last-of-type {
@@ -77,7 +76,7 @@
     li {
       display: block;
       padding: 0;
-      margin: var(--sizes--margin-s) 0 var(--sizes--margin-l);
+      margin: var(--size--margin-s) 0 var(--size--margin-l);
       clear: both;
     
       p {
@@ -88,13 +87,13 @@
         float: left;
         clear: both;
         width: $image-size;
-        margin-right: var(--sizes--margin-l);
-        margin-bottom: var(--sizes--margin-m);
+        margin-right: var(--size--margin-l);
+        margin-bottom: var(--size--margin-m);
         max-height: $image-size;
         @media #{$mq__smaller-than-tablet} {
           width:  $image-size * .5;
-          margin-right: var(--sizes--margin-l);
-          margin-bottom: var(--sizes--margin-l);
+          margin-right: var(--size--margin-l);
+          margin-bottom: var(--size--margin-l);
         }
       }
     }
@@ -131,10 +130,10 @@
 .nav-links {
   flex-basis: 100%;
   text-align: center;
-  margin-top: var(--sizes--margin-l);
+  margin-top: var(--size--margin-l);
   
   * {
-    margin: 0 var(--sizes--margin--);
+    margin: 0 var(--size--margin--);
   }
   
   .page-numbers {
@@ -148,7 +147,7 @@
     vertical-align: middle;
     box-sizing: border-box;
     
-    font-weight: var(--typography--default--font-weight--bold);
+    font-weight: var(--typography--title--font-weight);
     line-height: $pagenumber__size;
     
     border-radius: $pagenumber__size * .5;
@@ -171,7 +170,7 @@
 
 .post-navigation {
   .navigation {
-    margin-top: var(--sizes--margin-m);
+    margin-top: var(--size--margin-m);
     & > div {
       height: 60px;
     }
@@ -181,7 +180,7 @@
 
 .category-list-labels {
 
-  padding-top: var(--sizes--margin-l);
+  padding-top: var(--size--margin-l);
   ul, li {
     display: inline-block;
   }
@@ -199,7 +198,7 @@
     box-sizing: border-box;
   
     a {
-      font-size: var(--typography--default--font-size--xs);
+      font-size: var(--typography--font-size--xs);
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--wp--preset--color--gray-dark);
@@ -252,7 +251,7 @@
     padding-top: calc( var(--header--nav--height) + var(--header--branding--height) );
     margin: auto;
     z-index: 2;
-    max-width: var(--sizes--content--width);
+    max-width: var(--size--content--width);
     width: 100%;
     
     h1, p {
@@ -270,18 +269,18 @@
     }
     
     p {
-      font-size: calc(var(--typography--default--font-size--m) + 1px);
-      line-height: calc(var(--typography--default--font-size--m) * 1.4 );
+      font-size: calc(var(--typography--font-size--m) + 1px);
+      line-height: calc(var(--typography--font-size--m) * 1.4 );
       font-style: italic;
-      margin: 0 auto var(--sizes--margin--);
+      margin: 0 auto var(--size--margin--);
       @media #{$mq__smaller-than-tablet} {
-        font-size: var(--typography--default--font-size--s);
-        line-height: var(--typography--default--line-height);
+        font-size: var(--typography--font-size--s);
+        line-height: var(--typography--line-height);
       }
     }
 
     .wp-block-button {
-      margin-top: var(--typography--default--font-size--m);
+      margin-top: var(--typography--font-size--m);
 
       &.is-style-outline {
         .wp-block-button__link {
