@@ -136,7 +136,7 @@ cite {
 
 @media #{$mq__responsive-size_breakpoint} {
 	.site-main .entry-content {
-		table,
+
 		pre,
 		blockquote {
 			padding-right: var(--size--responsive--side-margin);
@@ -147,6 +147,11 @@ cite {
 		
 		table {
 			width: calc(100% - var(--size--margin-m));
+
+			@media #{$mq__responsive-size_breakpoint} {
+				margin-left: 0;
+				margin-right: 0;
+			}
 		}
 	}
 }
