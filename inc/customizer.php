@@ -1066,9 +1066,11 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
                   $vars .= $suffix . $option['name'] . ":" . $option['default'] . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
               }
             } else {
+              // get the prop value
               $this_prop = get_theme_mod( 'modul_r_typography_options_' . $option['for'] . "_" . $option['name'] );
+              // applies cosmetic fix fot font family Exo+2 -> 'Exo 2', serif
               $prop = ($this_prop !== false) ?
-                  ($option['type'] === 'font_family') ? str_replace( "+", " ", $this_prop ) : $this_prop :
+                  ($option['type'] === 'font_family') ? '\''.str_replace( "+", " ", $this_prop ).'\', serif' : $this_prop :
                   $GLOBALS['modul_r_defaults']['customizer_options']['font_styles'][$option['for'] . "_" . $option['name']]['default'];
               $vars .= $suffix . $option['for'] . '--' . $option['name'] . ":" . $prop . ';';
             }
