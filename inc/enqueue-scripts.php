@@ -103,7 +103,7 @@ if ( ! function_exists( 'modul_r_theme_style' ) ) :
 		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array() );
 	}
 endif;
-add_action( 'wp_footer', 'modul_r_theme_style', 1 );
+add_action( 'wp_print_styles', 'modul_r_theme_style', 1 );
 
 /**
  * Dequeue global WordPress style
