@@ -86,16 +86,20 @@ i.social-ico {
 $arrowSize: 60px;
 
 .arrow {
+  position:absolute;
+  z-index: 10;
   border-radius: 50%;
   margin: 0 auto;
   padding: $arrowSize * .25;
   min-width: inherit;
-  border:0;
+  border: 0;
+  box-shadow: inherit;
   text-align: center;
   width: auto;
   height: auto;
   font-size: 0;
   transition: background-color $animations__lenght;
+  background-color: transparent;
   
   &:hover {
     filter: inherit;
@@ -109,13 +113,11 @@ $arrowSize: 60px;
   }
 
   &-prev {
-    @include material-icon( '\e2ea', 36 );
-    left: $arrowSize * .5;
+    @include material-icon( '\e2ea', 36, "var(--wp--preset--color--black)" );
   }
-  
+
   &-next {
-    @include material-icon( '\e5e1', 36 );
-    right: $arrowSize * .5;
+    @include material-icon( '\e5e1', 36, "var(--wp--preset--color--black)" );
   }
 }
 
@@ -153,17 +155,35 @@ $arrowSize: 60px;
   @extend .arrow-prev;
 }
 
-.slider button.slick-prev {
-  margin-left: $arrowSize * -1;
-  @media #{$mq__smaller-than-tablet} {
-    margin-left: $arrowSize * .5;
+.slider button {
+  &.slick-prev,
+  &.slick-next {
+    @media #{$mq__smaller-than-tablet} {
+      font-size: 0;
+      &:before {
+        opacity: 0.9;
+        color: var(--wp--preset--color--background);
+        font-size: 24px;
+      }
+    }
   }
-}
-.slider button.slick-next {
-  margin-right: $arrowSize * -1;
-  @media #{$mq__smaller-than-tablet} {
-    margin-right: $arrowSize * .5;
+  &.slick-prev {
+    margin-left: $arrowSize * -1;
+    @media #{$mq__smaller-than-tablet} {
+      margin-left: $arrowSize * -.25;
+      font-size: 0;
+      left: $arrowSize * .5;
+    }
   }
+  &.slick-next {
+    margin-right: $arrowSize * -1;
+    @media #{$mq__smaller-than-tablet} {
+      margin-right: $arrowSize * -.25;
+      right: $arrowSize * .5;
+    }
+  }
+
 }
+
 
 
