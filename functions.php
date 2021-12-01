@@ -14,7 +14,7 @@ if (!isset($modul_r_defaults)) {
 			'black' => '#222222',
 		),
 		'style' => array(
-			'background' => 'white-smoke',
+			'background' => 'white',
 			'title-color' => 'primary',
 			'text-color' => 'gray-dark',
 			'header-color' => 'gray-dark',
@@ -87,7 +87,7 @@ if (!isset($modul_r_defaults)) {
         )
 	);
 }
-apply_filters('modul_r_defaults', $modul_r_defaults);
+
 
 if ( ! function_exists('modul_r_theme_setup') ) :
 	function modul_r_theme_setup() {

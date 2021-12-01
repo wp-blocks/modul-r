@@ -1046,14 +1046,11 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
         $footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-bottom-color'] ] );
         $footer_text_color        = modul_r_get_theme_color( 'footer-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-text-color'] ] );
 
+        $background_color        = modul_r_get_theme_color( 'background_color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['background'] ] );
+
         $baseunit           = get_theme_mod( 'modul_r_baseunit' ) !== false ? intval( get_theme_mod( 'modul_r_baseunit' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['baseunit'] );
         $content_width      = get_theme_mod( 'modul_r_content_width' ) !== false ? intval( get_theme_mod( 'modul_r_content_width' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width'] );
         $content_width_wide = get_theme_mod( 'modul_r_content_width_wide' ) !== false ? intval( get_theme_mod( 'modul_r_content_width_wide' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width_wide'] );
-
-        $font_family_title = get_theme_mod( 'modul_r_typography_options_title_font_family' ) !== false ?
-            str_replace( "+", " ", get_theme_mod( 'modul_r_typography_options_title_font_family' ) ) :
-            $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_font-family']['default'];
-
 
         // Typography
         function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
@@ -1078,6 +1075,11 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           return $vars;
         }
 
+        $typography = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--");
+        $font_styles = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['font_styles'], "--typography--");
+        $header_sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--");
+        $sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--size--");
+
         // Build the color palette
         function modul_r_generate_color_palette( $colors ) {
             if ( empty( $colors ) || !is_array( $colors ) ) {
@@ -1090,13 +1092,9 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
             return $css_palette;
         }
 
-        $typography = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--");
-        $font_styles = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['font_styles'], "--typography--");
-        $header_sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--");
-        $sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--size--");
         $color_css_classes = modul_r_generate_color_palette($colors);
 
-        echo "<style>body {" .
+        $css_style = "<style>body {" .
           "--wp--preset--color--primary: {$colors['primary']};" .
           "--wp--preset--color--primary-light: {$colors['primary-light']};" .
           "--wp--preset--color--primary-dark: {$colors['primary-dark']};" .
@@ -1111,6 +1109,8 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "--wp--preset--color--gray: {$colors['gray']};" .
           "--wp--preset--color--gray-dark: {$colors['gray-dark']};" .
           "--wp--preset--color--black: {$colors['black']};" .
+
+          "--wp--preset--color--background: $background_color;" .
 
           "--wp--preset--color--black--decimal: ".modul_r_hex2rgb($colors['black'], true). ";" .
           "--wp--preset--color--white--decimal: ".modul_r_hex2rgb($colors['white'], true). ";" .
@@ -1163,6 +1163,10 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "}".
            $color_css_classes.
           "</style>";
+
+        $css_style = apply_filters('modul_r_acf_css_style', $css_style );
+
+        echo $css_style;
     }
 endif;
 add_action( 'wp_head', 'modul_r_css_props', 99 );
