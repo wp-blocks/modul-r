@@ -3,6 +3,25 @@
 /**
  * Displays the hero of the homepage
  */
+if ( ! function_exists( 'modul_r_the_hero' ) ) :
+    function modul_r_the_hero() {
+        if ( is_front_page() && !is_home() ) {
+            modul_r_hero_image();
+        } else if ( !( class_exists( 'WooCommerce' ) && is_product() ) && (is_single() || is_page()) ) {
+            if ( has_post_thumbnail() ) {
+                echo '<div class="hero" >';
+                modul_r_post_image('parallax');
+                echo '</div>';
+            }
+        } else if ( !( class_exists( 'WooCommerce' ) && is_product_category() ) && is_archive() ) {
+            modul_r_archive_image('parallax');
+        }
+    }
+endif;
+
+/**
+ * Displays the hero of the homepage
+ */
 if ( ! function_exists( 'modul_r_hero_image' ) ) :
 	function modul_r_hero_image() {
     // fullscreen hero image
