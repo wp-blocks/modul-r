@@ -134,9 +134,9 @@ $slick-prev-character: "<" !default;
 $slick-next-character: ">" !default;
 
 // fix since wp5.8 - galleries are by default display:flex so we need to reset the default style
-.slider-single,
-.slider-multi {
-  display: block;
+.wp-block-gallery.slider-single,
+.wp-block-gallery.slider-multi {
+  display: block!important;
 }
 
 

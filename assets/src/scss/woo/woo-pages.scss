@@ -13,7 +13,6 @@ body.woocommerce {
       a img {
         width: 100%;
         height: auto;
-        max-height: 220px;
         object-fit: contain;
         margin: 0 auto var(--size--margin-m);
         padding: 0;
@@ -21,20 +20,20 @@ body.woocommerce {
       }
     
       .woocommerce-loop-product__title {
-        padding: 0 0 var(--size--margin--);
+        padding: 0 0 var(--size--margin-xs);
         margin: 0;
         font-size: var(--typography--font-size--m);
         text-align: center;
       }
       
       a.button {
-        font-size: 10px;
+        font-size: 11px;
         border: 1px solid var(--wp--preset--color--gray-light);
         background-color: white;
         align-content: center;
-        margin: auto;
+        margin: var(--size--margin-s) auto 0;
       }
-  
+
       .added_to_cart {
         $add-to-cart: 30px;
         position: absolute;
@@ -65,8 +64,8 @@ body.woocommerce {
       p.price,
       span.price {
         color: var(--wp--preset--color--gray-dark);
-        line-height: 2;
-        font-size: 12px;
+        line-height: var(--typography--line-height);
+        font-size: var(--typography--font-size--s);
         display: block;
         text-align: center;
       }
@@ -110,9 +109,23 @@ body.woocommerce {
     
     .product_title.entry-title {
       margin: 0;
-      font-size: 38px;
+      font-size: var(--typography--font-size--xxl);
+      font-weight: var(--typography--title--font-weight);
       text-align: left;
-      @media #{$mq__smaller-than-tablet} {font-size: 30px;}
+      @media #{$mq__smaller-than-tablet} {font-size: var(--typography--font-size--xl);}
+    }
+
+    p.price {
+      color: var(--wp--preset--color--gray);
+      font-size: var(--typography--font-size--xxl);
+      font-weight: var(--typography--text--regular);
+      padding-top: var(--size--margin-m);
+      padding-bottom: var(--size--margin-l);
+
+      ins {
+        font-weight: var(--typography--text--regular);
+        font-size: var(--typography--font-size--xxl);
+      }
     }
     
     div.images .flex-control-thumbs li {
@@ -143,12 +156,6 @@ body.woocommerce {
           height: $quantity-height;
         }
       }
-    }
-  
-    p.price,
-    span.price {
-      color: var(--wp--preset--color--gray);
-      font-size: 40px;
     }
     
     .woocommerce-tabs {

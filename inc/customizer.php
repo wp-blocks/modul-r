@@ -961,6 +961,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
         $header_background = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']] );
         $footer_background = modul_r_get_theme_color( 'footer-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-color']] );
         $footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']] );
+        $background_color = "#" . get_background_color();
 
         // get the acf.css file and store into a variable
         ob_start();
@@ -968,6 +969,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
         include get_stylesheet_directory() . '/assets/dist/css/atf.css';
 
         $atf_css = ob_get_clean();
+        $atf_css .= 'body {background-color: ' . $background_color . ';}';
 
         // HEADER
         // set the header color
@@ -1004,6 +1006,8 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
         if ($hero_height) $atf_css .= "html .site .hero {max-height:{$hero_height}vh}";
         if ($hero_height_home) $atf_css .= "html body.home .hero {max-height:{$hero_height_home}vh}";
 
+        apply_filters('modul_r_acf_css_style', $atf_css);
+
         // And finally return the stored style
         if ($atf_css != "" ) {
             echo '<style id="modul-r-above-the-fold" type="text/css">'. $atf_css . '</style>';
@@ -1035,6 +1039,8 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
         $colors['gray-dark']   = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-dark'] );
         $colors['black']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['black'] );
 
+        $colors['background']       = sanitize_hex_color( "#" . get_background_color() );
+
         // Typography colors
         $text_color = get_theme_mod( 'text-color' ) !== false ? sanitize_hex_color( get_theme_mod( 'text-color' ) ) : sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] );
 
@@ -1046,7 +1052,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
         $footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-bottom-color'] ] );
         $footer_text_color        = modul_r_get_theme_color( 'footer-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-text-color'] ] );
 
-        $background_color        = modul_r_get_theme_color( 'background_color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['background'] ] );
+        $background_color = $colors['background'];
 
         $baseunit           = get_theme_mod( 'modul_r_baseunit' ) !== false ? intval( get_theme_mod( 'modul_r_baseunit' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['baseunit'] );
         $content_width      = get_theme_mod( 'modul_r_content_width' ) !== false ? intval( get_theme_mod( 'modul_r_content_width' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width'] );
@@ -1161,10 +1167,10 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "--sizes--entry-title--width: 66%;" .
 
           "}".
-           $color_css_classes.
+          $color_css_classes.
           "</style>";
 
-        $css_style = apply_filters('modul_r_acf_css_style', $css_style );
+        $css_style = apply_filters('modul_r_css_vars_style', $css_style );
 
         echo $css_style;
     }

@@ -20,7 +20,8 @@ body.home {
         border: 1px solid var(--wp--preset--color--gray-light);
         border-radius: var(--size--margin-xs);
         line-height: var(--typography--line-height);
-        box-shadow: 0 4px 20px -10px rgba(var(--wp--preset--color--black--decimal), .8);
+        overflow: hidden;
+        box-shadow: 0 4px 10px -5px rgba(var(--wp--preset--color--black--decimal), .66);
 
         @media #{$mq__smaller-than-tablet} {
           display: flex;
@@ -32,6 +33,11 @@ body.home {
           flex-direction: column;
           margin: 0 0 var(--size--margin-m);
           height: 160px;
+        }
+
+        .wp-block-cover.alignfull {
+          margin: 0 calc(var(--size--margin-m) * -1) calc(var(--size--margin-l) * -1);
+          width: calc(100% + (var(--size--margin-l)));
         }
 
         .wp-block-image {
