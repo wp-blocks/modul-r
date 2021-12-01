@@ -1,7 +1,7 @@
 === Modul R ===
 Contributors: codekraft
 Requires at least: 4.9.6
-Tested up to: 5.8
+Tested up to: 5.8.2
 Requires PHP: 5.6
 Stable tag: 1.4.1
 License: GPLv2 or later
@@ -27,7 +27,7 @@ Modul R also provides a seamless integration with Gutenberg and Woocommerce.
 * It is a simple template with good out of the box performance.
 * This template was designed to be developer friendly and can be and can be used as a bootstrap to start a much more complex site. if these are your intentions, please install the child theme you can find on git, below is how to do it and a list of gulp tasks that allow you to modify and recompile in this bundled version
 
-= How install node? =
+= How install nodejs? =
 Run the installer of NodeJS from the link below:
   https://nodejs.org/en/download/
 After this step, you can check if NodeJS and NPM were installed with the command:
