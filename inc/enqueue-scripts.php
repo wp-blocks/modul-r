@@ -60,10 +60,11 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
         $font_query[] = "family=$font_family_title:wght@" . implode(";", $sorted_weights );
     }
 
+    $font_query[] = "family=Material+Icons";
+
     // enqueue google font
     if ($font_query) wp_enqueue_style( 'modul-r-fonts', "https://fonts.googleapis.com/css2?" . implode("&", $font_query) . "&display=swap", array(), null );
 
-		wp_enqueue_style( "modul-r-icons", "https://fonts.googleapis.com/css2?family=Material+Icons&display=swap", array(), null );
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_fonts', 10 );
