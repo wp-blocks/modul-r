@@ -188,7 +188,9 @@ cite {
 
 	a {
 		height: $post-tag-height;
+		line-height: $post-tag-height;
 		font-size: 11px;
+		vertical-align: middle;
 		font-weight: var(--typography--text--bold);
 		letter-spacing: 1px;
 		text-transform: uppercase;
