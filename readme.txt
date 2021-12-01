@@ -74,6 +74,9 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 == Upgrade Notice ==
 
+= 1.4.1 - Dec 1, 2021 =
+* Due recent changes please refresh the customizer data saving them again
+
 = 1.2.0 - Sept 13, 2019 =
 * Hudge changes in customizer section...  go and check all the new features. From the sass configuration the variables to set the header and sidebar direction have been removed since they are now changed by the customizer
 
@@ -92,7 +95,6 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * Custom fonts for titles / improved font loading. In the customizer/modular options/typography do not forget to reload in order to display the font weight for the font you have selected
 * Introduced a filter to add some custom css to above the fold style -> add_filter('modul_r_acf_css_style', function($defaults) { return $defaults. '.custom {color:red}'; }, 1, 1 );
 * Some cosmetic fix to footer and sidebar css and some elements like tables that weren't aligned properly on mobile devices
-
 
 = 1.4.0 =
 * Redesigned customisation section!
