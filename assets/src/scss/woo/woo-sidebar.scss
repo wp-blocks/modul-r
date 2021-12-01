@@ -11,7 +11,9 @@
     li {
       line-height: 42px;
       margin: 0;
-      @extend .ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
   
     & > li:first-child { border: 0; }
@@ -76,7 +78,9 @@
         padding-top: var(--size--margin--);
         line-height: var(--typography--line-height);
         display: block;
-        @extend .ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
   
       img {

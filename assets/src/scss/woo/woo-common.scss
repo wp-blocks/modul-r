@@ -5,7 +5,9 @@ body.woocommerce {
     margin: 0;
     line-height: 1;
     padding-bottom: var(--size--margin-l);
-    @extend .ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     @media #{$mq__smaller-than-tablet} {padding-bottom: var(--size--margin-m);}
   }
   
