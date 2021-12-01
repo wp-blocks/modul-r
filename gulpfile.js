@@ -252,6 +252,7 @@ async function mainCSSbuild() {
 function backendCSS() {
   return gulp
     .src([
+      opts.devPath + 'scss/woo.scss',
       opts.devPath + 'scss/editor.scss',
       opts.devPath + 'scss/admin.scss'
     ])
