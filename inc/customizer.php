@@ -1137,7 +1137,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
            $typography .
            $font_styles .
 
-          "--typography--title--line-height:var(--typography--line-height);" .
+          "--typography--title--line-height: var(--typography--line-height);" .
           "--typography--title--font-size: var(--typography--font-size--xxl);" .
           "--typography--content--line-height: var(--typography--line-height--wide);" .
           "--typography--content--font-size: var(--typography--font-size--m);" .
@@ -1164,7 +1164,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 
           "--element--hero--title--font-size: 64px;" .
           "--element--hamburger--color: var(--header--text-color);" .
-          "--sizes--entry-title--width: 66%;" .
+          "--size--entry-title--width: {$content_width}px;" .
 
           "}".
           $color_css_classes.

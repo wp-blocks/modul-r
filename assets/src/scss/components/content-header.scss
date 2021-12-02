@@ -1,12 +1,7 @@
 // Page Header
 .site {
   .entry-header {
-    width: var(--size--entry-title--width);
-    max-width: 100%;
-
-    @media #{$mq__smaller-than-tablet} {
-      width: 100%;
-    }
+    width: 100%;
   }
 
   .has-sidebar & .entry-header {
@@ -14,6 +9,7 @@
   }
 
   .page-header {
+    max-width: var(--size--entry-title--width);
     margin-bottom: var(--size--margin-xl);
 
     @media #{$mq__responsive-size_breakpoint} {
@@ -54,10 +50,9 @@
     padding-left: var(--size--responsive--side-margin);
     padding-right: var(--size--responsive--side-margin);
   }
-  
+
   p {
     margin: 0 auto;
-    width: var(--size--entry-title--width);
     line-height: var(--typography--line-height--wide);
 
     @media #{$mq__responsive-size_breakpoint} {
