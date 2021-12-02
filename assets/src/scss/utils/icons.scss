@@ -169,6 +169,7 @@ $arrowSize: 60px;
   }
   &.slick-prev {
     margin-left: $arrowSize * -1;
+    z-index: 100;
     @media #{$mq__smaller-than-tablet} {
       margin-left: $arrowSize * -.25;
       font-size: 0;
@@ -177,6 +178,7 @@ $arrowSize: 60px;
   }
   &.slick-next {
     margin-right: $arrowSize * -1;
+    z-index: 100;
     @media #{$mq__smaller-than-tablet} {
       margin-right: $arrowSize * -.25;
       right: $arrowSize * .5;
