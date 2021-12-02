@@ -38,6 +38,13 @@ body.home {
         .wp-block-cover.alignfull {
           margin: 0 calc(var(--size--margin-m) * -1) calc(var(--size--margin-l) * -1);
           width: calc(100% + (var(--size--margin-l)));
+          @media #{$mq__smaller-than-tablet} {
+            width:100%;
+            .wp-block-cover__inner-container > * {
+              text-align: center;
+              margin: auto
+            }
+          }
         }
 
         .wp-block-image {

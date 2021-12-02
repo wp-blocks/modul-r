@@ -164,65 +164,72 @@ $slick-next-character: ">" !default;
   }
 }
 
-.entry-content .wp-block-gallery  .slick-slide {
-  padding: var(--size--margin-xs);
-  & > div {
-    height: 100%;
-  }
-  img {
-    width: 100%;
-    height: auto;
-  }
-  .blocks-gallery-item {
-    margin-bottom: 0 !important;
-    height: 100%;
-  }
-}
+.entry-content .wp-block-gallery {
 
-.slick-dots {
-  $slick_dot_size: 8px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: $slick_dot_size * 2;
-  margin: $slick_dot_size auto 0;
-  padding: var(--size--margin--) 0;
-  
-  list-style-type: none;
-  
-  li {
-    margin: 0 var(--size--margin--);
-  }
-  
-  button {
-    display: block;
-    width: $slick_dot_size;
-    height: $slick_dot_size;
-    margin: 0;
-    padding: 0;
-    min-width: inherit;
-    outline:inherit !important;
-    
-    border: none;
-    border-radius: 100%;
-    background-color: var(--wp--preset--color--gray-light);
-    &:hover,
-    &:focus{
-      width: $slick_dot_size * 1.25;
-      height: $slick_dot_size * 1.25;
-      margin-top: -$slick_dot_size * .25;
-      background-color:  var(--wp--preset--color--gray);
-      filter: inherit;
+  .slick-slide {
+
+    padding: var(--size--margin-xs);
+
+    & > div {
+      height: 100%;
     }
-    
-    text-indent: -9999px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .blocks-gallery-item {
+      margin-bottom: 0 !important;
+      height: 100%;
+    }
   }
-  
-  li.slick-active button {
-    background-color:var(--wp--preset--color--primary);
-    width: $size__margin + 8;
-    height: $size__margin + 8;
-    margin-top: $size__margin * -.5;
+
+  .slick-dots {
+    $slick_dot_size: 8px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: $slick_dot_size * 3;
+    margin: 0 auto;
+    padding: var(--size--margin-m) 0;
+
+    list-style-type: none;
+
+    li {
+      margin: 0 var(--size--margin--);
+    }
+
+    button {
+      display: block;
+      width: $slick_dot_size;
+      height: $slick_dot_size;
+      margin: 0;
+      padding: 0;
+      min-width: inherit;
+      outline:inherit !important;
+
+      border: none;
+      border-radius: 100%;
+      background-color: var(--wp--preset--color--gray-light);
+      &:hover,
+      &:focus{
+        width: $slick_dot_size * 1.25;
+        height: $slick_dot_size * 1.25;
+        margin-top: -$slick_dot_size * .25;
+        background-color:  var(--wp--preset--color--gray);
+        filter: inherit;
+      }
+
+      text-indent: -9999px;
+    }
+
+    li.slick-active button {
+      background-color:var(--wp--preset--color--primary);
+      width: $size__margin + 8;
+      height: $size__margin + 8;
+      margin-top: $size__margin * -.5;
+    }
+
   }
-  
 }

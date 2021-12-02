@@ -362,6 +362,10 @@
     
     .wp-block-cover__inner-container {
       max-width: var(--size--content--width);
+
+      @media #{$mq__smaller-than-tablet} {
+        max-width: inherit;
+      }
     }
     
     .wp-block-cover-image-text,

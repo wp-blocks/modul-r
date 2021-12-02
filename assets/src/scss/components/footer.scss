@@ -6,6 +6,9 @@
   p {
     font-size:var(--typography--font-size--m);
     line-height:var(--typography--line-height--wide);
+    @media #{$mq__smaller-than-tablet} {
+      font-size:var(--typography--font-size--s);
+    }
   }
 
   h1,
@@ -44,7 +47,7 @@
     justify-content: flex-end;
     
     @media #{$mq__smaller-than-tablet} {
-      padding-top: var(--size--margin-s);
+      padding-top: var(--size--margin-l);
       padding-bottom: var(--size--margin-s);
       flex-direction: column-reverse;
       width: 100%;
