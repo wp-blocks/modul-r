@@ -189,6 +189,11 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		// Add support for full and wide align images.
 		add_theme_support( 'align-wide' );
 
+		// Spacing control some blocks can have padding controls.
+        // Some blocks like paragraph and headings support customizing the line height
+        add_theme_support( 'custom-spacing' );
+        add_theme_support( 'custom-line-height' );
+
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
 
