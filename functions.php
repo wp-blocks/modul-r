@@ -32,6 +32,7 @@ if (!isset($modul_r_defaults)) {
                 'Oswald' => array('name'=> 'Oswald', 'weights' => array(200,300,400,500,600,700) ),
                 'Arvo' => array('name'=> 'Arvo', 'weights' => array(400,700) ),
                 'Exo+2'=> array('name'=> 'Exo 2', 'weights' => array(100,200,300,400,500,600,700,800,900) ),
+                'Titillium+Web' => array('name'=> 'Titillium Web', 'weights' => array(200,300,400,600,700,900) ),
                 'Lato' => array('name'=> 'Lato', 'weights' => array(100,300,400,700,900) ),
                 'Open+Sans'=> array('name'=> 'Open Sans', 'weights' => array(300,400,500,600,700,800) ),
                 'Roboto' => array('name'=> 'Roboto', 'weights' => array(100,300,400,500,700,900) ),
