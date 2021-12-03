@@ -89,7 +89,8 @@ jQuery(document).ready(function($) {
         gallery.push({
           src: galleryItem.href,
           opts: {
-            caption: imgcaption + '<br/><span class="fancybox-counter"><span data-fancybox-index></span> of <span data-fancybox-count></span></span>'
+            caption: imgcaption +
+            '<br/><span class="fancybox-counter"><span data-fancybox-index></span> of <span data-fancybox-count></span></span>'
           }
         })
       });

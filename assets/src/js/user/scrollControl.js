@@ -42,9 +42,13 @@ function VisibleItemsTrigger(top) {
       // Parallax images
       // check if interactive box have a img child and get the distance from top
       if (entry.classList.contains('parallax')) {
+
         let firstTop = window.pageYOffset + entry.getBoundingClientRect().top - headerDistanceFromTop;
         let moveTopItem = -(firstTop - top) * parallaxDefaultSpeed;
-        entry.getElementsByTagName('img')[0].style.transform = "translateY(" + moveTopItem + "px)";
+
+        if (entry.getElementsByTagName('img').length)
+          entry.getElementsByTagName('img')[0].style.transform = "translateY(" + moveTopItem + "px)";
+
       }
     }
   });
