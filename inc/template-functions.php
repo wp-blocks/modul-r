@@ -14,6 +14,10 @@ if ( ! function_exists( 'modul_r_the_hero' ) ) :
                 echo '</div>';
             }
         } else if ( !( class_exists( 'WooCommerce' ) && is_product_category() ) && is_archive() ) {
+            if ( class_exists( 'WooCommerce' ) && is_shop() ) {
+                $wooOptions = get_theme_mod( 'modul_r_woo' );
+                if ( empty($wooOptions['shop_hero'] ) ) return;
+            }
             modul_r_archive_image('parallax');
         }
     }
@@ -78,6 +82,7 @@ endif;
  */
 if ( ! function_exists( 'modul_r_archive_image' ) ) :
 	function modul_r_archive_image( $class = null ) {
+
 		// Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
         <div class="hero" >
@@ -381,7 +386,12 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 		global $post;
 		$woo_enabled = class_exists( 'WooCommerce' );
 
-		if (  is_page() || ( is_single() && !($woo_enabled && is_product()) ) || ( is_archive() && !($woo_enabled && is_product_category())) || ( ($woo_enabled && is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
+		if (
+      is_page() || ( is_single() && !($woo_enabled && is_product()) ) || // enabled on pages and post (not on product page)
+      ( is_archive() && $woo_enabled && !is_product_category()) && !is_shop() || // enabled in archives
+      ( $woo_enabled && is_shop() && !empty(get_theme_mod( 'modul_r_woo' )['shop_hero']) ) // enabled in shop home
+    )
+    {
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
       if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {
         $classes[] = 'has-featured-image';
