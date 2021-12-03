@@ -117,6 +117,13 @@ body.woocommerce {
 }
 
 /* Block styles */
+.wp-block-group {
+  .has-background {
+    padding: var(--size--margin-l);
+  }
+}
+
+.site .wp-block-group__inner-container > *,
 .site .entry-content > * {
 
   @extend %website-width;
@@ -197,9 +204,4 @@ body.woocommerce {
       margin-right: auto;
     }
   }
-}
-
-.wp-block-group__inner-container {
-  padding-top: var(--size--margin-l);
-  padding-bottom: var(--size--margin-l);
 }

@@ -170,10 +170,8 @@
     }
     
     .wp-block-latest-posts__post-date {
-      color: var(--wp--preset--color--black);
       font-size: var(--typography--font-size--s);
-      line-height: 1;
-      margin-bottom: var(--size--margin-l);
+      margin-bottom: var(--size--margin-m);
     }
   }
   
@@ -203,7 +201,7 @@
     justify-content: space-between;
     li {
       background-color: var(--wp--preset--color--white);
-      margin: 0;
+      margin: 0 0 var(--size--responsive--side-margin);
     }
   }
   
