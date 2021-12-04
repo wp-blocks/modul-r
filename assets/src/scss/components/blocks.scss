@@ -564,6 +564,7 @@
     }
     
     @media #{$mq__smaller-than-tablet} {
+
       .wp-block-column > * {
         
         &:first-child {
@@ -572,12 +573,6 @@
         
         &:last-child {
           margin-bottom: 0;
-        }
-      }
-      
-      &[class*='has-'] > * {
-        &:last-child {
-          margin-right: 0;
         }
       }
       
