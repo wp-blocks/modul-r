@@ -6,6 +6,7 @@ if ( class_exists( 'WooCommerce' ) ) {
      * Enqueue style
      */
     function modul_r_woo_style() {
+        if (!is_woocommerce()) return true;
         wp_register_style( 'modul-r-woo-css', get_template_directory_uri() . '/assets/dist/css/woo.css' );
         wp_enqueue_style( 'modul-r-woo-css' );
     }
