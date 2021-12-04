@@ -134,6 +134,11 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_scripts' ); // Add Theme admin scripts
 
+/**
+ * this ensures that images that are loaded with lazyload (from autoptimize) have the fade effect
+ */
+add_filter( 'autoptimize_filter_imgopt_lazyload_cssoutput' , '<style>[data-src]{filter: opacity(0);}img.lazyloaded{animation: lazyFadeIn linear .2s;filter: opacity(1);}@keyframes lazyFadeIn{0%{filter: opacity(0);}100%{filter: opacity(1);}}</style>' );
+
 
 /**
  * To allow full JavaScript functionality with the comment features in WordPress 2.7, the following changes must be made within the WordPress Theme template files.
