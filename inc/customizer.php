@@ -1158,6 +1158,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
            $sizes .
 
           "--footer--background: $footer_background;" .
+          "--footer--logo-width: 80%;" .
           "--footer--bottom-background: $footer_bottom_background;" .
           "--footer--text-color: $footer_text_color;" .
           "--footer--text-color-decimal: ".modul_r_hex2rgb($footer_text_color, true). ";" .
