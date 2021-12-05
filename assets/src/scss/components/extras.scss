@@ -445,7 +445,7 @@ body.archive {
     &.animated {
       .wp-block-column {
         overflow: hidden;
-        transition: $animations__lenght * 4;
+        transition: transform $animations__lenght * 4, opacity $animations__lenght * 3;
         transform: translateY(30%);
         opacity: 0;
         transition-delay: $animations__lenght * 1.5;
