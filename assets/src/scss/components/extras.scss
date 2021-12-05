@@ -342,6 +342,10 @@ body.archive {
       overflow: hidden;
       box-shadow: 0 4px 10px -5px rgba(var(--wp--preset--color--black--decimal), .66);
 
+      @media #{$mq__smaller-than-tablet} {
+        margin: 0 var(--size--margin-s);
+      }
+
       @media #{$mq__responsive-size_breakpoint} {
         display: flex;
         flex-wrap: wrap;
@@ -350,7 +354,7 @@ body.archive {
         align-content: center;
         justify-content: center;
         flex-direction: column;
-        margin: 0 var(--size--margin-m) var(--size--margin-m);
+        margin: 0 var(--size--responsive--side-margin) var(--size--margin-m);
         height: 160px;
       }
 
@@ -369,12 +373,20 @@ body.archive {
           opacity: 0;
         }
 
-        @media #{$mq__responsive-size_breakpoint} {
-          width:100%;
-          .wp-block-cover__inner-container > * {
-            text-align: center;
-            margin: auto
+        .wp-block-cover__inner-container {
+          @media #{$mq__responsive-size_breakpoint} {
+            & > * {
+              text-align: center;
+              margin: auto
+            }
           }
+        }
+
+        h2,
+        h3,
+        h4,
+        p {
+          width: 100%;
         }
       }
 

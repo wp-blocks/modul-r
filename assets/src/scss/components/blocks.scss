@@ -351,7 +351,7 @@
   .wp-block-cover {
     position: relative;
     min-height: 40vh;
-    padding: 0;
+    padding: var(--size--margin-m) 0;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -360,6 +360,7 @@
     
     .wp-block-cover__inner-container {
       max-width: var(--size--content--width);
+      padding: 0 var(--size--margin-m);
 
       @media #{$mq__smaller-than-tablet} {
         max-width: inherit;
