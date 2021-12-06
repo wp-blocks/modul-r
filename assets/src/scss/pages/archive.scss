@@ -11,13 +11,15 @@ body.archive {
           display: block;
           position: absolute;
           z-index: 1;
-          transform: rotate(-1deg);
           top: 0;
           bottom: 0;
           left: -100px;
           right: -100px;
           content: '';
           background-color: rgba(var(--wp--preset--color--black--decimal), .05);
+          @media #{$mq__larger-than-tablet} {
+            transform: rotate(-1deg);
+          }
         }
       }
       
@@ -62,9 +64,6 @@ body.archive {
         min-width: inherit;
         max-width: calc(100% + var(--size--margin-xl) * 2);
         margin: calc(var(--size--margin-l) * -1) calc(var(--size--margin-xl) * -1) var(--size--responsive--side-margin);
-        img {
-          transform: rotate(-1deg);
-        }
       }
   
       + .article-wrapper {
