@@ -96,7 +96,7 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * General css style fixes and some improvements to the cards components (check the documentation)
 * Fixed the slick control arrows visibility that aren't displayed properly due some recent changes
 * A new script to activate/deactivate submenu elements that does not need jQuery
-* "Titillium Web" font added to font list
+* "Titillium Web" & "Parisienne" font added to font list
 * Enable some additional gutenberg functionalities (spacing and padding, custom line height)
 * The WooCommerce style now is enqueued only if woo is enabled and if the page template is a woocommerce page template (in short: whatever is needed will be added)
 
