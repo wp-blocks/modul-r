@@ -68,7 +68,7 @@
 
     }
 
-    &.current-menu-item a {
+    &.current-menu-item > a {
       font-weight: var(--typography--title--font-weight);
       opacity: 1;
     }
