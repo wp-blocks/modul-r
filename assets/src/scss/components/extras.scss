@@ -360,8 +360,17 @@ body.archive {
 
       .wp-block-cover.alignfull {
         text-shadow: 0 1px 5px var(--wp--preset--color--black);
-        margin: 0 calc(var(--size--margin-m) * -1) calc(var(--size--margin-l) * -1);
         width: calc(100% + (var(--size--margin-l)));
+        margin: 0 calc(var(--size--margin-m) * -1) calc(var(--size--margin-l) * -1);
+        padding: 0;
+
+        @media #{$mq__responsive-size_breakpoint} {
+          width: 100%;
+          min-height: 30vh;
+          height: auto;
+          margin: 0 calc(var(--size--margin-m) * -1);
+          flex: auto;
+        }
 
         .wp-block-cover__gradient-background,
         &.has-background-dim:before {
