@@ -356,7 +356,16 @@ body.archive {
         flex-direction: column;
         margin: 0 var(--size--responsive--side-margin) var(--size--responsive--side-margin);
         height: 160px;
+
+        &:last-of-type { margin-bottom: 0 !important;}
+
+        & > * {
+          margin-right: 4px;
+        }
+
       }
+
+
 
       .wp-block-cover.alignfull {
         text-shadow: 0 1px 5px var(--wp--preset--color--black);
@@ -366,7 +375,7 @@ body.archive {
 
         @media #{$mq__responsive-size_breakpoint} {
           width: 100%;
-          min-height: 30vh;
+          min-height: 22vh;
           height: auto;
           margin: 0 calc(var(--size--margin-m) * -1);
           flex: auto;
@@ -470,11 +479,15 @@ body.archive {
         transition: transform $animations__lenght * 4, opacity $animations__lenght * 3;
         transform: translateY(30%);
         opacity: 0;
-        transition-delay: $animations__lenght * 1.5;
+        transition-delay: $animations__lenght * 1;
 
-        &:nth-of-type(1) { transition-delay: $animations__lenght * 2.5}
-        &:nth-of-type(3) { transition-delay: $animations__lenght * 3}
-
+        &:nth-of-type(1) { transition-delay: $animations__lenght * 2}
+        &:nth-of-type(3) { transition-delay: $animations__lenght * 2.5}
+        @media #{$mq__responsive-size_breakpoint} {
+          &:nth-of-type(1) {transition-delay: inherit}
+          &:nth-of-type(2) {transition-delay: $animations__lenght}
+          &:nth-of-type(3) {transition-delay: $animations__lenght * 2}
+        }
       }
 
       &.already-see {
@@ -488,11 +501,11 @@ body.archive {
 
   .block-overlap-top {
     margin-top: calc(var(--size--margin-xl) * -1.5);
-    margin-bottom: calc(var(--size--margin-m) * -1);
+    margin-bottom: var(--size--margin-xl);
 
     @media #{$mq__responsive-size_breakpoint} {
       margin-top: calc(var(--size--margin-l) * -1.5);
-      margin-bottom: calc(var(--size--margin-l) * -1);
+      margin-bottom: var(--size--margin-l);
     }
   }
 }
