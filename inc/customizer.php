@@ -1100,7 +1100,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 
         $color_css_classes = modul_r_generate_color_palette($colors);
 
-        $css_style = "<style>body {" .
+        $css_style = "body {" .
           "--wp--preset--color--primary: {$colors['primary']};" .
           "--wp--preset--color--primary-light: {$colors['primary-light']};" .
           "--wp--preset--color--primary-dark: {$colors['primary-dark']};" .
@@ -1168,12 +1168,9 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "--size--entry-title--width: {$content_width}px;" .
 
           "}".
-          $color_css_classes.
-          "</style>";
+          $color_css_classes;
 
-        $css_style = apply_filters('modul_r_css_vars_style', $css_style );
-
-        echo $css_style;
+        echo '<style>' . apply_filters('modul_r_css_vars_style', $css_style ). '</style>';
     }
 endif;
 add_action( 'wp_head', 'modul_r_css_props', 99 );
