@@ -118,7 +118,7 @@ body.woocommerce {
 
 /* Block styles */
 .wp-block-group {
-  .has-background {
+  &.has-background {
     padding: var(--size--margin-l);
   }
 }
