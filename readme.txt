@@ -273,6 +273,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the LICENSE file for more details.
 
 == Resources ==
+* WordPress-logotype-alt-background.jpg https://wordpress.org/about/logos/, © 2010 WordPress Foundation, [policy](https://wordpressfoundation.org/trademark-policy/)
+* wapuu-original.png https://github.com/jawordpressorg/wapuu, © 2014 Kazuko Kaneuchi, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * infinite-scroll.js https://infinite-scroll.com/, © 2021 David DeSandro, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * fancybox.js https://fancyapps.com/fancybox/3/, © 2008 - 2019 fancyapps, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * slick.js https://kenwheeler.github.io/slick/, © 2017 Ken Wheeler, [MIT](http://opensource.org/licenses/MIT)
