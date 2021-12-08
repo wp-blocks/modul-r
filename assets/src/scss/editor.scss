@@ -22,14 +22,12 @@
 
 @import "main/base";
 @import "main/colors";
-@import "main/fonts";
+@import "main/helpers";
 @import "main/typography";
 @import "main/typography-extras";
+@import "components/extras";
+@import "components/blocks";
 
 .wp-block.editor-post-title__block .editor-post-title__input{
   @extend %headline_style;
-}
-
-.editor-styles-wrapper {
-  li, p {@extend li, p;}
 }

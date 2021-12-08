@@ -48,7 +48,7 @@
           'echo'           => false,
           'items_wrap'     => '<div class="main-menu"><ul id="%1$s" class="menu-container menu-%1$s %2$s-container">%3$s</ul></div>',
       ) );
-      echo apply_filters("modul_r_after_header_menu", $nav_menu);
+      echo apply_filters("modul_r_header_menu", $nav_menu);
       ?>
     </nav>
     <div class="menu-shadow" onclick="document.querySelector('#masthead').classList.toggle('active')"></div>

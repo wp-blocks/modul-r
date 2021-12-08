@@ -91,8 +91,13 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 == Changelog ==
 
+= 1.4.3 =
+* Renamed filter "modul_r_header_menu"
+* Activation notice with some tips to quick start with this theme
+* Editor style is closer to frontend
+
 = 1.4.2 =
-* Introduced a filter to add custom elements after (or before) the header menu (could be useful for icons etc) -> add_filter('modul_r_after_header_menu', function ($html) { return $html . 'yomama'; });
+* Introduced a filter to add custom elements after (or before) the header menu (could be useful for icons etc) -> add_filter('modul_r_header_menu', function ($html) { return $html . 'yomama'; });
 * General css style fixes and some improvements to the cards components (check the documentation)
 * Fixed the slick control arrows visibility that aren't displayed properly due some recent changes
 * A new script to activate/deactivate submenu elements that does not need jQuery
