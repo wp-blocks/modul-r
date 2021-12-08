@@ -139,8 +139,11 @@ add_action( 'wp_enqueue_scripts', 'modul_r_theme_scripts' ); // Add Theme admin 
  */
 add_filter( 'autoptimize_filter_imgopt_lazyload_cssoutput' , 'modul_r_lazyload_output' );
 function modul_r_lazyload_output($html) {
-    if ( class_exists( 'WooCommerce' ) && is_product()) return $html;
-   return '<style>[data-src]{filter: opacity(0);}img.lazyloaded{animation: lazyFadeIn linear .2s;filter: opacity(1);}@keyframes lazyFadeIn{0%{filter: opacity(0);}100%{filter: opacity(1);}}</style>';
+    $new_html = '[data-src]{filter: opacity(0)}img.lazyloaded{animation: lazyFadeIn linear .2s;filter: opacity(1)}@keyframes lazyFadeIn{0%{filter: opacity(0);}100%{filter: opacity(1)}}';
+    if ( class_exists( 'WooCommerce' ) && is_product()) {
+        $new_html = '[data-src]{filter: opacity(0)}img.lazyloaded,.woocommerce-product-gallery__image img{animation: lazyFadeIn linear .2s;filter: opacity(1)}@keyframes lazyFadeIn{0%{filter: opacity(0);}100%{filter: opacity(1)}}';
+    }
+    return "<style>$new_html</style>";
 }
 
 
