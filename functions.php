@@ -208,9 +208,27 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
+        // Theme Activation Notice
+        add_action('admin_notices', 'modul_r_activation_notice');
+
 	}
 endif;
 add_action( 'after_setup_theme', 'modul_r_theme_setup' );
+
+
+// After theme activation display the link to modul-r quick start
+function modul_r_activation_notice($message = false, $link = false) {
+
+    $message = esc_html( $message ) ?: 'Thank you for choosing Modul-R. Please take a look at the quick start guide to find out how to get the most out of this template!';
+    $link    = esc_url( $link ) ?: 'https://modul-r.codekraft.it/theme-setup/';
+
+    global $pagenow;
+    if ( is_admin() && ( 'themes.php' === $pagenow ) ) {
+        echo '<div class="notice notice-success is-dismissible welcome-notice ">';
+        printf( '<p>%s</p><p><a href="%s" class="button button-primary" target="_blank" >%s</a></p>', $message, $link,  esc_html__( 'Getting started', 'modul-r' ) );
+        echo '</div>';
+    }
+}
 
 
 require_once( get_template_directory() . '/inc/customizer.php' );
@@ -219,3 +237,4 @@ require_once( get_template_directory() . '/inc/sidebar.php' );
 require_once( get_template_directory() . '/inc/masonry.php' );
 require_once( get_template_directory() . '/inc/enqueue-scripts.php' );
 require_once( get_template_directory() . '/inc/template-functions.php' );
+require_once( get_template_directory() . '/inc/block-patterns.php' );
