@@ -57,8 +57,51 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
+#: functions.php:228
+msgid "Getting started"
+msgstr ""
+
 #: header.php:20
 msgid "Skip to content"
+msgstr ""
+
+#: inc/block-patterns.php:10
+msgid "Modul-r"
+msgstr ""
+
+#: inc/block-patterns.php:17
+msgid "Cards with icons (overlap the element to the top)"
+msgstr ""
+
+#: inc/block-patterns.php:19
+msgctxt "Block pattern description"
+msgid "Useful for Homepage Cards with icons will overlap the element to the top (for example the hero)"
+msgstr ""
+
+#: inc/block-patterns.php:24
+msgid "Cards with photos"
+msgstr ""
+
+#: inc/block-patterns.php:26
+msgctxt "Block pattern description"
+msgid "Three cards side by side with an image that fills the entire width"
+msgstr ""
+
+#: inc/block-patterns.php:31
+msgid "Cards with Cover"
+msgstr ""
+
+#: inc/block-patterns.php:33, inc/block-patterns.php:40, inc/block-patterns.php:47
+msgctxt "Block pattern description"
+msgid "Three cards side by side with a cover image that fills the whole card"
+msgstr ""
+
+#: inc/block-patterns.php:38
+msgid "Modul-R Carousel (single image)"
+msgstr ""
+
+#: inc/block-patterns.php:45
+msgid "Modul-R Carousel (show multiple images)"
 msgstr ""
 
 #: inc/customizer.php:145, inc/customizer.php:130
