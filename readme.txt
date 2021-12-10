@@ -3,7 +3,7 @@ Contributors: codekraft
 Requires at least: 4.9.6
 Tested up to: 5.8.2
 Requires PHP: 5.6
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -95,6 +95,8 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * Renamed filter "modul_r_header_menu"
 * Activation notice with some tips to quick start with this theme
 * Editor style is closer to frontend
+* added a filter to replace the wave shape used for featured image and cover blocks -> add_filter('modul_r_header_wave_shape', function () { return get_template_directory_uri() . '/inc/images/wave.svg'; });
+* Adds 5 new block patterns (3 cards + carousels) and 8 block styles (for cover, media and text and post featured image)
 
 = 1.4.2 =
 * Introduced a filter to add custom elements after (or before) the header menu (could be useful for icons etc) -> add_filter('modul_r_header_menu', function ($html) { return $html . 'yomama'; });
