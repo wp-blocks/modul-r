@@ -166,6 +166,10 @@ $slick-next-character: ">" !default;
 
 .entry-content .wp-block-gallery {
 
+  ul.slick-slider {
+    padding: 0;
+  }
+
   .slick-slide {
 
     padding: var(--size--margin-xs);
@@ -176,7 +180,7 @@ $slick-next-character: ">" !default;
 
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
     }
 
     .blocks-gallery-item {

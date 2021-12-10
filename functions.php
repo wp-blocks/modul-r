@@ -131,16 +131,13 @@ if ( ! function_exists('modul_r_theme_setup') ) :
 		* Switch default core markup for search form, comment form, and comments
 		* to output valid HTML5.
 		*/
-		add_theme_support(
-			'html5',
-			array(
+		add_theme_support( 'html5', array(
 				'search-form',
 				'comment-form',
 				'comment-list',
 				'gallery',
 				'caption',
-			)
-		);
+        ));
 
 		// Add support for core custom logo, header text color, website background.
 		add_theme_support( 'custom-logo' , array(
@@ -197,9 +194,10 @@ if ( ! function_exists('modul_r_theme_setup') ) :
         add_theme_support( 'custom-line-height' );
 
 		// Add support for editor styles.
+        // https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#editor-styles
 		add_theme_support( 'editor-styles' );
 
-		// Enqueue editor styles and fonts.
+		// Enqueue for classic editor styles and fonts.
 		add_editor_style( 'assets/dist/css/editor.css' );
 
 		// Add support for responsive embedded content.

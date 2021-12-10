@@ -1,3 +1,6 @@
+/*
+* BUTTON template
+*/
 %button {
   justify-content: center;
 
@@ -57,6 +60,14 @@
   &:disabled {
     filter: saturate(0);
   }
+}
+
+/*
+* BLOCK BUTTONS
+*/
+.wp-block-buttons {
+  margin-top: var(--size--margin-l);
+  margin-bottom: var(--size--margin-l);
 }
 
 .wp-block-button {
@@ -139,7 +150,9 @@
 
 }
 
-
+/*
+* HTML BUTTONS
+*/
 input[type="submit"],
 input[type="button"],
 input[type="reset"],
