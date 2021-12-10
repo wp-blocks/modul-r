@@ -53,13 +53,49 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 }
 
 if ( function_exists( 'register_block_style' ) ) {
-    register_block_style(
-        'core/quote',
-        array(
-            'name'         => 'blue-quote',
-            'label'        => __( 'Blue Quote', 'textdomain' ),
-            'is_default'   => true,
-            'inline_style' => '.wp-block-quote.is-style-blue-quote { color: blue; }',
-        )
-    );
+
+    $wave = apply_filters("modul_r_header_wave_shape", get_template_directory_uri() . '/inc/images/wave.svg');
+
+    register_block_style('core/cover', [
+        'name' => 'full-height',
+        'label' => __('The cover fills the whole height of the screen ', 'modul-r'),
+        'inline_style' => '.wp-block-cover.is-style-full-height { height: 100vh; }',
+    ]);
+
+    register_block_style('core/media-text', [
+        'name' => 'centered-image',
+        'label' => __('Image large and centered ', 'modul-r'),
+    ]);
+
+    register_block_style('core/media-text', [
+        'name' => 'small-image',
+        'label' => __('Small image (always the half of the width)', 'modul-r')
+    ]);
+
+    register_block_style('core/media-text', [
+        'name' => 'full-height',
+        'label' => __('Full screen height media and text', 'modul-r')
+    ]);
+
+    register_block_style('core/media-text', [
+        'name' => 'traversal-clip',
+        'label' => __('cut the container crosswise', 'modul-r')
+    ]);
+
+    register_block_style('core/cover', [
+        'name' => 'traversal-clip',
+        'label' => __('cut the container crosswise', 'modul-r')
+    ]);
+
+    register_block_style('core/cover', [
+        'name' => 'wave-clip',
+        'label' => __('clip with wave shape', 'modul-r'),
+        'inline_style' => '.wp-block-cover.is-style-wave-clip { mask: url('.$wave.') no-repeat 50% 50%;-webkit-mask: url('.$wave.') no-repeat 50% 50%; }'
+    ]);
+
+    register_block_style('core/post-featured-image', [
+        'name' => 'wave-clip',
+        'label' => __('clip with wave shape', 'modul-r'),
+        'inline_style' => '.wp-block-post-featured-image.is-style-wave-clip { mask: url('.$wave.') no-repeat 50% 50%;-webkit-mask: url('.$wave.') no-repeat 50% 50%; }'
+    ]);
 }
