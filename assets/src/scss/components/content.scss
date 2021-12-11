@@ -144,8 +144,8 @@ body.woocommerce {
   &.alignwide {
     width: 100%;
     max-width: var(--size--content--width-wide);
-    padding-left: var(--size--margin--);
-    padding-right: var(--size--margin--);
+    padding-left: 0;
+    padding-right: 0;
     clear: both;
   }
 
