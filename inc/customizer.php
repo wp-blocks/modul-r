@@ -1165,6 +1165,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 
           "--element--hero--title--font-size: 64px;" .
           "--element--hamburger--color: var(--header--text-color);" .
+          "--element--blocks--clip-slope: 24px;" .
           "--size--entry-title--width: {$content_width}px;" .
 
           "}".

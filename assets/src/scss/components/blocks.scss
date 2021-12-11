@@ -214,14 +214,8 @@
   &.parallax {
     .wp-block-media-text__media img {
       padding: 0;
+      width: 100%;
     }
-  }
-
-  &.is-style-traversal-clip {
-    clip-path: polygon(0 50px, 100% 0, 100% calc(100% - 50px), 0 100%);
-    margin-top: -51px;
-    margin-bottom: -50px;
-    z-index: 2;
   }
 
   &.is-style-full-height {
@@ -288,19 +282,25 @@
 }
 
 .wp-block-cover,
+.wp-block-media-text {
+
+  &.is-style-traversal-clip {
+    clip-path: polygon(0 var(--element--blocks--clip-slope), 100% 0, 100% calc(100% - var(--element--blocks--clip-slope)), 0 100%);
+    margin-bottom: calc(-1 * var(--element--blocks--clip-slope));
+    position: relative;
+    z-index: 2;
+  }
+
+}
+
+.wp-block-cover,
 .wp-block-post-featured-image {
+
   &.is-style-wave-clip {
-    mask-size: 100% auto;
+    mask-size: cover;
     mask-position: center bottom;
   }
-}
-#svgPath {
-  width: 100%;
-  position: absolute;
-  height: 120px;
-  bottom: 0;
-  left: 0;
-  RIGHT: 0;
+
 }
 
 //! Cover Image
