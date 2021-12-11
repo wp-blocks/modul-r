@@ -20,16 +20,13 @@ function throttle(fn, wait) {
   }
 }
 
-let isInViewport = function (elem) {
-  let rect = elem.getBoundingClientRect();
-  return (!(rect.bottom < 0 || rect.top - viewHeight >= 0));
+let isInViewport = elem => {
+  return (!(elem.bottom < 0 || elem.top - viewHeight >= 0));
 };
 
-let isFullyVisible = function (elem) {
-  let rect = elem.getBoundingClientRect();
-  let rectBottom;
-  (rect.bottom - rect.top > viewHeight ) ? rectBottom = rect.top + viewHeight : rectBottom = rect.bottom ;
-  return (rect.top + shiftView >= 0) && (rectBottom - shiftView <= document.documentElement.clientHeight);
+let isFullyVisible = elem => {
+  const elemSize = (elem.bottom - elem.top > viewHeight ) ? elem.top + viewHeight : elem.bottom ;
+  return (elem.top + shiftView >= 0) && (elemSize - shiftView <= document.documentElement.clientHeight);
 };
 
 
@@ -40,21 +37,23 @@ function VisibleItemsTrigger(top) {
 
   arr.forEach(function(entry) {
 
+    const ElementBoundingBox = entry.getBoundingClientRect();
+
     // this will add classes to the item to describe visibility
-    if (isFullyVisible(entry)) {
+    if (isFullyVisible(ElementBoundingBox)) {
       entry.classList.add('visible');
       entry.classList.add('already-see');
     } else {
       entry.classList.remove('visible');
     }
 
-    if (isInViewport(entry)) {
+    if (isInViewport(ElementBoundingBox)) {
 
       // Parallax images
       // check if interactive box have a img child and get the distance from top
       if (entry.classList.contains('parallax')) {
 
-        let firstTop = window.pageYOffset + entry.getBoundingClientRect().top - headerDistanceFromTop;
+        let firstTop = window.pageYOffset + ElementBoundingBox.top - headerDistanceFromTop;
         let moveTopItem = -(firstTop - top) * parallaxDefaultSpeed;
 
         if (entry.getElementsByTagName('img').length)
@@ -88,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   scrollCallback();
 
-  window.addEventListener('scroll', throttle(scrollCallback, 2), true); // 1 time every 5ms
+  window.addEventListener('scroll', throttle(scrollCallback, 10), true); // 1 time every 5ms
   window.addEventListener('resize', scrollCallback, true);
 
 });
