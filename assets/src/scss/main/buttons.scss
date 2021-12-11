@@ -113,7 +113,6 @@
       box-shadow: 0 0 0 3px var(--wp--preset--color--secondary) inset;
       opacity: .9;
       border: 0;
-      padding: ($button__height  * .4) ($button__height  * .6);
 
       &:not(.has-background) {
         background: transparent;
