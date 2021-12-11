@@ -60,6 +60,16 @@ body.woocommerce {
           opacity: 0.99;
         }
       }
+
+      .star-rating {
+        text-align: center;
+        height: 1em;
+        margin: 0 auto -1em;
+        z-index: 0;
+        opacity: 0.05;
+        font-size: 1.5em;
+        color: var(--wp--preset--color--black);
+      }
       
       p.price,
       span.price {
@@ -117,14 +127,12 @@ body.woocommerce {
 
     p.price {
       color: var(--wp--preset--color--gray);
-      font-size: var(--typography--font-size--xxl);
       font-weight: var(--typography--text--regular);
       padding-top: var(--size--margin-m);
       padding-bottom: var(--size--margin-l);
 
       ins {
         font-weight: var(--typography--text--regular);
-        font-size: var(--typography--font-size--xxl);
       }
     }
     
@@ -199,24 +207,48 @@ body.woocommerce {
   }
 
   // Reviews
-  .comment-form-rating {
-    $star-size: 32px;
-    margin: var(--size--margin-l) 0;
-    .rating {
-      display: inline;
-      line-height: $star-size;
+  .woocommerce-Reviews {
+
+    .comment-form-rating {
+      $star-size: 32px;
+      margin: var(--size--margin-m) 0;
+      .rating {
+        display: inline;
+        line-height: $star-size;
+      }
+      .stars {
+        display: inline;
+        vertical-align: bottom;
+        line-height: $star-size;
+        font-size: $star-size;
+        a {
+          color: var(--wc-orange);
+        }
+        &.selected a.active~a::before {
+          color: var(--wp--preset--color--gray-light);
+        }
+      }
     }
-    .stars {
-      display: inline;
-      vertical-align: bottom;
-      line-height: $star-size;
-      font-size: $star-size;
-      a {
-        color: var(--wc-orange);
-      }
-      &.selected a.active~a::before {
-        color: var(--wp--preset--color--gray-light);
-      }
+
+    h2.woocommerce-Reviews-title,
+    #review_form_wrapper #reply-title {
+      font-family: var(--typography--title--font-family);
+      font-weight: var(--typography--title--font-weight);
+    }
+
+    #review_form_wrapper {
+        margin-top: var(--size--margin-m);
+        padding: var(--size--margin-m);
+        background-color: var(--wp--preset--color--white);
+
+        #reply-title {
+          font-size: var(--typography--font-size--xl);
+        }
+    }
+
+    .woocommerce-review__author {
+        font-family: var(--typography--title--font-family);
+        font-weight: var(--typography--title--font-weight);
     }
   }
   
