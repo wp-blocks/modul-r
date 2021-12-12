@@ -54,27 +54,27 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 
 if ( function_exists( 'register_block_style' ) ) {
 
-    $wave = apply_filters("modul_r_header_wave_shape", get_template_directory_uri() . '/inc/images/wave.svg');
+    $wave = apply_filters("modul_r_wave_shape_uri", get_template_directory_uri() . '/inc/images/wave.svg');
 
     register_block_style('core/cover', [
         'name' => 'full-height',
-        'label' => __('The cover fills the whole height of the screen ', 'modul-r'),
+        'label' => __('Full screen height', 'modul-r'),
         'inline_style' => '.wp-block-cover.is-style-full-height { height: 100vh; }',
     ]);
 
     register_block_style('core/media-text', [
         'name' => 'centered-image',
-        'label' => __('Image large and centered ', 'modul-r'),
+        'label' => __('Large and centered image', 'modul-r'),
     ]);
 
     register_block_style('core/media-text', [
         'name' => 'small-image',
-        'label' => __('Small image (always the half of the width)', 'modul-r')
+        'label' => __('Small image (half of the width)', 'modul-r')
     ]);
 
     register_block_style('core/media-text', [
         'name' => 'full-height',
-        'label' => __('Full screen height media and text', 'modul-r')
+        'label' => __('Full screen height', 'modul-r')
     ]);
 
     register_block_style('core/media-text', [
@@ -90,12 +90,17 @@ if ( function_exists( 'register_block_style' ) ) {
     register_block_style('core/cover', [
         'name' => 'wave-clip',
         'label' => __('clip with wave shape', 'modul-r'),
-        'inline_style' => '.wp-block-cover.is-style-wave-clip { mask: url('.$wave.') no-repeat 50% 50%;-webkit-mask: url('.$wave.') no-repeat 50% 50%; }'
+        'inline_style' => '.wp-block-cover.is-style-wave-clip { mask-image: url('.$wave.');-webkit-mask-image: url('.$wave.'); }'
     ]);
 
     register_block_style('core/post-featured-image', [
         'name' => 'wave-clip',
         'label' => __('clip with wave shape', 'modul-r'),
-        'inline_style' => '.wp-block-post-featured-image.is-style-wave-clip { mask: url('.$wave.') no-repeat 50% 50%;-webkit-mask: url('.$wave.') no-repeat 50% 50%; }'
+        'inline_style' => '.wp-block-post-featured-image.is-style-wave-clip { mask-image: url('.$wave.'); -webkit-mask-image: url('.$wave.'); }'
+    ]);
+
+    register_block_style('core/gallery', [
+        'name' => 'masonry',
+        'label' => __('Masonry like layout', 'modul-r')
     ]);
 }

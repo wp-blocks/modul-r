@@ -399,7 +399,44 @@
   figcaption a {
     color: var(--wp--preset--color--white);
   }
+
+
+  // Masonry like layout for galleries
+  $grid_size: 200px;
+  $mosaic_gap: 10px;
+  &.is-style-masonry .blocks-gallery-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($grid_size, 1fr));
+    grid-gap: $mosaic_gap;
+    grid-auto-rows: minmax($grid_size, auto);
+    grid-auto-flow: dense;
+    padding: $mosaic_gap;
+    >.blocks-gallery-item {
+      margin: 0;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      width: auto;
+      > * {
+        grid-row: 1 / -1;
+        grid-column: 1;
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:first-child,
+      &:nth-of-type(4n) {
+        grid-column-end: span 2;
+        grid-row-end: span 2;
+      }
+    }
+  }
+
 }
+
 
 //! Captions
 .wp-block-audio figcaption,
