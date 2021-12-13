@@ -1167,6 +1167,8 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
           "--element--hamburger--color: var(--header--text-color);" .
           "--element--blocks--clip-slope: 24px;" .
           "--size--entry-title--width: {$content_width}px;" .
+          "--element--gallery--mosaic-grid-size: calc(var(--size--content--width) / 3);".
+          "--element--gallery--mosaic-grid-gap: var(--size--margin--)" .
 
           "}".
           $color_css_classes;
