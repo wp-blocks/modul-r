@@ -252,10 +252,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
 Screenshot Image
-https://stocksnap.io/photo/2XGW1D92VH
-https://stocksnap.io/photo/QXOAPTCZBF
-https://stocksnap.io/photo/XPOAYHCKJV
-https://stocksnap.io/photo/ZAXUKJTTZT
+https://stocksnap.io/photo/architecture-building-108MDATXVH - Photo by Mike Wilson
+https://stocksnap.io/photo/camera-lens-FKICMI37XY - Photo by Design by Matt
+https://stocksnap.io/photo/classic-analog-BMPFEKYHLH - Photo by Alex Andrews
+https://stocksnap.io/photo/wireless-headphones-EXCBJA3FFQ  - Photo by Burst
 
 == Screenshots ==
 1. [https://modul-r.codekraft.it/screenshot.png  The homepage layout ]
