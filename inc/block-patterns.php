@@ -101,6 +101,6 @@ if ( function_exists( 'register_block_style' ) ) {
 
     register_block_style('core/gallery', [
         'name' => 'masonry',
-        'label' => __('Masonry like layout', 'modul-r')
+        'label' => __('Masonry layout', 'modul-r')
     ]);
 }
