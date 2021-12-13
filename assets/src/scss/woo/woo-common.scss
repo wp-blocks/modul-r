@@ -54,7 +54,7 @@ body.woocommerce {
 .woocommerce input.button.alt {
   background-color: var(--wp--preset--color--primary);
   &:hover {
-    background-color: rgba(var(--wp--preset--color--primary--decimal), .1);
+    background-color: rgba(var(--wp--preset--color--primary--decimal), .8);
   }
 }
 

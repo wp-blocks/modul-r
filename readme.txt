@@ -95,7 +95,7 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * Renamed filter "modul_r_header_menu"
 * Activation notice with some tips to quick start with this theme
 * Editor style is closer to frontend
-* added a filter to replace the wave shape used for featured image and cover blocks -> add_filter('modul_r_header_wave_shape', function () { return get_template_directory_uri() . '/inc/images/wave.svg'; });
+* added a filter to replace the wave shape used for featured image and cover blocks -> add_filter('modul_r_wave_shape_uri', function () { return get_template_directory_uri() . '/inc/images/wave.svg'; });
 * Adds 5 new block patterns (3 cards + carousels) and 8 block styles (for cover, media and text and post featured image)
 
 = 1.4.2 =

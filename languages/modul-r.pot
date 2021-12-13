@@ -57,7 +57,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: functions.php:228
+#: functions.php:226
 msgid "Getting started"
 msgstr ""
 
@@ -102,6 +102,30 @@ msgstr ""
 
 #: inc/block-patterns.php:45
 msgid "Modul-R Carousel (show multiple images)"
+msgstr ""
+
+#: inc/block-patterns.php:61, inc/block-patterns.php:77
+msgid "Full screen height"
+msgstr ""
+
+#: inc/block-patterns.php:67
+msgid "Large and centered image"
+msgstr ""
+
+#: inc/block-patterns.php:72
+msgid "Small image (half of the width)"
+msgstr ""
+
+#: inc/block-patterns.php:82, inc/block-patterns.php:87
+msgid "cut the container crosswise"
+msgstr ""
+
+#: inc/block-patterns.php:92, inc/block-patterns.php:98
+msgid "clip with wave shape"
+msgstr ""
+
+#: inc/block-patterns.php:104
+msgid "Masonry layout"
 msgstr ""
 
 #: inc/customizer.php:145, inc/customizer.php:130
