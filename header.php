@@ -3,13 +3,12 @@
 <head>
   <meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <?php wp_head(); ?>
-  <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
-    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-  <?php endif;
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <?php
+  wp_head();
+  if ( is_singular() && pings_open( get_queried_object() ) ) echo '<link rel="pingback" href="'. bloginfo( 'pingback_url' ).'">';
   ?>
 </head>
-
 <body <?php body_class(); ?>>
 
   <?php wp_body_open(); ?>
