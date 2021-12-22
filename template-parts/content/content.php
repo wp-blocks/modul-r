@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php modul_r_post_image(); ?>
+	<?php modul_r_post_image('interactive parallax'); ?>
 
   <header class="entry-header page-header main-width text-center">
 		<?php the_title( '<h1 class="entry-title has-title-color">', '</h1>' ); ?>

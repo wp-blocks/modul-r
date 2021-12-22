@@ -39,7 +39,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     ?>
 
     <div class="hero">
-    <?php modul_r_post_image('parallax header-color'); ?>
+    <?php modul_r_post_image('interactive parallax header-color'); ?>
       <div class="entry-header hero-title">
         <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
@@ -69,7 +69,7 @@ if ( ! function_exists( 'modul_r_post_image' ) ) :
   function modul_r_post_image( $class = null  ) {
     // Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
-      <div class="entry-image interactive<?php echo ' ' . esc_attr($class); ?>">
+      <div class="entry-image <?php echo ' ' . esc_attr($class); ?>">
 			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
       </div>
 		  <?php
