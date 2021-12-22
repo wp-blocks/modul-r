@@ -17,7 +17,7 @@
 
   // If there's no jQuery, fancyBox can't work
   // =========================================
-
+ 
   if (!$) {
     return;
   }
@@ -4401,7 +4401,7 @@
       self.endSwiping(swiping, scrolling);
     }
 
-    return;
+
   };
 
   Guestures.prototype.endSwiping = function (swiping, scrolling) {

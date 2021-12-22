@@ -1,5 +1,6 @@
+jQuery( document ).ready(function() {
 
-jQuery(document).ready(function($) {
+  var $ = jQuery.noConflict();
 
   // a slick slider
   const sliders = document.getElementsByClassName("slider");
@@ -8,7 +9,7 @@ jQuery(document).ready(function($) {
     for (let i = 0; i < sliders.length; i++) {
       if (sliders[i].classList.contains('slider-single')) {
 
-        $(sliders[i]).children('ul').slick({
+        $(sliders[i].children[0]).slick({
           infinite: true,
           slidesToShow: 1,
           autoplay: true
@@ -16,7 +17,7 @@ jQuery(document).ready(function($) {
 
       } else if (sliders[i].classList.contains('slider-multi')) {
 
-        $( sliders[i]).children('ul').slick({
+        $(sliders[i].children[0]).slick({
           lazyLoad: 'ondemand',
           dots: true,
           infinite: true,
@@ -48,7 +49,6 @@ jQuery(document).ready(function($) {
     }
   }
 
-
   if ($('.lightbox')) {
 
     $('.lightbox a').fancybox({
@@ -56,8 +56,7 @@ jQuery(document).ready(function($) {
       caption: function () {
         let altcaption = $(this).children('img').attr('alt').length ? $(this).children('img').attr('alt') : '';
         let figcaption = $(this).next('figcaption').length > 0 ? $(this).next('figcaption').text() : '';
-        let imgcaption = (figcaption !== '' ? figcaption : (altcaption !== '' ? altcaption : ''));
-        return imgcaption;
+        return (figcaption !== '' ? figcaption : (altcaption !== '' ? altcaption : ''));
       }
 
     });

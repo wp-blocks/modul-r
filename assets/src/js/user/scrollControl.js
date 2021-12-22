@@ -5,10 +5,10 @@ const shiftView = 200; // make the elements triggered before fully in the viewpo
 
 let vScrollTop = 0;
 let lastScroll = 0;
-const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-let headerHeight = document.getElementById('masthead').clientHeight;
-let scrollOffset = headerHeight; // the screen height where the header resize was triggered
-const headerDistanceFromTop = document.getElementById("masthead").offsetTop;
+let viewHeight ,
+ headerHeight ,
+ scrollOffset , // the screen height where the header resize was triggered
+ headerDistanceFromTop;
 
 function throttle(fn, wait) {
   let time = Date.now();
@@ -84,6 +84,11 @@ function scrollCallback() {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
+
+  viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+  headerHeight = document.getElementById('masthead').clientHeight;
+  scrollOffset = headerHeight; // the screen height where the header resize was triggered
+  headerDistanceFromTop = document.getElementById("masthead").offsetTop;
 
   scrollCallback();
 

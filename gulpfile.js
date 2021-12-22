@@ -148,8 +148,12 @@ function imageMinify(imgFolder, destFolder) {
 async function imageToWebP(imgFolder, destFolder) {
   return gulp
     .src(imgFolder + '**/*.{jpeg,jpg,png,JPEG,JPG,PNG}')
-    .pipe(imagemin([imageminWebp(opts.imageminWebp)]))
-    .pipe(rename(function (path) { path.extname = path.extname + '.webp' }))
+    .pipe(imagemin([
+      imageminWebp(opts.imageminWebp)
+    ]))
+    .pipe(rename(function (path) {
+      path.extname += ".webp"
+    }))
     .pipe(gulp.dest(destFolder))
 }
 async function optimizeThemeImg() {
@@ -203,7 +207,6 @@ function vendorScript(env = 'dev') {
     .src(opts.devPath + 'js/vendor/*.js')
     .pipe(newer(opts.distPath + 'js/vendor-scripts.js'))
     .pipe(gulpif(isBuild(env), uglify()))
-    .pipe(concat('vendor-scripts.js'))
     .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 

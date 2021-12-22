@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($){
 
   const $container = document.getElementById('masonry-wrapper');
@@ -18,12 +17,15 @@ jQuery(document).ready(function($){
       path: '.navigation a', // selector for the NEXT link (to page 2)
       append: '.grid__item', // selector for all items you'll retrieve
       outlayer: msnry,
+      prefill: false,
       history: false,
       status: '.page-load-status',
     });
 
-    imagesLoaded( $container, function( instance ) {
-      msnry.layout()
+    infScroll.on('appended', function (response, path, items) {
+      imagesLoaded( $container, function (instance) {
+        msnry.layout()
+      })
     });
   }
 

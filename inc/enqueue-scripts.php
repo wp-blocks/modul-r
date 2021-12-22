@@ -85,7 +85,9 @@ if ( ! function_exists( 'modul_r_fix_content_height' ) ) :
             document.documentElement.style.setProperty('--vh', `${vh}px`);
           }
 
-          setFullHeight();
+          document.addEventListener('DOMContentLoaded', function () {
+            return setFullHeight();
+          });
 
           window.addEventListener('resize', function() {
             setFullHeight();
@@ -125,10 +127,9 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 
 		// Register and Enqueue
 		wp_enqueue_script( 'jquery' );
-		wp_register_script( 'modul-r-scripts-vendors', get_template_directory_uri() . "/assets/dist/js/vendor-scripts.js", array( 'jquery' ), false, true );
-		wp_enqueue_script( 'modul-r-scripts-vendors' );
-		wp_register_script( 'modul-r-scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js", array( 'modul-r-scripts-vendors' ), false, true );
-		wp_enqueue_script( 'modul-r-scripts-main' );
+    wp_enqueue_script( 'modul-r-scripts-slick', get_template_directory_uri() . "/assets/dist/js/slick.js", array( 'jquery' ) );
+    wp_enqueue_script( 'modul-r-scripts-fancybox', get_template_directory_uri() . "/assets/dist/js/fancybox.js", array( 'jquery' ) );
+    wp_enqueue_script( 'modul-r-scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js", array( 'modul-r-scripts-fancybox', 'modul-r-scripts-slick' ) );
 
 	}
 endif;
@@ -151,6 +152,3 @@ function modul_r_lazyload_output($html) {
  * To allow full JavaScript functionality with the comment features in WordPress 2.7, the following changes must be made within the WordPress Theme template files.
  */
 if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
-
-
-
