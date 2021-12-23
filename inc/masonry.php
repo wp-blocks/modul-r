@@ -24,14 +24,12 @@ if ( ! function_exists('modul_r_category_query') ) :
 		// do not alter the query on wp-admin pages and only alter it if it's the main query
 		if (!is_admin() && $query->is_main_query()){
 
-			// alter the query for categories
-			if(is_category()){
-				$query->set('posts_per_page', 3);
-			} else if(is_home()) {
-				$query->set('posts_per_page', 5);
-			}
+			$post_number = apply_filters('modul_r_masonry_post_count', (is_category() ? 3 : is_home()) ? 5 : get_option( 'posts_per_page' ));
 
+			// alter the query for categories
+			$query->set('posts_per_page', $post_number);
 		}
 	}
 	add_action( 'pre_get_posts', 'modul_r_category_query' );
 endif;
+
