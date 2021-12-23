@@ -22,8 +22,8 @@ jQuery(document).ready(function($){
       status: '.page-load-status',
     });
 
-    infScroll.on('appended', function (response, path, items) {
-      imagesLoaded( $container, function (instance) {
+    imagesLoaded( $container, function (instance) {
+      infScroll.on('appended', function (response, path, items) {
         msnry.layout()
       })
     });

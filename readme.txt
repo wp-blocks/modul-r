@@ -3,7 +3,7 @@ Contributors: codekraft
 Requires at least: 4.9.6
 Tested up to: 5.8.2
 Requires PHP: 5.6
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -243,11 +243,6 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 
 = 1.0.0 =
 * First release
-
-== TODOS ==
-* Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
-* Rework the gulp file
-* Provide more options with the customizer
 
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
