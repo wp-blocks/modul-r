@@ -156,6 +156,11 @@ async function imageToWebP(imgFolder, destFolder) {
     }))
     .pipe(gulp.dest(destFolder))
 }
+
+// return if is the build environment or not
+async function isBuild(env) {
+  return (env === 'build');
+}
 async function optimizeThemeImg() {
   imageMinify(opts.devPath + 'img/', opts.distPath + 'img/' );
   imageToWebP(opts.devPath + 'img/', opts.distPath + 'img/');
@@ -177,22 +182,17 @@ function createPot() {
     .pipe(gulp.dest(opts.rootPath + 'languages/' + pkg.name + '.pot'));
 }
 
-// return if is the build environment or not
-function isBuild(env) {
-  return (env === 'build');
-}
-
 // User Scripts
 function userScript(env = 'dev') {
   return gulp
     .src(opts.devPath + 'js/user/*.js')
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(!isBuild(env), sourcemaps.init()))
     .pipe(babel({
       presets: ['@babel/env']
     }))
     .pipe(gulpif(isBuild(env), uglify()))
     .pipe(concat('scripts.js'))
-    .pipe(sourcemaps.write('.', { sourceRoot: '/' }))
+    .pipe(gulpif(!isBuild(env), sourcemaps.write('.', { sourceRoot: '/' })))
     .pipe(gulp.dest(opts.distPath + 'js/'));
 }
 
@@ -233,7 +233,7 @@ function atfCSS() {
 function mainCSS(env = 'dev') {
   return gulp
     .src(opts.devPath + 'scss/style.scss')
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(!isBuild(env), sourcemaps.init()))
     .pipe(sass(opts.sass[env]))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
@@ -242,7 +242,7 @@ function mainCSS(env = 'dev') {
     ]))
     .pipe(header(opts.banner, pkg))
     .pipe(gulp.dest(opts.rootPath))
-    .pipe(sourcemaps.write('.', { sourceRoot: '/' }))
+    .pipe(gulpif(!isBuild(env), sourcemaps.write('.', { sourceRoot: '/' })))
     .pipe(gulp.dest(opts.rootPath));
 }
 
@@ -252,26 +252,30 @@ async function mainCSSbuild() {
 }
 
 // compile all other styles that's name is not style.scss or atf
-function backendCSS() {
+function backendCSS(env = 'dev') {
   return gulp
     .src([
       opts.devPath + 'scss/woo.scss',
       opts.devPath + 'scss/editor.scss',
       opts.devPath + 'scss/admin.scss'
     ])
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(!isBuild(env), sourcemaps.init()))
     .pipe(sass(opts.sass.dev))
     .on('error', notify.onError('Error: <%= error.message %>,title: "SASS Error"'))
     .pipe(postcss([
       autoprefixer(opts.autoprefixer.dev)
     ]))
     .pipe(gulp.dest(opts.distPath + 'css/'))
-    .pipe(sourcemaps.write('.', { sourceRoot: '/' }))
+    .pipe(gulpif(!isBuild(env), sourcemaps.write('.', { sourceRoot: '/' })))
     .pipe(gulp.dest(opts.distPath + 'css/'));
+}
+// compile style.scss for release
+async function backendCSSbuild() {
+  backendCSS('build');
 }
 
 // Zip all theme files into /release/version/textDomain.zip
-function zipRelease() {
+async function zipRelease() {
   return gulp
     .src([
       opts.rootPath + 'assets/**/*.*',
@@ -301,8 +305,8 @@ function watchImages() {
 }
 
 const style = gulp.parallel(mainCSS, backendCSS, atfCSS);
-const buildStyle = gulp.parallel(mainCSSbuild, backendCSS, atfCSS);
 const scripts = gulp.parallel(vendorScript, userScript);
+const buildStyle = gulp.parallel(mainCSSbuild, backendCSSbuild, atfCSS);
 const buildScripts = gulp.parallel(vendorScriptBuild, userScriptBuild);
 const build = gulp.series(cleanAssets, gulp.parallel( optimizeThemeImg, buildScripts, buildStyle, createPot ));
 const buildRelease = gulp.series(build, clean, zipRelease);
@@ -313,6 +317,8 @@ const watch = gulp.parallel(watchStyle, watchCode, watchImages);
 exports.default = build;
 exports.watch = watch;
 exports.build = build;
+exports.buildStyle = buildStyle;
+exports.buildScripts = buildScripts;
 exports.buildRelease = buildRelease;
 
 exports.style = style;
