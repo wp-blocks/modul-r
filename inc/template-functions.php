@@ -10,7 +10,7 @@ if ( ! function_exists( 'modul_r_the_hero' ) ) :
         } else if ( !( class_exists( 'WooCommerce' ) && is_product() ) && (is_single() || is_page()) ) {
             if ( has_post_thumbnail() ) {
                 echo '<div class="hero" >';
-                modul_r_post_image('parallax');
+                modul_r_post_image('parallax', 'modul-r-fullwidth');
                 echo '</div>';
             }
         } else if ( !( class_exists( 'WooCommerce' ) && is_product_category() ) && is_archive() ) {
@@ -39,7 +39,7 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     ?>
 
     <div class="hero">
-    <?php modul_r_post_image('interactive parallax header-color'); ?>
+    <?php modul_r_post_image('interactive parallax header-color', 'modul-r-fullwidth'); ?>
       <div class="entry-header hero-title">
         <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
@@ -66,11 +66,11 @@ endif;
  * you can pass single or multiple classes to the image wrapper
  */
 if ( ! function_exists( 'modul_r_post_image' ) ) :
-  function modul_r_post_image( $class = null  ) {
+  function modul_r_post_image( $class = null, $size = 'large' ) {
     // Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
       <div class="entry-image <?php echo ' ' . esc_attr($class); ?>">
-			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
+			  <?php the_post_thumbnail( esc_attr($size), array( 'class' => 'fit-image wp-post-image' ) ); ?>
       </div>
 		  <?php
     endif;

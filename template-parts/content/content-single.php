@@ -39,19 +39,19 @@
 	</div><!-- /entry-content -->
 
 
-	<footer class="entry-footer main-width">
+    <footer class="entry-footer main-width">
 
-	  <?php modul_r_author(); ?>
+		<?php modul_r_author(); ?>
 
-	  <?php modul_r_tags(); ?>
+		<?php modul_r_tags(); ?>
 
-	  <?php modul_r_social_sharer(); ?>
+		<?php modul_r_social_sharer(); ?>
 
-    <?php modul_r_post_nav(); ?>
+		<?php modul_r_post_nav(); ?>
 
-    <?php modul_r_relateds(); ?>
+		<?php modul_r_relateds(); ?>
 
-	</footer><!-- /entry-footer -->
+    </footer><!-- /entry-footer -->
 
   <?php if ( comments_open() || get_comments_number() ) { ?>
     <div class="entry-comments main-width">

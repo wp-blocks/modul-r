@@ -61,7 +61,7 @@ msgstr ""
 msgid "Getting started"
 msgstr ""
 
-#: header.php:19
+#: header.php:16
 msgid "Skip to content"
 msgstr ""
 

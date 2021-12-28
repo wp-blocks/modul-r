@@ -23,9 +23,7 @@ jQuery(document).ready(function($){
     });
 
     imagesLoaded( $container, function (instance) {
-      infScroll.on('appended', function (response, path, items) {
         msnry.layout()
-      })
     });
   }
 

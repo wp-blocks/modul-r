@@ -8,7 +8,7 @@
 <div class="article-container">
   <article id="post-<?php the_ID(); ?>" <?php post_class( array('main-width') ); ?>>
 
-    <?php modul_r_post_image(); ?>
+    <?php modul_r_post_image( null, 'large'); ?>
 
     <div class="article-wrapper<?php if( is_sticky() && is_home() && ! is_paged() ) {echo ' sticky';}  ?>">
 

@@ -127,9 +127,9 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 
 		// Register and Enqueue
 		wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'modul-r-scripts-slick', get_template_directory_uri() . "/assets/dist/js/slick.js", array( 'jquery' ) );
-    wp_enqueue_script( 'modul-r-scripts-fancybox', get_template_directory_uri() . "/assets/dist/js/fancybox.js", array( 'jquery' ) );
-    wp_enqueue_script( 'modul-r-scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js", array( 'modul-r-scripts-fancybox', 'modul-r-scripts-slick' ) );
+        wp_enqueue_script( 'modul-r-scripts-slick', get_template_directory_uri() . "/assets/dist/js/slick.js", array( 'jquery' ) );
+        wp_enqueue_script( 'modul-r-scripts-fancybox', get_template_directory_uri() . "/assets/dist/js/fancybox.js", array( 'jquery' ) );
+        wp_enqueue_script( 'modul-r-scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js", array( 'modul-r-scripts-fancybox', 'modul-r-scripts-slick' ) );
 
 	}
 endif;
