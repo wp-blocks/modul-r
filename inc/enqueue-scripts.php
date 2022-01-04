@@ -62,12 +62,16 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 
     $font_query[] = "family=Material+Icons";
 
-    // enqueue google font
+    // add fonts to preload
+    if ($font_query) printf('<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?%s&display=swap" />', implode("&", $font_query) );
+
+    // enqueue google fonts
     if ($font_query) wp_enqueue_style( 'modul-r-fonts', "https://fonts.googleapis.com/css2?" . implode("&", $font_query) . "&display=swap", array(), null );
 
 	}
 endif;
-add_action( 'wp_enqueue_scripts', 'modul_r_theme_fonts', 10 );
+
+add_action( 'wp_head', 'modul_r_theme_fonts', 1 );
 add_action( 'admin_enqueue_scripts', 'modul_r_theme_fonts', 10 );
 
 
