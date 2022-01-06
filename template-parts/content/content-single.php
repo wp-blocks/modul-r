@@ -9,24 +9,29 @@
 
 	<header class="entry-header page-header main-width text-center">
 
-    <?php modul_r_breadcrumbs(); ?>
+    <?php
+    modul_r_breadcrumbs();
 
-		<?php the_title( '<h1 class="entry-title has-title-color">', '</h1>' ); ?>
+    the_title( '<h1 class="entry-title has-title-color">', '</h1>' );
 
-    <?php modul_r_meta(); ?>
+    modul_r_meta();
+    ?>
 
 	</header>
 
 
 	<div class="entry-content">
-		<?php the_content(); ?>
 
-    <?php if ( is_singular( 'attachment' ) ) {
+    <?php
+
+    the_content();
+
+    if ( is_singular( 'attachment' ) ) {
 
       the_post_navigation(
         array(
           /* translators: %s: parent post link */
-          'prev_text' => sprintf( esc_html__( '<span class="meta-nav">Attachment published in</span><span class="post-title">%s</span>',  'modul-r' ), '%title' ),
+          'prev_text' => sprintf( '<span class="meta-nav">%s</span><span class="post-title">%s</span>', __('Attachment published in',  'modul-r' ), '%title' ),
         )
       );
 
@@ -35,7 +40,9 @@
       // Previous/next post navigation.
       printf( '<div class="post-navigation">%s</div>', modul_r_page_links() );
 
-    } ?>
+    }
+
+    ?>
 	</div><!-- /entry-content -->
 
 
