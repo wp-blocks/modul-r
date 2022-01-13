@@ -39,7 +39,10 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
     ?>
 
     <div class="hero">
-    <?php modul_r_post_image('interactive parallax header-color', 'modul-r-fullwidth'); ?>
+    <?php
+        $hero = modul_r_get_post_image('interactive parallax header-color', 'modul-r-fullwidth');
+        echo apply_filters('modul_r_replace_home_hero', $hero);
+    ?>
       <div class="entry-header hero-title">
         <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
         <p><?php echo $hero_subtitle; ?></p>
@@ -65,15 +68,21 @@ endif;
  * Displays the featured image of the post/page
  * you can pass single or multiple classes to the image wrapper
  */
+if ( ! function_exists( 'modul_r_get_post_image' ) ) :
+	function modul_r_get_post_image( $class = null, $size = 'large' ) {
+
+        // Check if Thumbnail exists
+        if ( has_post_thumbnail() ) :
+			return sprintf('<div class="entry-image %s">%s</div>', esc_attr( $class ), get_the_post_thumbnail( get_the_ID(), esc_attr( $size ), array( 'class' => 'fit-image wp-post-image' ) ) );
+		endif;
+
+		return "err";
+	}
+endif;
+
 if ( ! function_exists( 'modul_r_post_image' ) ) :
-  function modul_r_post_image( $class = null, $size = 'large' ) {
-    // Check if Thumbnail exists
-		if ( has_post_thumbnail() ) : ?>
-      <div class="entry-image <?php echo ' ' . esc_attr($class); ?>">
-			  <?php the_post_thumbnail( esc_attr($size), array( 'class' => 'fit-image wp-post-image' ) ); ?>
-      </div>
-		  <?php
-    endif;
+	function modul_r_post_image( $class = null, $size = 'large' ) {
+        echo modul_r_get_post_image($class, $size);
 	}
 endif;
 
@@ -244,9 +253,9 @@ if ( ! function_exists('modul_r_meta') ) :
 
     global $post;
     $post_comments = get_comment_count($post->ID);
-	  $approved = $post_comments['approved'];
+    $approved = $post_comments['approved'];
 
-		?>
+    ?>
     <div class="post-meta">
 
       <a href="<?php the_permalink(); ?>" rel="bookmark" class="hide"><?php the_title(); ?></a>
@@ -415,12 +424,12 @@ add_filter( 'body_class', 'modul_r_custom_body_class' );
 /**
  * Add a background to the headline if changed in the customizer
  */
-if ( ! function_exists('modul_r_header_image') ) :
+if ( ! function_exists( 'modul_r_header_image' ) ) :
 	function modul_r_header_image() {
-    $header_image = get_header_image();
-	  if ($header_image) {
-	    printf('<img src="%s" alt="%s" class="site-header-image" />', $header_image, get_bloginfo( 'title' ));
-    }
+		$header_image = get_header_image();
+		if ( $header_image ) {
+			printf( '<img src="%s" alt="%s" class="site-header-image" />', $header_image, get_bloginfo( 'title' ) );
+		}
 	}
 endif;
 

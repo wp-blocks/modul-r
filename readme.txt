@@ -94,7 +94,8 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 = 1.4.4 =
 * Various pagespeed improvements
 * Masonry script update
-* new filter to change the number of post count in masonry view. add_filter('modul_r_masonry_post_count', function() {return 7;});
+* To change the number of post count shown in masonry view please use this filter. add_filter('modul_r_masonry_post_count', function() {return 7;});
+* filters to replace the homepage hero image, useful to add a video a slider. add_filter('modul_r_replace_home_hero', function ($html) { return '<div style="position:absolute;width:100%;height:100%;background: red"></div>'; });;
 
 = 1.4.3 =
 * Renamed filter "modul_r_header_menu"
