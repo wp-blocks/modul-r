@@ -492,58 +492,58 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:141
+#: inc/template-functions.php:143
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:142
+#: inc/template-functions.php:144
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:157
+#: inc/template-functions.php:159
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:182
+#: inc/template-functions.php:184
 msgid "wait! loading"
 msgstr ""
 
-#: inc/template-functions.php:186
+#: inc/template-functions.php:188
 msgid "End of content... Maybe you're interested to other categories?"
 msgstr ""
 
-#: inc/template-functions.php:196
+#: inc/template-functions.php:198
 msgid "No more pages to load"
 msgstr ""
 
-#: inc/template-functions.php:209
+#: inc/template-functions.php:211
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:215
+#: inc/template-functions.php:217
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:216
+#: inc/template-functions.php:218
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:246
+#: inc/template-functions.php:248
 msgid "Tags:"
 msgstr ""
 
 #. translators: %s: the number of comments
-#: inc/template-functions.php:302
+#: inc/template-functions.php:304
 msgid "%s comment"
 msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:329, inc/template-functions.php:327
+#: inc/template-functions.php:331, inc/template-functions.php:329
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:379
+#: inc/template-functions.php:381
 msgid "You might be interested in..."
 msgstr ""
 

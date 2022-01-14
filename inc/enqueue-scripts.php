@@ -18,7 +18,7 @@ if ( ! function_exists( 'modul_r_footer_style' ) ) :
 		wp_enqueue_style( 'modul-r-late-style', get_template_directory_uri() . '/assets/dist/css/late-style.css', array(), true );
 	}
 endif;
-add_action( 'get_footer', 'modul_r_theme_style', 99 );
+add_action( 'get_footer', 'modul_r_footer_style', 99 );
 
 /**
  * Dequeue global WordPress style
