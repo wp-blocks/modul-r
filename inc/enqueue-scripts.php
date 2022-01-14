@@ -1,4 +1,36 @@
 <?php
+
+/**
+ * Enqueue main style
+ */
+if ( ! function_exists( 'modul_r_theme_style' ) ) :
+	function modul_r_theme_style() {
+		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array() );
+	}
+endif;
+add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 99 );
+
+/**
+ * Enqueue late style (svg icons, plugins style etc)
+ */
+if ( ! function_exists( 'modul_r_footer_style' ) ) :
+	function modul_r_footer_style() {
+		wp_enqueue_style( 'modul-r-late-style', get_template_directory_uri() . '/assets/dist/css/late-style.css', array(), true );
+	}
+endif;
+add_action( 'get_footer', 'modul_r_theme_style', 99 );
+
+/**
+ * Dequeue global WordPress style
+ */
+if ( ! function_exists( 'modul_r_remove_global_style' ) ) :
+	function modul_r_remove_global_style() {
+		wp_deregister_style( 'global-styles' );
+		wp_dequeue_style( 'global-styles' );
+	}
+endif;
+add_action( 'wp_enqueue_scripts', 'modul_r_remove_global_style' );
+
 /**
  * Add color styling from theme
  */
@@ -100,28 +132,8 @@ if ( ! function_exists( 'modul_r_fix_content_height' ) ) :
         <?php
     }
 endif;
-add_action( 'wp_footer', 'modul_r_fix_content_height', 10 );
+add_action( 'wp_head', 'modul_r_fix_content_height', 10 );
 
-/**
- * Enqueue main style
- */
-if ( ! function_exists( 'modul_r_theme_style' ) ) :
-	function modul_r_theme_style() {
-		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array() );
-	}
-endif;
-add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 99 );
-
-/**
- * Dequeue global WordPress style
- */
-if ( ! function_exists( 'modul_r_remove_global_style' ) ) :
-    function modul_r_remove_global_style() {
-        wp_deregister_style( 'global-styles' );
-        wp_dequeue_style( 'global-styles' );
-    }
-endif;
-add_action( 'wp_enqueue_scripts', 'modul_r_remove_global_style' );
 
 /**
  * Load scripts
@@ -138,7 +150,6 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_scripts' ); // Add Theme admin scripts
-
 
 
 /**
