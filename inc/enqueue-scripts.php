@@ -95,7 +95,7 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
     $font_query[] = "family=Material+Icons";
 
     // add fonts to preload
-    if ($font_query) printf('<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?%s&display=swap" />', implode("&", $font_query) );
+    if ($font_query) printf('<link rel="preload" as="style" importance="highest" href="https://fonts.googleapis.com/css2?%s&display=swap" />', implode("&", $font_query) );
 
     // enqueue google fonts
     if ($font_query) wp_enqueue_style( 'modul-r-fonts', "https://fonts.googleapis.com/css2?" . implode("&", $font_query) . "&display=swap", array(), null );
