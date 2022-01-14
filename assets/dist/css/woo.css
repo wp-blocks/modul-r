@@ -205,6 +205,12 @@ body.woocommerce div.product .woocommerce-variation.single_variation {
 body.woocommerce div.product form.cart {
   margin-top: var(--size--margin-m);
 }
+body.woocommerce div.product form.cart .variations td,
+body.woocommerce div.product form.cart .variations th {
+  background: transparent;
+  vertical-align: initial;
+  text-align: left;
+}
 body.woocommerce div.product form.cart div.quantity {
   display: flex;
   margin: 0;
@@ -238,7 +244,8 @@ body.woocommerce div.product .woocommerce-tabs .entry-content > * {
   width: 100%;
 }
 body.woocommerce div.product .woocommerce-tabs .entry-content table {
-  width: calc(100% - var(--size--margin-l));
+  margin: 0;
+  padding: 0;
 }
 body.woocommerce div.product table.woocommerce-product-attributes {
   margin-left: var(--size--responsive--side-margin);

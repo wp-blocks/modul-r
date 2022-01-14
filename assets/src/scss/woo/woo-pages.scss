@@ -148,6 +148,12 @@ body.woocommerce {
       $form-radius: 4px;
       $quantity-height: 48px;
       margin-top: var(--size--margin-m);
+      .variations td,
+      .variations th {
+        background: transparent;
+        vertical-align: initial;
+        text-align: left;
+      }
       div.quantity {
         display: flex;
         margin: 0;
@@ -181,7 +187,11 @@ body.woocommerce {
       
       .entry-content {
         & > * {width: 100%;}
-        table {width: calc(100% - var(--size--margin-l));}
+  
+        table {
+          margin: 0;
+          padding: 0;
+        }
       }
     }
   
