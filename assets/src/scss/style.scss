@@ -26,10 +26,10 @@
 @import "components/content-header";
 @import "components/extras";
 @import "components/blocks";
-@import "components/footer";
-@import "components/animations";
-@import "components/accessibility";
-@import "components/comments";
+// @import "components/footer";
+// @import "components/animations";
+// @import "components/accessibility";
+// @import "components/comments";
 @import "components/search-form";
 
 /* Pages */
@@ -37,15 +37,15 @@
 @import "pages/page";
 @import "pages/single";
 @import "pages/archive";
-@import "pages/author";
+// @import "pages/author";
 
 /* Vendor Style */
-@import "vendor/fancybox";
-@import "vendor/slick";
+// @import "vendor/fancybox";
+// @import "vendor/slick";
 @import "vendor/masonry";
 
 /* Icons & extras */
-@import "utils/icons";
+// @import "utils/icons";
 @import "main/typography-extras";
 @import "main/scrollbar";
-@import "utils/print";
+// @import "utils/print";

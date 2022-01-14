@@ -256,6 +256,7 @@ function backendCSS(env = 'dev') {
   return gulp
     .src([
       opts.devPath + 'scss/woo.scss',
+      opts.devPath + 'scss/late-style.scss',
       opts.devPath + 'scss/editor.scss',
       opts.devPath + 'scss/admin.scss'
     ])

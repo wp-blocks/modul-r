@@ -1,4 +1,4 @@
-# Copyright (C) 2021 modul-r-theme
+# Copyright (C) 2022 modul-r-theme
 # This file is distributed under the same license as the modul-r-theme package.
 msgid ""
 msgstr ""
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Getting started"
 msgstr ""
 
-#: header.php:16
+#: header.php:17
 msgid "Skip to content"
 msgstr ""
 
@@ -348,127 +348,135 @@ msgstr ""
 msgid "Homepage Hero height"
 msgstr ""
 
-#: inc/customizer.php:645
+#: inc/customizer.php:647
 msgid "Default Hero height"
 msgstr ""
 
-#: inc/customizer.php:660
+#: inc/customizer.php:664
 msgid "Hero Image opacity"
 msgstr ""
 
-#: inc/customizer.php:661
+#: inc/customizer.php:665
 msgid "insert a number beetween 1 and 100 (1 - 100% opacity)"
 msgstr ""
 
-#: inc/customizer.php:677
+#: inc/customizer.php:683
+msgid "Hero image override"
+msgstr ""
+
+#: inc/customizer.php:684
+msgid "Write here a shortcode that replaces the featured image on the homepage"
+msgstr ""
+
+#: inc/customizer.php:697
 msgid "Hero headline"
 msgstr ""
 
-#: inc/customizer.php:678
+#: inc/customizer.php:698
 msgid "Write a catchy phrase as homepage hero headline"
 msgstr ""
 
-#: inc/customizer.php:691
+#: inc/customizer.php:711
 msgid "Subtitle"
 msgstr ""
 
-#: inc/customizer.php:704
+#: inc/customizer.php:724
 msgid "Call to action"
 msgstr ""
 
-#: inc/customizer.php:705
+#: inc/customizer.php:725
 msgid "Choose an important page"
 msgstr ""
 
-#: inc/customizer.php:731
+#: inc/customizer.php:751
 msgid "Select an important category"
 msgstr ""
 
-#: inc/customizer.php:740
+#: inc/customizer.php:760
 msgid "Woo Options"
 msgstr ""
 
-#: inc/customizer.php:757
+#: inc/customizer.php:777
 msgid "Choose an image for the shop page wallpaper"
 msgstr ""
 
-#: inc/customizer.php:766
+#: inc/customizer.php:786
 msgid "Social Share Options"
 msgstr ""
 
-#: inc/customizer.php:781
+#: inc/customizer.php:801
 msgid "Show Social Share Icons"
 msgstr ""
 
-#: inc/customizer.php:782
+#: inc/customizer.php:802
 msgid "Show social media sharing icons on single posts and pages"
 msgstr ""
 
-#: inc/customizer.php:795
+#: inc/customizer.php:815
 msgid "Social Share Options Visibility"
 msgstr ""
 
-#: inc/customizer.php:796
+#: inc/customizer.php:816
 msgid "Set social sharing options to show for pages, single posts or both"
 msgstr ""
 
-#: inc/customizer.php:800
+#: inc/customizer.php:820
 msgid "Pages only"
 msgstr ""
 
-#: inc/customizer.php:801
+#: inc/customizer.php:821
 msgid "Single posts only"
 msgstr ""
 
-#: inc/customizer.php:802
+#: inc/customizer.php:822
 msgid "Pages and single Posts"
 msgstr ""
 
-#: inc/customizer.php:892
+#: inc/customizer.php:918
 msgid "Theme primary color"
 msgstr ""
 
-#: inc/customizer.php:897
+#: inc/customizer.php:923
 msgid "Theme primary color light"
 msgstr ""
 
-#: inc/customizer.php:902
+#: inc/customizer.php:928
 msgid "Theme primary color dark"
 msgstr ""
 
-#: inc/customizer.php:907
+#: inc/customizer.php:933
 msgid "Theme secondary color"
 msgstr ""
 
-#: inc/customizer.php:912
+#: inc/customizer.php:938
 msgid "Theme secondary color light"
 msgstr ""
 
-#: inc/customizer.php:917
+#: inc/customizer.php:943
 msgid "Theme secondary color dark"
 msgstr ""
 
-#: inc/customizer.php:922
+#: inc/customizer.php:948
 msgid "White"
 msgstr ""
 
-#: inc/customizer.php:927
+#: inc/customizer.php:953
 msgid "White Smoke"
 msgstr ""
 
-#: inc/customizer.php:932
+#: inc/customizer.php:958
 msgid "Light gray"
 msgstr ""
 
-#: inc/customizer.php:937
+#: inc/customizer.php:963
 msgid "Gray"
 msgstr ""
 
-#: inc/customizer.php:942
+#: inc/customizer.php:968
 msgid "Dark gray"
 msgstr ""
 
-#: inc/customizer.php:947
+#: inc/customizer.php:973
 msgid "Black"
 msgstr ""
 
@@ -484,58 +492,58 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/template-functions.php:126
+#: inc/template-functions.php:141
 msgid "Prev"
 msgstr ""
 
-#: inc/template-functions.php:127
+#: inc/template-functions.php:142
 msgid "Next"
 msgstr ""
 
-#: inc/template-functions.php:142
+#: inc/template-functions.php:157
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-functions.php:167
+#: inc/template-functions.php:182
 msgid "wait! loading"
 msgstr ""
 
-#: inc/template-functions.php:171
+#: inc/template-functions.php:186
 msgid "End of content... Maybe you're interested to other categories?"
 msgstr ""
 
-#: inc/template-functions.php:181
+#: inc/template-functions.php:196
 msgid "No more pages to load"
 msgstr ""
 
-#: inc/template-functions.php:194
+#: inc/template-functions.php:209
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-functions.php:200
+#: inc/template-functions.php:215
 msgid "Next page"
 msgstr ""
 
-#: inc/template-functions.php:201
+#: inc/template-functions.php:216
 msgid "Previous page"
 msgstr ""
 
-#: inc/template-functions.php:231
+#: inc/template-functions.php:246
 msgid "Tags:"
 msgstr ""
 
 #. translators: %s: the number of comments
-#: inc/template-functions.php:287
+#: inc/template-functions.php:302
 msgid "%s comment"
 msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:314, inc/template-functions.php:312
+#: inc/template-functions.php:329, inc/template-functions.php:327
 msgid "Home"
 msgstr ""
 
-#: inc/template-functions.php:364
+#: inc/template-functions.php:379
 msgid "You might be interested in..."
 msgstr ""
 
@@ -552,8 +560,8 @@ msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searc
 msgstr ""
 
 #. translators: %s: parent post link
-#: template-parts/content/content-single.php:29
-msgid "<span class=\"meta-nav\">Attachment published in</span><span class=\"post-title\">%s</span>"
+#: template-parts/content/content-single.php:34
+msgid "Attachment published in"
 msgstr ""
 
 #: template-parts/footer/footer.php:49

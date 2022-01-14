@@ -65,7 +65,9 @@
       line-height: 2.2;
       padding: 0;
       margin: 0;
-      @extend .ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
       
       a {
         font-weight: var(--typography--text--regular);
