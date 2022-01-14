@@ -617,51 +617,71 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			);
 		}
 
-    // Hero Hero image height
-    $wp_customize->add_setting( 'modul_r_hero_height_home', array(
-        'default'   => intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_home'] ),
-        'transport' => 'refresh',
-        'sanitize_callback' => 'absint',
-    ) );
-    $wp_customize->add_control( 'modul_r_hero_height_home', array(
-        'type' => 'number',
-        'section' => 'modul_r_hero_options',
-        'label' => esc_html__( 'Hero Image vertical height', 'modul-r' ),
-        'description' => esc_html__( 'Homepage Hero height', 'modul-r' ),
-        'input_attrs' => array(
-            'min' => '0', 'step' => '1', 'max' => '100',
-        ),
-    ) );
+		// Hero Hero image height
+		$wp_customize->add_setting( 'modul_r_hero_height_home', array(
+			'default'           => intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_home'] ),
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'absint',
+		) );
+		$wp_customize->add_control( 'modul_r_hero_height_home', array(
+			'type'        => 'number',
+			'section'     => 'modul_r_hero_options',
+			'label'       => esc_html__( 'Hero Image vertical height', 'modul-r' ),
+			'description' => esc_html__( 'Homepage Hero height', 'modul-r' ),
+			'input_attrs' => array(
+				'min'  => '0',
+				'step' => '1',
+				'max'  => '100',
+			),
+		) );
 
-    // Hero image height
-    $wp_customize->add_setting( 'modul_r_hero_height_default', array(
-        'default'   => $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_default'],
-        'transport' => 'refresh',
-        'sanitize_callback' => 'absint',
-    ) );
-    $wp_customize->add_control( 'modul_r_hero_height_default', array(
-        'type' => 'number',
-        'section' => 'modul_r_hero_options',
-        'description' => esc_html__( 'Default Hero height', 'modul-r' ),
-        'input_attrs' => array(
-            'min' => '0', 'step' => '1', 'max' => '100',
-        ),
-    ) );
+		// Hero image height
+		$wp_customize->add_setting( 'modul_r_hero_height_default', array(
+			'default'           => $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_default'],
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'absint',
+		) );
+		$wp_customize->add_control( 'modul_r_hero_height_default', array(
+			'type'        => 'number',
+			'section'     => 'modul_r_hero_options',
+			'description' => esc_html__( 'Default Hero height', 'modul-r' ),
+			'input_attrs' => array(
+				'min'  => '0',
+				'step' => '1',
+				'max'  => '100',
+			),
+		) );
 
 		// Hero image opacity
 		$wp_customize->add_setting( 'modul_r_hero_opacity', array(
-			'default'   => '100',
-			'transport' => 'refresh',
+			'default'           => '100',
+			'transport'         => 'refresh',
 			'sanitize_callback' => 'absint',
 		) );
 		$wp_customize->add_control( 'modul_r_hero_opacity', array(
-			'type' => 'number',
-			'section' => 'modul_r_hero_options',
-			'label' => esc_html__( 'Hero Image opacity', 'modul-r' ),
+			'type'        => 'number',
+			'section'     => 'modul_r_hero_options',
+			'label'       => esc_html__( 'Hero Image opacity', 'modul-r' ),
 			'description' => esc_html__( 'insert a number beetween 1 and 100 (1 - 100% opacity)', 'modul-r' ),
-      'input_attrs' => array(
-        'min' => '1', 'step' => '1', 'max' => '100',
-      ),
+			'input_attrs' => array(
+				'min'  => '1',
+				'step' => '1',
+				'max'  => '100',
+			),
+		) );
+
+		// Hero Image Override
+		$wp_customize->add_setting( 'modul_r_hero_image_override', array(
+			'capability' => 'edit_theme_options',
+			'default' => '',
+			'sanitize_callback' => 'modul_r_sanitize_shortcode',
+		) );
+
+		$wp_customize->add_control( 'modul_r_hero_image_override', array(
+			'type'    => 'text',
+			'section' => 'modul_r_hero_options',
+			'label' => esc_html__( 'Hero image override', 'modul-r' ),
+			'description' => esc_html__( 'Write here a shortcode that replaces the featured image on the homepage', 'modul-r' ),
 		) );
 
 		// Hero headline
@@ -804,53 +824,59 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			)
 		);
 
-	  $social_enabled = array( 'Facebook', 'Instagram', 'Twitter', 'YouTube' );
+    $social_enabled = array( 'Facebook', 'Instagram', 'Twitter', 'YouTube', 'Reddit', 'Linkedin', 'GitHub' );
 
-	  foreach ($social_enabled as $social) {
-		  $wp_customize->add_setting( 'modul_r_social_' . $social, array(
-			  'capability'        => 'edit_theme_options',
-			  'default'           => "",
-			  'sanitize_callback' => 'sanitize_text_field',
-		  ) );
-		  $wp_customize->add_control( 'modul_r_social_' . $social, array(
-			  'type'        => 'input',
-			  'section'     => 'modul_r_settings_social_share',
-			  'label'       => $social,
-			  'description' => $social . ' url link',
-		  ) );
-	  }
+    foreach ( $social_enabled as $social ) {
+        $wp_customize->add_setting( 'modul_r_social_' . $social, array(
+            'capability'        => 'edit_theme_options',
+            'default'           => "",
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( 'modul_r_social_' . $social, array(
+            'type'        => 'input',
+            'section'     => 'modul_r_settings_social_share',
+            'label'       => $social,
+            'description' => $social . ' url link',
+        ) );
+    }
 
-		// Sanitize function for checkbox value
-		function modul_r_sanitize_checkbox( $checked ) {
-			return ( ( isset( $checked ) && true == $checked ) ? true : false );
-		}
+    // Sanitize function for checkbox value
+    function modul_r_sanitize_checkbox( $checked ) {
+        return ( ( isset( $checked ) && true == $checked ) ? true : false );
+    }
 
-		// Sanitize function for pages
-		function modul_r_sanitize_pages_dropdown( $page_id, $setting ) {
-			// Ensure $page_id is an absolute integer.
-			$page_id = absint( $page_id );
+    // Sanitize function for pages
+    function modul_r_sanitize_pages_dropdown( $page_id, $setting ) {
+        // Ensure $page_id is an absolute integer.
+        $page_id = absint( $page_id );
 
-			// If $page_id is an ID of a published page, return it; otherwise, return the default.
-			return ( get_post_status( $page_id ) == 'publish'? $page_id : $setting->default );
-		}
+        // If $page_id is an ID of a published page, return it; otherwise, return the default.
+        return ( get_post_status( $page_id ) == 'publish' ? $page_id : $setting->default );
+    }
 
     function modul_r_sanitize_select( $selected, $setting ) {
         // Ensure $selected options is an absolute integer then return the selected option
         return esc_attr( $selected );
     }
-      function modul_r_sanitize_abs( $selected ) {
-          // Ensure $selected options is an absolute integer then return the selected option
-          return abs( $selected );
-      }
 
-		// Sanitize function for categories
-		function modul_r_sanitize_category_dropdown( $cat_id, $setting ) {
-			// Ensure $cat_id is an absolute integer.
-			$cat_id = absint( $cat_id );
+    function modul_r_sanitize_shortcode( $shortcode, $setting ) {
+        // Ensure $selected options is an absolute integer then return the selected option
+        return preg_match("/([^\[].*?(?=\]))/", $shortcode, $matches) ? '['.sanitize_text_field($matches[1]).']' : '';
+    }
 
-			// If $cat_id term exist, return it; otherwise, return the default.
-			return ( term_exists( $cat_id ) != 0 ? $cat_id : $setting->default );
-		}
+    function modul_r_sanitize_abs( $selected ) {
+        // Ensure $selected options is an absolute integer then return the selected option
+        return abs( $selected );
+    }
+
+    // Sanitize function for categories
+    function modul_r_sanitize_category_dropdown( $cat_id, $setting ) {
+        // Ensure $cat_id is an absolute integer.
+        $cat_id = absint( $cat_id );
+
+        // If $cat_id term exist, return it; otherwise, return the default.
+        return ( term_exists( $cat_id ) != 0 ? $cat_id : $setting->default );
+    }
 
 	  // Sanitize function for file input
 	  function modul_r_sanitize_file( $file, $setting ) {

@@ -244,6 +244,17 @@
     }
   }
   
+  .entry-hero-shortcode {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
   .hero-title {
     box-sizing: border-box;
     padding-top: calc( var(--header--nav--height) + var(--header--branding--height) );

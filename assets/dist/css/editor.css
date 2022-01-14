@@ -682,6 +682,16 @@ hr {
     max-height: inherit;
   }
 }
+.site .hero .entry-hero-shortcode {
+  max-width: 100%;
+  position: absolute;
+  z-index: 0;
+  overflow: hidden;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 .site .hero .hero-title {
   box-sizing: border-box;
   padding-top: calc( var(--header--nav--height) + var(--header--branding--height) );
