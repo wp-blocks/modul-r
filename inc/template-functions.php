@@ -84,7 +84,7 @@ if ( ! function_exists( 'modul_r_get_post_image' ) ) :
 			return sprintf('<div class="entry-image %s">%s</div>', esc_attr( $class ), get_the_post_thumbnail( get_the_ID(), esc_attr( $size ), array( 'class' => 'fit-image wp-post-image' ) ) );
 		endif;
 
-		return "err";
+		return "";
 	}
 endif;
 
