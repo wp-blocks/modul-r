@@ -48,10 +48,9 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
 				echo __("the shortcode provided $hero_shortcode doesn't exist", 'modul-r');
 			}
 		} else {
-			$hero = modul_r_get_post_image( 'interactive parallax header-color', 'modul-r-fullwidth' );
-			echo apply_filters( 'modul_r_replace_home_hero', $hero );
-			?>
+			$hero = modul_r_get_post_image( 'interactive parallax header-color', 'modul-r-fullwidth' ); ?>
             <div class="hero">
+            <?php echo apply_filters( 'modul_r_replace_home_hero', $hero ); ?>
                 <div class="entry-header hero-title">
                     <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
                     <p><?php echo $hero_subtitle; ?></p>
