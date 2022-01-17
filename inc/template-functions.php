@@ -29,46 +29,44 @@ endif;
 if ( ! function_exists( 'modul_r_hero_image' ) ) :
 	function modul_r_hero_image() {
 
-    // fullscreen hero image
-    $hero_shortcode = html_entity_decode(esc_html(get_theme_mod('modul_r_hero_image_override')));
-    $hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
-    $hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
-    $hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
-    $hero_subtitle = ($hero_subtitle != '') ? $hero_subtitle : get_bloginfo('description') ;
-    // get (if present) the id of the call to actions
-    $hero_call_to_action = intval(get_theme_mod('modul_r_hero_call_to_action'));
-    $hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
-    ?>
+		// fullscreen hero image
+		$hero_shortcode = html_entity_decode(esc_html(get_theme_mod('modul_r_hero_image_override')));
+		$hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
+		$hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
+		$hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
+		$hero_subtitle = ($hero_subtitle != '') ? $hero_subtitle : get_bloginfo('description') ;
+		// get (if present) the id of the call to actions
+		$hero_call_to_action = intval(get_theme_mod('modul_r_hero_call_to_action'));
+		$hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
 
-    <div class="hero">
-        <?php
-        if ($hero_shortcode) {
-	        $hero_base_shortcode = preg_match('/([^\[].*?(?=\ ))/', $hero_shortcode, $match ) ? $match[1] : false;
-	        if (shortcode_exists($hero_base_shortcode)) {
-		        printf( '<div class="entry-hero-shortcode">%s</div>', do_shortcode( $hero_shortcode) );
-	        } else {
-		        echo 'no exist';
-	        }
-        } else {
-	        $hero = modul_r_get_post_image( 'interactive parallax header-color', 'modul-r-fullwidth' );
-	        echo apply_filters( 'modul_r_replace_home_hero', $hero );
-        }
-        ?>
-    <div class="entry-header hero-title">
-        <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
-        <p><?php echo $hero_subtitle; ?></p>
-        <?php if ($hero_call_to_action > 0 || $hero_call_to_action_2 > 0 ) {
-            echo '<div class="hero-cta-wrapper wp-block-buttons is-content-justification-center">';
 
-            if ( $hero_call_to_action > 0 ) printf( '<div class="wp-block-button is-style-big"><a href="%s" class="wp-block-button__link has-header-background-color">%s</a></div>', esc_url( get_page_link( $hero_call_to_action ) ), esc_html( get_the_title( $hero_call_to_action ) ) );
+		if ($hero_shortcode) {
+			$hero_base_shortcode = preg_match('/([^\[].*?(?=\ ))/', $hero_shortcode, $match ) ? $match[1] : false;
+			if (shortcode_exists($hero_base_shortcode)) {
+				printf( '<div class="hero hero-shortcode"><div class="entry-hero-shortcode">%s</div></div>', do_shortcode( $hero_shortcode) );
+			} else {
+				echo __("the shortcode provided $hero_shortcode doesn't exist", 'modul-r');
+			}
+		} else {
+			$hero = modul_r_get_post_image( 'interactive parallax header-color', 'modul-r-fullwidth' );
+			echo apply_filters( 'modul_r_replace_home_hero', $hero );
+			?>
+            <div class="hero">
+                <div class="entry-header hero-title">
+                    <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
+                    <p><?php echo $hero_subtitle; ?></p>
+					<?php if ($hero_call_to_action > 0 || $hero_call_to_action_2 > 0 ) {
+						echo '<div class="hero-cta-wrapper wp-block-buttons is-content-justification-center">';
 
-            if ( $hero_call_to_action_2 > 0 ) printf( '<div class="wp-block-button is-style-outline"><a href="%s" class="wp-block-button__link">%s</a></div>', esc_url( get_category_link( $hero_call_to_action_2 ) ), esc_html( get_cat_name( $hero_call_to_action_2 ) ) );
+						if ( $hero_call_to_action > 0 ) printf( '<div class="wp-block-button is-style-big"><a href="%s" class="wp-block-button__link has-header-background-color">%s</a></div>', esc_url( get_page_link( $hero_call_to_action ) ), esc_html( get_the_title( $hero_call_to_action ) ) );
 
-            echo '</div>';
-        } ?>
-      </div>
-    </div>
-    <?php
+						if ( $hero_call_to_action_2 > 0 ) printf( '<div class="wp-block-button is-style-outline"><a href="%s" class="wp-block-button__link">%s</a></div>', esc_url( get_category_link( $hero_call_to_action_2 ) ), esc_html( get_cat_name( $hero_call_to_action_2 ) ) );
+
+						echo '</div>';
+					} ?>
+                </div>
+            </div>
+		<?php }
 	}
 endif;
 

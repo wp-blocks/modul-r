@@ -169,6 +169,7 @@ button,
   }
 }
 
+p + .wp-block-button,
 p + .wp-block-buttons {
-  margin-top: var(--sizes--margin-l);
+  margin-top: var(--size--margin-l);
 }

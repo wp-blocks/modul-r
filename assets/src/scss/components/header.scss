@@ -118,7 +118,7 @@
 
       @media #{$mq__responsive-size_breakpoint} {
         text-align: left;
-        padding-right: $hamburger__size * 2;
+        padding-right: $hamburger__size * 2.5;
         justify-content: flex-start !important;
       }
 

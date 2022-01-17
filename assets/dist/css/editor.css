@@ -668,6 +668,10 @@ hr {
   position: relative;
   background-color: rgba(var(--header--background--dark--decimal), 1);
 }
+.site .hero.hero-shortcode {
+  height: auto;
+  max-height: inherit;
+}
 .site .hero > * {
   position: relative;
 }
@@ -684,13 +688,6 @@ hr {
 }
 .site .hero .entry-hero-shortcode {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 0;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  right: 0;
 }
 .site .hero .hero-title {
   box-sizing: border-box;
@@ -755,6 +752,7 @@ body.archive .hero:after {
   width: 100%;
   height: 100%;
   box-shadow: inset 0 80px 80px -80px rgba(var(--wp--preset--color--black--decimal), 0.8);
+  pointer-events: none;
 }
 
 .wp-block-columns.card-columns {
@@ -821,7 +819,7 @@ body.archive .hero:after {
 }
 @media (max-width : 767px) {
   .wp-block-columns.card-columns .wp-block-column p {
-    width: 60%;
+    width: 55%;
     padding: 0;
     text-align: left;
   }
