@@ -39,13 +39,12 @@ if ( ! function_exists( 'modul_r_hero_image' ) ) :
 		$hero_call_to_action = intval(get_theme_mod('modul_r_hero_call_to_action'));
 		$hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
 
-
 		if ($hero_shortcode) {
 			$hero_base_shortcode = preg_match('/([^\[].*?(?=\ ))/', $hero_shortcode, $match ) ? $match[1] : false;
 			if (shortcode_exists($hero_base_shortcode)) {
 				printf( '<div class="hero hero-shortcode"><div class="entry-hero-shortcode">%s</div></div>', do_shortcode( $hero_shortcode) );
 			} else {
-				echo __("the shortcode provided $hero_shortcode doesn't exist", 'modul-r');
+				echo printf( '<div class="hero"><p class="aligncenter">' . __("the shortcode provided %s doesn't exist", 'modul-r'). '</p></div>', $hero_shortcode);
 			}
 		} else {
 			$hero = modul_r_get_post_image( 'interactive parallax header-color', 'modul-r-fullwidth' ); ?>
@@ -102,7 +101,7 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
         <div class="hero" >
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
-			        <?php if ( class_exists( 'WooCommerce' ) && is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
+            <?php if ( class_exists( 'WooCommerce' ) && is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
                 $wooOptions = get_theme_mod( 'modul_r_woo' );
                   if ( !empty($wooOptions['shop_hero'] ) ) {
                       $shop_hero_id = attachment_url_to_postid( esc_url_raw( $wooOptions['shop_hero'] ) );
@@ -111,7 +110,6 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
               } else {
                 the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) );
               }?>
-
             </div>
             <div class="hero-title text-center main-width">
 	            <?php the_archive_title( '<h1 class="page-title has-title-color">', '</h1>' ); ?>
@@ -156,10 +154,10 @@ if ( ! function_exists( 'modul_r_post_nav' ) ) :
         <h3><?php esc_html_e('Post navigation', 'modul-r'); ?></h3>
         <div class="navigation">
           <div class="alignleft">
-			      <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
+          <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
           </div>
           <div class="alignright">
-			      <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
+          <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
           </div>
         </div> <!-- end navigation -->
       </div>

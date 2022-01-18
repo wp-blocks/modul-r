@@ -205,6 +205,14 @@ body.woocommerce div.product .woocommerce-variation.single_variation {
 body.woocommerce div.product form.cart {
   margin-top: var(--size--margin-m);
 }
+body.woocommerce div.product form.cart .group_table td {
+  vertical-align: inherit;
+}
+body.woocommerce div.product form.cart.grouped_form .button {
+  height: 48px;
+  margin-top: var(--size--margin-m);
+  padding: 0 28.8px;
+}
 body.woocommerce div.product form.cart .variations td,
 body.woocommerce div.product form.cart .variations th {
   background: transparent;

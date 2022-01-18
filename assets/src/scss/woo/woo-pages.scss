@@ -148,6 +148,18 @@ body.woocommerce {
       $form-radius: 4px;
       $quantity-height: 48px;
       margin-top: var(--size--margin-m);
+      .group_table {
+        td {
+          vertical-align: inherit;
+        }
+      }
+      &.grouped_form {
+        .button {
+          height: $quantity-height;
+          margin-top: var(--size--margin-m);
+          padding: 0 ($quantity-height  * .6);
+        }
+      }
       .variations td,
       .variations th {
         background: transparent;

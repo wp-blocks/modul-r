@@ -71,7 +71,7 @@ if (!isset($modul_r_defaults)) {
             'color_variance' => 0.3,
             'layout' => array(
                 'baseunit' => 8,
-                'content_width' => 900,
+                'content_width' => 800,
                 'content_width_wide' => 1500,
                 'hero_height_home' => 70,
                 'hero_height_default' => 50,
