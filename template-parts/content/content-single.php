@@ -9,44 +9,46 @@
 
 	<header class="entry-header page-header main-width text-center">
 
-    <?php
-    modul_r_breadcrumbs();
+	<?php
+	modul_r_breadcrumbs();
 
-    the_title( '<h1 class="entry-title has-title-color">', '</h1>' );
+	the_title( '<h1 class="entry-title has-title-color">', '</h1>' );
 
-    modul_r_meta();
-    ?>
+	modul_r_meta();
+	?>
 
 	</header>
 
 
 	<div class="entry-content">
 
-    <?php
+	<?php
 
-    the_content();
+	the_content();
 
-    if ( is_singular( 'attachment' ) ) {
+	if ( is_singular( 'attachment' ) ) {
 
-      the_post_navigation(
-        array(
-          /* translators: %s: parent post link */
-          'prev_text' => sprintf( '<span class="meta-nav">%s</span><span class="post-title">%s</span>', __('Attachment published in',  'modul-r' ), '%title' ),
-        )
-      );
+		print_r( wp_get_attachment_metadata( $post->ID ) );
 
-    } elseif ( is_singular( 'post' ) ) {
+		the_post_navigation(
+			array(
+				/* translators: %s: parent post link */
+				'prev_text' => sprintf( '<span class="meta-nav">%s</span><span class="post-title">%s</span>', __( 'Attachment published in', 'modul-r' ), '%title' ),
+			)
+		);
 
-      // Previous/next post navigation.
-      printf( '<div class="post-navigation">%s</div>', modul_r_page_links() );
+	} elseif ( is_singular( 'post' ) ) {
 
-    }
+		// Previous/next post navigation.
+		printf( '<div class="post-navigation">%s</div>', modul_r_page_links() );
 
-    ?>
+	}
+
+	?>
 	</div><!-- /entry-content -->
 
 
-    <footer class="entry-footer main-width">
+	<footer class="entry-footer main-width">
 
 		<?php modul_r_author(); ?>
 
@@ -58,12 +60,12 @@
 
 		<?php modul_r_relateds(); ?>
 
-    </footer><!-- /entry-footer -->
+	</footer><!-- /entry-footer -->
 
   <?php if ( comments_open() || get_comments_number() ) { ?>
-    <div class="entry-comments main-width">
-      <?php modul_r_comments(); ?>
-    </div>
+	<div class="entry-comments main-width">
+		<?php modul_r_comments(); ?>
+	</div>
   <?php } ?>
 
 </article><!-- /post -->

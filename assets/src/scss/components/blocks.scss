@@ -419,6 +419,7 @@
       display: grid;
       grid-template-rows: 1fr auto;
       width: auto;
+      justify-content: inherit;
       > * {
         grid-row: 1 / -1;
         grid-column: 1;
