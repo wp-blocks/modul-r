@@ -12,7 +12,7 @@ get_header();
   <?php if ( have_posts() ) : ?>
 
     <?php if ( !has_post_thumbnail() ) : ?>
-    <header class="entry-header page-header main-width text-center">
+    <header class="entry-header page-header main-width aligncenter">
       <?php the_archive_title( '<h1 class="page-title main-width has-title-color">', '</h1>' ); ?>
       <?php if (is_author()) {
         printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
@@ -28,7 +28,7 @@ get_header();
     endwhile;
 
     // Previous/next page navigation.
-    printf( '<div class="main-width alignwide text-center">%s</div>', modul_r_archive_nav() );
+    printf( '<div class="main-width alignwide aligncenter">%s</div>', modul_r_archive_nav() );
 
   // If no content, include the "No posts found" template.
   else :

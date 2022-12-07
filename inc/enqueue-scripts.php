@@ -1,36 +1,4 @@
 <?php
-
-/**
- * Enqueue main style
- */
-if ( ! function_exists( 'modul_r_theme_style' ) ) :
-	function modul_r_theme_style() {
-		wp_enqueue_style( 'modul-r-style', get_stylesheet_uri(), array() );
-	}
-endif;
-add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 99 );
-
-/**
- * Enqueue late style (svg icons, plugins style etc)
- */
-if ( ! function_exists( 'modul_r_footer_style' ) ) :
-	function modul_r_footer_style() {
-		wp_enqueue_style( 'modul-r-late-style', get_template_directory_uri() . '/assets/dist/css/late-style.css', array(), true );
-	}
-endif;
-add_action( 'get_footer', 'modul_r_footer_style', 99 );
-
-/**
- * Dequeue global WordPress style
- */
-if ( ! function_exists( 'modul_r_remove_global_style' ) ) :
-	function modul_r_remove_global_style() {
-		wp_deregister_style( 'global-styles' );
-		wp_dequeue_style( 'global-styles' );
-	}
-endif;
-add_action( 'wp_enqueue_scripts', 'modul_r_remove_global_style' );
-
 /**
  * Add color styling from theme
  */
@@ -45,10 +13,12 @@ add_action( 'wp_head', 'modul_r_theme_color' );
 /**
  * Enqueue admin style
  */
-function modul_r_admin_style() {
-	wp_register_style( 'modul-r-admin-css', get_template_directory_uri() . '/assets/dist/css/admin.css' );
-	wp_enqueue_style( 'modul-r-admin-css' );
-}
+if ( ! function_exists( 'modul_r_admin_style' ) ) :
+	function modul_r_admin_style() {
+		wp_register_style( 'modul-r-admin-css', get_template_directory_uri() . '/assets/dist/styles/admin.css' );
+		wp_enqueue_style( 'modul-r-admin-css' );
+	}
+endif;
 add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
 
 /**
@@ -57,54 +27,44 @@ add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
 if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	function modul_r_theme_fonts() {
 
+    $font_family[] = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_title' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
+    $font_family[] = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false && get_theme_mod( 'modul_r_typography_font_family_title' ) !== get_theme_mod( 'modul_r_typography_font_family_text' ) ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_text' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
+
     $font_query = array();
-
-    // title font
-    $title_font_family= get_theme_mod( 'modul_r_typography_options_title_font-family' );
-    $font_family_title = ($title_font_family !== false) ?
-        $title_font_family :
-        $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_font-family']['default'];
-    $font_weight_title = get_theme_mod( 'modul_r_typography_options_title_font-weight' ) !== false ?
-        get_theme_mod( 'modul_r_typography_options_title_font-weight' ) :
-        $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['title_font-weight']['default'];
-
-    // content font
-    $font_weights = array();
-    $text_font_family= get_theme_mod( 'modul_r_typography_options_text_font-family' );
-    $font_family_text = $text_font_family !== false ?
-        $text_font_family :
-        $GLOBALS['modul_r_defaults']['customizer_options']['font_styles']['text_font-family']['default'];
-
-    foreach ( array('text_bold','text_regular','text_light') as $options ) {
-        $font_weights[] = ( get_theme_mod( 'modul_r_typography_options_'.$options ) ) ?
-             intval(get_theme_mod( 'modul_r_typography_options_'.$options )) :
-             intval($GLOBALS['modul_r_defaults']['customizer_options']['font_styles'][$options]['default']);
+    $font_weight = array();
+    foreach ( $GLOBALS['modul_r_defaults']['customizer_options']['font_weight'] as $option ) {
+        if ( get_theme_mod( 'modul_r_defaults_'.$option['name'] ) ) {
+            $weight = $GLOBALS['modul_r_defaults']['customizer_options']['weights'][intval(get_theme_mod( 'modul_r_defaults_'.$option['name'] ))];
+            $font_weight[] = intval($weight);
+        }
     }
 
-    // combine the title and the content text query if needed
-    if ($font_family_title !== $font_family_text) {
-        $font_query[] = "family=$font_family_title:wght@" . $font_weight_title;
-        sort($font_weights);
-        $font_query[] = "family=$font_family_text:wght@" . implode(";", array_unique($font_weights) );
-    } else {
-        $sorted_weights = array_unique(array_merge( $font_weights, array(intval($font_weight_title))));
-        sort($sorted_weights);
-        $font_query[] = "family=$font_family_title:wght@" . implode(";", $sorted_weights );
+    if (!empty($font_weight) && !empty($font_family)) {
+
+      sort($font_weight,SORT_NUMERIC );
+
+      foreach ($font_family as $font) {
+        $font_query[] = "family=$font:wght@" . implode(";", $font_weight );
+      }
     }
 
-    $font_query[] = "family=Material+Icons";
+		if ($font_query) {
 
-    // add fonts to preload
-    if ($font_query) printf('<link rel="preload" as="style" importance="highest" href="https://fonts.googleapis.com/css2?%s&display=swap" />', implode("&", $font_query) );
+			$font_string = "https://fonts.googleapis.com/css2?" . implode("&", $font_query) . "&display=swap";
 
-    // enqueue google fonts
-    if ($font_query) wp_enqueue_style( 'modul-r-fonts', "https://fonts.googleapis.com/css2?" . implode("&", $font_query) . "&display=swap", array(), null );
+			if (is_admin()) {
+				add_editor_style($font_string ); // todo: make this dynamic
+			} else {
+				wp_enqueue_style( 'modul-r-fonts', $font_string, array(), null );
+			}
+		}
 
+
+		wp_enqueue_style( "modul-r-icons", "https://fonts.googleapis.com/css2?family=Material+Icons&display=swap", array(), null );
 	}
 endif;
-
-add_action( 'wp_head', 'modul_r_theme_fonts', 1 );
-add_action( 'admin_enqueue_scripts', 'modul_r_theme_fonts', 10 );
+add_action( 'wp_enqueue_scripts', 'modul_r_theme_fonts', 10 );
+add_action( 'admin_init', 'modul_r_theme_fonts', 10 );
 
 
 /**
@@ -121,9 +81,7 @@ if ( ! function_exists( 'modul_r_fix_content_height' ) ) :
             document.documentElement.style.setProperty('--vh', `${vh}px`);
           }
 
-          document.addEventListener('DOMContentLoaded', function () {
-            return setFullHeight();
-          });
+          setFullHeight();
 
           window.addEventListener('resize', function() {
             setFullHeight();
@@ -132,8 +90,17 @@ if ( ! function_exists( 'modul_r_fix_content_height' ) ) :
         <?php
     }
 endif;
-add_action( 'wp_head', 'modul_r_fix_content_height', 10 );
+add_action( 'wp_footer', 'modul_r_fix_content_height', 10 );
 
+/**
+ * Enqueue main style
+ */
+if ( ! function_exists( 'modul_r_theme_style' ) ) :
+	function modul_r_theme_style() {
+		wp_enqueue_style( 'modul-r-style', get_template_directory_uri(). "/assets/dist/styles/main.css", array() );
+	}
+endif;
+add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 999 );
 
 /**
  * Load scripts
@@ -143,9 +110,7 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 
 		// Register and Enqueue
 		wp_enqueue_script( 'jquery' );
-        wp_enqueue_script( 'modul-r-scripts-slick', get_template_directory_uri() . "/assets/dist/js/slick.js", array( 'jquery' ) );
-        wp_enqueue_script( 'modul-r-scripts-fancybox', get_template_directory_uri() . "/assets/dist/js/fancybox.js", array( 'jquery' ) );
-        wp_enqueue_script( 'modul-r-scripts-main', get_template_directory_uri() . "/assets/dist/js/scripts.js", array( 'modul-r-scripts-fancybox', 'modul-r-scripts-slick' ) );
+		wp_enqueue_script( 'modul-r-scripts-main', get_template_directory_uri() . "/assets/dist/scripts/scripts.js", array( 'jquery' ), false, true );
 
 	}
 endif;
@@ -156,3 +121,6 @@ add_action( 'wp_enqueue_scripts', 'modul_r_theme_scripts' ); // Add Theme admin 
  * To allow full JavaScript functionality with the comment features in WordPress 2.7, the following changes must be made within the WordPress Theme template files.
  */
 if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+
+
+

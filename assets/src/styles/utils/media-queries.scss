@@ -1,0 +1,35 @@
+//
+// Sass-Ready media queries
+// Here there are some presets of useful
+// media queries breakpoints for various devices
+// Usage: @media #{variable-name} { }
+// and it will compile to: @media variable-name { }
+//
+//
+
+// Devices
+$mq__largemonitors: "(min-width : 1991px)";
+$mq__desktop: "(max-width : 1600px)";
+$mq__laptop: "(max-width : 1366px)";
+$mq__larger-than-tablet: "(min-width : 1024px)";
+$mq__smaller-than-tablet: "(max-width : 1023px)";
+$mq__tablet: "(max-width : 1260px)";
+$mq__tablet-portrait: "(max-width : 768px)";
+$mq__phablet: "(max-width : 500px)";
+$mq__smartphone: "(max-width : 420px)";
+$mq__smallphone: "(max-width : 376px)";
+
+// the header menu breakpoint
+$mq__responsive_breakpoint: "(max-width : #{$head__responsive_breakpoint-width})";
+// the content breakpoint
+$mq__responsive-size_breakpoint: $mq__tablet-portrait;
+
+$mq__theme-width: "(max-width : #{$size__site-width + ($size__padding-resp * 2)})";
+$mq__content-width: "(max-width : #{$size__site-width - ($size__side-padding * 2) + ($size__padding-resp * 2) })";
+
+
+$mq__ie1011: "all and (-ms-high-contrast: none), (-ms-high-contrast: active)";
+
+$mq__hdpi: "(-webkit-min-device-pixel-ratio: 1.2),(min-device-pixel-ratio: 1.2)";
+
+$mq__print: "print";

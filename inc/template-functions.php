@@ -3,68 +3,38 @@
 /**
  * Displays the hero of the homepage
  */
-if ( ! function_exists( 'modul_r_the_hero' ) ) :
-    function modul_r_the_hero() {
-        if ( is_front_page() && !is_home() ) {
-            modul_r_hero_image();
-        } else if ( !( class_exists( 'WooCommerce' ) && is_product() ) && (is_single() || is_page()) ) {
-            if ( has_post_thumbnail() ) {
-                echo '<div class="hero" >';
-                modul_r_post_image('parallax', 'modul-r-fullwidth');
-                echo '</div>';
-            }
-        } else if ( !( class_exists( 'WooCommerce' ) && is_product_category() ) && is_archive() ) {
-            if ( class_exists( 'WooCommerce' ) && is_shop() ) {
-                $wooOptions = get_theme_mod( 'modul_r_woo' );
-                if ( empty($wooOptions['shop_hero'] ) ) return;
-            }
-            modul_r_archive_image('parallax');
-        }
-    }
-endif;
-
-/**
- * Displays the hero of the homepage
- */
 if ( ! function_exists( 'modul_r_hero_image' ) ) :
 	function modul_r_hero_image() {
+    // fullscreen hero image
+    $hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
+    $hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
+    $hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
+    $hero_subtitle = ($hero_subtitle != '') ? $hero_subtitle : get_bloginfo('description') ;
+    // get (if present) the id of the call to actions
+    $hero_call_to_action = intval(get_theme_mod('modul_r_hero_call_to_action'));
+    $hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
+    ?>
 
-		// fullscreen hero image
-		$hero_shortcode = html_entity_decode(esc_html(get_theme_mod('modul_r_hero_image_override')));
-		$hero_title = esc_html(get_theme_mod('modul_r_hero_title'));
-		$hero_subtitle = esc_html(get_theme_mod('modul_r_hero_subtitle'));
-		$hero_title = ($hero_title != '') ? $hero_title : esc_html(get_the_title()) ;
-		$hero_subtitle = ($hero_subtitle != '') ? $hero_subtitle : get_bloginfo('description') ;
-		// get (if present) the id of the call to actions
-		$hero_call_to_action = intval(get_theme_mod('modul_r_hero_call_to_action'));
-		$hero_call_to_action_2 = intval(get_theme_mod('modul_r_hero_call_to_action_2'));
-
-		if ($hero_shortcode) {
-			$hero_base_shortcode = preg_match('/([^\[].*?(?=\ ))/', $hero_shortcode, $match ) ? $match[1] : false;
-			if (shortcode_exists($hero_base_shortcode)) {
-				printf( '<div class="hero hero-shortcode"><div class="entry-hero-shortcode">%s</div></div>', do_shortcode( $hero_shortcode) );
-			} else {
-				echo printf( '<div class="hero"><p class="aligncenter">' . __("the shortcode provided %s doesn't exist", 'modul-r'). '</p></div>', $hero_shortcode);
-			}
-		} else {
-			$hero = modul_r_get_post_image( 'interactive parallax header-color', 'modul-r-fullwidth' ); ?>
-            <div class="hero">
-            <?php echo apply_filters( 'modul_r_replace_home_hero', $hero ); ?>
-                <div class="entry-header hero-title">
-                    <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
-                    <p><?php echo $hero_subtitle; ?></p>
-					<?php if ($hero_call_to_action > 0 || $hero_call_to_action_2 > 0 ) {
-						echo '<div class="hero-cta-wrapper wp-block-buttons is-content-justification-center">';
-
-						if ( $hero_call_to_action > 0 ) printf( '<div class="wp-block-button is-style-big"><a href="%s" class="wp-block-button__link has-header-background-color">%s</a></div>', esc_url( get_page_link( $hero_call_to_action ) ), esc_html( get_the_title( $hero_call_to_action ) ) );
-
-						if ( $hero_call_to_action_2 > 0 ) printf( '<div class="wp-block-button is-style-outline"><a href="%s" class="wp-block-button__link">%s</a></div>', esc_url( get_category_link( $hero_call_to_action_2 ) ), esc_html( get_cat_name( $hero_call_to_action_2 ) ) );
-
-						echo '</div>';
-					} ?>
-                </div>
-            </div>
-		<?php }
+    <div class="hero">
+    <?php modul_r_post_image('parallax header-color'); ?>
+      <div class="entry-header hero-title">
+        <h1 class="entry-title has-title-color"><?php echo $hero_title; ?></h1>
+        <p><?php echo $hero_subtitle; ?></p>
+        <?php
+          if ($hero_call_to_action > 0 || $hero_call_to_action_2 > 0 ) {
+              echo '<span class="hero-cta-wrapper">';
+              if ( $hero_call_to_action > 0 ) {
+                  printf( '<span class="wp-block-button"><a href="%s" class="wp-block-button__link has-primary-background-color has-background wp-element-button">%s</a></span>', esc_url( get_page_link( $hero_call_to_action ) ), esc_html( get_the_title( $hero_call_to_action ) ) );
+              }
+              if ( $hero_call_to_action_2 > 0 ) {
+                  printf( '<span class="wp-block-button is-style-outline"><a href="%s" class="wp-block-button__link">%s</a></span>', esc_url( get_category_link( $hero_call_to_action_2 ) ), esc_html( get_cat_name( $hero_call_to_action_2 ) ) );
+              }
+              echo '</span>';
+          }
+        ?>
+      </div>
+    </div>
+    <?php
 	}
 endif;
 
@@ -72,21 +42,15 @@ endif;
  * Displays the featured image of the post/page
  * you can pass single or multiple classes to the image wrapper
  */
-if ( ! function_exists( 'modul_r_get_post_image' ) ) :
-	function modul_r_get_post_image( $class = null, $size = 'large' ) {
-
-        // Check if Thumbnail exists
-        if ( has_post_thumbnail() ) :
-			return sprintf('<div class="entry-image %s">%s</div>', esc_attr( $class ), get_the_post_thumbnail( get_the_ID(), esc_attr( $size ), array( 'class' => 'fit-image wp-post-image' ) ) );
-		endif;
-
-		return "";
-	}
-endif;
-
 if ( ! function_exists( 'modul_r_post_image' ) ) :
-	function modul_r_post_image( $class = null, $size = 'large' ) {
-        echo modul_r_get_post_image($class, $size);
+  function modul_r_post_image( $class = null  ) {
+    // Check if Thumbnail exists
+		if ( has_post_thumbnail() ) : ?>
+      <div class="entry-image interactive<?php echo ' ' . esc_attr($class); ?>">
+			  <?php the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) ); ?>
+      </div>
+		  <?php
+    endif;
 	}
 endif;
 
@@ -95,13 +59,12 @@ endif;
  */
 if ( ! function_exists( 'modul_r_archive_image' ) ) :
 	function modul_r_archive_image( $class = null ) {
-
 		// Check if Thumbnail exists
 		if ( has_post_thumbnail() ) : ?>
         <div class="hero" >
           <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
             <div class="entry-image">
-            <?php if ( class_exists( 'WooCommerce' ) && is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
+			        <?php if ( class_exists( 'WooCommerce' ) && is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
                 $wooOptions = get_theme_mod( 'modul_r_woo' );
                   if ( !empty($wooOptions['shop_hero'] ) ) {
                       $shop_hero_id = attachment_url_to_postid( esc_url_raw( $wooOptions['shop_hero'] ) );
@@ -110,8 +73,9 @@ if ( ! function_exists( 'modul_r_archive_image' ) ) :
               } else {
                 the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) );
               }?>
+
             </div>
-            <div class="hero-title text-center main-width">
+            <div class="hero-title aligncenter main-width">
 	            <?php the_archive_title( '<h1 class="page-title has-title-color">', '</h1>' ); ?>
 	            <?php if (is_author()) {
 		            printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
@@ -154,10 +118,10 @@ if ( ! function_exists( 'modul_r_post_nav' ) ) :
         <h3><?php esc_html_e('Post navigation', 'modul-r'); ?></h3>
         <div class="navigation">
           <div class="alignleft">
-          <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
+			      <?php previous_post_link('<i class="material-icons">arrow_back</i> %link'); ?>
           </div>
           <div class="alignright">
-          <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
+			      <?php next_post_link('%link <i class="material-icons">arrow_forward</i>'); ?>
           </div>
         </div> <!-- end navigation -->
       </div>
@@ -256,9 +220,9 @@ if ( ! function_exists('modul_r_meta') ) :
 
     global $post;
     $post_comments = get_comment_count($post->ID);
-    $approved = $post_comments['approved'];
+	  $approved = $post_comments['approved'];
 
-    ?>
+		?>
     <div class="post-meta">
 
       <a href="<?php the_permalink(); ?>" rel="bookmark" class="hide"><?php the_title(); ?></a>
@@ -398,12 +362,7 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 		global $post;
 		$woo_enabled = class_exists( 'WooCommerce' );
 
-		if (
-      is_page() || ( is_single() && !($woo_enabled && is_product()) ) || // enabled on pages and post (not on product page)
-      ( is_archive() && $woo_enabled && !is_product_category()) && !is_shop() || // enabled in archives
-      ( $woo_enabled && is_shop() && !empty(get_theme_mod( 'modul_r_woo' )['shop_hero']) ) // enabled in shop home
-    )
-    {
+		if (  is_page() || ( is_single() && !($woo_enabled && is_product()) ) || ( is_archive() && !($woo_enabled && is_product_category())) || ( ($woo_enabled && is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
       if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {
         $classes[] = 'has-featured-image';
@@ -427,12 +386,12 @@ add_filter( 'body_class', 'modul_r_custom_body_class' );
 /**
  * Add a background to the headline if changed in the customizer
  */
-if ( ! function_exists( 'modul_r_header_image' ) ) :
+if ( ! function_exists('modul_r_header_image') ) :
 	function modul_r_header_image() {
-		$header_image = get_header_image();
-		if ( $header_image ) {
-			printf( '<img src="%s" alt="%s" class="site-header-image" />', $header_image, get_bloginfo( 'title' ) );
-		}
+    $header_image = get_header_image();
+	  if ($header_image) {
+	    printf('<img src="%s" alt="%s" class="site-header-image" />', $header_image, get_bloginfo( 'title' ));
+    }
 	}
 endif;
 

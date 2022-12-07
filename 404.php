@@ -11,14 +11,14 @@ get_header();
 
       <div class="error-404 not-found">
 
-        <header class="entry-header page-header main-width text-center">
+        <header class="entry-header page-header main-width aligncenter">
           <h1 class="page-title has-title-color"><?php esc_html_e('404', 'modul-r'); ?></h1>
-          <h2 class="text-center"><?php esc_html_e('Page not found', 'modul-r'); ?></h2>
+          <h2 class="aligncenter"><?php esc_html_e('Page not found', 'modul-r'); ?></h2>
         </header><!-- /page-header -->
 
         <div class="page-content main-width">
 
-          <p class="text-center"><?php esc_html_e('It looks like nothing was found at this location. Maybe try a search?', 'modul-r'); ?></p>
+          <p class="aligncenter"><?php esc_html_e('It looks like nothing was found at this location. Maybe try a search?', 'modul-r'); ?></p>
 
           <div>
 			      <?php get_search_form(); ?>

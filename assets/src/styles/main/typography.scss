@@ -1,0 +1,93 @@
+/* Headlines */
+body {
+	font-family: var(--typography--content--font-family), sans-serif;
+	color: var(--color--text);
+	font-weight: var(--typography--default--font-weight--regular);
+	font-size: var(--typography--default--font-size--m);
+	line-height: var(--typography--default--line-height);
+	word-break: break-word;
+
+	@media #{$mq__phablet} {font-size: var(--typography--default--font-size--s);}
+}
+
+%headline_style {
+	font-family: var(--typography--title--font-family);
+	font-weight: var(--typography--title--font-weight);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@extend %headline_style;
+	margin: 0 0 var(--sizes--margin--);
+	padding: 0;
+	a {
+		text-decoration: none;
+	}
+}
+
+h1 {
+	font-size: var(--typography--default--font-size--xxxl);
+	@media #{$mq__phablet} {font-size: var(--typography--default--font-size--xxl);}
+}
+
+h2 {
+	font-size: var(--typography--default--font-size--xxl);
+  @media #{$mq__phablet} {font-size: var(--typography--default--font-size--l);}
+
+	.woocommerce & {
+		font-size: var(--typography--default--font-size--xl);
+		@media #{$mq__phablet} {font-size: var(--typography--default--font-size--l);}
+	}
+}
+
+h3 {
+	font-size: var(--typography--default--font-size--xl);
+	@media #{$mq__tablet-portrait} {font-size: var(--typography--default--font-size--m);}
+}
+
+h4 {
+	font-size: var(--typography--default--font-size--l);
+	@media #{$mq__tablet} {font-size: var(--typography--default--font-size--m);}
+}
+
+h5, h6 {
+	font-size: var(--typography--default--font-size--m);
+	@media #{$mq__tablet} {font-size: var(--typography--default--font-size--s);}
+}
+
+
+/* Text and lists */
+li,
+p {
+	list-style: none;
+	font-size: var(--typography--default--font-size--m);
+  @media #{$mq__phablet} {font-size: var(--typography--default--font-size--s);}
+}
+
+p {
+	margin: 0 0 var(--sizes--margin--);
+}
+
+b, strong {
+	font-weight: var(--typography--default--font-weight--bold);
+}
+
+a {
+	text-decoration: none;
+	color: var(--color--primary);
+}
+
+ul, ol, dl {
+	margin-top: var(--sizes--margin-m);
+	margin-bottom: var(--sizes--margin-m);
+	padding: 0;
+
+	li, dt, dd {
+		line-height: var(--typography--default--line-height);
+		margin: 0;
+	}
+}
