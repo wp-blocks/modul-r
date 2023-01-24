@@ -55,43 +55,6 @@ if ( ! function_exists( 'modul_r_post_image' ) ) :
 endif;
 
 /**
- * Displays the featured image of the archive page
- */
-if ( ! function_exists( 'modul_r_archive_image' ) ) :
-	function modul_r_archive_image( $class = null ) {
-		// Check if Thumbnail exists
-		if ( has_post_thumbnail() ) : ?>
-        <div class="hero" >
-          <div class="entry-image hero interactive<?php echo ' ' . esc_attr($class); ?>">
-            <div class="entry-image">
-			        <?php if ( class_exists( 'WooCommerce' ) && is_shop() && get_theme_mod( 'modul_r_woo' ) ) {
-                $wooOptions = get_theme_mod( 'modul_r_woo' );
-                  if ( !empty($wooOptions['shop_hero'] ) ) {
-                      $shop_hero_id = attachment_url_to_postid( esc_url_raw( $wooOptions['shop_hero'] ) );
-                      echo wp_get_attachment_image($shop_hero_id, 'large');
-                  }
-              } else {
-                the_post_thumbnail( 'modul-r-fullwidth', array( 'class' => 'fit-image wp-post-image' ) );
-              }?>
-
-            </div>
-            <div class="hero-title aligncenter main-width">
-	            <?php the_archive_title( '<h1 class="page-title has-title-color">', '</h1>' ); ?>
-	            <?php if (is_author()) {
-		            printf('<p>%s</p>', esc_html(get_the_author_meta( 'description' )) );
-	            } else {
-		            the_archive_description();
-	            } ?>
-            </div>
-          </div>
-        </div>
-		<?php endif;
-	}
-endif;
-
-
-
-/**
  * Displays the navigation for the archive page
  */
 if ( ! function_exists( 'modul_r_archive_nav' ) ) :
