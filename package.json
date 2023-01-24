@@ -17,9 +17,9 @@
   },
   "style": "./style.css",
   "devDependencies": {
-    "@babel/core": "^7.18.2",
-    "@wordpress/babel-preset-default": "^7.6.0",
-    "@wordpress/scripts": "^24.6.0",
+    "@babel/core": "^7.20.12",
+    "@wordpress/babel-preset-default": "^7.9.0",
+    "@wordpress/scripts": "^25.2.0",
     "imagemin": "^8.0.1",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-svgo": "^10.0.1",
