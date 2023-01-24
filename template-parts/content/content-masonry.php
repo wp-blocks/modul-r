@@ -8,7 +8,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( array('grid__item')); ?>>
 
   <a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
-    <?php modul_r_post_image(null, 'medium'); ?>
+    <?php modul_r_post_image(); ?>
   </a>
 
   <div class="article-wrapper">

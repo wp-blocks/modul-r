@@ -1,8 +1,3 @@
-<?php
-// if social media aren't enabled  return immediately
-if (empty($social_enabled)) return;
-?>
-
 <div class="social-links">
 
   <?php
@@ -13,8 +8,8 @@ if (empty($social_enabled)) return;
 		if ( null !== ($social_url = get_theme_mod( 'modul_r_social_' . $social ) ) ) {
 			if ( !empty($social_url)) {
 				echo '<a href="'.$social_url.'" target="_blank"><i class="social-ico small '.strtolower($social).'"></i></a>';
-			}
-    }
+			};
+		}
 	}
 
 	?>

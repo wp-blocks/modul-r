@@ -1,0 +1,56 @@
+/* MODUL R Style */
+
+/* Utils */
+// @import "utils/normalize";
+@import "utils/vars";
+@import "utils/media-queries";
+
+/* Base style */
+// @import "main/base";
+// @import "main/colors";
+// @import "woo/woo-base";
+@import "main/fonts";
+//@import "main/typography";
+@import "main/helpers";
+@import "main/table";
+@import "main/inputs";
+@import "main/images";
+@import "main/buttons";
+
+/* Components */
+// @import "components/header";
+// @import "components/navigation";
+@import "components/hamburger";
+@import "components/sidebar";
+@import "components/content";
+@import "components/content-header";
+@import "components/extras";
+@import "components/blocks";
+@import "components/footer";
+@import "components/animations";
+@import "components/accessibility";
+@import "components/comments";
+@import "components/search-form";
+
+/* Pages */
+// @import "pages/homepage";
+@import "pages/page";
+@import "pages/single";
+@import "pages/archive";
+@import "pages/author";
+
+/* WooCommerce */
+@import "woo/woo-common";
+@import "woo/woo-pages";
+@import "woo/woo-sidebar";
+
+/* Vendor Style */
+@import "vendor/fancybox";
+@import "vendor/slick";
+@import "vendor/masonry";
+
+/* Icons & extras */
+@import "utils/icons";
+@import "main/typography-extras";
+@import "main/scrollbar";
+@import "utils/print";

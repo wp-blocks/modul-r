@@ -69,7 +69,6 @@ function modul_r_get_theme_color($theme_mod_color, $default_color = "#FF0000") {
  * Customizer options
  */
 if ( ! function_exists('modul_r_customizer_opt') ) :
-
 	function modul_r_customizer_opt( $wp_customize ) {
 
 		// Creates custom title and description for theme customizer controls
@@ -88,12 +87,10 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		}
 
 		function add_setting_from_array($settings_array, $group, $wp_customize) {
-
 		  foreach ($settings_array as $setting) {
 
           // the wide content width
-          if (isset($setting['input']) && $setting['input'] === 'number') {
-
+          if ($setting['input'] === 'number') {
               $wp_customize->add_setting( 'modul_r_defaults_' . $setting['name'], array(
                   'capability'        => 'edit_theme_options',
                   'default'           => abs($setting['default']),
@@ -111,42 +108,24 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
                   ),
               ) );
 
-          } else {
+          } else if ($setting['input'] === 'select') {
 
-              $wp_customize->add_setting( "modul_r_{$group}_{$setting['for']}_{$setting['name']}", array(
+              // Font Family - title
+              $wp_customize->add_setting( 'modul_r_defaults_' . $setting['name'], array(
                   'capability'        => 'edit_theme_options',
-                  'default'           => $setting['default'],
+                  'default' => array_search( abs($setting['default']), $GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']]),
                   'sanitize_callback' => 'modul_r_sanitize_select',
               ) );
 
-              if ( $setting['type'] === 'font_family' ) {
+              $wp_customize->add_control( 'modul_r_defaults_' . $setting['name'], array(
+                  'type'    => 'select',
+                  'choices' => $GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']],
+                  'section'     => 'modul_r_' . $group,
+                  'description' => esc_html__( 'Select', 'modul-r' ) . ' ' . $setting['name'] ,
+              ) );
 
-                  $this_font_family= array_keys( $GLOBALS['modul_r_defaults']['customizer_options']['font_family'] );
-
-                  $wp_customize->add_control( "modul_r_{$group}_{$setting['for']}_{$setting['name']}", array(
-                      'type'        => 'select',
-                      'choices'     => array_combine($this_font_family,$this_font_family),
-                      'section'     => 'modul_r_' . $group,
-                      'description' => esc_html__("Select ", 'modul-r'). $setting['for'] ." ". $setting['name'],
-                  ) );
-
-              } else if ( $setting['type'] === 'font_weight' ) {
-
-                  $this_font_family = get_theme_mod( "modul_r_{$group}_{$setting['for']}_font-family" );
-
-                  $weight_selected_value = $this_font_family !== false ?
-                      $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ $this_font_family ]['weights'] :
-                      $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ $settings_array[ $setting['for']."_font-family"]['default'] ]['weights'] ;
-
-                  $wp_customize->add_control( "modul_r_{$group}_{$setting['for']}_{$setting['name']}", array(
-                      'type'        => 'select',
-                      'choices'     => array_combine($weight_selected_value, $weight_selected_value),
-                      'section'     => 'modul_r_' . $group,
-                      'description' => esc_html__("Select ", 'modul-r'). $setting['for'] ." ". $setting['name'],
-                  ) );
-
-              }
           }
+
       }
     }
 
@@ -518,8 +497,36 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
         'panel'      => 'modul_r_theme_options'
     ) );
 
+    // Font Family - title
+    $wp_customize->add_setting( 'modul_r_typography_font_family_title', array(
+        'capability' => 'edit_theme_options',
+        'default' => 0,
+        'sanitize_callback' => 'modul_r_sanitize_select',
+    ) );
+
+    $wp_customize->add_control( 'modul_r_typography_font_family_title', array(
+        'type'    => 'select',
+        'choices' => $GLOBALS['modul_r_defaults']['customizer_options']['font_family'],
+        'section' => 'modul_r_typography_options',
+        'description' => esc_html__( 'Select the font family for the titles', 'modul-r' ),
+    ) );
+
+    // Font Family - text
+    $wp_customize->add_setting( 'modul_r_typography_font_family_text', array(
+        'capability' => 'edit_theme_options',
+        'default' => 0,
+        'sanitize_callback' => 'modul_r_sanitize_select',
+    ) );
+
+    $wp_customize->add_control( 'modul_r_typography_font_family_text', array(
+        'type'    => 'select',
+        'choices' => $GLOBALS['modul_r_defaults']['customizer_options']['font_family'],
+        'section' => 'modul_r_typography_options',
+        'description' => esc_html__( 'Select the default font family', 'modul-r' ),
+    ) );
+
     // add the font weight select
-    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['font_styles'], 'typography_options', $wp_customize );
+    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], 'typography_options', $wp_customize );
 
       // add the font line height / font size selection
     add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['typography'], 'typography_options', $wp_customize );
@@ -617,71 +624,51 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			);
 		}
 
-		// Hero Hero image height
-		$wp_customize->add_setting( 'modul_r_hero_height_home', array(
-			'default'           => intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_home'] ),
-			'transport'         => 'refresh',
-			'sanitize_callback' => 'absint',
-		) );
-		$wp_customize->add_control( 'modul_r_hero_height_home', array(
-			'type'        => 'number',
-			'section'     => 'modul_r_hero_options',
-			'label'       => esc_html__( 'Hero Image vertical height', 'modul-r' ),
-			'description' => esc_html__( 'Homepage Hero height', 'modul-r' ),
-			'input_attrs' => array(
-				'min'  => '0',
-				'step' => '1',
-				'max'  => '100',
-			),
-		) );
+    // Hero Hero image height
+    $wp_customize->add_setting( 'modul_r_hero_height_home', array(
+        'default'   => intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_home'] ),
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ) );
+    $wp_customize->add_control( 'modul_r_hero_height_home', array(
+        'type' => 'number',
+        'section' => 'modul_r_hero_options',
+        'label' => esc_html__( 'Hero Image vertical height', 'modul-r' ),
+        'description' => esc_html__( 'Homepage Hero height', 'modul-r' ),
+        'input_attrs' => array(
+            'min' => '0', 'step' => '1', 'max' => '100',
+        ),
+    ) );
 
-		// Hero image height
-		$wp_customize->add_setting( 'modul_r_hero_height_default', array(
-			'default'           => $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_default'],
-			'transport'         => 'refresh',
-			'sanitize_callback' => 'absint',
-		) );
-		$wp_customize->add_control( 'modul_r_hero_height_default', array(
-			'type'        => 'number',
-			'section'     => 'modul_r_hero_options',
-			'description' => esc_html__( 'Default Hero height', 'modul-r' ),
-			'input_attrs' => array(
-				'min'  => '0',
-				'step' => '1',
-				'max'  => '100',
-			),
-		) );
+    // Hero image height
+    $wp_customize->add_setting( 'modul_r_hero_height_default', array(
+        'default'   => $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_default'],
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ) );
+    $wp_customize->add_control( 'modul_r_hero_height_default', array(
+        'type' => 'number',
+        'section' => 'modul_r_hero_options',
+        'description' => esc_html__( 'Default Hero height', 'modul-r' ),
+        'input_attrs' => array(
+            'min' => '0', 'step' => '1', 'max' => '100',
+        ),
+    ) );
 
 		// Hero image opacity
 		$wp_customize->add_setting( 'modul_r_hero_opacity', array(
-			'default'           => '100',
-			'transport'         => 'refresh',
+			'default'   => '100',
+			'transport' => 'refresh',
 			'sanitize_callback' => 'absint',
 		) );
 		$wp_customize->add_control( 'modul_r_hero_opacity', array(
-			'type'        => 'number',
-			'section'     => 'modul_r_hero_options',
-			'label'       => esc_html__( 'Hero Image opacity', 'modul-r' ),
-			'description' => esc_html__( 'insert a number beetween 1 and 100 (1 - 100% opacity)', 'modul-r' ),
-			'input_attrs' => array(
-				'min'  => '1',
-				'step' => '1',
-				'max'  => '100',
-			),
-		) );
-
-		// Hero Image Override
-		$wp_customize->add_setting( 'modul_r_hero_image_override', array(
-			'capability' => 'edit_theme_options',
-			'default' => '',
-			'sanitize_callback' => 'modul_r_sanitize_shortcode',
-		) );
-
-		$wp_customize->add_control( 'modul_r_hero_image_override', array(
-			'type'    => 'text',
+			'type' => 'number',
 			'section' => 'modul_r_hero_options',
-			'label' => esc_html__( 'Hero image override', 'modul-r' ),
-			'description' => esc_html__( 'Write here a shortcode that replaces the featured image on the homepage', 'modul-r' ),
+			'label' => esc_html__( 'Hero Image opacity', 'modul-r' ),
+			'description' => esc_html__( 'insert a number beetween 1 and 100 (1 - 100% opacity)', 'modul-r' ),
+      'input_attrs' => array(
+        'min' => '1', 'step' => '1', 'max' => '100',
+      ),
 		) );
 
 		// Hero headline
@@ -780,7 +767,7 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
           )
       );
     }
-		
+
 		// Sidebar Social Share options
 		$wp_customize->add_section( 'modul_r_settings_social_share' , array(
 			'title'      => esc_html__('Social Share Options','modul-r'),
@@ -824,59 +811,53 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			)
 		);
 
-    $social_enabled = array( 'Facebook', 'Instagram', 'Twitter', 'YouTube', 'Reddit', 'Linkedin', 'GitHub' );
+	  $social_enabled = array( 'Facebook', 'Instagram', 'Twitter', 'YouTube' );
 
-    foreach ( $social_enabled as $social ) {
-        $wp_customize->add_setting( 'modul_r_social_' . $social, array(
-            'capability'        => 'edit_theme_options',
-            'default'           => "",
-            'sanitize_callback' => 'sanitize_text_field',
-        ) );
-        $wp_customize->add_control( 'modul_r_social_' . $social, array(
-            'type'        => 'input',
-            'section'     => 'modul_r_settings_social_share',
-            'label'       => $social,
-            'description' => $social . ' url link',
-        ) );
-    }
+	  foreach ($social_enabled as $social) {
+		  $wp_customize->add_setting( 'modul_r_social_' . $social, array(
+			  'capability'        => 'edit_theme_options',
+			  'default'           => "",
+			  'sanitize_callback' => 'sanitize_text_field',
+		  ) );
+		  $wp_customize->add_control( 'modul_r_social_' . $social, array(
+			  'type'        => 'input',
+			  'section'     => 'modul_r_settings_social_share',
+			  'label'       => $social,
+			  'description' => $social . ' url link',
+		  ) );
+	  }
 
-    // Sanitize function for checkbox value
-    function modul_r_sanitize_checkbox( $checked ) {
-        return ( ( isset( $checked ) && true == $checked ) ? true : false );
-    }
+		// Sanitize function for checkbox value
+		function modul_r_sanitize_checkbox( $checked ) {
+			return ( ( isset( $checked ) && true == $checked ) ? true : false );
+		}
 
-    // Sanitize function for pages
-    function modul_r_sanitize_pages_dropdown( $page_id, $setting ) {
-        // Ensure $page_id is an absolute integer.
-        $page_id = absint( $page_id );
+		// Sanitize function for pages
+		function modul_r_sanitize_pages_dropdown( $page_id, $setting ) {
+			// Ensure $page_id is an absolute integer.
+			$page_id = absint( $page_id );
 
-        // If $page_id is an ID of a published page, return it; otherwise, return the default.
-        return ( get_post_status( $page_id ) == 'publish' ? $page_id : $setting->default );
-    }
+			// If $page_id is an ID of a published page, return it; otherwise, return the default.
+			return ( get_post_status( $page_id ) == 'publish'? $page_id : $setting->default );
+		}
 
     function modul_r_sanitize_select( $selected, $setting ) {
         // Ensure $selected options is an absolute integer then return the selected option
-        return esc_attr( $selected );
+        return absint( $selected );
     }
+      function modul_r_sanitize_abs( $selected ) {
+          // Ensure $selected options is an absolute integer then return the selected option
+          return abs( $selected );
+      }
 
-    function modul_r_sanitize_shortcode( $shortcode, $setting ) {
-        // Ensure $selected options is an absolute integer then return the selected option
-        return preg_match("/([^\[].*?(?=\]))/", $shortcode, $matches) ? '['.sanitize_text_field($matches[1]).']' : '';
-    }
+		// Sanitize function for categories
+		function modul_r_sanitize_category_dropdown( $cat_id, $setting ) {
+			// Ensure $cat_id is an absolute integer.
+			$cat_id = absint( $cat_id );
 
-    function modul_r_sanitize_abs( $selected ) {
-        // Ensure $selected options is an absolute integer then return the selected option
-        return abs( $selected );
-    }
-
-    // Sanitize function for categories
-    function modul_r_sanitize_category_dropdown( $cat_id, $setting ) {
-        // Ensure $cat_id is an absolute integer.
-        $cat_id = absint( $cat_id );
-
-        // If $cat_id term exist, return it; otherwise, return the default.
-        return ( term_exists( $cat_id ) != 0 ? $cat_id : $setting->default );
-    }
+			// If $cat_id term exist, return it; otherwise, return the default.
+			return ( term_exists( $cat_id ) != 0 ? $cat_id : $setting->default );
+		}
 
 	  // Sanitize function for file input
 	  function modul_r_sanitize_file( $file, $setting ) {
@@ -987,52 +968,13 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
         $header_background = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']] );
         $footer_background = modul_r_get_theme_color( 'footer-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-color']] );
         $footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']] );
-        $background_color = "#" . get_background_color();
 
         // get the acf.css file and store into a variable
         ob_start();
 
-        include get_stylesheet_directory() . '/assets/dist/css/atf.css';
+        include get_stylesheet_directory() . '/assets/dist/styles/atf.css';
 
         $atf_css = ob_get_clean();
-        $atf_css .= 'body {background-color: ' . $background_color . ';}';
-
-        // HEADER
-        // set the header color
-        $atf_css .= 'body .header-color, body.has-featured-image.top #masthead.active {background-color: ' . $header_background . ';} .has-featured-image.top #masthead {background-color: ' . $header_background . 'dd;}';
-
-        // On top of the screen set the opacity to 0
-        if (get_theme_mod( 'modul_r_header_opacity' ) > 0){
-            $atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_background . '00;}';
-        } else {
-            // if has a featured image and is at the top of the page....has-featured-image.top
-            $atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_background . 'dd;}';
-        }
-
-        // Set the responsive header opacity
-        $atf_css .= '@media (max-width: 960px) {body .main-navigation {background-color: ' . modul_r_adjustBrightness($header_background, 0.2) . 'ee;}}';
-
-        // Set the nav background colors
-        $atf_css .= 'body ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_background, 0.1) . ';}';
-        $atf_css .= 'body.has-featured-image.top #masthead ul.sub-menu {background-color: ' . $header_background . 'cc;}';
-        $atf_css .= 'body ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness($header_background, 0.2) . ';}';
-        $atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness($header_background, 0.3) . ';}';
-
-        // FOOTER
-        // set the footer color
-        $atf_css .= '.has-footer-background-color {background-color: ' . $footer_background . ';}';
-        // set the bottom footer color
-        $atf_css .= '.has-footer-bottom-background-color {background-color: ' . $footer_bottom_background . ';}';
-
-        // HERO
-        $hero_opacity = get_theme_mod( 'modul_r_hero_opacity' ) !== false ? intval(get_theme_mod( 'modul_r_hero_opacity' )) : 100;
-        $hero_height_home = get_theme_mod( 'modul_r_hero_height_home' ) !== false ? intval(get_theme_mod( 'modul_r_hero_height_home' )) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_home'] );
-        $hero_height = get_theme_mod( 'modul_r_hero_height_default' ) !== false ? intval(get_theme_mod( 'modul_r_hero_height_default' )) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_default'] );
-        if ($hero_opacity != 100) $atf_css .= 'body .hero img {opacity:'. ($hero_opacity/100) .'}';
-        if ($hero_height) $atf_css .= "html .site .hero {max-height:{$hero_height}vh}";
-        if ($hero_height_home) $atf_css .= "html body.home .hero {max-height:{$hero_height_home}vh}";
-
-        apply_filters('modul_r_acf_css_style', $atf_css);
 
         // And finally return the stored style
         if ($atf_css != "" ) {
@@ -1046,160 +988,168 @@ add_action( 'wp_head', 'modul_r_atf_style', 1 );
 if ( ! function_exists( 'modul_r_css_props' ) ) :
     function modul_r_css_props() {
 
-        // get the custom colors
+			// get the custom colors
 
-        // Main colors
-        $colors                    = array();
-        $variance                  = floatval( $GLOBALS['modul_r_defaults']['customizer_options']['color_variance'] );
-        $colors['primary']         = modul_r_get_theme_color( 'primary-color', $GLOBALS['modul_r_defaults']['colors']['primary'] );
-        $colors['primary-light']   = modul_r_adjustBrightness( $colors['primary'], $variance );
-        $colors['primary-dark']    = modul_r_adjustBrightness( $colors['primary'], - $variance );
-        $colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $GLOBALS['modul_r_defaults']['colors']['secondary'] );
-        $colors['secondary-light'] = modul_r_adjustBrightness( $colors['secondary'], $variance );
-        $colors['secondary-dark']  = modul_r_adjustBrightness( $colors['secondary'], - $variance );
-        // base colors
-        $colors['white']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white'] );
-        $colors['white-smoke'] = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white-smoke'] );
-        $colors['gray-light']  = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-light'] );
-        $colors['gray']        = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray'] );
-        $colors['gray-dark']   = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-dark'] );
-        $colors['black']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['black'] );
+			// Main colors
+			$colors                    = array();
+			$variance                  = floatval( $GLOBALS['modul_r_defaults']['customizer_options']['color_variance'] );
+			$colors['primary']         = modul_r_get_theme_color( 'primary-color', $GLOBALS['modul_r_defaults']['colors']['primary'] );
+			$colors['primary-light']   = modul_r_adjustBrightness( $colors['primary'], $variance );
+			$colors['primary-dark']    = modul_r_adjustBrightness( $colors['primary'], - $variance );
+			$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $GLOBALS['modul_r_defaults']['colors']['secondary'] );
+			$colors['secondary-light'] = modul_r_adjustBrightness( $colors['secondary'], $variance );
+			$colors['secondary-dark']  = modul_r_adjustBrightness( $colors['secondary'], - $variance );
+			// base colors
+			$colors['white']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white'] );
+			$colors['white-smoke'] = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white-smoke'] );
+			$colors['gray-light']  = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-light'] );
+			$colors['gray']        = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray'] );
+			$colors['gray-dark']   = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-dark'] );
+			$colors['black']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['black'] );
 
-        $colors['background']       = sanitize_hex_color( "#" . get_background_color() );
+			// Typography colors
+			$text_color = get_theme_mod( 'text-color' ) !== false ? sanitize_hex_color( get_theme_mod( 'text-color' ) ) : sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] );
 
-        // Typography colors
-        $text_color = get_theme_mod( 'text-color' ) !== false ? sanitize_hex_color( get_theme_mod( 'text-color' ) ) : sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] );
+			// Colors
+			$header_title_color       = get_theme_mod( 'header_textcolor', get_theme_support( 'custom-header', 'default-text-color' ) ) ? '#' . get_header_textcolor() : $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-title-color'] ];
+			$header_background        = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
+			$header_text_color        = modul_r_get_theme_color( 'header-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ] );
+			$footer_background        = modul_r_get_theme_color( 'footer-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-color'] ] );
+			$footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-bottom-color'] ] );
+			$footer_text_color        = modul_r_get_theme_color( 'footer-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-text-color'] ] );
 
-        // Colors
-        $header_title_color       = get_theme_mod( 'header_textcolor', get_theme_support( 'custom-header', 'default-text-color' ) ) ? '#' . get_header_textcolor() : $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ];
-        $header_background        = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
-        $header_text_color        = modul_r_get_theme_color( 'header-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ] );
-        $footer_background        = modul_r_get_theme_color( 'footer-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-color'] ] );
-        $footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-bottom-color'] ] );
-        $footer_text_color        = modul_r_get_theme_color( 'footer-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-text-color'] ] );
+			$baseunit           = get_theme_mod( 'modul_r_baseunit' ) !== false ? intval( get_theme_mod( 'modul_r_baseunit' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['baseunit'] );
+			$sidemargin         = get_theme_mod( 'modul_r_sidemargin' ) !== false ? intval( get_theme_mod( 'modul_r_sidemargin' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['sidemargin'] );
+			$content_width      = get_theme_mod( 'modul_r_content_width' ) !== false ? intval( get_theme_mod( 'modul_r_content_width' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width'] );
+			$content_width_wide = get_theme_mod( 'modul_r_content_width_wide' ) !== false ? intval( get_theme_mod( 'modul_r_content_width_wide' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width_wide'] );
 
-        $background_color = $colors['background'];
+			$font_family_title = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_title' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
+			$font_family_text  = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_text' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
 
-        $baseunit           = get_theme_mod( 'modul_r_baseunit' ) !== false ? intval( get_theme_mod( 'modul_r_baseunit' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['baseunit'] );
-        $content_width      = get_theme_mod( 'modul_r_content_width' ) !== false ? intval( get_theme_mod( 'modul_r_content_width' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width'] );
-        $content_width_wide = get_theme_mod( 'modul_r_content_width_wide' ) !== false ? intval( get_theme_mod( 'modul_r_content_width_wide' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width_wide'] );
+			// Typography
+			function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
+				$vars = '';
+				foreach ( $var_set as $option ) {
+					if ( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) {
+						if ( $option['input'] !== 'select' ) {
+							$vars .= $suffix . $option['name'] . ":" . abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
+						} else {
+							$vars .= $suffix . $option['name'] . ":" . $GLOBALS['modul_r_defaults']['customizer_options'][ $option['select_type'] ][ abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) ] . ';';
+						}
+					} else {
+						$vars .= $suffix . $option['name'] . ":" . $option['default'] . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
+					}
+				}
 
-        // Typography
-        function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
-          $vars = '';
-          foreach ( $var_set as $key => $option ) {
-            if ($option['input'] !== 'select') {
-              if ( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) {
-                  $vars .= $suffix . $option['name'] . ":" . abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
-              } else {
-                  $vars .= $suffix . $option['name'] . ":" . $option['default'] . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
-              }
-            } else {
-              // get the prop value
-              $this_prop = get_theme_mod( 'modul_r_typography_options_' . $option['for'] . "_" . $option['name'] );
-              // applies cosmetic fix fot font family Exo+2 -> 'Exo 2', serif
-              $prop = ($this_prop !== false) ?
-                  ($option['type'] === 'font_family') ? '\''.str_replace( "+", " ", $this_prop ).'\', serif' : $this_prop :
-                  $GLOBALS['modul_r_defaults']['customizer_options']['font_styles'][$option['for'] . "_" . $option['name']]['default'];
-              $vars .= $suffix . $option['for'] . '--' . $option['name'] . ":" . $prop . ';';
-            }
-          }
-          return $vars;
-        }
+				return $vars;
+			}
 
-        $typography = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--");
-        $font_styles = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['font_styles'], "--typography--");
-        $header_sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--");
-        $sizes = modul_r_get_vars($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--size--");
+			$custom_props = '';
+			$atf_css      = '';
 
-        // Build the color palette
-        function modul_r_generate_color_palette( $colors ) {
-            if ( empty( $colors ) || !is_array( $colors ) ) {
-                return '';
-            }
-            $css_palette = '';
-            foreach ( $colors as $c_name => $color ) {
-                $css_palette .= ".has-$c_name-color{color:$color}.has-$c_name-background-color{background-color:$color}";
-            }
-            return $css_palette;
-        }
+			// HEADER
+			// set the header color
+			$atf_css .= 'body .header-color, body.has-featured-image.top #masthead.active {background-color: ' . $header_background . ';} .has-featured-image.top #masthead {background-color: ' . $header_background . 'dd;}';
 
-        $color_css_classes = modul_r_generate_color_palette($colors);
+			// On top of the screen set the opacity to 0
+			if ( get_theme_mod( 'modul_r_header_opacity' ) > 0 ) {
+				$atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_background . '00;}';
+			} else {
+				// if has a featured image and is at the top of the page....has-featured-image.top
+				$atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_background . 'dd;}';
+			}
 
-        $css_style = "body {" .
-          "--wp--preset--color--primary: {$colors['primary']};" .
-          "--wp--preset--color--primary-light: {$colors['primary-light']};" .
-          "--wp--preset--color--primary-dark: {$colors['primary-dark']};" .
+			// Set the responsive header opacity
+			$atf_css .= '@media (max-width: 960px) {body .main-navigation {background-color: ' . modul_r_adjustBrightness( $header_background, 0.2 ) . 'ee;}}';
 
-          "--wp--preset--color--secondary: {$colors['secondary']};" .
-          "--wp--preset--color--secondary-light: {$colors['secondary-light']};" .
-          "--wp--preset--color--secondary-dark: {$colors['secondary-dark']};" .
+			// Set the nav background colors
+			$atf_css .= 'body ul.sub-menu {background-color: ' . modul_r_adjustBrightness( $header_background, 0.1 ) . ';}';
+			$atf_css .= 'body.has-featured-image.top #masthead ul.sub-menu {background-color: ' . $header_background . 'cc;}';
+			$atf_css .= 'body ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness( $header_background, 0.2 ) . ';}';
+			$atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness( $header_background, 0.3 ) . ';}';
 
-          "--wp--preset--color--white: {$colors['white']};" .
-          "--wp--preset--color--white-smoke: {$colors['white-smoke']};" .
-          "--wp--preset--color--gray-light: {$colors['gray-light']};" .
-          "--wp--preset--color--gray: {$colors['gray']};" .
-          "--wp--preset--color--gray-dark: {$colors['gray-dark']};" .
-          "--wp--preset--color--black: {$colors['black']};" .
+			// FOOTER
+			// set the footer color
+			$atf_css .= '.has-footer-background-color {background-color: ' . $footer_background . ';}';
+			// set the bottom footer color
+			$atf_css .= '.has-footer-bottom-background-color {background-color: ' . $footer_bottom_background . ';}';
 
-          "--wp--preset--color--background: $background_color;" .
+			// HERO
+			$hero_opacity     = get_theme_mod( 'modul_r_hero_opacity' ) !== false ? intval( get_theme_mod( 'modul_r_hero_opacity' ) ) : 100;
+			$hero_height_home = get_theme_mod( 'modul_r_hero_height_home' ) !== false ? intval( get_theme_mod( 'modul_r_hero_height_home' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_home'] );
+			$hero_height      = get_theme_mod( 'modul_r_hero_height_default' ) !== false ? intval( get_theme_mod( 'modul_r_hero_height_default' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_default'] );
 
-          "--wp--preset--color--black--decimal: ".modul_r_hex2rgb($colors['black'], true). ";" .
-          "--wp--preset--color--white--decimal: ".modul_r_hex2rgb($colors['white'], true). ";" .
-          "--wp--preset--color--secondary--decimal: ".modul_r_hex2rgb($colors['secondary'], true). ";" .
-          "--wp--preset--color--primary--decimal: ".modul_r_hex2rgb($colors['primary'], true). ";" .
+			if ( $hero_opacity != 100 ) {
+				$atf_css .= 'body .hero img {opacity:' . ( $hero_opacity / 100 ) . '}';
+			}
+			if ( $hero_height ) {
+				$atf_css .= "html .site .hero {max-height:{$hero_height}vh}";
+			}
+			if ( $hero_height_home ) {
+				$atf_css .= "html body.home .hero {max-height:{$hero_height_home}vh}";
+			}
 
-          "--color--title: var(--wp--preset--color--primary);" .
-          "--color--text: $text_color;" .
+			$typography   = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--default--" );
+			$font_weights = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], "--typography--default--" );
+			$header_sizes = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--" );
+			$sizes        = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--sizes--" );
 
-          "--size--margin-xs: " . $baseunit * .5 . "px;" .
-          "--size--margin--: {$baseunit}px;" .
-          "--size--margin-s: " . $baseunit * 1.5 . "px;" .
-          "--size--margin-m: " . $baseunit * 2 . "px;" .
-          "--size--margin-l: " . $baseunit * 4 . "px;" .
-          "--size--margin-xl: ". $baseunit * 8 . "px;" .
-          "--size--responsive--side-margin: ". $baseunit * 2.5 . "px;" .
+			// create the custom colors scheme
+			foreach ( $colors as $key => $color ) {
+				$custom_props      .= '--color--' . $key . ':' . $color . ';';
+				$custom_prop_color = "var(--color--" . $key . ")";
+				$atf_css           .= ' .has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color p{color:' . $custom_prop_color . '}';
+				$atf_css           .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
+			}
 
-           $typography .
-           $font_styles .
+		echo "<style>".$atf_css.":root{".$custom_props.$typography . $font_weights.
 
-          "--typography--title--line-height: var(--typography--line-height);" .
-          "--typography--title--font-size: var(--typography--font-size--xxl);" .
-          "--typography--content--line-height: var(--typography--line-height--wide);" .
-          "--typography--content--font-size: var(--typography--font-size--m);" .
+			"--color--black--decimal: ".modul_r_hex2rgb($colors['black'], true). ";" .
+			"--color--white--decimal: ".modul_r_hex2rgb($colors['white'], true). ";" .
+			"--color--secondary--decimal: ".modul_r_hex2rgb($colors['secondary'], true). ";" .
+			"--color--primary--decimal: ".modul_r_hex2rgb($colors['primary'], true). ";" .
 
-          "--size--content--width: {$content_width}px;" .
-          "--size--content--side-padding: " . ($content_width_wide - $content_width) * .5 ."px;" .
-          "--size--content--width-wide: {$content_width_wide}px;" .
-          "--size--sidebar--side-margin: var(--size--margin-xl);" .
+			"--color--title: var(--color--primary);" .
+			"--color--text: $text_color;" .
+
+			"--sizes--margin-xs: " . $baseunit * .5 . "px;" .
+			"--sizes--margin--: {$baseunit}px;" .
+			"--sizes--margin-s: " . $baseunit * 1.5 . "px;" .
+			"--sizes--margin-m: " . $baseunit * 2 . "px;" .
+			"--sizes--margin-l: " . $baseunit * 4 . "px;" .
+			"--sizes--margin-xl: ". $baseunit * 8 . "px;" .
+			"--sizes--responsive--side-margin: ". $sidemargin . "px;" .
+
+			"--typography--title--line-height:var(--typography--default--line-height);" .
+			"--typography--title--font-size: var(--typography--default--font-size--xxl);" .
+			"--typography--title--font-family: '".str_replace("+", " ", $font_family_title)."', sans-serif;" .
+			"--typography--title--font-weight: var(--typography--default--font-weight--bold);" .
+			"--typography--content--line-height: var(--typography--default--line-height--wide);" .
+			"--typography--content--font-size: var(--typography--default--font-size--m);" .
+			"--typography--content--font-family: '".str_replace("+", " ", $font_family_text)."', sans-serif;" .
+			"--typography--content--font-weight: var(--typography--default--font-weight--regular);" .
+
+			"--sizes--content--width: {$content_width}px;" .
+			"--sizes--content--side-padding: " . ($content_width_wide - $content_width) * .5 ."px;" .
+			"--sizes--content--width-wide: {$content_width_wide}px;" .
+			"--sizes--sidebar--side-margin: var(--sizes--margin-xl);" .
 
 
-          "--header--background: $header_background;" .
-          "--header--background--dark: ".modul_r_hex2rgb(modul_r_adjustBrightness($header_background, -0.05), true). ";" .
-          "--header--background--dark--decimal: ".modul_r_hex2rgb($header_background, true). ";" .
-          "--header--title-color: $header_title_color;" .
-          "--header--text-color: $header_text_color;" .
+			"--header--background: $header_background;" .
+			"--header--background--dark: ".modul_r_hex2rgb(modul_r_adjustBrightness($header_background, -0.05), true). ";" .
+			"--header--background--dark--decimal: ".modul_r_hex2rgb($header_background, true). ";" .
+			"--header--title-color: $header_title_color;" .
+			"--header--text-color: $header_text_color;" .
 
-           $header_sizes .
-           $sizes .
+			 $header_sizes .
+			 $sizes .
 
-          "--footer--background: $footer_background;" .
-          "--footer--logo-width: 80%;" .
-          "--footer--bottom-background: $footer_bottom_background;" .
-          "--footer--text-color: $footer_text_color;" .
-          "--footer--text-color-decimal: ".modul_r_hex2rgb($footer_text_color, true). ";" .
+			"--footer--background: $footer_background;" .
+			"--footer--bottom-background: $footer_bottom_background;" .
+			"--footer--text-color: $footer_text_color;" .
+			"--footer--text-color-decimal: ".modul_r_hex2rgb($footer_text_color, true). ";" .
 
-          "--element--hero--title--font-size: 64px;" .
-          "--element--hamburger--color: var(--header--text-color);" .
-          "--element--blocks--clip-slope: 24px;" .
-          "--size--entry-title--width: {$content_width}px;" .
-          "--element--gallery--mosaic-grid-size: calc(var(--size--content--width) / 3);".
-          "--element--gallery--mosaic-grid-gap: var(--size--margin--)" .
-
-          "}".
-          $color_css_classes;
-
-        echo '<style>' . apply_filters('modul_r_css_vars_style', $css_style ). '</style>';
+			"}</style>";
     }
 endif;
 add_action( 'wp_head', 'modul_r_css_props', 99 );

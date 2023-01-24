@@ -5,7 +5,7 @@
 
 ?>
 
-<header class="entry-header page-header main-width text-center">
+<header class="entry-header page-header main-width aligncenter">
 
   <?php modul_r_breadcrumbs(); ?>
 
@@ -14,7 +14,7 @@
 </header>
 
 <div class="entry-content">
-  <p class="text-center">
+  <p class="aligncenter">
     <?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'modul-r' ); ?>
   </p>
 </div><!-- /entry-content -->

@@ -1,0 +1,57 @@
+.search-form,
+.woocommerce-product-search {
+
+  display: flex;
+  max-width: var(--sizes--sidebar--width);
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+
+  @extend %elevation--01;
+
+  input {
+    height: 48px;
+  }
+
+  label {
+    width: 100%;
+  }
+
+  [type="search"] {
+    width: 100%;
+    margin: 0;
+    padding: $size__margin var(--sizes--margin-m);
+    font-size: var(--typography--default--font-size--s);
+    border: 1px solid var(--color--gray-light);
+    outline: 0;
+    box-shadow: inherit !important;
+  }
+
+  [type="submit"] {
+    width: 80px;
+    margin: 0;
+    border-radius: 0;
+    font-size: 0;
+  }
+
+  &:before {
+    content: '\E8B6';
+    font-family: 'Material Icons';
+    color: var(--color--white);
+    font-size: 28px;
+    display: block;
+    width: 24px;
+    height: 48px;
+    line-height: 48px;
+    position: absolute;
+    z-index: 2;
+    right: 26px;
+  }
+
+
+  #primary & {
+    margin: var(--sizes--margin-xl) auto;
+  }
+}
+
