@@ -177,12 +177,6 @@
   opacity: 0;
   transform: translateX(300%);
 }
-.interactive.parallax {
-  overflow: hidden;
-}
-.interactive.parallax * {
-  transition: inherit;
-}
 
 figure.parallax,
 .parallax figure {
