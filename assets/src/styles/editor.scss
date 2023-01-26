@@ -1,13 +1,13 @@
 /* Main column width */
 .wp-block {
-  max-width: 960px;
+  max-width: 75%;
   margin-left: auto;
   margin-right: auto;
 }
 
 /* Width of "wide" blocks */
 .wp-block[data-align="wide"] {
-  max-width: 1080px;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -17,14 +17,19 @@
   max-width: none;
 }
 
+@import "utils/normalize";
 @import "utils/vars";
 @import "utils/media-queries";
 
 @import "main/base";
 @import "main/colors";
+
 @import "main/fonts";
+
 @import "main/typography";
 @import "main/typography-extras";
+
+@import "woo/woo-base";
 
 .wp-block.editor-post-title__block .editor-post-title__input{
   @extend %headline_style;

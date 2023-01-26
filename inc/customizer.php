@@ -819,12 +819,6 @@ add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
 
 if ( ! function_exists( 'modul_r_atf_style' ) ) :
     function modul_r_atf_style() {
-
-        // Colors
-        $header_background = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['header-color']] );
-        $footer_background = modul_r_get_theme_color( 'footer-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-color']] );
-        $footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][$GLOBALS['modul_r_defaults']['style']['footer-bottom-color']] );
-
         // get the acf.css file and store into a variable
         ob_start();
 
@@ -834,7 +828,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
         // And finally return the stored style
         if ($atf_css != "" ) {
-            echo '<style id="modul-r-above-the-fold" type="text/css">'. $atf_css . '</style>';
+            echo '<style id="modul-r-above-the-fold">'. $atf_css . '</style>';
         }
     }
 endif;

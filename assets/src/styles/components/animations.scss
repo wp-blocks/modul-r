@@ -1,33 +1,33 @@
 .interactive  {
-  
+
   // animation trigger
   // &.visible      img on/off when visible
   // &.already-see  executes only one time
-  
+
   > *,
   img {
     transition-duration: $animations__lenght * 2;
   }
-  
+
   &.long-delay * {
     transition-delay: 3s;
   }
-  
+
   &.fade-in {
     img {opacity: 0;}
     &.already-see img {opacity: 1;}
   }
-  
+
   &.slide-left {
     img {transform: translateX(-100px);}
     &.visible img {transform: translateX(0);}
   }
-  
+
   &.enter-down {
     img {transform: translateY(100%);}
     &.already-see img {transform: translateY(0);}
   }
-  
+
   &.exit-right {
     img {
       opacity: 1;
@@ -41,29 +41,23 @@
       }
     }
   }
-  
-  &.parallax {
-    overflow: hidden;
-    
-    * {transition: inherit;}
-  }
 }
 
 figure.parallax,
 .parallax figure {
   height: 100%;
   overflow: hidden;
-  
+
   img {
     height: calc(100% + 200px);
     margin-bottom: -100px !important;
   }
-  
+
   figcaption {
     position: absolute;
     right: var(--sizes--responsive--side-margin);
     left: var(--sizes--responsive--side-margin);
   }
-  
+
   max-height: 70vh;
 }

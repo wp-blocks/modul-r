@@ -18,7 +18,7 @@
 	  "text": true,
 	  "background": true,
 	  "defaultGradients": true,
-	  "defaultPalette": true
+	  "defaultPalette": false
 	},
 	"layout": {
 	  "contentSize": "1000px",
