@@ -1,0 +1,35 @@
+// todo: styling this
+.bypostauthor {
+  background-color: transparent;
+}
+
+
+.article-author {
+
+  .avatar{
+    float: left;
+    max-width: var(--wp--preset--spacing--70);
+    margin-right: var(--wp--preset--spacing--60);
+    @media #{$mq__tablet} {
+      max-width: $avatar_size;
+      margin-right: var(--wp--custom--responsive--side-margin);
+    }
+    img{
+      margin: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      vertical-align: middle;
+    }
+  }
+
+
+  .author-details {
+    display: table;
+  }
+
+  .author-description p {
+    font-size: var(--wp--preset--font-size--small);
+    margin: var(--wp--preset--spacing--40) 0 ;
+    line-height: var(--wp--custom--line-height--large);
+  }
+}

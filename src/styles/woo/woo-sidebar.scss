@@ -1,0 +1,100 @@
+#secondary {
+
+  // the sidebar's product accordion
+  ul.product-categories {
+
+    ul {
+      margin: 0;
+      padding-left: var(--wp--preset--spacing--60);
+    }
+
+    li {
+      line-height: 42px;
+      margin: 0;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+    }
+
+    & > li:first-child { border: 0; }
+
+    a {
+      color: var(--color--text);
+      font-weight: 500;
+    }
+
+    .current-cat-parent,.current-cat {
+      & > a {
+        font-weight: var(--typography--default--font-weight--bold);
+      }
+    }
+    .current-cat {
+      & > a {
+        filter: brightness(115%);
+      }
+    }
+
+    .toggle {
+      i {
+        opacity: .5;
+        transition: $animations__lenght;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-right: var(--wp--preset--spacing--40);
+      }
+    }
+    .cat-parent.active > a i {
+      opacity: 1;
+      transform: rotate(90deg);
+      filter: brightness(115%);
+    }
+
+  }
+
+  ul.product_list_widget {
+    $list-line-size: 48px;
+
+    a {display: block;}
+
+    li {
+      height: var(--wp--custom--line-height--medium);
+      border-top: 1px solid rgba(var(--color--black), 0.05);
+      font-size: var(--wp--preset--font-size--extra-small);
+      line-height: 1;
+
+      &:first-child { border: 0;}
+
+      span {
+        display: inline-block;
+
+        &.woocommerce-Price-amount {
+          color: var(--color--primary);
+        }
+      }
+
+      .product-title {
+        color: var(--color--text);
+        font-weight: var(--typography--default--font-weight--bold);
+        padding-top: var(--wp--preset--spacing--40);
+        line-height: var(--wp--custom--line-height--medium);
+        display: block;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+      }
+
+      img {
+        width: $list-line-size;
+        height: $list-line-size;
+        object-fit: contain;
+        margin-left: var(--wp--preset--spacing--40);
+      }
+    }
+  }
+
+}
+
+
+.site-footer .woocommerce ul.product_list_widget li {
+	padding: 0 0 12px;
+}

@@ -1,0 +1,70 @@
+%input_model {
+  background-color: var(--color--white);
+  color: var(--color--text);
+  outline:none!important;
+  border: 1px solid var(--color--gray-light);
+  font-size: var(--wp--preset--font-size--medium);
+  font-weight: var(--typography--default--font-weight--regular);
+  box-sizing: border-box;
+  border-radius:4px 4px 0 0;
+  padding: 12px 8px;
+  transition:350ms;
+  margin: 0 0 var(--wp--preset--spacing--40);
+  line-height: var(--wp--custom--line-height--medium);
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 1px 0 var(--color--primary);
+  }
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="password"],
+input[type="tel"] {
+  @extend %input_model;
+  padding-left: var(--wp--preset--spacing--40);
+  padding-right: var(--wp--preset--spacing--40);
+  box-shadow: 0 0 0 var(--color--gray-light);
+}
+
+
+[type="checkbox"], [type="radio"] {
+  margin: 0;
+  display: inline;
+  vertical-align: middle;
+}
+
+.input-label {
+  font-size: var(--wp--preset--font-size--extra-small);
+}
+
+form label {
+  color: var(--color--gray-dark);
+  font-size: calc(var(--wp--preset--font-size--medium) - 1px);
+
+  input + span {
+    opacity: .8;
+  }
+
+  input:not(button):not(input[type="submit"]):not(input[type="checkbox"]):not(input[type="radio"]) {
+    width: 100%;
+  }
+}
+
+textarea {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 160px;
+  overflow:hidden;
+}
+
+fieldset {
+  margin: $size__margin 0;
+}

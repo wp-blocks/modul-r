@@ -1,0 +1,84 @@
+%button {
+  transition: $animations__lenght * .75;
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: break-word;
+	box-sizing: border-box;
+	padding: calc(.75em + 2px) calc(1.5em + 2px);
+	border-radius: 9999px;
+	font-weight: var(--typography--title--font-weight);
+
+	&:not(.has-background) {
+		background-color: var(--color--primary);
+	}
+
+	&:not(.has-text-color) {
+		color: rgba( var(--color--white--decimal), .9);
+	}
+
+  @media #{$mq__smaller-than-tablet} {
+    font-size: calc(var(--wp--preset--font-size--medium) - 2);
+  }
+
+  &:disabled {
+    filter: saturate(0);
+  }
+}
+
+.wp-block-button {
+
+  .wp-block-button__link {
+		margin-top: var(--wp--preset--spacing--60);
+    @extend %button;
+  }
+
+	// Squared
+	.is-style-squared .wp-block-button__link {
+    border-radius: 0;
+  }
+}
+
+.wp-block-search__button,
+.wp-block-file .wp-block-file__button {
+	background-color: var(--color--primary);
+	color: var(--color--white);
+	border-radius: 0;
+	border: none;
+	font-size: var(--wp--preset--font-size--medium);
+}
+
+.wp-block-search__button,
+.wp-block-file .wp-block-file__button,
+.wp-block-button__link {
+	&:hover {
+		opacity: 0.90;
+	}
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+.button {
+  @extend %button;
+
+  &.outline {
+    background-color: transparent !important;
+  }
+
+  .is-style-squared .wp-block-button__link {
+    border-radius: 0;
+  }
+}
+
+.wp-block-button,
+button,
+.button {
+  input[type="submit"] + input[type="reset"],
+  & + & {
+    margin-left: var(--wp--preset--spacing--30);
+  }
+}
