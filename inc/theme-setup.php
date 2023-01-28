@@ -16,14 +16,6 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		add_theme_support( "title-tag" );
 
 		/*
-		* WordPress define content width
-		* https://codex.wordpress.org/Content_Width
-		*/
-		if ( ! isset( $content_width ) ) {
-			$content_width = $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width'];
-		}
-
-		/*
 		* Enable support for Post Thumbnails on posts and pages.
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
@@ -94,7 +86,7 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		add_theme_support( 'editor-styles' );
 
 		// Enqueue editor styles and fonts.
-		add_editor_style( 'assets/dist/styles/editor.css' );
+		add_editor_style( get_template_directory() . '/dist/styles/editor.css' );
 
 		// Add support for Block Styles.
 		add_theme_support( 'wp-block-styles' );
@@ -111,6 +103,7 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		add_theme_support( 'responsive-embeds' );
 
 		add_theme_support( 'appearance-tools' );
+		add_theme_support( 'custom-line-height' );
 	}
 endif;
 add_action( 'after_setup_theme', 'modul_r_theme_setup' );

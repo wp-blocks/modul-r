@@ -103,7 +103,7 @@ if ( ! function_exists( 'modul_r_masonry_nav' ) ) :
 
     <div class="page-load-status">
       <div class="loader-ellips infinite-scroll-request">
-        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/src/img/elements/loader.svg" alt="<?php esc_attr_e('wait! loading',  'modul-r' ); ?>">
+        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/src/img/elements/loader.svg" alt="<?php esc_attr_e('wait! loading',  'modul-r' ); ?>">
       </div>
       <div class="infinite-scroll-last">
         <div class="main-width alignwide">
@@ -259,6 +259,7 @@ endif;
 
 /**
  * Displays the article shares buttons
+ *
  * @param string $type | choose links or share to get the link or to get the sharing action / print or email functions
  */
 if ( ! function_exists('modul_r_social_sharer') ) :
@@ -327,7 +328,7 @@ if ( ! function_exists('modul_r_custom_body_class') ) :
 
 		if (  is_page() || ( is_single() && !($woo_enabled && is_product()) ) || ( is_archive() && !($woo_enabled && is_product_category())) || ( ($woo_enabled && is_shop()) && get_theme_mod( 'modul_r_woo' ) ) ) {
       // add the class "has-featured-image" if page or article and it ha a post thumbnail set
-      if ( isset ( $post->ID ) && get_the_post_thumbnail($post->ID) ) {
+      if ( has_post_thumbnail() ) {
         $classes[] = 'has-featured-image';
       }
     }
