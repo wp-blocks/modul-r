@@ -1,13 +1,9 @@
 {
   "name": "modul-r",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "repository": "https://github.com/erikyo/modul-r",
   "license": "GPL-3.0",
-  "main": "Modul R",
-  "author": {
-    "name": "Erik",
-    "website": "https://codekraft.it/"
-  },
+  "author": "erik",
   "homepage": "https://modul-r.codekraft.it/",
   "scripts": {
     "start": "wp-scripts start",
@@ -15,7 +11,6 @@
     "packages-update": "wp-scripts packages-update",
     "optimize-images": "node ./bin/imagemin.mjs"
   },
-  "style": "./style.css",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@wordpress/babel-preset-default": "^7.9.0",
@@ -23,20 +18,18 @@
     "imagemin": "^8.0.1",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-svgo": "^10.0.1",
-    "imagemin-webp": "^7.0.0",
-    "infinite-scroll": "^3.0.6"
+    "imagemin-webp": "^7.0.0"
   },
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=6.9.0"
   },
   "eslintConfig": {
-    "extends": [
-      "plugin:@wordpress/eslint-plugin/recommended"
-    ],
-    "globals": {
-      "jQuery": true,
-      "$": true
-    }
-  }
+	"extends": [
+	  "plugin:@wordpress/eslint-plugin/recommended"
+	]
+  },
+  "browserslist": [
+	"extends @wordpress/browserslist-config"
+  ]
 }

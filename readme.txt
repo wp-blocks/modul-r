@@ -42,7 +42,7 @@ Runs (once) the Sass compile task on style.scss, the autoprefixer and then creat
   gulp scripts
 Traspile es6 to javascript (if needed) then uglify (minify), concat (merge all files into one) and creates the sourcemap.
   gulp optimizeThemeImg
-Minify images (PNG, JPEG, GIF and SVG) from assets/src/img then copy to assets/dist/img folder. Automatically creates a copy of each file in webp format
+Minify images (PNG, JPEG, GIF and SVG) from src/img then copy to dist/img folder. Automatically creates a copy of each file in webp format
   gulp optimizeWPUploads
 Minify images (PNG, JPEG, GIF and SVG) from /wp-content/uploads. Automatically creates a copy of each file in webp format
   gulp zipRelease

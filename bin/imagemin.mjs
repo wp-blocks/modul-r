@@ -10,8 +10,8 @@ import fs from 'graceful-fs';
 
 const writeFile = promisify(fs.writeFile);
 
-const srcdir = './assets/src/img';
-const distdir = './assets/dist/img';
+const srcdir = './src/img';
+const distdir = './dist/img';
 
 imagemin([srcdir + '/**/*.{jpg,jpeg,png}'], {
 	plugins: [

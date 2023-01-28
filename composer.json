@@ -1,0 +1,39 @@
+{
+  "name": "codekraft/modul-r",
+  "type": "library",
+  "require": {
+	"php": ">=7.1",
+	"wptt/webfont-loader": "*"
+  },
+  "require-dev": {
+	"friendsofphp/php-cs-fixer": "3.*",
+	"squizlabs/php_codesniffer": "^3",
+	"phpcompatibility/php-compatibility": "*",
+	"wp-coding-standards/wpcs": "*",
+	"automattic/vipwpcs": "^2.3",
+	"phpcompatibility/phpcompatibility-wp": "*"
+  },
+  "scripts": {
+	"WPPCS-vips": "vendor/bin/phpcs --standard=.wpcs.xml.dist -s --report=full,summary,source",
+	"PHPCS": "vendor/bin/phpcs --standard=.wpcs.xml.dist -s --report=full,summary,source",
+	"PHPCS-FIXER-dev": "vendor/bin/phpcbf --standard=.wpcs.xml.dist  -s --report=full"
+  },
+  "autoload": {
+	"psr-4": {
+	  "Codekraft\\ModulR\\": "inc/"
+	}
+  },
+  "authors": [
+	{
+	  "name": "Erik Golinelli",
+	  "email": "erik@codekraft.it"
+	}
+  ],
+  "minimum-stability": "stable",
+  "optimize-autoloader": true,
+  "config": {
+	"allow-plugins": {
+	  "dealerdirect/phpcodesniffer-composer-installer": true
+	}
+  }
+}

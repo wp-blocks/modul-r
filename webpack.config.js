@@ -12,11 +12,11 @@ const addModule = ( fileName, filePath ) => {
 		entry: {
 			[ fileName ]: path.resolve(
 				__dirname,
-				'assets/src/' + filePath + fileName
+				'src/' + filePath + fileName
 			),
 		},
 		output: {
-			path: path.resolve( __dirname, 'assets/dist/' + filePath ),
+			path: path.resolve( __dirname, 'dist/' + filePath ),
 			filename: fileName,
 		},
 	};
@@ -29,8 +29,7 @@ const scripts = addModule( 'scripts.js', 'scripts/' );
 const admin = addModule( 'admin', 'styles/' );
 const atf = addModule( 'atf', 'styles/' );
 const editor = addModule( 'editor', 'styles/' );
-const lateStyle = addModule( 'late-style', 'styles/' );
 const style = addModule( 'main', 'styles/' );
 const woo = addModule( 'woo', 'styles/' );
 
-module.exports = [ scripts, admin, atf, editor, lateStyle, style, woo ];
+module.exports = [ scripts, admin, atf, editor, style, woo ];
