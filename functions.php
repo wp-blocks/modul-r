@@ -25,18 +25,17 @@ if (!isset($modul_r_defaults)) {
 			'footer-text-color'   => 'white-smoke',
 		),
 		'social_media_enabled' => array( 'Facebook', 'Instagram', 'Twitter', 'Linkedin', 'YouTube', 'www' ),
-		'customizer_options'   => array(
-			'weights'        => array( 100, 200, 300, 400, 500, 600, 700, 800, 900 ),
-			'color_variance' => 0.3,
-	    	'font_weight'    => array(
-			    array( 'name' => 'font-weight--title-bold', 'default' => 800, 'input' => 'select', 'select_type' => 'weights' ),
-			    array( 'name' => 'font-weight--title-regular', 'default' => 500, 'input' => 'select', 'select_type' => 'weights' ),
-				array( 'name' => 'font-weight--text-bold', 'default' => 600, 'input' => 'select', 'select_type' => 'weights' ),
-				array( 'name' => 'font-weight--text-regular', 'default' => 400, 'input' => 'select', 'select_type' => 'weights' ),
-				array( 'name' => 'font-weight--text-light', 'default' => 300, 'input' => 'select', 'select_type' => 'weights' )
+		'customizer_options' => array(
+			'weights'             => array( 100, 200, 300, 400, 500, 600, 700, 800, 900 ),
+			'color_variance'      => 0.3,
+			'font_family_default' => array(
+				array( 'name' => 'bold', 'default' => 600, 'input' => 'select', 'select_type' => 'weights' ),
+				array( 'name' => 'regular', 'default' => 400, 'input' => 'select', 'select_type' => 'weights' ),
+				array( 'name' => 'light', 'default' => 300, 'input' => 'select', 'select_type' => 'weights' )
 			),
-			'sizes'          => array(
-				array( 'name' => 'sidebar--width', 'default' => 420, 'input' => 'number', 'input_type' => 'int', 'unit' => 'px' )
+			'font_family_title'   => array(
+				array( 'name' => 'bold', 'default' => 800, 'input' => 'select', 'select_type' => 'weights' ),
+				array( 'name' => 'regular', 'default' => 500, 'input' => 'select', 'select_type' => 'weights' ),
 			)
 		)
 	);
