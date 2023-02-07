@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Style
+ * Main theme style
  */
 if ( ! function_exists( 'modul_r_theme_style' ) ) :
 	function modul_r_theme_style() {
@@ -13,34 +13,59 @@ if ( ! function_exists( 'modul_r_theme_style' ) ) :
 	}
 endif;
 
+function modul_r_get_font_family($font) {
+	return !empty( get_theme_mod( $font ) ) ? get_theme_mod( $font ) : 'Monserrat';
+}
+
+function modul_r_get_font_slug($font_name) {
+	return str_replace(
+		"+",
+		" ",
+		$font_name
+	);
+}
+
+function modul_r_get_fonts() {
+	$fonts = array();
+
+	foreach (array('default', 'title') as $font_type) {
+		$font_name = modul_r_get_font_family( 'modul_r_typography_font_family_' . $font_type );
+		// add to the array the font name and slug (the slug is the name with space replaced with "+")
+		$fonts[$font_type] = array(
+			"name" => $font_name,
+			"slug" => modul_r_get_font_slug($font_name),
+			"weights" => array()
+		);
+
+		// then for each font collect the font weight (will remove duplicates)
+		$font_families = $GLOBALS['modul_r_defaults']['customizer_options']['font_family_' . $font_type];
+		if ( !empty($font_families) ) foreach ( $font_families as $font_family ) {
+			// get the single font weight
+			$weight = intval( get_theme_mod( 'modul_r_defaults_' . $font_type . '_' . $font_family['name'] ) );
+			if ( $weight && !in_array($weight, $fonts[$font_type]['weights'], true ) ) {
+				$fonts[$font_type]['weights'][$font_family['name']] = $weight;
+			}
+		}
+	}
+
+	return $fonts;
+}
+
 /**
  * Load fonts
  */
 if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	function modul_r_theme_fonts() {
 
-		$font_family[] = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_title' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
-		$font_family[] = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false && get_theme_mod( 'modul_r_typography_font_family_title' ) !== get_theme_mod( 'modul_r_typography_font_family_text' ) ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_text' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
+		$fonts = modul_r_get_fonts();
 
-		$font_query  = array();
-		$font_weight = array();
-		foreach ( $GLOBALS['modul_r_defaults']['customizer_options']['font_weight'] as $option ) {
-			if ( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) {
-				$weight        = $GLOBALS['modul_r_defaults']['customizer_options']['weights'][ intval( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) ];
-				$font_weight[intval( $weight )] = intval( $weight );
+		if ( ! empty( $fonts ) ) {
+			foreach ( $fonts as $family ) {
+				$font_query[] = "family={$family['name']}:wght@" . implode( ";", $family['weights'] );
 			}
 		}
 
-		if ( ! empty( $font_weight ) && ! empty( $font_family ) ) {
-
-			ksort( $font_weight, SORT_NUMERIC );
-
-			foreach ( $font_family as $font ) {
-				$font_query[] = "family=$font:wght@" . implode( ";", $font_weight );
-			}
-		}
-
-		if ( $font_query ) {
+		if ( !empty($font_query) ) {
 			$font_string = "https://fonts.googleapis.com/css2?" . implode( "&", $font_query ) . "&family=Material+Icons&display=swap";
 
 			// Load fonts from Google.
@@ -83,16 +108,15 @@ if ( ! function_exists( 'modul_r_admin_style' ) ) :
 	}
 endif;
 
-function handleStyles() {
-	$screen    = get_current_screen();
-	if ( $screen && $screen->is_block_editor() ) {
-
-	} else {
-
+function modul_r_handleStyles() {
+	if (function_exists( 'get_current_screen' )) {
+		$isBlockEditor = get_current_screen()->is_block_editor();
+		if ( $isBlockEditor ) {
+			add_action( 'enqueue_block_editor_assets', 'modul_r_theme_style', 9 );
+		} else {
+			add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 9 );
+		}
 	}
-
-	add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 9 );
-	add_action( 'enqueue_block_editor_assets', 'modul_r_theme_style', 9 );
 
 	add_action( 'enqueue_block_assets', 'modul_r_theme_fonts', 1 );
 
@@ -101,4 +125,4 @@ function handleStyles() {
 
 	add_action( 'admin_enqueue_scripts', 'modul_r_admin_style', 1 );
 };
-
+add_action( 'after_setup_theme', 'modul_r_handleStyles', 9 );
