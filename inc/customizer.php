@@ -420,10 +420,7 @@ add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
 if ( ! function_exists( 'modul_r_css_props' ) ) :
     function modul_r_css_props() {
 
-	        $font_json = file_get_contents(get_template_directory() . '/inc/third-party/fonts.json');
-
-			// get the custom colors
-
+			// The custom colors
 			// Main colors
 			$colors                    = array();
 			$variance                  = floatval( $GLOBALS['modul_r_defaults']['customizer_options']['color_variance'] );
@@ -433,7 +430,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 			$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $GLOBALS['modul_r_defaults']['colors']['secondary'] );
 			$colors['secondary-light'] = modul_r_adjustBrightness( $colors['secondary'], $variance );
 			$colors['secondary-dark']  = modul_r_adjustBrightness( $colors['secondary'], - $variance );
-			// base colors
+			// Base Tones
 			$colors['white']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white'] );
 			$colors['white-smoke'] = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white-smoke'] );
 			$colors['gray-light']  = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-light'] );
@@ -444,13 +441,8 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 			// Typography colors
 			$text_color = get_theme_mod( 'text-color' ) !== false ? sanitize_hex_color( get_theme_mod( 'text-color' ) ) : sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] );
 
-			// Colors
-			$header_background        = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
-			$footer_background        = modul_r_get_theme_color( 'footer-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-color'] ] );
-			$footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-bottom-color'] ] );
-
-			$font_family_title = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? $font_json[ intval( get_theme_mod( 'modul_r_typography_font_family_title' ) ) ] : $font_json[0];
-			$font_family_text  = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false ? $font_json[ intval( get_theme_mod( 'modul_r_typography_font_family_text' ) ) ] : $font_json[0];
+			$font_family_title = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? get_theme_mod( 'modul_r_typography_font_family_title' ) : 'Monserrat';
+			$font_family_text  = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false ? get_theme_mod( 'modul_r_typography_font_family_text' ) : 'Monserrat';
 
 			// Typography
 			function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
@@ -474,28 +466,8 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 
 			$wp_theme_json_prefix = '--wp--preset--color--';
 
-			// HEADER
-			// set the header color
-			$atf_css .= 'body .header-color, body.has-featured-image.top #masthead.active {background-color: ' . $header_background . ';} .has-featured-image.top #masthead {background-color: ' . $header_background . 'dd;}';
-
-			// On top of the screen set the opacity to 0
-			if ( get_theme_mod( 'modul_r_header_opacity' ) > 0 ) {
-				$atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_background . '00;}';
-			} else {
-				// if it has a featured image and is at the top of the page....has-featured-image.top
-				$atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_background . 'dd;}';
-			}
-
-			// Set the responsive header opacity
-			$atf_css .= '@media (max-width: 960px) {body .main-navigation {background-color: ' . modul_r_adjustBrightness( $header_background, 0.2 ) . 'ee;}}';
-
-			// Set the nav background colors
-			$atf_css .= 'body ul.sub-menu {background-color: ' . modul_r_adjustBrightness( $header_background, 0.1 ) . ';}';
-			$atf_css .= 'body.has-featured-image.top #masthead ul.sub-menu {background-color: ' . $header_background . 'cc;}';
-			$atf_css .= 'body ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness( $header_background, 0.2 ) . ';}';
-			$atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness( $header_background, 0.3 ) . ';}';
-
-			$font_weights = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], "--typography--default--" );
+			// Typography
+			$fonts = modul_r_get_fonts();
 
 			// create the custom colors scheme
 			foreach ( $colors as $key => $color ) {
@@ -504,18 +476,21 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 				$atf_css           .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
 			}
 
-			$custom_props = "{".
-			 "--typography--title--font-family: '".str_replace("+", " ", $font_family_title)."', sans-serif;" .
-			 "--typography--content--font-family: '".str_replace("+", " ", $font_family_text)."', sans-serif;" .
-			 $font_weights.
+			$custom_props = "{";
+
+			foreach ($fonts as $type => $font) {
+				$custom_props .= sprintf( "--typography--font-%s: %s, sans-serif;", $type, $font['slug'] );
+				foreach ($font['weights'] as $label => $weight) {
+					$custom_props .= sprintf( "--typography--font-%s-%s: %s;", $type, $label, $weight );
+				}
+			}
+
 
 			"--color--black--decimal: ".modul_r_hex2rgb($colors['black'], true). ";" .
 			"--color--white--decimal: ".modul_r_hex2rgb($colors['white'], true). ";" .
 			"--color--secondary--decimal: ".modul_r_hex2rgb($colors['secondary'], true). ";" .
 			"--color--primary--decimal: ".modul_r_hex2rgb($colors['primary'], true). ";" .
-
-            "--color--text: $text_color;" .
-
+	    "--color--text: $text_color;" .
 		  "}";
 
 			if (is_admin()) {
