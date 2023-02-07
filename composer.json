@@ -1,9 +1,15 @@
 {
   "name": "codekraft/modul-r",
   "type": "library",
+  "repositories": [
+	{
+	  "url": "https://github.com/erikyo/webfont-loader.git",
+	  "type": "git"
+	}
+  ],
   "require": {
 	"php": ">=7.1",
-	"wptt/webfont-loader": "*"
+	"erikyo/webfont-loader": "*"
   },
   "require-dev": {
 	"friendsofphp/php-cs-fixer": "3.*",
