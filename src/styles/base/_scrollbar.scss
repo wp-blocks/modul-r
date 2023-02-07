@@ -1,4 +1,6 @@
 ::-webkit-scrollbar {
+	$scrollbar-border-radius: 2px;
+
   position: relative;
   z-index: 100000;
   width: 12px;

@@ -1,5 +1,5 @@
-@import "./utils/vars.scss";
-@import "./utils/media-queries.scss";
+/* Theme Defaults */
+@import "defaults/defaults";
 
 #customize-controls {
   #accordion-section-colors h3:before,

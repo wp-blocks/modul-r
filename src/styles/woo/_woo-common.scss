@@ -24,7 +24,7 @@ body.woocommerce {
     margin-top: var(--wp--preset--spacing--50);
     & > span {
       display: block;
-      font-weight: var(--typography--default--font-weight--bold);
+      font-weight: var(--typography--font--default--bold);
       line-height: var(--wp--custom--line-height--large);
       span, a {font-weight: 400;}
     }

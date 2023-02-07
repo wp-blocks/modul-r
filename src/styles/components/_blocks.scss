@@ -96,7 +96,7 @@
     &:not(:focus):first-letter {
       font-family: var(--typography--font--title);
       line-height: 1;
-      font-weight: var(--typography--default--font-weight--bold);
+      font-weight: var(--typography--font--default--bold);
       margin: 0 var(--wp--preset--spacing--50) 0 0;
     }
   }
@@ -251,7 +251,7 @@
       background: var(--color--primary);
       font-size: var(--wp--preset--font-size--medium);
       text-decoration: none;
-      font-weight: var(--typography--default--font-weight--bold);
+      font-weight: var(--typography--font--default--bold);
       color: var(--color--white);
       margin-left: 0;
       margin-top: var(--wp--preset--spacing--40);
@@ -301,7 +301,7 @@
 
     .wp-block-latest-comments__comment-meta {
       font-family: var(--typography--font--title);
-      font-weight: var(--typography--default--font-weight--bold);
+      font-weight: var(--typography--font--default--bold);
 
       .wp-block-latest-comments__comment-date {
         font-weight: var(--typography--default--font-weight--regular);

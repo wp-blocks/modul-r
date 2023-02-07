@@ -66,6 +66,13 @@ p {
 	margin: 0 0 var(--wp--preset--spacing--40);
 }
 
+.has-title-font-family {
+	font-weight: var(--typography--font--title--regular);
+	b, strong {
+		font-weight: var(--typography--font--title--bold);
+	}
+}
+
 b, strong {
 	font-weight: var(--typography--default--font-weight--bold);
 }

@@ -43,6 +43,7 @@ cite {
 }
 
 .site .entry-content blockquote {
+	$blockquote__icon-size: 60px;
 
 	color:var(--color--text);
 	min-height: $blockquote__icon-size;
@@ -184,7 +185,7 @@ cite {
 	a {
 		height: $post-tag-height;
 		font-size: 11px;
-		font-weight: var(--typography--default--font-weight--bold);
+		font-weight: var(--typography--font--default--bold);
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		color: var(--color--white);

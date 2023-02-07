@@ -47,7 +47,7 @@
 }
 
 // if there isn't a featured image compensate void space under the menu
-#masthead {
+header.wp-block-template-part {
 
   + .site-content {
     padding-top: calc( var(--header--nav--height) + var(--wp--preset--spacing--60) );
@@ -61,21 +61,6 @@
 		.entry-content > .wp-block-cover:first-child {
 			margin-top: calc( ( var(--header--nav--height) + var(--wp--preset--spacing--60) ) * -1);
 		}
-  }
-
-  &.header-portrait + .site-content {
-    padding-top: calc( var(--header--branding--height) + var(--header--nav--height) + var(--wp--preset--spacing--60) );
-
-		.entry-content > .wp-block-cover:first-child {
-			margin-top: calc( ( var(--header--branding--height) + var(--header--nav--height) + var(--wp--preset--spacing--60) ) * -1) ;
-		}
-
-    @media #{$mq__responsive_breakpoint} {
-      padding-top: calc( var(--header--branding--height) + var(--wp--preset--spacing--60) );
-			.entry-content > .wp-block-cover:first-child {
-				margin-top: calc( ( var(--header--branding--height) + var(--wp--preset--spacing--60) ) * -1) ;
-			}
-    }
   }
 
 }

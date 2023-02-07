@@ -18,7 +18,7 @@
     padding-bottom: var(--wp--preset--spacing--40);
     margin-bottom: var(--wp--preset--spacing--50);
     font-size:var(--wp--preset--font-size--medium);
-    font-weight: var(--typography--default--font-weight--bold);
+    font-weight: var(--typography--font--title--bold);
     border-color: rgba( var(--footer--text-color-decimal), .5);
 
     @media #{$mq__smaller-than-tablet} {

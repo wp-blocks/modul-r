@@ -1,7 +1,5 @@
-body.page {}
-
-body.error404 {
-  h1 {
-    font-size: 110px;
-  }
-}
+@import '_archive';
+@import '_author';
+@import '_homepage';
+@import '_page';
+@import '_single';

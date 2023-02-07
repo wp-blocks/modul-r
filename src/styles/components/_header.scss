@@ -1,15 +1,8 @@
-// TODO: remove or check if is used
-.header-color {
-  background-color: var(--header--nav-background);
-}
-
 header.wp-block-template-part {
   position: fixed;
   z-index: 1000;
   top: 0;
   width: 100%;
-  transition: $animations__lenght;
-  color: var(--header--text-color);
 
   @media #{$mq__responsive_breakpoint} {
     height: var(--header--branding--height);

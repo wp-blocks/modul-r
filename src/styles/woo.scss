@@ -1,10 +1,10 @@
 /* MODUL-R woocommerce Style */
 
-/* Utils */
-@import "utils/vars";
-@import "utils/media-queries";
+/* Theme Defaults */
+@import "defaults/defaults";
 
-/* WooCommerce */
-@import "woo/woo-common";
-@import "woo/woo-pages";
-@import "woo/woo-sidebar";
+/* WooCommerce Defaults */
+@import 'woo/_woo-base';
+@import "woo/_woo-common";
+@import "woo/_woo-pages";
+@import "woo/_woo-sidebar";

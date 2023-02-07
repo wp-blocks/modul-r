@@ -1,14 +1,8 @@
-@import "utils/normalize";
-@import "utils/vars";
-@import "utils/media-queries";
+/* Theme Defaults */
+@import "defaults/defaults";
 
-@import "main/base";
-@import "main/colors";
+@import "base/_base";
+@import "base/colors";
 
-@import "main/fonts";
-
-@import "main/typography";
-@import "main/typography-extras";
-
-@import "woo/woo-base";
-
+@import "base/typography";
+@import "base/typography-extras";

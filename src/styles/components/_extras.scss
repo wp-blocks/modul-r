@@ -31,7 +31,7 @@
 
     a {
       color: var(--color--gray-dark);
-      font-weight: var(--typography--default--font-weight--bold);
+      font-weight: var(--typography--font--default--bold);
       text-transform: uppercase;
     }
   }
@@ -40,14 +40,14 @@
 .breadcrumbs {
   font-size: var(--wp--preset--font-size--extra-small);
   margin-bottom: var(--wp--preset--spacing--40);
-  font-weight: var(--typography--default--font-weight--bold);
+  font-weight: var(--typography--font--default--bold);
   letter-spacing: 1.5px;
   color: var(--color--gray-dark);
 
   a {
     font-family: var(--typography--content--font-family), sans-serif;
     color: var(--color--gray-dark);
-    font-weight: var(--typography--default--font-weight--bold);
+    font-weight: var(--typography--font--default--bold);
     text-transform: uppercase;
     margin-left: var(--wp--preset--spacing--20);
     margin-right: var(--wp--preset--spacing--20);
@@ -146,7 +146,7 @@
     vertical-align: middle;
     box-sizing: border-box;
 
-    font-weight: var(--typography--default--font-weight--bold);
+    font-weight: var(--typography--font--default--bold);
     line-height: $pagenumber__size;
 
     border-radius: $pagenumber__size * .5;
