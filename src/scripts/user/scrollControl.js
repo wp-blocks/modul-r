@@ -36,7 +36,9 @@ function onScroll() {
 }
 
 function getSizes() {
-	headerHeight = document.getElementById( 'masthead' ).clientHeight;
+	headerHeight =
+		document.querySelector( 'header.wp-block-template-part' )
+			.clientHeight || document.getElementById( 'masthead' ).clientHeight;
 }
 
 document.addEventListener( 'DOMContentLoaded', () => {
