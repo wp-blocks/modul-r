@@ -55,12 +55,12 @@
 	  "lineHeight": true,
 	  "fontFamilies": [
 		{
-		  "fontFamily": "var(--typography--title--font-family)",
+		  "fontFamily": "var(--typography--font--title)",
 		  "slug": "title",
 		  "name": "Title"
 		},
 		{
-		  "fontFamily": "var(--typography--content--font-family)",
+		  "fontFamily": "var(--typography--font--default)",
 		  "slug": "default",
 		  "name": "Default"
 		},
@@ -125,9 +125,6 @@
 		"entry-title": {
 		  "width": "66%"
 		}
-	  },
-	  "hamburger": {
-		"color": "var(--header--text-color)"
 	  }
 	}
   },
@@ -152,8 +149,8 @@
 	},
 	"typography": {
 	  "fontSize": "var(--wp--preset--font-size--baseline)",
-	  "fontWeight": "var(--typography--default--font-weight--regular)",
-	  "fontFamily": "var(--typography--content--font-family), sans-serif",
+	  "fontWeight": "var(--typography--font--default--regular)",
+	  "fontFamily": "var(--typography--font--default), sans-serif",
 	  "lineHeight": "var(--wp--custom--line-height--medium)"
 	}
   }

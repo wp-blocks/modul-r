@@ -19,8 +19,8 @@ function modul_r_get_font_family($font) {
 
 function modul_r_get_font_slug($font_name) {
 	return str_replace(
-		"+",
 		" ",
+		"+",
 		$font_name
 	);
 }
@@ -42,9 +42,7 @@ function modul_r_get_fonts() {
 		if ( !empty($font_families) ) foreach ( $font_families as $font_family ) {
 			// get the single font weight
 			$weight = intval( get_theme_mod( 'modul_r_defaults_' . $font_type . '_' . $font_family['name'] ) );
-			if ( $weight && !in_array($weight, $fonts[$font_type]['weights'], true ) ) {
-				$fonts[$font_type]['weights'][$font_family['name']] = $weight;
-			}
+			$fonts[$font_type]['weights'][$font_family['name']] = $weight;
 		}
 	}
 
@@ -59,9 +57,16 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 
 		$fonts = modul_r_get_fonts();
 
+
 		if ( ! empty( $fonts ) ) {
 			foreach ( $fonts as $family ) {
-				$font_query[] = "family={$family['name']}:wght@" . implode( ";", $family['weights'] );
+				$weights_collection = array();
+				foreach ($family['weights'] as $weight) {
+					if ( !in_array($weight, $weights_collection, true ) ) {
+						$weights_collection[] = intval($weight);
+					}
+				}
+				$font_query[] = "family={$family['slug']}:wght@" . implode( ";", array_reverse($weights_collection) );
 			}
 		}
 

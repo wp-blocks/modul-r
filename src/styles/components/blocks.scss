@@ -94,7 +94,7 @@
     margin-bottom: var(--wp--preset--spacing--60);
 
     &:not(:focus):first-letter {
-      font-family: var(--typography--title--font-family);
+      font-family: var(--typography--font--title);
       line-height: 1;
       font-weight: var(--typography--default--font-weight--bold);
       margin: 0 var(--wp--preset--spacing--50) 0 0;
@@ -242,7 +242,7 @@
 
   //! File
   .wp-block-file {
-    font-family: var(--typography--title--font-family);
+    font-family: var(--typography--font--title);
 
     .wp-block-file__button {
       display: table;
@@ -300,7 +300,7 @@
   .wp-block-latest-comments {
 
     .wp-block-latest-comments__comment-meta {
-      font-family: var(--typography--title--font-family);
+      font-family: var(--typography--font--title);
       font-weight: var(--typography--default--font-weight--bold);
 
       .wp-block-latest-comments__comment-date {

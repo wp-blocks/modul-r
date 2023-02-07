@@ -9,7 +9,7 @@
 	box-sizing: border-box;
 	padding: calc(.75em + 2px) calc(1.5em + 2px);
 	border-radius: 9999px;
-	font-weight: var(--typography--title--font-weight);
+	font-weight: var(--typography--font--title-bold);
 
 	&:not(.has-background) {
 		background-color: var(--color--primary);

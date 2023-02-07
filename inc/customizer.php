@@ -196,13 +196,13 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		);
 
     // Font Family - text
-    $wp_customize->add_setting( 'modul_r_typography_font_family_text', array(
+    $wp_customize->add_setting( 'modul_r_typography_font_family_default', array(
         'capability' => 'edit_theme_options',
         'default' => 0,
         'sanitize_callback' => 'modul_r_sanitize_select_font',
     ) );
 
-    $wp_customize->add_control( 'modul_r_typography_font_family_text', array(
+    $wp_customize->add_control( 'modul_r_typography_font_family_default', array(
         'type'    => 'select',
         'choices' => $font_set,
         'section' => 'modul_r_typography_options',
@@ -441,9 +441,6 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 			// Typography colors
 			$text_color = get_theme_mod( 'text-color' ) !== false ? sanitize_hex_color( get_theme_mod( 'text-color' ) ) : sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] );
 
-			$font_family_title = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? get_theme_mod( 'modul_r_typography_font_family_title' ) : 'Monserrat';
-			$font_family_text  = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false ? get_theme_mod( 'modul_r_typography_font_family_text' ) : 'Monserrat';
-
 			// Typography
 			function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
 				$vars = '';
@@ -479,14 +476,14 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 			$custom_props = "{";
 
 			foreach ($fonts as $type => $font) {
-				$custom_props .= sprintf( "--typography--font-%s: %s, sans-serif;", $type, $font['slug'] );
+				$custom_props .= sprintf( "--typography--font--%s: '%s', sans-serif;", $type, $font['name'] );
 				foreach ($font['weights'] as $label => $weight) {
-					$custom_props .= sprintf( "--typography--font-%s-%s: %s;", $type, $label, $weight );
+					$custom_props .= sprintf( "--typography--font--%s--%s: %s;", $type, $label, $weight );
 				}
 			}
 
 
-			"--color--black--decimal: ".modul_r_hex2rgb($colors['black'], true). ";" .
+			$custom_props .= "--color--black--decimal: ".modul_r_hex2rgb($colors['black'], true). ";" .
 			"--color--white--decimal: ".modul_r_hex2rgb($colors['white'], true). ";" .
 			"--color--secondary--decimal: ".modul_r_hex2rgb($colors['secondary'], true). ";" .
 			"--color--primary--decimal: ".modul_r_hex2rgb($colors['primary'], true). ";" .
