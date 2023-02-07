@@ -68,6 +68,42 @@ function modul_r_get_theme_color($theme_mod_color, $default_color = "#FF0000") {
     return get_theme_mod( $theme_mod_color ) !== false ? sanitize_hex_color(get_theme_mod( $theme_mod_color )) : sanitize_hex_color($default_color);
 }
 
+function modul_r_get_available_fonts() {
+	$font_json = file_get_contents( get_template_directory() . '/inc/third-party/fonts.json' );
+	$font_set  = array();
+	foreach ( json_decode( $font_json ) as $font ) {
+		$font_set[ $font ] = $font;
+	}
+
+	return $font_set;
+}
+
+
+
+function modul_r_add_font_preset($label, $group, $wp_customize) {
+	$data_title = $GLOBALS['modul_r_defaults']['customizer_options'][ 'font_family_' . $label ];
+	foreach ($data_title as $setting) {
+		foreach ($GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']] as $fieldname) {
+			$field_values[$fieldname] = $fieldname;
+		}
+
+		if ( ! empty( $field_values ) ) {
+			// Font Family - title
+			$wp_customize->add_setting( 'modul_r_defaults_' . $label . '_' . $setting['name'], array(
+							'capability'        => 'edit_theme_options',
+							'default'           => $setting['default'],
+							'sanitize_callback' => 'modul_r_sanitize_select',
+			) );
+
+			$wp_customize->add_control( 'modul_r_defaults_' . $label . '_' . $setting['name'], array(
+							'type'        => 'select',
+							'choices'     => $field_values,
+							'section'     => 'modul_r_' . $group,
+							'description' => esc_html__( 'Select', 'modul-r' ) . ' ' . $label . ' ' . $setting['name'],
+			) );
+		}
+	}
+}
 
 /**
  * Customizer options
@@ -75,7 +111,7 @@ function modul_r_get_theme_color($theme_mod_color, $default_color = "#FF0000") {
 if ( ! function_exists('modul_r_customizer_opt') ) :
 	function modul_r_customizer_opt( $wp_customize ) {
 
-		$font_json = file_get_contents(get_template_directory() . '/inc/third-party/fonts.json');
+		$font_set = modul_r_get_available_fonts();
 
 		// Creates custom title and description for theme customizer controls
 		class modul_r_custom_text_control extends WP_Customize_Control {
@@ -91,49 +127,6 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 				<?php
 			}
 		}
-
-		function add_setting_from_array($settings_array, $group, $wp_customize) {
-		  foreach ($settings_array as $setting) {
-
-          // the wide content width
-          if ($setting['input'] === 'number') {
-              $wp_customize->add_setting( 'modul_r_defaults_' . $setting['name'], array(
-                  'capability'        => 'edit_theme_options',
-                  'default'           => abs($setting['default']),
-                  'transport'         => 'refresh',
-                  'sanitize_callback' => $setting['input_type'] === 'float' ? 'modul_r_sanitize_abs' : 'absint',
-              ) );
-              $wp_customize->add_control( 'modul_r_defaults_' . $setting['name'], array(
-                  'type'        => 'number',
-                  'section'     => 'modul_r_' . $group,
-                  'label'       => $setting['name'],
-                  'input_attrs' => array(
-                      'min'  => '0',
-                      'step' => $setting['input_type'] === 'float' ? '0.01' : '1',
-                      'max'  => '9999',
-                  ),
-              ) );
-
-          } else if ($setting['input'] === 'select') {
-
-              // Font Family - title
-              $wp_customize->add_setting( 'modul_r_defaults_' . $setting['name'], array(
-                  'capability'        => 'edit_theme_options',
-                  'default' => array_search( abs($setting['default']), $GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']]),
-                  'sanitize_callback' => 'modul_r_sanitize_select',
-              ) );
-
-              $wp_customize->add_control( 'modul_r_defaults_' . $setting['name'], array(
-                  'type'    => 'select',
-                  'choices' => $GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']],
-                  'section'     => 'modul_r_' . $group,
-                  'description' => esc_html__( 'Select', 'modul-r' ) . ' ' . $setting['name'] ,
-              ) );
-
-          }
-
-      }
-    }
 
 		// Template color scheme
 
@@ -175,8 +168,6 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 		'title'      => esc_html__('Modul-R Options','modul-r')
 	) );
 
-    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], 'settings_sidebar', $wp_customize );
-
     // Typography Section
     $wp_customize->add_section( 'modul_r_typography_options' , array(
         'title'      => esc_html__('Typography','modul-r'),
@@ -188,32 +179,42 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
     $wp_customize->add_setting( 'modul_r_typography_font_family_title', array(
         'capability' => 'edit_theme_options',
         'default' => 0,
-        'sanitize_callback' => 'modul_r_sanitize_select',
+        'sanitize_callback' => 'modul_r_sanitize_select_font',
     ) );
 
     $wp_customize->add_control( 'modul_r_typography_font_family_title', array(
         'type'    => 'select',
-        'choices' => json_decode($font_json),
+        'choices' => $font_set,
         'section' => 'modul_r_typography_options',
         'description' => esc_html__( 'Select the font family for the titles', 'modul-r' ),
     ) );
+
+		modul_r_add_font_preset(
+				'title',
+				'typography_options',
+				$wp_customize
+		);
 
     // Font Family - text
     $wp_customize->add_setting( 'modul_r_typography_font_family_text', array(
         'capability' => 'edit_theme_options',
         'default' => 0,
-        'sanitize_callback' => 'modul_r_sanitize_select',
+        'sanitize_callback' => 'modul_r_sanitize_select_font',
     ) );
 
     $wp_customize->add_control( 'modul_r_typography_font_family_text', array(
         'type'    => 'select',
-        'choices' => json_decode($font_json),
+        'choices' => $font_set,
         'section' => 'modul_r_typography_options',
         'description' => esc_html__( 'Select the default font family', 'modul-r' ),
     ) );
 
     // add the font weight select
-    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], 'typography_options', $wp_customize );
+    modul_r_add_font_preset(
+						'default',
+						'typography_options',
+						$wp_customize
+		);
 
     // Layout Section
     $wp_customize->add_section( 'modul_r_layout_options' , array(
@@ -292,6 +293,14 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
         // Ensure $selected options is an absolute integer then return the selected option
         return absint( $selected );
     }
+
+		function modul_r_sanitize_select_font( $selected, $setting ) {
+			$fontsets = modul_r_get_available_fonts();
+
+			// Ensure $selected options is an absolute integer then return the selected option
+			return ($fontsets[$selected]) ? $selected : 'Monserrat';
+		}
+
       function modul_r_sanitize_abs( $selected ) {
           // Ensure $selected options is an absolute integer then return the selected option
           return abs( $selected );
