@@ -31,6 +31,7 @@
 	<!-- https://github.com/PHPCompatibility/PHPCompatibilityWP -->
 	<rule ref="PHPCompatibilityWP"/>
 
+	<rule ref="WordPress-Extra"/>
 	<rule ref="WordPress-VIP-Go"/>
 	<rule ref="WordPressVIPMinimum"/>
 	<rule ref="WordPress-Docs"/>

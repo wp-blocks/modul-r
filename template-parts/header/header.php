@@ -33,7 +33,7 @@
       <?php endif; ?>
     </div>
 
-    <div class="menu-resp show-on-mobile unselectable" onclick="document.querySelector('#masthead').classList.toggle('active')">
+    <div class="menu-resp show-on-mobile unselectable" onclick="document.querySelector('header.wp-block-template-part').classList.toggle('active')">
       <button class="c-hamburger">
         <i class="menu-toggle has-header-text-background-color"></i>
         <span class="screen-reader-text"><?php _e( 'menu', 'modul-r' ); ?></span>
@@ -50,7 +50,7 @@
 		do_action("after_main_menu");
 		?>
     </nav>
-    <div class="menu-shadow" onclick="document.querySelector('#masthead').classList.toggle('active')"></div>
+    <div class="menu-shadow" onclick="document.querySelector('header.wp-block-template-part').classList.toggle('active')"></div>
 
   </div>
 

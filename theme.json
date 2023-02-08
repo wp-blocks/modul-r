@@ -73,7 +73,7 @@
 	  "fontSizes": [
 		{
 		  "slug": "baseline",
-		  "size": "17px"
+		  "size": "16px"
 		},
 		{
 		  "slug": "extra-small",
@@ -121,6 +121,9 @@
 	  "responsive": {
 		"side-margin": "20px"
 	  },
+	  "animations": {
+		"length": "350ms"
+	  },
 	  "sizes": {
 		"entry-title": {
 		  "width": "66%"
@@ -153,5 +156,36 @@
 	  "fontFamily": "var(--typography--font--default), sans-serif",
 	  "lineHeight": "var(--wp--custom--line-height--medium)"
 	}
-  }
+  },
+  "templateParts": [
+	{
+	  "area": "header",
+	  "name": "header",
+	  "title": "Header"
+	},
+	{
+	  "area": "footer",
+	  "name": "footer",
+	  "title": "Footer"
+	},
+	{
+	  "area": "uncategorized",
+	  "name": "comments",
+	  "title": "Comments"
+	},
+	{
+	  "area": "uncategorized",
+	  "name": "post-meta",
+	  "title": "Post Meta"
+	}
+  ],
+  "customTemplates": [
+	{
+	  "name": "404",
+	  "postTypes": [
+		"page"
+	  ],
+	  "title": "404"
+	}
+  ]
 }
