@@ -5,11 +5,41 @@
  */
 if ( ! function_exists( 'modul_r_theme_style' ) ) :
 	function modul_r_theme_style() {
-		if ( is_admin() ) {
-			add_editor_style( get_template_directory_uri() . '/dist/styles/main.css' );
-		} else {
-			wp_enqueue_style( 'modul-r-style', get_template_directory_uri() . "/dist/styles/main.css" );
+		wp_enqueue_style( 'modul-r-style', get_template_directory_uri() . "/dist/styles/main.css" );
+	}
+endif;
+
+/**
+ * The above the fold style
+ */
+if ( ! function_exists( 'modul_r_atf_style' ) ) :
+	function modul_r_atf_style() {
+
+		// get the acf.css file and store into a variable
+		ob_start();
+
+		include get_stylesheet_directory() . '/dist/styles/atf.css';
+
+		$atf_css = ob_get_clean();
+
+		// And finally return the stored style
+		if ($atf_css != "" ) {
+			if (!is_admin()) {
+				echo '<style id="modul-r-above-the-fold">'. $atf_css . '</style>';
+			} else {
+				wp_add_inline_style( "modul-r-style" , $atf_css );
+			}
 		}
+	}
+endif;
+
+/**
+ * Enqueue Admin style
+ * adds some styles for the customizer
+ */
+if ( ! function_exists( 'modul_r_admin_style' ) ) :
+	function modul_r_admin_style() {
+		wp_enqueue_style( 'modul-r-admin', get_template_directory_uri() . '/dist/styles/admin.css' );
 	}
 endif;
 
@@ -18,11 +48,7 @@ function modul_r_get_font_family($font) {
 }
 
 function modul_r_get_font_slug($font_name) {
-	return str_replace(
-		" ",
-		"+",
-		$font_name
-	);
+	return str_replace( " ", "+", $font_name );
 }
 
 function modul_r_get_fonts() {
@@ -79,55 +105,25 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	}
 endif;
 
-/**
- * The above the fold style
- */
-if ( ! function_exists( 'modul_r_atf_style' ) ) :
-	function modul_r_atf_style() {
-
-		// get the acf.css file and store into a variable
-		ob_start();
-
-		include get_stylesheet_directory() . '/dist/styles/atf.css';
-
-		$atf_css = ob_get_clean();
-
-		// And finally return the stored style
-		if ($atf_css != "" ) {
-			if (!is_admin()) {
-				echo '<style id="modul-r-above-the-fold">'. $atf_css . '</style>';
-			} else {
-				wp_add_inline_style( "modul-r-style" , $atf_css );
-			}
-		}
-	}
-endif;
-
-/**
- * Enqueue Admin style
- * adds some styles for the customizer
- */
-if ( ! function_exists( 'modul_r_admin_style' ) ) :
-	function modul_r_admin_style() {
-		wp_enqueue_style( 'modul-r-admin', get_template_directory_uri() . '/dist/styles/admin.css' );
-	}
-endif;
-
 function modul_r_handleStyles() {
 	if (function_exists( 'get_current_screen' )) {
 		$isBlockEditor = get_current_screen()->is_block_editor();
 		if ( $isBlockEditor ) {
 			add_action( 'enqueue_block_editor_assets', 'modul_r_theme_style', 9 );
-		} else {
-			add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 9 );
 		}
-	}
+	} else {
 
+	}
+	add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 9 );
+
+	/* fonts */
 	add_action( 'enqueue_block_assets', 'modul_r_theme_fonts', 1 );
 
+	/* above the fold style */
 	add_action( 'wp_enqueue_scripts', 'modul_r_atf_style', 1 );
 	add_action( 'wp_head', 'modul_r_atf_style', 1 );
 
+	/* admin style */
 	add_action( 'admin_enqueue_scripts', 'modul_r_admin_style', 1 );
 };
 add_action( 'after_setup_theme', 'modul_r_handleStyles', 9 );
