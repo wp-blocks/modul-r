@@ -21,7 +21,7 @@
   text-align: center;
   margin: 0 auto var(--wp--preset--spacing--50);
 
-  @media #{$mq__responsive-size_breakpoint} {
+  @media #{$mq__responsive_breakpoint} {
     max-width: 100%;
     width: auto;
     padding-left: var(--wp--custom--responsive--side-margin);
@@ -33,7 +33,7 @@
     width: var(--sizes--entry-title--width);
     line-height: var(--wp--custom--line-height--large);
 
-    @media #{$mq__responsive-size_breakpoint} {
+    @media #{$mq__responsive_breakpoint} {
       width: auto;
     }
 

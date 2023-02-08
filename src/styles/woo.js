@@ -1,1 +1,1 @@
-import './woo.scss'
+import './woo.scss';

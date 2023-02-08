@@ -8,8 +8,6 @@
   overflow: hidden;
   position: relative;
 
-  @extend %elevation--01;
-
   input {
     height: 48px;
   }
@@ -21,7 +19,7 @@
   [type="search"] {
     width: 100%;
     margin: 0;
-    padding: $size__margin var(--wp--preset--spacing--50);
+    padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--50);
     font-size: var(--wp--preset--font-size--small);
     border: 1px solid var(--color--gray-light);
     outline: 0;
@@ -54,4 +52,3 @@
     margin: var(--wp--preset--spacing--70) auto;
   }
 }
-

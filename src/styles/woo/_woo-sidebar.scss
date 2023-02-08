@@ -10,7 +10,7 @@
     }
 
     li {
-      line-height: 42px;
+      line-height: 3rem;
       margin: 0;
 			text-overflow: ellipsis;
 			overflow: hidden;
@@ -38,7 +38,7 @@
     .toggle {
       i {
         opacity: .5;
-        transition: $animations__lenght;
+        transition: var(--wp--custom--animations--length);
         vertical-align: middle;
         margin-top: -2px;
         margin-right: var(--wp--preset--spacing--40);

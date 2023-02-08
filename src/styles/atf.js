@@ -1,1 +1,1 @@
-import './atf.scss'
+import './atf.scss';

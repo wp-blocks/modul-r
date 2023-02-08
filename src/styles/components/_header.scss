@@ -1,12 +1,19 @@
 header.wp-block-template-part {
   position: fixed;
   z-index: 1000;
-  top: 0;
-  width: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
 
   @media #{$mq__responsive_breakpoint} {
     height: var(--header--branding--height);
     transform: inherit !important;
     padding: 0;
   }
+
+	// if there isn't a featured image compensate void space under the menu
+	@media all and (min-width: 699px) {
+		body.admin-bar & { top: 32px; }
+	}
 }

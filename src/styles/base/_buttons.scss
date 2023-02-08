@@ -1,5 +1,5 @@
 %button {
-  transition: $animations__lenght * .75;
+  transition: calc( var(--wp--custom--animations--length) * .75 );
   cursor: pointer;
   letter-spacing: 2px;
   text-decoration: none !important;

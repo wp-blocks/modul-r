@@ -11,6 +11,14 @@
   padding-top: var(--wp--preset--spacing--70);
 }
 
+.nagative-margin-top {
+	margin-top: -10rem;
+
+	@media #{$mq__smaller-than-tablet} {
+		margin-top: 0rem;
+	}
+}
+
 .post-meta {
   .meta-wrapper {
     display: inline-flex;
@@ -152,7 +160,7 @@
     border-radius: $pagenumber__size * .5;
     background-color: var(--color--gray-light);
     color:  var(--color--gray);
-    transition: $animations__lenght;
+    transition: var(--wp--custom--animations--length);
 
     &.current,
     &:hover {color: var(--color--gray-dark);}

@@ -1,8 +1,10 @@
 /* Theme Defaults */
 @import "defaults/defaults";
 
-@import "base/_base";
+/* Theme base style and colors */
+@import "base/_html";
 @import "base/colors";
 
+/* Theme typography */
 @import "base/typography";
 @import "base/typography-extras";

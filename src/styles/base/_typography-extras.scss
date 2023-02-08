@@ -52,7 +52,7 @@ cite {
 	position:relative;
 	border: 1px solid var(--color--gray-light);
 
-	@media #{$mq__responsive-size_breakpoint} {
+	@media #{$mq__responsive_breakpoint} {
 		padding: var(--wp--preset--spacing--50) $blockquote__icon-size * 1.5;
 	}
 
@@ -86,7 +86,7 @@ cite {
 	}
 
 	&.wp-block-pullquote {
-		@media #{$mq__responsive-size_breakpoint} {
+		@media #{$mq__responsive_breakpoint} {
 			padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--50);
 		}
 	}
@@ -135,7 +135,7 @@ cite {
 
 
 
-@media #{$mq__responsive-size_breakpoint} {
+@media #{$mq__responsive_breakpoint} {
 	.site-main .entry-content {
 		table,
 		pre,

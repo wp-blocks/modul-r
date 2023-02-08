@@ -66,5 +66,5 @@ textarea {
 }
 
 fieldset {
-  margin: $size__margin 0;
+  margin: var(--wp--preset--spacing--30) 0;
 }
