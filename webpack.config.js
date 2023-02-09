@@ -23,7 +23,8 @@ const addModule = ( fileName, filePath ) => {
 };
 
 /** js scripts */
-const scripts = addModule( 'scripts.js', 'scripts/' );
+const scripts = addModule( 'scripts.ts', 'scripts/' );
+const adminScripts = addModule( 'admin-scripts.ts', 'styles/' );
 
 /** scss styles */
 const admin = addModule( 'admin', 'styles/' );
@@ -32,4 +33,4 @@ const editor = addModule( 'editor', 'styles/' );
 const style = addModule( 'main', 'styles/' );
 const woo = addModule( 'woo', 'styles/' );
 
-module.exports = [ scripts, admin, atf, editor, style, woo ];
+module.exports = [ scripts, admin, adminScripts, atf, editor, style, woo ];

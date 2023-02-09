@@ -55,3 +55,10 @@ add_action( 'wp_head', 'modul_r_theme_drawer_color' );
 if ( is_singular() ) {
 	wp_enqueue_script( 'comment-reply' );
 }
+
+function modul_r_theme_customize_style() {
+	$font_json = file_get_contents( get_template_directory() . '/inc/third-party/fonts.json' );
+	wp_enqueue_script('modul-r-customizer-script', get_template_directory_uri() . "/dist/scripts/scripts.js");
+	wp_localize_script('modul-r-customizer-script', 'modulrFonts', json_decode($font_json) );
+}
+add_action( 'customize_controls_enqueue_scripts', 'modul_r_theme_customize_style' );
