@@ -1,5 +1,38 @@
 /* Blocks styles */
-.entry-content {
+.wp-site-blocks {
+
+	//! MediaAndText
+	.wp-block-media-text {
+		.wp-block-media-text__media {
+			justify-self: end;
+
+			img,
+			video {
+				width: auto;
+				max-width: 100%;
+			}
+		}
+
+		&.has-media-on-the-right {
+			.wp-block-media-text__media {
+				justify-self: start;
+			}
+		}
+
+		@media #{$mq__tablet-portrait} {
+			.wp-block-media-text {
+
+
+			}
+
+			.wp-block-media-text__media {
+				width: auto;
+				margin: auto;
+				padding-left: var(--wp--preset--spacing--50);
+				padding-right: var(--wp--preset--spacing--50);
+			}
+		}
+	}
 
   //! Subhead
   .wp-block-subhead {
