@@ -18,29 +18,30 @@ async function getFontSet(params) {
 			return response.json()
 		})
 		.then((data) => {
-			console.log('Fetch for new font successfully')
+			console.log('Fetch for new fonts successfully')
 			console.log(data.items)
 
-			/* parse and store the data that we need */
+			/* Parse and store the data that we need */
 			fonts = data.items.map(item => { return {
 				[item.family]: item.variants}
 			} )
 
-			console.log(fonts)
+			/* Convert the js object into a pretty printed json. */
+			const generatedFontSet = JSON.stringify(fonts, null, 2)
 
-			const generatedJson = JSON.stringify(fonts, null, 2)
-
+			/* log some data in order to check that everything is working properly.  */
+			console.log(fonts);
 			console.log('Writing into ' + destination)
 
+			/* write the json to the file used into customizer to select the file */
 			fs.writeFileSync(
 				destination,
-				generatedJson, {
+				generatedFontSet, {
 					encoding: 'utf8'
 				}, (err, data) => {
 					if (err) {
 						return err;
 					}
-					console.log(data)
 					return true
 				})
 		})
@@ -52,7 +53,7 @@ async function getFontSet(params) {
 	return false
 }
 
-/** Create the colorset then output the result */
+/** Create the fontset then output the result */
 await getFontSet(apiParams)
 
 process.exit(0)

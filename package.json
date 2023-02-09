@@ -9,6 +9,7 @@
     "start": "wp-scripts start",
     "build": "wp-scripts build",
     "packages-update": "wp-scripts packages-update",
+    "generate-font-list": "node ./bin/gfontsList.mjs",
     "optimize-images": "node ./bin/imagemin.mjs"
   },
   "devDependencies": {
