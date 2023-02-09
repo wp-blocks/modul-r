@@ -71,14 +71,12 @@ function modul_r_get_theme_color($theme_mod_color, $default_color = "#FF0000") {
 function modul_r_get_available_fonts() {
 	$font_json = file_get_contents( get_template_directory() . '/inc/third-party/fonts.json' );
 	$font_set  = array();
-	foreach ( json_decode( $font_json ) as $font ) {
-		$font_set[ $font ] = $font;
+	foreach ( json_decode( $font_json ) as $font_name => $font_weights ) {
+		$font_set[ key($font_weights) ] = key($font_weights);
 	}
 
 	return $font_set;
 }
-
-
 
 function modul_r_add_font_preset($label, $group, $wp_customize) {
 	$data_title = $GLOBALS['modul_r_defaults']['customizer_options'][ 'font_family_' . $label ];
