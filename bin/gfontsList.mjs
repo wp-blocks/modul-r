@@ -3,8 +3,27 @@ import fs from 'fs'
 const ApiUrl = 'https://www.googleapis.com/webfonts/v1/webfonts'
 const destination = './inc/third-party/fonts.json'
 const apiParams = {
-	key: 'your key', // here the api key https://gist.github.com/jeremykenedy/bce044ce26fe0f90559a
+	key: 'AIzaSyCpfnm5kVng8hhP_jnAnnTXVP7MEUM89-k', // here the api key https://gist.github.com/jeremykenedy/bce044ce26fe0f90559a
 	sort: 'popularity'
+}
+
+/**
+ * @param {string} value
+ */
+function isNumeric(value) {
+	return /^-?\d+$/.test(value);
+}
+
+function getVariants(weights) {
+	let newWeights = [];
+	weights.forEach((weight) => {
+		if (isNumeric(weight)) {
+			newWeights.push(weight)
+		} else if (weight === 'regular') {
+			newWeights.push('400')
+		}
+	})
+	return newWeights
 }
 
 async function getFontSet(params) {
@@ -23,7 +42,7 @@ async function getFontSet(params) {
 
 			/* Parse and store the data that we need */
 			fonts = data.items.map(item => { return {
-				[item.family]: item.variants}
+				[item.family]: getVariants(item.variants)}
 			} )
 
 			/* Convert the js object into a pretty printed json. */
