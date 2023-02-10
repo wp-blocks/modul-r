@@ -37,26 +37,3 @@ figure {
     line-height: 1.2;
   }
 }
-
-
-.site-main .entry-content{
-  .wp-caption {
-    margin-bottom: var(--wp--preset--spacing--50);
-    padding-left: var(--wp--custom--responsive--side-margin);
-    padding-right: var(--wp--custom--responsive--side-margin);
-
-    .wp-caption-text {
-      color: var(--color--text);
-      font-size: var(--wp--preset--font-size--small);
-      font-style: italic;
-    }
-
-    &.alignleft {
-      padding-right: var(--wp--preset--spacing--50);
-    }
-
-    &.alignright {
-      padding-left: var(--wp--preset--spacing--50);
-    }
-  }
-}

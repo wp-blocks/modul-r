@@ -31,7 +31,6 @@
 .wp-block-button {
 
   .wp-block-button__link {
-		margin-top: var(--wp--preset--spacing--60);
     @extend %button;
   }
 
