@@ -12,11 +12,11 @@
 	font-weight: var(--typography--font--title-bold);
 
 	&:not(.has-background) {
-		background-color: var(--color--primary);
+		background-color: var(--wp--preset--color--primary);
 	}
 
 	&:not(.has-text-color) {
-		color: rgba( var(--color--white--decimal), .9);
+		color: rgba( var(--wp--preset--color--white--decimal), .9);
 	}
 
   @media #{$mq__smaller-than-tablet} {
@@ -42,8 +42,8 @@
 
 .wp-block-search__button,
 .wp-block-file .wp-block-file__button {
-	background-color: var(--color--primary);
-	color: var(--color--white);
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
 	border-radius: 0;
 	border: none;
 	font-size: var(--wp--preset--font-size--medium);

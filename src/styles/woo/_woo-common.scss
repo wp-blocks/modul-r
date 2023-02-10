@@ -44,16 +44,16 @@ body.woocommerce {
 .woocommerce a.button.alt,
 .woocommerce button.button.alt,
 .woocommerce input.button.alt {
-  background-color: var(--color--primary);
+  background-color: var(--wp--preset--color--primary);
   &:hover {
-    background-color: rgba(var(--color--primary--decimal), .1);
+    background-color: rgba(var(--wp--preset--color--primary--decimal), .1);
   }
 }
 
 .woocommerce button.button.alt.disabled {
-  background-color: var(--color--gray);
+  background-color: var(--wp--preset--color--gray);
   &:hover {
-    background-color: var(--color--gray-dark);
+    background-color: var(--wp--preset--color--gray-dark);
   }
 }
 

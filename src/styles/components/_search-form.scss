@@ -21,7 +21,7 @@
     margin: 0;
     padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--50);
     font-size: var(--wp--preset--font-size--small);
-    border: 1px solid var(--color--gray-light);
+    border: 1px solid var(--wp--preset--color--gray-light);
     outline: 0;
     box-shadow: inherit !important;
   }
@@ -36,7 +36,7 @@
   &:before {
     content: '\E8B6';
     font-family: 'Material Icons';
-    color: var(--color--white);
+    color: var(--wp--preset--color--white);
     font-size: 28px;
     display: block;
     width: 24px;

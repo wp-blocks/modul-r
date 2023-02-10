@@ -103,7 +103,7 @@
       text-align: center;
 
       &:before {
-        color: var(--color--primary);
+        color: var(--wp--preset--color--primary);
         font-size: 64px;
         letter-spacing: 24px;
         padding-left: 24px;
@@ -119,11 +119,11 @@
       display: table;
       border: none;
       border-radius: 5px;
-      background: var(--color--primary);
+      background: var(--wp--preset--color--primary);
       font-size: var(--wp--preset--font-size--medium);
       text-decoration: none;
       font-weight: var(--typography--font--default--bold);
-      color: var(--color--white);
+      color: var(--wp--preset--color--white);
       margin-left: 0;
       margin-top: var(--wp--preset--spacing--40);
 

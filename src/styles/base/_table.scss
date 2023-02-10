@@ -10,11 +10,11 @@ table {
       padding: var(--wp--preset--spacing--30);
     }
     th {
-      background: var(--color--primary);
+      background: var(--wp--preset--color--primary);
       color: #fff;
     }
     td {
-      border-bottom: 1px solid var(--color--gray-light);
+      border-bottom: 1px solid var(--wp--preset--color--gray-light);
     }
   }
 }

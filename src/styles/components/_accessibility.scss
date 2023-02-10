@@ -16,12 +16,12 @@
   &.skip-link {display: block;}
 
   &:focus {
-    background-color: var(--color--secondary);
+    background-color: var(--wp--preset--color--secondary);
     border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(var(--color--black--decimal), .5 );
+    box-shadow: 0 0 2px 2px rgba(var(--wp--preset--color--black--decimal), .5 );
     clip: auto !important;
     clip-path: none;
-    color: var(--color--white);
+    color: var(--wp--preset--color--white);
     font-weight: bolder;
     height: auto;
     display: block;

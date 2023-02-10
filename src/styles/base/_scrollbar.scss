@@ -13,8 +13,8 @@
   &-track {
     &-piece,
     & {
-      background-color: var(--color--gray-light);
-      -webkit-box-shadow: inset 0 0 6px rgba(var(--color--black--decimal), 0.1);
+      background-color: var(--wp--preset--color--gray-light);
+      -webkit-box-shadow: inset 0 0 6px rgba(var(--wp--preset--color--black--decimal), 0.1);
     }
   }
 
@@ -22,9 +22,9 @@
   &-thumb,
   &-thumb:vertical,
   &-thumb:horizontal {
-    background-color:var(--color--secondary);
+    background-color:var(--wp--preset--color--secondary);
     border-radius: $scrollbar-border-radius;
-    -webkit-box-shadow: inset 0 0 6px rgba(var(--color--black--decimal), 0.15);
+    -webkit-box-shadow: inset 0 0 6px rgba(var(--wp--preset--color--black--decimal), 0.15);
   }
 
   &-button {
@@ -36,12 +36,12 @@
       height: 0;
       width: 0;
       display: block;
-      background-color: var(--color--gray-light);
+      background-color: var(--wp--preset--color--gray-light);
     }
   }
 
   &-corner {
-    background-color: var(--color--gray-light);
+    background-color: var(--wp--preset--color--gray-light);
   }
 }
 

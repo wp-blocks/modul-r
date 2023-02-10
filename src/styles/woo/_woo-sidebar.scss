@@ -20,7 +20,7 @@
     & > li:first-child { border: 0; }
 
     a {
-      color: var(--color--text);
+      color: var(--wp--preset--color--text);
       font-weight: 500;
     }
 
@@ -59,7 +59,7 @@
 
     li {
       height: var(--wp--custom--line-height--medium);
-      border-top: 1px solid rgba(var(--color--black), 0.05);
+      border-top: 1px solid rgba(var(--wp--preset--color--black), 0.05);
       font-size: var(--wp--preset--font-size--extra-small);
       line-height: 1;
 
@@ -69,12 +69,12 @@
         display: inline-block;
 
         &.woocommerce-Price-amount {
-          color: var(--color--primary);
+          color: var(--wp--preset--color--primary);
         }
       }
 
       .product-title {
-        color: var(--color--text);
+        color: var(--wp--preset--color--text);
         font-weight: var(--typography--font--title--bold);
         padding-top: var(--wp--preset--spacing--40);
         line-height: var(--wp--custom--line-height--medium);

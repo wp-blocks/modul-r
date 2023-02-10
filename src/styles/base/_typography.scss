@@ -1,85 +1,12 @@
 /* Headlines */
 body {
-	color: var(--color--text);
+	color: var(--wp--preset--color--text);
 	word-break: break-word;
 }
 
 %headline_style {
 	font-family: var(--typography--font--title);
 	font-weight: var(--typography--font--title-bold);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@extend %headline_style;
-	margin: 0 0 var(--wp--preset--spacing--40);
-	padding: 0;
-	a {
-		text-decoration: none;
-	}
-}
-
-h1 {
-	font-size: var(--wp--preset--font-size--xx-large);
-	@media #{$mq__phablet} {font-size: var(--wp--preset--font-size--xx-large);}
-}
-
-h2 {
-	font-size: var(--wp--preset--font-size--extra-large);
-  @media #{$mq__phablet} {font-size: var(--wp--preset--font-size--large);}
-
-	.woocommerce & {
-		font-size: var(--wp--preset--font-size--extra-large);
-		@media #{$mq__phablet} {font-size: var(--wp--preset--font-size--large);}
-	}
-}
-
-h3 {
-	font-size: var(--wp--preset--font-size--extra-large);
-	@media #{$mq__tablet-portrait} {font-size: var(--wp--preset--font-size--medium);}
-}
-
-h4 {
-	font-size: var(--wp--preset--font-size--large);
-	@media #{$mq__tablet} {font-size: var(--wp--preset--font-size--medium);}
-}
-
-h5, h6 {
-	font-size: var(--wp--preset--font-size--medium);
-	@media #{$mq__tablet} {font-size: var(--wp--preset--font-size--small);}
-}
-
-
-/* Text and lists */
-li,
-p {
-	list-style: none;
-	font-size: var(--wp--preset--font-size--medium);
-  @media #{$mq__phablet} {font-size: var(--wp--preset--font-size--small);}
-}
-
-p {
-	margin: 0 0 var(--wp--preset--spacing--40);
-}
-
-.has-title-font-family {
-	font-weight: var(--typography--font--title--regular);
-	b, strong {
-		font-weight: var(--typography--font--title--bold);
-	}
-}
-
-b, strong {
-	font-weight: var(--typography--default--font-weight--bold);
-}
-
-a {
-	text-decoration: none;
-	color: var(--color--primary);
 }
 
 ul, ol, dl {

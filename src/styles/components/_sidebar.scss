@@ -17,7 +17,7 @@
 
   @media #{$mq__responsive_breakpoint} {
     padding-top: var(--wp--preset--spacing--60);
-    border-top: 1px solid rgba(var(--color--black), 0.05);
+    border-top: 1px solid rgba(var(--wp--preset--color--black), 0.05);
     min-width: inherit;
     width: 100%;
   }
@@ -37,6 +37,6 @@
 
   a {
 		text-decoration: none;
-    color: var(--color--text)
+    color: var(--wp--preset--color--text)
   }
 }

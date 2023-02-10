@@ -1,8 +1,8 @@
 %input_model {
-  background-color: var(--color--white);
-  color: var(--color--text);
+  background-color: var(--wp--preset--color--white);
+  color: var(--wp--preset--color--text);
   outline:none!important;
-  border: 1px solid var(--color--gray-light);
+  border: 1px solid var(--wp--preset--color--gray-light);
   font-size: var(--wp--preset--font-size--medium);
   font-weight: var(--typography--default--font-weight--regular);
   box-sizing: border-box;
@@ -14,7 +14,7 @@
 
   &:focus,
   &:hover {
-    box-shadow: 0 1px 0 var(--color--primary);
+    box-shadow: 0 1px 0 var(--wp--preset--color--primary);
   }
 }
 
@@ -30,7 +30,7 @@ input[type="tel"] {
   @extend %input_model;
   padding-left: var(--wp--preset--spacing--40);
   padding-right: var(--wp--preset--spacing--40);
-  box-shadow: 0 0 0 var(--color--gray-light);
+  box-shadow: 0 0 0 var(--wp--preset--color--gray-light);
 }
 
 
@@ -45,7 +45,7 @@ input[type="tel"] {
 }
 
 form label {
-  color: var(--color--gray-dark);
+  color: var(--wp--preset--color--gray-dark);
   font-size: calc(var(--wp--preset--font-size--medium) - 1px);
 
   input + span {
