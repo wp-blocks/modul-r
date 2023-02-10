@@ -5,7 +5,7 @@
  */
 if ( ! function_exists( 'modul_r_theme_style' ) ) :
 	function modul_r_theme_style() {
-		wp_enqueue_style( 'modul-r-style', get_template_directory_uri() . "/dist/styles/main.css" );
+		wp_enqueue_style( 'modul-r-style', get_template_directory_uri() . "/build/modulr-css-main.css" );
 	}
 endif;
 
@@ -18,7 +18,7 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		// get the acf.css file and store into a variable
 		ob_start();
 
-		include get_stylesheet_directory() . '/dist/styles/atf.css';
+		include get_stylesheet_directory() . '/build/modulr-css-atf.css';
 
 		$atf_css = ob_get_clean();
 
@@ -39,7 +39,7 @@ endif;
  */
 if ( ! function_exists( 'modul_r_admin_style' ) ) :
 	function modul_r_admin_style() {
-		wp_enqueue_style( 'modul-r-admin', get_template_directory_uri() . '/dist/styles/admin.css' );
+		wp_enqueue_style( 'modul-r-admin', get_template_directory_uri() . '/build/modulr-css-main.css' );
 	}
 endif;
 
@@ -121,7 +121,6 @@ function modul_r_handleStyles() {
 
 	/* above the fold style */
 	add_action( 'wp_enqueue_scripts', 'modul_r_atf_style', 1 );
-	add_action( 'wp_head', 'modul_r_atf_style', 1 );
 
 	/* admin style */
 	add_action( 'admin_enqueue_scripts', 'modul_r_admin_style', 1 );

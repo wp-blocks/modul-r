@@ -86,7 +86,7 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		add_theme_support( 'editor-styles' );
 
 		// Enqueue editor styles and fonts.
-		add_editor_style( get_template_directory() . '/dist/styles/editor.css' );
+		add_editor_style( get_template_directory() . '/build/editor.css' );
 
 		// Add support for Block Styles.
 		add_theme_support( 'wp-block-styles' );
