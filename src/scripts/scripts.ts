@@ -1,2 +1,2 @@
-import './user/index';
+import './user/';
 import './user/scrollControl';
