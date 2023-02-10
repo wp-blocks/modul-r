@@ -5,32 +5,38 @@ const config = {
 	...defaultConfig,
 };
 
-const addModule = ( fileName, filePath ) => {
-	return {
-		...config,
-		name: fileName,
-		entry: {
-			[ fileName ]: path.resolve(
-				__dirname,
-				'src/' + filePath + fileName
-			),
-		},
-		output: {
-			path: path.resolve( __dirname, 'dist/' + filePath ),
-			filename: fileName,
-		},
-	};
+module.exports = {
+	...defaultConfig,
+	entry: {
+		/** js scripts */
+		'modulr-scripts': path.resolve( process.cwd(), `src/scripts/scripts.ts` ),
+		'modulr-script-admin': path.resolve(
+			process.cwd(),
+			`src/scripts/scripts-admin.ts`
+		),
+
+		/** scss styles */
+		'modulr-css-admin': path.resolve(
+			process.cwd(),
+			`src/styles/admin.ts`
+		),
+		'modulr-css-atf': path.resolve( process.cwd(), `src/styles/atf.ts` ),
+		'modulr-css-editor': path.resolve(
+			process.cwd(),
+			`src/styles/editor.ts`
+		),
+		'modulr-css-main': path.resolve( process.cwd(), `src/styles/main.ts` ),
+		'modulr-css-woo': path.resolve( process.cwd(), `src/styles/woo.ts` ),
+	},
+	devtool: 'source-map',
+	module: {
+		rules: [
+			{
+				test: /\.[tjmc]sx?$/,
+				use: [ 'babel-loader' ],
+				exclude: /node_modules/,
+			},
+		],
+		...defaultConfig.module,
+	},
 };
-
-/** js scripts */
-const scripts = addModule( 'scripts.ts', 'scripts/' );
-const adminScripts = addModule( 'admin-scripts.ts', 'styles/' );
-
-/** scss styles */
-const admin = addModule( 'admin', 'styles/' );
-const atf = addModule( 'atf', 'styles/' );
-const editor = addModule( 'editor', 'styles/' );
-const style = addModule( 'main', 'styles/' );
-const woo = addModule( 'woo', 'styles/' );
-
-module.exports = [ scripts, admin, adminScripts, atf, editor, style, woo ];

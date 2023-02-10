@@ -13,7 +13,14 @@
     "optimize-images": "node ./bin/imagemin.mjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
+	"@babel/core": "^7.20.5",
+	"@babel/preset-typescript": "^7.18.6",
+	"@types/node": "^18.13.0",
+	"@types/wordpress__block-editor": "^11.0.1",
+	"@types/wordpress__blocks": "^12.0.1",
+	"@types/wordpress__components": "^23.0.1",
+	"@types/wordpress__compose": "^6.0.1",
+	"typescript": "^4.9.4",
     "@wordpress/babel-preset-default": "^7.9.0",
     "@wordpress/scripts": "^25.2.0",
     "imagemin": "^8.0.1",
@@ -24,11 +31,6 @@
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=6.9.0"
-  },
-  "eslintConfig": {
-	"extends": [
-	  "plugin:@wordpress/eslint-plugin/recommended"
-	]
   },
   "browserslist": [
 	"extends @wordpress/browserslist-config"
