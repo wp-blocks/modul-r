@@ -11,7 +11,7 @@ import fs from 'graceful-fs';
 const writeFile = promisify(fs.writeFile);
 
 const srcdir = './src/img';
-const distdir = './dist/img';
+const distdir = './img';
 
 imagemin([srcdir + '/**/*.{jpg,jpeg,png}'], {
 	plugins: [
