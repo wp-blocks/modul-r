@@ -26,7 +26,10 @@ const fontFamilySelect: { name: string; child: string[] }[] = [
 	},
 ];
 
-function replaceSelectOptions( select: Element | null, newOptions: string | any[] ) {
+function replaceSelectOptions(
+	select: Element | null,
+	newOptions: string | any[]
+) {
 	while ( select.options.length > 0 ) {
 		select.remove( 0 );
 	}
@@ -45,17 +48,17 @@ window.onload = () => {
 			parsedFonts[ Object.keys( font )[ 0 ] ] =
 				Object.values( font )[ 0 ];
 		} );
-		window.modulr = { parsedFonts: [] };
+		window.modulr = {};
 		window.modulr.parsedFonts = parsedFonts;
 		console.log( 'Available fonts', parsedFonts );
 	}
 
-	fontFamilySelect.forEach( ( select ) => {
+	fontFamilySelect.forEach( ( select: { name: string; child: string[] } ) => {
 		document
 			.querySelector( '#' + selectNamePrefix + select.name )
 			?.addEventListener( 'change', ( e ) => {
 				// the selected item
-				const selected: HTMLInputElement = e.target;
+				const selected: HTMLInputElement | null = e.target;
 				const selectedHtmlID: string = selected?.id;
 				// store the selected font available where key is the name and the value is an array of possible font weights
 				const selectedFont: string = selected?.value;
@@ -76,7 +79,10 @@ window.onload = () => {
 					);
 					replaceSelectOptions( fontWeightSelect, availableSet );
 					console.log( fontWeightSelect );
-					fontWeightSelect.value = availableSet[ index ];
+					fontWeightSelect.value =
+						availableSet[
+							availableSet > choosenSubset ? index : 0
+						];
 				} );
 
 				console.log(

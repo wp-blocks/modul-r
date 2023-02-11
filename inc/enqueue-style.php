@@ -92,7 +92,7 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 						$weights_collection[] = intval($weight);
 					}
 				}
-				$font_query[] = "family={$family['slug']}:wght@" . implode( ";", array_reverse($weights_collection) );
+				$font_query[] = "family={$family['slug']}:wght@" . implode( ";", $weights_collection );
 			}
 		}
 
