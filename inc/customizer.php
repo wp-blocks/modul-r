@@ -335,80 +335,83 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 endif;
 add_action( 'customize_register', 'modul_r_customizer_opt' );
 
-if ( ! function_exists('modul_r_theme_colors_setup') ) :
+if ( ! function_exists( 'modul_r_theme_colors_setup' ) ) :
 	function modul_r_theme_colors_setup() {
 
-		// get the custom colors
-		$primary_color = sanitize_hex_color(get_theme_mod( 'primary-color' ));
-		$secondary_color = sanitize_hex_color(get_theme_mod( 'secondary-color' ));
+		// Get the custom colors.
+		$primary_color   = sanitize_hex_color( get_theme_mod( 'primary-color' ) );
+		$secondary_color = sanitize_hex_color( get_theme_mod( 'secondary-color' ) );
 
-		// check if custom color is set otherwise use the default colors
-		$primary_color = $primary_color != "" ? $primary_color : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['primary']);
-		$secondary_color = $secondary_color != "" ? $secondary_color : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['secondary']);
+		if ( empty($GLOBALS['modul_r_defaults']) ) return;
+		$modul_r_defaults = $GLOBALS['modul_r_defaults'];
 
-    $variance = floatval( $GLOBALS['modul_r_defaults']['customizer_options']['color_variance'] );
+		// Check if custom color is set otherwise use the default colors.
+		$primary_color   = ! empty( $primary_color ) ? $primary_color : sanitize_hex_color( $modul_r_defaults['colors']['primary'] );
+		$secondary_color = ! empty( $secondary_color ) ? $secondary_color : sanitize_hex_color( $modul_r_defaults['colors']['secondary'] );
+
+		$variance = floatval( $modul_r_defaults['customizer_options']['color_variance'] );
 
 		add_theme_support( 'editor-color-palette', array(
-      array(
-        'name'  => __( 'Theme primary color', 'modul-r' ),
-        'slug'  => 'primary',
-        'color' => $primary_color,
-      ),
-			array(
-				'name'  => __( 'Theme primary color light', 'modul-r' ),
-				'slug'  => 'primary-light',
-				'color' => modul_r_adjustBrightness($primary_color, $variance),
-			),
-			array(
-				'name'  => __( 'Theme primary color dark', 'modul-r' ),
-				'slug'  => 'primary-dark',
-				'color' => modul_r_adjustBrightness($primary_color, -$variance ),
-			),
-      array(
-        'name'  => __( 'Theme secondary color', 'modul-r' ),
-        'slug'  => 'secondary',
-        'color' => $secondary_color,
-      ),
-			array(
-				'name'  => __( 'Theme secondary color light', 'modul-r' ),
-				'slug'  => 'secondary-light',
-				'color' => modul_r_adjustBrightness($secondary_color, $variance),
-			),
-			array(
-				'name'  => __( 'Theme secondary color dark', 'modul-r' ),
-				'slug'  => 'secondary-dark',
-				'color' => modul_r_adjustBrightness($secondary_color, -$variance),
-			),
-			array(
-				'name'  => __( 'White', 'modul-r' ),
-				'slug'  => 'white',
-				'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white']),
-			),
-			array(
-				'name'  => __( 'White Smoke', 'modul-r' ),
-				'slug'  => 'white-smoke',
-				'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white-smoke']),
-			),
-			array(
-				'name'  => __( 'Light gray', 'modul-r' ),
-				'slug'  => 'gray-light',
-		    'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray-light']),
-			),
-			array(
-				'name'  => __( 'Gray', 'modul-r' ),
-				'slug'  => 'gray',
-		    'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray']),
-			),
-			array(
-				'name'  => __( 'Dark gray', 'modul-r' ),
-				'slug'  => 'gray-dark',
-        'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray-dark']),
-			),
-			array(
-				'name'  => __( 'Black', 'modul-r' ),
-				'slug'  => 'black',
-		    'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['black']),
-			),
+				array(
+						'name'  => __( 'Theme primary color', 'modul-r' ),
+						'slug'  => 'primary',
+						'color' => $primary_color,
+				),
+				array(
+						'name'  => __( 'Theme primary color light', 'modul-r' ),
+						'slug'  => 'primary-light',
+						'color' => modul_r_adjustBrightness( $primary_color, $variance ),
+				),
+				array(
+						'name'  => __( 'Theme primary color dark', 'modul-r' ),
+						'slug'  => 'primary-dark',
+						'color' => modul_r_adjustBrightness( $primary_color, - $variance ),
+				),
+				array(
+						'name'  => __( 'Theme secondary color', 'modul-r' ),
+						'slug'  => 'secondary',
+						'color' => $secondary_color,
+				),
+				array(
+						'name'  => __( 'Theme secondary color light', 'modul-r' ),
+						'slug'  => 'secondary-light',
+						'color' => modul_r_adjustBrightness( $secondary_color, $variance ),
+				),
+				array(
+						'name'  => __( 'Theme secondary color dark', 'modul-r' ),
+						'slug'  => 'secondary-dark',
+						'color' => modul_r_adjustBrightness( $secondary_color, - $variance ),
+				),
+				array(
+						'name'  => __( 'White', 'modul-r' ),
+						'slug'  => 'white',
+						'color' => sanitize_hex_color( $modul_r_defaults['shades']['white'] ),
+				),
+				array(
+						'name'  => __( 'White Smoke', 'modul-r' ),
+						'slug'  => 'white-smoke',
+						'color' => sanitize_hex_color( $modul_r_defaults['shades']['white-smoke'] ),
+				),
+				array(
+						'name'  => __( 'Light gray', 'modul-r' ),
+						'slug'  => 'gray-light',
+						'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray-light'] ),
+				),
+				array(
+						'name'  => __( 'Gray', 'modul-r' ),
+						'slug'  => 'gray',
+						'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray'] ),
+				),
+				array(
+						'name'  => __( 'Dark gray', 'modul-r' ),
+						'slug'  => 'gray-dark',
+						'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray-dark'] ),
+				),
+				array(
+						'name'  => __( 'Black', 'modul-r' ),
+						'slug'  => 'black',
+						'color' => sanitize_hex_color( $modul_r_defaults['shades']['black'] ),
+				),
 		) );
 	}
 endif;
@@ -418,26 +421,24 @@ add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
 if ( ! function_exists( 'modul_r_css_props' ) ) :
     function modul_r_css_props() {
 
-			// The custom colors
-			// Main colors
+		$defaults = $GLOBALS['modul_r_defaults'];
+
+			// Colors
 			$colors                    = array();
-			$variance                  = floatval( $GLOBALS['modul_r_defaults']['customizer_options']['color_variance'] );
-			$colors['primary']         = modul_r_get_theme_color( 'primary-color', $GLOBALS['modul_r_defaults']['colors']['primary'] );
+			$variance                  = floatval( $defaults['customizer_options']['color_variance'] );
+			$colors['primary']         = modul_r_get_theme_color( 'primary-color', $defaults['colors']['primary'] );
 			$colors['primary-light']   = modul_r_adjustBrightness( $colors['primary'], $variance );
 			$colors['primary-dark']    = modul_r_adjustBrightness( $colors['primary'], - $variance );
-			$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $GLOBALS['modul_r_defaults']['colors']['secondary'] );
+			$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $defaults['colors']['secondary'] );
 			$colors['secondary-light'] = modul_r_adjustBrightness( $colors['secondary'], $variance );
 			$colors['secondary-dark']  = modul_r_adjustBrightness( $colors['secondary'], - $variance );
-			// Base Tones
-			$colors['white']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white'] );
-			$colors['white-smoke'] = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white-smoke'] );
-			$colors['gray-light']  = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-light'] );
-			$colors['gray']        = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray'] );
-			$colors['gray-dark']   = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-dark'] );
-			$colors['black']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['black'] );
-
-			// Typography colors
-			$text_color = get_theme_mod( 'text-color' ) !== false ? sanitize_hex_color( get_theme_mod( 'text-color' ) ) : sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] );
+			// Shades
+			$colors['white']       = sanitize_hex_color( $defaults['shades']['white'] );
+			$colors['white-smoke'] = sanitize_hex_color( $defaults['shades']['white-smoke'] );
+			$colors['gray-light']  = sanitize_hex_color( $defaults['shades']['gray-light'] );
+			$colors['gray']        = sanitize_hex_color( $defaults['shades']['gray'] );
+			$colors['gray-dark']   = sanitize_hex_color( $defaults['shades']['gray-dark'] );
+			$colors['black']       = sanitize_hex_color( $defaults['shades']['black'] );
 
 			// Typography
 			function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
@@ -461,15 +462,15 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 
 			$wp_theme_json_prefix = '--wp--preset--color--';
 
-			// Typography
-			$fonts = modul_r_get_fonts();
-
-			// create the custom colors scheme
+			// The custom colors scheme generator
 			foreach ( $colors as $key => $color ) {
 				$custom_prop_color = "var(". $wp_theme_json_prefix . $key . ")";
 				$atf_css           .= ' .has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color p{color:' . $custom_prop_color . '}';
 				$atf_css           .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
 			}
+
+			// Typography
+			$fonts = modul_r_get_fonts();
 
 			$custom_props = "{";
 
@@ -485,7 +486,6 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 			"--color--white--decimal: ".modul_r_hex2rgb($colors['white'], true). ";" .
 			"--color--secondary--decimal: ".modul_r_hex2rgb($colors['secondary'], true). ";" .
 			"--color--primary--decimal: ".modul_r_hex2rgb($colors['primary'], true). ";" .
-	    "--color--text: $text_color;" .
 		  "}";
 
 			if (is_admin()) {

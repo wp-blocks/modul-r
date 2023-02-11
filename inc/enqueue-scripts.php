@@ -20,18 +20,18 @@ if ( ! function_exists( 'modul_r_content_height_fix' ) ) :
 	function modul_r_content_height_fix() {
 		?>
 		<script>
-					function setFullHeight() {
-						// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-						let vh = window.innerHeight * 0.01;
-						// Then we set the value in the --vh custom property to the root of the document
-						document.documentElement.style.setProperty('--vh', `${vh}px`);
-					}
+			function setFullHeight() {
+				// First we get the viewport height, and we multiply it by 1% to get a value for a vh unit
+				let vh = window.innerHeight * 0.01;
+				// Then we set the value in the --vh custom property to the root of the document
+				document.documentElement.style.setProperty('--vh', `${vh}px`);
+			}
 
-					setFullHeight();
+			setFullHeight();
 
-					window.addEventListener('resize', function () {
-						setFullHeight();
-					});
+			window.addEventListener('resize', function () {
+				setFullHeight();
+			});
 		</script>
 		<?php
 	}
@@ -43,7 +43,7 @@ add_action( 'wp_head', 'modul_r_content_height_fix', 10 );
  */
 if ( ! function_exists( 'modul_r_theme_drawer_color' ) ) :
 	function modul_r_theme_drawer_color() {
-		$header_background = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
+		$header_background = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['shades'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
 		echo '<meta name="theme-color" content="' . modul_r_adjustBrightness( $header_background, 0.2 ) . '" />';
 	}
 endif;

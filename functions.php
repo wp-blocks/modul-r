@@ -6,6 +6,8 @@ if (!isset($modul_r_defaults)) {
 		'colors' => array(
 			'primary'     => '#6f4cad',
 			'secondary'   => '#16bebb',
+		),
+		'shades' => array(
 			'white'       => '#ffffff',
 			'white-smoke' => '#f1f1f1',
 			'gray-light'  => '#e3e3e3',
@@ -24,10 +26,9 @@ if (!isset($modul_r_defaults)) {
 			'footer-bottom-color' => 'black',
 			'footer-text-color'   => 'white-smoke',
 		),
-		'social_media_enabled' => array( 'Facebook', 'Instagram', 'Twitter', 'Linkedin', 'YouTube', 'www' ),
 		'customizer_options' => array(
-			'weights'             => array( 100, 200, 300, 400, 500, 600, 700, 800, 900 ),
 			'color_variance'      => 0.3,
+			'weights'             => array( 100, 200, 300, 400, 500, 600, 700, 800, 900 ),
 			'font_family_default' => array(
 				array( 'name' => 'bold', 'default' => 600, 'input' => 'select', 'select_type' => 'weights' ),
 				array( 'name' => 'regular', 'default' => 400, 'input' => 'select', 'select_type' => 'weights' ),

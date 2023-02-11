@@ -54,34 +54,6 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 			'header-text' => array( 'site-title', 'site-description' ),
 		) );
 
-		add_theme_support( 'custom-header', array(
-			'default-image'          => '',
-			'width'                  => 0,
-			'height'                 => 0,
-			'flex-height'            => false,
-			'flex-width'             => false,
-			'uploads'                => true,
-			'random-default'         => false,
-			'header-text'            => true,
-			'default-text-color'     => str_replace( '#', '', sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-title-color'] ] ) ),
-			'wp-head-callback'       => '',
-			'admin-head-callback'    => '',
-			'admin-preview-callback' => '',
-		) );
-
-		add_theme_support( 'custom-background', array(
-			'default-color'          => str_replace( '#', '', sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['background'] ] ) ),
-			'default-image'          => '',
-			'default-preset'         => 'default', // 'default', 'fill', 'fit', 'repeat', 'custom'
-			'default-position-x'     => 'left',    // 'left', 'center', 'right'
-			'default-position-y'     => 'top',     // 'top', 'center', 'bottom'
-			'default-size'           => 'auto',    // 'auto', 'contain', 'cover'
-			'default-repeat'         => 'repeat',  // 'repeat-x', 'repeat-y', 'repeat', 'no-repeat'
-			'default-attachment'     => 'scroll',  // 'scroll', 'fixed'
-			'admin-head-callback'    => '',
-			'admin-preview-callback' => '',
-		) );
-
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
 
