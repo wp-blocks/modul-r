@@ -1,5 +1,5 @@
 import imagemin from 'imagemin';
-import imageminWebp from 'imagemin-webp';
+import imageminAvif from 'imagemin-avif';
 import imageminSvgo from 'imagemin-svgo';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 
@@ -15,7 +15,7 @@ const distdir = './img';
 
 imagemin([srcdir + '/**/*.{jpg,jpeg,png}'], {
 	plugins: [
-		imageminWebp({quality: 82})
+		imageminAvif({quality: 50})
 	]
 }).then( (files) =>
 	files.forEach(async (v) => {
