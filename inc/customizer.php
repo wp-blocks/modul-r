@@ -365,18 +365,15 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 			$atf_css           .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
 		}
 
+		$custom_props = "{";
+
 		// Typography
-		$fonts = modul_r_get_fonts();
-
-		$custom_props = ":root {";
-
-		foreach ( $fonts as $type => $font ) {
+		foreach ( modul_r_get_fonts() as $type => $font ) {
 			$custom_props .= sprintf( "--typography--font--%s: '%s', sans-serif;", $type, $font['name'] );
 			foreach ( $font['weights'] as $label => $weight ) {
 				$custom_props .= sprintf( "--typography--font--%s--%s: %s;", $type, $label, $weight );
 			}
 		}
-
 
 		$custom_props .= $wp_theme_json_prefix."black--decimal: " . modul_r_hex2rgb( $colors['black'], true ) . ";" .
 						 $wp_theme_json_prefix."white--decimal: " . modul_r_hex2rgb( $colors['white'], true ) . ";" .
@@ -387,7 +384,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 		if ( is_admin() ) {
 			wp_add_inline_style( 'modul-r-admin', ':root .editor-styles-wrapper' . $custom_props . $atf_css );
 		} else {
-			echo "<style id='modul-r-style-css'>" . $custom_props . $atf_css . "</style>";
+			echo "<style id='modul-r-style-css'>body" . $custom_props . $atf_css . "</style>";
 		}
 	}
 
