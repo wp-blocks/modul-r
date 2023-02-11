@@ -18,16 +18,6 @@ function modul_r_registerSidebar() {
 			'after_widget'  => '</section>',
 		) );
 
-	register_sidebar( array(
-			'name'          => __( 'Footer',  'modul-r' ),
-			'id'            => 'footer-main',
-			'description'   => __( 'Add widgets here to appear in your footer.',  'modul-r' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		) );
-
 }
 
 add_action( 'widgets_init', 'modul_r_registerSidebar' );
