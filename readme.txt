@@ -3,7 +3,7 @@ Contributors: codekraft
 Requires at least: 4.9.6
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.4.0
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
@@ -18,43 +18,21 @@ Modul R also provides a seamless integration with Gutenberg and Woocommerce.
 [Demo](https://modul-r.codekraft.it)
 
 = Getting started =
-* The customizations are grouped into wordpress customizer under "colors" and "modul-r template customizations"
+* The customizations are grouped into WordPress customizer under "colors" and "modul-r template customizations"
 * Create a menu then assign it into the primary navigation
 * In Widget section, under footer widgets you could add a widget. (not needed)
 * Create a page then go to settings > reading and select the page as static homepage. (not needed)
 
 = How I could benefit by using this template? =
-* It is a simple template with good out of the box performance.
+* It is a simple template with good out-of-the-box performance.
 * This template was designed to be developer friendly and can be and can be used as a bootstrap to start a much more complex site. if these are your intentions, please install the child theme you can find on git, below is how to do it and a list of gulp tasks that allow you to modify and recompile in this bundled version
 
-= How install node? =
-Run the installer of NodeJS from the link below:
-  https://nodejs.org/en/download/
-After this step, you can check if NodeJS and NPM were installed with the command:
-  node -v && npm -v
-if npm is installed you can run:
-  npm i
-
-= How run gulp tasks? =
-There is some Gulp tasks i've prepared that simplify the development of the website:
-  gulp style
-Runs (once) the Sass compile task on style.scss, the autoprefixer and then creates the sourcemap.
-  gulp scripts
-Traspile es6 to javascript (if needed) then uglify (minify), concat (merge all files into one) and creates the sourcemap.
-  gulp optimizeThemeImg
-Minify images (PNG, JPEG, GIF and SVG) from src/img then copy to dist/img folder. Automatically creates a copy of each file in webp format
-  gulp optimizeWPUploads
-Minify images (PNG, JPEG, GIF and SVG) from /wp-content/uploads. Automatically creates a copy of each file in webp format
-  gulp zipRelease
-Zip all theme files into /releases/$version, it can be useful if you want to “package” the theme for upload purpose.
-  gulp createPot
-Parse all php files into theme folder and generates the pot files for WordPress translations.
-  gulp watch
-You have to run this command during development, and this command will be your best friend 🙂 It runs a file watcher on sass, scripts, and images folders and when triggered run the needed gulp task. It uses the latest version of gulp which allows these tasks to run in parallel, in order to have very short compilation times.
-  gulp build
-To finalize the theme… for first run clean and removes all development files. Then compile with a set of options suitable for publication (in watch task instead the compilation speed is privileged and also the css is not minified)
-  gulp buildRelease
-Same as build task but furthermore removes some unwanted files (Thumbs.db, DS_Store, ...) and zip the template files
+= Development =
+- Install Nodejs, docker, git
+- `git clone https://github.com/erikyo/modul-r`
+- `cd modul-r`
+- `npm i`
+- `npm run wp-env:start`
 
 = Contribute =
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
@@ -214,10 +192,6 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 = 1.0.0 =
 * First release
 
-== TODOS ==
-* Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
-* Rework the gulp file
-* Provide more options with the customizer
 
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
