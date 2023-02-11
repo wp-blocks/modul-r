@@ -34,17 +34,12 @@
 		"length": "350ms"
 	  },
 	  "line-height": {
-		"large": 2.2,
+		"large": 2.4,
 		"medium": 1.7,
 		"small": 1.2
 	  },
 	  "responsive": {
 		"side-margin": "var(--wp--preset--spacing--50)"
-	  },
-	  "sizes": {
-		"entry-title": {
-		  "width": "66%"
-		}
 	  }
 	},
 	"layout": {
@@ -154,6 +149,16 @@
 	  "text": "var(--color--text)"
 	},
 	"elements": {
+	  "link": {
+		"typography": {
+		  "textDecoration": "none"
+		},
+		":hover": {
+		  "typography": {
+			"textDecoration": "underline"
+		  }
+		}
+	  },
 	  "button": {
 		"color": {
 		  "background": "#ffffff",
