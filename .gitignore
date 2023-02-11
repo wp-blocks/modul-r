@@ -1,4 +1,30 @@
-node_modules/
-Thumbs.db
+# Logs
+logs
+*.log
+npm-debug.log*
 
-/vendor/
+# Coverage directory used by tools like istanbul
+coverage
+artifacts
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of `npm pack`
+*.tgz
+
+# Output of `wp-scripts plugin-zip`
+*.zip
+
+# dotenv environment variables file
+.env
+
+# Jetbrains editor config
+.idea
