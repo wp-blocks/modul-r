@@ -2,9 +2,31 @@ import fs from 'fs'
 
 const ApiUrl = 'https://www.googleapis.com/webfonts/v1/webfonts'
 const destination = './inc/third-party/fonts.json'
+
+
+/**
+ * get the value of a node argument
+ * @param {number} argNumber
+ * @param {string} argString
+ */
+const getArgs = (argNumber, argString) => {
+	return process.argv[argNumber].replace(argString, '');
+}
+
+/**
+ * Api args
+ * sorting could be
+ * alpha: Sort the list alphabetically
+ * date: Sort the list by date added (most recent font added or updated first)
+ * popularity: Sort the list by popularity (most popular family first)
+ * style: Sort the list by number of styles available (family with most styles first)
+ * trending: Sort the list by families seeing growth in usage (family seeing the most growth first)
+ *
+ * @type {{sort: (string|string), key: string}}
+ */
 const apiParams = {
-	key: 'AIzaSyCpfnm5kVng8hhP_jnAnnTXVP7MEUM89-k', // here the api key https://gist.github.com/jeremykenedy/bce044ce26fe0f90559a
-	sort: process.argv[2] || 'popularity'
+	key: 'apikey', // here the api key https://gist.github.com/jeremykenedy/bce044ce26fe0f90559a
+	sort: process.argv[2] ? getArgs( 2, '-sort=' ) : 'popularity'
 }
 
 /**
