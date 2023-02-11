@@ -1,4 +1,9 @@
 {
-	"core": "WordPress/WordPress",
-	"themes": ["."]
+  "core": null,
+  "themes": ["./"],
+  "config": {
+	"WP_DEBUG": true,
+	"SCRIPT_DEBUG": true,
+	"WP_DEFAULT_THEME": "modul-r"
+  }
 }

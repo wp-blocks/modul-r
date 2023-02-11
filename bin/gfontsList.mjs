@@ -4,7 +4,7 @@ const ApiUrl = 'https://www.googleapis.com/webfonts/v1/webfonts'
 const destination = './inc/third-party/fonts.json'
 const apiParams = {
 	key: 'AIzaSyCpfnm5kVng8hhP_jnAnnTXVP7MEUM89-k', // here the api key https://gist.github.com/jeremykenedy/bce044ce26fe0f90559a
-	sort: 'popularity'
+	sort: process.argv[2] || 'popularity'
 }
 
 /**

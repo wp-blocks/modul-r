@@ -8,11 +8,18 @@
   "scripts": {
     "start": "wp-scripts start",
     "build": "wp-scripts build",
+	"wp-env:start": "wp-env start --debug",
+	"wp-env:update": "wp-env start -- --update",
+	"wp-env:setModulr": "wp-env run cli \"wp theme activate modul-r\"",
+	"wp-env:stop": "wp-env stop",
+	"wp-env:destroy": "wp-env destroy",
     "packages-update": "wp-scripts packages-update",
-    "generate-font-list": "node ./bin/gfontsList.mjs",
-    "optimize-images": "node ./bin/imagemin.mjs"
+    "generate-font-list": "node ./bin/gfontsList.mjs -sort=popularity",
+    "optimize-images": "node ./bin/imagemin.mjs",
+	"install": "composer install && npm run build"
   },
   "devDependencies": {
+	"@wordpress/env": "^5.11.0",
 	"@babel/core": "^7.20.5",
 	"@babel/preset-typescript": "^7.18.6",
 	"@types/node": "^18.13.0",
@@ -26,7 +33,7 @@
     "imagemin": "^8.0.1",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-svgo": "^10.0.1",
-    "imagemin-webp": "^7.0.0"
+	"imagemin-avif": "^0.1.4"
   },
   "engines": {
     "node": ">=14.0.0",
