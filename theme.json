@@ -10,6 +10,7 @@
 	}
   ],
   "settings": {
+	"useRootPaddingAwareAlignments": true,
 	"appearanceTools": true,
 	"border": {
 	  "color": true,
@@ -64,6 +65,7 @@
 	  ]
 	},
 	"typography": {
+	  "fluid": true,
 	  "customFontSize": true,
 	  "dropCap": true,
 	  "fontFamilies": [
@@ -146,7 +148,7 @@
 	},
 	"color": {
 	  "background": "#ffffff",
-	  "text": "var(--color--text)"
+	  "text": "var(--wp--preset--color--text)"
 	},
 	"elements": {
 	  "link": {

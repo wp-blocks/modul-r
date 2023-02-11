@@ -32,11 +32,11 @@ if (!isset($modul_r_defaults)) {
 			'font_family_default' => array(
 				array( 'name' => 'light', 'default' => 300, 'input' => 'select', 'select_type' => 'weights' ),
 				array( 'name' => 'regular', 'default' => 400, 'input' => 'select', 'select_type' => 'weights' ),
-				array( 'name' => 'bold', 'default' => 600, 'input' => 'select', 'select_type' => 'weights' ),
+				array( 'name' => 'bold', 'default' => 700, 'input' => 'select', 'select_type' => 'weights' ),
 			),
 			'font_family_title'   => array(
-				array( 'name' => 'regular', 'default' => 500, 'input' => 'select', 'select_type' => 'weights' ),
-				array( 'name' => 'bold', 'default' => 800, 'input' => 'select', 'select_type' => 'weights' ),
+				array( 'name' => 'regular', 'default' => 400, 'input' => 'select', 'select_type' => 'weights' ),
+				array( 'name' => 'bold', 'default' => 700, 'input' => 'select', 'select_type' => 'weights' ),
 			)
 		)
 	);

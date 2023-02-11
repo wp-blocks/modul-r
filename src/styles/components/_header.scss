@@ -14,6 +14,6 @@ header.wp-block-template-part {
 
 	// if there isn't a featured image compensate void space under the menu
 	@media all and (min-width: 699px) {
-		body.admin-bar & { top: 32px; }
+		body.admin-bar & { top: var(--wp-admin--admin-bar--height); }
 	}
 }
