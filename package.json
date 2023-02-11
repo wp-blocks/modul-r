@@ -8,9 +8,7 @@
   "scripts": {
     "start": "wp-scripts start",
     "build": "wp-scripts build",
-	"wp-env:start": "wp-env start --debug",
-	"wp-env:update": "wp-env start -- --update",
-	"wp-env:setModulr": "wp-env run cli \"wp theme activate modul-r\"",
+	"wp-env:start": "wp-env start && wp-env run cli \"wp theme activate modul-r\"",
 	"wp-env:stop": "wp-env stop",
 	"wp-env:destroy": "wp-env destroy",
     "packages-update": "wp-scripts packages-update",
