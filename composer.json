@@ -9,7 +9,7 @@
   ],
   "require": {
 	"php": ">=7.1",
-	"erikyo/webfont-loader": "*"
+	"erikyo/webfont-loader": "1.1.3"
   },
   "require-dev": {
 	"friendsofphp/php-cs-fixer": "3.*",
@@ -35,7 +35,6 @@
 	  "email": "erik@codekraft.it"
 	}
   ],
-  "minimum-stability": "stable",
   "optimize-autoloader": true,
   "config": {
 	"allow-plugins": {
