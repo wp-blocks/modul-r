@@ -88,6 +88,9 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		// Enqueue editor styles and fonts.
 		add_editor_style( get_template_directory() . '/build/editor.css' );
 
+		// Make theme available for translation.
+		load_theme_textdomain( 'block-canvas' );
+
 		// Add support for Block Styles.
 		add_theme_support( 'wp-block-styles' );
 
