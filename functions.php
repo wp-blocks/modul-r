@@ -13,7 +13,7 @@ if (!isset($modul_r_defaults)) {
 			'gray-light'  => '#e3e3e3',
 			'gray'        => '#888888',
 			'gray-dark'   => '#4e4e4e',
-			'black'       => '#222222',
+			'black'       => '#28293E',
 		),
 		'style'                => array(
 			'background'          => 'white-smoke',
@@ -30,13 +30,13 @@ if (!isset($modul_r_defaults)) {
 			'color_variance'      => 0.3,
 			'weights'             => array( 100, 200, 300, 400, 500, 600, 700, 800, 900 ),
 			'font_family_default' => array(
-				array( 'name' => 'bold', 'default' => 600, 'input' => 'select', 'select_type' => 'weights' ),
+				array( 'name' => 'light', 'default' => 300, 'input' => 'select', 'select_type' => 'weights' ),
 				array( 'name' => 'regular', 'default' => 400, 'input' => 'select', 'select_type' => 'weights' ),
-				array( 'name' => 'light', 'default' => 300, 'input' => 'select', 'select_type' => 'weights' )
+				array( 'name' => 'bold', 'default' => 600, 'input' => 'select', 'select_type' => 'weights' ),
 			),
 			'font_family_title'   => array(
-				array( 'name' => 'bold', 'default' => 800, 'input' => 'select', 'select_type' => 'weights' ),
 				array( 'name' => 'regular', 'default' => 500, 'input' => 'select', 'select_type' => 'weights' ),
+				array( 'name' => 'bold', 'default' => 800, 'input' => 'select', 'select_type' => 'weights' ),
 			)
 		)
 	);
