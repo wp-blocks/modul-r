@@ -13,6 +13,7 @@ const writeFile = promisify(fs.writeFile);
 const srcdir = './src/img';
 const distdir = './img';
 
+// Using imagemin to compress jpeg and png images to avif.
 imagemin([srcdir + '/**/*.{jpg,jpeg,png}'], {
 	plugins: [
 		imageminAvif({quality: 50})
@@ -27,6 +28,7 @@ imagemin([srcdir + '/**/*.{jpg,jpeg,png}'], {
 	})
 );
 
+// Using imagemin to minify jpeg and svg images. 
 imagemin([srcdir + '/**/*.{jpg,jpeg,svg}'], {
 	plugins: [
 		imageminSvgo({

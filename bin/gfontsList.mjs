@@ -5,16 +5,20 @@ const destination = './inc/third-party/fonts.json'
 
 
 /**
- * get the value of a node argument
+ * Get the value of a node argument
+ * 
  * @param {number} argNumber
  * @param {string} argString
+ * 
  */
 const getArgs = (argNumber, argString) => {
 	return process.argv[argNumber].replace(argString, '');
 }
 
 /**
- * Api args
+ * It's setting the api key and the sort order.
+ * 
+ * Api args available for the sort arg
  * sorting could be
  * alpha: Sort the list alphabetically
  * date: Sort the list by date added (most recent font added or updated first)
@@ -30,12 +34,17 @@ const apiParams = {
 }
 
 /**
+ * Checking if the value is a number.
+ * 
  * @param {string} value
  */
 function isNumeric(value) {
 	return /^-?\d+$/.test(value);
 }
 
+/**
+ * Converting the weight to a number.
+ */
 function getVariants(weights) {
 	let newWeights = [];
 	weights.forEach((weight) => {
@@ -48,6 +57,11 @@ function getVariants(weights) {
 	return newWeights
 }
 
+/** 
+ * Fetching the data from the Google Fonts API and then writing it to a file.
+ * 
+ * @param {Object} params
+ */
 async function getFontSet(params) {
 	let fonts = [];
 	/* build the query url */
