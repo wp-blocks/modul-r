@@ -10,7 +10,6 @@ let parsedFonts: FontDef[] = [];
 
 const selectNamePrefix = '_customize-input-modul_r_';
 
-/* those are helpers to build the id of the select */
 const fontFamilySelect: { name: string; child: string[] }[] = [
 	{
 		name: 'typography_font_family_title',
@@ -26,8 +25,15 @@ const fontFamilySelect: { name: string; child: string[] }[] = [
 	},
 ];
 
+/**
+ * It takes a select element and an array of strings, and replaces the select element's options with
+ * the strings
+ *
+ * @param {Element | null} select     - Element | null - The select element to replace the options of.
+ * @param {string | any[]} newOptions - This is the new options you want to replace the old ones with.
+ */
 function replaceSelectOptions(
-	select: Element | null,
+	select: HTMLSelectElement | null,
 	newOptions: string | any[]
 ) {
 	while ( select.options.length > 0 ) {
@@ -41,6 +47,8 @@ function replaceSelectOptions(
 window.onload = () => {
 	console.log( 'admin ready' );
 
+	/* Checking if the parsedFonts is already available in the window object. If it is, it will use that.
+	If it is not, it will parse the fonts and store it in the window object. */
 	if ( window?.modulr?.parsedFonts ) {
 		parsedFonts = window.modulr.parsedFonts;
 	} else {
@@ -53,6 +61,8 @@ window.onload = () => {
 		console.log( 'Available fonts', parsedFonts );
 	}
 
+	/* The above code is used to populate the font weight select options based
+	on the font family selected. */
 	fontFamilySelect.forEach( ( select: { name: string; child: string[] } ) => {
 		document
 			.querySelector( '#' + selectNamePrefix + select.name )
@@ -69,10 +79,15 @@ window.onload = () => {
 					''
 				);
 
+				// Finding the font weight select element that is associated with the font family select element.
 				const choosenSubset = fontFamilySelect.find(
 					( fontType ) => fontType.name === fontDefaultseightsSelect
 				);
 
+				/**
+				 * Looping through the font weight select elements and replacing the options with the available font
+				 * weights for the selected font family.
+				 */
 				choosenSubset.child.forEach( ( fontWeight, index ) => {
 					const fontWeightSelect = document.querySelector(
 						'#' + selectNamePrefix + fontWeight
