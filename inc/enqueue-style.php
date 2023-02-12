@@ -44,21 +44,21 @@ if ( ! function_exists( 'modul_r_admin_style' ) ) :
 endif;
 
 /**
- * If the font is set in the customizer, return the font, otherwise return Monserrat.
- * 
+ * If the font is set in the customizer, return the font, otherwise return Montserrat.
+ *
  * @param string $font The name of the font you want to get.
- * 
+ *
  * @return string The value of the theme mod.
  */
 function modul_r_get_font_family($font) {
-	return !empty( get_theme_mod( $font ) ) ? get_theme_mod( $font ) : 'Monserrat';
+	return !empty( get_theme_mod( $font ) ) ? get_theme_mod( $font ) : 'Montserrat';
 }
 
 /**
  * It replaces spaces with plus signs.
- * 
+ *
  * @param string $font_name The name of the font you want to use.
- * 
+ *
  * @return string The font name with spaces replaced by + signs.
  */
 function modul_r_get_font_slug($font_name) {

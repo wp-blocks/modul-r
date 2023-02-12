@@ -2,10 +2,10 @@
 
 /**
  * It converts a hexadecimal color value to an RGB value
- * 
+ *
  * @param $hex_color The hexadecimal color value to convert.
  * @param bool $decimal If set to true, the function will return the RGB values as a decimal number.
- * 
+ *
  * @return the color in RGB format.
  */
 function modul_r_hex2rgb( $hex_color, $decimal = false ) {
@@ -71,7 +71,7 @@ function modul_r_get_theme_color( $theme_mod_color, $default_color = "#FF0000" )
 
 /**
  * It reads the fonts.json file, and returns an array of font names
- * 
+ *
  * @return An array of font names.
  */
 function modul_r_get_available_fonts() {
@@ -86,7 +86,7 @@ function modul_r_get_available_fonts() {
 
 /**
  * It adds a select field to the customizer
- * 
+ *
  * @param $label The label for the font family.
  * @param $group The group name for the font preset.
  * @param $wp_customize The  object.
@@ -234,7 +234,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 			$fontsets = modul_r_get_available_fonts();
 
 			// Ensure $selected options is an absolute integer then return the selected option
-			return ( $fontsets[ $selected ] ) ? $selected : 'Monserrat';
+			return ( $fontsets[ $selected ] ) ? $selected : 'Montserrat';
 		}
 
 	}
@@ -333,7 +333,7 @@ add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
 if ( ! function_exists( 'modul_r_css_props' ) ) :
 	/**
 	 * It adds the CSS variables to the admin and front end
-	 * 
+	 *
 	 * @return the value of the variable .
 	 */
 	function modul_r_css_props() {
