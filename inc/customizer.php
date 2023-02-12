@@ -1,12 +1,12 @@
 <?php
 
 /**
- * get the rgb color from hex
- *
- * @param $hex_color
- * @param bool $decimal
- *
- * @return false|mixed|string
+ * It converts a hexadecimal color value to an RGB value
+ * 
+ * @param $hex_color The hexadecimal color value to convert.
+ * @param bool $decimal If set to true, the function will return the RGB values as a decimal number.
+ * 
+ * @return the color in RGB format.
  */
 function modul_r_hex2rgb( $hex_color, $decimal = false ) {
 
@@ -69,6 +69,11 @@ function modul_r_get_theme_color( $theme_mod_color, $default_color = "#FF0000" )
 	return get_theme_mod( $theme_mod_color ) !== false ? sanitize_hex_color( get_theme_mod( $theme_mod_color ) ) : sanitize_hex_color( $default_color );
 }
 
+/**
+ * It reads the fonts.json file, and returns an array of font names
+ * 
+ * @return An array of font names.
+ */
 function modul_r_get_available_fonts() {
 	$font_json = file_get_contents( get_template_directory() . '/inc/third-party/fonts.json' );
 	$font_set  = array();
@@ -79,6 +84,13 @@ function modul_r_get_available_fonts() {
 	return $font_set;
 }
 
+/**
+ * It adds a select field to the customizer
+ * 
+ * @param $label The label for the font family.
+ * @param $group The group name for the font preset.
+ * @param $wp_customize The  object.
+ */
 function modul_r_add_font_preset( $label, $group, $wp_customize ) {
 	$data_title = $GLOBALS['modul_r_defaults']['customizer_options'][ 'font_family_' . $label ];
 	foreach ( $data_title as $setting ) {
@@ -230,12 +242,16 @@ endif;
 add_action( 'customize_register', 'modul_r_customizer_opt' );
 
 if ( ! function_exists( 'modul_r_theme_colors_setup' ) ) :
+	/**
+	 * It adds the custom colors to the editor palette
+	 */
 	function modul_r_theme_colors_setup() {
 
 		// Get the custom colors.
 		$primary_color   = sanitize_hex_color( get_theme_mod( 'primary-color' ) );
 		$secondary_color = sanitize_hex_color( get_theme_mod( 'secondary-color' ) );
 
+		/* Checking if the global variable  is empty. If it is empty, it returns otherwise store the global into a variable. */
 		if ( empty( $GLOBALS['modul_r_defaults'] ) ) {
 			return;
 		}
@@ -315,6 +331,11 @@ add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
 
 
 if ( ! function_exists( 'modul_r_css_props' ) ) :
+	/**
+	 * It adds the CSS variables to the admin and front end
+	 * 
+	 * @return the value of the variable .
+	 */
 	function modul_r_css_props() {
 
 		$defaults = $GLOBALS['modul_r_defaults'];
@@ -381,13 +402,12 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 						 $wp_theme_json_prefix."primary--decimal: " . modul_r_hex2rgb( $colors['primary'], true ) . ";" .
 						 "}";
 
+		/* Adding the CSS to the admin and front end. */
 		if ( is_admin() ) {
 			wp_add_inline_style( 'modul-r-admin', ':root .editor-styles-wrapper' . $custom_props . $atf_css );
 		} else {
 			echo "<style id='modul-r-style-css'>body" . $custom_props . $atf_css . "</style>";
 		}
-	}
-
-	;
+	};
 endif;
 add_action( 'enqueue_block_assets', 'modul_r_css_props', 2 );

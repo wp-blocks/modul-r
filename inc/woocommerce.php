@@ -10,6 +10,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 		}
 	endif;
 
+	/**
+	 * It adds WooCommerce support to the theme, and sets the default image sizes for the single product
+	 * image and the product thumbnails.
+	 */
 	function modul_r_add_woocommerce_support() {
 		add_theme_support( 'woocommerce',
 			apply_filters(
@@ -29,6 +33,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 	}
 	add_action( 'after_setup_theme', 'modul_r_add_woocommerce_support' );
 
+	/* Adding support for the WooCommerce product gallery features. */
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );

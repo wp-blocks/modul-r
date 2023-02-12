@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Scripts
+ * Main template scripts
  */
 if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 	function modul_r_theme_scripts() {
@@ -56,6 +56,9 @@ if ( is_singular() ) {
 	wp_enqueue_script( 'comment-reply' );
 }
 
+/**
+ * It enqueues a script that is used to add a customizer control to the theme customizer
+ */
 function modul_r_theme_customize_style() {
 	$font_json = file_get_contents( get_template_directory() . '/inc/third-party/fonts.json' );
 	wp_enqueue_script('modul-r-customizer-script', get_template_directory_uri() . "/build/modulr-script-admin.js");

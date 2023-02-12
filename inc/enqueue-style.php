@@ -43,10 +43,24 @@ if ( ! function_exists( 'modul_r_admin_style' ) ) :
 	}
 endif;
 
+/**
+ * If the font is set in the customizer, return the font, otherwise return Monserrat.
+ * 
+ * @param string $font The name of the font you want to get.
+ * 
+ * @return string The value of the theme mod.
+ */
 function modul_r_get_font_family($font) {
 	return !empty( get_theme_mod( $font ) ) ? get_theme_mod( $font ) : 'Monserrat';
 }
 
+/**
+ * It replaces spaces with plus signs.
+ * 
+ * @param string $font_name The name of the font you want to use.
+ * 
+ * @return string The font name with spaces replaced by + signs.
+ */
 function modul_r_get_font_slug($font_name) {
 	return str_replace( " ", "+", $font_name );
 }
@@ -75,10 +89,10 @@ function modul_r_get_fonts() {
 	return $fonts;
 }
 
-/**
- * Load fonts
- */
 if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
+	/**
+	 * Load fonts
+	 */
 	function modul_r_theme_fonts() {
 
 		$fonts = modul_r_get_fonts();
@@ -105,7 +119,15 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	}
 endif;
 
+
+/**
+ * Enqueue the registered styles
+ */
 function modul_r_handleStyles() {
+	/**
+	 * If the block editor is active, enqueue the stylesheet in the block editor, otherwise enqueue it in
+	 * the frontend.
+	 */
 	if (function_exists( 'get_current_screen' )) {
 		$isBlockEditor = get_current_screen()->is_block_editor();
 		if ( $isBlockEditor ) {

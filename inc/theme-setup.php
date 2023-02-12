@@ -77,6 +77,7 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		// Add support for responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
 
+		/* Https://developer.wordpress.org/block-editor/developers/themes/theme-support/#appearance-tools */
 		add_theme_support( 'appearance-tools' );
 		add_theme_support( 'custom-line-height' );
 	}
