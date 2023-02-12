@@ -20,7 +20,7 @@ imagemin([srcdir + '/**/*.{jpg,jpeg,png}'], {
 }).then( (files) =>
 	files.forEach(async (v) => {
 		let source = path.parse(v.sourcePath);
-		v.destinationPath = `${source.dir.replace(srcdir, distdir)}/${source.base}.webp`;
+		v.destinationPath = `${source.dir.replace(srcdir, distdir)}/${source.name}.avif`;
 		console.log(source.base +' -> ' + v.destinationPath);
 		await fsPromises.mkdir(path.dirname(v.destinationPath), { recursive: true });
 		await writeFile(v.destinationPath, v.data);
