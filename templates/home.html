@@ -1,37 +1,108 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
-<main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--70)">
-	<!-- wp:heading {"level":1,"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-	<h1 class="alignwide" style="margin-bottom:var(--wp--preset--spacing--60)">Mindblown: a blog about philosophy.</h1>
-	<!-- /wp:heading -->
+<!-- wp:cover {"useFeaturedImage":true,"overlayColor":"black","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"var:preset|spacing|60"}}}} -->
+<div class="wp-block-cover"
+	 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--60);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+	<span aria-hidden="true"
+		  class="wp-block-cover__background has-black-background-color has-background-dim-100 has-background-dim"></span>
+	<div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","right":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+			<div class="wp-block-group"
+				 style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--80)">
+				<!-- wp:site-title {"textAlign":"center","isLink":false,"style":{"typography":{"fontSize":"5rem"}},"textColor":"white"} /-->
 
-	<!-- wp:query {"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"displayLayout":{"type":"flex","columns":3},"align":"wide","layout":{"type":"constrained"}} -->
-	<div class="wp-block-query alignwide">
-		<!-- wp:post-template {"align":"wide"} -->
-			<!-- wp:post-featured-image {"isLink":true,"width":"100%","height":"max(15vw, 30vh)","align":"wide"} /-->
-			<!-- wp:post-title {"isLink":true} /-->
-			<!-- wp:post-excerpt /-->
-			<!-- wp:post-date {"isLink":true} /-->
+				<!-- wp:paragraph {"align":"center","textColor":"primary","fontSize":"medium"} -->
+				<p class="has-text-align-center has-primary-color has-text-color has-medium-font-size">Lorem ipsum dolor
+					sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.</p>
+				<!-- /wp:paragraph -->
 
-			<!-- wp:spacer {"height":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d40)"} -->
-			<div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>
-			<!-- /wp:spacer -->
+				<!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|60"}}} -->
+				<div class="wp-block-buttons"><!-- wp:button -->
+					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Button A</a></div>
+					<!-- /wp:button -->
+
+					<!-- wp:button {"textColor":"white","className":"is-style-outline"} -->
+					<div class="wp-block-button is-style-outline"><a
+							class="wp-block-button__link has-white-color has-text-color wp-element-button">Button B</a>
+					</div>
+					<!-- /wp:button --></div>
+				<!-- /wp:buttons --></div>
+			<!-- /wp:group --></div>
+		<!-- /wp:group -->
+
+	</div>
+</div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":[]},"layout":{"type":"default"}} -->
+<main class="wp-block-group"><!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:heading {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+		<h1 class="alignwide has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--60)"><strong>Simple
+			and Modul-R.</strong><br>This is w<strong>hy I will be your next WordPress theme</strong></h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph -->
+		<p>Modul R is a&nbsp;<strong>powerful&nbsp;</strong>and&nbsp;<strong>flexible&nbsp;</strong>template that
+			provides a fast and easy solution for building an awesome website.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:paragraph -->
+		<p>Modul-R has a ton of&nbsp;<strong>personalization options</strong>! With the&nbsp;<strong>customizer’s live
+			preview</strong>&nbsp;and&nbsp;<strong>CSS Custom Properties</strong>&nbsp;you can edit almost everything:
+			font family, text size, colours palette, header direction, logo and hero image size and much more!</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:paragraph -->
+		<p>Not enough? We got already set&nbsp;<strong>Gulp</strong>, a task runner, with all the actions you need to
+			rebuild this template.&nbsp;<a href="https://modul-r.codekraft.it/2019/06/environment-setup/">Modul-R loves
+				to be hacked!</a>&nbsp;You will find all the tools you need for the development out of the box! The
+			style is built with&nbsp;<strong>SASS</strong>, the scripts are in ES6 transpiled
+			with&nbsp;<strong>Babel</strong>, there are&nbsp;<strong>CSSNano&nbsp;</strong>and&nbsp;<strong>Autoprefixer&nbsp;</strong>already
+			configured for css and&nbsp;<strong>Uglify&nbsp;</strong>for javascript files. And also&nbsp;<strong>Imagemin</strong>,
+			which compresses images removing metadata and converts images into webp<strong>&nbsp;</strong>(yes, you got
+			it right, without using any wordpress plugin).</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:paragraph -->
+		<p>Modul-R also provides a seamless integration with Gutenberg and WooCommerce, giving you the&nbsp;<strong>opportunity
+			to build easily the website as you like</strong>, in the shortest time as possible.</p>
+		<!-- /wp:paragraph --></div>
+	<!-- /wp:group -->
+
+	<!-- wp:separator {"className":"is-style-wide"} -->
+	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/>
+	<!-- /wp:separator -->
+
+	<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"displayLayout":{"type":"flex","columns":3},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-query"><!-- wp:post-template -->
+		<!-- wp:post-featured-image {"isLink":true,"width":"100%","height":"max(15vw, 30vh)","align":"wide"} /-->
+
+		<!-- wp:post-title {"isLink":true} /-->
+
+		<!-- wp:post-excerpt /-->
+
+		<!-- wp:post-date {"isLink":true} /-->
+
+		<!-- wp:spacer {"height":"56px"} -->
+		<div style="height:56px" aria-hidden="true" class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
 		<!-- /wp:post-template -->
 
-		<!-- wp:query-pagination {"paginationArrow":"arrow","align":"wide","layout":{"type":"flex","justifyContent":"space-between"}} -->
-			<!-- wp:query-pagination-previous {"label":"Newer Posts"} /-->
-			<!-- wp:query-pagination-next {"label":"Older Posts"} /-->
-		<!-- /wp:query-pagination -->
-	</div>
+		<!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"space-between"}} -->
+		<!-- wp:query-pagination-previous {"label":"Newer Posts"} /-->
+
+		<!-- wp:query-pagination-next {"label":"Older Posts"} /-->
+		<!-- /wp:query-pagination --></div>
 	<!-- /wp:query -->
 
-	<!-- wp:spacer {"height":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d60)"} -->
-	<div style="height:var(--wp--preset--spacing--60)" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- wp:spacer {"height":"56px"} -->
+	<div style="height:56px" aria-hidden="true" class="wp-block-spacer"></div>
 	<!-- /wp:spacer -->
 
-	<!-- wp:pattern {"slug":"twentytwentythree/cta"} /-->
-</main>
+	<!-- wp:pattern {"slug":"twentytwentythree/cta"} /--></main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
