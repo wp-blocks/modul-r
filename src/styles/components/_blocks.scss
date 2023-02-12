@@ -85,29 +85,12 @@
   //! Separator
   .wp-block-separator,
   hr {
-    max-width: 2.25em;
-    text-align: left;
-
     &.is-style-wide {
+	  text-align: left;
       margin-left: 0;
       margin-right: 0;
       width: 100%;
       max-width: 100%;
-    }
-
-    &.is-style-dots {
-      max-width: 100%;
-      background-color: inherit;
-      border: inherit;
-      height: inherit;
-      text-align: center;
-
-      &:before {
-        color: var(--wp--preset--color--primary);
-        font-size: 64px;
-        letter-spacing: 24px;
-        padding-left: 24px;
-      }
     }
   }
 
