@@ -63,7 +63,12 @@ if ( function_exists( 'register_block_style' ) ) {
 	register_block_style('core/columns', [
 		'name' => 'columns-overlap',
 		'label' => __('Shifts columns 100 px upwards in large monitors ', 'modul-r'),
-		'inline_style' => '.wp-block-columns.is-style-columns-overlap { margin-top: -100px; }'
+		'inline_style' => '.wp-block-columns.is-style-columns-overlap {
+			margin-top: -100px;
+			margin-bottom: 30px;
+		    z-index: 2;
+		    position: relative;
+		}'
 	]);
 
     register_block_style('core/cover', [
