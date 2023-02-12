@@ -26,7 +26,8 @@
   },
   "autoload": {
 	"psr-4": {
-	  "Codekraft\\ModulR\\": "inc/"
+	  "ModulR\\Inc\\": "inc/",
+	  "ModulR\\Patterns\\": "patterns/"
 	}
   },
   "authors": [

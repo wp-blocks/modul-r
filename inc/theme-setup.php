@@ -83,3 +83,16 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 	}
 endif;
 add_action( 'after_setup_theme', 'modul_r_theme_setup' );
+
+
+if ( ! function_exists('modul_r_comments') ) :
+	/**
+	 * Displays the comments template
+	 *
+	 * @return void
+	 */
+	function modul_r_comments() {
+		// If comments are open, or we have at least one comment, load up the comment template.
+		comments_template();
+	}
+endif;

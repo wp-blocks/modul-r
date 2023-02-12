@@ -1,4 +1,16 @@
 <?php
+/**
+ * Modul-r patterns
+ *
+ * @package   ModulR
+ * @author    Erik Golinelli <erik@codekraft.it>
+ * @copyright 2023 Erik
+ * @license   GPL 2.0+
+ * @link      https://modul-r.codekraft.it/
+ */
+
+namespace Modulr\Inc\Patterns;
+
 /* Registering a block pattern category. */
 if ( function_exists( 'register_block_pattern_category' ) ) {
 
