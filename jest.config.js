@@ -17,6 +17,9 @@ const jestConfig = {
 			displayName: 'e2e',
 			preset: 'jest-puppeteer',
 			testMatch: [ '<rootDir>/tests/e2e/**/*.test.ts' ],
+			globals: {
+				HOMEPAGE: 'http://localhost:8889',
+			},
 		},
 	],
 };

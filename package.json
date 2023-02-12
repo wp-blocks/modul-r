@@ -30,7 +30,7 @@
     "packages-update": "wp-scripts packages-update",
     "generate-font-list": "node ./bin/gfontsList.mjs -sort=popularity",
     "optimize-images": "node ./bin/imagemin.mjs",
-	"test": "jest --silent=false --coverage",
+	"test": "wp-env start && wp-env run tests-cli \"wp theme activate modul-r\" && jest --silent=false --coverage",
 	"install": "composer install && npm run build"
   },
   "devDependencies": {

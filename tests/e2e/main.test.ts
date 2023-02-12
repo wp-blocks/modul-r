@@ -18,16 +18,16 @@ describe( 'It works!', () => {
 		);
 		expect( nodes.length ).not.toEqual( 0 );
 	}, 60000 );
+} );
+
+describe( 'It works!', () => {
+	beforeAll( async () => {
+		await page.goto( HOMEPAGE );
+	} );
 
 	it( 'Should load properly front-facing website', async () => {
-		// Navigate the admin and performs tasks
-		await page.goto( 'http://localhost:8002' );
-
 		// Assertions
-		const nodes = await page.$x(
-			'//h1[contains(text(), "Mindblown: a blog about philosophy!")]'
-		);
-
-		expect( nodes.length ).not.toEqual( 0 );
+		const title = await page.title();
+		expect( title ).toEqual( 'modul-r' );
 	}, 60000 );
 } );
