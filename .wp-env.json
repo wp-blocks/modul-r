@@ -6,5 +6,6 @@
 	"SCRIPT_DEBUG": true,
 	"FS_METHOD": "direct",
 	"WP_DEFAULT_THEME": "modul-r"
-  }
+  },
+  "testsPort": 8002
 }

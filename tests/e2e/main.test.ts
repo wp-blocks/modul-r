@@ -21,8 +21,7 @@ describe( 'It works!', () => {
 
 	it( 'Should load properly front-facing website', async () => {
 		// Navigate the admin and performs tasks
-		// Use Puppeteer APIs to interacte with mouse, keyboard...
-		await page.goto( '/' );
+		await page.goto( 'http://localhost:8002' );
 
 		// Assertions
 		const nodes = await page.$x(
