@@ -23,7 +23,8 @@
   ],
   "scripts": {
     "start": "wp-scripts start",
-    "build": "wp-scripts build",
+    "build:scripts": "wp-scripts build",
+	"build:zip": "wp-scripts plugin-zip --pack-destination=releases",
 	"wp-env:start": "wp-env start && wp-env run cli \"wp theme activate modul-r\"",
 	"wp-env:stop": "wp-env stop",
 	"wp-env:destroy": "wp-env destroy",
@@ -31,7 +32,9 @@
     "generate-font-list": "node ./bin/gfontsList.mjs -sort=popularity",
     "optimize-images": "node ./bin/imagemin.mjs",
 	"test": "wp-env start && wp-env run tests-cli \"wp theme activate modul-r\" && jest --silent=false --coverage",
-	"install": "composer install && npm run build"
+	"makepot": "wp i18n make-pot . languages/modulr.pot --exclude=node_modules",
+	"install": "composer install && npm run build",
+	"release": "composer install --no-dev && npm run makepot && npm run optimize-images && npm run build:scripts && npm run build:zip"
   },
   "devDependencies": {
 	"@babel/core": "^7.20.5",
