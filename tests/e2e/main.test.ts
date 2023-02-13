@@ -3,13 +3,12 @@
  */
 // Load utilities from the e2e-test-utils package.
 import { visitAdminPage } from '@wordpress/e2e-test-utils';
-import 'expect-puppeteer';
 
 // Name of the test suite.
-describe( 'It works!', () => {
+describe( 'Admin works!', () => {
 	it( 'Should load properly admin', async () => {
 		// Navigate the admin and performs tasks
-		// Use Puppeteer APIs to interacte with mouse, keyboard...
+		// Use Puppeteer APIs to interact with mouse, keyboard...
 		await visitAdminPage( '/' );
 
 		// Assertions
@@ -17,17 +16,17 @@ describe( 'It works!', () => {
 			'//h2[contains(text(), "Welcome to WordPress!")]'
 		);
 		expect( nodes.length ).not.toEqual( 0 );
-	}, 60000 );
+	}, 10000 );
 } );
 
-describe( 'It works!', () => {
+describe( 'Frontend works!', () => {
 	beforeAll( async () => {
-		await page.goto( HOMEPAGE );
+		await page.goto( 'http://localhost:8889/' );
 	} );
 
 	it( 'Should load properly front-facing website', async () => {
 		// Assertions
-		const title = await page.title();
-		expect( title ).toEqual( 'modul-r' );
-	}, 60000 );
+		const nodes = await page.$x( '//h1[contains(text(), "modul-r")]' );
+		expect( nodes.length ).not.toEqual( 0 );
+	}, 10000 );
 } );
