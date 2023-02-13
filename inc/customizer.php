@@ -65,7 +65,7 @@ function modul_r_adjustBrightness( $hexCode, $adjustPercent ) {
  *
  * @return string|void
  */
-function modul_r_get_theme_color( $theme_mod_color, $default_color = "#FF0000" ) {
+function modul_r_get_theme_color( $theme_mod_color, $default_color = '#FF0000' ) {
 	return get_theme_mod( $theme_mod_color ) !== false ? sanitize_hex_color( get_theme_mod( $theme_mod_color ) ) : sanitize_hex_color( $default_color );
 }
 
@@ -100,18 +100,24 @@ function modul_r_add_font_preset( $label, $group, $wp_customize ) {
 
 		if ( ! empty( $field_values ) ) {
 			// Font Family - title
-			$wp_customize->add_setting( 'modul_r_defaults_' . $label . '_' . $setting['name'], array(
+			$wp_customize->add_setting(
+				'modul_r_defaults_' . $label . '_' . $setting['name'],
+				array(
 					'capability'        => 'edit_theme_options',
 					'default'           => $setting['default'],
 					'sanitize_callback' => 'modul_r_sanitize_select',
-			) );
+				) 
+			);
 
-			$wp_customize->add_control( 'modul_r_defaults_' . $label . '_' . $setting['name'], array(
+			$wp_customize->add_control(
+				'modul_r_defaults_' . $label . '_' . $setting['name'],
+				array(
 					'type'        => 'select',
 					'choices'     => $field_values,
 					'section'     => 'modul_r_' . $group,
 					'description' => esc_html__( 'Select', 'modul-r' ) . ' ' . $label . ' ' . $setting['name'],
-			) );
+				) 
+			);
 		}
 	}
 }
@@ -129,17 +135,33 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 
 		$font_set = modul_r_get_available_fonts();
 
-		// Creates custom title and description for theme customizer controls
+		// Creates custom title and description for theme customizer controls.
 		class modul_r_custom_text_control extends WP_Customize_Control {
+			/**
+			 * @var string
+			 */
 			public $type = 'customtext';
+			/**
+			 * @var string
+			 */
 			public $extra = '';
+			/**
+			 * @var string
+			 */
 			public $add_class = '';
 
+			/**
+			 * @return void
+			 */
 			public function render_content() {
 				?>
-				<label <?php if ( $this->add_class != '' ) {
+				<label 
+				<?php 
+				if ( $this->add_class != '' ) {
 					echo 'class="' . $this->add_class . '"';
-				} ?>>
+				} 
+				?>
+				>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 					<span><?php echo esc_html( $this->extra ); ?></span>
 				</label>
@@ -147,93 +169,129 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 			}
 		}
 
-		// Template color scheme
+		// Template color scheme.
 
-		// Primary color
-		$wp_customize->add_setting( 'primary-color', array(
+		// Primary color.
+		$wp_customize->add_setting(
+			'primary-color',
+			array(
 				'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors']['primary'] ),
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary-color', array(
-				'section' => 'colors',
-				'label'   => esc_html__( 'Primary Color', 'modul-r' ),
-		) ) );
+			) 
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'primary-color',
+				array(
+					'section' => 'colors',
+					'label'   => esc_html__( 'Primary Color', 'modul-r' ),
+				) 
+			) 
+		);
 
 
-		// Secondary color
-		$wp_customize->add_setting( 'secondary-color', array(
+		// Secondary color.
+		$wp_customize->add_setting(
+			'secondary-color',
+			array(
 				'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors']['secondary'] ),
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary-color', array(
-				'section' => 'colors',
-				'label'   => esc_html__( 'Secondary Color', 'modul-r' ),
-		) ) );
+			) 
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'secondary-color',
+				array(
+					'section' => 'colors',
+					'label'   => esc_html__( 'Secondary Color', 'modul-r' ),
+				) 
+			) 
+		);
 
-		// Modul-R custom options
-		$wp_customize->add_panel( 'modul_r_theme_options', array(
-				'title' => esc_html__( 'Modul-R Options', 'modul-r' )
-		) );
+		// Modul-R custom options.
+		$wp_customize->add_panel(
+			'modul_r_theme_options',
+			array(
+				'title' => esc_html__( 'Modul-R Options', 'modul-r' ),
+			) 
+		);
 
-		// Typography Section
-		$wp_customize->add_section( 'modul_r_typography_options', array(
+		// Typography Section.
+		$wp_customize->add_section(
+			'modul_r_typography_options',
+			array(
 				'title'    => esc_html__( 'Typography', 'modul-r' ),
 				'priority' => 50,
-				'panel'    => 'modul_r_theme_options'
-		) );
+				'panel'    => 'modul_r_theme_options',
+			) 
+		);
 
-		// Font Family - title
-		$wp_customize->add_setting( 'modul_r_typography_font_family_title', array(
+		// Font Family - title.
+		$wp_customize->add_setting(
+			'modul_r_typography_font_family_title',
+			array(
 				'capability'        => 'edit_theme_options',
 				'default'           => 0,
 				'sanitize_callback' => 'modul_r_sanitize_select_font',
-		) );
+			) 
+		);
 
-		$wp_customize->add_control( 'modul_r_typography_font_family_title', array(
+		$wp_customize->add_control(
+			'modul_r_typography_font_family_title',
+			array(
 				'type'        => 'select',
 				'choices'     => $font_set,
 				'section'     => 'modul_r_typography_options',
 				'description' => esc_html__( 'Select the font family for the titles', 'modul-r' ),
-		) );
-
-		modul_r_add_font_preset(
-				'title',
-				'typography_options',
-				$wp_customize
+			) 
 		);
 
-		// Font Family - text
-		$wp_customize->add_setting( 'modul_r_typography_font_family_default', array(
+		modul_r_add_font_preset(
+			'title',
+			'typography_options',
+			$wp_customize
+		);
+
+		// Font Family - text.
+		$wp_customize->add_setting(
+			'modul_r_typography_font_family_default',
+			array(
 				'capability'        => 'edit_theme_options',
 				'default'           => 0,
 				'sanitize_callback' => 'modul_r_sanitize_select_font',
-		) );
+			) 
+		);
 
-		$wp_customize->add_control( 'modul_r_typography_font_family_default', array(
+		$wp_customize->add_control(
+			'modul_r_typography_font_family_default',
+			array(
 				'type'        => 'select',
 				'choices'     => $font_set,
 				'section'     => 'modul_r_typography_options',
 				'description' => esc_html__( 'Select the default font family', 'modul-r' ),
-		) );
+			) 
+		);
 
-		// add the font weight select
+		// add the font weight select.
 		modul_r_add_font_preset(
-				'default',
-				'typography_options',
-				$wp_customize
+			'default',
+			'typography_options',
+			$wp_customize
 		);
 
 		function modul_r_sanitize_select( $selected, $setting ) {
-			// Ensure $selected options is an absolute integer then return the selected option
+			// Ensure $selected options is an absolute integer then return the selected option.
 			return absint( $selected );
 		}
 
 		function modul_r_sanitize_select_font( $selected, $setting ) {
 			$fontsets = modul_r_get_available_fonts();
 
-			// Ensure $selected options is an absolute integer then return the selected option
+			// Ensure $selected options is an absolute integer then return the selected option.
 			return ( $fontsets[ $selected ] ) ? $selected : 'Montserrat';
 		}
 
@@ -263,68 +321,71 @@ if ( ! function_exists( 'modul_r_theme_colors_setup' ) ) :
 
 		$variance = floatval( $modul_r_defaults['customizer_options']['color_variance'] );
 
-		add_theme_support( 'editor-color-palette', array(
+		add_theme_support(
+			'editor-color-palette',
+			array(
 				array(
-						'name'  => __( 'Theme primary color', 'modul-r' ),
-						'slug'  => 'primary',
-						'color' => $primary_color,
+					'name'  => __( 'Theme primary color', 'modul-r' ),
+					'slug'  => 'primary',
+					'color' => $primary_color,
 				),
 				array(
-						'name'  => __( 'Theme primary color light', 'modul-r' ),
-						'slug'  => 'primary-light',
-						'color' => modul_r_adjustBrightness( $primary_color, $variance ),
+					'name'  => __( 'Theme primary color light', 'modul-r' ),
+					'slug'  => 'primary-light',
+					'color' => modul_r_adjustBrightness( $primary_color, $variance ),
 				),
 				array(
-						'name'  => __( 'Theme primary color dark', 'modul-r' ),
-						'slug'  => 'primary-dark',
-						'color' => modul_r_adjustBrightness( $primary_color, - $variance ),
+					'name'  => __( 'Theme primary color dark', 'modul-r' ),
+					'slug'  => 'primary-dark',
+					'color' => modul_r_adjustBrightness( $primary_color, - $variance ),
 				),
 				array(
-						'name'  => __( 'Theme secondary color', 'modul-r' ),
-						'slug'  => 'secondary',
-						'color' => $secondary_color,
+					'name'  => __( 'Theme secondary color', 'modul-r' ),
+					'slug'  => 'secondary',
+					'color' => $secondary_color,
 				),
 				array(
-						'name'  => __( 'Theme secondary color light', 'modul-r' ),
-						'slug'  => 'secondary-light',
-						'color' => modul_r_adjustBrightness( $secondary_color, $variance ),
+					'name'  => __( 'Theme secondary color light', 'modul-r' ),
+					'slug'  => 'secondary-light',
+					'color' => modul_r_adjustBrightness( $secondary_color, $variance ),
 				),
 				array(
-						'name'  => __( 'Theme secondary color dark', 'modul-r' ),
-						'slug'  => 'secondary-dark',
-						'color' => modul_r_adjustBrightness( $secondary_color, - $variance ),
+					'name'  => __( 'Theme secondary color dark', 'modul-r' ),
+					'slug'  => 'secondary-dark',
+					'color' => modul_r_adjustBrightness( $secondary_color, - $variance ),
 				),
 				array(
-						'name'  => __( 'White', 'modul-r' ),
-						'slug'  => 'white',
-						'color' => sanitize_hex_color( $modul_r_defaults['shades']['white'] ),
+					'name'  => __( 'White', 'modul-r' ),
+					'slug'  => 'white',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['white'] ),
 				),
 				array(
-						'name'  => __( 'White Smoke', 'modul-r' ),
-						'slug'  => 'white-smoke',
-						'color' => sanitize_hex_color( $modul_r_defaults['shades']['white-smoke'] ),
+					'name'  => __( 'White Smoke', 'modul-r' ),
+					'slug'  => 'white-smoke',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['white-smoke'] ),
 				),
 				array(
-						'name'  => __( 'Light gray', 'modul-r' ),
-						'slug'  => 'gray-light',
-						'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray-light'] ),
+					'name'  => __( 'Light gray', 'modul-r' ),
+					'slug'  => 'gray-light',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray-light'] ),
 				),
 				array(
-						'name'  => __( 'Gray', 'modul-r' ),
-						'slug'  => 'gray',
-						'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray'] ),
+					'name'  => __( 'Gray', 'modul-r' ),
+					'slug'  => 'gray',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray'] ),
 				),
 				array(
-						'name'  => __( 'Dark gray', 'modul-r' ),
-						'slug'  => 'gray-dark',
-						'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray-dark'] ),
+					'name'  => __( 'Dark gray', 'modul-r' ),
+					'slug'  => 'gray-dark',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray-dark'] ),
 				),
 				array(
-						'name'  => __( 'Black', 'modul-r' ),
-						'slug'  => 'black',
-						'color' => sanitize_hex_color( $modul_r_defaults['shades']['black'] ),
+					'name'  => __( 'Black', 'modul-r' ),
+					'slug'  => 'black',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['black'] ),
 				),
-		) );
+			) 
+		);
 	}
 endif;
 add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
@@ -340,7 +401,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 
 		$defaults = $GLOBALS['modul_r_defaults'];
 
-		// Colors
+		/* Colors */
 		$colors                    = array();
 		$variance                  = floatval( $defaults['customizer_options']['color_variance'] );
 		$colors['primary']         = modul_r_get_theme_color( 'primary-color', $defaults['colors']['primary'] );
@@ -349,7 +410,7 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 		$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $defaults['colors']['secondary'] );
 		$colors['secondary-light'] = modul_r_adjustBrightness( $colors['secondary'], $variance );
 		$colors['secondary-dark']  = modul_r_adjustBrightness( $colors['secondary'], - $variance );
-		// Shades
+		/* Shades */
 		$colors['white']       = sanitize_hex_color( $defaults['shades']['white'] );
 		$colors['white-smoke'] = sanitize_hex_color( $defaults['shades']['white-smoke'] );
 		$colors['gray-light']  = sanitize_hex_color( $defaults['shades']['gray-light'] );
@@ -357,39 +418,38 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 		$colors['gray-dark']   = sanitize_hex_color( $defaults['shades']['gray-dark'] );
 		$colors['black']       = sanitize_hex_color( $defaults['shades']['black'] );
 
-		// Typography
+		/* Typography */
 		$atf_css = '';
 
-		$custom_props = "{";
+		$custom_props = '';
 
 		$wp_theme_json_prefix = '--wp--preset--color--';
 
-		// The custom colors scheme generator
+		/* The custom colors scheme generator */
 		foreach ( $colors as $key => $color ) {
-			$custom_prop_color = "var(" . $wp_theme_json_prefix . $key . ")";
-			$atf_css           .= ' .has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color p{color:' . $custom_prop_color . '}';
-			$atf_css           .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
+			$custom_prop_color = 'var(' . $wp_theme_json_prefix . $key . ')';
+			$atf_css          .= ' .has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color p{color:' . $custom_prop_color . '}';
+			$atf_css          .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
 		}
 
-		// Typography
+		/* Typography */
 		foreach ( modul_r_get_fonts() as $type => $font ) {
 			$custom_props .= sprintf( "--typography--font--%s: '%s', sans-serif;", $type, $font['name'] );
 			foreach ( $font['weights'] as $label => $weight ) {
-				$custom_props .= sprintf( "--typography--font--%s--%s: %s;", $type, $label, $weight );
+				$custom_props .= sprintf( '--typography--font--%s--%s: %s;', $type, $label, $weight );
 			}
 		}
 
-		$custom_props .= $wp_theme_json_prefix."black--decimal: " . modul_r_hex2rgb( $colors['black'], true ) . ";" .
-						 $wp_theme_json_prefix."white--decimal: " . modul_r_hex2rgb( $colors['white'], true ) . ";" .
-						 $wp_theme_json_prefix."secondary--decimal: " . modul_r_hex2rgb( $colors['secondary'], true ) . ";" .
-						 $wp_theme_json_prefix."primary--decimal: " . modul_r_hex2rgb( $colors['primary'], true ) . ";" .
-						 "}";
+		$custom_props .= $wp_theme_json_prefix . 'black--decimal: ' . modul_r_hex2rgb( $colors['black'], true ) . ';' .
+						 $wp_theme_json_prefix . 'white--decimal: ' . modul_r_hex2rgb( $colors['white'], true ) . ';' .
+						 $wp_theme_json_prefix . 'secondary--decimal: ' . modul_r_hex2rgb( $colors['secondary'], true ) . ';' .
+						 $wp_theme_json_prefix . 'primary--decimal: ' . modul_r_hex2rgb( $colors['primary'], true ) . ';';
 
 		/* Adding the CSS to the admin and front end. */
 		if ( is_admin() ) {
 			wp_add_inline_style( 'modul-r-admin', ':root .editor-styles-wrapper' . $custom_props . $atf_css );
 		} else {
-			echo "<style id='modul-r-style-css'>body" . $custom_props . $atf_css . "</style>";
+			echo "<style id='modul-r-style-css'>body{" . $custom_props . $atf_css . '}</style>';
 		}
 	};
 endif;

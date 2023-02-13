@@ -7,7 +7,7 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 	function modul_r_theme_scripts() {
 
 		// Register and Enqueue
-		wp_enqueue_script( 'modul-r-scripts-main', get_template_directory_uri() . "/build/modulr-scripts.js", array(), false, true );
+		wp_enqueue_script( 'modul-r-scripts-main', get_template_directory_uri() . '/build/modulr-scripts.js', array(), false, true );
 
 	}
 endif;
@@ -61,7 +61,7 @@ if ( is_singular() ) {
  */
 function modul_r_theme_customize_style() {
 	$font_json = file_get_contents( get_template_directory() . '/inc/third-party/fonts.json' );
-	wp_enqueue_script('modul-r-customizer-script', get_template_directory_uri() . "/build/modulr-script-admin.js");
-	wp_localize_script('modul-r-customizer-script', 'modulrFonts', json_decode($font_json) );
+	wp_enqueue_script( 'modul-r-customizer-script', get_template_directory_uri() . '/build/modulr-script-admin.js' );
+	wp_localize_script( 'modul-r-customizer-script', 'modulrFonts', json_decode( $font_json ) );
 }
 add_action( 'customize_controls_enqueue_scripts', 'modul_r_theme_customize_style' );

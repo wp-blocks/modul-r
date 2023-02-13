@@ -8,7 +8,7 @@
 ?>
 <?php
 $column_number = 3;
-$template = '<!-- wp:column -->
+$template      = '<!-- wp:column -->
 	<div class="wp-block-column"><!-- wp:heading {"textAlign":"center","level":3,"textColor":"secondary"} --> <h3
 				class="has-text-align-center has-secondary-color has-text-color"><strong>
 				<strong>Title</strong></strong></h3> <!-- /wp:heading --> <!-- wp:paragraph {"align":"center"} --> <p
@@ -19,8 +19,9 @@ $template = '<!-- wp:column -->
 <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide"><!-- wp:columns -->
 	<div class="wp-block-columns">
-		<?php for($i = 1; $i <= $column_number; $i++)
-			echo $template;
+		<?php 
+		for ( $i = 1; $i <= $column_number; $i++ ) {
+			echo $template;}
 		?>
 	</div><!-- /wp:columns -->
 </div><!-- /wp:group -->

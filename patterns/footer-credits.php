@@ -18,12 +18,16 @@ if ( function_exists( 'the_privacy_policy_link' ) ) {
 <a href="<?php echo esc_url( __( '//codekraft.it', 'modul-r' ) ); ?>"><?php esc_html_e( 'made with &hearts; by codekraft-studio', 'modul-r' ); ?></a> -
 <?php
 // Website credits section (year - url)
-printf( "&copy; %s %s",
-		date_i18n( 'Y' ),
-		str_replace( array(
+printf(
+	'&copy; %s %s',
+	date_i18n( 'Y' ),
+	str_replace(
+		array(
 			'http://',
-			'https://'
-		), '', esc_url( home_url() )
+			'https://',
+		),
+		'',
+		esc_url( home_url() )
 	)
 );
 echo '</p><!-- /wp:paragraph -->';

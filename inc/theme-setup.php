@@ -13,7 +13,7 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		* hard-coded <title> tag in the document head, and expect WordPress to
 		* provide it for us.
 		*/
-		add_theme_support( "title-tag" );
+		add_theme_support( 'title-tag' );
 
 		/*
 		* Enable support for Post Thumbnails on posts and pages.
@@ -29,30 +29,38 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		add_theme_support( 'automatic-feed-links' );
 
 		// This theme uses wp_nav_menu() in Primary Navigation.
-		register_nav_menus( array(
-			'main-menu' => esc_html__( 'Primary', 'modul-r' )
-		) );
+		register_nav_menus(
+			array(
+				'main-menu' => esc_html__( 'Primary', 'modul-r' ),
+			) 
+		);
 
 		/*
 		* Switch default core markup for search form, comment form, and comments
 		* to output valid HTML5.
 		*/
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			) 
+		);
 
 		// Add support for core custom logo, header text color, website background.
-		add_theme_support( 'custom-logo', array(
-			'height'      => 100,
-			'width'       => 300,
-			'flex-height' => true,
-			'flex-width'  => true,
-			'header-text' => array( 'site-title', 'site-description' ),
-		) );
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'      => 100,
+				'width'       => 300,
+				'flex-height' => true,
+				'flex-width'  => true,
+				'header-text' => array( 'site-title', 'site-description' ),
+			) 
+		);
 
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
@@ -85,7 +93,7 @@ endif;
 add_action( 'after_setup_theme', 'modul_r_theme_setup' );
 
 
-if ( ! function_exists('modul_r_comments') ) :
+if ( ! function_exists( 'modul_r_comments' ) ) :
 	/**
 	 * Displays the comments template
 	 *

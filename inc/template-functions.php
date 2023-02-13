@@ -9,7 +9,7 @@
  * @link      https://modul-r.codekraft.it/
  */
 
-if ( ! function_exists('modul_r_breadcrumbs') ) :
+if ( ! function_exists( 'modul_r_breadcrumbs' ) ) :
 	/**
 	 * Displays the article breadcrumbs
 	 *
