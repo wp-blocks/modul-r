@@ -9,8 +9,6 @@
  * @link      https://modul-r.codekraft.it/
  */
 
-namespace Modulr\Inc\Patterns;
-
 /* Registering a block pattern category. */
 if ( function_exists( 'register_block_pattern_category' ) ) {
 
@@ -19,7 +17,7 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 	 */
 	register_block_pattern_category(
 		'modul-r',
-		array( 'label' => __( 'theme-patterns', 'modul-r' ) )
+		array( 'label' => __( 'Modul-R patterns', 'modul-r' ) )
 	);
 
 }
@@ -27,7 +25,7 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 /* Registering block styles. */
 if ( function_exists( 'register_block_style' ) ) {
 
-    $wave = apply_filters("modul_r_wave_shape_uri", get_template_directory_uri() . '/img/demo/wave.svg');
+    $wave = esc_url(apply_filters("modul_r_wave_shape_uri", get_template_directory_uri() . '/img/demo/wave.svg'));
 
     register_block_style('core/cover', [
         'name' => 'full-height',
