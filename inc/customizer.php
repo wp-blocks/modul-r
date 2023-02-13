@@ -3,10 +3,10 @@
 /**
  * It converts a hexadecimal color value to an RGB value
  *
- * @param $hex_color The hexadecimal color value to convert.
- * @param bool $decimal If set to true, the function will return the RGB values as a decimal number.
+ * @param string $hex_color The hexadecimal color value to convert.
+ * @param bool   $decimal If set to true, the function will return the RGB values as a decimal number.
  *
- * @return the color in RGB format.
+ * @return string the color in RGB format.
  */
 function modul_r_hex2rgb( $hex_color, $decimal = false ) {
 
@@ -32,7 +32,7 @@ function modul_r_hex2rgb( $hex_color, $decimal = false ) {
  * https://stackoverflow.com/questions/3512311/how-to-generate-lighter-darker-color-with-php
  *
  * @param string $hexCode Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`.
- * @param float $adjustPercent A number between -1 and 1. E.g. 0.3 = 30% lighter; -0.4 = 40% darker.
+ * @param float  $adjustPercent A number between -1 and 1. E.g. 0.3 = 30% lighter; -0.4 = 40% darker.
  *
  * @return  string
  */
@@ -358,24 +358,9 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 		$colors['black']       = sanitize_hex_color( $defaults['shades']['black'] );
 
 		// Typography
-		function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
-			$vars = '';
-			foreach ( $var_set as $option ) {
-				if ( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) {
-					if ( $option['input'] !== 'select' ) {
-						$vars .= $suffix . $option['name'] . ":" . abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
-					} else {
-						$vars .= $suffix . $option['name'] . ":" . $GLOBALS['modul_r_defaults']['customizer_options'][ $option['select_type'] ][ abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) ] . ';';
-					}
-				} else {
-					$vars .= $suffix . $option['name'] . ":" . $option['default'] . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
-				}
-			}
-
-			return $vars;
-		}
-
 		$atf_css = '';
+
+		$custom_props = "{";
 
 		$wp_theme_json_prefix = '--wp--preset--color--';
 
@@ -385,8 +370,6 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 			$atf_css           .= ' .has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color p{color:' . $custom_prop_color . '}';
 			$atf_css           .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
 		}
-
-		$custom_props = "{";
 
 		// Typography
 		foreach ( modul_r_get_fonts() as $type => $font ) {

@@ -70,14 +70,14 @@ function modul_r_get_fonts() {
 
 	foreach (array('default', 'title') as $font_type) {
 		$font_name = modul_r_get_font_family( 'modul_r_typography_font_family_' . $font_type );
-		// add to the array the font name and slug (the slug is the name with space replaced with "+")
+		// add to the array the font name and slug (the slug is the name with space replaced with "+").
 		$fonts[$font_type] = array(
 			"name" => $font_name,
 			"slug" => modul_r_get_font_slug($font_name),
 			"weights" => array()
 		);
 
-		// then for each font collect the font weight (will remove duplicates)
+		// then for each font collect the font weight (will remove duplicates).
 		$font_families = $GLOBALS['modul_r_defaults']['customizer_options']['font_family_' . $font_type];
 		if ( !empty($font_families) ) foreach ( $font_families as $font_family ) {
 			// get the single font weight
@@ -133,9 +133,8 @@ function modul_r_handleStyles() {
 		if ( $isBlockEditor ) {
 			add_action( 'enqueue_block_editor_assets', 'modul_r_theme_style', 9 );
 		}
-	} else {
-
 	}
+
 	add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 9 );
 
 	/* fonts */
@@ -146,5 +145,5 @@ function modul_r_handleStyles() {
 
 	/* admin style */
 	add_action( 'admin_enqueue_scripts', 'modul_r_admin_style', 1 );
-};
+}
 add_action( 'after_setup_theme', 'modul_r_handleStyles', 9 );
