@@ -131,6 +131,40 @@
   },
   "styles": {
 	"blocks": {
+	  "core/site-title": {
+		"elements": {
+		  "link": {
+			"color": {
+			  "text": "var(--wp--preset--color--primary-dark)"
+			},
+			":hover": {
+			  "color": {
+				"text": "var(--wp--preset--color--white)"
+			  }
+			},
+			"typography": {
+			  "textDecoration": "none"
+			}
+		  }
+		}
+	  },
+	  "core/navigation": {
+		"typography": {
+		  "textDecoration": "none"
+		},
+		"elements": {
+		  "link": {
+			"color": {
+			  "text": "var(--wp--preset--color--primary-dark)"
+			},
+			":hover": {
+			  "color": {
+				"text": "var(--wp--preset--color--white)"
+			  }
+			}
+		  }
+		}
+	  },
 	  "core/button": {
 		"color": {
 		  "background": "var(--wp--preset--color--primary)",
