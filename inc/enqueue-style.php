@@ -80,8 +80,9 @@ function modul_r_get_fonts() {
 		// then for each font collect the font weight (will remove duplicates).
 		$font_families = $GLOBALS['modul_r_defaults']['customizer_options']['font_family_' . $font_type];
 		if ( !empty($font_families) ) foreach ( $font_families as $font_family ) {
-			// get the single font weight
-			$weight = intval( get_theme_mod( 'modul_r_defaults_' . $font_type . '_' . $font_family['name'] ) );
+			// get the single font weight.
+			$stored_value = get_theme_mod( 'modul_r_defaults_' . $font_type . '_' . $font_family['name'] );
+			$weight = !empty($stored_value) ? intval($stored_value) : $font_family['default'];
 			$fonts[$font_type]['weights'][$font_family['name']] = $weight;
 		}
 	}
