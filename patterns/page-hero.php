@@ -5,9 +5,9 @@
  * Categories: header, modul-r
  */
 ?>
-<!-- wp:cover {"useFeaturedImage":true,"overlayColor":"black","minHeight":66,"minHeightUnit":"vh","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|60"}}}} -->
+<!-- wp:cover {"useFeaturedImage":true,"overlayColor":"black","minHeight":50,"minHeightUnit":"vh","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-cover"
-	 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--60);min-height:66vh">
+	 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--60);min-height:50vh">
 	<span aria-hidden="true"
 		  class="wp-block-cover__background has-black-background-color has-background-dim-100 has-background-dim"></span>
 	<div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
