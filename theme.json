@@ -2,11 +2,35 @@
   "$schema": "https://schemas.wp.org/wp/6.1/theme.json",
   "customTemplates": [
 	{
+	  "name": "blank",
+	  "title": "Blank",
+	  "postTypes": [
+		"page",
+		"post"
+	  ]
+	},
+	{
 	  "name": "404",
+	  "title": "404",
 	  "postTypes": [
 		"page"
-	  ],
-	  "title": "404"
+	  ]
+	},
+	{
+	  "name": "header-portrait",
+	  "title": "Header Portrait",
+	  "postTypes": [
+		"page",
+		"post"
+	  ]
+	},
+	{
+	  "name": "sidebar",
+	  "title": "Sidebar",
+	  "postTypes": [
+		"page",
+		"post"
+	  ]
 	}
   ],
   "settings": {
@@ -143,14 +167,16 @@
 			  }
 			},
 			"typography": {
-			  "textDecoration": "none"
+			  "textDecoration": "none",
+			  "fontWeight": "var(--typography--font--default--bold)"
 			}
 		  }
 		}
 	  },
 	  "core/navigation": {
 		"typography": {
-		  "textDecoration": "none"
+		  "textDecoration": "none",
+		  "fontWeight": "var(--typography--font--default--bold)"
 		},
 		"elements": {
 		  "link": {
@@ -282,6 +308,11 @@
 	  "title": "Header"
 	},
 	{
+	  "area": "header",
+	  "name": "header-portrait",
+	  "title": "Header Portrait"
+	},
+	{
 	  "area": "footer",
 	  "name": "footer",
 	  "title": "Footer"
@@ -295,6 +326,11 @@
 	  "area": "uncategorized",
 	  "name": "post-meta",
 	  "title": "Post Meta"
+	},
+	{
+	  "area": "uncategorized",
+	  "name": "sidebar",
+	  "title": "Sidebar"
 	}
   ],
   "version": 2
