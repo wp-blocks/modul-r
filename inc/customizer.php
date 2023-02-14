@@ -106,7 +106,7 @@ function modul_r_add_font_preset( $label, $group, $wp_customize ) {
 					'capability'        => 'edit_theme_options',
 					'default'           => $setting['default'],
 					'sanitize_callback' => 'modul_r_sanitize_select',
-				) 
+				)
 			);
 
 			$wp_customize->add_control(
@@ -116,7 +116,7 @@ function modul_r_add_font_preset( $label, $group, $wp_customize ) {
 					'choices'     => $field_values,
 					'section'     => 'modul_r_' . $group,
 					'description' => esc_html__( 'Select', 'modul-r' ) . ' ' . $label . ' ' . $setting['name'],
-				) 
+				)
 			);
 		}
 	}
@@ -155,11 +155,11 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 			 */
 			public function render_content() {
 				?>
-				<label 
-				<?php 
+				<label
+				<?php
 				if ( $this->add_class != '' ) {
 					echo 'class="' . $this->add_class . '"';
-				} 
+				}
 				?>
 				>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -178,7 +178,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors']['primary'] ),
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_hex_color',
-			) 
+			)
 		);
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -187,8 +187,8 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				array(
 					'section' => 'colors',
 					'label'   => esc_html__( 'Primary Color', 'modul-r' ),
-				) 
-			) 
+				)
+			)
 		);
 
 
@@ -199,7 +199,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors']['secondary'] ),
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_hex_color',
-			) 
+			)
 		);
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -208,8 +208,8 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				array(
 					'section' => 'colors',
 					'label'   => esc_html__( 'Secondary Color', 'modul-r' ),
-				) 
-			) 
+				)
+			)
 		);
 
 		// Modul-R custom options.
@@ -217,7 +217,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 			'modul_r_theme_options',
 			array(
 				'title' => esc_html__( 'Modul-R Options', 'modul-r' ),
-			) 
+			)
 		);
 
 		// Typography Section.
@@ -227,7 +227,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				'title'    => esc_html__( 'Typography', 'modul-r' ),
 				'priority' => 50,
 				'panel'    => 'modul_r_theme_options',
-			) 
+			)
 		);
 
 		// Font Family - title.
@@ -237,7 +237,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				'capability'        => 'edit_theme_options',
 				'default'           => 0,
 				'sanitize_callback' => 'modul_r_sanitize_select_font',
-			) 
+			)
 		);
 
 		$wp_customize->add_control(
@@ -247,7 +247,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				'choices'     => $font_set,
 				'section'     => 'modul_r_typography_options',
 				'description' => esc_html__( 'Select the font family for the titles', 'modul-r' ),
-			) 
+			)
 		);
 
 		modul_r_add_font_preset(
@@ -263,7 +263,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				'capability'        => 'edit_theme_options',
 				'default'           => 0,
 				'sanitize_callback' => 'modul_r_sanitize_select_font',
-			) 
+			)
 		);
 
 		$wp_customize->add_control(
@@ -273,7 +273,7 @@ if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
 				'choices'     => $font_set,
 				'section'     => 'modul_r_typography_options',
 				'description' => esc_html__( 'Select the default font family', 'modul-r' ),
-			) 
+			)
 		);
 
 		// add the font weight select.
@@ -384,7 +384,7 @@ if ( ! function_exists( 'modul_r_theme_colors_setup' ) ) :
 					'slug'  => 'black',
 					'color' => sanitize_hex_color( $modul_r_defaults['shades']['black'] ),
 				),
-			) 
+			)
 		);
 	}
 endif;
@@ -401,36 +401,17 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 
 		$defaults = $GLOBALS['modul_r_defaults'];
 
-		/* Colors */
-		$colors                    = array();
-		$variance                  = floatval( $defaults['customizer_options']['color_variance'] );
-		$colors['primary']         = modul_r_get_theme_color( 'primary-color', $defaults['colors']['primary'] );
-		$colors['primary-light']   = modul_r_adjustBrightness( $colors['primary'], $variance );
-		$colors['primary-dark']    = modul_r_adjustBrightness( $colors['primary'], - $variance );
-		$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $defaults['colors']['secondary'] );
-		$colors['secondary-light'] = modul_r_adjustBrightness( $colors['secondary'], $variance );
-		$colors['secondary-dark']  = modul_r_adjustBrightness( $colors['secondary'], - $variance );
-		/* Shades */
-		$colors['white']       = sanitize_hex_color( $defaults['shades']['white'] );
-		$colors['white-smoke'] = sanitize_hex_color( $defaults['shades']['white-smoke'] );
-		$colors['gray-light']  = sanitize_hex_color( $defaults['shades']['gray-light'] );
-		$colors['gray']        = sanitize_hex_color( $defaults['shades']['gray'] );
-		$colors['gray-dark']   = sanitize_hex_color( $defaults['shades']['gray-dark'] );
-		$colors['black']       = sanitize_hex_color( $defaults['shades']['black'] );
-
-		/* Typography */
 		$atf_css = '';
-
 		$custom_props = '';
-
 		$wp_theme_json_prefix = '--wp--preset--color--';
 
-		/* The custom colors scheme generator */
-		foreach ( $colors as $key => $color ) {
-			$custom_prop_color = 'var(' . $wp_theme_json_prefix . $key . ')';
-			$atf_css          .= ' .has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color p{color:' . $custom_prop_color . '}';
-			$atf_css          .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
-		}
+		/* Colors */
+		$colors                    = array();
+		$colors['primary']         = modul_r_get_theme_color( 'primary-color', $defaults['colors']['primary'] );
+		$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $defaults['colors']['secondary'] );
+		/* Shades */
+		$colors['white']       = sanitize_hex_color( $defaults['shades']['white'] );
+		$colors['black']       = sanitize_hex_color( $defaults['shades']['black'] );
 
 		/* Typography */
 		foreach ( modul_r_get_fonts() as $type => $font ) {
