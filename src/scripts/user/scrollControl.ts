@@ -50,12 +50,12 @@ function onScroll() {
  */
 function getSizes() {
 	headerHeight =
-		document.querySelector( 'header.wp-block-template-part' )
+		document.querySelector('header.wp-block-template-part div')
 			.clientHeight || document.getElementById( 'masthead' ).clientHeight;
 }
 
 /**
- * Adding an event listener to the DOMContentLoaded event. 
+ * Adding an event listener to the DOMContentLoaded event.
  */
 document.addEventListener( 'DOMContentLoaded', () => {
 	getSizes();
