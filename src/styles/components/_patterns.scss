@@ -43,3 +43,32 @@ wp-site-blocks {
 	}
   }
 }
+
+header.wp-block-template-part {
+  .headline-fixed {
+	position: absolute;
+	width: 100%;
+	transition: 350ms background-color, 175ms 1050ms color;
+  }
+}
+
+body.top .has-primary-background-color.headline-fixed {
+  background-color: transparent !important;
+}
+
+.wp-block-group.page-headline p {
+  padding-bottom: 0;
+
+  &.headline-divider {
+	visibility: hidden;
+
+	&:before {
+	  visibility: visible;
+	  content: '🔹';
+	}
+
+	&:last-child:before {
+	  display: none;
+	}
+  }
+}
