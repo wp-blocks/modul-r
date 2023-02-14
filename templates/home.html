@@ -1,12 +1,15 @@
-<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:template-part {"slug":"header","tagName":"header" } /-->
 
-<!-- wp:pattern {"slug":"modul-r/homepage-hero"} /-->
+<!-- wp:pattern {"slug":"modul-r/homepage-hero-animated"} /-->
 
-<!-- wp:pattern {"slug":"modul-r/cards-with-covers"} /-->
+<!-- wp:group {"align":"wide","layout":{"type":"constrained"},"className":"is-style-items-overlap"} --><div class="wp-block-group alignwide is-style-items-overlap">
+	<!-- wp:pattern {"slug":"modul-r/cards-with-covers"} /-->
+</div><!-- /wp:group -->
 
 <!-- wp:group {"tagName":"main","style":{"spacing":[]},"layout":{"type":"default"}} -->
 <main class="wp-block-group"><!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignwide"><!-- wp:heading {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:heading {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
 		<h1 class="alignwide has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--60)"><strong>Simple
 			and Modul-R.</strong><br>This is w<strong>hy I will be your next WordPress theme</strong></h1>
 		<!-- /wp:heading -->
@@ -20,27 +23,11 @@
 		<p>Modul-R has a ton of&nbsp;<strong>personalization options</strong>! With the&nbsp;<strong>customizer’s live
 			preview</strong>&nbsp;and&nbsp;<strong>CSS Custom Properties</strong>&nbsp;you can edit almost everything:
 			font family, text size, colours palette, header direction, logo and hero image size and much more!</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:paragraph -->
-		<p>Not enough? We got already set&nbsp;<strong>Gulp</strong>, a task runner, with all the actions you need to
-			rebuild this template.&nbsp;<a href="https://modul-r.codekraft.it/2019/06/environment-setup/">Modul-R loves
-				to be hacked!</a>&nbsp;You will find all the tools you need for the development out of the box! The
-			style is built with&nbsp;<strong>SASS</strong>, the scripts are in ES6 transpiled
-			with&nbsp;<strong>Babel</strong>, there are&nbsp;<strong>CSSNano&nbsp;</strong>and&nbsp;<strong>Autoprefixer&nbsp;</strong>already
-			configured for css and&nbsp;<strong>Uglify&nbsp;</strong>for javascript files. And also&nbsp;<strong>Imagemin</strong>,
-			which compresses images removing metadata and converts images into webp<strong>&nbsp;</strong>(yes, you got
-			it right, without using any wordpress plugin).</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:paragraph -->
-		<p>Modul-R also provides a seamless integration with Gutenberg and WooCommerce, giving you the&nbsp;<strong>opportunity
-			to build easily the website as you like</strong>, in the shortest time as possible.</p>
 		<!-- /wp:paragraph --></div>
 	<!-- /wp:group -->
 
-	<!-- wp:separator {"className":"is-style-wide"} -->
-	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/>
+	<!-- wp:separator -->
+	<hr class="wp-block-separator"/>
 	<!-- /wp:separator -->
 
 	<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"displayLayout":{"type":"flex","columns":3},"layout":{"type":"constrained"}} -->
