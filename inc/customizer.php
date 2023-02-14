@@ -400,10 +400,9 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 	function modul_r_css_props() {
 
 		$defaults = $GLOBALS['modul_r_defaults'];
-
-		$atf_css = '';
-		$custom_props = '';
 		$wp_theme_json_prefix = '--wp--preset--color--';
+
+		$custom_props = '';
 
 		/* Colors */
 		$colors                    = array();
@@ -428,9 +427,9 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 
 		/* Adding the CSS to the admin and front end. */
 		if ( is_admin() ) {
-			wp_add_inline_style( 'modul-r-admin', ':root .editor-styles-wrapper' . $custom_props . $atf_css );
+			wp_add_inline_style( 'modul-r-admin', ':root {' . $custom_props . '}' );
 		} else {
-			echo "<style id='modul-r-style-css'>body{" . $custom_props . $atf_css . '}</style>';
+			echo "<style id='modul-r-style-css'>body{" . $custom_props . '}</style>';
 		}
 	};
 endif;
