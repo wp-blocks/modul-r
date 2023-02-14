@@ -97,10 +97,18 @@ window.onload = () => {
 		document.querySelectorAll( '.is-style-slider-gallery' );
 
 	SliderGalleries.forEach( ( galleryEl ) => {
+		let columns: number = 1;
+		galleryEl.classList.forEach( ( classname ) => {
+			if ( classname.startsWith( 'columns-' ) ) {
+				columns = Number( classname.replace( 'columns-', '' ) );
+			}
+		} );
+
 		const galleryItem = galleryEl.querySelectorAll( '.wp-block-image' );
 		const sliderHTML = Array.from( galleryItem ).map( ( el ) => {
-			return el.innerHTML;
+			return '<div>' + el.innerHTML + '</div>';
 		} );
+
 		galleryEl.innerHTML = `<div class="blaze-slider">
   <div class="blaze-container">
     <div class="blaze-track-container">
@@ -120,6 +128,19 @@ window.onload = () => {
   <button class="blaze-next">next</button>
   </div>
 </div>`;
-		new BlazeSlider( galleryEl );
+
+		new BlazeSlider( galleryEl.querySelector( '.blaze-slider' ), {
+			all: {
+				enableAutoplay: true,
+				autoplayInterval: 2000,
+				slidesToShow: columns,
+			},
+			'(max-width: 900px)': {
+				slidesToShow: 2,
+			},
+			'(max-width: 500px)': {
+				slidesToShow: 1,
+			},
+		} );
 	} );
 };
