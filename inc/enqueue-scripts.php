@@ -1,14 +1,16 @@
 <?php
 
-/**
- * Main template scripts
- */
 if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
+	/**
+	 * Main template scripts
+	 */
 	function modul_r_theme_scripts() {
 
-		// Register and Enqueue
-		wp_enqueue_script( 'modul-r-scripts-main', get_template_directory_uri() . '/build/modulr-scripts.js', array(), false, true );
+		$asset = include MODULR_THEME_DIR . '/build/modulr-scripts.asset.php';
 
+		/* Register and Enqueue */
+		wp_enqueue_script( 'modul-r-scripts-main', MODULR_THEME_URL . '/build/modulr-scripts.js', $asset['dependencies'], $asset['version'] );
+		wp_enqueue_style( 'modul-r-scripts-main-css', MODULR_THEME_URL . '/build/modulr-scripts.css', $asset['dependencies'], $asset['version'] );
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_scripts' ); // Add Theme admin scripts

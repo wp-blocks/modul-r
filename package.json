@@ -68,6 +68,9 @@
     "npm": ">=6.9.0"
   },
   "browserslist": [
-	"extends @wordpress/browserslist-config"
-  ]
+    "extends @wordpress/browserslist-config"
+  ],
+  "dependencies": {
+    "glightbox": "^3.2.0"
+  }
 }

@@ -5,6 +5,14 @@
  * @package ModulR
  */
 
+if ( ! defined( 'MODULR_THEME_DIR' ) ) {
+	define( 'MODULR_THEME_DIR', dirname( __FILE__ ) );
+}
+if ( ! defined( 'MODULR_THEME_URL' ) ) {
+	define( 'MODULR_THEME_URL', get_template_directory_uri() );
+}
+
+
 // Modul-R defaults
 if ( ! isset( $modul_r_defaults ) ) {
 	$modul_r_defaults = array(
