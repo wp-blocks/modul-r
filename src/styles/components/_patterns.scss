@@ -1,9 +1,10 @@
-wp-site-blocks {
+body .wp-site-blocks {
+  --element--gallery--mosaic-grid-size: 250px;
+  --element--gallery--mosaic-grid-gap: 10px;
   //! Gallery
-  .wp-block-gallery {
+  .wp-block-gallery.has-nested-images.columns-default {
 	// Masonry like layout for galleries
-	&.is-style-masonry-gallery .blocks-gallery-grid {
-	  width: 100%;
+	&.is-style-masonry-gallery  {
 	  display: grid;
 	  grid-template-columns: repeat(auto-fill, minmax(var(--element--gallery--mosaic-grid-size), 1fr));
 	  grid-gap: var(--element--gallery--mosaic-grid-gap);
@@ -15,11 +16,11 @@ wp-site-blocks {
 		grid-auto-rows: minmax(25vw, auto);
 	  }
 
-	  > .blocks-gallery-item {
+	  > figure.wp-block-image:not(#individual-image) {
 		margin: 0;
 		display: grid;
 		grid-template-rows: 1fr auto;
-		width: auto;
+		width: 100%;
 
 		> * {
 		  grid-row: 1 / -1;
@@ -44,6 +45,15 @@ wp-site-blocks {
   }
 }
 
+/* Items shifted */
+.wp-block-group.is-style-items-overlap {
+  margin-top: -120px;
+  margin-bottom: 60px;
+  z-index: 2;
+  position: relative;
+}
+
+/* clip container transversal with svg */
 .wp-block-cover,
 .wp-block-media-text {
   --element--blocks--clip-slope: 5vh;
@@ -57,6 +67,7 @@ wp-site-blocks {
 
 }
 
+/* clip container with a wave shaped svg */
 .wp-block-cover,
 .wp-block-post-featured-image {
 
