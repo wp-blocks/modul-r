@@ -2,6 +2,9 @@
 import GLightbox from 'glightbox';
 import 'glightbox/dist/css/glightbox.min.css';
 
+import BlazeSlider from 'blaze-slider';
+import 'blaze-slider/dist/blaze.css';
+
 const lightboxDefaultOptions = {
 	touchNavigation: true,
 	loop: true,
@@ -85,5 +88,38 @@ window.onload = () => {
 				el.onclick = () => lightbox.openAt( index );
 			} );
 		}
+	} );
+
+	/**
+	 * LightBox effect - gallery
+	 */
+	const SliderGalleries: NodeListOf< HTMLElement > =
+		document.querySelectorAll( '.is-style-slider-gallery' );
+
+	SliderGalleries.forEach( ( galleryEl ) => {
+		const galleryItem = galleryEl.querySelectorAll( '.wp-block-image' );
+		const sliderHTML = Array.from( galleryItem ).map( ( el ) => {
+			return el.innerHTML;
+		} );
+		galleryEl.innerHTML = `<div class="blaze-slider">
+  <div class="blaze-container">
+    <div class="blaze-track-container">
+      <div class="blaze-track">
+        ${ sliderHTML.join( '' ) }
+      </div>
+
+  <!-- pagination container -->
+  <div class="my-pagination-container">
+	<div class="blaze-pagination"></div>
+  </div>
+</div>
+
+<!-- navigation buttons -->
+<div class="my-nav-container">
+  <button class="blaze-prev">previous</button>
+  <button class="blaze-next">next</button>
+  </div>
+</div>`;
+		new BlazeSlider( galleryEl );
 	} );
 };
