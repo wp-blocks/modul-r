@@ -30,7 +30,7 @@ function scrollCallback() {
  * When the user scrolls, store the scroll value, and if there's not already a scheduled animation
  * frame, schedule one and call the scroll callback function.
  *
- * @returns the value of the variable headerHeight.
+ * @return the value of the variable headerHeight.
  */
 function onScroll() {
 	// Store the scroll value for later.
@@ -50,7 +50,7 @@ function onScroll() {
  */
 function getSizes() {
 	headerHeight =
-		document.querySelector('header.wp-block-template-part div')
+		document.querySelector( 'header.wp-block-template-part div' )
 			.clientHeight || document.getElementById( 'masthead' ).clientHeight;
 }
 

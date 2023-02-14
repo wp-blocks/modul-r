@@ -39,30 +39,6 @@ if ( function_exists( 'register_block_style' ) ) {
 	register_block_style(
 		'core/media-text',
 		array(
-			'name'  => 'centered-image',
-			'label' => __( 'Large and centered image', 'modul-r' ),
-		)
-	);
-
-	register_block_style(
-		'core/media-text',
-		array(
-			'name'  => 'small-image',
-			'label' => __( 'Small image (half of the width)', 'modul-r' ),
-		)
-	);
-
-	register_block_style(
-		'core/media-text',
-		array(
-			'name'  => 'full-height',
-			'label' => __( 'Full screen height', 'modul-r' ),
-		)
-	);
-
-	register_block_style(
-		'core/media-text',
-		array(
 			'name'  => 'traversal-clip',
 			'label' => __( 'cut the container crosswise', 'modul-r' ),
 		)
@@ -77,16 +53,18 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	register_block_style(
-		'core/columns',
+		'core/group',
 		array(
-			'name'         => 'columns-overlap',
-			'label'        => __( 'Shifts columns 100 px upwards in large monitors ', 'modul-r' ),
-			'inline_style' => '.wp-block-columns.is-style-columns-overlap {
-			margin-top: -100px;
-			margin-bottom: 30px;
-		    z-index: 2;
-		    position: relative;
-		}',
+			'name'  => 'traversal-clip',
+			'label' => __( 'cut the container crosswise', 'modul-r' ),
+		)
+	);
+
+	register_block_style(
+		'core/group',
+		array(
+			'name'         => 'items-overlap',
+			'label'        => __( 'Shifts the group by 120px upwards', 'modul-r' )
 		)
 	);
 
@@ -109,10 +87,43 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	register_block_style(
+		'core/cover',
+		array(
+			'name'         => 'wave-clip',
+			'label'        => __( 'clip with wave shape', 'modul-r' ),
+			'inline_style' => '.wp-block-post-featured-image.is-style-wave-clip { mask-image: url(' . $wave . '); -webkit-mask-image: url(' . $wave . '); }',
+		)
+	);
+
+	register_block_style(
 		'core/gallery',
 		array(
 			'name'  => 'masonry-gallery',
 			'label' => __( 'Masonry layout', 'modul-r' ),
+		)
+	);
+
+	register_block_style(
+		'core/slider',
+		array(
+			'name'  => 'slider-gallery',
+			'label' => __( 'Slider', 'modul-r' ),
+		)
+	);
+
+	register_block_style(
+		'core/gallery',
+		array(
+			'name'  => 'lightbox-gallery',
+			'label' => __( 'Lightbox', 'modul-r' ),
+		)
+	);
+
+	register_block_style(
+		'core/image',
+		array(
+			'name'  => 'lightbox-image',
+			'label' => __( 'Lightbox', 'modul-r' ),
 		)
 	);
 }
