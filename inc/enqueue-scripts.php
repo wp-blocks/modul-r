@@ -10,15 +10,15 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 
 		/* Register and Enqueue */
 		wp_enqueue_script( 'modul-r-scripts-main', MODULR_THEME_URL . '/build/modulr-scripts.js', $asset['dependencies'], $asset['version'] );
-		wp_enqueue_style( 'modul-r-scripts-main-css', MODULR_THEME_URL . '/build/modulr-scripts.css', $asset['dependencies'], $asset['version'] );
+		wp_enqueue_style( 'modul-r-scripts-main', MODULR_THEME_URL . '/build/modulr-scripts.css', $asset['dependencies'], $asset['version'] );
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'modul_r_theme_scripts' ); // Add Theme admin scripts
 
-/**
- * Fix for ios that overlaps content with the lower nav bar
- */
 if ( ! function_exists( 'modul_r_content_height_fix' ) ) :
+	/**
+	 * Fix for ios that overlaps content with the lower nav bar
+	 */
 	function modul_r_content_height_fix() {
 		?>
 		<script>
@@ -40,10 +40,10 @@ if ( ! function_exists( 'modul_r_content_height_fix' ) ) :
 endif;
 add_action( 'wp_head', 'modul_r_content_height_fix', 10 );
 
-/**
- * Add color styling from theme
- */
 if ( ! function_exists( 'modul_r_theme_drawer_color' ) ) :
+	/**
+	 * Add color styling from theme
+	 */
 	function modul_r_theme_drawer_color() {
 		$header_background = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['shades'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
 		echo '<meta name="theme-color" content="' . modul_r_adjustBrightness( $header_background, 0.2 ) . '" />';
