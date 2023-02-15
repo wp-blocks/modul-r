@@ -1,9 +1,5 @@
-// Page patterns functions
+// Modul-R theme lightbox
 import GLightbox from 'glightbox';
-import 'glightbox/dist/css/glightbox.min.css';
-
-import BlazeSlider from 'blaze-slider';
-import 'blaze-slider/dist/blaze.css';
 
 const lightboxDefaultOptions = {
 	touchNavigation: true,
@@ -20,10 +16,11 @@ type LIGHTBOX_EL = {
 function getImageData( element: HTMLImageElement, type: string ) {
 	switch ( type ) {
 		case 'IMG':
+			const caption = element.nextElementSibling?.textContent;
 			return {
 				href: element.src,
 				srcset: element.srcset,
-				title: element.alt,
+				title: caption || element.alt,
 			};
 		default:
 			return {
@@ -35,7 +32,7 @@ function getImageData( element: HTMLImageElement, type: string ) {
 }
 
 // eslint-disable-next-line no-console
-window.onload = () => {
+export function modulrLightboxController() {
 	/**
 	 * LightBox effect - single image
 	 */
@@ -89,58 +86,4 @@ window.onload = () => {
 			} );
 		}
 	} );
-
-	/**
-	 * LightBox effect - gallery
-	 */
-	const SliderGalleries: NodeListOf< HTMLElement > =
-		document.querySelectorAll( '.is-style-slider-gallery' );
-
-	SliderGalleries.forEach( ( galleryEl ) => {
-		let columns: number = 1;
-		galleryEl.classList.forEach( ( classname ) => {
-			if ( classname.startsWith( 'columns-' ) ) {
-				columns = Number( classname.replace( 'columns-', '' ) );
-			}
-		} );
-
-		const galleryItem = galleryEl.querySelectorAll( '.wp-block-image' );
-		const sliderHTML = Array.from( galleryItem ).map( ( el ) => {
-			return '<div>' + el.innerHTML + '</div>';
-		} );
-
-		galleryEl.innerHTML = `<div class="blaze-slider">
-  <div class="blaze-container">
-    <div class="blaze-track-container">
-      <div class="blaze-track">
-        ${ sliderHTML.join( '' ) }
-      </div>
-
-  <!-- pagination container -->
-  <div class="my-pagination-container">
-	<div class="blaze-pagination"></div>
-  </div>
-</div>
-
-<!-- navigation buttons -->
-<div class="my-nav-container">
-  <button class="blaze-prev">previous</button>
-  <button class="blaze-next">next</button>
-  </div>
-</div>`;
-
-		new BlazeSlider( galleryEl.querySelector( '.blaze-slider' ), {
-			all: {
-				enableAutoplay: true,
-				autoplayInterval: 2000,
-				slidesToShow: columns,
-			},
-			'(max-width: 900px)': {
-				slidesToShow: 2,
-			},
-			'(max-width: 500px)': {
-				slidesToShow: 1,
-			},
-		} );
-	} );
-};
+}
