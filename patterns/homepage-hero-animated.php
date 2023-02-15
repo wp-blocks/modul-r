@@ -28,9 +28,9 @@ $animated_background = '<!-- wp:html --><svg xmlns="http://www.w3.org/2000/svg" 
 			</g>
 		</svg><!-- /wp:html -->'
 ?>
-<!-- wp:cover {"useFeaturedImage":true,"overlayColor":"black","minHeight":80,"minHeightUnit":"vh","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|60"}}}} -->
+<!-- wp:cover {"useFeaturedImage":true,"overlayColor":"black","minHeight":100,"minHeightUnit":"vh","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-cover"
-	 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--60);min-height:80vh;">
+	 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--60);min-height:100vh;">
 	<span aria-hidden="true"
 		  class="wp-block-cover__background has-black-background-color has-background-dim-100 has-background-dim"></span>
 	<div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
@@ -39,23 +39,18 @@ $animated_background = '<!-- wp:html --><svg xmlns="http://www.w3.org/2000/svg" 
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|60","bottom":"var:preset|spacing|80","left":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 			<div class="wp-block-group"
 				 style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--60)">
-				<!-- wp:site-title {"textAlign":"center","isLink":false,"style":{"typography":{"fontSize":"5rem"}},"textColor":"white"} /-->
 
-				<!-- wp:paragraph {"align":"center"} -->
-				<p class="has-text-align-center">Lorem ipsum dolor
-					sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.</p>
-				<!-- /wp:paragraph -->
+				<!-- wp:site-title {"style":{"typography":{"fontSize":"5rem","fontStyle":"normal","fontWeight":"200"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"fontFamily":"title"} /-->
 
-				<!-- wp:buttons -->
+				<!-- wp:site-tagline {"textAlign":"center","style":{"spacing":{"padding":{"right":"var:preset|spacing|80","left":"var:preset|spacing|80"}}}} /-->
+
+				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 				<div class="wp-block-buttons"><!-- wp:button -->
-					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Button A</a></div>
+					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">QUICK START 🡲</a></div>
 					<!-- /wp:button -->
 
 					<!-- wp:button {"textColor":"white","className":"is-style-outline"} -->
-					<div class="wp-block-button is-style-outline"><a
-								class="wp-block-button__link has-white-color has-text-color wp-element-button">Button
-							B</a></div>
+					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color wp-element-button">DOWNLOAD 🡲</a></div>
 					<!-- /wp:button --></div>
 				<!-- /wp:buttons --></div>
 			<!-- /wp:group --></div>
