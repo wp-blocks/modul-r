@@ -25,12 +25,8 @@ $template      = '<!-- wp:column -->
 			<!-- /wp:paragraph --></div>
 		<!-- /wp:column -->'
 ?>
-<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide"><!-- wp:columns -->
-	<div class="wp-block-columns">
-		<?php 
-		for ( $i = 1; $i <= $column_number; $i++ ) {
-			echo $template;}
-		?>
-	</div><!-- /wp:columns -->
-</div><!-- /wp:group -->
+<!-- wp:columns -->
+<div class="wp-block-columns">
+	<?php for ( $i = 1; $i <= $column_number; $i++ ) { echo $template; } ?>
+</div><!-- /wp:columns -->
+
