@@ -28,11 +28,17 @@ if ( function_exists( 'register_block_style' ) ) {
 	$wave = esc_url( apply_filters( 'modul_r_wave_shape_uri', get_template_directory_uri() . '/img/demo/wave.svg' ) );
 
 	register_block_style(
-		'core/cover',
+		'core/site-title',
 		array(
-			'name'         => 'full-height',
-			'label'        => __( 'Full screen height', 'modul-r' ),
-			'inline_style' => '.wp-block-cover.is-style-full-height { height: 100vh; }',
+			'name'         => 'outlined-text',
+			'label'        => __( 'Outline text', 'modul-r' )
+		)
+	);
+	register_block_style(
+		'core/site-title',
+		array(
+			'name'         => 'outlined-text',
+			'label'        => __( 'Outline text', 'modul-r' )
 		)
 	);
 
@@ -61,14 +67,6 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	register_block_style(
-		'core/group',
-		array(
-			'name'         => 'items-overlap',
-			'label'        => __( 'Shifts the group by 120px upwards', 'modul-r' )
-		)
-	);
-
-	register_block_style(
 		'core/cover',
 		array(
 			'name'         => 'wave-clip',
@@ -83,6 +81,14 @@ if ( function_exists( 'register_block_style' ) ) {
 			'name'         => 'wave-clip',
 			'label'        => __( 'clip with wave shape', 'modul-r' ),
 			'inline_style' => '.wp-block-post-featured-image.is-style-wave-clip { mask-image: url(' . $wave . '); -webkit-mask-image: url(' . $wave . '); }',
+		)
+	);
+
+	register_block_style(
+		'core/group',
+		array(
+			'name'         => 'items-overlap',
+			'label'        => __( 'Shifts the group by 120px upwards', 'modul-r' )
 		)
 	);
 
@@ -104,7 +110,7 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	register_block_style(
-		'core/slider',
+		'core/gallery',
 		array(
 			'name'  => 'slider-gallery',
 			'label' => __( 'Slider', 'modul-r' ),
