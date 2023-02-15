@@ -1,5 +1,140 @@
 <?php
 
+if ( ! function_exists( 'modul_r_theme_colors_setup' ) ) :
+	/**
+	 * It adds the custom colors to the editor palette
+	 */
+	function modul_r_theme_colors_setup() {
+
+		// Get the custom colors.
+		$primary_color   = sanitize_hex_color( get_theme_mod( 'primary-color' ) );
+		$secondary_color = sanitize_hex_color( get_theme_mod( 'secondary-color' ) );
+
+		/* Checking if the global variable  is empty. If it is empty, it returns otherwise store the global into a variable. */
+		if ( empty( $GLOBALS['modul_r_defaults'] ) ) {
+			return;
+		}
+		$modul_r_defaults = $GLOBALS['modul_r_defaults'];
+
+		// Check if custom color is set otherwise use the default colors.
+		$primary_color   = ! empty( $primary_color ) ? $primary_color : sanitize_hex_color( $modul_r_defaults['colors']['primary'] );
+		$secondary_color = ! empty( $secondary_color ) ? $secondary_color : sanitize_hex_color( $modul_r_defaults['colors']['secondary'] );
+
+		$variance = floatval( $modul_r_defaults['customizer_options']['color_variance'] );
+
+		add_theme_support(
+			'editor-color-palette',
+			array(
+				array(
+					'name'  => __( 'Theme primary color', 'modul-r' ),
+					'slug'  => 'primary',
+					'color' => $primary_color,
+				),
+				array(
+					'name'  => __( 'Theme primary color light', 'modul-r' ),
+					'slug'  => 'primary-light',
+					'color' => modul_r_adjustBrightness( $primary_color, $variance ),
+				),
+				array(
+					'name'  => __( 'Theme primary color dark', 'modul-r' ),
+					'slug'  => 'primary-dark',
+					'color' => modul_r_adjustBrightness( $primary_color, - $variance ),
+				),
+				array(
+					'name'  => __( 'Theme secondary color', 'modul-r' ),
+					'slug'  => 'secondary',
+					'color' => $secondary_color,
+				),
+				array(
+					'name'  => __( 'Theme secondary color light', 'modul-r' ),
+					'slug'  => 'secondary-light',
+					'color' => modul_r_adjustBrightness( $secondary_color, $variance ),
+				),
+				array(
+					'name'  => __( 'Theme secondary color dark', 'modul-r' ),
+					'slug'  => 'secondary-dark',
+					'color' => modul_r_adjustBrightness( $secondary_color, - $variance ),
+				),
+				array(
+					'name'  => __( 'White', 'modul-r' ),
+					'slug'  => 'white',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['white'] ),
+				),
+				array(
+					'name'  => __( 'White Smoke', 'modul-r' ),
+					'slug'  => 'white-smoke',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['white-smoke'] ),
+				),
+				array(
+					'name'  => __( 'Light gray', 'modul-r' ),
+					'slug'  => 'gray-light',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray-light'] ),
+				),
+				array(
+					'name'  => __( 'Gray', 'modul-r' ),
+					'slug'  => 'gray',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray'] ),
+				),
+				array(
+					'name'  => __( 'Dark gray', 'modul-r' ),
+					'slug'  => 'gray-dark',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['gray-dark'] ),
+				),
+				array(
+					'name'  => __( 'Black', 'modul-r' ),
+					'slug'  => 'black',
+					'color' => sanitize_hex_color( $modul_r_defaults['shades']['black'] ),
+				),
+			)
+		);
+	}
+endif;
+
+
+if ( ! function_exists( 'modul_r_css_props' ) ) :
+	/**
+	 * It adds the CSS variables to the admin and front end
+	 *
+	 * @return the value of the variable .
+	 */
+	function modul_r_css_props() {
+
+		$defaults = $GLOBALS['modul_r_defaults'];
+		$wp_theme_json_prefix = '--wp--preset--color--';
+
+		$custom_props = '';
+
+		/* Colors */
+		$colors                    = array();
+		$colors['primary']         = modul_r_get_theme_color( 'primary-color', $defaults['colors']['primary'] );
+		$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $defaults['colors']['secondary'] );
+		/* Shades */
+		$colors['white']       = sanitize_hex_color( $defaults['shades']['white'] );
+		$colors['black']       = sanitize_hex_color( $defaults['shades']['black'] );
+
+		/* Typography */
+		foreach ( modul_r_get_fonts() as $type => $font ) {
+			$custom_props .= sprintf( "--typography--font--%s: '%s', sans-serif;", $type, $font['name'] );
+			foreach ( $font['weights'] as $label => $weight ) {
+				$custom_props .= sprintf( '--typography--font--%s--%s: %s;', $type, $label, $weight );
+			}
+		}
+
+		$custom_props .= $wp_theme_json_prefix . 'black--decimal: ' . modul_r_hex2rgb( $colors['black'], true ) . ';' .
+		                 $wp_theme_json_prefix . 'white--decimal: ' . modul_r_hex2rgb( $colors['white'], true ) . ';' .
+		                 $wp_theme_json_prefix . 'secondary--decimal: ' . modul_r_hex2rgb( $colors['secondary'], true ) . ';' .
+		                 $wp_theme_json_prefix . 'primary--decimal: ' . modul_r_hex2rgb( $colors['primary'], true ) . ';';
+
+		/* Adding the CSS to the admin and front end. */
+		if ( is_admin() ) {
+
+			wp_add_inline_style( 'modul-r-style', ':root {' . $custom_props . '}' );
+		} else {
+			echo "<style id='modul-r-style-css'>body{" . $custom_props . '}</style>';
+		}
+	};
+endif;
+
 /**
  * Main theme style
  */
@@ -24,10 +159,10 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		// And finally return the stored style
 		if ( $atf_css != '' ) {
-			if ( ! is_admin() ) {
-				echo '<style id="modul-r-above-the-fold">' . $atf_css . '</style>';
-			} else {
+			if ( is_admin() ) {
 				wp_add_inline_style( 'modul-r-style', $atf_css );
+			} else {
+				echo '<style id="modul-r-above-the-fold">' . $atf_css . '</style>';
 			}
 		}
 	}
@@ -39,7 +174,7 @@ endif;
  */
 if ( ! function_exists( 'modul_r_admin_style' ) ) :
 	function modul_r_admin_style() {
-		wp_enqueue_style( 'modul-r-admin', get_template_directory_uri() . '/build/modulr-css-main.css' );
+		wp_enqueue_style( 'modul-r-admin', get_template_directory_uri() . '/build/modulr-css-admin.css' );
 	}
 endif;
 
@@ -63,6 +198,24 @@ function modul_r_get_font_family( $font ) {
  */
 function modul_r_get_font_slug( $font_name ) {
 	return str_replace( ' ', '+', $font_name );
+}
+
+function modul_r_get_font_stylesheet( $fonts ) {
+	if ( ! empty( $fonts ) ) {
+		$fontset = array();
+		foreach ( $fonts as $family ) {
+			foreach ( $family['weights'] as $weight ) {
+				if ( empty($fontset[$family['slug']]) || ! in_array( $weight, $fontset[$family['slug']], true ) ) {
+					$fontset[$family['slug']][] = intval( $weight );
+				}
+			}
+		}
+		foreach ( $fontset as $slug => $family ) {
+			$font_query[] = "family={$slug}:wght@" . implode( ';', $fontset[$slug] );
+		}
+
+		return 'https://fonts.googleapis.com/css2?' . implode( '&', $font_query ) . '&display=swap';
+	}
 }
 
 function modul_r_get_fonts() {
@@ -100,24 +253,16 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 
 		$fonts = modul_r_get_fonts();
 
-
 		if ( ! empty( $fonts ) ) {
-			foreach ( $fonts as $family ) {
-				$weights_collection = array();
-				foreach ( $family['weights'] as $weight ) {
-					if ( ! in_array( $weight, $weights_collection, true ) ) {
-						$weights_collection[] = intval( $weight );
-					}
-				}
-				$font_query[] = "family={$family['slug']}:wght@" . implode( ';', $weights_collection );
-			}
-		}
-
-		if ( ! empty( $font_query ) ) {
-			$font_string = 'https://fonts.googleapis.com/css2?' . implode( '&', $font_query ) . '&family=Material+Icons&display=swap';
+			$font_stylesheet = modul_r_get_font_stylesheet($fonts);
 
 			// Load fonts from Google.
-			wp_enqueue_style( 'modul-r-fonts', wptt_get_webfont_url( $font_string ) );
+			if ( is_admin() ) {
+				wp_add_inline_style( 'modul-r-style', wptt_get_webfont_styles( $font_stylesheet ) );
+			} else {
+				wp_enqueue_style( 'modul-r-fonts', wptt_get_webfont_url( $font_stylesheet ) );
+			}
+
 		}
 	}
 endif;
@@ -126,28 +271,32 @@ endif;
 /**
  * Enqueue the registered styles
  */
-function modul_r_handleStyles() {
-	/**
-	 * If the block editor is active, enqueue the stylesheet in the block editor, otherwise enqueue it in
-	 * the frontend.
-	 */
-	if ( function_exists( 'get_current_screen' ) ) {
-		$isBlockEditor = get_current_screen()->is_block_editor();
-		if ( $isBlockEditor ) {
-			add_action( 'enqueue_block_editor_assets', 'modul_r_theme_style', 9 );
-		}
-	}
 
-	/* Main theme style*/
-	add_action( 'wp_enqueue_scripts', 'modul_r_theme_style', 9 );
+/**
+ * Admin style
+ */
+add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
 
-	/* Fonts */
-	add_action( 'enqueue_block_assets', 'modul_r_theme_fonts', 1 );
+$hook = is_admin() ? 'enqueue_block_editor_assets' : 'enqueue_block_assets';
 
-	/* Above the fold style */
-	add_action( 'wp_enqueue_scripts', 'modul_r_atf_style', 1 );
+/**
+ * Enqueue the stylesheet for both editor and front-end.
+ */
+/* Main theme style*/
+add_action( $hook, 'modul_r_theme_style' );
 
-	/* Admin style */
-	add_action( 'admin_enqueue_scripts', 'modul_r_admin_style', 1 );
-}
-add_action( 'after_setup_theme', 'modul_r_handleStyles', 9 );
+/* Fonts */
+add_action( $hook, 'modul_r_theme_fonts', 10 );
+
+/**
+ * Frontend / Editor
+ */
+add_action( $hook, 'modul_r_atf_style', 11 );
+
+/**
+ * Theme custom css props
+ */
+add_action( $hook, 'modul_r_css_props' );
+
+/* Custom color palette */
+add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
