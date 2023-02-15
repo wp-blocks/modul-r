@@ -2,12 +2,9 @@
 
 <!-- wp:pattern {"slug":"modul-r/homepage-hero-animated"} /-->
 
-<!-- wp:group {"align":"wide","layout":{"type":"constrained"},"className":"is-style-items-overlap"} --><div class="wp-block-group alignwide is-style-items-overlap">
-	<!-- wp:pattern {"slug":"modul-r/cards-with-covers"} /-->
-</div><!-- /wp:group -->
-
 <!-- wp:group {"tagName":"main","style":{"spacing":[]},"layout":{"type":"default"}} -->
 <main class="wp-block-group"><!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+
 	<div class="wp-block-group alignwide">
 		<!-- wp:heading {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
 		<h1 class="alignwide has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--60)"><strong>Simple
@@ -25,6 +22,17 @@
 			font family, text size, colours palette, header direction, logo and hero image size and much more!</p>
 		<!-- /wp:paragraph --></div>
 	<!-- /wp:group -->
+
+	<!-- wp:cover {"overlayColor":"white-smoke","minHeight":25,"minHeightUnit":"vh","isDark":false,"className":"is-style-traversal-clip"} -->
+	<div class="wp-block-cover is-light is-style-traversal-clip" style="min-height:25vh"><span aria-hidden="true" class="wp-block-cover__background has-white-smoke-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
+		<p class="has-text-align-center has-large-font-size"></p>
+		<!-- /wp:paragraph --></div></div>
+	<!-- /wp:cover -->
+
+	<!-- wp:group {"align":"wide","layout":{"type":"constrained"},"className":"is-style-items-overlap"} -->
+	<div class="wp-block-group alignwide is-style-items-overlap">
+		<!-- wp:pattern {"slug":"modul-r/cards-with-covers"} /-->
+	</div><!-- /wp:group -->
 
 	<!-- wp:separator -->
 	<hr class="wp-block-separator"/>
