@@ -57,7 +57,7 @@ function getSizes() {
 /**
  * Adding an event listener to the DOMContentLoaded event.
  */
-document.addEventListener( 'DOMContentLoaded', () => {
+export function modulrScrollControl() {
 	getSizes();
 	scrollCallback();
 
@@ -74,4 +74,4 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		},
 		true
 	);
-} );
+};
