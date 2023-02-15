@@ -25,7 +25,7 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 /* Registering block styles. */
 if ( function_exists( 'register_block_style' ) ) {
 
-	$wave = esc_url( apply_filters( 'modul_r_wave_shape_uri', get_template_directory_uri() . '/img/demo/wave.svg' ) );
+	$wave = esc_url( apply_filters( 'modul_r_wave_shape_uri', get_template_directory_uri() . '/build/img/demo/wave.svg' ) );
 
 	register_block_style(
 		'core/site-title',
