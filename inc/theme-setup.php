@@ -32,7 +32,7 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		register_nav_menus(
 			array(
 				'main-menu' => esc_html__( 'Primary', 'modul-r' ),
-			) 
+			)
 		);
 
 		/*
@@ -47,7 +47,7 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 				'comment-list',
 				'gallery',
 				'caption',
-			) 
+			)
 		);
 
 		// Add support for core custom logo, header text color, website background.
@@ -59,14 +59,8 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 				'flex-height' => true,
 				'flex-width'  => true,
 				'header-text' => array( 'site-title', 'site-description' ),
-			) 
+			)
 		);
-
-		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
-
-		// Enqueue editor styles and fonts.
-		add_editor_style( get_template_directory() . '/build/editor.css' );
 
 		// Make theme available for translation.
 		load_theme_textdomain( 'block-canvas' );
@@ -88,10 +82,11 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		/* Https://developer.wordpress.org/block-editor/developers/themes/theme-support/#appearance-tools */
 		add_theme_support( 'appearance-tools' );
 		add_theme_support( 'custom-line-height' );
+
+		add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'modul_r_theme_setup' );
-
 
 if ( ! function_exists( 'modul_r_comments' ) ) :
 	/**
