@@ -27,7 +27,7 @@
 	"build:zip": "wp-scripts plugin-zip --outDir=releases --with-version",
 	"build:images": "node ./bin/imagemin.mjs",
 	"build:makepot": "wp i18n make-pot . languages/modulr.pot --exclude=node_modules",
-	"build": "npm run build:makepot && npm run build:images && npm run build:scripts && npm run build:zip",
+	"build": "npm run build:images && npm run build:scripts && npm run build:zip",
 	"wp-env:start": "wp-env start && wp-env run cli \"wp theme activate modul-r\"",
     "wp-env:stop": "wp-env stop",
     "wp-env:destroy": "wp-env destroy",
@@ -35,7 +35,7 @@
     "generate-font-list": "node ./bin/gfontsList.mjs -sort=popularity",
     "test": "wp-env start && wp-env run tests-cli \"wp theme activate modul-r\" && jest --silent=false --coverage",
     "postinstall": "composer install && npm run build:images && npm run build:scripts",
-    "release": "composer PHPCS-FIXER-dev && composer install --no-dev && npm run build && composer install"
+    "release": "composer PHPCS-FIXER-dev && composer install --no-dev && npm run build:makepot && npm run build && composer install"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
