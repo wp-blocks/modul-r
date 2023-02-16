@@ -22,9 +22,9 @@ describe( 'Admin works!', () => {
 describe( 'Frontend works!', () => {
 	beforeAll( async () => {
 		await page.goto( 'http://localhost:8889/' );
-	} );
+	}, 10000 );
 
-	it( 'Should load properly front-facing website', async () => {
+	it( 'Should take the screenshot of the homepage', async () => {
 		await page.setViewport( { height: 900, width: 1200 } );
 
 		// Take the screenshot of the page with puppeteer

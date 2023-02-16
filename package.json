@@ -27,7 +27,7 @@
 	"build:zip": "wp-scripts plugin-zip --outDir=releases --with-version",
 	"build:images": "node ./bin/imagemin.mjs",
 	"build:makepot": "wp i18n make-pot . languages/modulr.pot --exclude=node_modules",
-	"build": "npm run build:images && npm run build:scripts && npm run build:zip",
+	"build": "npm run build:scripts && npm run build:images && npm run build:zip",
 	"wp-env:start": "wp-env start && wp-env run cli \"wp theme activate modul-r\"",
     "wp-env:stop": "wp-env stop",
     "wp-env:destroy": "wp-env destroy",
