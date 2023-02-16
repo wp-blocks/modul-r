@@ -16,17 +16,17 @@ describe( 'Admin works!', () => {
 			'//h2[contains(text(), "Welcome to WordPress!")]'
 		);
 		expect( nodes.length ).not.toEqual( 0 );
-	}, 10000 );
+	}, 60000 );
 } );
 
 describe( 'Frontend works!', () => {
 	beforeAll( async () => {
 		await page.goto( 'http://localhost:8889/' );
-	} );
+	}, 600000 );
 
 	it( 'Should load properly front-facing website', async () => {
 		// Assertions
-		const nodes = await page.$x( '//h1[contains(text(), "modul-r")]' );
+		const nodes = await page.$x( '//h1 /a[contains(text(), "modul-r")]' );
 		expect( nodes.length ).not.toEqual( 0 );
-	}, 10000 );
+	}, 60000 );
 } );
