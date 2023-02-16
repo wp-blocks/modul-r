@@ -112,3 +112,9 @@ body.top .has-primary-background-color.headline-fixed {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
+
+.is-style-card {
+  border: 1px solid var(--wp--preset--color--gray-light);
+  border-radius: 3px;
+  box-shadow: 0 1rem 2rem -2rem;
+}
