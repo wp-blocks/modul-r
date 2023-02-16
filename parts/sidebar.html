@@ -1,3 +1,27 @@
-<!-- wp:search {"label":"Cerca","buttonText":"Cerca"} /-->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"blockGap":"var:preset|spacing|60"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:search {"label":"Cerca","showLabel":false,"buttonText":"Cerca","buttonPosition":"button-inside","buttonUseIcon":true} /-->
 
-<!-- wp:post-terms {"term":"category"} /-->
+	<!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+	<div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}},"textColor":"black"} -->
+		<h2 class="has-black-color has-text-color" style="font-style:normal;font-weight:500">Categories</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:post-terms {"term":"category","style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"medium","fontFamily":"default"} /--></div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+	<div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}},"textColor":"black"} -->
+		<h2 class="has-black-color has-text-color" style="font-style:normal;font-weight:500">Pages</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:page-list /--></div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+	<div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}},"textColor":"black"} -->
+		<h2 class="has-black-color has-text-color" style="font-style:normal;font-weight:500">Lastest Posts</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:latest-posts {"displayPostDate":true} /--></div>
+	<!-- /wp:group --></div>
+<!-- /wp:group -->
