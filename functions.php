@@ -26,7 +26,7 @@ if ( ! isset( $modul_r_defaults ) ) {
 			'gray-light'  => '#e3e3e3',
 			'gray'        => '#888888',
 			'gray-dark'   => '#4e4e4e',
-			'black'       => '#28293E',
+			'black'       => '#1E1E28',
 		),
 		'style'              => array(
 			'background'          => 'white-smoke',

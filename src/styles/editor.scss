@@ -1,8 +1,10 @@
 /* Theme Defaults */
 @import "defaults/defaults";
 
-/* Base style */
-@import "base/base";
+.editor-styles-wrapper {
+  /* Base style */
+  @import "base/base";
+}
 
 /* Pages */
 @import "pages/pages";
