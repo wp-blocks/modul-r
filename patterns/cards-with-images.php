@@ -8,7 +8,7 @@
 ?>
 <?php
 $column_number = 3;
-$image_src     = esc_url( get_theme_file_uri( 'img/demo/WordPress-logotype-alt-background.avif' ) );
+$image_src     = esc_url( get_theme_file_uri( 'build/img/demo/WordPress-logotype-alt-background.avif' ) );
 $template      = '<!-- wp:column -->
 		<div class="wp-block-column"><!-- wp:image {"align":"center"} -->
 			<figure class="wp-block-image aligncenter alignfull size-full"><img src="' . $image_src . '" alt="" /></figure>

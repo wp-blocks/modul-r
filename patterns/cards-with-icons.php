@@ -8,7 +8,7 @@
 ?>
 <?php
 $column_number = 3;
-$image_src     = esc_url( get_theme_file_uri( 'img/demo/wapuu-original.avif' ) );
+$image_src     = esc_url( get_theme_file_uri( 'build/img/demo/wapuu-original.avif' ) );
 $template      = '<!-- wp:column -->
 		<div class="wp-block-column"><!-- wp:image {"align":"center","width":160,"height":160} -->
 			<figure class="wp-block-image aligncenter is-resized"><img src="' . $image_src . '" alt="" width="160" height="160"/></figure>
