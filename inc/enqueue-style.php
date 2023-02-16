@@ -91,13 +91,11 @@ if ( ! function_exists( 'modul_r_theme_colors_setup' ) ) :
 endif;
 
 
-if ( ! function_exists( 'modul_r_css_props' ) ) :
+if ( ! function_exists( 'modul_r_custom_props' ) ) :
 	/**
 	 * It adds the CSS variables to the admin and front end
-	 *
-	 * @return the value of the variable .
 	 */
-	function modul_r_css_props() {
+	function modul_r_custom_props() {
 
 		$defaults = $GLOBALS['modul_r_defaults'];
 		$wp_theme_json_prefix = '--wp--preset--color--';
@@ -125,14 +123,31 @@ if ( ! function_exists( 'modul_r_css_props' ) ) :
 		                 $wp_theme_json_prefix . 'secondary--decimal: ' . modul_r_hex2rgb( $colors['secondary'], true ) . ';' .
 		                 $wp_theme_json_prefix . 'primary--decimal: ' . modul_r_hex2rgb( $colors['primary'], true ) . ';';
 
-		/* Adding the CSS to the admin and front end. */
-		if ( is_admin() ) {
-
-			wp_add_inline_style( 'modul-r-style', ':root {' . $custom_props . '}' );
+		if (!is_admin()) {
+			/* Adding the CSS to the admin and front end. */
+			wp_add_inline_style( 'modul-r-style', ':root {' . $custom_props . '}');
 		} else {
-			echo "<style id='modul-r-style-css'>body{" . $custom_props . '}</style>';
+			wp_add_inline_style( 'modul-r-style','body{' . $custom_props . '}');
 		}
 	};
+endif;
+
+
+/**
+ * The above the fold style
+ */
+if ( ! function_exists( 'modul_r_atf_style' ) ) :
+	function modul_r_atf_style() {
+		// get the acf.css file and store into a variable
+		ob_start();
+
+		include get_stylesheet_directory() . '/build/modulr-css-atf.css';
+
+		$atf_css = ob_get_clean();
+
+		if (! empty($atf_css)) echo '<style id="modul-r-above-the-fold">' . $atf_css . '</style>';
+
+	}
 endif;
 
 /**
@@ -145,26 +160,13 @@ if ( ! function_exists( 'modul_r_theme_style' ) ) :
 endif;
 
 /**
- * The above the fold style
+ * Editor style
  */
-if ( ! function_exists( 'modul_r_atf_style' ) ) :
-	function modul_r_atf_style() {
+if ( ! function_exists( 'modul_r_editor_styles' ) ) :
 
-		// get the acf.css file and store into a variable
-		ob_start();
-
-		include get_stylesheet_directory() . '/build/modulr-css-atf.css';
-
-		$atf_css = ob_get_clean();
-
-		// And finally return the stored style
-		if ( $atf_css != '' ) {
-			if ( is_admin() ) {
-				wp_add_inline_style( 'modul-r-style', $atf_css );
-			} else {
-				echo '<style id="modul-r-above-the-fold">' . $atf_css . '</style>';
-			}
-		}
+	function modul_r_editor_styles() {
+		// I know, there is add_editor_style but doesn't work as expected!
+		add_editor_style( get_template_directory_uri() . '/build/modulr-css-editor.css' );
 	}
 endif;
 
@@ -267,36 +269,46 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 	}
 endif;
 
-
 /**
- * Enqueue the registered styles
+ * ENQUEUE THE REGISTERED STYLES
+ * we need to distinguish between "enqueue_block_editor_assets" and "enqueue_block_assets"
+ * because the latter only enqueues in the page header but not into editor iframe
  */
-
-/**
- * Admin style
- */
-add_action( 'admin_enqueue_scripts', 'modul_r_admin_style' );
 
 $hook = is_admin() ? 'enqueue_block_editor_assets' : 'enqueue_block_assets';
 
 /**
- * Enqueue the stylesheet for both editor and front-end.
+ * Enqueue editor styles and fonts.
  */
-/* Main theme style*/
+add_action( 'admin_init', 'modul_r_editor_styles' );
+
+/**
+ * Admin style
+ */
+add_action( 'admin_init', 'modul_r_admin_style' );
+
+/**
+ * Custom color palette
+ */
+add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
+
+/**
+ * Enqueue the ATF stylesheet in front-end only.
+ * this style is not enqueued for admin or site editor
+ */
+add_action( "wp_enqueue_scripts", 'modul_r_atf_style' );
+
+/**
+ * Theme custom css props / above the fold style
+ */
 add_action( $hook, 'modul_r_theme_style' );
 
-/* Fonts */
-add_action( $hook, 'modul_r_theme_fonts', 10 );
+/**
+ * 🛑 NOTE: since in admin editor styles are enqueued inline the enqueue has to be after the main style
+ */
+add_action( $hook, 'modul_r_custom_props' );
 
 /**
- * Frontend / Editor
+ * Enqueue Fonts (both frontend and admin area)
  */
-add_action( $hook, 'modul_r_atf_style', 11 );
-
-/**
- * Theme custom css props
- */
-add_action( $hook, 'modul_r_css_props' );
-
-/* Custom color palette */
-add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
+add_action( $hook, 'modul_r_theme_fonts' );
