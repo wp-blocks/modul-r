@@ -6,6 +6,8 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 	 */
 	function modul_r_theme_scripts() {
 
+		wp_dequeue_script( 'jquery' );
+
 		$asset = include MODULR_THEME_DIR . '/build/modulr-scripts.asset.php';
 
 		/* Register and Enqueue */

@@ -17,7 +17,7 @@ function modul_r_registerSidebar() {
 			'after_title'   => '</h3>',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-		) 
+		)
 	);
 
 }

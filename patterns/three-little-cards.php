@@ -21,7 +21,10 @@ $template = '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spa
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 	<div class="wp-block-group"><!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|40"}},"className":"is-style-card","layout":{"type":"constrained"}} -->
-		<?php for ( $i = 1; $i <= $column_number; $i++ ) { echo $template; } ?>
+		<?php 
+		for ( $i = 1; $i <= $column_number; $i++ ) {
+			echo $template; } 
+		?>
 	</div>
 	<!-- /wp:group --></div>
 <!-- /wp:group -->

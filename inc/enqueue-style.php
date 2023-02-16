@@ -97,18 +97,18 @@ if ( ! function_exists( 'modul_r_custom_props' ) ) :
 	 */
 	function modul_r_custom_props() {
 
-		$defaults = $GLOBALS['modul_r_defaults'];
+		$defaults             = $GLOBALS['modul_r_defaults'];
 		$wp_theme_json_prefix = '--wp--preset--color--';
 
 		$custom_props = '';
 
 		/* Colors */
-		$colors                    = array();
-		$colors['primary']         = modul_r_get_theme_color( 'primary-color', $defaults['colors']['primary'] );
-		$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $defaults['colors']['secondary'] );
+		$colors              = array();
+		$colors['primary']   = modul_r_get_theme_color( 'primary-color', $defaults['colors']['primary'] );
+		$colors['secondary'] = modul_r_get_theme_color( 'secondary-color', $defaults['colors']['secondary'] );
 		/* Shades */
-		$colors['white']       = sanitize_hex_color( $defaults['shades']['white'] );
-		$colors['black']       = sanitize_hex_color( $defaults['shades']['black'] );
+		$colors['white'] = sanitize_hex_color( $defaults['shades']['white'] );
+		$colors['black'] = sanitize_hex_color( $defaults['shades']['black'] );
 
 		/* Typography */
 		foreach ( modul_r_get_fonts() as $type => $font ) {
@@ -119,15 +119,15 @@ if ( ! function_exists( 'modul_r_custom_props' ) ) :
 		}
 
 		$custom_props .= $wp_theme_json_prefix . 'black--decimal: ' . modul_r_hex2rgb( $colors['black'], true ) . ';' .
-		                 $wp_theme_json_prefix . 'white--decimal: ' . modul_r_hex2rgb( $colors['white'], true ) . ';' .
-		                 $wp_theme_json_prefix . 'secondary--decimal: ' . modul_r_hex2rgb( $colors['secondary'], true ) . ';' .
-		                 $wp_theme_json_prefix . 'primary--decimal: ' . modul_r_hex2rgb( $colors['primary'], true ) . ';';
+						 $wp_theme_json_prefix . 'white--decimal: ' . modul_r_hex2rgb( $colors['white'], true ) . ';' .
+						 $wp_theme_json_prefix . 'secondary--decimal: ' . modul_r_hex2rgb( $colors['secondary'], true ) . ';' .
+						 $wp_theme_json_prefix . 'primary--decimal: ' . modul_r_hex2rgb( $colors['primary'], true ) . ';';
 
-		if (!is_admin()) {
+		if ( ! is_admin() ) {
 			/* Adding the CSS to the admin and front end. */
-			wp_add_inline_style( 'modul-r-style', ':root {' . $custom_props . '}');
+			wp_add_inline_style( 'modul-r-style', ':root {' . $custom_props . '}' );
 		} else {
-			wp_add_inline_style( 'modul-r-style','body{' . $custom_props . '}');
+			wp_add_inline_style( 'modul-r-style', 'body{' . $custom_props . '}' );
 		}
 	};
 endif;
@@ -145,7 +145,9 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 
 		$atf_css = ob_get_clean();
 
-		if (! empty($atf_css)) echo '<style id="modul-r-above-the-fold">' . $atf_css . '</style>';
+		if ( ! empty( $atf_css ) ) {
+			echo '<style id="modul-r-above-the-fold">' . $atf_css . '</style>';
+		}
 
 	}
 endif;
@@ -207,13 +209,13 @@ function modul_r_get_font_stylesheet( $fonts ) {
 		$fontset = array();
 		foreach ( $fonts as $family ) {
 			foreach ( $family['weights'] as $weight ) {
-				if ( empty($fontset[$family['slug']]) || ! in_array( $weight, $fontset[$family['slug']], true ) ) {
-					$fontset[$family['slug']][] = intval( $weight );
+				if ( empty( $fontset[ $family['slug'] ] ) || ! in_array( $weight, $fontset[ $family['slug'] ], true ) ) {
+					$fontset[ $family['slug'] ][] = intval( $weight );
 				}
 			}
 		}
 		foreach ( $fontset as $slug => $family ) {
-			$font_query[] = "family={$slug}:wght@" . implode( ';', $fontset[$slug] );
+			$font_query[] = "family={$slug}:wght@" . implode( ';', $fontset[ $slug ] );
 		}
 
 		return 'https://fonts.googleapis.com/css2?' . implode( '&', $font_query ) . '&display=swap';
@@ -256,15 +258,14 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 		$fonts = modul_r_get_fonts();
 
 		if ( ! empty( $fonts ) ) {
-			$font_stylesheet = modul_r_get_font_stylesheet($fonts);
+			$font_stylesheet = modul_r_get_font_stylesheet( $fonts );
 
 			// Load fonts from Google.
 			if ( is_admin() ) {
 				wp_add_inline_style( 'modul-r-style', wptt_get_webfont_styles( $font_stylesheet ) );
 			} else {
 				wp_enqueue_style( 'modul-r-fonts', wptt_get_webfont_url( $font_stylesheet ) );
-			}
-
+			}       
 		}
 	}
 endif;
@@ -296,7 +297,7 @@ add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
  * Enqueue the ATF stylesheet in front-end only.
  * this style is not enqueued for admin or site editor
  */
-add_action( "wp_enqueue_scripts", 'modul_r_atf_style' );
+add_action( 'wp_enqueue_scripts', 'modul_r_atf_style' );
 
 /**
  * Theme custom css props / above the fold style

@@ -23,18 +23,8 @@
 					aliqua.</p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:buttons -->
-				<div class="wp-block-buttons"><!-- wp:button -->
-					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Button A</a></div>
-					<!-- /wp:button -->
-
-					<!-- wp:button {"textColor":"white","className":"is-style-outline"} -->
-					<div class="wp-block-button is-style-outline"><a
-								class="wp-block-button__link has-white-color has-text-color wp-element-button">Button
-							B</a></div>
-					<!-- /wp:button --></div>
-				<!-- /wp:buttons --></div>
-			<!-- /wp:group --></div>
-		<!-- /wp:group --></div>
+			</div><!-- /wp:group -->
+		</div><!-- /wp:group -->
+	</div>
 </div>
 <!-- /wp:cover -->

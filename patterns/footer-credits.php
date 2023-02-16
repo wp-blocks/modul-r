@@ -6,7 +6,8 @@
  * Categories: footer, modul-r
  */
 ?>
-<?php echo '<!-- wp:paragraph {"align":"right","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary-light"}}},"spacing":{"padding":{"top":"var:preset|spacing|30","right":"0","bottom":"var:preset|spacing|30","left":"0"}}},"textColor":"primary-light","fontSize":"extra-small"} -->
+<?php 
+echo '<!-- wp:paragraph {"align":"right","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary-light"}}},"spacing":{"padding":{"top":"var:preset|spacing|30","right":"0","bottom":"var:preset|spacing|30","left":"0"}}},"textColor":"primary-light","fontSize":"extra-small"} -->
 	<p class="has-text-align-right has-primary-light-color has-text-color has-link-color has-extra-small-font-size" style="padding-top:var(--wp--preset--spacing--30);padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">';
 // Privacy policy link
 if ( function_exists( 'the_privacy_policy_link' ) ) {
@@ -18,15 +19,15 @@ if ( function_exists( 'the_privacy_policy_link' ) ) {
 <?php
 // Website credits section (year - url)
 printf(
-		'&copy; %s %s',
-		date_i18n( 'Y' ),
-		str_replace(
-				array(
-						'http://',
-						'https://',
-				),
-				'',
-				esc_url( home_url() )
-		)
+	'&copy; %s %s',
+	date_i18n( 'Y' ),
+	str_replace(
+		array(
+			'http://',
+			'https://',
+		),
+		'',
+		esc_url( home_url() )
+	)
 );
 echo '</p><!-- /wp:paragraph -->';

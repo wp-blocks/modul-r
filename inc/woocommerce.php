@@ -30,9 +30,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						'min_rows'        => 1,
 					),
 				)
-			) 
+			)
 		);
 	}
+
 	add_action( 'after_setup_theme', 'modul_r_add_woocommerce_support' );
 
 	/* Adding support for the WooCommerce product gallery features. */

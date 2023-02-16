@@ -18,6 +18,9 @@ $template      = '<!-- wp:column -->
 ?>
 <!-- wp:columns -->
 <div class="wp-block-columns">
-	<?php for ( $i = 1; $i <= $column_number; $i++ ) { echo $template; } ?>
+	<?php 
+	for ( $i = 1; $i <= $column_number; $i++ ) {
+		echo $template; } 
+	?>
 </div><!-- /wp:columns -->
 

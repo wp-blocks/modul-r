@@ -30,15 +30,15 @@ if ( function_exists( 'register_block_style' ) ) {
 	register_block_style(
 		'core/site-title',
 		array(
-			'name'         => 'outlined-text',
-			'label'        => __( 'Outline text', 'modul-r' )
+			'name'  => 'outlined-text',
+			'label' => __( 'Outline text', 'modul-r' ),
 		)
 	);
 	register_block_style(
-		'core/site-title',
+		'core/heading',
 		array(
-			'name'         => 'outlined-text',
-			'label'        => __( 'Outline text', 'modul-r' )
+			'name'  => 'outlined-text',
+			'label' => __( 'Outline text', 'modul-r' ),
 		)
 	);
 
@@ -67,6 +67,14 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	register_block_style(
+		'core/group',
+		array(
+			'name'  => 'card',
+			'label' => __( 'Card', 'modul-r' ),
+		)
+	);
+
+	register_block_style(
 		'core/cover',
 		array(
 			'name'         => 'wave-clip',
@@ -87,8 +95,8 @@ if ( function_exists( 'register_block_style' ) ) {
 	register_block_style(
 		'core/group',
 		array(
-			'name'         => 'items-overlap',
-			'label'        => __( 'Shifts the group by 120px upwards', 'modul-r' )
+			'name'  => 'items-overlap',
+			'label' => __( 'Shifts the group by 120px upwards', 'modul-r' ),
 		)
 	);
 
