@@ -1,14 +1,23 @@
 header.wp-block-template-part {
-  position: sticky;
+
+  .is-style-sticky {
+	position: sticky;
+  }
+
+  .is-style-fixed {
+	position: fixed;
+  }
+
   z-index: 1000;
-	width: 100%;
-	top: 0;
-	left: 0;
-	right: 0;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
 
   .wp-block-navigation .wp-block-navigation-item__content {
 	opacity: .6;
 	transition: .95s color;
+
 	&:hover {
 	  opacity: .9;
 	  transition: .75s color;
@@ -16,13 +25,15 @@ header.wp-block-template-part {
   }
 
   @media #{$mq__responsive_breakpoint} {
-    height: var(--header--branding--height);
-    transform: inherit !important;
-    padding: 0;
+	height: var(--header--branding--height);
+	transform: inherit !important;
+	padding: 0;
   }
 
-	// if there isn't a featured image compensate void space under the menu
-	@media all and (min-width: 699px) {
-		body.admin-bar & { top: var(--wp-admin--admin-bar--height); }
+  // if there isn't a featured image compensate void space under the menu
+  @media all and (min-width: 699px) {
+	body.admin-bar & {
+	  top: var(--wp-admin--admin-bar--height);
 	}
+  }
 }

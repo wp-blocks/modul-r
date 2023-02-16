@@ -140,4 +140,28 @@ if ( function_exists( 'register_block_style' ) ) {
 			'label' => __( 'Lightbox', 'modul-r' ),
 		)
 	);
+
+	register_block_style(
+		'core/query',
+		array(
+			'name'  => 'masonry-layout',
+			'label' => __( 'Masonry', 'modul-r' ),
+		)
+	);
+
+	register_block_style(
+		'core/template-part',
+		array(
+			'name'  => 'fixed',
+			'label' => __( 'Fixed', 'modul-r' ),
+		)
+	);
+
+	register_block_style(
+		'core/template-part',
+		array(
+			'name'  => 'sticky',
+			'label' => __( 'Sticky', 'modul-r' ),
+		)
+	);
 }
