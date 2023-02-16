@@ -106,3 +106,9 @@ body.top .has-primary-background-color.headline-fixed {
 	}
   }
 }
+
+.is-style-outlined-text {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}

@@ -1,10 +1,12 @@
 /* Blocks styles */
 .wp-site-blocks {
+  overflow-x: hidden;
 
 	//! MediaAndText
 	.wp-block-media-text {
 		.wp-block-media-text__media {
-			justify-self: end;
+		  display: grid;
+		  justify-items: end;
 
 			img,
 			video {
@@ -15,7 +17,7 @@
 
 		&.has-media-on-the-right {
 			.wp-block-media-text__media {
-				justify-self: start;
+			  justify-items: start;
 			}
 		}
 

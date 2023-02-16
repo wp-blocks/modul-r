@@ -1,21 +1,24 @@
-/* Headlines */
-body {
-	color: var(--wp--preset--color--text);
+/* wp-site-blocks is the "body" of the frontend webpages */
+.wp-site-blocks {
 	word-break: break-word;
-}
 
-%headline_style {
-	font-family: var(--typography--font--title);
-	font-weight: var(--typography--font--title-bold);
-}
+  ul, ol, dl {
+	  margin-top: var(--wp--preset--spacing--50);
+	  margin-bottom: var(--wp--preset--spacing--50);
+	  padding: 0;
 
-ul, ol, dl {
-	margin-top: var(--wp--preset--spacing--50);
-	margin-bottom: var(--wp--preset--spacing--50);
-	padding: 0;
+	  li, dt, dd {
+		  line-height: var(--wp--custom--line-height--medium);
+		  margin: 0;
+	  }
+  }
 
-	li, dt, dd {
-		line-height: var(--wp--custom--line-height--medium);
-		margin: 0;
+  table {
+	width:100%;
+	max-width:100%;
+
+	tr {
+	  border-collapse:collapse;
 	}
+  }
 }

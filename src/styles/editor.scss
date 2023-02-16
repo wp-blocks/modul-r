@@ -1,10 +1,17 @@
 /* Theme Defaults */
 @import "defaults/defaults";
 
-/* Theme base style and colors */
-@import "base/_html";
-@import "base/colors";
+/* Base style */
+@import "base/base";
 
-/* Theme typography */
-@import "base/typography";
-@import "base/typography-extras";
+/* Pages */
+@import "pages/pages";
+
+/* Theme Defaults */
+@import "defaults/defaults";
+
+/* Components */
+@import "components/components";
+
+/* Extras */
+@import "utils/print";

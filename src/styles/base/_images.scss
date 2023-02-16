@@ -5,13 +5,6 @@ img {
   object-fit: cover;
 }
 
-.image-border img {
-  padding: var(--wp--preset--spacing--40);
-  background: var(--wp--preset--color--gray-light);
-  margin: var(--wp--preset--spacing--40);
-  box-sizing: border-box;
-}
-
 p img {
   &.alignleft {
     padding-right: var(--wp--preset--spacing--50);
