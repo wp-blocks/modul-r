@@ -22,7 +22,7 @@
     "readme.txt"
   ],
   "scripts": {
-    "start": "wp-scripts start",
+    "start": "wp-scripts start && npm run build:images",
     "build:scripts": "wp-scripts build",
     "build:zip": "wp-scripts plugin-zip --outDir=releases --with-version",
     "build:images": "node ./bin/imagemin.mjs",
