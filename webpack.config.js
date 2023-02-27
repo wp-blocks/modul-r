@@ -5,8 +5,6 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		/** js scripts */
-		sw: path.resolve( __dirname, `src/scripts/sw.js` ),
-		'avif-sw': path.resolve( __dirname, 'node_modules/avif.js/avif-sw.js' ),
 		'modulr-scripts': path.resolve(
 			process.cwd(),
 			`src/scripts/scripts.ts`
