@@ -8,10 +8,10 @@
 ?>
 <?php
 $column_number = 3;
-$image_src     = esc_url( get_theme_file_uri( 'build/img/demo/WordPress-logotype-alt-background.avif' ) );
+$image_src     = esc_url( get_theme_file_uri( 'img/demo/WordPress-logotype-alt-background.avif' ) );
 $template      = '<!-- wp:group {"style":{"spacing":{}},"className":"is-style-card","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group is-style-card"><!-- wp:image {"align":"full","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image alignfull size-full"><img src="'.$image_src.'" alt="" /></figure>
+			<figure class="wp-block-image alignfull size-full"><img src="' . $image_src . '" alt="" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->

@@ -6,7 +6,7 @@
  */
 ?>
 <?php
-$image_src = esc_url( get_theme_file_uri( 'build/img/demo/wapuu-original.avif' ) );
+$image_src = esc_url( get_theme_file_uri( 'img/demo/wapuu-original.avif' ) );
 ?>
 <!-- wp:media-text {"mediaId":134,"mediaLink":"<?php echo $image_src; ?>","mediaType":"image","mediaWidth":39,"imageFill":false} -->
 <div class="wp-block-media-text alignwide is-stacked-on-mobile" style="grid-template-columns:39% auto"><figure class="wp-block-media-text__media"><img src="<?php echo $image_src; ?>" alt="" class="wp-image-134 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->

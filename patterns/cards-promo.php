@@ -7,7 +7,7 @@
 ?>
 <?php
 $column_number = 3;
-$image_src     = esc_url( get_theme_file_uri( 'build/img/demo/WordPress-logotype-alt-background.avif' ) );
+$image_src     = esc_url( get_theme_file_uri( 'img/demo/WordPress-logotype-alt-background.avif' ) );
 $template      = '<!-- wp:cover {"id":134,"dimRatio":90,"overlayColor":"primary","align":"center","className":"is-style-traversal-clip"} -->
 	<div class="wp-block-cover aligncenter is-style-traversal-clip"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-90 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 			<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50)"><!-- wp:heading {"textAlign":"center","level":3,"textColor":"white","fontSize":"xx-large"} -->

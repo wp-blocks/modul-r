@@ -8,13 +8,13 @@
 ?>
 <?php
 $column_number = 3;
-$image_src     = esc_url( get_theme_file_uri( 'build/img/demo/WordPress-logotype-alt-background.avif' ) );
+$image_src     = esc_url( get_theme_file_uri( 'img/demo/WordPress-logotype-alt-background.avif' ) );
 $template      = '<!-- wp:group {"className":"is-style-card","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group is-style-card">
-			<!-- wp:cover {"url":"'.$image_src.'","id":134,"dimRatio":90,"overlayColor":"primary","align":"center"} -->
+			<!-- wp:cover {"url":"' . $image_src . '","id":134,"dimRatio":90,"overlayColor":"primary","align":"center"} -->
 			<div class="wp-block-cover aligncenter">
 			<span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-90 has-background-dim"></span>
-			<img class="wp-block-cover__image-background wp-image-134" alt="" src="'.$image_src.'" data-object-fit="cover"/>
+			<img class="wp-block-cover__image-background wp-image-134" alt="" src="' . $image_src . '" data-object-fit="cover"/>
 			<div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 					<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50)"><!-- wp:heading {"textAlign":"center","level":3,"textColor":"white","fontSize":"xx-large"} -->
 						<h3 class="has-text-align-center has-white-color has-text-color has-xx-large-font-size"><strong>Card Title</strong></h3>

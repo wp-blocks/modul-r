@@ -8,10 +8,10 @@
 ?>
 <?php
 $column_number = 3;
-$image_src     = esc_url( get_theme_file_uri( 'build/img/demo/wapuu-original.avif' ) );
+$image_src     = esc_url( get_theme_file_uri( 'img/demo/wapuu-original.avif' ) );
 $template      = '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|40"}},"className":"is-style-card","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group is-style-card" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:image {"align":"center","id":134,"width":150,"height":150,"sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full is-resized"><img src="'.$image_src.'" alt="" class="wp-image-134" width="150" height="150"/></figure>
+			<figure class="wp-block-image aligncenter size-full is-resized"><img src="' . $image_src . '" alt="" class="wp-image-134" width="150" height="150"/></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
@@ -29,7 +29,10 @@ $template      = '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:prese
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 	<div class="wp-block-group">
-		<?php for ( $i = 1; $i <= $column_number; $i++ ) {echo $template; } ?>
+		<?php
+		for ( $i = 1; $i <= $column_number; $i++ ) {
+			echo $template; }
+		?>
 	</div>
 	<!-- /wp:group -->
 </div>
