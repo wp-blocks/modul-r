@@ -1,10 +1,6 @@
 {
   "core": null,
   "themes": ["./"],
-  "plugins": [
-	"https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip",
-	"erikyo/OH-MY-SVG"
-  ],
   "config": {
 	"WP_DEBUG": true,
 	"SCRIPT_DEBUG": true,

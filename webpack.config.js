@@ -1,15 +1,16 @@
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const path = require( 'path' );
 
-const config = {
-	...defaultConfig,
-};
-
 module.exports = {
 	...defaultConfig,
 	entry: {
 		/** js scripts */
-		'modulr-scripts': path.resolve( process.cwd(), `src/scripts/scripts.ts` ),
+		sw: path.resolve( __dirname, `src/scripts/sw.js` ),
+		'avif-sw': path.resolve( __dirname, 'node_modules/avif.js/avif-sw.js' ),
+		'modulr-scripts': path.resolve(
+			process.cwd(),
+			`src/scripts/scripts.ts`
+		),
 		'modulr-script-admin': path.resolve(
 			process.cwd(),
 			`src/scripts/scripts-admin.ts`
@@ -31,10 +32,18 @@ module.exports = {
 	devtool: 'source-map',
 	module: {
 		rules: [
+			...defaultConfig.module.rules,
 			{
 				test: /\.[tjmc]sx?$/,
 				use: [ 'babel-loader' ],
 				exclude: /node_modules/,
+			},
+			{
+				test: /\.wasm$/,
+				loader: 'file-loader',
+				generator: {
+					filename: '[name].wasm',
+				},
 			},
 		],
 		...defaultConfig.module,
