@@ -1,7 +1,7 @@
-let Ypos = 0;
-let lastScroll = 0;
-let headerHeight;
-let scheduledAnimationFrame;
+let Ypos: number = 0;
+let lastScroll: number = 0;
+let headerHeight: number;
+let scheduledAnimationFrame: boolean;
 
 /**
  * If the user is scrolling down, remove the `scrolled` class from the body. If the user is scrolling
@@ -29,8 +29,6 @@ function scrollCallback() {
 /**
  * When the user scrolls, store the scroll value, and if there's not already a scheduled animation
  * frame, schedule one and call the scroll callback function.
- *
- * @return the value of the variable headerHeight.
  */
 function onScroll() {
 	// Store the scroll value for later.
@@ -51,13 +49,15 @@ function onScroll() {
 function getSizes() {
 	headerHeight =
 		document.querySelector( 'header.wp-block-template-part div' )
-			.clientHeight || document.getElementById( 'masthead' ).clientHeight;
+			?.clientHeight ||
+		document.getElementById( 'masthead' )?.clientHeight ||
+		0;
 }
 
 /**
  * Adding an event listener to the DOMContentLoaded event.
  */
-export function modulrScrollControl() {
+export function modulrScrollControl(): void {
 	getSizes();
 	scrollCallback();
 
@@ -66,6 +66,7 @@ export function modulrScrollControl() {
 		() => window.requestAnimationFrame( onScroll ),
 		true
 	);
+
 	window.addEventListener(
 		'resize',
 		() => {
@@ -74,4 +75,4 @@ export function modulrScrollControl() {
 		},
 		true
 	);
-};
+}

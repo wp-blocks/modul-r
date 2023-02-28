@@ -1,7 +1,7 @@
 // Modul-R theme slider
 import BlazeSlider from 'blaze-slider';
 
-export function modulrSliderController() {
+export function modulrSliderController(): void {
 	/**
 	 * Slider - gallery
 	 */
@@ -19,13 +19,13 @@ export function modulrSliderController() {
 		const galleryItem = galleryEl.querySelectorAll( '.wp-block-image' );
 		const sliderHTML = Array.from( galleryItem ).map( ( el ) => {
 			return '<div>' + el.innerHTML + '</div>';
-		});
+		} );
 
 		galleryEl.innerHTML = `<div class="blaze-slider">
 <div class="blaze-container">
   <div class="blaze-track-container">
     <div class="blaze-track">
-	  ${sliderHTML.join('')}
+	  ${ sliderHTML.join( '' ) }
     </div>
 
     <!-- pagination container -->
@@ -51,4 +51,4 @@ export function modulrSliderController() {
 			},
 		} );
 	} );
-};
+}

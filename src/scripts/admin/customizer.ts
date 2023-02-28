@@ -1,3 +1,5 @@
+import { HTMLElementEvent } from '../../../../../plugins/woocommerce/packages/woocommerce-blocks/assets/js/types';
+
 type FontWeightsDef = string[];
 type FontDef = { [ key: string ]: FontWeightsDef };
 interface Window {
@@ -32,10 +34,7 @@ const fontFamilySelect: { name: string; child: string[] }[] = [
  * @param {Element | null} select     - Element | null - The select element to replace the options of.
  * @param {string | any[]} newOptions - This is the new options you want to replace the old ones with.
  */
-function replaceSelectOptions(
-	select: HTMLSelectElement | null,
-	newOptions: string | any[]
-) {
+function replaceSelectOptions( select: Element, newOptions: string | any[] ) {
 	while ( select.options.length > 0 ) {
 		select.remove( 0 );
 	}
@@ -68,43 +67,54 @@ window.onload = () => {
 			.querySelector( '#' + selectNamePrefix + select.name )
 			?.addEventListener( 'change', ( e ) => {
 				// the selected item
-				const selected: HTMLInputElement | null = e.target;
-				const selectedHtmlID: string = selected?.id;
+				const selected: EventTarget | null = e.target;
+				const selectedHtmlID: string | undefined = selected.id;
 				// store the selected font available where key is the name and the value is an array of possible font weights
-				const selectedFont: string = selected?.value;
-				const availableSet: string[] = parsedFonts[ selectedFont ];
+				const selectedFont: string | undefined = selected.value;
 
-				const fontDefaultseightsSelect = selectedHtmlID.replace(
-					selectNamePrefix,
-					''
-				);
+				if ( selectedFont ) {
+					const availableSet: string[] = parsedFonts[ selectedFont ];
 
-				// Finding the font weight select element that is associated with the font family select element.
-				const choosenSubset = fontFamilySelect.find(
-					( fontType ) => fontType.name === fontDefaultseightsSelect
-				);
-
-				/**
-				 * Looping through the font weight select elements and replacing the options with the available font
-				 * weights for the selected font family.
-				 */
-				choosenSubset.child.forEach( ( fontWeight, index ) => {
-					const fontWeightSelect = document.querySelector(
-						'#' + selectNamePrefix + fontWeight
+					const fontDefaultseightsSelect = selectedHtmlID.replace(
+						selectNamePrefix,
+						''
 					);
-					replaceSelectOptions( fontWeightSelect, availableSet );
-					console.log( fontWeightSelect );
-					fontWeightSelect.value =
-						availableSet[
-							availableSet > choosenSubset ? index : 0
-						];
-				} );
 
-				console.log(
-					'available font weight for %s %s',
-					e.target.value,
-					parsedFonts[ e.target.value ]
-				);
+					// Finding the font weight select element that is associated with the font family select element.
+					const choosenSubset = fontFamilySelect.find(
+						( fontType ) =>
+							fontType.name === fontDefaultseightsSelect
+					);
+
+					/**
+					 * Looping through the font weight select elements and replacing the options with the available font
+					 * weights for the selected font family.
+					 */
+					choosenSubset?.child.forEach(
+						( fontWeight: string, index: number ) => {
+							const fontWeightSelect = document.querySelector(
+								'#' + selectNamePrefix + fontWeight
+							);
+							if ( fontWeightSelect ) {
+								replaceSelectOptions(
+									fontWeightSelect,
+									availableSet
+								);
+								console.log( fontWeightSelect );
+								fontWeightSelect.value =
+									availableSet[
+										availableSet > choosenSubset ? index : 0
+									];
+							}
+						}
+					);
+
+					console.log(
+						'available font weight for %s %s',
+						e.target.value,
+						parsedFonts[ e.target.value ]
+					);
+				}
 			} );
 	} );
 
