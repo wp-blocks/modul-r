@@ -11,7 +11,7 @@ import fs from 'graceful-fs';
 const writeFile = promisify(fs.writeFile);
 
 const srcdir = './src/img';
-const distdir = './build/img';
+const distdir = './img';
 
 // Using imagemin to compress jpeg and png images to avif.
 imagemin([srcdir + '/**/*.{jpg,jpeg,png}'], {
