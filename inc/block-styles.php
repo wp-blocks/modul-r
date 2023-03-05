@@ -1,6 +1,6 @@
 <?php
 /**
- * Modul-r patterns
+ * Modul-r Blocks Styles
  *
  * @package   ModulR
  * @author    Erik Golinelli <erik@codekraft.it>
