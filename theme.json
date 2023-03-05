@@ -214,6 +214,24 @@
 		  }
 		}
 	  },
+	  "core/navigation": {
+		"elements": {
+		  "link": {
+			":hover": {
+			  "color": {
+				"text": "var(--wp--preset--color--white)"
+			  }
+			},
+			"color": {
+			  "text": "var(--wp--preset--color--primary-dark)"
+			}
+		  }
+		},
+		"typography": {
+		  "fontWeight": "var(--typography--font--default--bold)",
+		  "textDecoration": "none"
+		}
+	  },
 	  "core/paragraph": {
 		"spacing": {
 		  "padding": {
