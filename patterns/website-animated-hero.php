@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: HomePage Hero Animated
- * Slug: modul-r/homepage-hero-animated
+ * Slug: modul-r/animated-hero
  * Categories: header, modul-r
  */
 $animated_background = '<!-- wp:html --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;max-width: inherit;min-width: 100%;height: 100%;display:block;z-index:-1;position:absolute;top:0;left:0;right:0;" preserveAspectRatio="none" viewBox="0 0 1920 1080">

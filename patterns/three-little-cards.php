@@ -7,8 +7,8 @@
 ?>
 <?php
 $column_number = 3;
-$template      = '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|40"}},"className":"is-style-card","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group is-style-card" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:heading {"textAlign":"center","level":3,"textColor":"black"} -->
+$template      = '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|40"}},"backgroundColor":"white","className":"is-style-card","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group is-style-card has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:heading {"textAlign":"center","level":3,"textColor":"black"} -->
 		<h3 class="has-text-align-center has-black-color has-text-color"><strong>
 				<strong>Title</strong></strong></h3>
 		<!-- /wp:heading -->
