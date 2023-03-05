@@ -164,4 +164,12 @@ if ( function_exists( 'register_block_style' ) ) {
 			'label' => __( 'Sticky', 'modul-r' ),
 		)
 	);
+
+	register_block_style(
+		'core/latest-posts',
+		array(
+			'name'  => 'cute-display',
+			'label' => __( 'Cute display', 'modul-r' ),
+		)
+	);
 }
