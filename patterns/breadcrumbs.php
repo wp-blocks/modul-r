@@ -2,7 +2,7 @@
 /**
  * Title: Breadcrumbs
  * Description: a pattern that shows the breadcrumbs using yoast breadcrumbs if available or using a custom function
- * Slug: modul-r/page-breadcrumbs
+ * Slug: modul-r/breadcrumbs
  * Categories: modul-r
  *
  * @package ModulR
