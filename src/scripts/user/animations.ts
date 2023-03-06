@@ -1,21 +1,5 @@
-declare global {
-	interface Window {
-		modulr: {
-			animated: HTMLElement[] | [];
-		};
-	}
-}
-
-/* The animation metadata stored into html markup */
-type AnimationDataset = {
-	animation: string;
-	animating?: boolean;
-	duration: number;
-	repeat?: string;
-};
-
 /**
- * If the current class is not 'animate__animated' or 'animate__repeat' and it starts with 'animate__',
+ * If the current class is not 'animate__animated' and it starts with 'animate__',
  * then return true.
  *
  * @param current - The current class name.
@@ -69,14 +53,14 @@ const observer = new IntersectionObserver(
 				/* It checks if the element is intersecting with the viewport and if it is not animating and if it
 				is not repeating. If it is, it adds the animation class to the element and removes it after the
 				animation ends. */
-				data.animating = true;
+				data.animating = "true";
 
 				if ( data.animation ) {
 					entry.target.classList.add( data.animation );
 				}
 
 				setTimeout( () => {
-					data.animating = undefined;
+					delete data.animating;
 					entry.target.classList.remove( data.animation );
 					observer.unobserve( entry.target );
 				}, data.duration );
@@ -87,7 +71,7 @@ const observer = new IntersectionObserver(
 				data.animating &&
 				! data.repeat
 			) {
-				data.animating = undefined;
+				delete data.animating;
 				entry.target.classList.remove( data.animation );
 			} else if (
 				/* Checking if the element is repeating and if it is intersecting with the viewport and if it
@@ -97,13 +81,13 @@ const observer = new IntersectionObserver(
 				entry.isIntersecting &&
 				! data.animating
 			) {
-				data.animating = true;
+				data.animating = "true";
 				entry.target.classList.add( data.animation );
 
 				entry.target.addEventListener(
 					'animationend',
 					() => {
-						data.animating = undefined;
+						delete data.animating;
 						entry.target.classList.remove( data.animation );
 						entry.target.classList.remove( 'animate__repeat' );
 					},

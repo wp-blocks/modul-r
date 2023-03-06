@@ -1,13 +1,3 @@
-import { HTMLElementEvent } from '../../../../../plugins/woocommerce/packages/woocommerce-blocks/assets/js/types';
-
-type FontWeightsDef = string[];
-type FontDef = { [ key: string ]: FontWeightsDef };
-interface Window {
-	modulrFonts: FontDef[];
-	modulr: {
-		parsedFonts: FontDef[];
-	};
-}
 let parsedFonts: FontDef[] = [];
 
 const selectNamePrefix = '_customize-input-modul_r_';
