@@ -13,7 +13,12 @@ type LIGHTBOX_EL = {
 	title: string;
 };
 
-function getImageData( element: HTMLImageElement, type: string ) {
+function getImageData(
+	element: HTMLImageElement,
+	type: string
+):
+	| { href: '#'; srcset: null; title: 'err' }
+	| { href: string; srcset: string; title: string } {
 	switch ( type ) {
 		case 'IMG':
 			const caption = element.nextElementSibling?.textContent;
@@ -31,7 +36,6 @@ function getImageData( element: HTMLImageElement, type: string ) {
 	}
 }
 
-// eslint-disable-next-line no-console
 export function modulrLightboxController() {
 	/**
 	 * LightBox effect - single image
