@@ -33,8 +33,8 @@
     "wp-env:destroy": "wp-env destroy",
     "packages-update": "wp-scripts packages-update",
     "generate-font-list": "node ./bin/gfontsList.mjs -sort=popularity",
-	"composer-install": "docker run -it --rm -v `pwd`:/app composer install",
-	"composer-install-windows": "docker run -it --rm -v \"%cd%\":/app composer install",
+    "composer-install": "docker run -it --rm -v `pwd`:/app composer install",
+    "composer-install-windows": "docker run -it --rm -v \"%cd%\":/app composer install",
     "test": "wp-env start && wp-env run tests-cli \"wp theme activate modul-r\" && jest --silent=false --coverage",
     "postinstall": "composer install && npm run build:images && npm run build:scripts",
     "release": "composer PHPCS-FIXER-dev && composer install --no-dev && npm run build:makepot && npm run build && composer install"
@@ -74,6 +74,7 @@
     "extends @wordpress/browserslist-config"
   ],
   "dependencies": {
+    "animate.css": "^4.1.1",
     "blaze-slider": "^1.9.1",
     "glightbox": "^3.2.0",
     "minimasonry": "^1.3.1"
