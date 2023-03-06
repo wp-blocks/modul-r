@@ -10,12 +10,13 @@ import './user/lightbox.scss';
 import 'glightbox/dist/css/glightbox.min.css';
 import './user/lightbox.scss';
 
-/* Lightbox */
+/* Masonry */
 import './user/masonry.scss';
 
 import { modulrLightboxController } from './user/lightbox';
 import { modulrSliderController } from './user/slider';
 import { modulrScrollControl } from './user/scrollControl';
+import { modulrAnimations } from './user/animations';
 import { modulrMasonryController } from './user/masonry';
 
 document.addEventListener( 'DOMContentLoaded', () => {
@@ -27,4 +28,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	modulrMasonryController();
 	/* enable scroll animations */
 	modulrScrollControl();
+	/* enable on-screen animations */
+	modulrAnimations();
 } );
