@@ -2,8 +2,8 @@
 
 <!-- wp:pattern {"slug":"modul-r/animated-hero"} /-->
 
-<!-- wp:group {"tagName":"main"} -->
-<main class="wp-block-group"><!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70);"><!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
 
 	<div class="wp-block-group alignwide">
 		<!-- wp:heading {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
@@ -38,9 +38,10 @@
 	<hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)"/>
 	<!-- /wp:separator -->
 
-	<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"displayLayout":{"type":"flex","columns":3},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-query"><!-- wp:post-template -->
-		<!-- wp:post-featured-image {"isLink":true,"width":"100%","height":"max(15vw, 30vh)","align":"wide"} /-->
+	<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"displayLayout":{"type":"flex","columns":3},"className":"is-style-masonry-layout","layout":{"type":"constrained"}} -->
+	<div class="wp-block-query is-style-masonry-layout"><!-- wp:post-template -->
+		<!-- wp:group {"align":"wide","className":"card  animate__animated animate__fadeInUp animate_repeat","layout":{"type":"flex","orientation":"vertical"}} -->
+		<div class="wp-block-group alignwide card animate__animated animate__fadeInUp"><!-- wp:post-featured-image {"isLink":true,"width":"100%","height":"max(15vw, 30vh)","align":"wide"} /-->
 
 		<!-- wp:post-title {"isLink":true} /-->
 
@@ -50,7 +51,8 @@
 
 		<!-- wp:spacer {"height":"56px"} -->
 		<div style="height:56px" aria-hidden="true" class="wp-block-spacer"></div>
-		<!-- /wp:spacer -->
+		<!-- /wp:spacer --></div>
+		<!-- /wp:group -->
 		<!-- /wp:post-template -->
 
 		<!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"space-between"}} -->
