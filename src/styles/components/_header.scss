@@ -16,12 +16,12 @@ header.wp-block-template-part {
   right: 0;
 
   .wp-block-navigation .wp-block-navigation-item__content {
-	opacity: .6;
+	opacity: .8;
 	transition: .95s color;
 
 	&:hover {
-	  opacity: .9;
-	  transition: .75s color;
+	  opacity: 1;
+	  transition: .25s color;
 	}
   }
 
