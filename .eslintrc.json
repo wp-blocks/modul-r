@@ -58,11 +58,17 @@
 			"rules": {
 			  "@typescript-eslint/no-unsafe-member-access": "off",
 			  "arrow-body-style": [ "error", "as-needed" ],
+			  "react/self-closing-comp": [
+				"error", { "component": true, "html": true }
+			  ],
 			  // TypeScript"s `noFallthroughCasesInSwitch` option is more robust (#6906)
 			  "default-case": "off",
+			  "no-useless-constructor": "off",
+			  "@typescript-eslint/no-useless-constructor": "warn",
 			  // "tsc" already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
 			  "no-dupe-class-members": "off",
 			  // "tsc" already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
+			  "no-use-before-define": "off",
 			  "@typescript-eslint/no-use-before-define": [
 				"warn",
 				{
@@ -88,11 +94,6 @@
 				  "args": "none",
 				  "ignoreRestSiblings": true
 				}
-			  ],
-			  "no-useless-constructor": "off",
-			  "@typescript-eslint/no-useless-constructor": "warn",
-			  "react/self-closing-comp": [
-				"error", { "component": true, "html": true }
 			  ]
 			}
 		}
