@@ -262,9 +262,9 @@ if ( ! function_exists( 'modul_r_theme_fonts' ) ) :
 
 			// Load fonts from Google.
 			if ( is_admin() ) {
-				wp_enqueue_style( 'modul-r-style', wptt_get_webfont_url( $font_stylesheet ) );
+				wp_enqueue_style( 'modul-r-fonts', wptt_get_webfont_url( $font_stylesheet ) );
 			} else {
-				wp_add_inline_style( 'modul-r-fonts', wptt_get_webfont_styles( $font_stylesheet ) );
+				wp_add_inline_style( 'modul-r-style', wptt_get_webfont_styles( $font_stylesheet ) );
 			}
 		}
 	}
