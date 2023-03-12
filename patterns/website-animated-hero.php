@@ -7,8 +7,8 @@
 $animated_background = '<!-- wp:html --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;max-width: inherit;min-width: 100%;height: 100%;display:block;z-index:-1;position:absolute;top:0;left:0;right:0;" preserveAspectRatio="none" viewBox="0 0 1920 1080">
 			<g transform="translate(960,540) scale(1,1) translate(-960,-540)">
 				<linearGradient id="line-gradient" x1="0" x2="1" y1="0" y2="0">
-					<stop stop-color="#6f4cad" offset="0"></stop>
-					<stop stop-color="#16bebb" offset="1"></stop>
+					<stop stop-color="var(--wp--preset--color--primary)" offset="0"></stop>
+					<stop stop-color="var(--wp--preset--color--secondary)" offset="1"></stop>
 				</linearGradient>
 				<path d="" fill="url(#line-gradient)" opacity="0.4">
 					<animate attributeName="d" dur="10s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1"
