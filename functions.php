@@ -88,6 +88,7 @@ if ( file_exists( get_parent_theme_file_path( 'vendor/autoload.php' ) ) ) {
 
 require_once get_template_directory() . '/inc/theme-setup.php';
 require_once get_template_directory() . '/inc/template-functions.php';
+require_once get_template_directory() . '/inc/blocks.php';
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/sidebar.php';
 require_once get_template_directory() . '/inc/enqueue-scripts.php';

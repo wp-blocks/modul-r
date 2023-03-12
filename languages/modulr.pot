@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-02-16T14:57:42+00:00\n"
+"POT-Creation-Date: 2023-02-24T22:47:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: modul-r\n"
@@ -74,6 +74,18 @@ msgstr ""
 #: inc/block-patterns.php:132
 #: inc/block-patterns.php:140
 msgid "Lightbox"
+msgstr ""
+
+#: inc/block-patterns.php:148
+msgid "Masonry"
+msgstr ""
+
+#: inc/block-patterns.php:156
+msgid "Fixed"
+msgstr ""
+
+#: inc/block-patterns.php:164
+msgid "Sticky"
 msgstr ""
 
 #: inc/customizer.php:118

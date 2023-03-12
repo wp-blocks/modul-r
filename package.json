@@ -52,6 +52,7 @@
     "@types/wordpress__blocks": "^12.0.1",
     "@types/wordpress__components": "^23.0.1",
     "@types/wordpress__compose": "^6.0.1",
+	"@wordpress/icons": "^9.19.0",
     "@wordpress/babel-preset-default": "^7.9.0",
     "@wordpress/e2e-test-utils": "^9.1.0",
     "@wordpress/e2e-tests": "^6.1.0",
