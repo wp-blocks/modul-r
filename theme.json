@@ -62,6 +62,9 @@
 		"small": 1.2
 	  }
 	},
+	"dimensions": {
+	  "minHeight": true
+	},
 	"layout": {
 	  "contentSize": "1000px",
 	  "wideSize": "1600px"
@@ -150,6 +153,20 @@
 	  "letterSpacing": true,
 	  "textDecoration": true,
 	  "textTransform": true
+	},
+	"shadow": {
+	  "presets": [
+		{
+		  "name": "Natural",
+		  "slug": "natural",
+		  "shadow": "6px 6px 9px rgba(0, 0, 0, 0.2)"
+		},
+		{
+		  "name": "Crisp",
+		  "slug": "crisp",
+		  "shadow": "6px 6px 0px rgba(0, 0, 0, 1)"
+		}
+	  ]
 	},
 	"useRootPaddingAwareAlignments": true
   },
