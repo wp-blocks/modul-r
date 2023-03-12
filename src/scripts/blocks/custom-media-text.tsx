@@ -10,6 +10,7 @@ import { __ } from '@wordpress/i18n';
 /** The Block namespace */
 export const NAMESPACE = 'custom-media-text';
 
+/** Registering a variation of the core/media-text block. */
 registerBlockVariation( 'core/media-text', {
 	name: NAMESPACE,
 	title: 'Custom media-text',
@@ -23,6 +24,7 @@ registerBlockVariation( 'core/media-text', {
 		blockAttributes.namespace.includes( NAMESPACE ),
 } );
 
+/** It's adding a custom classname to the image. */
 const customMediaTextEdit = createHigherOrderComponent( ( BlockEdit ) => {
 	return ( props ) => {
 		const {
@@ -31,6 +33,7 @@ const customMediaTextEdit = createHigherOrderComponent( ( BlockEdit ) => {
 			isSelected,
 		} = props;
 
+		/* It's checking if the block is selected and if it's the right block. */
 		if ( namespace !== NAMESPACE || ! isSelected ) {
 			return <BlockEdit { ...props } />;
 		}
