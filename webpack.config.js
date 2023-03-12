@@ -13,6 +13,7 @@ module.exports = {
 			process.cwd(),
 			`src/scripts/scripts-admin.ts`
 		),
+    'modulr-blocks-cmt': path.resolve( process.cwd(), `src/scripts/blocks/custom-media-text.tsx` ),
 
 		/** scss styles */
 		'modulr-css-admin': path.resolve(
