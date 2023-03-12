@@ -1,4 +1,10 @@
 .blaze-slider {
+  .blaze-track {
+	img {
+	  height: 100%;
+	  object-fit: cover;
+	}
+  }
   .blaze-navigation {
 	align-items: center;
 	margin: var(--wp--preset--spacing--60) auto;

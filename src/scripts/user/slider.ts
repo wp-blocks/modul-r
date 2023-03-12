@@ -17,9 +17,9 @@ export function modulrSliderController(): void {
 		} );
 
 		const galleryItem = galleryEl.querySelectorAll( '.wp-block-image' );
-		const sliderHTML = Array.from( galleryItem ).map( ( el ) => {
-			return '<div>' + el.innerHTML + '</div>';
-		} );
+		const sliderHTML = Array.from( galleryItem ).map(
+			( el ) => '<div>' + el.innerHTML + '</div>'
+		);
 
 		galleryEl.innerHTML = `<div class="blaze-slider">
 <div class="blaze-container">
@@ -42,6 +42,9 @@ export function modulrSliderController(): void {
 				enableAutoplay: true,
 				autoplayInterval: 2000,
 				slidesToShow: columns,
+				slideGap: '20px',
+				// pagination
+				enablePagination: true,
 			},
 			'(max-width: 900px)': {
 				slidesToShow: 2,
