@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: WebSite Hero
- * Slug: modul-r/page-hero
+ * Title: Hero
+ * Slug: modul-r/hero
  * Categories: header, modul-r
  */
 ?>
@@ -14,11 +14,8 @@
 		<div class="wp-block-group">
 			<!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|60","left":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 			<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--60)">
-				<!-- wp:site-title {"textAlign":"center","isLink":false,"style":{"typography":{"fontSize":"5rem"}},"textColor":"white"} /-->
-
-				<!-- wp:paragraph {"align":"center","textColor":"primary"} -->
-				<p class="has-text-align-center has-primary-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				<!-- /wp:paragraph -->
+				
+				<!-- wp:pattern {"slug":"modul-r/headline"} /-->
 
 			</div><!-- /wp:group -->
 		</div><!-- /wp:group -->
