@@ -1,38 +1,5 @@
 {
   "$schema": "https://schemas.wp.org/wp/6.1/theme.json",
-  "customTemplates": [
-	{
-	  "name": "blank",
-	  "postTypes": [
-		"page",
-		"post"
-	  ],
-	  "title": "Blank"
-	},
-	{
-	  "name": "404",
-	  "postTypes": [
-		"page"
-	  ],
-	  "title": "404"
-	},
-	{
-	  "name": "header-portrait",
-	  "postTypes": [
-		"page",
-		"post"
-	  ],
-	  "title": "Header Portrait"
-	},
-	{
-	  "name": "sidebar",
-	  "postTypes": [
-		"page",
-		"post"
-	  ],
-	  "title": "Sidebar"
-	}
-  ],
   "settings": {
 	"appearanceTools": true,
 	"border": {
@@ -49,6 +16,78 @@
 	  "defaultDuotone": true,
 	  "defaultGradients": true,
 	  "defaultPalette": false,
+	  "palette": [
+		{
+		  "name": "Background",
+		  "color": "var(--wp--preset--color--white)",
+		  "slug": "background"
+		},
+		{
+		  "name": "Text",
+		  "color": "var(--wp--preset--color--gray-dark)",
+		  "slug": "text"
+		},
+		{
+		  "slug": "primary",
+		  "color": "#6f4cad",
+		  "name": "Primary"
+		},
+		{
+		  "slug": "primary-light",
+		  "color": "#9b82c6",
+		  "name": "Primary Light"
+		},
+		{
+		  "slug": "primary-dark",
+		  "color": "#4e367a",
+		  "name": "Primary Dark"
+		},
+		{
+		  "slug": "secondary",
+		  "color": "#16bebb",
+		  "name": "Secondary"
+		},
+		{
+		  "slug": "secondary-light",
+		  "color": "#5cd2d0",
+		  "name": "Secondary Light"
+		},
+		{
+		  "slug": "secondary-dark",
+		  "color": "#108583",
+		  "name": "Secondary Dark"
+		},
+		{
+		  "slug": "black",
+		  "color": "#000000",
+		  "name": "Black"
+		},
+		{
+		  "slug": "gray-dark",
+		  "color": "#222222",
+		  "name": "Gray dark"
+		},
+		{
+		  "slug": "gray",
+		  "color": "#888888",
+		  "name": "Gray light"
+		},
+		{
+		  "slug": "gray-light",
+		  "color": "#e3e3e3",
+		  "name": "Gray light"
+		},
+		{
+		  "slug": "white-smoke",
+		  "color": "#f3f3f3",
+		  "name": "White Smoke"
+		},
+		{
+		  "slug": "white",
+		  "color": "#ffffff",
+		  "name": "White"
+		}
+	  ],
 	  "gradients": [],
 	  "text": true
 	},
@@ -324,9 +363,19 @@
 	  "title": "Header Portrait"
 	},
 	{
+	  "area": "header",
+	  "name": "header-centered",
+	  "title": "Header Centered"
+	},
+	{
 	  "area": "footer",
 	  "name": "footer",
 	  "title": "Footer"
+	},
+	{
+	  "area": "footer",
+	  "name": "footer-centered",
+	  "title": "Footer Centered"
 	},
 	{
 	  "area": "uncategorized",
