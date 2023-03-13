@@ -29,7 +29,7 @@ $animated_background = '<!-- wp:html --><svg xmlns="http://www.w3.org/2000/svg" 
 		</svg><!-- /wp:html -->'
 ?>
 <!-- wp:cover {"useFeaturedImage":true,"minHeight":100,"minHeightUnit":"vh","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|60"}}}} -->
-<div class="wp-block-cover" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--60);min-height:100vh"><span aria-hidden="true"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-cover" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--60);min-height:100vh"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
 		<div class="wp-block-group">
 			<?php echo $animated_background; ?>
 
