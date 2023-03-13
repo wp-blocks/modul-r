@@ -7,6 +7,13 @@ header.wp-block-template-part {
 
   &.is-style-fixed {
 	position: fixed;
+	> div {
+	  transition: .7s background-color;
+	}
+  }
+
+  body.top .wp-site-blocks &.is-style-fixed > div {
+	background-color: transparent !important;
   }
 
   z-index: 1000;
@@ -24,6 +31,7 @@ header.wp-block-template-part {
 	  transition: .25s color;
 	}
   }
+
 
   @media #{$mq__responsive_breakpoint} {
 	height: var(--header--branding--height);
