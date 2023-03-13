@@ -1,12 +1,11 @@
 /**
- * If the current class is not 'animate__animated' and it starts with 'animate__',
+ * If the current class is not 'animate__animated' or 'animate__repeat' and it starts with 'animate__',
  * then return true.
  *
  * @param current - The current class name.
  */
 const isAnimateClass = ( current: string ): Boolean =>
 	current !== 'animate__animated' &&
-	current !== 'animate__repeat' &&
 	current.startsWith( 'animate__' );
 
 /**
@@ -18,13 +17,20 @@ const isAnimateClass = ( current: string ): Boolean =>
 function prepareAnimatedItems( items: HTMLElement[] ) {
 	items.forEach( ( animated ) => {
 		Object.values( animated.classList ).forEach( ( className: string ) => {
+			console.log(className);
 			if ( isAnimateClass( className ) ) {
+				switch (className) {
+					case 'animate__repeat':
+						animated.dataset.repeat = 'true';
+						break;
+					default:
+						animated.dataset.animated = 'true';
+						animated.dataset.animation = className;
+						animated.dataset.duration =
+							getAnimationDuration( animated ).toString();
+						break;
+				}
 				animated.classList.remove( className );
-				animated.dataset.animation = className;
-				animated.dataset.duration =
-					getAnimationDuration( animated ).toString();
-				animated.dataset.repeat =
-					className === 'animate__repeat' ? 'true' : undefined;
 			}
 		} );
 	} );
@@ -147,7 +153,7 @@ export function modulrAnimations(): void {
 	} );
 
 	/* Adding the array of animated elements to the window object. */
-	window.modulr = {
+	(window as any).modulr = {
 		animated: animateElements,
 	};
 }

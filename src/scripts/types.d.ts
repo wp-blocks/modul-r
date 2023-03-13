@@ -11,8 +11,8 @@ declare global {
 	interface Window {
 		modulrFonts: FontDef[];
 		modulr: {
-			parsedFonts: FontDef[];
-			animated: HTMLElement[] | [];
+			parsedFonts?: FontDef[];
+			animated?: HTMLElement[] | [];
 		};
 	}
 }
