@@ -47,8 +47,7 @@ if ( ! function_exists( 'modul_r_theme_drawer_color' ) ) :
 	 * Add color styling from theme
 	 */
 	function modul_r_theme_drawer_color() {
-		$header_background = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['shades'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
-		echo '<meta name="theme-color" content="' . modul_r_adjustBrightness( $header_background, 0.2 ) . '" />';
+		echo '<meta name="theme-color" content="var(--wp--preset--color--primary-dark)" />';
 	}
 endif;
 add_action( 'wp_head', 'modul_r_theme_drawer_color' );

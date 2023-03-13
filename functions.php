@@ -16,31 +16,7 @@ if ( ! defined( 'MODULR_THEME_URL' ) ) {
 // Modul-R defaults
 if ( ! isset( $modul_r_defaults ) ) {
 	$modul_r_defaults = array(
-		'colors'             => array(
-			'primary'   => '#6f4cad',
-			'secondary' => '#16bebb',
-		),
-		'shades'             => array(
-			'white'       => '#ffffff',
-			'white-smoke' => '#f1f1f1',
-			'gray-light'  => '#e3e3e3',
-			'gray'        => '#888888',
-			'gray-dark'   => '#4e4e4e',
-			'black'       => '#1E1E28',
-		),
-		'style'              => array(
-			'background'          => 'white-smoke',
-			'title-color'         => 'primary',
-			'text-color'          => 'gray-dark',
-			'header-color'        => 'gray-dark',
-			'header-title-color'  => 'primary',
-			'header-text-color'   => 'white',
-			'footer-color'        => 'gray-dark',
-			'footer-bottom-color' => 'black',
-			'footer-text-color'   => 'white-smoke',
-		),
 		'customizer_options' => array(
-			'color_variance'      => 0.3,
 			'weights'             => array( 100, 200, 300, 400, 500, 600, 700, 800, 900 ),
 			'font_family_default' => array(
 				array(
