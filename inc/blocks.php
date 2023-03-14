@@ -19,9 +19,11 @@ function render_custom_media_text_block( $attributes, $content ) {
 		preg_match( $regex, $content, $figure, PREG_OFFSET_CAPTURE, 0);
 
 		// Set the image class attribute.
-		$additional_image_class = esc_attr( $attributes['additionalClassName'] );
+		$repeated = esc_attr( $attributes['additionalClassName'] );
+		$additional_image_class = "animate__animated animate__" . esc_attr( $attributes['additionalClassName'] ) . ($repeated ? " animate__repeat" : "");
 
-		// add the custom classes and Return the content of the block.
+
+		// Add the custom classes and return the content of the block.
 		$image = str_replace( "class=\"", "class=\"" . $additional_image_class . " ", $figure[2][0] );
 		$content = preg_replace($regex, "$1$image$3", $content);
 	}
@@ -58,6 +60,10 @@ function register_custom_media_text_block() {
 	$cloned_block->attributes['additionalClassName'] = array(
 		'type'    => 'string',
 		'default' => '',
+	);
+	$cloned_block->attributes['repeatAnimation'] = array(
+		'type'    => 'boolean',
+		'default' => true,
 	);
 	$cloned_block->attributes['namespace'] = array(
 		'type'    => 'string',

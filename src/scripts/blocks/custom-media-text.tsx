@@ -3,37 +3,39 @@ import { addFilter } from '@wordpress/hooks';
 
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
-import { more } from '@wordpress/icons';
+import {
+	CheckboxControl,
+	PanelBody,
+	SelectControl,
+} from '@wordpress/components';
+import { mediaAndText } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
+import { animationList } from './assets/animations';
 
 /** The Block namespace */
 export const NAMESPACE = 'custom-media-text';
 
-/** Registering a variation of the core/media-text block. */
 registerBlockVariation( 'core/media-text', {
 	name: NAMESPACE,
 	title: 'Custom media-text',
-	icon: more,
+	icon: mediaAndText,
 	attributes: {
 		className: 'animated',
 		align: '',
 		additionalClassName: '',
 	},
 	isActive: ( blockAttributes ) =>
-		blockAttributes.namespace.includes( NAMESPACE ),
+		blockAttributes.namespace?.includes( 'animated' ),
 } );
 
-/** It's adding a custom classname to the image. */
 const customMediaTextEdit = createHigherOrderComponent( ( BlockEdit ) => {
 	return ( props ) => {
 		const {
-			attributes: { namespace, additionalClassName },
+			attributes: { namespace, additionalClassName, repeatAnimation },
 			setAttributes,
 			isSelected,
 		} = props;
 
-		/* It's checking if the block is selected and if it's the right block. */
 		if ( namespace !== NAMESPACE || ! isSelected ) {
 			return <BlockEdit { ...props } />;
 		}
@@ -45,18 +47,27 @@ const customMediaTextEdit = createHigherOrderComponent( ( BlockEdit ) => {
 				<InspectorControls>
 					<PanelBody
 						key={ namespace }
-						title={ 'Custom ClassName' }
-						icon={ more }
+						title={ __( 'Animation Controls' ) }
 						initialOpen={ true }
 					>
-						<TextControl
-							label={ __( 'Additional Image Classname' ) }
+						<SelectControl
+							label={ __( 'Image Animation' ) }
+							options={ animationList }
 							value={ additionalClassName }
-							onChange={ ( value ) =>
+							onChange={ ( val ) =>
 								setAttributes( {
-									additionalClassName: value,
+									additionalClassName: val,
 								} )
 							}
+						/>
+						<CheckboxControl
+							onChange={ () =>
+								setAttributes( {
+									repeatAnimation: ! repeatAnimation,
+								} )
+							}
+							label={ __( 'Repeat Animation' ) }
+							checked={ repeatAnimation }
 						/>
 					</PanelBody>
 				</InspectorControls>
@@ -64,4 +75,8 @@ const customMediaTextEdit = createHigherOrderComponent( ( BlockEdit ) => {
 		);
 	};
 }, 'withInspectorControl' );
+
+/**
+ * infiniteLoop block Editor scripts
+ */
 addFilter( 'editor.BlockEdit', NAMESPACE, customMediaTextEdit );
