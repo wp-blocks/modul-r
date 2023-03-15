@@ -1,5 +1,10 @@
 header.wp-block-template-part {
   position: relative;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
 
   &.is-style-sticky {
 	position: sticky;
@@ -15,12 +20,6 @@ header.wp-block-template-part {
   body.top .wp-site-blocks &.is-style-fixed > div {
 	background-color: transparent !important;
   }
-
-  z-index: 1000;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
 
   .wp-block-navigation .wp-block-navigation-item__content {
 	opacity: .8;
