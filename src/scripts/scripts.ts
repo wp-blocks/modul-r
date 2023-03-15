@@ -6,10 +6,6 @@ import './user/slider.scss';
 import 'glightbox/dist/css/glightbox.min.css';
 import './user/lightbox.scss';
 
-/* Lightbox */
-import 'glightbox/dist/css/glightbox.min.css';
-import './user/lightbox.scss';
-
 /* Masonry */
 import './user/masonry.scss';
 
