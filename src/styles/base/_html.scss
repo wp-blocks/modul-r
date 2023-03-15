@@ -5,8 +5,6 @@ body {
 }
 
 html {
-  /* ios viewport bug fix */
-  height: calc( var(--vh, 1vh) * 100 );
   max-width: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
