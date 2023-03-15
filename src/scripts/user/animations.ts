@@ -5,7 +5,6 @@
  * @param current - The current class name.
  */
 const isAnimateClass = ( current: string ): Boolean =>
-	current !== 'animate__animated' &&
 	current.startsWith( 'animate__' );
 
 /**
@@ -17,14 +16,15 @@ const isAnimateClass = ( current: string ): Boolean =>
 function prepareAnimatedItems( items: HTMLElement[] ) {
 	items.forEach( ( animated ) => {
 		Object.values( animated.classList ).forEach( ( className: string ) => {
-			console.log(className);
 			if ( isAnimateClass( className ) ) {
 				switch (className) {
+					case 'animate__animated':
+						animated.dataset.animated = 'true';
+						break;
 					case 'animate__repeat':
 						animated.dataset.repeat = 'true';
 						break;
 					default:
-						animated.dataset.animated = 'true';
 						animated.dataset.animation = className;
 						animated.dataset.duration =
 							getAnimationDuration( animated ).toString();
