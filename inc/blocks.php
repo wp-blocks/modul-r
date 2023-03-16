@@ -16,11 +16,10 @@ function render_custom_media_text_block( $attributes, $content ) {
 		$regex = '/(.*<figure.*?class="wp-block-media-text__media".*?>)(.*?)(<\/figure>.*)/';
 
 		// Get the content of the block.
-		preg_match( $regex, $content, $figure, PREG_OFFSET_CAPTURE, 0);
+		preg_match( $regex, $content, $figure, PREG_OFFSET_CAPTURE);
 
 		// Set the image class attribute.
-		$repeated = esc_attr( $attributes['additionalClassName'] );
-		$additional_image_class = "animate__animated animate__" . esc_attr( $attributes['additionalClassName'] ) . ($repeated ? " animate__repeat" : "");
+		$additional_image_class = "animate__animated animate__" . esc_attr( $attributes['additionalClassName'] ) . ($attributes['repeatAnimation'] === true ? " animate__repeat" : '');
 
 
 		// Add the custom classes and return the content of the block.

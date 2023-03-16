@@ -5,26 +5,25 @@
  * @param current - The current class name.
  */
 const isAnimateClass = ( current: string ): Boolean =>
-	current.startsWith( 'animate__' );
+	current !== 'animate__animated' && current.startsWith( 'animate__' );
 
 /**
- * It removes all animate.css classes from the given elements and stores the animation name and
- * duration in the element's data attributes
+ * It removes all animate.css classes from the given elements and stores the animation
+ * data (name and duration) in the element's data attributes
  *
  * @param items - The array of elements to be animated.
  */
 function prepareAnimatedItems( items: HTMLElement[] ) {
 	items.forEach( ( animated ) => {
+
 		Object.values( animated.classList ).forEach( ( className: string ) => {
 			if ( isAnimateClass( className ) ) {
-				switch (className) {
-					case 'animate__animated':
-						animated.dataset.animated = 'true';
-						break;
+				switch ( className ) {
 					case 'animate__repeat':
 						animated.dataset.repeat = 'true';
 						break;
 					default:
+						animated.dataset.animated = 'true';
 						animated.dataset.animation = className;
 						animated.dataset.duration =
 							getAnimationDuration( animated ).toString();
@@ -33,6 +32,7 @@ function prepareAnimatedItems( items: HTMLElement[] ) {
 				animated.classList.remove( className );
 			}
 		} );
+
 	} );
 }
 
@@ -51,54 +51,25 @@ const observer = new IntersectionObserver(
 			const data = currentItem.dataset as unknown as AnimationDataset;
 
 			// Checking if the element has the `data-animation` attribute. If it doesn't, return.
-			if ( ! data.animation ) {
+			if ( data.animating ) {
 				return;
 			}
 
-			if ( entry.isIntersecting && ! data.animating && ! data.repeat ) {
+			if ( entry.isIntersecting && data.animation && ! data.animating ) {
 				/* It checks if the element is intersecting with the viewport and if it is not animating and if it
 				is not repeating. If it is, it adds the animation class to the element and removes it after the
 				animation ends. */
-				data.animating = "true";
+				data.animating = 'true';
 
-				if ( data.animation ) {
-					entry.target.classList.add( data.animation );
-				}
+				entry.target.classList.add( data.animation );
 
 				setTimeout( () => {
 					delete data.animating;
 					entry.target.classList.remove( data.animation );
-					observer.unobserve( entry.target );
+					if ( ! data.repeat ) {
+						observer.unobserve( entry.target );
+					}
 				}, data.duration );
-			} else if (
-				/* It checks if the element is not intersecting with the viewport and if it is animating and
-				if it is not repeating. If it is, it removes the animation class from the element. */
-				! entry.isIntersecting &&
-				data.animating &&
-				! data.repeat
-			) {
-				delete data.animating;
-				entry.target.classList.remove( data.animation );
-			} else if (
-				/* Checking if the element is repeating and if it is intersecting with the viewport and if it
-				is not animating. If it is, it adds the animation class to the element and adds an event
-				listener to the element that removes the animation class when the animation ends. */
-				data.repeat &&
-				entry.isIntersecting &&
-				! data.animating
-			) {
-				data.animating = "true";
-				entry.target.classList.add( data.animation );
-
-				entry.target.addEventListener(
-					'animationend',
-					() => {
-						delete data.animating;
-						entry.target.classList.remove( data.animation );
-						entry.target.classList.remove( 'animate__repeat' );
-					},
-					{ once: true }
-				);
 			}
 		} );
 	},
@@ -153,7 +124,7 @@ export function modulrAnimations(): void {
 	} );
 
 	/* Adding the array of animated elements to the window object. */
-	(window as any).modulr = {
+	( window as any ).modulr = {
 		animated: animateElements,
 	};
 }
