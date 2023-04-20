@@ -1,38 +1,36 @@
-/**
- * If the current class is not 'animate__animated' or 'animate__repeat' and it starts with 'animate__',
- * then return true.
- *
- * @param current - The current class name.
- */
-const isAnimateClass = ( current: string ): Boolean =>
-	current !== 'animate__animated' && current.startsWith( 'animate__' );
+import { prepareCounterItems, textAnimated } from './animations-counter';
+import { prepareAnimatedItems } from './animation-animated';
+import { delay } from './animations-utils';
 
 /**
- * It removes all animate.css classes from the given elements and stores the animation
- * data (name and duration) in the element's data attributes
+ * Get the total duration of the animation
  *
- * @param items - The array of elements to be animated.
+ * @param {Object} data          the animation options
+ * @param {any}    data.duration the animation duration in milliseconds
+ * @param {any}    data.delay    the animation delay in milliseconds
  */
-function prepareAnimatedItems( items: HTMLElement[] ) {
-	items.forEach( ( animated ) => {
+export function getTotalDuration( data: {
+	duration: any;
+	delay: any;
+} ): number {
+	return Number( data.duration || 0 ) + Number( data.delay || 0 );
+}
 
-		Object.values( animated.classList ).forEach( ( className: string ) => {
-			if ( isAnimateClass( className ) ) {
-				switch ( className ) {
-					case 'animate__repeat':
-						animated.dataset.repeat = 'true';
-						break;
-					default:
-						animated.dataset.animated = 'true';
-						animated.dataset.animation = className;
-						animated.dataset.duration =
-							getAnimationDuration( animated ).toString();
-						break;
-				}
-				animated.classList.remove( className );
-			}
-		} );
-
+/**
+ * Remove the animation class from the element after the animation ends
+ *
+ * @param {HTMLElement} entry          the animation entry
+ * @param {Object}      data           the animation options
+ * @param {string}      data.animation the animation class
+ * @param {number}      data.duration  the animation duration
+ * @param {number}      data.delay     the animation delay
+ */
+export function delayedRemoveClass(
+	entry: IntersectionObserverEntry,
+	data: { animation: string; duration: number; delay: number }
+) {
+	delay( getTotalDuration( data ) ).then( () => {
+		if ( data.animation ) entry.target.classList.remove( data.animation );
 	} );
 }
 
@@ -50,26 +48,36 @@ const observer = new IntersectionObserver(
 			const currentItem = entry.target as HTMLElement;
 			const data = currentItem.dataset as unknown as AnimationDataset;
 
-			// Checking if the element has the `data-animation` attribute. If it doesn't, return.
-			if ( data.animating ) {
+			// Checking if the element is already animating.
+			if ( currentItem.dataset.isAnimating ) {
 				return;
 			}
 
-			if ( entry.isIntersecting && data.animation && ! data.animating ) {
-				/* It checks if the element is intersecting with the viewport and if it is not animating and if it
+			if ( entry.isIntersecting ) {
+				/* It checks if the animated element is intersecting with the viewport and if it is not animating and if it
 				is not repeating. If it is, it adds the animation class to the element and removes it after the
 				animation ends. */
-				data.animating = 'true';
+				currentItem.dataset.isAnimating = 'true';
 
-				entry.target.classList.add( data.animation );
+				// if the element is animated with animation
+				if ( data.animation !== undefined ) {
+					entry.target.classList.add( data.animation );
 
-				setTimeout( () => {
-					delete data.animating;
-					entry.target.classList.remove( data.animation );
-					if ( ! data.repeat ) {
-						observer.unobserve( entry.target );
-					}
-				}, data.duration );
+					delayedRemoveClass( entry, {
+						animation: data.animation,
+						duration: parseInt( data.duration, 10 ) || 0,
+						delay: parseInt( data.delay, 10 ) || 0,
+					} );
+				} else if ( data.counter ) {
+					delay( parseInt( data.delay, 10 ) || 0 ).then( () =>
+						textAnimated( currentItem, data )
+					);
+				}
+
+				delay( getTotalDuration( data ) ).then( () => {
+					delete currentItem.dataset.isAnimating;
+					if ( ! data.repeat ) observer.unobserve( entry.target );
+				} );
 			}
 		} );
 	},
@@ -79,26 +87,9 @@ const observer = new IntersectionObserver(
 );
 
 /**
- * It returns the total duration of an element's animation in milliseconds
- *
- * @param element - The element to get the animation duration from.
- * @return The total duration of the animation in milliseconds.
- */
-const getAnimationDuration = ( element: HTMLElement ): number => {
-	const styles = window.getComputedStyle( element );
-	const duration =
-		parseFloat( styles.getPropertyValue( 'animation-duration' ) ) || 0;
-	const delay =
-		parseFloat( styles.getPropertyValue( 'animation-delay' ) ) || 0;
-	const iterationCount =
-		parseInt( styles.getPropertyValue( 'animation-iteration-count' ) ) || 1;
-
-	return ( duration + delay ) * iterationCount * 1000;
-};
-
-/**
- * It finds all elements with the class `animate__animated` and adds them to an array, then it calls
- * the `prepareAnimatedItems` function, then it loops through the array and adds the `data-animation`
+ * It finds all elements with the class `animate__animated` and the 'count__counter' then adds them to an array, then it calls
+ * the `prepareAnimatedItems` or the `prepareCounterItems` whenever are an animation or a counter function,
+ * then it loops through the array and adds the `data-animation`
  * attribute to each element, then it adds the element to the observer
  */
 export function modulrAnimations(): void {
@@ -107,19 +98,18 @@ export function modulrAnimations(): void {
 		document.querySelectorAll( '.animate__animated' )
 	);
 
+	const counterElements: HTMLElement[] = Array.from(
+		document.querySelectorAll( '.count__counter' )
+	);
+
 	/* It removes all animate.css classes from the given elements and stores the animation name and
 	duration in the element's data attributes */
 	prepareAnimatedItems( animateElements );
 
+	prepareCounterItems( counterElements );
+
 	/* Adding the elements to the observer. */
-	animateElements.forEach( ( element ) => {
-		const animationClass = element.dataset.animation;
-
-		if ( animationClass ) {
-			element.dataset.animation = animationClass;
-			element.classList.remove( animationClass );
-		}
-
+	[ ...animateElements, ...counterElements ].forEach( ( element ) => {
 		observer.observe( element );
 	} );
 
