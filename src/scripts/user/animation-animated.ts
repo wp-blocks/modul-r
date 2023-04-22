@@ -7,10 +7,10 @@
 export const isAnimateClass = ( current: string ): Boolean =>
 	current !== 'animate__animated' && current.startsWith( 'animate__' );
 
+
 /**
- * remove the animation class from the given element
- *
- * @param {HTMLElement} element - The element to remove the animation class from.
+ * This TypeScript function removes an animation class from a given HTML element.
+ * @param {HTMLElement} element This is the HTML element that we want to remove the animation class from.
  */
 export const removeAnimationClass = ( element: HTMLElement ) => {
 	const animationClass = element.dataset.animation;

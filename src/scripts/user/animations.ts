@@ -1,6 +1,7 @@
 import { prepareCounterItems, textAnimated } from './animations-counter';
 import { prepareAnimatedItems } from './animation-animated';
 import { delay } from './animations-utils';
+import { AnimationDataset, AnimationsCounterOptions } from './types';
 
 /**
  * Get the total duration of the animation
@@ -70,7 +71,10 @@ const observer = new IntersectionObserver(
 					} );
 				} else if ( data.counter ) {
 					delay( parseInt( data.delay, 10 ) || 0 ).then( () =>
-						textAnimated( currentItem, data )
+						textAnimated(
+							currentItem,
+							data as AnimationsCounterOptions
+						)
 					);
 				}
 

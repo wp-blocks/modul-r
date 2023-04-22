@@ -1,4 +1,5 @@
 import { delay, easeInOutCubic } from './animations-utils';
+import {AnimationsCounterOptions} from "./types";
 
 /**
  * Check if the current class is a count element
@@ -59,7 +60,7 @@ export const getRandomLetter = ( letters: string[] ) => {
  */
 export const animateWord = (
 	el: HTMLElement,
-	options: { delay: number; duration: string }
+	options: AnimationsCounterOptions
 ) => {
 	const animateLetter = ( letter: HTMLElement, letters: string[] = [] ) => {
 		// get original letter for use later
@@ -137,6 +138,11 @@ export const animateWord = (
 	} );
 };
 
+/**
+ * This function prepares counter items by setting various data attributes based on their class names
+ * and default values.
+ * @param {HTMLElement[]} items - an array of HTMLElements that represent the counters to be prepared.
+ */
 export function prepareCounterItems( items: HTMLElement[] ) {
 	items.forEach( ( counter ) => {
 		counter.dataset.startValue = '0';
@@ -171,7 +177,7 @@ export function prepareCounterItems( items: HTMLElement[] ) {
  */
 function prepareLetterAnimation( el: HTMLElement ): void {
 	if ( ! el.dataset.initialized ) {
-		const replaced = splitSentence( el.textContent, 'letters' );
+		const replaced = splitSentence( el.textContent || '', 'letters' );
 
 		if ( el.innerHTML ) {
 			el.innerHTML = replaced;
@@ -184,14 +190,24 @@ function prepareLetterAnimation( el: HTMLElement ): void {
 /**
  * Either animates the number or the text
  *
- * @param {IntersectionObserverEntry} el      - The element that is being animated.
- * @param                             options
+ * @param {IntersectionObserverEntry} el                 - The element that is being animated.
+ * @param {AnimationsCounterOptions}  options
+ * @param {string}                    options.type       - 'letters' or 'words'
+ * @param {string}                    options.delay      - The delay before the animation starts
+ * @param {string}                    options.duration   - The duration of the animation
+ * @param {string}                    options.startValue - The starting value
+ * @param {string}                    options.endValue   - The ending value
  */
-export function textAnimated( el, options ) {
+export function textAnimated(
+	el: HTMLElement,
+	options: AnimationsCounterOptions
+) {
 	if ( options.type === 'letters' || options.type === 'words' ) {
 		prepareLetterAnimation( el );
 
-		delay( options.delay || 0 ).then( () => animateWord( el, options ) );
+		delay( Number( options.delay ) || 0 ).then( () =>
+			animateWord( el, options )
+		);
 	} else {
 		animateCount( el, options );
 	}
@@ -200,26 +216,34 @@ export function textAnimated( el, options ) {
 /**
  * Animate Numbers
  *
- * @param {HTMLElement} el      Element to animate.
- * @param {Object}      options Options for the animation.
+ * @param {HTMLElement} el               Element to animate.
+ * @param {Object}      props            Options for the animation.
+ * @param {string}      props.type
+ * @param {string}      props.delay
+ * @param               props.duration
+ * @param               props.startValue
+ * @param               props.endValue
  */
-export function animateCount( el, options ) {
-	options = {
-		...options,
+export function animateCount(
+	el: HTMLElement,
+	props: AnimationsCounterOptions
+) {
+	const options = {
+		...props,
 		value: 0,
-		duration: Number( options.duration ) || 5000,
-		startValue: Number( options.startValue ) || 0,
-		endValue: Number( options.endValue ) || 5000,
+		duration: Number( props.duration ) || 5000,
+		startValue: Number( props.startValue ) || 0,
+		endValue: Number( props.endValue ) || 5000,
 	};
 
 	const animationStart: number = performance.now();
 
-	el.innerHTML = Number( options.startValue );
+	el.innerHTML = options.startValue.toString();
 
 	function stepCount( now: number ) {
 		const timecode = now - animationStart;
 		if ( timecode > options.duration ) {
-			el.innerHTML = options.endValue;
+			el.innerHTML = options.endValue.toString();
 			return;
 		}
 
@@ -234,7 +258,7 @@ export function animateCount( el, options ) {
 			( options.endValue - options.startValue ) * ease;
 
 		// display the value as the element contents
-		el.innerHTML = Math.floor( options.value );
+		el.innerHTML = Math.floor( options.value ).toString();
 
 		// loop animate the counter
 		requestAnimationFrame( stepCount );
