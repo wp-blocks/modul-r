@@ -6,10 +6,10 @@ const destination = './inc/third-party/fonts.json'
 
 /**
  * Get the value of a node argument
- * 
+ *
  * @param {number} argNumber
  * @param {string} argString
- * 
+ *
  */
 const getArgs = (argNumber, argString) => {
 	return process.argv[argNumber].replace(argString, '');
@@ -17,7 +17,7 @@ const getArgs = (argNumber, argString) => {
 
 /**
  * It's setting the api key and the sort order.
- * 
+ *
  * Api args available for the sort arg
  * sorting could be
  * alpha: Sort the list alphabetically
@@ -29,13 +29,13 @@ const getArgs = (argNumber, argString) => {
  * @type {{sort: (string|string), key: string}}
  */
 const apiParams = {
-	key: 'apikey', // here the api key https://gist.github.com/jeremykenedy/bce044ce26fe0f90559a
+	key: 'apikey', // here the api key https://gist.github.com/jeremykenedy/bce044ce26fe0f90559a#file-google_font_importer-php-L6
 	sort: process.argv[2] ? getArgs( 2, '-sort=' ) : 'popularity'
 }
 
 /**
  * Checking if the value is a number.
- * 
+ *
  * @param {string} value
  */
 function isNumeric(value) {
@@ -57,13 +57,13 @@ function getVariants(weights) {
 	return newWeights
 }
 
-/** 
+/**
  * Fetching the data from the Google Fonts API and then writing it to a file.
- * 
+ *
  * @param {Object} params
  */
 async function getFontSet(params) {
-	let fonts = [];
+	let fonts = {};
 	/* build the query url */
 	const req = new URLSearchParams(params);
 	const apiRequest = ApiUrl + '?' + req.toString();
@@ -77,8 +77,8 @@ async function getFontSet(params) {
 			console.log(data.items)
 
 			/* Parse and store the data that we need */
-			fonts = data.items.map(item => { return {
-				[item.family]: getVariants(item.variants)}
+			data.items.forEach(item => {
+				fonts[item.family] = getVariants(item.variants)
 			} )
 
 			/* Convert the js object into a pretty printed json. */
