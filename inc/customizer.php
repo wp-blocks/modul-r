@@ -20,7 +20,7 @@ function modul_r_get_available_fonts() {
  *
  * @param string $label The label for the font family.
  * @param string $group The group name for the font preset.
- * @param object $wp_customize The  object.
+ * @param WP_Customize_Themes_Section $wp_customize The  object.
  */
 function modul_r_add_font_preset( $label, $group, $wp_customize ) {
 	$data_title = $GLOBALS['modul_r_defaults']['customizer_options'][ 'font_family_' . $label ];
