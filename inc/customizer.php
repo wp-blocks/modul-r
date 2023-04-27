@@ -8,8 +8,8 @@
 function modul_r_get_available_fonts() {
 	$font_json = file_get_contents( get_template_directory() . '/inc/third-party/fonts.json' );
 	$font_set  = array();
-	foreach ( json_decode( $font_json ) as $font_name => $font_weights ) {
-		$font_set[ key( $font_weights ) ] = key( $font_weights );
+	foreach ( (array) json_decode( $font_json ) as $font_name => $font_weights ) {
+		$font_set[ esc_attr( $font_name ) ] = $font_name;
 	}
 
 	return $font_set;
