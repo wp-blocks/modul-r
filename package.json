@@ -40,8 +40,8 @@
 		"release": "composer PHPCS-FIXER-dev && composer install --no-dev && npm run build:makepot && npm run build && composer install"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.20.5",
-		"@babel/preset-typescript": "^7.18.6",
+		"@babel/core": "^7.21.4",
+		"@babel/preset-typescript": "^7.21.4",
 		"@jest/globals": "^29.3.1",
 		"@types/expect-puppeteer": "^5.0.2",
 		"@types/jest": "^29.2.5",
@@ -65,7 +65,7 @@
 		"imagemin-mozjpeg": "^10.0.0",
 		"imagemin-svgo": "^10.0.1",
 		"jest-puppeteer": "^6.2.0",
-		"typescript": "^4.9.4"
+		"typescript": "^5.0.4"
 	},
 	"engines": {
 		"node": ">=14.0.0",

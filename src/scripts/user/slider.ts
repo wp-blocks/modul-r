@@ -1,14 +1,16 @@
-// Modul-R theme slider
 
 // import Swiper JS
 import Swiper, {
+	Autoplay,
 	EffectFade,
-	Navigation, Pagination,
+	Keyboard,
+	Navigation,
+	Pagination,
 	Scrollbar,
 	SwiperOptions,
 } from 'swiper';
-import { SwiperModule } from 'swiper/types';
 import { SliderContainerConfig } from './types';
+import { SwiperModule } from 'swiper/types';
 
 /**
  * The navigation buttons html code.
@@ -32,8 +34,8 @@ const paginationHTML: string =
  * The plugin default options
  */
 const defaultSliderOption: SwiperOptions = {
-	mousewheel: true,
 	keyboard: true,
+	autoplay: true,
 	direction: 'horizontal',
 	loop: true,
 };
@@ -43,6 +45,8 @@ const defaultSliderOption: SwiperOptions = {
  */
 export const availableModules = {
 	fade: EffectFade,
+	keyboard: Keyboard,
+	autoplay: Autoplay,
 	navigation: Navigation,
 	scrollbar: Scrollbar,
 	bullets: Pagination,
@@ -134,6 +138,14 @@ function getSliderModules(
 		moduleLoad.push( modules.navigation );
 	}
 
+	if ( options.autoplay ) {
+		moduleLoad.push( modules.autoplay );
+	}
+
+	if ( options.keyboard ) {
+		moduleLoad.push( modules.keyboard );
+	}
+
 	if ( options.pagination === 'bullets' ) {
 		moduleLoad.push( modules.bullets );
 	} else if ( options.pagination === 'scrollbar' ) {
@@ -147,13 +159,13 @@ function getSliderBreakpoints(
 	columns: SliderContainerConfig[ 'slidesPerView' ]
 ): SwiperOptions[ 'breakpoints' ] {
 	return {
-		'@0.00': {
+		'0': {
 			slidesPerView: 1,
 		},
-		'@0.50': {
+		'480': {
 			slidesPerView: 2,
 		},
-		'@1.00': {
+		'768': {
 			slidesPerView: columns,
 		},
 	};
@@ -173,7 +185,7 @@ function getSliderData( galleryEl: HTMLElement ): SliderContainerConfig {
 		selector: '.wp-block-group',
 		navigation: true,
 		pagination: 'bullets',
-		slidesPerView: 3,
+		slidesPerView: 1,
 	};
 
 	galleryEl.classList.forEach( ( classname ) => {
@@ -202,6 +214,7 @@ function getSliderData( galleryEl: HTMLElement ): SliderContainerConfig {
 				break;
 
 			case 'slider-hide-nav' === classname:
+				sliderData.pagination = undefined;
 				sliderData.navigation = undefined;
 				break;
 
@@ -212,6 +225,10 @@ function getSliderData( galleryEl: HTMLElement ): SliderContainerConfig {
 			case classname.startsWith( 'columns-' ):
 				sliderData.slidesPerView =
 					Number( classname.replace( 'columns-', '' ) ) || 1;
+				break;
+
+			case 'slider-autoplay' === classname:
+				sliderData.autoplay = true;
 				break;
 
 			case classname.startsWith( 'slider-gap-' ):
@@ -234,7 +251,7 @@ function getSliderData( galleryEl: HTMLElement ): SliderContainerConfig {
  *                                          configuration options for the slider container. It includes properties such as `slidesPerView`,
  *                                          `spaceBetween`, `container`, `selector`, `pagination`, `navigation`, and more. These properties are
  *                                          used to customize the behavior and appearance of the slider.
- * @return If `sliderHTML` is falsy, the function will return nothing (`undefined`). Otherwise, it
+ * @return {void} If `sliderHTML` is falsy, the function will return nothing (`undefined`). Otherwise, it
  * will prepare the slider container and initialize a new Swiper instance with the provided options and
  * modules.
  */
@@ -248,33 +265,20 @@ function modulrSlider( galleryEl: HTMLElement, props: SliderContainerConfig ) {
 
 	options = getSliderOptions( options, props );
 	if ( ! props.fade ) {
-		options.breakpoints = getSliderBreakpoints( options.slidesPerView );
+		options.breakpoints = getSliderBreakpoints(
+			options.slidesPerView ?? 4
+		);
+	}
+	if (
+		galleryEl.querySelectorAll( '.wp-block-group > .wp-block-cover' ).length
+	) {
+		props.container = 'covers';
+		props.selector = '.wp-block-cover';
 	}
 
 	switch ( props.container ) {
-		// groups and rows
-		case 'group':
-			sliderHTML = Array.from(
-				galleryEl.querySelectorAll(
-					':scope > ' + props.selector
-				) as NodeListOf< HTMLElement >
-			).map( ( el ) => {
-				el.classList.add( 'swiper-slide' );
-				return el.outerHTML;
-			} );
-			break;
-
-		// Image/Video Gallery
+		// Image/Video Gallery / Query Loop
 		case 'gallery':
-			const galleryItems = galleryEl.querySelectorAll(
-				props.selector
-			) as NodeListOf< HTMLElement >;
-			sliderHTML = Array.from( galleryItems ).map(
-				( el ) => '<div class="swiper-slide">' + el.innerHTML + '</div>'
-			);
-			break;
-
-		// Query Loop
 		case 'query-loop':
 			sliderHTML = Array.from(
 				galleryEl.querySelectorAll(
@@ -285,7 +289,17 @@ function modulrSlider( galleryEl: HTMLElement, props: SliderContainerConfig ) {
 			);
 			break;
 
+		// Groups and rows and the rest
+		case 'group':
+		case 'covers':
 		default:
+			const items = galleryEl.querySelectorAll(
+				props.selector
+			) as NodeListOf< HTMLElement >;
+			sliderHTML = Array.from( items ).map( ( el ) => {
+				el.classList.add( 'swiper-slide' );
+				return el.outerHTML;
+			} );
 			break;
 	}
 
