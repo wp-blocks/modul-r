@@ -1,1 +1,10 @@
+/**
+ * Swiper scrollbar styles
+ */
 
+// covers fix
+.swiper .swiper-slide{
+	&.wp-block-cover {
+		display: flex;
+	}
+}

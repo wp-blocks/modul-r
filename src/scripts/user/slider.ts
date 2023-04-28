@@ -1,3 +1,4 @@
+// Modul-R theme slider
 
 // import Swiper JS
 import Swiper, {
@@ -241,6 +242,21 @@ function getSliderData( galleryEl: HTMLElement ): SliderContainerConfig {
 	return sliderData;
 }
 
+export function getDeepNodeList( el: HTMLElement ): HTMLCollection | Object {
+	const deepNodes = el.children;
+
+	if ( deepNodes.length > 1 ) {
+		// If the node has more than one child element, return its child nodes as a NodeList
+		return deepNodes;
+	} else if ( el.children ) {
+		// If the node has only one child element, recursively look for deeper nodes
+		return getDeepNodeList( el.firstElementChild as HTMLElement );
+	}
+
+	// If the node has no child element, return an empty Object
+	return {};
+}
+
 /**
  * The function creates a slider container using Swiper library based on the provided configuration
  * properties.
@@ -269,9 +285,8 @@ function modulrSlider( galleryEl: HTMLElement, props: SliderContainerConfig ) {
 			options.slidesPerView ?? 4
 		);
 	}
-	if (
-		galleryEl.querySelectorAll( '.wp-block-group > .wp-block-cover' ).length
-	) {
+
+	if ( galleryEl.querySelectorAll( ':scope > .wp-block-cover' ).length ) {
 		props.container = 'covers';
 		props.selector = '.wp-block-cover';
 	}
@@ -280,11 +295,7 @@ function modulrSlider( galleryEl: HTMLElement, props: SliderContainerConfig ) {
 		// Image/Video Gallery / Query Loop
 		case 'gallery':
 		case 'query-loop':
-			sliderHTML = Array.from(
-				galleryEl.querySelectorAll(
-					props.selector
-				) as NodeListOf< HTMLElement >
-			).map(
+			sliderHTML = Object.values( getDeepNodeList( galleryEl ) ).map(
 				( el ) => '<div class="swiper-slide">' + el.innerHTML + '</div>'
 			);
 			break;
@@ -293,13 +304,12 @@ function modulrSlider( galleryEl: HTMLElement, props: SliderContainerConfig ) {
 		case 'group':
 		case 'covers':
 		default:
-			const items = galleryEl.querySelectorAll(
-				props.selector
-			) as NodeListOf< HTMLElement >;
-			sliderHTML = Array.from( items ).map( ( el ) => {
-				el.classList.add( 'swiper-slide' );
-				return el.outerHTML;
-			} );
+			sliderHTML = Object.values( getDeepNodeList( galleryEl ) ).map(
+				( el ) => {
+					el.classList.add( 'swiper-slide' );
+					return el.outerHTML;
+				}
+			);
 			break;
 	}
 
