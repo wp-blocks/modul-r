@@ -1,46 +1,52 @@
 /* Accessibility */
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute !important;
-  width: 1px;
-  word-wrap: normal !important;
-  // Many screen reader and browser combinations announce broken words as they would appear visually.
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+	// Many screen reader and browser combinations announce broken words as they would appear visually.
 
-  &.skip-link {display: block;}
+	&.skip-link {
+		display: block;
+	}
 
-  &:focus {
-    background-color: var(--wp--preset--color--secondary);
-    border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(var(--wp--preset--color--black--decimal), .5 );
-    clip: auto !important;
-    clip-path: none;
-    color: var(--wp--preset--color--white);
-    font-weight: bolder;
-    height: auto;
-    display: block;
-    right: var(--wp--preset--spacing--40);
-    top: var(--wp--preset--spacing--40);
-    z-index: 100000;
-    line-height: 1;
-    padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--60);
-    text-decoration: none;
-    width: auto;
-    /* Above WP toolbar. */
-  }
+	&:focus {
+		background-color: var(--wp--preset--color--secondary);
+		border-radius: 3px;
+		box-shadow: 0 0 2px 2px rgba(var(--wp--preset--color--black--decimal), 0.5);
+		clip: auto !important;
+		clip-path: none;
+		color: var(--wp--preset--color--white);
+		font-weight: bolder;
+		height: auto;
+		display: block;
+		right: var(--wp--preset--spacing--40);
+		top: var(--wp--preset--spacing--40);
+		z-index: 100000;
+		line-height: 1;
+		padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--60);
+		text-decoration: none;
+		width: auto;
+
+		/* Above WP toolbar. */
+	}
 }
 
 
 /* Do not show the outline on the skip link target. */
 #main[tabindex="-1"]:focus {
-  outline: 0;
+	outline: 0;
 }
 
 // Define acronyms and abbreviations in the title attribute of the abbr element.
-abbr { cursor: help; }
+abbr {
+	cursor: help;
+}

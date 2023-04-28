@@ -1,14 +1,15 @@
 body.woocommerce {
 
-  @media #{$mq__smaller-than-tablet} {
-    .site-content {
-      padding-left: var(--wp--custom--responsive--side-margin);
-      padding-right: var(--wp--custom--responsive--side-margin);
-    }
-  }
+	@media #{$mq__smaller-than-tablet} {
 
-  &.sidebar-left .site-content {
-    padding-right: var(--wp--custom--responsive--side-margin);
-  }
+		.site-content {
+			padding-left: var(--wp--custom--responsive--side-margin);
+			padding-right: var(--wp--custom--responsive--side-margin);
+		}
+	}
+
+	&.sidebar-left .site-content {
+		padding-right: var(--wp--custom--responsive--side-margin);
+	}
 
 }

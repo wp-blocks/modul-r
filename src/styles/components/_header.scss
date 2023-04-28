@@ -1,47 +1,49 @@
 header.wp-block-template-part {
-  position: relative;
-  z-index: 1000;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
+	position: relative;
+	z-index: 1000;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
 
-  &.is-style-sticky {
-	position: sticky;
-  }
-
-  &.is-style-fixed {
-	position: fixed;
-	> div {
-	  transition: .7s background-color;
+	&.is-style-sticky {
+		position: sticky;
 	}
-  }
 
-  body.top .wp-site-blocks &.is-style-fixed > div {
-	background-color: transparent !important;
-  }
+	&.is-style-fixed {
+		position: fixed;
 
-  .wp-block-navigation .wp-block-navigation-item__content {
-	opacity: .8;
-	transition: .95s color;
-
-	&:hover {
-	  opacity: 1;
-	  transition: .25s color;
+		> div {
+			transition: 0.7s background-color;
+		}
 	}
-  }
 
-
-  @media #{$mq__responsive_breakpoint} {
-	height: var(--header--branding--height);
-	transform: inherit !important;
-	padding: 0;
-  }
-
-  // if there isn't a featured image compensate void space under the menu
-  @media all and (min-width: 699px) {
-	body.admin-bar & {
-	  top: var(--wp-admin--admin-bar--height);
+	body.top .wp-site-blocks &.is-style-fixed > div {
+		background-color: transparent !important;
 	}
-  }
+
+	.wp-block-navigation .wp-block-navigation-item__content {
+		opacity: 0.8;
+		transition: 0.95s color;
+
+		&:hover {
+			opacity: 1;
+			transition: 0.25s color;
+		}
+	}
+
+
+	@media #{$mq__responsive_breakpoint} {
+		height: var(--header--branding--height);
+		transform: inherit !important;
+		padding: 0;
+	}
+
+	// if there isn't a featured image compensate void space under the menu
+	@media all and (min-width: 699px) {
+
+		body.admin-bar & {
+			top: var(--wp-admin--admin-bar--height);
+		}
+	}
 }

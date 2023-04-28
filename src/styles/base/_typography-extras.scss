@@ -4,7 +4,7 @@ iframe {
 }
 
 ::selection {
-	background-color: rgba(var(--wp--preset--color--primary--decimal), .5);
+	background-color: rgba(var(--wp--preset--color--primary--decimal), 0.5);
 	color: white;
 }
 

@@ -1,22 +1,22 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 html {
-  max-width: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  touch-action: none;
-  overflow-X: hidden;
+	max-width: 100%;
+	-webkit-text-size-adjust: 100%;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	touch-action: none;
+	overflow-x: hidden;
 }
 
 body {
-  position: relative;
-  min-height: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
+	position: relative;
+	min-height: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	overflow-x: hidden;
 }
