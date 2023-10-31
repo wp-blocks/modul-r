@@ -1,7 +1,7 @@
 export const animationList: { label: string; value: string }[] = [
 	{
 		label: 'No Animation',
-		value: 'false',
+		value: '',
 	},
 	{
 		label: 'bounce',

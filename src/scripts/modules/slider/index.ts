@@ -1,17 +1,8 @@
 // Modul-R theme slider
 
 // import Swiper JS
-import Swiper, {
-	Autoplay,
-	EffectFade,
-	Keyboard,
-	Navigation,
-	Pagination,
-	Scrollbar,
-	SwiperOptions,
-} from 'swiper';
 import { SliderContainerConfig } from './types';
-import { SwiperModule } from 'swiper/types';
+import { SwiperModule, SwiperOptions } from 'swiper/types';
 
 /**
  * The navigation buttons html code.
@@ -39,18 +30,6 @@ const defaultSliderOption: SwiperOptions = {
 	autoplay: true,
 	direction: 'horizontal',
 	loop: true,
-};
-
-/**
- * The available loaded modules.
- */
-export const availableModules = {
-	fade: EffectFade,
-	keyboard: Keyboard,
-	autoplay: Autoplay,
-	navigation: Navigation,
-	scrollbar: Scrollbar,
-	bullets: Pagination,
 };
 
 /**
@@ -129,8 +108,9 @@ function getSliderOptions(
 function getSliderModules(
 	options: SliderContainerConfig,
 	modules: any
-): SwiperModule[] | undefined {
+): Promise< SwiperModule[] | undefined > {
 	const moduleLoad: SwiperModule[] = [];
+
 	if ( options.fade ) {
 		moduleLoad.push( modules.fade );
 	}
@@ -148,7 +128,7 @@ function getSliderModules(
 	}
 
 	if ( options.pagination === 'bullets' ) {
-		moduleLoad.push( modules.bullets );
+		moduleLoad.push( modules.pagination );
 	} else if ( options.pagination === 'scrollbar' ) {
 		moduleLoad.push( modules.scrollbar );
 	}
@@ -156,6 +136,18 @@ function getSliderModules(
 	return moduleLoad.length ? moduleLoad : undefined;
 }
 
+/**
+ * The function returns an object with breakpoints for a slider based on the number of columns.
+ *
+ * @param {SliderContainerConfig[ 'slidesPerView' ]} columns - The number of slides to show per view in the slider container configuration.
+ *
+ * @return {SwiperOptions[ 'breakpoints' ]} an object with breakpoints for a Swiper slider. The breakpoints are defined for different
+ * screen sizes and the number of slides to be displayed per view. The breakpoints are defined as
+ * follows:
+ * - For screen sizes less than 480px, display 1 slide per view.
+ * - For screen sizes between 480px and 768px, display 2 slides per view.
+ * - For screen
+ */
 function getSliderBreakpoints(
 	columns: SliderContainerConfig[ 'slidesPerView' ]
 ): SwiperOptions[ 'breakpoints' ] {
@@ -185,7 +177,7 @@ function getSliderData( galleryEl: HTMLElement ): SliderContainerConfig {
 		container: 'group',
 		selector: '.wp-block-group',
 		navigation: true,
-		pagination: 'bullets',
+		pagination: undefined,
 		slidesPerView: 1,
 	};
 
@@ -242,7 +234,16 @@ function getSliderData( galleryEl: HTMLElement ): SliderContainerConfig {
 	return sliderData;
 }
 
-export function getDeepNodeList( el: HTMLElement ): HTMLCollection | Object {
+/**
+ * This function returns a NodeList of all child nodes of an HTML element, including nested child
+ * nodes.
+ *
+ * @param {HTMLElement} el - an HTMLElement that represents the root node from which to start looking
+ *                         for deeper nodes.
+ * @return {HTMLCollection} an HTMLCollection (if the input element has more than one child element),
+ * or recursively calls itself to look for deeper nodes (if the input element has only one child element).
+ */
+export function getDeepNodeList( el: HTMLElement ): HTMLCollection {
 	const deepNodes = el.children;
 
 	if ( deepNodes.length > 1 ) {
@@ -254,24 +255,31 @@ export function getDeepNodeList( el: HTMLElement ): HTMLCollection | Object {
 	}
 
 	// If the node has no child element, return an empty Object
-	return {};
+	return {} as HTMLCollection;
 }
 
 /**
  * The function creates a slider container using Swiper library based on the provided configuration
  * properties.
  *
- * @param {HTMLElement}           galleryEl - HTMLElement representing the container element for the
- *                                          slider/gallery.
- * @param {SliderContainerConfig} props     - The `props` parameter is an object that contains
- *                                          configuration options for the slider container. It includes properties such as `slidesPerView`,
- *                                          `spaceBetween`, `container`, `selector`, `pagination`, `navigation`, and more. These properties are
- *                                          used to customize the behavior and appearance of the slider.
+ * @param {HTMLElement}           galleryEl     - HTMLElement representing the container element for the
+ *                                              slider/gallery.
+ * @param {SliderContainerConfig} props         - The `props` parameter is an object that contains
+ *                                              configuration options for the slider container. It includes properties such as `slidesPerView`,
+ *                                              `spaceBetween`, `container`, `selector`, `pagination`, `navigation`, and more. These properties are
+ *                                              used to customize the behavior and appearance of the slider.
+ * @param                         Swiper
+ * @param                         swiperModules
  * @return {void} If `sliderHTML` is falsy, the function will return nothing (`undefined`). Otherwise, it
  * will prepare the slider container and initialize a new Swiper instance with the provided options and
  * modules.
  */
-function modulrSlider( galleryEl: HTMLElement, props: SliderContainerConfig ) {
+function modulrSlider(
+	galleryEl: HTMLElement,
+	props: SliderContainerConfig,
+	Swiper,
+	swiperModules
+): void {
 	let sliderHTML;
 	let options: SwiperOptions = {
 		...defaultSliderOption,
@@ -315,6 +323,16 @@ function modulrSlider( galleryEl: HTMLElement, props: SliderContainerConfig ) {
 
 	if ( ! sliderHTML ) return;
 
+	/**
+	 * The following is a workaround for a bug/limitation in the Swiper library since the number of slides per view
+	 * has to be at least the double of the number of slides displayed
+	 *
+	 * read more here: https://github.com/swiper/swiper/issues/139
+	 */
+	if ( sliderHTML.length < Number( props.slidesPerView ) * 2 ) {
+		sliderHTML = [ ...sliderHTML, ...sliderHTML ];
+	}
+
 	/* prepare slider container */
 	galleryEl.innerHTML = `<!-- Slider main container -->
 	<div class="swiper">
@@ -328,25 +346,55 @@ function modulrSlider( galleryEl: HTMLElement, props: SliderContainerConfig ) {
 	</div>`;
 
 	/* Initialize Swiper */
-	new Swiper( galleryEl.firstElementChild as HTMLElement, {
-		// configure Swiper to use modules
-		modules: getSliderModules( props, availableModules ),
-		...( options as SwiperOptions ),
-	} );
+	const swiper = new Swiper.default(
+		galleryEl.firstElementChild as HTMLElement,
+		{
+			// configure Swiper to use modules
+			modules: getSliderModules( props, swiperModules ),
+			...( options as SwiperOptions ),
+		}
+	);
 }
 
 /**
  * The function selects all elements with the class "is-style-slider" and applies the modulrSlider
  * function to each element with the corresponding data.
  */
-export function modulrSliderController(): void {
+export async function modulrSliderController(): Promise< void > {
 	/**
 	 * Slider - default gallery
 	 */
 	const Sliders: NodeListOf< HTMLElement > =
 		document.querySelectorAll( '.is-style-slider' );
 
-	Sliders.forEach( ( galleryEl ) =>
-		modulrSlider( galleryEl, getSliderData( galleryEl ) )
-	);
+	if ( Sliders.length ) {
+		const Swiper = await import( 'swiper' );
+
+		const {
+			Autoplay,
+			EffectFade,
+			Keyboard,
+			Navigation,
+			Pagination,
+			Scrollbar,
+		} = await import( 'swiper/modules' );
+
+		const modules = {
+			autoplay: Autoplay,
+			fade: EffectFade,
+			keyboard: Keyboard,
+			navigation: Navigation,
+			bullets: Pagination,
+			scrollbar: Scrollbar,
+		};
+
+		Sliders.forEach( ( galleryEl ) =>
+			modulrSlider(
+				galleryEl,
+				getSliderData( galleryEl ),
+				Swiper,
+				modules
+			)
+		);
+	}
 }

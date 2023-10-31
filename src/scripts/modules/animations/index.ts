@@ -3,6 +3,8 @@ import { prepareAnimatedItems } from './animation-animated';
 import { delay } from './animations-utils';
 import { AnimationDataset, AnimationsCounterOptions } from './types';
 
+import 'animate.css';
+
 /**
  * Get the total duration of the animation
  *
@@ -27,11 +29,11 @@ export function getTotalDuration( data: {
  * @param {number}      data.delay     the animation delay
  */
 export function delayedRemoveClass(
-	entry: IntersectionObserverEntry,
+	entry: HTMLElement,
 	data: { animation: string; duration: number; delay: number }
 ) {
 	delay( getTotalDuration( data ) ).then( () => {
-		if ( data.animation ) entry.target.classList.remove( data.animation );
+		if ( data.animation ) entry.classList.remove( data.animation );
 	} );
 }
 
@@ -50,7 +52,7 @@ const observer = new IntersectionObserver(
 			const data = currentItem.dataset as unknown as AnimationDataset;
 
 			// Checking if the element is already animating.
-			if ( currentItem.dataset.isAnimating ) {
+			if ( typeof data.isAnimating !== 'undefined' ) {
 				return;
 			}
 
@@ -64,7 +66,7 @@ const observer = new IntersectionObserver(
 				if ( data.animation !== undefined ) {
 					entry.target.classList.add( data.animation );
 
-					delayedRemoveClass( entry, {
+					delayedRemoveClass( entry.target as HTMLElement, {
 						animation: data.animation,
 						duration: parseInt( data.duration, 10 ) || 0,
 						delay: parseInt( data.delay, 10 ) || 0,
@@ -80,7 +82,6 @@ const observer = new IntersectionObserver(
 
 				delay( getTotalDuration( data ) ).then( () => {
 					delete currentItem.dataset.isAnimating;
-					if ( ! data.repeat ) observer.unobserve( entry.target );
 				} );
 			}
 		} );

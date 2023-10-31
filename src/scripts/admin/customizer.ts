@@ -1,7 +1,13 @@
-let parsedFonts: FontDef[] = [];
+let parsedFonts: FontDef;
 
-const selectNamePrefix = '_customize-input-modul_r_';
+const selectNamePrefix = '_customize-input-modulr_';
 
+/* `fontFamilySelect` is an array of objects that define the font family select elements and their
+associated font weight select elements. Each object has a `name` property that represents the font
+family select element's HTML ID and a `child` property that is an array of HTML IDs of the font
+weight select elements associated with the font family select element. This array is used to loop
+through the font family select elements and their associated font weight select elements to replace
+the options with the available font weights for the selected font family. */
 const fontFamilySelect: { name: string; child: string[] }[] = [
 	{
 		name: 'typography_font_family_title',
@@ -38,12 +44,30 @@ function replaceSelectOptions(
 	}
 }
 
+/**
+ * The function returns a subset of font weights from an array, centered around the middle index.
+ * @param {string[]} fontWeights An array of strings representing font weights (e.g. "400", "700",
+ * "bold")
+ * @param {number} count - The number of font weights to be returned by the function.
+ * @returns The function `getMiddleFontWeights` returns an array of `count` number of font weights,
+ * centered around the middle index of the input `fontWeights` array. If `count` is an even number, the
+ * function returns the same number of font weights on either side of the middle index. If `count` is
+ * an odd number, the function returns `count` number of font weights,
+ */
 function getMiddleFontWeights( fontWeights: string[], count: number ) {
 	const midIndex = Math.floor( fontWeights.length / 2 );
 	const startIndex = Math.max( midIndex - Math.floor( count / 2 ), 0 );
 	const endIndex = Math.min( startIndex + count, fontWeights.length );
 	return fontWeights.slice( startIndex, endIndex );
 }
+
+/**
+ * The function repeats a given string a specified number of times and returns an array of the repeated
+ * strings.
+ * @param {string} str - A string representing the font weight that needs to be repeated.
+ * @param {number} times - The "times" parameter is a number that represents how many times the "str"
+ * parameter should be repeated in the output array.
+ */
 const repeatFontWeight = ( str: string, times: number ): string[] =>
 	Array.from( { length: times }, () => str );
 
@@ -88,13 +112,13 @@ window.onload = () => {
 						const fontWeights =
 							choosenSubset.child.length <= availableSet.length
 								? getMiddleFontWeights(
-									availableSet,
-									choosenSubset.child.length
-								)
+										availableSet,
+										choosenSubset.child.length
+								  )
 								: repeatFontWeight(
-									availableSet[ 0 ],
-									choosenSubset.child.length
-								);
+										availableSet[ 0 ],
+										choosenSubset.child.length
+								  );
 
 						/**
 						 * Looping through the font weight select elements and replacing the options with the available font

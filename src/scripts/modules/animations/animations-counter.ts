@@ -1,5 +1,5 @@
 import { delay, easeInOutCubic } from './animations-utils';
-import {AnimationsCounterOptions} from "./types";
+import { AnimationsCounterOptions } from './types';
 
 /**
  * Check if the current class is a count element
@@ -141,6 +141,7 @@ export const animateWord = (
 /**
  * This function prepares counter items by setting various data attributes based on their class names
  * and default values.
+ *
  * @param {HTMLElement[]} items - an array of HTMLElements that represent the counters to be prepared.
  */
 export function prepareCounterItems( items: HTMLElement[] ) {
@@ -237,6 +238,8 @@ export function animateCount(
 	};
 
 	const animationStart: number = performance.now();
+
+	el.style.fontVariantNumeric = 'tabular-nums';
 
 	el.innerHTML = options.startValue.toString();
 

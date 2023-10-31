@@ -15,9 +15,9 @@ import { animationList } from './assets/animations';
 /** The Block namespace */
 export const NAMESPACE = 'custom-media-text';
 
-registerBlockVariation( 'core/media-text', {
+registerBlockVariation( 'codekraft/custom-media-text', {
 	name: NAMESPACE,
-	title: 'Custom media-text',
+	title: 'Custom Media Text',
 	icon: mediaAndText,
 	attributes: {
 		className: 'animated',
@@ -43,7 +43,6 @@ const customMediaTextEdit = createHigherOrderComponent( ( BlockEdit ) => {
 		// Render the block editor and display the query post loop.
 		return (
 			<>
-				<BlockEdit { ...props } />
 				<InspectorControls>
 					<PanelBody
 						key={ namespace }
@@ -71,6 +70,7 @@ const customMediaTextEdit = createHigherOrderComponent( ( BlockEdit ) => {
 						/>
 					</PanelBody>
 				</InspectorControls>
+				<BlockEdit { ...props } />
 			</>
 		);
 	};

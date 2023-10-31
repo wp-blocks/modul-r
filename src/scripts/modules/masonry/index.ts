@@ -1,5 +1,13 @@
-import MiniMasonry from 'minimasonry';
-
+/**
+ * The function gets the base width and number of columns for a masonry layout based on the width of a
+ * container element and its CSS class.
+ *
+ * @param {HTMLElement} container - HTMLElement - the container element for the masonry layout.
+ * @return an object with two optional properties: `baseWidth` and `columns`. The `baseWidth` property
+ * is the width of each column in the masonry layout, calculated by dividing the width of the container
+ * element by the number of columns specified in the container's class name. The `columns` property is
+ * the number of columns specified in the container's class name, incremented by
+ */
 function getMasonryAttributes( container: HTMLElement ) {
 	const attributes: { baseWidth?: number; columns?: number } = {};
 
@@ -28,12 +36,16 @@ function getMasonryAttributes( container: HTMLElement ) {
 /**
  * Display post archive using mini-masonry
  */
-export function modulrMasonryController() {
+export async function modulrMasonryController() {
 	/**
 	 * Masonry
 	 */
 	const masonryContainer: NodeListOf< HTMLElement > =
 		document.querySelectorAll( '.is-style-masonry-layout' );
+
+	if ( masonryContainer.length === 0 ) return;
+
+	const MiniMasonry = await import( 'minimasonry' );
 
 	/* Removing the classList of the container and then adding the new classList. */
 	masonryContainer.forEach( ( itemWrap ) => {
@@ -45,7 +57,7 @@ export function modulrMasonryController() {
 			container.classList.remove( 'is-layout-flex' );
 			container.classList.remove( 'is-layout-flow' );
 			/* Creating a new instance of the MiniMasonry class. */
-			new MiniMasonry( {
+			new MiniMasonry.default( {
 				container,
 				baseWidth: attributes.baseWidth,
 				gutterX: 24,
