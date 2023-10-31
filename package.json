@@ -25,7 +25,7 @@
 		"start": "wp-scripts start",
 		"build:scripts": "wp-scripts build",
 		"build:zip": "wp-scripts plugin-zip --outDir=releases --with-version",
-		"build:images": "node ./bin/imagemin.mjs",
+		"build:images": "squashify",
 		"build:makepot": "wp i18n make-pot . languages/modulr.pot --exclude=node_modules",
 		"build": "npm run build:scripts && npm run build:images && npm run build:zip",
 		"lint:css": "wp-scripts lint-style -- --fix ./src/styles",
@@ -42,32 +42,30 @@
 		"release": "composer PHPCS-FIXER-dev && composer install --no-dev && npm run build:makepot && npm run build && composer install"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.21.4",
-		"@babel/preset-typescript": "^7.21.4",
+		"@babel/core": "^7.22.10",
+		"@babel/preset-typescript": "^7.22.5",
 		"@jest/globals": "^29.3.1",
 		"@types/expect-puppeteer": "^5.0.2",
 		"@types/jest": "^29.2.5",
 		"@types/jest-environment-puppeteer": "^5.0.3",
-		"@types/node": "^18.13.0",
+		"@types/node": "^20.5.0",
 		"@types/puppeteer": "^7.0.4",
 		"@types/wordpress__block-editor": "^11.0.1",
 		"@types/wordpress__blocks": "^12.0.1",
 		"@types/wordpress__components": "^23.0.1",
 		"@types/wordpress__compose": "^6.0.1",
-		"@wordpress/icons": "^9.19.0",
-		"@wordpress/babel-preset-default": "^7.16.0",
+		"@wordpress/babel-preset-default": "^7.23.0",
 		"@wordpress/e2e-test-utils": "^9.1.0",
 		"@wordpress/e2e-tests": "^6.1.0",
-		"@wordpress/env": "^6.0.0",
+		"@wordpress/env": "^8.5.0",
+		"@wordpress/icons": "^9.30.0",
 		"@wordpress/jest-preset-default": "^10.5.0",
-		"@wordpress/scripts": "^25.2.0",
+		"@wordpress/scripts": "^26.10.0",
 		"babel-jest": "^29.3.0",
-		"imagemin": "^8.0.1",
-		"imagemin-avif": "^0.1.4",
-		"imagemin-mozjpeg": "^10.0.0",
-		"imagemin-svgo": "^10.0.1",
+		"husky": "^8.0.3",
 		"jest-puppeteer": "^6.2.0",
-		"typescript": "^5.0.4"
+		"squashify": "^0.1.1",
+		"typescript": "^5.2.2"
 	},
 	"engines": {
 		"node": ">=14.0.0",
@@ -77,9 +75,12 @@
 		"extends @wordpress/browserslist-config"
 	],
 	"dependencies": {
+		"@svgdotjs/svg.js": "^3.2.0",
+		"animate-css-grid": "^1.5.1",
 		"animate.css": "^4.1.1",
-		"swiper": "^9.2.4",
+		"choices.js": "^10.2.0",
 		"glightbox": "^3.2.0",
-		"minimasonry": "^1.3.1"
+		"minimasonry": "^1.3.2",
+		"swiper": "^11.0.3"
 	}
 }

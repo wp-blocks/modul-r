@@ -14,6 +14,7 @@ module.exports = {
 			`src/scripts/scripts-admin.ts`
 		),
     'modulr-blocks-cmt': path.resolve( process.cwd(), `src/scripts/blocks/custom-media-text.tsx` ),
+    // 'modulr-marquee': path.resolve( process.cwd(), `src/scripts/blocks/paragraph-marquee.tsx` ),
 
 		/** scss styles */
 		'modulr-css-admin': path.resolve(
@@ -27,24 +28,5 @@ module.exports = {
 		),
 		'modulr-css-main': path.resolve( process.cwd(), `src/styles/main.ts` ),
 		'modulr-css-woo': path.resolve( process.cwd(), `src/styles/woo.ts` ),
-	},
-	devtool: 'source-map',
-	module: {
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.[tjmc]sx?$/,
-				use: [ 'babel-loader' ],
-				exclude: /node_modules/,
-			},
-			{
-				test: /\.wasm$/,
-				loader: 'file-loader',
-				generator: {
-					filename: '[name].wasm',
-				},
-			},
-		],
-		...defaultConfig.module,
 	},
 };
