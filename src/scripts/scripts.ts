@@ -1,25 +1,3 @@
-/* Swiper slider */
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/effect-fade';
-import './modules/slider.scss';
-
-/* Lightbox */
-import 'glightbox/dist/css/glightbox.min.css';
-import './modules/lightbox.scss';
-
-/* Masonry */
-import './modules/masonry.scss';
-
-/* Timeline */
-import './modules/timeline.scss';
-
-/* Select */
-import 'choices.js/public/assets/styles/choices.css';
-import './modules/select.scss';
-
 import { modulrLightboxController } from './modules/lightbox';
 import { modulrSliderController } from './modules/slider';
 import { modulrScrollControl } from './modules/scrollControl';

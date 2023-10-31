@@ -1,3 +1,6 @@
+/* Masonry */
+import './style.scss';
+
 /**
  * The function gets the base width and number of columns for a masonry layout based on the width of a
  * container element and its CSS class.
@@ -43,7 +46,9 @@ export async function modulrMasonryController() {
 	const masonryContainer: NodeListOf< HTMLElement > =
 		document.querySelectorAll( '.is-style-masonry-layout' );
 
-	if ( masonryContainer.length === 0 ) return;
+	if ( masonryContainer.length === 0 ) {
+		return;
+	}
 
 	const MiniMasonry = await import( 'minimasonry' );
 

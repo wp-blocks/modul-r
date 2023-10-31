@@ -1,8 +1,14 @@
 // Modul-R theme slider
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/effect-fade';
+import './style.scss';
 
 // import Swiper JS
-import { SliderContainerConfig } from './types';
 import { SwiperModule, SwiperOptions } from 'swiper/types';
+import type { SliderContainerConfig } from './types.d.ts';
 
 /**
  * The navigation buttons html code.
@@ -152,13 +158,13 @@ function getSliderBreakpoints(
 	columns: SliderContainerConfig[ 'slidesPerView' ]
 ): SwiperOptions[ 'breakpoints' ] {
 	return {
-		'0': {
+		0: {
 			slidesPerView: 1,
 		},
-		'480': {
+		480: {
 			slidesPerView: 2,
 		},
-		'768': {
+		768: {
 			slidesPerView: columns,
 		},
 	};
@@ -321,7 +327,9 @@ function modulrSlider(
 			break;
 	}
 
-	if ( ! sliderHTML ) return;
+	if ( ! sliderHTML ) {
+		return;
+	}
 
 	/**
 	 * The following is a workaround for a bug/limitation in the Swiper library since the number of slides per view

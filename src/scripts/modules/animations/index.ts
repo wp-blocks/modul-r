@@ -1,7 +1,7 @@
 import { prepareCounterItems, textAnimated } from './animations-counter';
 import { prepareAnimatedItems } from './animation-animated';
 import { delay } from './animations-utils';
-import { AnimationDataset, AnimationsCounterOptions } from './types';
+import type { AnimationDataset, AnimationsCounterOptions } from './types.d.ts';
 
 import 'animate.css';
 
@@ -33,7 +33,9 @@ export function delayedRemoveClass(
 	data: { animation: string; duration: number; delay: number }
 ) {
 	delay( getTotalDuration( data ) ).then( () => {
-		if ( data.animation ) entry.classList.remove( data.animation );
+		if ( data.animation ) {
+			entry.classList.remove( data.animation );
+		}
 	} );
 }
 

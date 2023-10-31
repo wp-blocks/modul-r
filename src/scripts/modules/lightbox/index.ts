@@ -1,5 +1,9 @@
 // Modul-R theme lightbox
-import { LIGHTBOX_EL } from './types';
+
+/* Lightbox style */
+import 'glightbox/dist/css/glightbox.min.css';
+import './style.scss';
+import {LIGHTBOX_EL} from "./types";
 
 const lightboxDefaultOptions = {
 	touchNavigation: true,
@@ -58,7 +62,9 @@ export async function modulrLightboxController() {
 	const lightBoxGalleries: NodeListOf< HTMLElement > =
 		document.querySelectorAll( '.is-style-lightbox-gallery' );
 
-	if ( lightBoxGalleries.length === 0 || lightBoxImages.length === 0 ) return;
+	if ( lightBoxGalleries.length === 0 || lightBoxImages.length === 0 ) {
+		return;
+	}
 
 	const GLightbox = await import( 'glightbox' );
 
@@ -72,8 +78,9 @@ export async function modulrLightboxController() {
 	lightBoxImages.forEach( ( ImagesEl ) => {
 		const image: LIGHTBOX_EL[] = [];
 
-		if ( ImagesEl?.tagName === 'IMG' )
+		if ( ImagesEl?.tagName === 'IMG' ) {
 			image.push( getImageData( ImagesEl as HTMLImageElement, 'IMG' ) );
+		}
 
 		const lightbox = GLightbox.default( {
 			elements: image,
@@ -93,10 +100,11 @@ export async function modulrLightboxController() {
 
 		if ( galleryImages ) {
 			galleryImages.forEach( ( el: Element | null ) => {
-				if ( el?.tagName === 'IMG' )
+				if ( el?.tagName === 'IMG' ) {
 					gallery.push(
 						getImageData( el as HTMLImageElement, 'IMG' )
 					);
+				}
 			} );
 
 			const lightbox = GLightbox.default( {

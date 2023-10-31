@@ -70,7 +70,7 @@ export async function modulrGrid(): Promise< void > {
 		/* The code block is adding event listeners to each button in the `gridButtons` array. */
 		gridButtons.forEach( ( button, index ) => {
 			button.dataset.index = index.toString();
-			button.addEventListener( 'click', function ( e: Event ) {
+			button.addEventListener( 'click', function( e: Event ) {
 				e.preventDefault();
 
 				const clickedItem = e.currentTarget as HTMLAnchorElement;
@@ -79,7 +79,9 @@ export async function modulrGrid(): Promise< void > {
 
 				if ( clickedItem.classList.contains( 'active' ) ) {
 					// the main button cannot be disabled
-					if ( clickedItem.dataset.index === '0' ) return;
+					if ( clickedItem.dataset.index === '0' ) {
+						return;
+					}
 					toggleCategoryVisiblity( grid, null, forceGridAnimation );
 					clickedItem.classList.remove( 'active' );
 					gridButtons[ 0 ].classList.add( 'active' );

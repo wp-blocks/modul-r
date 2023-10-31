@@ -1,5 +1,5 @@
 import { delay, easeInOutCubic } from './animations-utils';
-import { AnimationsCounterOptions } from './types';
+import type { AnimationsCounterOptions } from './types.d.ts';
 
 /**
  * Check if the current class is a count element
@@ -132,7 +132,7 @@ export const animateWord = (
 
 	letters.forEach( ( letter: any, index: number ) => {
 		//trigger animation for each letter in word
-		setTimeout( function () {
+		setTimeout( function() {
 			animateLetter( letter, letterCollection );
 		}, 100 * index ); //small delay for each letter
 	} );
