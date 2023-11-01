@@ -1,4 +1,4 @@
-import { delayedRemoveClass, getTotalDuration } from './animations';
+import { delayedRemoveClass } from './index';
 import { delay } from './animations-utils';
 
 /**
