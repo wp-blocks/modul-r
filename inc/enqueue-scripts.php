@@ -42,4 +42,4 @@ function modul_r_theme_customize_style() {
 	wp_enqueue_script( 'modul-r-customizer-script', get_template_directory_uri() . '/build/modulr-script-admin.js' );
 	wp_localize_script( 'modul-r-customizer-script', 'modulrFonts', json_decode( $font_json ) );
 }
-add_action( 'customize_controls_enqueue_scripts', 'modul_r_theme_customize_style' );
+add_action( 'customize_controls_enqueue_scripts', 'modul_r_theme_customize_style', 5 );
