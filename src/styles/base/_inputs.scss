@@ -3,8 +3,9 @@
 	color: var(--wp--preset--color--text);
 	outline: none !important;
 	border: 1px solid var(--wp--preset--color--gray-light);
+	font-family: var(--typography--font--default);
 	font-size: var(--wp--preset--font-size--medium);
-	font-weight: var(--typography--default--font-weight--regular);
+	font-weight: var(--typography--font--default--regular);
 	box-sizing: border-box;
 	border-radius: 4px 4px 0 0;
 	padding: 12px 8px;
@@ -66,6 +67,30 @@ textarea {
 	overflow: hidden;
 }
 
+select,
 fieldset {
-	margin: var(--wp--preset--spacing--30) 0;
+	width: 100%;
+}
+
+.wpcf7-submit {
+	border: 2px solid;
+	background-color: transparent;
+	color: var(--wp--preset--color--foreground);
+	margin-top: var(--wp--preset--spacing--50);
+	margin-left: auto;
+	float: right;
+	padding: 0.667em 1.333em;
+	background-image: none;
+	font-family: var(--wp--preset--font-family--default);
+	font-size: var(--wp--preset--font-size--medium);
+	font-style: normal;
+	font-weight: var(--typography--font--default--bold);
+	letter-spacing: 0.1em;
+	line-height: var(--wp--custom--line-height--small);
+	text-transform: uppercase;
+
+	&:disabled {
+		color: var(--wp--preset--color--gray);
+		border-color: var(--wp--preset--color--gray-light);
+	}
 }

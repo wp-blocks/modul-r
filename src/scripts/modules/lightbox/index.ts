@@ -3,7 +3,7 @@
 /* Lightbox style */
 import 'glightbox/dist/css/glightbox.min.css';
 import './style.scss';
-import {LIGHTBOX_EL} from "./types";
+import type { LIGHTBOX_EL } from './types.d.ts';
 
 const lightboxDefaultOptions = {
 	touchNavigation: true,

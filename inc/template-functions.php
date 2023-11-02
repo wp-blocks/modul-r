@@ -27,3 +27,36 @@ if ( ! function_exists( 'modul_r_breadcrumbs' ) ) :
 		}
 	}
 endif;
+
+
+if ( ! function_exists( 'modul_r_content_height_fix' ) ) :
+	/**
+	 * Fix for ios that overlaps content with the lower nav bar
+	 *
+	 * @note In order to fill the full height of the page with hero content we need to set
+	 * --full-height custom property to a group with class "is-style-full-height" that contains the hero and the bar.
+	 *
+	 * @see inc/block-patterns.php - block pattern is availble for this
+	 *
+	 * @since 2.0.0
+	 */
+	function modul_r_content_height_fix() {
+		?>
+		<script>
+						function setFullHeight() {
+								// First we get the viewport height, and we multiply it by 1% to get a value for a vh unit
+								var vh = window.innerHeight * 0.01;
+								// Then we set the value in the --vh custom property to the root of the document
+								document.documentElement.style.setProperty('--vh', `${vh}px`);
+						}
+
+						setFullHeight();
+
+						window.addEventListener('resize', function () {
+								setFullHeight();
+						});
+		</script>
+		<?php
+	}
+endif;
+add_action( 'wp_head', 'modul_r_content_height_fix' );

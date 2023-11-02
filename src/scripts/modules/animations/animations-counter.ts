@@ -132,7 +132,7 @@ export const animateWord = (
 
 	letters.forEach( ( letter: any, index: number ) => {
 		//trigger animation for each letter in word
-		setTimeout( function() {
+		setTimeout( function () {
 			animateLetter( letter, letterCollection );
 		}, 100 * index ); //small delay for each letter
 	} );

@@ -46,10 +46,11 @@ function replaceSelectOptions(
 
 /**
  * The function returns a subset of font weights from an array, centered around the middle index.
+ *
  * @param {string[]} fontWeights An array of strings representing font weights (e.g. "400", "700",
- * "bold")
- * @param {number} count - The number of font weights to be returned by the function.
- * @returns The function `getMiddleFontWeights` returns an array of `count` number of font weights,
+ *                               "bold")
+ * @param {number}   count       - The number of font weights to be returned by the function.
+ * @return The function `getMiddleFontWeights` returns an array of `count` number of font weights,
  * centered around the middle index of the input `fontWeights` array. If `count` is an even number, the
  * function returns the same number of font weights on either side of the middle index. If `count` is
  * an odd number, the function returns `count` number of font weights,
@@ -64,9 +65,10 @@ function getMiddleFontWeights( fontWeights: string[], count: number ) {
 /**
  * The function repeats a given string a specified number of times and returns an array of the repeated
  * strings.
- * @param {string} str - A string representing the font weight that needs to be repeated.
+ *
+ * @param {string} str   - A string representing the font weight that needs to be repeated.
  * @param {number} times - The "times" parameter is a number that represents how many times the "str"
- * parameter should be repeated in the output array.
+ *                       parameter should be repeated in the output array.
  */
 const repeatFontWeight = ( str: string, times: number ): string[] =>
 	Array.from( { length: times }, () => str );

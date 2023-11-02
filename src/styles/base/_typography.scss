@@ -8,6 +8,7 @@
 		margin-top: var(--wp--preset--spacing--50);
 		margin-bottom: var(--wp--preset--spacing--50);
 		padding: 0;
+		list-style-position: inside;
 
 		li,
 		dt,
@@ -25,4 +26,32 @@
 			border-collapse: collapse;
 		}
 	}
+
+	.entry-content {
+
+		ul,
+		ol {
+			padding-left: 22px;
+			list-style-position: initial;
+		}
+
+		li,
+		p {
+			line-height: var(--wp--custom--line-height--medium);
+
+			a {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+/**
+ * Provide defaults for font weight/styles on FSE
+ * maybe not needed anymore check 👇
+ * @see https://github.com/WordPress/gutenberg/issues/27269
+ */
+b,
+strong {
+	font-weight: var(--typography--font--default--bold);
 }
