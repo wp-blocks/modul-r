@@ -1,10 +1,9 @@
 <?php
-
 /**
- * The above the fold style
+ * Outputs the above the fold style as a string
  */
-if ( ! function_exists( 'modul_r_atf_style' ) ) :
-	function modul_r_atf_style() {
+if ( ! function_exists( 'modul_r_atf_css' ) ) :
+	function modul_r_atf_css() {
 		// get the acf.css file and store into a variable
 		ob_start();
 
@@ -15,7 +14,15 @@ if ( ! function_exists( 'modul_r_atf_style' ) ) :
 		if ( ! empty( $atf_css ) ) {
 			echo '<style id="modul-r-above-the-fold">' . $atf_css . '</style>';
 		}
+	}
+endif;
 
+/**
+ * ATF theme style
+ */
+if ( ! function_exists( 'modul_r_atf_style' ) ) :
+	function modul_r_atf_style() {
+		wp_enqueue_style( 'modul-r-above-the-fold', MODULR_THEME_URL . '/build/modulr-css-atf.css' );
 	}
 endif;
 
@@ -50,7 +57,11 @@ $hook = is_admin() ? 'enqueue_block_editor_assets' : 'enqueue_block_assets';
  * Enqueue the ATF stylesheet in front-end only.
  * this style is not enqueued for admin or site editor
  */
-add_action( $hook, 'modul_r_atf_style' );
+if ( is_admin() ) {
+	add_action( 'enqueue_block_assets', 'modul_r_atf_style' );
+} else {
+	add_action( 'wp_head', 'modul_r_atf_css' );
+}
 
 /**
  * Theme custom css props / above the fold style
