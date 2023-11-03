@@ -6,7 +6,7 @@ import { modulrMasonryController } from './modules/masonry';
 import { modulrSelectController } from './modules/select';
 import { modulrGrid } from './modules/grid';
 
-window.addEventListener( 'DOMContentLoaded', () => {
+window.addEventListener( 'DOMContentLoaded', async () => {
 	/* enable scroll animations */
 	modulrScrollControl();
 	/* enable on-screen animations */
@@ -17,7 +17,7 @@ window.addEventListener( 'DOMContentLoaded', () => {
 	modulrGrid();
 } );
 
-window.addEventListener( 'load', () => {
+window.addEventListener( 'load', async () => {
 	/* enable masonry layout */
 	modulrMasonryController();
 	/* enable light-boxes */

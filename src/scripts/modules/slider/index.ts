@@ -373,7 +373,7 @@ export async function modulrSliderController(): Promise< void > {
 	 * Slider - default gallery
 	 */
 	const Sliders: NodeListOf< HTMLElement > =
-		document.querySelectorAll( '.is-style-slider' );
+		document.querySelectorAll( '.is-style-slider, .is-style-slider-gallery' );
 
 	if ( Sliders.length ) {
 		const Swiper = await import( 'swiper' );
