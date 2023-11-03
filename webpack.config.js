@@ -36,11 +36,7 @@ module.exports = {
 		...defaultConfig.optimization,
 		splitChunks: {
 			cacheGroups: {
-				commons: {
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendors',
-					chunks: 'all',
-				},
+				chunks: 'all',
 			},
 		},
 	},
