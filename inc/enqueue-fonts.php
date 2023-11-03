@@ -6,8 +6,6 @@ if ( ! function_exists( 'modul_r_custom_props' ) ) :
 	 */
 	function modul_r_custom_props() {
 
-		$defaults             = $GLOBALS['modul_r_defaults'];
-
 		$custom_props = '';
 
 		/* Typography */

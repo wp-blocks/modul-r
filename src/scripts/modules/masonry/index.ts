@@ -15,7 +15,7 @@ function getMasonryAttributes( container: HTMLElement ) {
 	const attributes: { baseWidth?: number; columns?: number } = {};
 
 	// get the width of the container element
-	const containerWidth = container.clientWidth;
+	const containerWidth = container.clientWidth || 0;
 
 	container.classList.forEach( ( classname ) => {
 		switch ( true ) {

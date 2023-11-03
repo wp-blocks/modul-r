@@ -62,7 +62,7 @@ export async function modulrLightboxController() {
 	const lightBoxGalleries: NodeListOf< HTMLElement > =
 		document.querySelectorAll( '.is-style-lightbox-gallery' );
 
-	if ( lightBoxGalleries.length === 0 || lightBoxImages.length === 0 ) {
+	if ( lightBoxGalleries.length === 0 && lightBoxImages.length === 0 ) {
 		return;
 	}
 

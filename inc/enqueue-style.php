@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * The above the fold style
  */
@@ -25,18 +24,7 @@ endif;
  */
 if ( ! function_exists( 'modul_r_theme_style' ) ) :
 	function modul_r_theme_style() {
-		wp_enqueue_style( 'modul-r-style', get_template_directory_uri() . '/build/modulr-css-main.css' );
-	}
-endif;
-
-/**
- * Editor style
- */
-if ( ! function_exists( 'modul_r_editor_styles' ) ) :
-
-	function modul_r_editor_styles() {
-		// I know, there is add_editor_style but doesn't work as expected!
-		add_editor_style( get_template_directory_uri() . '/build/modulr-css-editor.css' );
+		wp_enqueue_style( 'modul-r-style', MODULR_THEME_URL . '/build/modulr-css-main.css' );
 	}
 endif;
 
@@ -46,7 +34,7 @@ endif;
  */
 if ( ! function_exists( 'modul_r_admin_style' ) ) :
 	function modul_r_admin_style() {
-		wp_enqueue_style( 'modul-r-admin', get_template_directory_uri() . '/build/modulr-css-admin.css' );
+		wp_enqueue_style( 'modul-r-admin', MODULR_THEME_URL . '/build/modulr-css-admin.css' );
 	}
 endif;
 
@@ -59,20 +47,10 @@ endif;
 $hook = is_admin() ? 'enqueue_block_editor_assets' : 'enqueue_block_assets';
 
 /**
- * Enqueue editor styles and fonts.
- */
-add_action( 'admin_init', 'modul_r_editor_styles' );
-
-/**
- * Admin style
- */
-add_action( 'admin_init', 'modul_r_admin_style' );
-
-/**
  * Enqueue the ATF stylesheet in front-end only.
  * this style is not enqueued for admin or site editor
  */
-add_action( 'wp_enqueue_scripts', 'modul_r_atf_style' );
+add_action( $hook, 'modul_r_atf_style' );
 
 /**
  * Theme custom css props / above the fold style
