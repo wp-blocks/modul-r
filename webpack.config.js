@@ -17,7 +17,7 @@ module.exports = {
 		/** blocks */
 		'modulr-blocks-cmt': path.resolve(
 			process.cwd(),
-			`src/scripts/blocks/custom-media-text.tsx`
+			`blocks/custom-media-text/index.tsx`
 		),
 
 		/** scss styles */

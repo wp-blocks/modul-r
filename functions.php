@@ -62,13 +62,13 @@ if ( file_exists( get_parent_theme_file_path( 'vendor/autoload.php' ) ) ) {
 	require_once get_parent_theme_file_path( 'vendor/erikyo/webfont-loader/wptt-webfont-loader.php' );
 }
 
-require_once get_template_directory() . '/inc/theme-setup.php';
-require_once get_template_directory() . '/inc/enqueue-scripts.php';
-require_once get_template_directory() . '/inc/template-functions.php';
-require_once get_template_directory() . '/inc/blocks.php';
-require_once get_template_directory() . '/inc/customizer.php';
-require_once get_template_directory() . '/inc/sidebar.php';
-require_once get_template_directory() . '/inc/enqueue-style.php';
-require_once get_template_directory() . '/inc/block-styles.php';
-require_once get_template_directory() . '/inc/enqueue-fonts.php';
-require_once get_template_directory() . '/inc/woocommerce.php';
+require_once MODULR_THEME_DIR . '/inc/theme-setup.php';
+require_once MODULR_THEME_DIR . '/inc/enqueue-scripts.php';
+require_once MODULR_THEME_DIR . '/inc/template-functions.php';
+require_once MODULR_THEME_DIR . '/blocks/blocks.php';
+require_once MODULR_THEME_DIR . '/inc/customizer.php';
+require_once MODULR_THEME_DIR . '/inc/sidebar.php';
+require_once MODULR_THEME_DIR . '/inc/enqueue-style.php';
+require_once MODULR_THEME_DIR . '/inc/block-styles.php';
+require_once MODULR_THEME_DIR . '/inc/enqueue-fonts.php';
+require_once MODULR_THEME_DIR . '/inc/woocommerce.php';
