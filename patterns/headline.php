@@ -5,16 +5,13 @@
  * Categories: header, modul-r
  */
 ?>
-<!-- wp:group {"tagName":"main","className":"headline", "style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-<main class="wp-block-group headline" style="margin-top:var(--wp--preset--spacing--50)">
-	<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-	<div class="wp-block-group">
-		<!-- wp:pattern {"slug":"modul-r/breadcrumbs"} /-->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|50"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:paragraph {"style":{"typography":{"lineHeight":"1"}},"className":"breadcrumbs"} -->
+	<p class="breadcrumbs" style="line-height:1"><a href="https://dev.codekraft.it/themetest">Home</a> / <a href=""></a></p>
+	<!-- /wp:paragraph -->
 
-		<!-- wp:post-title {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"spacing":{"margin":{"bottom":"var:preset|spacing|50"}},"fontSize":"xxx-large"} /-->
+	<!-- wp:post-title {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"className":"hero-title is-style-gradient","fontSize":"xxx-large"} /-->
 
-		<!-- wp:pattern {"slug":"modul-r/headline-meta"} /-->
-	</div>
-	<!-- /wp:group -->
-</main>
+	<!-- wp:pattern {"slug":"modul-r/headline-meta"} /-->
+</div>
 <!-- /wp:group -->
