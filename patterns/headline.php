@@ -6,9 +6,8 @@
  */
 ?>
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|50"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:paragraph {"style":{"typography":{"lineHeight":"1"}},"className":"breadcrumbs"} -->
-	<p class="breadcrumbs" style="line-height:1"><a href="https://dev.codekraft.it/themetest">Home</a> / <a href=""></a></p>
-	<!-- /wp:paragraph -->
+<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50)">
+	<!-- wp:pattern {"slug":"modul-r/breadcrumbs"} /-->
 
 	<!-- wp:post-title {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"className":"hero-title is-style-gradient","fontSize":"xxx-large"} /-->
 
