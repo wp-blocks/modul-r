@@ -69,7 +69,6 @@
 		"typescript": "^5.2.2"
 	},
 	"dependencies": {
-		"@svgdotjs/svg.js": "^3.2.0",
 		"animate-css-grid": "^1.5.1",
 		"animate.css": "^4.1.1",
 		"choices.js": "^10.2.0",

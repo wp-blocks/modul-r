@@ -5,6 +5,7 @@ import { modulrAnimations } from './modules/animations';
 import { modulrMasonryController } from './modules/masonry';
 import { modulrSelectController } from './modules/select';
 import { modulrGrid } from './modules/grid';
+import { modulrScrollTo } from './modules/scroll/scroll';
 
 window.addEventListener( 'DOMContentLoaded', async () => {
 	/* enable scroll animations */
@@ -15,6 +16,8 @@ window.addEventListener( 'DOMContentLoaded', async () => {
 	modulrSliderController();
 	/* enable oxone like animation for grid elements */
 	modulrGrid();
+	/* enable oxone like animation for grid elements */
+	modulrScrollTo();
 } );
 
 window.addEventListener( 'load', async () => {
