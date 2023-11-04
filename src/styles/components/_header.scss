@@ -17,12 +17,14 @@ header.wp-block-template-part {
 		> div {
 			transition: 0.7s background-color;
 		}
+	}
 
-
-		@media all and (max-width: 699px) {
-			.has-modal-open & {
-				bottom: 0;
-			}
+	@media all and (max-width: 699px) {
+		.has-modal-open & {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
 		}
 	}
 
@@ -56,7 +58,7 @@ header.wp-block-template-part {
 }
 
 @media all and (max-width: 699px) {
-	.has-modal-open header.wp-block-template-part.is-style-fixed {
+	.has-modal-open header.wp-block-template-part {
 		.wp-block-navigation__responsive-container {
 			padding: var(--wp--preset--spacing--70);
 		}
