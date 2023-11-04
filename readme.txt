@@ -64,6 +64,9 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 == Upgrade Notice ==
 
 = 1.2.0 - Sept 13, 2019 =
+* fast forward to fse, lots of new features but no longer compatible with classic editor
+
+= 1.2.0 - Sept 13, 2019 =
 * Hudge changes in customizer section...  go and check all the new features. From the sass configuration the variables to set the header and sidebar direction have been removed since they are now changed by the customizer
 
 = 1.1.0 - Aug 22, 2019 =
@@ -73,6 +76,10 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 * First release
 
 == Changelog ==
+
+= 2.0.0 =
+* upgrading the theme to full site editing
+* Removed the old forms and patterns in favour of the new block styles. All the main functions have been retained
 
 = 1.4.0 =
 * Redesigned customisation section!
