@@ -1,5 +1,4 @@
 .modulr-grid-buttons {
-
 	display: flex;
 	list-style: none;
 	gap: 1rem;
@@ -12,5 +11,12 @@
 		&.active {
 			background: var(--wp--preset--color--gray-light);
 		}
+	}
+}
+
+.modulr-grid {
+	@media screen and #{$mq__tablet-portrait} {
+		padding-left: var(--wp--preset--spacing--40);
+		padding-right: var(--wp--preset--spacing--40);
 	}
 }

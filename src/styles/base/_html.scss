@@ -12,10 +12,10 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+	position: relative;
 }
 
 body {
-	position: relative;
 	min-height: 100%;
 	max-width: 100%;
 	box-sizing: border-box;
