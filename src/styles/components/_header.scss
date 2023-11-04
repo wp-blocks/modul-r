@@ -12,6 +12,8 @@ header.wp-block-template-part {
 
 	&.is-style-fixed {
 		position: fixed;
+		width: 100%;
+		transition: 350ms background-color, 175ms 1050ms color;
 
 		> div {
 			transition: 0.7s background-color;
@@ -30,13 +32,6 @@ header.wp-block-template-part {
 			opacity: 1;
 			transition: 0.25s color;
 		}
-	}
-
-
-	@media #{$mq__responsive_breakpoint} {
-		height: var(--header--branding--height);
-		transform: inherit !important;
-		padding: 0;
 	}
 
 	// if there isn't a featured image compensate void space under the menu

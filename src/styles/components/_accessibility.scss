@@ -21,10 +21,10 @@
 	&:focus {
 		background-color: var(--wp--preset--color--secondary);
 		border-radius: 3px;
-		box-shadow: 0 0 2px 2px rgba(var(--wp--preset--color--black--decimal), 0.5);
+		box-shadow: 0 0 2px 2px var(--wp--preset--color--black);
 		clip: auto !important;
 		clip-path: none;
-		color: var(--wp--preset--color--white);
+		color: var(--wp--preset--color--background);
 		font-weight: bolder;
 		height: auto;
 		display: block;

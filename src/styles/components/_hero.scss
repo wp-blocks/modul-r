@@ -1,12 +1,3 @@
-/**
- * The style for the text filled with a gradient (used in the hero section / patterns)
- */
-.is-style-gradient {
-	background: -webkit-linear-gradient(45deg, var(--wp--preset--color--primary), var(--wp--preset--color--secondary));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-
 .modulr-hero {
 	position: relative;
 	.hero-title {
@@ -23,13 +14,13 @@
 		translate: -50% -50%;
 	}
 	&:before {
-		left: -100vw;
+		left: -90vw;
 		background: linear-gradient(80deg,var(--wp--preset--color--primary) 0%,var(--wp--preset--color--primary-light) 100%);
-		mask-image: radial-gradient(rgba(0,0,0,.4),transparent 60%);
+		mask-image: radial-gradient(rgba(0,0,0,.45),transparent 60%);
 	}
 	&:after {
 		left: 100vw;
 		background: linear-gradient(240deg,var(--wp--preset--color--secondary) 0%,var(--wp--preset--color--secondary-light) 100%);
-		mask-image: radial-gradient(rgba(0,0,0,.3),transparent 65%);
+		mask-image: radial-gradient(rgba(0,0,0,.33),transparent 65%);
 	}
 }
