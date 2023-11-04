@@ -1,3 +1,4 @@
+import { __ } from '@wordpress/i18n';
 const prefix = 'category-';
 
 /**
@@ -43,7 +44,31 @@ function getLastElementFromHref( href ) {
 	const pathname = url.pathname;
 	const pathnameParts = pathname.split( '/' );
 	const lastElement = pathnameParts[ pathnameParts.length - 2 ];
+
+	if ( url.hash === '#all' ) {
+		return null;
+	}
+
 	return lastElement;
+}
+
+function addAllCategory( ulElement ) {
+	if ( ulElement ) {
+		// Create a new <li> element
+		const liElement = document.createElement( 'li' );
+		liElement.setAttribute( 'class', 'cat-item cat-item-all' );
+
+		// Create a new <a> element with the "All" label
+		const aElement = document.createElement( 'a' );
+		aElement.href = '#all'; // Set the appropriate URL if needed
+		aElement.innerText = __( 'All' );
+
+		// Append the <a> element to the <li> element
+		liElement.appendChild( aElement );
+
+		// Insert the new <li> element before the first child of the <ul>
+		ulElement.insertBefore( liElement, ulElement.firstChild );
+	}
 }
 
 /**
@@ -51,18 +76,16 @@ function getLastElementFromHref( href ) {
  * categories based on user interaction.
  */
 export async function modulrGrid(): Promise< void > {
+	addAllCategory( document.querySelector( 'ul.modulr-grid-buttons' ) );
+
 	/* Finding all elements with the class `animate__animated` and adding them to an array. */
-	const gridButtons: HTMLAnchorElement[] | null = document.querySelectorAll(
-		'.modulr-grid-buttons li a'
-	);
+	const gridButtons: NodeListOf< HTMLAnchorElement > =
+		document.querySelectorAll( '.modulr-grid-buttons li' );
 
 	const grid: HTMLElement | null =
 		document.querySelector( '.modulr-grid > ul' );
 
 	if ( gridButtons && grid ) {
-		// the first item is the active button
-		gridButtons[ 0 ].classList.add( 'active' );
-
 		const { wrapGrid } = await import( 'animate-css-grid' );
 
 		const { forceGridAnimation } = wrapGrid( grid );
@@ -70,27 +93,32 @@ export async function modulrGrid(): Promise< void > {
 		/* The code block is adding event listeners to each button in the `gridButtons` array. */
 		gridButtons.forEach( ( button, index ) => {
 			button.dataset.index = index.toString();
+
 			button.addEventListener( 'click', function ( e: Event ) {
 				e.preventDefault();
 
 				const clickedItem = e.currentTarget as HTMLAnchorElement;
+				const clickedItemAnchor =
+					clickedItem.firstChild as HTMLAnchorElement;
 
-				const category = getLastElementFromHref( clickedItem?.href );
+				const category = getLastElementFromHref(
+					clickedItemAnchor?.href
+				);
 
-				if ( clickedItem.classList.contains( 'active' ) ) {
+				if ( clickedItem?.classList.contains( 'current-cat' ) ) {
+					toggleCategoryVisiblity( grid, null, forceGridAnimation );
 					// the main button cannot be disabled
 					if ( clickedItem.dataset.index === '0' ) {
 						return;
 					}
-					toggleCategoryVisiblity( grid, null, forceGridAnimation );
-					clickedItem.classList.remove( 'active' );
-					gridButtons[ 0 ].classList.add( 'active' );
+					clickedItem.classList.remove( 'current-cat' );
+					gridButtons[ 0 ].classList.add( 'current-cat' );
 				} else {
 					// remove the active class from sibling buttons
 					gridButtons.forEach( ( el ) => {
-						el.classList.remove( 'active' );
+						el.classList.remove( 'current-cat' );
 					} );
-					button.classList.add( 'active' );
+					button.classList.add( 'current-cat' );
 					toggleCategoryVisiblity(
 						grid,
 						category,
