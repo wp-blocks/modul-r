@@ -1,6 +1,8 @@
 /* Masonry */
 import './style.scss';
 
+const minCardSize = 300;
+
 /**
  * The function gets the base width and number of columns for a masonry layout based on the width of a
  * container element and its CSS class.
@@ -28,8 +30,9 @@ function getMasonryAttributes( container: HTMLElement ) {
 	} );
 
 	if ( attributes?.columns ) {
-		attributes.baseWidth = Math.round(
-			containerWidth / attributes.columns
+		attributes.baseWidth = Math.max(
+			minCardSize,
+			Math.round( containerWidth / attributes.columns )
 		);
 	}
 
