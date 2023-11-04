@@ -20,6 +20,8 @@ if ( ! function_exists( 'modul_r_theme_setup' ) ) :
 		*/
 		add_theme_support( 'title-tag' );
 
+		add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
+
 		// This theme uses wp_nav_menu() in Primary Navigation.
 		register_nav_menus(
 			array(
