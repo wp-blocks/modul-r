@@ -1,3 +1,11 @@
 footer.wp-block-template-part {
 	margin-top: auto;
+
+	.wp-block-latest-posts.wp-block-latest-posts__list li {
+		margin-bottom: var(--wp--preset--spacing--30);
+	}
+
+	.wp-block-navigation {
+		margin-top: var(--wp--preset--spacing--40);
+	}
 }
