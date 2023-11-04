@@ -6,7 +6,6 @@
 	"author": "erik",
 	"homepage": "https://modul-r.codekraft.it/",
 	"files": [
-		"blocks/*",
 		"build/*",
 		"img/*",
 		"inc/*",

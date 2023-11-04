@@ -14,12 +14,6 @@ module.exports = {
 			`src/scripts/scripts-admin.ts`
 		),
 
-		/** blocks */
-		'modulr-blocks-cmt': path.resolve(
-			process.cwd(),
-			`blocks/custom-media-text/index.tsx`
-		),
-
 		/** scss styles */
 		'modulr-css-admin': path.resolve(
 			process.cwd(),
