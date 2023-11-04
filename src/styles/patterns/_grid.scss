@@ -1,0 +1,16 @@
+.modulr-grid-buttons {
+
+	display: flex;
+	list-style: none;
+	gap: 1rem;
+	justify-content: center;
+
+	a {
+		padding: 8px 12px;
+		border: 1px solid var(--wp--preset--color--gray-light);
+		border-radius: 50px;
+		&.active {
+			background: var(--wp--preset--color--gray-light);
+		}
+	}
+}
