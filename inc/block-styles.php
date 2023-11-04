@@ -27,6 +27,9 @@ if ( function_exists( 'register_block_style' ) ) {
 
 	$wave = esc_url( apply_filters( 'modul_r_wave_shape_uri', get_template_directory_uri() . '/img/demo/wave.svg' ) );
 
+	/**
+	 * Text / TItles Styles
+	 */
 	register_block_style(
 		'core/post-title',
 		array(
@@ -49,6 +52,9 @@ if ( function_exists( 'register_block_style' ) ) {
 		)
 	);
 
+	/**
+	 * Layout Styles
+	 */
 	register_block_style(
 		'core/media-text',
 		array(
@@ -74,14 +80,6 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	register_block_style(
-		'core/group',
-		array(
-			'name'  => 'card',
-			'label' => __( 'Card', 'modul-r' ),
-		)
-	);
-
-	register_block_style(
 		'core/cover',
 		array(
 			'name'         => 'wave-clip',
@@ -100,14 +98,6 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	register_block_style(
-		'core/group',
-		array(
-			'name'  => 'items-overlap',
-			'label' => __( 'Shifts the group by 120px upwards', 'modul-r' ),
-		)
-	);
-
-	register_block_style(
 		'core/cover',
 		array(
 			'name'         => 'wave-clip',
@@ -116,6 +106,20 @@ if ( function_exists( 'register_block_style' ) ) {
 		)
 	);
 
+	/**
+	 * UI
+	 */
+	register_block_style(
+		'core/group',
+		array(
+			'name'  => 'card',
+			'label' => __( 'Card', 'modul-r' ),
+		)
+	);
+
+	/**
+	 * Modules
+	 */
 	register_block_style(
 		'core/gallery',
 		array(
@@ -123,7 +127,6 @@ if ( function_exists( 'register_block_style' ) ) {
 			'label' => __( 'Masonry layout', 'modul-r' ),
 		)
 	);
-
 	register_block_style(
 		'core/gallery',
 		array(
@@ -169,14 +172,6 @@ if ( function_exists( 'register_block_style' ) ) {
 		array(
 			'name'  => 'sticky',
 			'label' => __( 'Sticky', 'modul-r' ),
-		)
-	);
-
-	register_block_style(
-		'core/latest-posts',
-		array(
-			'name'  => 'cute-display',
-			'label' => __( 'Cute display', 'modul-r' ),
 		)
 	);
 }
