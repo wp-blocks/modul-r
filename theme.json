@@ -76,6 +76,16 @@
 					"slug": "white",
 					"color": "#ffffff",
 					"name": "White"
+				},
+				{
+					"slug": "text-color",
+					"color": "var(--wp--preset--color--black)",
+					"name": "Text Color"
+				},
+				{
+					"slug": "background",
+					"color": "var(--wp--preset--color--white)",
+					"name": "Background"
 				}
 			],
 			"gradients": [],
@@ -192,7 +202,7 @@
 			"core/button": {
 				"color": {
 					"background": "var(--wp--preset--color--primary)",
-					"text": "var(--wp--preset--color--white)"
+					"text": "var(--wp--preset--color--background)"
 				},
 				"typography": {
 					"fontFamily": "var:preset|font-family|default",
@@ -250,8 +260,8 @@
 			}
 		},
 		"color": {
-			"background": "#ffffff",
-			"text": "var:preset|color|black"
+			"background": "var:preset|color|background",
+			"text": "var:preset|color|text-color"
 		},
 		"elements": {
 			"button": {
