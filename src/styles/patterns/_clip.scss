@@ -1,0 +1,23 @@
+/* clip container transversal with svg */
+.wp-block-cover,
+.wp-block-media-text {
+	--element--blocks--clip-slope: 5vh;
+
+	&.is-style-traversal-clip {
+		clip-path: polygon(0 var(--element--blocks--clip-slope), 100% 0, 100% calc(100% - var(--element--blocks--clip-slope)), 0 100%);
+		margin-bottom: calc(-1 * var(--element--blocks--clip-slope));
+		position: relative;
+		z-index: 2;
+	}
+
+}
+
+/* clip container with a wave shaped svg */
+.wp-block-cover,
+.wp-block-post-featured-image {
+
+	&.is-style-wave-clip {
+		mask-size: cover;
+		mask-position: center bottom;
+	}
+}
