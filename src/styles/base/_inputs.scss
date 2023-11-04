@@ -72,6 +72,10 @@ textarea {
 	overflow: hidden;
 }
 
+fieldset {
+	box-sizing: border-box;
+}
+
 select,
 fieldset {
 	width: 100%;

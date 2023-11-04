@@ -1,8 +1,13 @@
 .modulr-grid-buttons {
 	display: flex;
+	flex-wrap: wrap;
 	list-style: none;
 	gap: 1rem;
 	justify-content: center;
+
+	li {
+		padding-bottom: var(--wp--preset--spacing--30);
+	}
 
 	a {
 		padding: 8px 12px;

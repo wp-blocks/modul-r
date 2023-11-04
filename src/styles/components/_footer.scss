@@ -8,4 +8,10 @@ footer.wp-block-template-part {
 	.wp-block-navigation {
 		margin-top: var(--wp--preset--spacing--40);
 	}
+
+	@media #{$mq__tablet-portrait} {
+		.wp-block-column {
+			padding: 0 !important;
+		}
+	}
 }

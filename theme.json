@@ -1,13 +1,8 @@
 {
-	"$schema": "https://schemas.wp.org/wp/6.1/theme.json",
+	"$schema": "https://schemas.wp.org/wp/6.3/theme.json",
 	"settings": {
 		"appearanceTools": true,
-		"border": {
-			"color": true,
-			"radius": true,
-			"style": true,
-			"width": true
-		},
+		"useRootPaddingAwareAlignments": true,
 		"color": {
 			"background": true,
 			"custom": true,
@@ -16,79 +11,79 @@
 			"defaultDuotone": true,
 			"defaultGradients": true,
 			"defaultPalette": false,
+			"gradients": [],
 			"palette": [
 				{
-					"slug": "primary",
 					"color": "#6f4cad",
-					"name": "Primary"
+					"name": "Primary",
+					"slug": "primary"
 				},
 				{
-					"slug": "primary-light",
 					"color": "#9b82c6",
-					"name": "Primary Light"
+					"name": "Primary Light",
+					"slug": "primary-light"
 				},
 				{
-					"slug": "primary-dark",
 					"color": "#4e367a",
-					"name": "Primary Dark"
+					"name": "Primary Dark",
+					"slug": "primary-dark"
 				},
 				{
-					"slug": "secondary",
 					"color": "#16bebb",
-					"name": "Secondary"
+					"name": "Secondary",
+					"slug": "secondary"
 				},
 				{
-					"slug": "secondary-light",
 					"color": "#5cd2d0",
-					"name": "Secondary Light"
+					"name": "Secondary Light",
+					"slug": "secondary-light"
 				},
 				{
-					"slug": "secondary-dark",
 					"color": "#108583",
-					"name": "Secondary Dark"
+					"name": "Secondary Dark",
+					"slug": "secondary-dark"
 				},
 				{
-					"slug": "black",
 					"color": "#110e17",
-					"name": "Black"
+					"name": "Black",
+					"slug": "black"
 				},
 				{
-					"slug": "gray-dark",
 					"color": "#262428",
-					"name": "Gray dark"
+					"name": "Gray dark",
+					"slug": "gray-dark"
 				},
 				{
-					"slug": "gray",
 					"color": "#888888",
-					"name": "Gray light"
+					"name": "Gray light",
+					"slug": "gray"
 				},
 				{
-					"slug": "gray-light",
 					"color": "#e3e3e3",
-					"name": "Gray light"
+					"name": "Gray light",
+					"slug": "gray-light"
 				},
 				{
-					"slug": "white-smoke",
 					"color": "#f3f3f3",
-					"name": "White Smoke"
+					"name": "White Smoke",
+					"slug": "white-smoke"
 				},
 				{
-					"slug": "white",
 					"color": "#ffffff",
-					"name": "White"
+					"name": "White",
+					"slug": "white"
 				},
 				{
-					"slug": "text-color",
 					"color": "var(--wp--preset--color--black)",
-					"name": "Text Color"
+					"name": "Text Color",
+					"slug": "text-color"
 				},
 				{
-					"slug": "background",
 					"color": "var(--wp--preset--color--white)",
-					"name": "Background"
+					"name": "Background",
+					"slug": "background"
 				}
 			],
-			"gradients": [],
 			"text": true
 		},
 		"custom": {
@@ -194,10 +189,15 @@
 			"letterSpacing": true,
 			"textDecoration": true,
 			"textTransform": true
-		},
-		"useRootPaddingAwareAlignments": true
+		}
 	},
 	"styles": {
+		"spacing": {
+			"padding": {
+				"right": "var(--wp--preset--spacing--50)",
+				"left": "var(--wp--preset--spacing--50)"
+			}
+		},
 		"blocks": {
 			"core/button": {
 				"color": {
@@ -205,7 +205,7 @@
 					"text": "var(--wp--preset--color--background)"
 				},
 				"typography": {
-					"fontFamily": "var:preset|font-family|default",
+					"fontFamily": "var(--wp--preset--font-family--default)",
 					"fontSize": "var(--wp--preset--font-size--medium)",
 					"fontStyle": "normal",
 					"fontWeight": "var(--typography--font--default--bold)",
@@ -216,21 +216,10 @@
 			},
 			"core/buttons": {
 				"spacing": {
-					"blockGap": "var:preset|spacing|60",
+					"blockGap": "var(--wp--preset--spacing--60)",
 					"margin": {
-						"bottom": "var:preset|spacing|60",
-						"top": "var:preset|spacing|40"
-					}
-				}
-			},
-			"core/separator": {
-				"color": {
-					"background": "var:preset|color|primary"
-				},
-				"spacing": {
-					"margin": {
-						"bottom": "var:preset|spacing|60",
-						"top": "var:preset|spacing|60"
+						"bottom": "var(--wp--preset--spacing--60)",
+						"top": "var(--wp--preset--spacing--40)"
 					}
 				}
 			},
@@ -243,6 +232,17 @@
 						"typography": {
 							"textDecoration": "none"
 						}
+					}
+				}
+			},
+			"core/separator": {
+				"color": {
+					"background": "var(--wp--preset--color--primary)"
+				},
+				"spacing": {
+					"margin": {
+						"bottom": "var(--wp--preset--spacing--60)",
+						"top": "var(--wp--preset--spacing--60)"
 					}
 				}
 			},
@@ -260,8 +260,8 @@
 			}
 		},
 		"color": {
-			"background": "var:preset|color|background",
-			"text": "var:preset|color|text-color"
+			"background": "var(--wp--preset--color--background)",
+			"text": "var(--wp--preset--color--text-color)"
 		},
 		"elements": {
 			"button": {
@@ -269,8 +269,8 @@
 					"radius": "0"
 				},
 				"color": {
-					"background": "var:preset|color|primary",
-					"text": "var:preset|color|white"
+					"background": "var(--wp--preset--color--primary)",
+					"text": "var(--wp--preset--color--white)"
 				},
 				"typography": {
 					"fontSize": "1.4rem",
@@ -281,7 +281,7 @@
 			},
 			"heading": {
 				"color": {
-					"text": "var:preset|color|primary"
+					"text": "var(--wp--preset--color--primary)"
 				},
 				"typography": {
 					"fontFamily": "var(--typography--font--title)",
@@ -293,18 +293,18 @@
 			"link": {
 				":hover": {
 					"color": {
-						"text": "var:preset|color|primary"
+						"text": "var(--wp--preset--color--primary)"
 					},
 					"typography": {
 						"textDecoration": "none"
 					}
 				},
 				"color": {
-					"text": "var:preset|color|primary-dark"
+					"text": "var(--wp--preset--color--primary-dark)"
 				},
 				"typography": {
-					"textDecoration": "none",
-					"fontWeight": "var(--typography--font--default--bold)"
+					"fontWeight": "var(--typography--font--default--bold)",
+					"textDecoration": "none"
 				}
 			}
 		},
@@ -322,34 +322,14 @@
 			"title": "Header"
 		},
 		{
-			"area": "header",
-			"name": "header-portrait",
-			"title": "Header Portrait"
-		},
-		{
-			"area": "header",
-			"name": "header-centered",
-			"title": "Header Centered"
-		},
-		{
 			"area": "footer",
 			"name": "footer",
 			"title": "Footer"
 		},
 		{
-			"area": "footer",
-			"name": "footer-centered",
-			"title": "Footer Centered"
-		},
-		{
 			"area": "uncategorized",
 			"name": "comments",
 			"title": "Comments"
-		},
-		{
-			"area": "uncategorized",
-			"name": "post-meta",
-			"title": "Post Meta"
 		},
 		{
 			"area": "uncategorized",
