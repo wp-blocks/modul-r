@@ -1,10 +1,10 @@
 %input_model {
-	background-color: var(--wp--preset--color--white);
+	background-color: var(--wp--preset--color--background);
 	color: var(--wp--preset--color--text);
 	outline: none !important;
 	border: 1px solid var(--wp--preset--color--gray-light);
 	font-family: var(--typography--font--default);
-	font-size: var(--wp--preset--font-size--medium);
+	font-size: var(--wp--preset--font-size--default);
 	font-weight: var(--typography--font--default--regular);
 	box-sizing: border-box;
 	border-radius: 4px 4px 0 0;
@@ -20,6 +20,7 @@
 }
 
 select,
+.choices__inner,
 textarea,
 input[type="text"],
 input[type="number"],
@@ -33,6 +34,10 @@ input[type="tel"] {
 	padding-left: var(--wp--preset--spacing--40);
 	padding-right: var(--wp--preset--spacing--40);
 	box-shadow: 0 0 0 var(--wp--preset--color--gray-light);
+}
+
+.choices__input {
+	background: var(--wp--preset--color--background);
 }
 
 [type="checkbox"],
@@ -82,7 +87,7 @@ fieldset {
 	padding: 0.667em 1.333em;
 	background-image: none;
 	font-family: var(--wp--preset--font-family--default);
-	font-size: var(--wp--preset--font-size--medium);
+	font-size: var(--wp--preset--font-size--default);
 	font-style: normal;
 	font-weight: var(--typography--font--default--bold);
 	letter-spacing: 0.1em;

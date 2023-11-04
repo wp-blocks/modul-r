@@ -8,6 +8,7 @@ html {
 	/* ios viewport bug fix */
 	height: calc(var(--vh, 1vh) * 100);
 	max-width: 100%;
+	scroll-behavior:smooth;
 	-webkit-text-size-adjust: 100%;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -18,4 +19,11 @@ body {
 	min-height: 100%;
 	max-width: 100%;
 	box-sizing: border-box;
+}
+
+/* This is needed to fit the height of the page to the viewport */
+.wp-site-blocks {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
