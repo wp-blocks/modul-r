@@ -1,0 +1,32 @@
+img {
+	height: auto;
+	max-width: 100%;
+	position: relative;
+	object-fit: cover;
+}
+
+p img {
+	&.alignleft {
+		padding-right: var(--wp--preset--spacing--50);
+	}
+
+	&.alignright {
+		padding-left: var(--wp--preset--spacing--50);
+	}
+}
+
+figure {
+	margin-bottom: var(--wp--preset--spacing--50);
+
+	img {
+		max-width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.gallery-caption,
+	figcaption {
+		overflow: hidden;
+		line-height: 1.2;
+	}
+}

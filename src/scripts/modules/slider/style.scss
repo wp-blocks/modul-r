@@ -1,0 +1,48 @@
+/**
+ * Swiper scrollbar styles
+ */
+
+// covers fix
+.wp-site-blocks .swiper {
+	--swiper-scrollbar-bottom: 0;
+
+	::selection {
+		background: transparent;
+	}
+
+	.swiper-slide {
+
+		&.wp-block-cover {
+			display: flex;
+		}
+	}
+
+	.swiper-scrollbar {
+		--swiper-scrollbar-size: 5px;
+	}
+}
+
+// white scrollbar
+.swiper-scrollbar-white {
+
+	.swiper {
+		padding-bottom: 40px;
+	}
+
+	.swiper-scrollbar {
+		--swiper-scrollbar-bg-color: rgba(255, 255, 255, 0.2);
+		--swiper-scrollbar-drag-bg-color: rgba(255, 255, 255, 0.7);
+	}
+}
+
+.swiper-fade .swiper-slide {
+	height: auto;
+	> div.wp-block-group {
+		height: 50% ! important;
+		min-height: 50%;
+	}
+	> div.wp-block-group > div {
+		height: 100%;
+	}
+}
+

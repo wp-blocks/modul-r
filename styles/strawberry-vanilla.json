@@ -1,0 +1,128 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "title": "Strawberry + Vanilla",
+  "settings": {
+	"color": {
+	  "palette": [
+		{
+		  "name": "Primary",
+		  "color": "#96897B",
+		  "slug": "primary"
+		},
+		{
+		  "slug": "primary-light",
+		  "color": "#cbb49c",
+		  "name": "Primary Light"
+		},
+		{
+		  "slug": "primary-dark",
+		  "color": "#6c6155",
+		  "name": "Primary Dark"
+		},
+		{
+		  "color": "#BA324F",
+		  "name": "Secondary",
+		  "slug": "secondary"
+		},
+		{
+		  "color": "#D04E6A",
+		  "name": "Secondary light",
+		  "slug": "secondary-light"
+		},
+		{
+		  "color": "#91273E",
+		  "name": "Secondary dark",
+		  "slug": "secondary-dark"
+		},
+		{
+		  "slug": "black",
+		  "color": "#000000",
+		  "name": "Black"
+		},
+		{
+		  "slug": "gray-dark",
+		  "color": "#222222",
+		  "name": "Gray dark"
+		},
+		{
+		  "slug": "gray",
+		  "color": "#888888",
+		  "name": "Gray light"
+		},
+		{
+		  "slug": "gray-light",
+		  "color": "#e3e3e3",
+		  "name": "Gray light"
+		},
+		{
+		  "slug": "white-smoke",
+		  "color": "#f3f3f3",
+		  "name": "White Smoke"
+		},
+		{
+		  "slug": "white",
+		  "color": "#ffffff",
+		  "name": "White"
+		},
+		{
+		  "name": "Background",
+		  "color": "#f3f3f1",
+		  "slug": "background"
+		},
+		{
+		  "name": "Text",
+		  "color": "#f3f3f1",
+		  "slug": "text"
+		}
+	  ]
+	}
+  },
+  "styles": {
+	"blocks": {
+	  "core/navigation": {
+		"elements": {
+		  "link": {
+			":hover": {
+			  "color": {
+				"text": "var(--wp--preset--color--secondary)"
+			  }
+			},
+			"color": {
+			  "text": "var(--wp--preset--color--secondary-dark)"
+			}
+		  }
+		}
+	  }
+	},
+	"elements": {
+	  "button": {
+		"border": {
+		  "width": "0px"
+		},
+		"color": {
+		  "background":"var(--wp--preset--color--secondary-light)",
+		  "text": "var(--wp--preset--color--white)"
+		},
+		":hover": {
+		  "color": {
+			"background":"var(--wp--preset--color--secondary-light)",
+			"text": "var(--wp--preset--color--white)"
+		  }
+		}
+	  },
+	  "link": {
+		":focus": {
+		  "color": {
+			"text": "var(--wp--preset--color--secondary)"
+		  }
+		},
+		":active": {
+		  "color": {
+			"text": "var(--wp--preset--color--secondary-light)"
+		  }
+		}
+	  }
+	}
+  }
+}

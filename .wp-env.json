@@ -1,0 +1,10 @@
+{
+  "core": null,
+  "themes": ["./"],
+  "config": {
+	"WP_DEBUG": true,
+	"SCRIPT_DEBUG": true,
+	"FS_METHOD": "direct",
+	"WP_DEFAULT_THEME": "modul-r"
+  }
+}

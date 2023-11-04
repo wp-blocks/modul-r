@@ -1,36 +1,43 @@
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const path = require( 'path' );
 
-const config = {
+module.exports = {
 	...defaultConfig,
-};
+	entry: {
+		/** js scripts */
+		'modulr-scripts': path.resolve(
+			process.cwd(),
+			`src/scripts/scripts.ts`
+		),
+		'modulr-script-admin': path.resolve(
+			process.cwd(),
+			`src/scripts/scripts-admin.ts`
+		),
 
-const addModule = ( fileName, filePath ) => {
-	return {
-		...config,
-		name: fileName,
-		entry: {
-			[ fileName ]: path.resolve(
-				__dirname,
-				'assets/src/' + filePath + fileName
-			),
+		/** blocks */
+		'modulr-blocks-cmt': path.resolve(
+			process.cwd(),
+			`blocks/custom-media-text/index.tsx`
+		),
+
+		/** scss styles */
+		'modulr-css-admin': path.resolve(
+			process.cwd(),
+			`src/styles/admin.ts`
+		),
+		'modulr-css-atf': path.resolve( process.cwd(), `src/styles/atf.ts` ),
+		'modulr-css-editor': path.resolve(
+			process.cwd(),
+			`src/styles/editor.ts`
+		),
+		'modulr-css-main': path.resolve( process.cwd(), `src/styles/main.ts` ),
+	},
+	optimization: {
+		...defaultConfig.optimization,
+		splitChunks: {
+			cacheGroups: {
+				chunks: 'all',
+			},
 		},
-		output: {
-			path: path.resolve( __dirname, 'assets/dist/' + filePath ),
-			filename: fileName,
-		},
-	};
+	},
 };
-
-/** js scripts */
-const scripts = addModule( 'scripts.js', 'scripts/' );
-
-/** scss styles */
-const admin = addModule( 'admin', 'styles/' );
-const atf = addModule( 'atf', 'styles/' );
-const editor = addModule( 'editor', 'styles/' );
-const lateStyle = addModule( 'late-style', 'styles/' );
-const style = addModule( 'main', 'styles/' );
-const woo = addModule( 'woo', 'styles/' );
-
-module.exports = [ scripts, admin, atf, editor, lateStyle, style, woo ];

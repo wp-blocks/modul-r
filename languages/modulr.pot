@@ -1,0 +1,198 @@
+# Copyright (C) 2023 Codekraft Studio
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Modul-R 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/modul-r\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-02-24T22:47:05+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: modul-r\n"
+
+#. Theme Name of the theme
+msgid "Modul-R"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://modul-r.codekraft.it/"
+msgstr ""
+
+#. Description of the theme
+msgid "Modul R is a powerful and flexible theme that provides a fast way to create an awesome website. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with preconfigured SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features! Modul R also provides a seamless integration with Gutenberg and Woocommerce."
+msgstr ""
+
+#. Author of the theme
+msgid "Codekraft Studio"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://codekraft.it/"
+msgstr ""
+
+#: inc/block-patterns.php:20
+msgid "Modul-R patterns"
+msgstr ""
+
+#: inc/block-patterns.php:34
+#: inc/block-patterns.php:41
+msgid "Outline text"
+msgstr ""
+
+#: inc/block-patterns.php:49
+#: inc/block-patterns.php:57
+#: inc/block-patterns.php:65
+msgid "cut the container crosswise"
+msgstr ""
+
+#: inc/block-patterns.php:73
+msgid "Card"
+msgstr ""
+
+#: inc/block-patterns.php:81
+#: inc/block-patterns.php:90
+#: inc/block-patterns.php:107
+msgid "clip with wave shape"
+msgstr ""
+
+#: inc/block-patterns.php:99
+msgid "Shifts the group by 120px upwards"
+msgstr ""
+
+#: inc/block-patterns.php:116
+msgid "Masonry layout"
+msgstr ""
+
+#: inc/block-patterns.php:124
+msgid "Slider"
+msgstr ""
+
+#: inc/block-patterns.php:132
+#: inc/block-patterns.php:140
+msgid "Lightbox"
+msgstr ""
+
+#: inc/block-patterns.php:148
+msgid "Masonry"
+msgstr ""
+
+#: inc/block-patterns.php:156
+msgid "Fixed"
+msgstr ""
+
+#: inc/block-patterns.php:164
+msgid "Sticky"
+msgstr ""
+
+#: inc/customizer.php:118
+msgid "Select"
+msgstr ""
+
+#: inc/customizer.php:189
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer.php:210
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer.php:219
+msgid "Modul-R Options"
+msgstr ""
+
+#: inc/customizer.php:227
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer.php:249
+msgid "Select the font family for the titles"
+msgstr ""
+
+#: inc/customizer.php:275
+msgid "Select the default font family"
+msgstr ""
+
+#: inc/enqueue-style.php:29
+msgid "Theme primary color"
+msgstr ""
+
+#: inc/enqueue-style.php:34
+msgid "Theme primary color light"
+msgstr ""
+
+#: inc/enqueue-style.php:39
+msgid "Theme primary color dark"
+msgstr ""
+
+#: inc/enqueue-style.php:44
+msgid "Theme secondary color"
+msgstr ""
+
+#: inc/enqueue-style.php:49
+msgid "Theme secondary color light"
+msgstr ""
+
+#: inc/enqueue-style.php:54
+msgid "Theme secondary color dark"
+msgstr ""
+
+#: inc/enqueue-style.php:59
+msgid "White"
+msgstr ""
+
+#: inc/enqueue-style.php:64
+msgid "White Smoke"
+msgstr ""
+
+#: inc/enqueue-style.php:69
+msgid "Light gray"
+msgstr ""
+
+#: inc/enqueue-style.php:74
+msgid "Gray"
+msgstr ""
+
+#: inc/enqueue-style.php:79
+msgid "Dark gray"
+msgstr ""
+
+#: inc/enqueue-style.php:84
+msgid "Black"
+msgstr ""
+
+#: inc/sidebar.php:13
+msgid "Main Sidebar"
+msgstr ""
+
+#: inc/sidebar.php:15
+msgid "The main theme sidebar"
+msgstr ""
+
+#: inc/template-functions.php:23
+#: inc/template-functions.php:25
+msgid "Home"
+msgstr ""
+
+#: inc/theme-setup.php:34
+msgid "Primary"
+msgstr ""
+
+#: patterns/footer-credits.php:17
+msgid "//wordpress.org/"
+msgstr ""
+
+#: patterns/footer-credits.php:17
+msgid "Proudly powered by WordPress"
+msgstr ""
+
+#: patterns/footer-credits.php:18
+msgid "//codekraft.it"
+msgstr ""
+
+#: patterns/footer-credits.php:18
+msgid "made with &hearts; by codekraft-studio"
+msgstr ""

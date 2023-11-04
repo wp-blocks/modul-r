@@ -3,13 +3,13 @@ Contributors: codekraft
 Requires at least: 4.9.6
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.4.0
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/pools/c/8g9fVFSHkc
 Tags: blog, e-commerce, portfolio, one-column, grid-layout, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, full-width-template, block-styles, wide-blocks, sticky-post, threaded-comments, translation-ready
 
-Modul R is a powerful and flexible designed to be a starter theme to hack with a kit of reusable parts and functions with the website speed performance in mind. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with an hi tech with SASS style (with a lot of possible customizations), visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
+Elevate your web presence with Modul R, a dynamic and highly flexible WordPress theme engineered for the modern era that comes with batteries included. The v2 theme represents a significant upgrade, packed with an array of improvements designed to transform your web design experience. Modul R isn't just a theme; it's your go-to toolkit for crafting extraordinary websites with an emphasis on speed and performance.
 
 == Description ==
 Modul R is a powerful and flexible theme that provides a fast way to create an awesome website. Modul R brings plenty of customization possibilities thanks to gulp4, it comes with preconfigured SASS style, visibility triggered animations, image parallax, lightbox, slider, grid layout (masonry), category sidebar accordion and many more features!
@@ -17,44 +17,33 @@ Modul R also provides a seamless integration with Gutenberg and Woocommerce.
 
 [Demo](https://modul-r.codekraft.it)
 
+Key Features:
+
+- 💡 Modular Design: Modul R is your gateway to a world of creative possibilities. It serves as a versatile starter theme, offering an arsenal of reusable components and functions. Whether you're a seasoned developer or a novice, you can easily leverage these tools to create a web masterpiece.
+- ⚡ Performance Optimization: In an age where website speed is paramount, Modul R takes the lead. The theme has been meticulously optimized to ensure lightning-fast loading times, providing a seamless user experience for your visitors.
+- 🎨 Stylish SASS Customization: With Modul R, the style is at your command. Harness the power of SASS to tailor your website's appearance. A plethora of customization options is at your fingertips, allowing you to craft a unique and captivating visual identity for your site.
+- 🌟 Dynamic Visual Effects: Impress your audience with captivating visibility-triggered animations enabled by the Animations module. Engage your visitors with image parallax effects that add depth and interactivity to your content. Create stunning galleries with the Slider feature and effortlessly organize your content with grid layouts using the Grid module, with an Oxone-like animation for grid elements.
+- 📷 Masonry Layout: Achieve a captivating and organized layout with the Masonry module, making your content appear in a visually appealing grid.
+- 🔦 Lightboxes: Showcase your images and galleries with elegance using the Light-boxes module, offering a user-friendly and engaging lightbox experience.
+- 🚀 Smooth Scrolling: Navigate your website effortlessly with the ScrollTo module, offering enhanced, no-config smooth scrolling with a history feature.
+- 🎯 Scroll Animations: Bring life to your site with scroll animations using the ScrollControl module, creating engaging and interactive user experiences.
+- 📜 Input Enhancements: Elevate user interactions with enhanced input select options provided by the Enhanced input select with choices.js module.
+- 🛒 Seamless Integration: Modul R seamlessly integrates with popular WordPress plugins like Gutenberg and WooCommerce. This means you can effortlessly add and manage content, and even set up an online store without breaking a sweat.
+
+In the world of web design, Modul R is your ticket to a future where creativity knows no bounds.
+It empowers you to build a website that not only looks fantastic but also performs flawlessly.
+Dive into a world of endless customization possibilities, enjoy lightning-fast loading times, and engage your audience with captivating visual effects.
+With Modul R, your website is no longer just a site; it's an experience—with batteries included. 🔋🚀
+
 = Getting started =
-* The customizations are grouped into wordpress customizer under "colors" and "modul-r template customizations"
+* The customizations are grouped into WordPress customizer under "colors" and "modul-r template customizations"
 * Create a menu then assign it into the primary navigation
 * In Widget section, under footer widgets you could add a widget. (not needed)
 * Create a page then go to settings > reading and select the page as static homepage. (not needed)
 
 = How I could benefit by using this template? =
-* It is a simple template with good out of the box performance.
+* It is a simple template with good out-of-the-box performance.
 * This template was designed to be developer friendly and can be and can be used as a bootstrap to start a much more complex site. if these are your intentions, please install the child theme you can find on git, below is how to do it and a list of gulp tasks that allow you to modify and recompile in this bundled version
-
-= How install node? =
-Run the installer of NodeJS from the link below:
-  https://nodejs.org/en/download/
-After this step, you can check if NodeJS and NPM were installed with the command:
-  node -v && npm -v
-if npm is installed you can run:
-  npm i
-
-= How run gulp tasks? =
-There is some Gulp tasks i've prepared that simplify the development of the website:
-  gulp style
-Runs (once) the Sass compile task on style.scss, the autoprefixer and then creates the sourcemap.
-  gulp scripts
-Traspile es6 to javascript (if needed) then uglify (minify), concat (merge all files into one) and creates the sourcemap.
-  gulp optimizeThemeImg
-Minify images (PNG, JPEG, GIF and SVG) from assets/src/img then copy to assets/dist/img folder. Automatically creates a copy of each file in webp format
-  gulp optimizeWPUploads
-Minify images (PNG, JPEG, GIF and SVG) from /wp-content/uploads. Automatically creates a copy of each file in webp format
-  gulp zipRelease
-Zip all theme files into /releases/$version, it can be useful if you want to “package” the theme for upload purpose.
-  gulp createPot
-Parse all php files into theme folder and generates the pot files for WordPress translations.
-  gulp watch
-You have to run this command during development, and this command will be your best friend 🙂 It runs a file watcher on sass, scripts, and images folders and when triggered run the needed gulp task. It uses the latest version of gulp which allows these tasks to run in parallel, in order to have very short compilation times.
-  gulp build
-To finalize the theme… for first run clean and removes all development files. Then compile with a set of options suitable for publication (in watch task instead the compilation speed is privileged and also the css is not minified)
-  gulp buildRelease
-Same as build task but furthermore removes some unwanted files (Thumbs.db, DS_Store, ...) and zip the template files
 
 = Contribute =
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
@@ -214,10 +203,6 @@ You can find a [quick start guide here](https://modul-r.codekraft.it/2019/06/the
 = 1.0.0 =
 * First release
 
-== TODOS ==
-* Provide a better way to select triggered animation, if possible without writing the name class (with a checkbox or similar)
-* Rework the gulp file
-* Provide more options with the customizer
 
 == Images Screenshot ==
 License: CC0 1.0 Universal (CC0 1.0)
@@ -245,9 +230,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the LICENSE file for more details.
 
 == Resources ==
-* infinite-scroll.js https://infinite-scroll.com/, © 2019 David DeSandro, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* fancybox.js https://fancyapps.com/fancybox/3/, © 2008 - 2019 fancyapps, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* slick.js https://kenwheeler.github.io/slick/, © 2017 Ken Wheeler, [MIT](http://opensource.org/licenses/MIT)
-* normalize.css http://necolas.github.io/normalize.css/, © 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
-* twentynineteen https://www.wordpress.org/themes/twentynineteen/, © 2019 the WordPress team, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* Google Fonts - Apache License, version 2.0
+* [animate-css-grid](https://www.npmjs.com/package/animate-css-grid) - @aholachek, [MIT](https://github.com/aholachek/animate-css-grid/blob/master/LICENSE.md)
+* [animate](https://www.npmjs.com/package/animate.css) - @daneden, [MIT](https://github.com/animate-css/animate.css/blob/main/LICENSE)
+* [choices](https://www.npmjs.com/package/choices.js) - @jshjohnson, [MIT](https://github.com/Choices-js/Choices/blob/master/LICENSE)
+* [glightbox](https://www.npmjs.com/package/glightbox) - @biati-digital, [MIT](https://github.com/biati-digital/glightbox/blob/master/LICENSE.md)
+* [minimasonry](https://www.npmjs.com/package/minimasonry) - @Spope, [MIT](https://github.com/Spope/MiniMasonry.js/blob/master/LICENSE)
+* [swiper](https://www.npmjs.com/package/swiper) - @nolimits4web, [MIT](https://github.com/nolimits4web/swiper/blob/master/LICENSE)
+

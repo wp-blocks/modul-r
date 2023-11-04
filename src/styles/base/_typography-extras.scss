@@ -1,0 +1,42 @@
+iframe {
+	width: 100%;
+	max-width: 100%;
+}
+
+::selection {
+	background-color: #222;
+	color: #fff;
+}
+
+pre {
+	width: 100%;
+	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--60);
+	background: var(--wp--preset--color--white-smoke);
+	border: 1px solid var(--wp--preset--color--gray-light);
+	box-sizing: border-box;
+	border-radius: 3px;
+	max-width: calc(100% - var(--wp--custom--responsive--side-margin) * 2);
+	overflow-x: auto;
+
+	code {
+		border: 0;
+		width: 100%;
+		display: inherit;
+	}
+}
+
+code {
+	border: 1px solid var(--wp--preset--color--gray-light);
+	background-color: var(--wp--preset--color--white-smoke);
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+	margin-top: var(--wp--preset--spacing--20);
+	margin-bottom: var(--wp--preset--spacing--20);
+	border-radius: 3px;
+	display: inline-block;
+	word-break: break-word;
+}
+
+hr {
+	clear: both;
+}
+

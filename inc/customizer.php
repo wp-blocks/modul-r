@@ -1,84 +1,98 @@
 <?php
 
 /**
- * get the rgb color from hex
- * @param $color
+ * It reads the fonts.json file, and returns an array of font names
  *
- * @return false|mixed|string
+ * @return array An array of font names.
  */
-function modul_r_hex2rgb( $hex_color, $decimal = false ) {
+function modul_r_get_available_fonts() {
+	$font_json = file_get_contents( get_template_directory() . '/inc/third-party/fonts.json' );
+	$font_set  = array();
+	foreach ( (array) json_decode( $font_json ) as $font_name => $font_weights ) {
+		$font_set[ esc_attr( $font_name ) ] = $font_name;
+	}
 
-  $color = ( $hex_color[0] == '#' ) ?  substr( $hex_color, 1 ) : null;
-
-    if ( strlen( $color ) == 6 ) {
-        list( $r, $g, $b ) = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-    } elseif ( strlen( $color ) == 3 ) {
-        list( $r, $g, $b ) = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
-    } else {
-        return $color;
-    }
-
-    $r = hexdec( $r );
-    $g = hexdec( $g );
-    $b = hexdec( $b );
-
-    return $decimal ? "$r,$g,$b" : "rgb($r,$g,$b)";
+	return $font_set;
 }
 
 /**
- * Increases or decreases the brightness of a color by a percentage of the current brightness.
- * https://stackoverflow.com/questions/3512311/how-to-generate-lighter-darker-color-with-php
+ * It adds a select field to the customizer
  *
- * @param   string  $hexCode        Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
- * @param   float   $adjustPercent  A number between -1 and 1. E.g. 0.3 = 30% lighter; -0.4 = 40% darker.
- *
- * @return  string
+ * @param string $label The label for the font family.
+ * @param string $group The group name for the font preset.
+ * @param WP_Customize_Themes_Section $wp_customize The  object.
  */
-function modul_r_adjustBrightness($hexCode, $adjustPercent) {
+function modul_r_add_font_preset( $label, $group, $wp_customize ) {
+	$data_title = $GLOBALS['modul_r_defaults']['customizer_options'][ 'font_family_' . $label ];
+	foreach ( $data_title as $setting ) {
+		foreach ( $GLOBALS['modul_r_defaults']['customizer_options'][ $setting['select_type'] ] as $fieldname ) {
+			$field_values[ $fieldname ] = $fieldname;
+		}
 
-    $hexCode = ltrim($hexCode, '#');
+		if ( ! empty( $field_values ) ) {
+			// Font Family - title.
+			$wp_customize->add_setting(
+				'modul_r_defaults_' . $label . '_' . $setting['name'],
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => $setting['default'],
+					'sanitize_callback' => 'modul_r_sanitize_select',
+				)
+			);
 
-    if (strlen($hexCode) == 3) {
-        $hexCode = $hexCode[0] . $hexCode[0] . $hexCode[1] . $hexCode[1] . $hexCode[2] . $hexCode[2];
-    }
-
-    $hexCode = array_map('hexdec', str_split($hexCode, 2));
-
-    foreach ($hexCode as & $color) {
-        $adjustableLimit = $adjustPercent < 0 ? $color : 255 - $color;
-        $adjustAmount = ceil($adjustableLimit * $adjustPercent);
-
-        $color = str_pad(dechex($color + $adjustAmount), 2, '0', STR_PAD_LEFT);
-    }
-
-    return '#' . implode($hexCode);
+			$wp_customize->add_control(
+				'modul_r_defaults_' . $label . '_' . $setting['name'],
+				array(
+					'type'        => 'select',
+					'choices'     => $field_values,
+					'section'     => 'modul_r_' . $group,
+					'description' => esc_html__( 'Select', 'modul-r' ) . ' ' . $label . ' ' . $setting['name'],
+				)
+			);
+		}
+	}
 }
 
-
-/**
- * check for the existence of a color in theme mods otherwise return the escaped default color
- * @param $theme_mod_color
- * @param $default_color
- *
- * @return string|void
- */
-function modul_r_get_theme_color($theme_mod_color, $default_color = "#FF0000") {
-    return get_theme_mod( $theme_mod_color ) !== false ? sanitize_hex_color(get_theme_mod( $theme_mod_color )) : sanitize_hex_color($default_color);
-}
 /**
  * Customizer options
  */
-if ( ! function_exists('modul_r_customizer_opt') ) :
+if ( ! function_exists( 'modul_r_customizer_opt' ) ) :
+	/**
+	 * @param WP_Customize_Themes_Section $wp_customize - the customizer section.
+	 *
+	 * @return void - nothing
+	 */
 	function modul_r_customizer_opt( $wp_customize ) {
 
-		// Creates custom title and description for theme customizer controls
+		$font_set = modul_r_get_available_fonts();
+
+		// Creates custom title and description for theme customizer controls.
 		class modul_r_custom_text_control extends WP_Customize_Control {
+			/**
+			 * @var string
+			 */
 			public $type = 'customtext';
+			/**
+			 * @var string
+			 */
 			public $extra = '';
+			/**
+			 * @var string
+			 */
 			public $add_class = '';
+
+			/**
+			 * @return void
+			 */
 			public function render_content() {
 				?>
-				<label <?php if ($this->add_class != '') { echo 'class="' . $this->add_class . '"'; }?>>
+				<label
+				<?php
+				if ( $this->add_class != '' ) {
+					echo 'class="' . $this->add_class . '"';
+				}
+				?>
+				>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 					<span><?php echo esc_html( $this->extra ); ?></span>
 				</label>
@@ -86,921 +100,89 @@ if ( ! function_exists('modul_r_customizer_opt') ) :
 			}
 		}
 
-		function add_setting_from_array($settings_array, $group, $wp_customize) {
-		  foreach ($settings_array as $setting) {
-
-          // the wide content width
-          if ($setting['input'] === 'number') {
-              $wp_customize->add_setting( 'modul_r_defaults_' . $setting['name'], array(
-                  'capability'        => 'edit_theme_options',
-                  'default'           => abs($setting['default']),
-                  'transport'         => 'refresh',
-                  'sanitize_callback' => $setting['input_type'] === 'float' ? 'modul_r_sanitize_abs' : 'absint',
-              ) );
-              $wp_customize->add_control( 'modul_r_defaults_' . $setting['name'], array(
-                  'type'        => 'number',
-                  'section'     => 'modul_r_' . $group,
-                  'label'       => $setting['name'],
-                  'input_attrs' => array(
-                      'min'  => '0',
-                      'step' => $setting['input_type'] === 'float' ? '0.01' : '1',
-                      'max'  => '9999',
-                  ),
-              ) );
-
-          } else if ($setting['input'] === 'select') {
-
-              // Font Family - title
-              $wp_customize->add_setting( 'modul_r_defaults_' . $setting['name'], array(
-                  'capability'        => 'edit_theme_options',
-                  'default' => array_search( abs($setting['default']), $GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']]),
-                  'sanitize_callback' => 'modul_r_sanitize_select',
-              ) );
-
-              $wp_customize->add_control( 'modul_r_defaults_' . $setting['name'], array(
-                  'type'    => 'select',
-                  'choices' => $GLOBALS['modul_r_defaults']['customizer_options'][$setting['select_type']],
-                  'section'     => 'modul_r_' . $group,
-                  'description' => esc_html__( 'Select', 'modul-r' ) . ' ' . $setting['name'] ,
-              ) );
-
-          }
-
-      }
-    }
-
-		// Template color scheme
-
-		// Primary color
-		$wp_customize->add_setting( 'primary-color', array(
-			'default'   => esc_attr($GLOBALS['modul_r_defaults']['colors']['primary']),
-			'transport' => 'refresh',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary-color', array(
-			'section' => 'colors',
-			'label'   => esc_html__( 'Primary Color', 'modul-r' ),
-		) ) );
-
-
-		// Secondary color
-		$wp_customize->add_setting( 'secondary-color', array(
-			'default'   => esc_attr($GLOBALS['modul_r_defaults']['colors']['secondary']),
-			'transport' => 'refresh',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary-color', array(
-			'section' => 'colors',
-			'label'   => esc_html__( 'Secondary Color', 'modul-r' ),
-		) ) );
-
-	  $wp_customize->add_setting( 'text-color', array(
-		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] ),
-		  'transport'         => 'refresh',
-		  'sanitize_callback' => 'sanitize_hex_color',
-	  ) );
-	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text-color', array(
-		  'section'  => 'colors',
-		  'label'    => esc_html__( 'Text Color', 'modul-r' )
-	  ) ) );
-
-	  // Header colors
-	  $wp_customize->add_setting( 'header-color', array(
-		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] ),
-		  'transport'         => 'refresh',
-		  'sanitize_callback' => 'sanitize_hex_color',
-	  ) );
-	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header-color', array(
-		  'section'  => 'colors',
-		  'label'    => esc_html__( 'Header Color', 'modul-r' )
-    ) ) );
-
-	  //the header title color was set via add_theme_support 'custom-header' -> "default color"
-
-    $wp_customize->add_setting( 'header-text-color', array(
-        'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ] ),
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'sanitize_hex_color',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header-text-color', array(
-        'section'  => 'colors',
-        'label'    => esc_html__( 'Header text Color', 'modul-r' )
-    ) ) );
-
-
-	  // Footer colors
-	  $wp_customize->add_setting( 'footer-color', array(
-		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-color'] ] ),
-		  'transport'         => 'refresh',
-		  'sanitize_callback' => 'sanitize_hex_color',
-	  ) );
-	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer-color', array(
-		  'section'  => 'colors',
-		  'label'    => esc_html__( 'Footer Color', 'modul-r' )
-	  ) ) );
-
-	  $wp_customize->add_setting( 'footer-bottom-color', array(
-		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-bottom-color'] ] ),
-		  'transport'         => 'refresh',
-		  'sanitize_callback' => 'sanitize_hex_color',
-	  ) );
-	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer-bottom-color', array(
-		  'section'  => 'colors',
-		  'label'    => esc_html__( 'Footer bottom Color', 'modul-r' )
-	  ) ) );
-
-	  $wp_customize->add_setting( 'footer-text-color', array(
-		  'default'           => esc_attr( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-text-color'] ] ),
-		  'transport'         => 'refresh',
-		  'sanitize_callback' => 'sanitize_hex_color',
-	  ) );
-	  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer-text-color', array(
-		  'section'  => 'colors',
-		  'label'    => esc_html__( 'Footer text Color', 'modul-r' )
-	  ) ) );
-
-
-
-		// Modul-R custom options
-		$wp_customize->add_panel( 'modul_r_theme_options' , array(
-			'title'      => esc_html__('Modul-R Options','modul-r')
-		) );
-
-
-		// Header Panel
-		// Add the custom panel
-		$wp_customize->add_section( 'modul_r_settings_header' , array(
-			'title'      => esc_html__('Header','modul-r'),
-			'priority'   => 10,
-			'panel'      => 'modul_r_theme_options'
-		) );
-
-		// select dropdown for portrait or landscape header layout
-		$wp_customize->add_setting( 'modul_r_header_direction', array(
-			'capability' => 'edit_theme_options',
-			'default'   => 'portrait',
-			'transport' => 'refresh',
-			'sanitize_callback' => 'sanitize_text_field',
-		) );
-		$wp_customize->add_control( 'modul_r_header_direction',
+		// Modul-R custom options.
+		$wp_customize->add_panel(
+			'modul_r_theme_options',
 			array(
-				'label'    => esc_html__( 'Header layout', 'modul-r' ),
-				'description' => esc_html__( 'The header layout can be landscape (logo and menu on the same line) or portrait (centered layout with the menu under the logo)', 'modul-r' ),
-				'section'  => 'modul_r_settings_header',
-				'type'     => 'radio',
-				'choices'  => array(
-					'portrait'  => esc_html__( 'Portrait', 'modul-r' ),
-					'landscape' => esc_html__( 'Landscape', 'modul-r' ),
-				),
+				'title' => esc_html__( 'Modul-R Options', 'modul-r' ),
 			)
 		);
 
-	  // let the user select the header width
-	  $wp_customize->add_setting( 'modul_r_header_width', array(
-		  'capability' => 'edit_theme_options',
-		  'default'   => 'alignwide',
-		  'transport' => 'refresh',
-		  'sanitize_callback' => 'sanitize_text_field',
-	  ) );
-	  $wp_customize->add_control( 'modul_r_header_width',
-		  array(
-			  'label'    => esc_html__( 'Header width', 'modul-r' ),
-			  'description' => esc_html__( 'The header width can be wide (page content + page margins) or full (100% of the window width - page margins)', 'modul-r' ),
-			  'section'  => 'modul_r_settings_header',
-			  'type'     => 'radio',
-			  'choices'  => array(
-				  'standard-width'  => esc_html__( 'Standard', 'modul-r' ),
-				  'alignwide' => esc_html__( 'Wide', 'modul-r' ),
-				  'alignfull' => esc_html__( 'Full', 'modul-r' ),
-			  ),
-		  )
-	  );
-
-    // Header opacity option
-    $wp_customize->add_setting( 'modul_r_header_opacity', array(
-        'capability' => 'edit_theme_options',
-        'default'   => false,
-        'transport' => 'refresh',
-        'sanitize_callback' => 'modul_r_sanitize_checkbox',
-    ) );
-    $wp_customize->add_control( 'modul_r_header_opacity',
-        array(
-            'type' => 'checkbox',
-            'label'    => esc_html__( 'Transparent Header', 'modul-r' ),
-            'description' => esc_html__( 'Select this option if you want to make the header transparent on hero image (only on page top)', 'modul-r' ),
-            'section'  => 'modul_r_settings_header',
-        )
-    );
-
-    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], 'settings_header', $wp_customize );
-
-
-		// Footer Section
-		$wp_customize->add_section( 'modul_r_settings_footer' , array(
-			'title'      => esc_html__('Footer','modul-r'),
-			'priority'   => 20,
-			'panel'      => 'modul_r_theme_options'
-		) );
-
-	  // let the user select the footer width
-	  $wp_customize->add_setting( 'modul_r_footer_width', array(
-		  'capability' => 'edit_theme_options',
-		  'default'   => 'alignwide',
-		  'transport' => 'refresh',
-		  'sanitize_callback' => 'sanitize_text_field',
-	  ) );
-	  $wp_customize->add_control( 'modul_r_footer_width',
-		  array(
-			  'label'    => esc_html__( 'Footer width', 'modul-r' ),
-			  'description' => esc_html__( 'The footer width can be wide (page content + page margins) or full (100% of the window width - page margins)', 'modul-r' ),
-			  'section'  => 'modul_r_settings_footer',
-			  'type'     => 'radio',
-			  'choices'  => array(
-				  'standard-width'  => esc_html__( 'Standard', 'modul-r' ),
-				  'alignwide' => esc_html__( 'Wide', 'modul-r' ),
-				  'alignfull' => esc_html__( 'Full', 'modul-r' ),
-			  ),
-		  )
-	  );
-
-		// the "Show website credits" checkbox
-		$wp_customize->add_setting( 'modul_r_footer_show_credits', array(
-			'capability' => 'edit_theme_options',
-			'default'   => '',
-			'transport' => 'refresh',
-			'sanitize_callback' => 'modul_r_sanitize_checkbox',
-		) );
-		$wp_customize->add_control( 'modul_r_footer_show_credits', array(
-			'type' => 'checkbox',
-			'section' => 'modul_r_settings_footer',
-			'label' => esc_html__( 'Enable footer credits section', 'modul-r' ),
-			'description' => esc_html__( 'Shows website logo and the text you insert in the textarea below', 'modul-r' ),
-		) );
-
-	  // show logo checkbox in credits section
-		$wp_customize->add_setting( 'modul_r_footer_credits_show_logo', array(
-			'default'   => '',
-			'transport' => 'refresh',
-			'sanitize_callback' => 'modul_r_sanitize_checkbox',
-		) );
-		$wp_customize->add_control( 'modul_r_footer_credits_show_logo', array(
-			'type' => 'checkbox',
-			'section' => 'modul_r_settings_footer',
-			'label' => esc_html__( 'Show logo', 'modul-r' ),
-		) );
-
-	  // upload footer logo
-	  $wp_customize->add_setting( 'modul_r_footer_custom_logo', array(
-		    'default' => '',
-		    'transport' => 'refresh',
-			  'sanitize_callback' => 'modul_r_sanitize_file'
-		  )
-	  );
-	  $wp_customize->add_control(
-	      new WP_Customize_Upload_Control(
-			  $wp_customize,
-			  'modul_r_footer_custom_logo',
-			  array(
-				  'label'      => __( 'Upload a image here if you want to override the website logo', 'modul-r' ),
-				  'section'    => 'modul_r_settings_footer'
-			  )
-		  )
-	  );
-
-		// the credits title
-		$wp_customize->add_setting( 'modul_r_footer_credits_title', array(
-			'capability' => 'edit_theme_options',
-			'default' => esc_html(get_bloginfo('name')),
-			'sanitize_callback' => 'sanitize_text_field',
-		) );
-		$wp_customize->add_control( 'modul_r_footer_credits_title', array(
-			'type' => 'text',
-			'section' => 'modul_r_settings_footer',
-			'label' => esc_html__( 'Credits', 'modul-r' ),
-		) );
-
-		// the credits textarea
-		$wp_customize->add_setting( 'modul_r_footer_credits_content', array(
-			'capability' => 'edit_theme_options',
-			'default' => '',
-			'sanitize_callback' => 'sanitize_textarea_field',
-		) );
-		$wp_customize->add_control( 'modul_r_footer_credits_content', array(
-			'type' => 'textarea',
-			'section' => 'modul_r_settings_footer',
-		) );
-
-	  $wp_customize->add_setting( 'modul_r_footer_socials_show', array(
-		  'default'   => '',
-		  'transport' => 'refresh',
-		  'sanitize_callback' => 'modul_r_sanitize_checkbox',
-	  ) );
-	  $wp_customize->add_control( 'modul_r_footer_socials_show', array(
-		  'type' => 'checkbox',
-		  'section' => 'modul_r_settings_footer',
-		  'label' => esc_html__( 'Show social media links', 'modul-r' ),
-	    'description' => esc_html__( 'Shows the icon of social media (credits section need to be enabled)', 'modul-r' ),
-	  ) );
-
-
-
-	  // show special thanks in the bottom section of the footer
-	  $wp_customize->add_setting( 'modul_r_footer_thanks_show', array(
-		  'default'   => true,
-		  'transport' => 'refresh',
-		  'sanitize_callback' => 'modul_r_sanitize_checkbox',
-	  ) );
-	  $wp_customize->add_control( 'modul_r_footer_thanks_show', array(
-		  'type' => 'checkbox',
-		  'section' => 'modul_r_settings_footer',
-		  'label' => esc_html__( 'Show Special thanks', 'modul-r' ),
-	  ) );
-
-	  // custom Special thanks
-	  $wp_customize->add_setting( 'modul_r_footer_thanks_txt', array(
-		  'capability' => 'edit_theme_options',
-		  'default' => '',
-		  'sanitize_callback' => 'sanitize_text_field',
-	  ) );
-
-	  $wp_customize->add_control( 'modul_r_footer_thanks_txt', array(
-		  'type' => 'text',
-		  'section' => 'modul_r_settings_footer',
-		  'label' => esc_html__( 'Special Thanks Override', 'modul-r' ),
-		  'description' => esc_html__( 'Leave empty to show the default special thanks (thanks to Wordpress and theme author)', 'modul-r' ),
-	  ) );
-
-	  // custom Special thanks url
-	  $wp_customize->add_setting( 'modul_r_footer_thanks_url', array(
-		  'capability' => 'edit_theme_options',
-		  'default' => '',
-		  'sanitize_callback' => 'esc_url',
-	  ) );
-
-	  $wp_customize->add_control( 'modul_r_footer_thanks_url', array(
-		  'type' => 'url',
-		  'section' => 'modul_r_settings_footer',
-		  'description' => esc_html__( 'special thanks link (leave empty if you want a normal text without links)', 'modul-r' ),
-	  ) );
-
-
-
-		// Sidebar Section
-		$wp_customize->add_section( 'modul_r_settings_sidebar' , array(
-			'title'      => esc_html__('Sidebar','modul-r'),
-			'priority'   => 30,
-			'panel'      => 'modul_r_theme_options'
-		) );
-
-		// the "Show Sidebar" checkbox
-		$wp_customize->add_setting( 'modul_r_sidebar_enabled', array(
-			'default'   => false,
-			'transport' => 'refresh',
-			'sanitize_callback' => 'modul_r_sanitize_checkbox',
-		) );
-		$wp_customize->add_control( 'modul_r_sidebar_enabled', array(
-			'type' => 'checkbox',
-			'section' => 'modul_r_settings_sidebar',
-			'label' => esc_html__( 'Show Sidebar', 'modul-r' ),
-			'description' => esc_html__( 'Show the sidebar into single articles and pages', 'modul-r' ),
-		) );
-
-		// select left or right sidebar
-		$wp_customize->add_setting( 'modul_r_sidebar_position', array(
-			'capability' => 'edit_theme_options',
-			'default'   => 'left',
-			'transport' => 'refresh',
-			'sanitize_callback' => 'sanitize_text_field',
-		) );
-		$wp_customize->add_control( 'modul_r_sidebar_position',
+		// Typography Section.
+		$wp_customize->add_section(
+			'modul_r_typography_options',
 			array(
-				'label'    => esc_html__( 'Sidebar position', 'modul-r' ),
-				'description' => esc_html__( 'The sidebar can be showed at the left or at the right of the content. This customization also affect the WooCommerce sidebar.', 'modul-r' ),
-				'section'  => 'modul_r_settings_sidebar',
-				'type'     => 'radio',
-				'choices'  => array(
-					'left'  => esc_html__( 'Left', 'modul-r' ),
-					'right' => esc_html__( 'Right', 'modul-r' ),
-				),
+				'title'    => esc_html__( 'Typography', 'modul-r' ),
+				'priority' => 50,
+				'panel'    => 'modul_r_theme_options',
 			)
 		);
 
-    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['sizes'], 'settings_sidebar', $wp_customize );
-
-
-
-
-    // Typography Section
-    $wp_customize->add_section( 'modul_r_typography_options' , array(
-        'title'      => esc_html__('Typography','modul-r'),
-        'priority'   => 50,
-        'panel'      => 'modul_r_theme_options'
-    ) );
-
-    // Font Family - title
-    $wp_customize->add_setting( 'modul_r_typography_font_family_title', array(
-        'capability' => 'edit_theme_options',
-        'default' => 0,
-        'sanitize_callback' => 'modul_r_sanitize_select',
-    ) );
-
-    $wp_customize->add_control( 'modul_r_typography_font_family_title', array(
-        'type'    => 'select',
-        'choices' => $GLOBALS['modul_r_defaults']['customizer_options']['font_family'],
-        'section' => 'modul_r_typography_options',
-        'description' => esc_html__( 'Select the font family for the titles', 'modul-r' ),
-    ) );
-
-    // Font Family - text
-    $wp_customize->add_setting( 'modul_r_typography_font_family_text', array(
-        'capability' => 'edit_theme_options',
-        'default' => 0,
-        'sanitize_callback' => 'modul_r_sanitize_select',
-    ) );
-
-    $wp_customize->add_control( 'modul_r_typography_font_family_text', array(
-        'type'    => 'select',
-        'choices' => $GLOBALS['modul_r_defaults']['customizer_options']['font_family'],
-        'section' => 'modul_r_typography_options',
-        'description' => esc_html__( 'Select the default font family', 'modul-r' ),
-    ) );
-
-    // add the font weight select
-    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], 'typography_options', $wp_customize );
-
-      // add the font line height / font size selection
-    add_setting_from_array($GLOBALS['modul_r_defaults']['customizer_options']['typography'], 'typography_options', $wp_customize );
-
-
-    // Layout Section
-    $wp_customize->add_section( 'modul_r_layout_options' , array(
-        'title'      => esc_html__('Layout','modul-r'),
-        'priority'   => 50,
-        'panel'      => 'modul_r_theme_options'
-    ) );
-
-
-    // The content width
-    $wp_customize->add_setting( 'modul_r_content_width', array(
-        'capability' => 'edit_theme_options',
-        'default'   => 900,
-        'transport' => 'refresh',
-        'sanitize_callback' => 'absint',
-    ) );
-    $wp_customize->add_control( 'modul_r_content_width',
-        array(
-            'type' => 'number',
-            'section' => 'modul_r_layout_options',
-            'label' => esc_html__( 'The content width', 'modul-r' ),
-            'description' => esc_html__( 'input the wanted width for the content', 'modul-r' ),
-            'input_attrs' => array(
-                'min' => '0', 'step' => '1', 'max' => '9999',
-            ),
-        )
-    );
-
-    // the wide content width
-    $wp_customize->add_setting( 'modul_r_content_width_wide', array(
-        'capability' => 'edit_theme_options',
-        'default'   => 1500,
-        'transport' => 'refresh',
-        'sanitize_callback' => 'absint',
-    ) );
-    $wp_customize->add_control( 'modul_r_content_width_wide',
-        array(
-            'type' => 'number',
-            'section' => 'modul_r_layout_options',
-            'label' => esc_html__( 'The wide content with', 'modul-r' ),
-            'description' => esc_html__( 'input the wanted width for the content', 'modul-r' ),
-            'input_attrs' => array(
-                'min' => '0', 'step' => '1', 'max' => '9999',
-            ),
-        )
-    );
-
-    // the standard distance unit
-    $wp_customize->add_setting( 'modul_r_baseunit', array(
-        'capability' => 'edit_theme_options',
-        'default'   => 8,
-        'transport' => 'refresh',
-        'sanitize_callback' => 'absint',
-    ) );
-    $wp_customize->add_control( 'modul_r_baseunit',
-        array(
-            'type' => 'number',
-            'section' => 'modul_r_layout_options',
-            'label' => esc_html__( 'The standard distance unit ', 'modul-r' ),
-            'description' => esc_html__( 'the unit used as sizer (will be multiplied to get the medium and the large margin)', 'modul-r' ),
-            'input_attrs' => array(
-                'min' => '0', 'step' => '1', 'max' => '24',
-            ),
-        )
-    );
-
-    if ( class_exists( 'WooCommerce' ) ) {
-      // Woo options
-      $wp_customize->add_section( 'modul_r_settings_Woo' , array(
-          'title'      => esc_html__('Woo Options','modul-r'),
-          'priority'   => 55,
-          'panel'      => 'modul_r_theme_options'
-      ) );
-
-      // the "Show Woo options" checkbox
-      $wp_customize->add_setting( 'modul_r_woo[shop_hero]', array(
-          'default'   => null,
-          'transport' => 'refresh',
-          'sanitize_callback' => 'modul_r_sanitize_file'
-          )
-      );
-      $wp_customize->add_control(
-          new WP_Customize_Upload_Control(
-              $wp_customize,
-              'modul_r_woo[shop_hero]',
-              array(
-                  'label'      => __( 'Choose an image for the shop page wallpaper', 'modul-r' ),
-                  'section'    => 'modul_r_settings_Woo'
-              )
-          )
-      );
-    }
-
-		// Sidebar Social Share options
-		$wp_customize->add_section( 'modul_r_settings_social_share' , array(
-			'title'      => esc_html__('Social Share Options','modul-r'),
-			'priority'   => 60,
-			'panel'      => 'modul_r_theme_options'
-		) );
-
-
-		// the "Show Social Share options" checkbox
-		$wp_customize->add_setting( 'modul_r_social_share_enabled', array(
-			'default'   => true,
-			'transport' => 'refresh',
-			'sanitize_callback' => 'modul_r_sanitize_checkbox',
-		) );
-		$wp_customize->add_control( 'modul_r_social_share_enabled', array(
-			'type' => 'checkbox',
-			'section' => 'modul_r_settings_social_share',
-			'label' => esc_html__( 'Show Social Share Icons', 'modul-r' ),
-			'description' => esc_html__( 'Show social media sharing icons on single posts and pages', 'modul-r' ),
-		) );
-
-
-		// Set social sharing options to show for pages, single posts or both
-		$wp_customize->add_setting( 'modul_r_social_share_visibility', array(
-			'capability' => 'edit_theme_options',
-			'default'   => 'all',
-			'transport' => 'refresh',
-			'sanitize_callback' => 'sanitize_text_field',
-		) );
-		$wp_customize->add_control( 'modul_r_social_share_visibility',
+		// Font Family - title.
+		$wp_customize->add_setting(
+			'modul_r_typography_font_family_title',
 			array(
-				'label'    => esc_html__( 'Social Share Options Visibility', 'modul-r' ),
-				'description' => esc_html__( 'Set social sharing options to show for pages, single posts or both', 'modul-r' ),
-				'section'  => 'modul_r_settings_social_share',
-				'type'     => 'radio',
-				'choices'  => array(
-					'pages'  => esc_html__( 'Pages only', 'modul-r' ),
-					'posts' => esc_html__( 'Single posts only', 'modul-r' ),
-					'all' => esc_html__( 'Pages and single Posts', 'modul-r' ),
-				),
+				'capability'        => 'edit_theme_options',
+				'default'           => 0,
+				'sanitize_callback' => 'modul_r_sanitize_select_font',
 			)
 		);
 
-	  $social_enabled = array( 'Facebook', 'Instagram', 'Twitter', 'YouTube' );
+		$wp_customize->add_control(
+			'modul_r_typography_font_family_title',
+			array(
+				'type'        => 'select',
+				'choices'     => $font_set,
+				'section'     => 'modul_r_typography_options',
+				'description' => esc_html__( 'Select the font family for the titles', 'modul-r' ),
+			)
+		);
 
-	  foreach ($social_enabled as $social) {
-		  $wp_customize->add_setting( 'modul_r_social_' . $social, array(
-			  'capability'        => 'edit_theme_options',
-			  'default'           => "",
-			  'sanitize_callback' => 'sanitize_text_field',
-		  ) );
-		  $wp_customize->add_control( 'modul_r_social_' . $social, array(
-			  'type'        => 'input',
-			  'section'     => 'modul_r_settings_social_share',
-			  'label'       => $social,
-			  'description' => $social . ' url link',
-		  ) );
-	  }
+		modul_r_add_font_preset(
+			'title',
+			'typography_options',
+			$wp_customize
+		);
 
-		// Sanitize function for checkbox value
-		function modul_r_sanitize_checkbox( $checked ) {
-			return ( ( isset( $checked ) && true == $checked ) ? true : false );
+		// Font Family - text.
+		$wp_customize->add_setting(
+			'modul_r_typography_font_family_default',
+			array(
+				'capability'        => 'edit_theme_options',
+				'default'           => 0,
+				'sanitize_callback' => 'modul_r_sanitize_select_font',
+			)
+		);
+
+		$wp_customize->add_control(
+			'modul_r_typography_font_family_default',
+			array(
+				'type'        => 'select',
+				'choices'     => $font_set,
+				'section'     => 'modul_r_typography_options',
+				'description' => esc_html__( 'Select the default font family', 'modul-r' ),
+			)
+		);
+
+		// add the font weight select.
+		modul_r_add_font_preset(
+			'default',
+			'typography_options',
+			$wp_customize
+		);
+
+		function modul_r_sanitize_select( $selected, $setting ) {
+			// Ensure $selected options is an absolute integer then return the selected option.
+			return absint( $selected );
 		}
 
-		// Sanitize function for pages
-		function modul_r_sanitize_pages_dropdown( $page_id, $setting ) {
-			// Ensure $page_id is an absolute integer.
-			$page_id = absint( $page_id );
+		function modul_r_sanitize_select_font( $selected, $setting ) {
+			$fontsets = modul_r_get_available_fonts();
 
-			// If $page_id is an ID of a published page, return it; otherwise, return the default.
-			return ( get_post_status( $page_id ) == 'publish'? $page_id : $setting->default );
+			// Ensure $selected options is an absolute integer then return the selected option.
+			return ( $fontsets[ $selected ] ) ? $selected : 'Montserrat';
 		}
-
-    function modul_r_sanitize_select( $selected, $setting ) {
-        // Ensure $selected options is an absolute integer then return the selected option
-        return absint( $selected );
-    }
-      function modul_r_sanitize_abs( $selected ) {
-          // Ensure $selected options is an absolute integer then return the selected option
-          return abs( $selected );
-      }
-
-		// Sanitize function for categories
-		function modul_r_sanitize_category_dropdown( $cat_id, $setting ) {
-			// Ensure $cat_id is an absolute integer.
-			$cat_id = absint( $cat_id );
-
-			// If $cat_id term exist, return it; otherwise, return the default.
-			return ( term_exists( $cat_id ) != 0 ? $cat_id : $setting->default );
-		}
-
-	  // Sanitize function for file input
-	  function modul_r_sanitize_file( $file, $setting ) {
-
-		  //allowed file types
-		  $mimes = array(
-			  'jpg|jpeg|jpe' => 'image/jpeg',
-			  'gif'          => 'image/gif',
-			  'png'          => 'image/png',
-			  'svg'          => 'image/svg'
-		  );
-
-		  //check file type from file name
-		  $file_ext = wp_check_filetype( $file, $mimes );
-
-		  //if file has a valid mime type return it, otherwise return default
-		  return ( $file_ext['ext'] ? $file : $setting->default );
-	  }
 
 	}
 endif;
 add_action( 'customize_register', 'modul_r_customizer_opt' );
-
-if ( ! function_exists('modul_r_theme_colors_setup') ) :
-	function modul_r_theme_colors_setup() {
-
-		// get the custom colors
-		$primary_color = sanitize_hex_color(get_theme_mod( 'primary-color' ));
-		$secondary_color = sanitize_hex_color(get_theme_mod( 'secondary-color' ));
-
-		// check if custom color is set otherwise use the default colors
-		$primary_color = $primary_color != "" ? $primary_color : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['primary']);
-		$secondary_color = $secondary_color != "" ? $secondary_color : sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['secondary']);
-
-    $variance = floatval( $GLOBALS['modul_r_defaults']['customizer_options']['color_variance'] );
-
-		add_theme_support( 'editor-color-palette', array(
-      array(
-        'name'  => __( 'Theme primary color', 'modul-r' ),
-        'slug'  => 'primary',
-        'color' => $primary_color,
-      ),
-			array(
-				'name'  => __( 'Theme primary color light', 'modul-r' ),
-				'slug'  => 'primary-light',
-				'color' => modul_r_adjustBrightness($primary_color, $variance),
-			),
-			array(
-				'name'  => __( 'Theme primary color dark', 'modul-r' ),
-				'slug'  => 'primary-dark',
-				'color' => modul_r_adjustBrightness($primary_color, -$variance ),
-			),
-      array(
-        'name'  => __( 'Theme secondary color', 'modul-r' ),
-        'slug'  => 'secondary',
-        'color' => $secondary_color,
-      ),
-			array(
-				'name'  => __( 'Theme secondary color light', 'modul-r' ),
-				'slug'  => 'secondary-light',
-				'color' => modul_r_adjustBrightness($secondary_color, $variance),
-			),
-			array(
-				'name'  => __( 'Theme secondary color dark', 'modul-r' ),
-				'slug'  => 'secondary-dark',
-				'color' => modul_r_adjustBrightness($secondary_color, -$variance),
-			),
-			array(
-				'name'  => __( 'White', 'modul-r' ),
-				'slug'  => 'white',
-				'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white']),
-			),
-			array(
-				'name'  => __( 'White Smoke', 'modul-r' ),
-				'slug'  => 'white-smoke',
-				'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['white-smoke']),
-			),
-			array(
-				'name'  => __( 'Light gray', 'modul-r' ),
-				'slug'  => 'gray-light',
-		    'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray-light']),
-			),
-			array(
-				'name'  => __( 'Gray', 'modul-r' ),
-				'slug'  => 'gray',
-		    'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray']),
-			),
-			array(
-				'name'  => __( 'Dark gray', 'modul-r' ),
-				'slug'  => 'gray-dark',
-        'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['gray-dark']),
-			),
-			array(
-				'name'  => __( 'Black', 'modul-r' ),
-				'slug'  => 'black',
-		    'color' => sanitize_hex_color($GLOBALS['modul_r_defaults']['colors']['black']),
-			),
-		) );
-	}
-endif;
-add_action( 'after_setup_theme', 'modul_r_theme_colors_setup' );
-
-
-if ( ! function_exists( 'modul_r_atf_style' ) ) :
-    function modul_r_atf_style() {
-        // get the acf.css file and store into a variable
-        ob_start();
-
-        include get_stylesheet_directory() . '/assets/dist/styles/atf.css';
-
-        $atf_css = ob_get_clean();
-
-        // And finally return the stored style
-        if ($atf_css != "" ) {
-            echo '<style id="modul-r-above-the-fold">'. $atf_css . '</style>';
-        }
-    }
-endif;
-add_action( 'wp_head', 'modul_r_atf_style', 1 );
-
-
-if ( ! function_exists( 'modul_r_css_props' ) ) :
-    function modul_r_css_props() {
-
-			// get the custom colors
-
-			// Main colors
-			$colors                    = array();
-			$variance                  = floatval( $GLOBALS['modul_r_defaults']['customizer_options']['color_variance'] );
-			$colors['primary']         = modul_r_get_theme_color( 'primary-color', $GLOBALS['modul_r_defaults']['colors']['primary'] );
-			$colors['primary-light']   = modul_r_adjustBrightness( $colors['primary'], $variance );
-			$colors['primary-dark']    = modul_r_adjustBrightness( $colors['primary'], - $variance );
-			$colors['secondary']       = modul_r_get_theme_color( 'secondary-color', $GLOBALS['modul_r_defaults']['colors']['secondary'] );
-			$colors['secondary-light'] = modul_r_adjustBrightness( $colors['secondary'], $variance );
-			$colors['secondary-dark']  = modul_r_adjustBrightness( $colors['secondary'], - $variance );
-			// base colors
-			$colors['white']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white'] );
-			$colors['white-smoke'] = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['white-smoke'] );
-			$colors['gray-light']  = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-light'] );
-			$colors['gray']        = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray'] );
-			$colors['gray-dark']   = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['gray-dark'] );
-			$colors['black']       = sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors']['black'] );
-
-			// Typography colors
-			$text_color = get_theme_mod( 'text-color' ) !== false ? sanitize_hex_color( get_theme_mod( 'text-color' ) ) : sanitize_hex_color( $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['text-color'] ] );
-
-			// Colors
-			$header_title_color       = get_theme_mod( 'header_textcolor', get_theme_support( 'custom-header', 'default-text-color' ) ) ? '#' . get_header_textcolor() : $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-title-color'] ];
-			$header_background        = modul_r_get_theme_color( 'header-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-color'] ] );
-			$header_text_color        = modul_r_get_theme_color( 'header-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['header-text-color'] ] );
-			$footer_background        = modul_r_get_theme_color( 'footer-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-color'] ] );
-			$footer_bottom_background = modul_r_get_theme_color( 'footer-bottom-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-bottom-color'] ] );
-			$footer_text_color        = modul_r_get_theme_color( 'footer-text-color', $GLOBALS['modul_r_defaults']['colors'][ $GLOBALS['modul_r_defaults']['style']['footer-text-color'] ] );
-
-			$baseunit           = get_theme_mod( 'modul_r_baseunit' ) !== false ? intval( get_theme_mod( 'modul_r_baseunit' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['baseunit'] );
-			$sidemargin         = get_theme_mod( 'modul_r_sidemargin' ) !== false ? intval( get_theme_mod( 'modul_r_sidemargin' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['sidemargin'] );
-			$content_width      = get_theme_mod( 'modul_r_content_width' ) !== false ? intval( get_theme_mod( 'modul_r_content_width' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width'] );
-			$content_width_wide = get_theme_mod( 'modul_r_content_width_wide' ) !== false ? intval( get_theme_mod( 'modul_r_content_width_wide' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['content_width_wide'] );
-
-			$font_family_title = get_theme_mod( 'modul_r_typography_font_family_title' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_title' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
-			$font_family_text  = get_theme_mod( 'modul_r_typography_font_family_text' ) !== false ? $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][ intval( get_theme_mod( 'modul_r_typography_font_family_text' ) ) ] : $GLOBALS['modul_r_defaults']['customizer_options']['font_family'][0];
-
-			// Typography
-			function modul_r_get_vars( $var_set, $suffix = "--wp--" ) {
-				$vars = '';
-				foreach ( $var_set as $option ) {
-					if ( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) {
-						if ( $option['input'] !== 'select' ) {
-							$vars .= $suffix . $option['name'] . ":" . abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
-						} else {
-							$vars .= $suffix . $option['name'] . ":" . $GLOBALS['modul_r_defaults']['customizer_options'][ $option['select_type'] ][ abs( get_theme_mod( 'modul_r_defaults_' . $option['name'] ) ) ] . ';';
-						}
-					} else {
-						$vars .= $suffix . $option['name'] . ":" . $option['default'] . ( ! empty( $option['unit'] ) ? $option['unit'] : '' ) . ';';
-					}
-				}
-
-				return $vars;
-			}
-
-			$custom_props = '';
-			$atf_css      = '';
-
-			// HEADER
-			// set the header color
-			$atf_css .= 'body .header-color, body.has-featured-image.top #masthead.active {background-color: ' . $header_background . ';} .has-featured-image.top #masthead {background-color: ' . $header_background . 'dd;}';
-
-			// On top of the screen set the opacity to 0
-			if ( get_theme_mod( 'modul_r_header_opacity' ) > 0 ) {
-				$atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_background . '00;}';
-			} else {
-				// if has a featured image and is at the top of the page....has-featured-image.top
-				$atf_css .= 'body.has-featured-image.top #masthead {background-color: ' . $header_background . 'dd;}';
-			}
-
-			// Set the responsive header opacity
-			$atf_css .= '@media (max-width: 960px) {body .main-navigation {background-color: ' . modul_r_adjustBrightness( $header_background, 0.2 ) . 'ee;}}';
-
-			// Set the nav background colors
-			$atf_css .= 'body ul.sub-menu {background-color: ' . modul_r_adjustBrightness( $header_background, 0.1 ) . ';}';
-			$atf_css .= 'body.has-featured-image.top #masthead ul.sub-menu {background-color: ' . $header_background . 'cc;}';
-			$atf_css .= 'body ul.sub-menu ul.sub-menu {background-color: ' . modul_r_adjustBrightness( $header_background, 0.2 ) . ';}';
-			$atf_css .= 'body ul.sub-menu li:hover {background-color: ' . modul_r_adjustBrightness( $header_background, 0.3 ) . ';}';
-
-			// FOOTER
-			// set the footer color
-			$atf_css .= '.has-footer-background-color {background-color: ' . $footer_background . ';}';
-			// set the bottom footer color
-			$atf_css .= '.has-footer-bottom-background-color {background-color: ' . $footer_bottom_background . ';}';
-
-			// HERO
-			$hero_opacity     = get_theme_mod( 'modul_r_hero_opacity' ) !== false ? intval( get_theme_mod( 'modul_r_hero_opacity' ) ) : 100;
-			$hero_height_home = get_theme_mod( 'modul_r_hero_height_home' ) !== false ? intval( get_theme_mod( 'modul_r_hero_height_home' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_home'] );
-			$hero_height      = get_theme_mod( 'modul_r_hero_height_default' ) !== false ? intval( get_theme_mod( 'modul_r_hero_height_default' ) ) : intval( $GLOBALS['modul_r_defaults']['customizer_options']['layout']['hero_height_default'] );
-
-			if ( $hero_opacity != 100 ) {
-				$atf_css .= 'body .hero img {opacity:' . ( $hero_opacity / 100 ) . '}';
-			}
-			if ( $hero_height ) {
-				$atf_css .= "html .site .hero {max-height:{$hero_height}vh}";
-			}
-			if ( $hero_height_home ) {
-				$atf_css .= "html body.home .hero {max-height:{$hero_height_home}vh}";
-			}
-
-			$typography   = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['typography'], "--typography--default--" );
-			$font_weights = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['font_weight'], "--typography--default--" );
-			$header_sizes = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['header_sizes'], "--header--" );
-			$sizes        = modul_r_get_vars( $GLOBALS['modul_r_defaults']['customizer_options']['sizes'], "--sizes--" );
-
-			// create the custom colors scheme
-			foreach ( $colors as $key => $color ) {
-				$custom_props      .= '--color--' . $key . ':' . $color . ';';
-				$custom_prop_color = "var(--color--" . $key . ")";
-				$atf_css           .= ' .has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color, .wp-block-pullquote.is-style-solid-color blockquote.has-' . $key . '-color p{color:' . $custom_prop_color . '}';
-				$atf_css           .= ' .has-' . $key . '-background-color, .wp-block-pullquote.is-style-solid-color.has-' . $key . '-background-color{background:' . $custom_prop_color . '}.has-' . $key . '-background-color:before{background:' . $custom_prop_color . ' !important}';
-			}
-
-		echo "<style>".$atf_css.":root{".$custom_props.$typography . $font_weights.
-
-			"--color--black--decimal: ".modul_r_hex2rgb($colors['black'], true). ";" .
-			"--color--white--decimal: ".modul_r_hex2rgb($colors['white'], true). ";" .
-			"--color--secondary--decimal: ".modul_r_hex2rgb($colors['secondary'], true). ";" .
-			"--color--primary--decimal: ".modul_r_hex2rgb($colors['primary'], true). ";" .
-
-			"--color--title: var(--color--primary);" .
-			"--color--text: $text_color;" .
-
-			"--sizes--margin-xs: " . $baseunit * .5 . "px;" .
-			"--sizes--margin--: {$baseunit}px;" .
-			"--sizes--margin-s: " . $baseunit * 1.5 . "px;" .
-			"--sizes--margin-m: " . $baseunit * 2 . "px;" .
-			"--sizes--margin-l: " . $baseunit * 4 . "px;" .
-			"--sizes--margin-xl: ". $baseunit * 8 . "px;" .
-			"--sizes--responsive--side-margin: ". $sidemargin . "px;" .
-
-			"--typography--title--line-height:var(--typography--default--line-height);" .
-			"--typography--title--font-size: var(--typography--default--font-size--xxl);" .
-			"--typography--title--font-family: '".str_replace("+", " ", $font_family_title)."', sans-serif;" .
-			"--typography--title--font-weight: var(--typography--default--font-weight--bold);" .
-			"--typography--content--line-height: var(--typography--default--line-height--wide);" .
-			"--typography--content--font-size: var(--typography--default--font-size--m);" .
-			"--typography--content--font-family: '".str_replace("+", " ", $font_family_text)."', sans-serif;" .
-			"--typography--content--font-weight: var(--typography--default--font-weight--regular);" .
-
-			"--sizes--content--width: {$content_width}px;" .
-			"--sizes--content--side-padding: " . ($content_width_wide - $content_width) * .5 ."px;" .
-			"--sizes--content--width-wide: {$content_width_wide}px;" .
-			"--sizes--sidebar--side-margin: var(--sizes--margin-xl);" .
-
-
-			"--header--background: $header_background;" .
-			"--header--background--dark: ".modul_r_hex2rgb(modul_r_adjustBrightness($header_background, -0.05), true). ";" .
-			"--header--background--dark--decimal: ".modul_r_hex2rgb($header_background, true). ";" .
-			"--header--title-color: $header_title_color;" .
-			"--header--text-color: $header_text_color;" .
-
-			 $header_sizes .
-			 $sizes .
-
-			"--footer--background: $footer_background;" .
-			"--footer--bottom-background: $footer_bottom_background;" .
-			"--footer--text-color: $footer_text_color;" .
-			"--footer--text-color-decimal: ".modul_r_hex2rgb($footer_text_color, true). ";" .
-
-			"}</style>";
-    }
-endif;
-add_action( 'wp_head', 'modul_r_css_props', 99 );
-add_action( 'admin_head', 'modul_r_css_props', 99 );

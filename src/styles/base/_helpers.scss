@@ -1,0 +1,21 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+.hide {
+	display: none;
+}
+
+.unselectable::selection {
+	background-color: transparent;
+}
+
+@mixin ellipsis {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.ellipsis {
+	@include ellipsis;
+}

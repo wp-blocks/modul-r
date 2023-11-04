@@ -1,0 +1,15 @@
+/* Outlined text style */
+.is-style-outlined-text {
+	color: transparent;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: var(--wp--preset--color--text);
+}
+
+/**
+ * The style for the text filled with a gradient (used in the hero section / patterns)
+ */
+.is-style-gradient {
+	background: -webkit-linear-gradient(45deg, var(--wp--preset--color--primary), var(--wp--preset--color--secondary));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

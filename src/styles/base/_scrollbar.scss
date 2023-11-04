@@ -1,0 +1,47 @@
+::-webkit-scrollbar {
+	$scrollbar-border-radius: 2px;
+
+	position: relative;
+	z-index: 100000;
+	width: 12px;
+	height: 12px;
+
+	@media #{$mq__tablet-portrait} {
+		width: 6px;
+	}
+
+
+	&-track {
+
+		&-piece,
+		& {
+			background-color: var(--wp--preset--color--gray-light);
+		}
+	}
+
+
+	&-thumb,
+	&-thumb:vertical,
+	&-thumb:horizontal {
+		background-color: var(--wp--preset--color--secondary);
+		border-radius: $scrollbar-border-radius;
+	}
+
+	&-button {
+		width: 0;
+		height: 0;
+
+		&:start:decrement,
+		&:end:increment {
+			height: 0;
+			width: 0;
+			display: block;
+			background-color: var(--wp--preset--color--gray-light);
+		}
+	}
+
+	&-corner {
+		background-color: var(--wp--preset--color--gray-light);
+	}
+}
+

@@ -1,42 +1,101 @@
 {
-  "name": "modul-r",
-  "version": "1.5.0",
-  "repository": "https://github.com/erikyo/modul-r",
-  "license": "GPL-3.0",
-  "main": "Modul R",
-  "author": {
-    "name": "Erik",
-    "website": "https://codekraft.it/"
-  },
-  "homepage": "https://modul-r.codekraft.it/",
-  "scripts": {
-    "start": "wp-scripts start",
-    "build": "wp-scripts build",
-    "packages-update": "wp-scripts packages-update",
-    "optimize-images": "node ./bin/imagemin.mjs"
-  },
-  "style": "./style.css",
-  "devDependencies": {
-    "@babel/core": "^7.20.12",
-    "@wordpress/babel-preset-default": "^7.9.0",
-    "@wordpress/scripts": "^25.2.0",
-    "imagemin": "^8.0.1",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-svgo": "^10.0.1",
-    "imagemin-webp": "^7.0.0",
-    "infinite-scroll": "^3.0.6"
-  },
-  "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.9.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:@wordpress/eslint-plugin/recommended"
-    ],
-    "globals": {
-      "jQuery": true,
-      "$": true
-    }
-  }
+	"name": "modul-r",
+	"version": "2.0.0",
+	"repository": "https://github.com/erikyo/modul-r",
+	"license": "GPL-3.0",
+	"author": "erik",
+	"homepage": "https://modul-r.codekraft.it/",
+	"files": [
+		"blocks/*",
+		"build/*",
+		"img/*",
+		"inc/*",
+		"parts/*",
+		"patterns/*",
+		"styles/*",
+		"templates/*",
+		"vendor/*",
+		"style.css",
+		"theme.json",
+		"screenshot.png",
+		"functions.php",
+		"LICENSE",
+		"readme.txt"
+	],
+	"scripts": {
+		"start": "wp-scripts start",
+		"build:scripts": "wp-scripts build",
+		"build:zip": "wp-scripts plugin-zip --outDir=releases --with-version",
+		"build:images": "squashify",
+		"build:makepot": "wp i18n make-pot . languages/modulr.pot --exclude=node_modules",
+		"build": "npm run build:scripts && npm run build:images && npm run build:zip",
+		"lint:css": "wp-scripts lint-style -- --fix ./src/styles",
+		"lint:js": "wp-scripts lint-js ./src/scripts",
+		"wp-env:start": "wp-env start",
+		"wp-env:stop": "wp-env stop",
+		"wp-env:destroy": "wp-env destroy",
+		"packages-update": "wp-scripts packages-update",
+		"generate-font-list": "node ./bin/gfontsList.mjs -sort=popularity",
+		"composer-install": "docker run -it --rm -v `pwd`:/app composer install",
+		"composer-install-windows": "docker run -it --rm -v \"%cd%\":/app composer install",
+		"test": "wp-env start && wp-env run tests-cli wp theme activate modul-r && jest --silent=false --coverage",
+		"postinstall": "composer install && npm run build:images && npm run build:scripts",
+		"release": "composer PHPCS-FIXER-dev && composer install --no-dev && npm run build:makepot && npm run build && composer install"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.22.10",
+		"@babel/preset-typescript": "^7.22.5",
+		"@jest/globals": "^29.3.1",
+		"@types/expect-puppeteer": "^5.0.2",
+		"@types/jest": "^29.2.5",
+		"@types/jest-environment-puppeteer": "^5.0.3",
+		"@types/node": "^20.5.0",
+		"@types/puppeteer": "^7.0.4",
+		"@types/wordpress__block-editor": "^11.0.1",
+		"@types/wordpress__blocks": "^12.0.1",
+		"@types/wordpress__components": "^23.0.1",
+		"@types/wordpress__compose": "^6.0.1",
+		"@wordpress/babel-preset-default": "^7.23.0",
+		"@wordpress/e2e-test-utils": "^9.1.0",
+		"@wordpress/e2e-tests": "^6.1.0",
+		"@wordpress/env": "^8.10.0",
+		"@wordpress/icons": "^9.30.0",
+		"@wordpress/jest-preset-default": "^10.5.0",
+		"@wordpress/prettier-config": "^3.1.0",
+		"@wordpress/scripts": "^26.15.0",
+		"babel-jest": "^29.3.0",
+		"eslint-plugin-prettier": "^5.0.1",
+		"husky": "^8.0.3",
+		"jest-puppeteer": "^6.2.0",
+		"squashify": "^0.1.1",
+		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"animate-css-grid": "^1.5.1",
+		"animate.css": "^4.1.1",
+		"choices.js": "^10.2.0",
+		"glightbox": "^3.2.0",
+		"minimasonry": "^1.3.2",
+		"swiper": "^11.0.3"
+	},
+	"engines": {
+		"node": ">=14.0.0",
+		"npm": ">=6.9.0"
+	},
+	"eslintConfig": {
+		"extends": [
+			"plugin:@wordpress/eslint-plugin/recommended"
+		],
+		"globals": {
+			"document": true,
+			"window": true
+		}
+	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config"
+	],
+	"prettier": "@wordpress/prettier-config",
+	"stylelint": {
+		"extends": [ "@wordpress/stylelint-config" ]
+	}
 }

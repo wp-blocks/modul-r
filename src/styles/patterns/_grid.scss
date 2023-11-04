@@ -1,0 +1,27 @@
+.modulr-grid-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	gap: 1rem;
+	justify-content: center;
+
+	li {
+		padding-bottom: var(--wp--preset--spacing--30);
+	}
+
+	a {
+		padding: 8px 12px;
+		border: 1px solid var(--wp--preset--color--gray-light);
+		border-radius: 50px;
+		&.active {
+			background: var(--wp--preset--color--gray-light);
+		}
+	}
+}
+
+.modulr-grid {
+	@media screen and #{$mq__tablet-portrait} {
+		padding-left: var(--wp--preset--spacing--40);
+		padding-right: var(--wp--preset--spacing--40);
+	}
+}

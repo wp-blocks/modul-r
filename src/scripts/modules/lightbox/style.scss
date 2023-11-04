@@ -1,0 +1,17 @@
+.is-style-lightbox-gallery,
+.is-style-lightbox-image {
+ > * {
+   cursor: pointer;
+ }
+}
+
+#glightbox-body {
+  .gslide-description .gslide-title {
+	margin: 0;
+	padding: 0;
+	font-family: var(--typography--font--title);
+	font-style: normal;
+	font-weight: var(--typography--font--title--bold);
+	line-height: var(--wp--custom--line-height--small);
+  }
+}

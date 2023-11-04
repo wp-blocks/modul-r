@@ -1,0 +1,47 @@
+{
+  "name": "codekraft/modul-r",
+  "type": "library",
+  "repositories": [
+	{
+	  "url": "https://github.com/erikyo/webfont-loader.git",
+	  "type": "git"
+	}
+  ],
+  "require": {
+	"php": ">=7.1",
+	"erikyo/webfont-loader": "dev-master"
+  },
+  "require-dev": {
+	"friendsofphp/php-cs-fixer": "3.*",
+	"squizlabs/php_codesniffer": "^3",
+	"phpcompatibility/php-compatibility": "*",
+	"wp-coding-standards/wpcs": "*",
+	"phpcompatibility/phpcompatibility-wp": "*",
+	"wp-cli/wp-cli-bundle": "*",
+	"wptrt/wpthemereview": "^0.2.1",
+	"automattic/vipwpcs": "^2.3",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7"
+  },
+  "scripts": {
+	"WPPCS-vips": "vendor/bin/phpcs --standard=.wpcs.xml.dist -s --report=full,summary,source",
+	"PHPCS": "vendor/bin/phpcs --standard=.wpcs.xml.dist -s --report=full,summary,source",
+	"PHPCS-FIXER-dev": "vendor/bin/phpcbf --standard=.wpcs.xml.dist  -s --report=full"
+  },
+  "autoload": {
+	"psr-4": {
+	  "ModulR\\Inc\\": "inc/"
+	}
+  },
+  "authors": [
+	{
+	  "name": "Erik Golinelli",
+	  "email": "erik@codekraft.it"
+	}
+  ],
+  "optimize-autoloader": true,
+  "config": {
+	"allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.choices__inner {
+	box-sizing: border-box;
+}
+
+.choices__list--multiple .choices__item {
+	background-color: var(--wp--preset--color--primary);
+	border: 1px solid var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--background);
+}
+.choices__list--multiple .choices__item.is-highlighted {
+	filter:brightness(105%);;
+	background-color: var(--wp--preset--color--primary);
+	border: 1px solid var(--wp--preset--color--primary);
+}

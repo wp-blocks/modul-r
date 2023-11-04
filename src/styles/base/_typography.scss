@@ -1,0 +1,62 @@
+/* wp-site-blocks is the "body" of the frontend webpages */
+.wp-site-blocks {
+	word-break: break-word;
+
+	ul,
+	ol,
+	dl {
+		margin-top: var(--wp--preset--spacing--50);
+		margin-bottom: var(--wp--preset--spacing--50);
+		padding: 0;
+		list-style-position: inside;
+
+		li,
+		dt,
+		dd {
+			line-height: var(--wp--custom--line-height--medium);
+			margin: 0;
+		}
+	}
+
+	table {
+		width: 100%;
+		display: table;
+
+		tr {
+			height: 3rem;
+			border-collapse: collapse;
+		}
+
+		td, th {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+		}
+	}
+
+	.entry-content {
+
+		ul,
+		ol {
+			padding-left: 22px;
+			list-style-position: initial;
+		}
+
+		li,
+		p {
+			line-height: var(--wp--custom--line-height--medium);
+
+			a {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+/**
+ * Provide defaults for font weight/styles on FSE
+ * maybe not needed anymore check 👇
+ * @see https://github.com/WordPress/gutenberg/issues/27269
+ */
+b,
+strong {
+	font-weight: var(--typography--font--default--bold);
+}
