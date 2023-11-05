@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "title": "Fragola e Panna",
+  "settings": {
+	"color": {
+	  "palette": [
+		{
+		  "name": "Primary",
+		  "color": "#f61151",
+		  "slug": "primary"
+		},
+		{
+		  "slug": "primary-light",
+		  "color": "#ff4277",
+		  "name": "Primary Light"
+		},
+		{
+		  "slug": "primary-dark",
+		  "color": "#ba1140",
+		  "name": "Primary Dark"
+		},
+		{
+		  "color": "#df367c",
+		  "name": "Secondary",
+		  "slug": "secondary"
+		},
+		{
+		  "color": "#e6659b",
+		  "name": "Secondary light",
+		  "slug": "secondary-light"
+		},
+		{
+		  "color": "#9a194e",
+		  "name": "Secondary dark",
+		  "slug": "secondary-dark"
+		},
+		{
+		  "slug": "black",
+		  "color": "#2d1f2b",
+		  "name": "Black"
+		},
+		{
+		  "slug": "gray-dark",
+		  "color": "#4c3549",
+		  "name": "Gray dark"
+		},
+		{
+		  "slug": "gray",
+		  "color": "#79707a",
+		  "name": "Gray"
+		},
+		{
+		  "slug": "gray-light",
+		  "color": "#e3dce4",
+		  "name": "Gray light"
+		},
+		{
+		  "slug": "white-smoke",
+		  "color": "#ffefde",
+		  "name": "White Smoke"
+		},
+		{
+		  "slug": "white",
+		  "color": "#fcfdf0",
+		  "name": "White"
+		},
+		  {
+			  "slug": "text-color",
+			  "color": "var(--wp--preset--color--black)",
+			  "name": "Text Color"
+		  },
+		  {
+			  "slug": "background",
+			  "color": "var(--wp--preset--color--white)",
+			  "name": "Background"
+		  }
+	  ]
+	}
+  }
+}

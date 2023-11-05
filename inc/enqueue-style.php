@@ -46,24 +46,12 @@ if ( ! function_exists( 'modul_r_admin_style' ) ) :
 endif;
 
 /**
- * ENQUEUE THE REGISTERED STYLES
- * we need to distinguish between "enqueue_block_editor_assets" and "enqueue_block_assets"
- * because the latter only enqueues in the page header but not into editor iframe
- */
-
-$hook = is_admin() ? 'enqueue_block_editor_assets' : 'enqueue_block_assets';
-
-/**
- * Enqueue the ATF stylesheet in front-end only.
- * this style is not enqueued for admin or site editor
+ * Enqueue the registered styles
  */
 if ( is_admin() ) {
 	add_action( 'enqueue_block_assets', 'modul_r_atf_style' );
+	add_action( 'enqueue_block_editor_assets', 'modul_r_theme_style' );
 } else {
 	add_action( 'wp_head', 'modul_r_atf_css' );
+	add_action( 'enqueue_block_assets', 'modul_r_theme_style' );
 }
-
-/**
- * Theme custom css props / above the fold style
- */
-add_action( $hook, 'modul_r_theme_style' );

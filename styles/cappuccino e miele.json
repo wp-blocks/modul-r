@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Cappuccino e Miele",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Primary",
+					"color": "#b08968",
+					"slug": "primary"
+				},
+				{
+					"slug": "primary-light",
+					"color": "#ddb892",
+					"name": "Primary Light"
+				},
+				{
+					"slug": "primary-dark",
+					"color": "#7f5539",
+					"name": "Primary Dark"
+				},
+				{
+					"color": "#fed920",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#ffea7f",
+					"name": "Secondary Light",
+					"slug": "secondary-light"
+				},
+				{
+					"color": "#ebb912",
+					"name": "Secondary Dark",
+					"slug": "secondary-dark"
+				},
+				{
+					"slug": "black",
+					"color": "#221B16",
+					"name": "Black"
+				},
+				{
+					"slug": "gray-dark",
+					"color": "#362D27",
+					"name": "Gray Dark"
+				},
+				{
+					"slug": "gray",
+					"color": "#5C514A",
+					"name": "Gray"
+				},
+				{
+					"slug": "gray-light",
+					"color": "#e3dce4",
+					"name": "Gray Light"
+				},
+				{
+					"slug": "white-smoke",
+					"color": "#ffefde",
+					"name": "White Smoke"
+				},
+				{
+					"slug": "white",
+					"color": "#fcfdf0",
+					"name": "White"
+				},
+				{
+					"slug": "text-color",
+					"color": "var(--wp--preset--color--black)",
+					"name": "Text Color"
+				},
+				{
+					"slug": "background",
+					"color": "var(--wp--preset--color--white)",
+					"name": "Background"
+				}
+			]
+		}
+	}
+}

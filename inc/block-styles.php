@@ -136,6 +136,14 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	register_block_style(
+		'core/query',
+		array(
+			'name'  => 'slider',
+			'label' => __( 'Slider', 'vsge' ),
+		)
+	);
+
+	register_block_style(
 		'core/gallery',
 		array(
 			'name'  => 'lightbox-gallery',

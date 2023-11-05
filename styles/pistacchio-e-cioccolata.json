@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Pistacchio e Cioccolata",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Primary",
+					"color": "#7f9950",
+					"slug": "primary"
+				},
+				{
+					"slug": "primary-light",
+					"color": "#aeb973",
+					"name": "Primary Light"
+				},
+				{
+					"slug": "primary-dark",
+					"color": "#58782e",
+					"name": "Primary Dark"
+				},
+				{
+					"color": "#8c6a51",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#b19374",
+					"name": "Secondary Light",
+					"slug": "secondary-light"
+				},
+				{
+					"color": "#694a34",
+					"name": "Secondary Dark",
+					"slug": "secondary-dark"
+				},
+				{
+					"slug": "black",
+					"color": "#2E2017",
+					"name": "Black"
+				},
+				{
+					"slug": "gray-dark",
+					"color": "#3D3129",
+					"name": "Gray Dark"
+				},
+				{
+					"slug": "gray",
+					"color": "#766E69",
+					"name": "Gray"
+				},
+				{
+					"slug": "gray-light",
+					"color": "#c8b587",
+					"name": "Gray Light"
+				},
+				{
+					"slug": "white-smoke",
+					"color": "#f2e8cf",
+					"name": "White Smoke"
+				},
+				{
+					"slug": "white",
+					"color": "#faf5eb",
+					"name": "White"
+				},
+				{
+					"slug": "text-color",
+					"color": "var(--wp--preset--color--black)",
+					"name": "Text Color"
+				},
+				{
+					"slug": "background",
+					"color": "var(--wp--preset--color--white)",
+					"name": "Background"
+				}
+			]
+		}
+	}
+}

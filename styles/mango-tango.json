@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Mango Tango",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Primary",
+					"color": "#ffaa00",
+					"slug": "primary"
+				},
+				{
+					"slug": "primary-light",
+					"color": "#ffcc33",
+					"name": "Primary Light"
+				},
+				{
+					"slug": "primary-dark",
+					"color": "#cc8800",
+					"name": "Primary Dark"
+				},
+				{
+					"color": "#FF5200",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#FF7E40",
+					"name": "Secondary Light",
+					"slug": "secondary-light"
+				},
+				{
+					"color": "#CA4505",
+					"name": "Secondary Dark",
+					"slug": "secondary-dark"
+				},
+				{
+					"slug": "black",
+					"color": "#2F0909",
+					"name": "Black"
+				},
+				{
+					"slug": "gray-dark",
+					"color": "#3C2B2B",
+					"name": "Gray Dark"
+				},
+				{
+					"slug": "gray",
+					"color": "#665757",
+					"name": "Gray"
+				},
+				{
+					"slug": "gray-light",
+					"color": "#c8b587",
+					"name": "Gray Light"
+				},
+				{
+					"slug": "white-smoke",
+					"color": "#f2e8cf",
+					"name": "White Smoke"
+				},
+				{
+					"slug": "white",
+					"color": "#faf5eb",
+					"name": "White"
+				},
+				{
+					"slug": "text-color",
+					"color": "var(--wp--preset--color--black)",
+					"name": "Text Color"
+				},
+				{
+					"slug": "background",
+					"color": "var(--wp--preset--color--white)",
+					"name": "Background"
+				}
+			]
+		}
+	}
+}
