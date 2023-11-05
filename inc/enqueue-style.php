@@ -12,7 +12,7 @@ if ( ! function_exists( 'modul_r_atf_css' ) ) :
 		$atf_css = ob_get_clean();
 
 		if ( ! empty( $atf_css ) ) {
-			echo '<style id="modul-r-above-the-fold">' . $atf_css . '</style>';
+			echo '<style id="modul-r-style-above-the-fold">' . $atf_css . '</style>';
 		}
 	}
 endif;
@@ -22,7 +22,7 @@ endif;
  */
 if ( ! function_exists( 'modul_r_atf_style' ) ) :
 	function modul_r_atf_style() {
-		wp_enqueue_style( 'modul-r-above-the-fold', MODULR_THEME_URL . '/build/modulr-css-atf.css' );
+		wp_enqueue_style( 'modul-r-style-above-the-fold', MODULR_THEME_URL . '/build/modulr-css-atf.css' );
 	}
 endif;
 
@@ -41,7 +41,7 @@ endif;
  */
 if ( ! function_exists( 'modul_r_admin_style' ) ) :
 	function modul_r_admin_style() {
-		wp_enqueue_style( 'modul-r-admin', MODULR_THEME_URL . '/build/modulr-css-admin.css' );
+		wp_enqueue_style( 'modul-r-style-admin', MODULR_THEME_URL . '/build/modulr-css-admin.css' );
 	}
 endif;
 

@@ -63,11 +63,11 @@ if ( file_exists( get_parent_theme_file_path( 'vendor/autoload.php' ) ) ) {
 }
 
 require_once MODULR_THEME_DIR . '/inc/theme-setup.php';
-require_once MODULR_THEME_DIR . '/inc/enqueue-scripts.php';
 require_once MODULR_THEME_DIR . '/inc/template-functions.php';
 require_once MODULR_THEME_DIR . '/inc/customizer.php';
-require_once MODULR_THEME_DIR . '/inc/sidebar.php';
+require_once MODULR_THEME_DIR . '/inc/enqueue-scripts.php';
 require_once MODULR_THEME_DIR . '/inc/enqueue-style.php';
-require_once MODULR_THEME_DIR . '/inc/block-styles.php';
 require_once MODULR_THEME_DIR . '/inc/enqueue-fonts.php';
+require_once MODULR_THEME_DIR . '/inc/sidebar.php';
+require_once MODULR_THEME_DIR . '/inc/block-styles.php';
 require_once MODULR_THEME_DIR . '/inc/woocommerce.php';

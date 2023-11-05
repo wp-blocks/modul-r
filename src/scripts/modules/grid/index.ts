@@ -101,10 +101,6 @@ export async function modulrGrid(): Promise< void > {
 				const clickedItemAnchor =
 					clickedItem.firstChild as HTMLAnchorElement;
 
-				const category = getLastElementFromHref(
-					clickedItemAnchor?.href
-				);
-
 				if ( clickedItem?.classList.contains( 'current-cat' ) ) {
 					toggleCategoryVisiblity( grid, null, forceGridAnimation );
 					// the main button cannot be disabled
@@ -114,6 +110,10 @@ export async function modulrGrid(): Promise< void > {
 					clickedItem.classList.remove( 'current-cat' );
 					gridButtons[ 0 ].classList.add( 'current-cat' );
 				} else {
+					const category = getLastElementFromHref(
+						clickedItemAnchor?.href
+					);
+
 					// remove the active class from sibling buttons
 					gridButtons.forEach( ( el ) => {
 						el.classList.remove( 'current-cat' );
