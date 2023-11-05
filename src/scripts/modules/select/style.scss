@@ -12,3 +12,11 @@
 	background-color: var(--wp--preset--color--primary);
 	border: 1px solid var(--wp--preset--color--primary);
 }
+
+.choices__input {
+	background: var(--wp--preset--color--background);
+}
+.choices[data-type*=select-multiple] .choices__button,
+.choices[data-type*=text] .choices__button {
+	border-left: 1px solid var(--wp--preset--color--primary-light);
+}
