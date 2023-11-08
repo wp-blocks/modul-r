@@ -25,7 +25,7 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 /* Registering block styles. */
 if ( function_exists( 'register_block_style' ) ) {
 
-	$wave = esc_url( apply_filters( 'modul_r_wave_shape_uri', get_template_directory_uri() . '/img/demo/wave.svg' ) );
+	$wave = esc_url( apply_filters( 'modul_r_wave_shape_uri', get_template_directory_uri() . '/img/elements/wave.svg' ) );
 
 	/**
 	 * Text / TItles Styles
@@ -97,15 +97,6 @@ if ( function_exists( 'register_block_style' ) ) {
 		)
 	);
 
-	register_block_style(
-		'core/cover',
-		array(
-			'name'         => 'wave-clip',
-			'label'        => __( 'clip with wave shape', 'modul-r' ),
-			'inline_style' => '.wp-block-post-featured-image.is-style-wave-clip { mask-image: url(' . $wave . '); -webkit-mask-image: url(' . $wave . '); }',
-		)
-	);
-
 	/**
 	 * UI
 	 */
@@ -139,7 +130,7 @@ if ( function_exists( 'register_block_style' ) ) {
 		'core/query',
 		array(
 			'name'  => 'slider',
-			'label' => __( 'Slider', 'vsge' ),
+			'label' => __( 'Slider', 'modul-r' ),
 		)
 	);
 

@@ -33,7 +33,9 @@ Key Features:
 In the world of web design, Modul R is your ticket to a future where creativity knows no bounds.
 It empowers you to build a website that not only looks fantastic but also performs flawlessly.
 Dive into a world of endless customization possibilities, enjoy lightning-fast loading times, and engage your audience with captivating visual effects.
-With Modul R, your website is no longer just a site; it's an experience—with batteries included. 🔋🚀
+With Modul R, your website is no longer just a site; it's an experience
+
+(batteries 🔋 included)
 
 = Getting started =
 * The customizations are grouped into WordPress customizer under "colors" and "modul-r template customizations"
