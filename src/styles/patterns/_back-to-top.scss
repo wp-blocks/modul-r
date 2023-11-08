@@ -1,0 +1,20 @@
+#backtotop {
+    box-sizing: border-box;
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    bottom: 20px;
+    right: 20px;
+    width : 50px;
+    height : 50px;
+    background-color: #ffffff;
+    border: 2px solid #666;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 350ms, visibility 350ms;
+  }
+  
+  body:not(.above-the-fold) #backtotop {
+    visibility: visible;
+    opacity: 1;
+  }
