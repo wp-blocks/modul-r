@@ -6,6 +6,7 @@ import { modulrMasonryController } from './modules/masonry';
 import { modulrSelectController } from './modules/select';
 import { modulrGrid } from './modules/grid';
 import { modulrScrollTo } from './modules/scroll/scroll';
+import { backToTop } from './modules/backToTop';
 
 window.addEventListener( 'DOMContentLoaded', async () => {
 	/* enable scroll animations */
@@ -18,6 +19,8 @@ window.addEventListener( 'DOMContentLoaded', async () => {
 	modulrGrid();
 	/* enable oxone like animation for grid elements */
 	modulrScrollTo();
+	/* create a back-to-top button */
+	backToTop();
 } );
 
 window.addEventListener( 'load', async () => {

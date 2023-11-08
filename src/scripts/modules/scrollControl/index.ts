@@ -27,6 +27,12 @@ function scrollCallback() {
 		}
 	}
 
+	if ( Ypos >= window.innerHeight ) {
+		document.body.classList.remove( 'above-the-fold' );
+	} else {
+		document.body.classList.add( 'above-the-fold' );
+	}
+
 	if ( Ypos < 5 ) {
 		document.body.classList.add( 'top' );
 	} else {
