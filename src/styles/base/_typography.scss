@@ -34,6 +34,16 @@
 
 	.entry-content {
 
+		/**
+		 * Provide defaults for font weight/styles on FSE
+		 * maybe not needed anymore check 👇
+		 * @see https://github.com/WordPress/gutenberg/issues/27269
+		 */
+		b,
+		strong {
+			font-weight: var(--typography--font--default--bold);
+		}
+
 		ul,
 		ol {
 			padding-left: 22px;
@@ -51,12 +61,3 @@
 	}
 }
 
-/**
- * Provide defaults for font weight/styles on FSE
- * maybe not needed anymore check 👇
- * @see https://github.com/WordPress/gutenberg/issues/27269
- */
-b,
-strong {
-	font-weight: var(--typography--font--default--bold);
-}
