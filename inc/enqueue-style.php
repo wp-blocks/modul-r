@@ -7,7 +7,7 @@ if ( ! function_exists( 'modul_r_atf_css' ) ) :
 		// get the acf.css file and store into a variable
 		ob_start();
 
-		include get_stylesheet_directory() . '/build/modulr-css-atf.css';
+		include MODULR_THEME_DIR . '/build/modulr-css-atf.css';
 
 		$atf_css = ob_get_clean();
 
