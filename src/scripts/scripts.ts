@@ -6,7 +6,7 @@ import { modulrMasonryController } from './modules/masonry';
 import { modulrSelectController } from './modules/select';
 import { modulrGrid } from './modules/grid';
 import { modulrScrollTo } from './modules/scroll/scroll';
-import { backToTop } from './modules/backToTop/backToTop';
+import { backToTop } from './modules/backToTop';
 
 window.addEventListener( 'DOMContentLoaded', async () => {
 	/* enable scroll animations */
