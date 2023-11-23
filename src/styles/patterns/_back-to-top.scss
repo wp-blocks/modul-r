@@ -1,20 +1,28 @@
 #backtotop {
-    box-sizing: border-box;
-    position: fixed;
-    opacity: 0;
-    visibility: hidden;
-    bottom: 20px;
-    right: 20px;
-    width : 50px;
-    height : 50px;
-    background-color: #ffffff;
-    border: 2px solid #666;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: opacity 350ms, visibility 350ms;
-  }
-  
-  body:not(.above-the-fold) #backtotop {
-    visibility: visible;
-    opacity: 1;
-  }
+	box-sizing: border-box;
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	bottom: var(--wp--preset--spacing--60);
+	right: var(--wp--preset--spacing--60);
+	width: 56px;
+	height: 56px;
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+	border-radius: 50%;
+	cursor: pointer;
+
+	&:before {
+		content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path fill="white" d="M454.873-180.001v-504.154L215.385-444.668 180.001-480 480-779.999 779.999-480l-35.384 35.332-239.488-239.487v504.154h-50.254Z"/></svg>');
+		display: flex;
+		width: 100%;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+body:not(.above-the-fold) #backtotop {
+	visibility: visible;
+	opacity: 1;
+}
