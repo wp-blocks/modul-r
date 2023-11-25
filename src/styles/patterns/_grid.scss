@@ -9,7 +9,13 @@
 		padding-bottom: var(--wp--preset--spacing--30);
 
 		&.current-cat a {
-			background: var(--wp--preset--color--gray-light);
+			background: var(--wp--preset--color--primary);
+			color: var(--wp--preset--color--white);
+			border-color: var(--wp--preset--color--primary-light);
+
+			&:hover {
+				background: var(--wp--preset--color--primary-light);
+			}
 		}
 	}
 
