@@ -98,6 +98,17 @@ if ( function_exists( 'register_block_style' ) ) {
 	);
 
 	/**
+	 * Covers
+	 */
+	register_block_style(
+		'core/cover',
+		array(
+			'name'         => 'slate',
+			'label'        => __( 'Slate', 'modul-r' )
+		)
+	);
+
+	/**
 	 * UI
 	 */
 	register_block_style(

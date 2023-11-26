@@ -1,0 +1,12 @@
+$size: 24;
+
+.is-style-slate .wp-block-cover__background {
+	overflow: hidden;
+	&:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{$size} #{$size}' width='#{$size}' height='#{$size}' fill='none' stroke='rgb(255 255 255 / 0.03)'><path d='M0 .5H#{$size - 0.5}V#{$size}'/></svg>");
+	}
+}
