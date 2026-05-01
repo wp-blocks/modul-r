@@ -65,11 +65,13 @@ export async function modulrMasonryController() {
 			container.classList.remove( 'is-layout-flex' );
 			container.classList.remove( 'is-layout-flow' );
 			/* Creating a new instance of the MiniMasonry class. */
-			new MiniMasonry.default( {
-				container,
-				baseWidth: attributes.baseWidth,
-				gutterX: 24,
-				gutterY: 24,
+			requestAnimationFrame( () => {
+				new MiniMasonry.default( {
+					container,
+					baseWidth: attributes.baseWidth,
+					gutterX: 24,
+					gutterY: 24,
+				} );
 			} );
 		}
 	} );
