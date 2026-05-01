@@ -1,8 +1,8 @@
 /* MODUL R Style */
-@import "defaults/defaults";
+@use "defaults/defaults" as *;
 
 /* Base style */
-@import "base/base";
+@use "base/base" as *;
 
 /* Components */
-@import "components/components";
+@use "components/components" as *;

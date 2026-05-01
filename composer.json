@@ -8,8 +8,7 @@
 		}
 	],
 	"require": {
-		"php": ">=7.1",
-		"felixarntz/fast-smooth-scroll": "1.0"
+		"php": ">=7.1"
 	},
 	"require-dev": {
 		"friendsofphp/php-cs-fixer": "3.*",
@@ -17,15 +16,15 @@
 		"phpcompatibility/php-compatibility": "*",
 		"wp-coding-standards/wpcs": "*",
 		"phpcompatibility/phpcompatibility-wp": "*",
-		"wp-cli/wp-cli-bundle": "*",
 		"wptrt/wpthemereview": "^0.2.1",
-		"automattic/vipwpcs": "^2.3",
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.7"
 	},
 	"scripts": {
 		"WPPCS-vips": "vendor/bin/phpcs --standard=.wpcs.xml.dist -s --report=full,summary,source",
 		"PHPCS": "vendor/bin/phpcs --standard=.wpcs.xml.dist -s --report=full,summary,source",
-		"PHPCS-FIXER-dev": "vendor/bin/phpcbf --standard=.wpcs.xml.dist  -s --report=full"
+		"PHPCS-FIXER-dev": "vendor/bin/phpcbf --standard=.wpcs.xml.dist  -s --report=full",
+		"setup": "composer install",
+		"build": "composer install --no-dev && composer dump-autoload --optimize"
 	},
 	"autoload": {
 		"psr-4": {

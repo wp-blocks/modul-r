@@ -1,9 +1,3 @@
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-
 html {
 	/* ios viewport bug fix */
 	height: calc(var(--vh, 1vh) * 100);
@@ -19,11 +13,4 @@ body {
 	min-height: 100%;
 	max-width: 100%;
 	box-sizing: border-box;
-}
-
-/* This is needed to fit the height of the page to the viewport */
-.wp-site-blocks {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
 }

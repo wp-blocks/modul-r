@@ -1,8 +1,7 @@
 {
 	"compilerOptions": {
-		"target": "ES6",
+		"target": "ESNext",
 		"module": "esnext",
-		"jsx": "react-jsx",
 		// Search under node_modules for non-relative imports.
 		"moduleResolution": "node",
 		"sourceMap": true,
@@ -29,11 +28,6 @@
 		"typeRoots": [
 			"node_modules/@types",
 			"types"
-		],
-		"types": [
-			"puppeteer",
-			"jest-environment-puppeteer",
-			"expect-puppeteer"
 		]
 	},
 	"include": ["src/**/*"],

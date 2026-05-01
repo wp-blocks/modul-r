@@ -1,3 +1,5 @@
+@use "../defaults/media-queries" as *;
+
 body .wp-site-blocks {
 	--element--gallery--mosaic-grid-size: 250px;
 	--element--gallery--mosaic-grid-gap: 10px;

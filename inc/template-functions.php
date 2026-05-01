@@ -9,26 +9,6 @@
  * @link      https://modul-r.codekraft.it/
  */
 
-if ( ! function_exists( 'modul_r_breadcrumbs' ) ) :
-	/**
-	 * Displays the article breadcrumbs
-	 *
-	 * @return void
-	 */
-	function modul_r_breadcrumbs() {
-		if ( function_exists( 'yoast_breadcrumb' ) ) {
-			yoast_breadcrumb( '<!-- wp:paragraph {"className":"breadcrumbs","style":{"spacing":{"margin":{"bottom":"0"}}} --><p class="breadcrumbs" style="margin-bottom: 0">', '</p><!-- /wp:paragraph -->' );
-		} else {
-			if ( is_single() ) {
-				printf( '<!-- wp:paragraph {"className":"breadcrumbs","style":{"spacing":{"margin":{"bottom":"0"}}} --><p class="breadcrumbs" style="margin-bottom: 0"><a href="%s">%s</a> / %s</p><!-- /wp:paragraph -->', esc_url( home_url() ), esc_html__( 'Home', 'modul-r' ), esc_html( get_the_category_list( ' &#47; ' ) ) );
-			} else {
-				printf( '<!-- wp:paragraph {"className":"breadcrumbs","style":{"spacing":{"margin":{"bottom":"0"}}} --><p class="breadcrumbs" style="margin-bottom: 0"><a href="%s">%s</a> / <a href="%s">%s</a></p><!-- /wp:paragraph -->', esc_url( home_url() ), esc_html__( 'Home', 'modul-r' ), esc_url( get_permalink() ), esc_html( get_the_title() ) );
-			}
-		}
-	}
-endif;
-
-
 if ( ! function_exists( 'modul_r_content_height_fix' ) ) :
 	/**
 	 * Fix for ios that overlaps content with the lower nav bar
@@ -60,3 +40,13 @@ if ( ! function_exists( 'modul_r_content_height_fix' ) ) :
 	}
 endif;
 add_action( 'wp_head', 'modul_r_content_height_fix' );
+
+/**
+ * Returns the custom scroll offset value.
+ *
+ * @return int The custom scroll offset value.
+ */
+function modulr_get_custom_scroll_offset() {
+	return 1000;
+}
+add_filter( 'fast_smooth_scroll_offset', 'modulr_get_custom_scroll_offset' );

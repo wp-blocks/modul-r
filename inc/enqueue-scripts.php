@@ -11,7 +11,10 @@ if ( ! function_exists( 'modul_r_theme_scripts' ) ) :
 		$asset = include MODULR_THEME_DIR . '/build/modulr-scripts.asset.php';
 
 		/* Register and Enqueue */
-		wp_enqueue_script( 'modul-r-scripts', MODULR_THEME_URL . '/build/modulr-scripts.js', $asset['dependencies'], $asset['version'], true );
+		wp_enqueue_script( 'modul-r-scripts', MODULR_THEME_URL . '/build/modulr-scripts.js', $asset['dependencies'], $asset['version'], array(
+			'strategy'  => 'defer', // or 'async'
+			'in_footer' => true,    // ensure it loads at the bottom
+		) );
 		wp_enqueue_style( 'modul-r-scripts', MODULR_THEME_URL . '/build/modulr-scripts.css', array(), $asset['version'] );
 	}
 endif;
