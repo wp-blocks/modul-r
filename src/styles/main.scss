@@ -1,13 +1,7 @@
 /* Modul-R Style */
 
-/* Theme Defaults */
-@import "defaults/defaults";
-
 /* Patterns */
-@import "patterns/patterns";
-
-/* Pages */
-@import "pages/pages";
+@use "patterns/patterns" as *;
 
 /* Extras */
-@import "utils/print";
+@use "utils/print" as *;

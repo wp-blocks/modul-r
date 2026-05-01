@@ -1,3 +1,5 @@
+@use "../defaults/media-queries" as *;
+
 ::-webkit-scrollbar {
 	$scrollbar-border-radius: 2px;
 

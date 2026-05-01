@@ -1,3 +1,5 @@
+@use "../defaults/media-queries" as *;
+
 .modulr-grid-buttons {
 	display: flex;
 	flex-wrap: wrap;

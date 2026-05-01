@@ -1,4 +1,5 @@
 /* The print style */
+@use "../defaults/media-queries" as *;
 
 @media #{$mq__print} {
 

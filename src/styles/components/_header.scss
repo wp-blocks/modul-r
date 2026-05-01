@@ -57,10 +57,10 @@ header.wp-block-template-part {
 	}
 }
 
-@media all and (max-width: 699px) {
-	.has-modal-open header.wp-block-template-part {
-		.wp-block-navigation__responsive-container {
-			padding: var(--wp--preset--spacing--70);
-		}
+.has-modal-open header.wp-block-template-part {
+	.wp-block-navigation__responsive-container {
+		height: 100vh;
+		padding: var(--wp--preset--spacing--70);
 	}
 }
+
