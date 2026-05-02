@@ -87,6 +87,11 @@ function vsge_register_block_patterns() {
 			'label' => __( 'Card', 'modul-r' ),
 		) );
 
+		register_block_style( 'core/group', array(
+			'name'  => 'pageable',
+			'label' => __( 'Pageable', 'modul-r' ),
+		) );
+
 		/**
 		 * Modules
 		 */
