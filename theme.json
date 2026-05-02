@@ -227,7 +227,7 @@
 				},
 				"typography": {
 					"fontFamily": "var:preset|font-family|montserrat",
-					"fontSize": "var(--wp--preset--font-size--medium)",
+					"fontSize": "1rem",
 					"fontStyle": "normal",
 					"fontWeight": "700",
 					"letterSpacing": "0.33em",
@@ -237,11 +237,12 @@
 			},
 			"core/buttons": {
 				"spacing": {
-					"blockGap": "var(--wp--preset--spacing--60)",
-					"margin": {
-						"bottom": "var(--wp--preset--spacing--60)",
-						"top": "var(--wp--preset--spacing--40)"
-					}
+					"blockGap": "var(--wp--preset--spacing--60)"
+				}
+			},
+			"core/columns": {
+				"spacing": {
+					"blockGap": "var:preset|spacing|50"
 				}
 			},
 			"core/post-title": {
@@ -267,6 +268,30 @@
 					}
 				}
 			},
+			"core/search": {
+				"css": "& .wp-block-search__input{border-radius:3.125rem;padding-left:1.5625rem;padding-right:1.5625rem;border-color:var(--wp--preset--color--gray-light);}",
+				"typography": {
+					"fontSize": "var:preset|font-size|medium",
+					"lineHeight": "1.6"
+				},
+				"elements": {
+					"button": {
+						"border": {
+							"radius": "3.125rem"
+						},
+						"spacing": {
+							"margin": {
+								"left": "1.125rem"
+							}
+						},
+						":hover" : {
+							"border": {
+								"color": "transparent"
+							}
+						}
+					}
+				}
+			},
 			"core/site-title": {
 				"elements": {
 					"link": {
@@ -286,17 +311,11 @@
 		},
 		"elements": {
 			"button": {
-				"border": {
-					"radius": "0"
-				},
 				"color": {
 					"background": "var(--wp--preset--color--primary)",
 					"text": "var(--wp--preset--color--white)"
 				},
 				"typography": {
-					"fontSize": "1.4rem",
-					"fontStyle": "normal",
-					"fontWeight": "700",
 					"lineHeight": "1"
 				}
 			},
@@ -325,6 +344,38 @@
 				},
 				"typography": {
 					"textDecoration": "none"
+				}
+			},
+			"textInput": {
+				"border": {
+					"color": "var(--wp--preset--color--gray-light)",
+					"radius": "4px",
+					"width": "1px",
+					"style": "solid"
+				},
+				"spacing": {
+					"padding": {
+						"bottom": "0.5rem",
+						"left": "0.5rem",
+						"right": "0.5rem",
+						"top": "0.5rem"
+					}
+				}
+			},
+			"select": {
+				"border": {
+					"color": "var(--wp--preset--color--gray-light)",
+					"radius": "4px",
+					"width": "1px",
+					"style": "solid"
+				},
+				"spacing": {
+					"padding": {
+						"bottom": "0.5rem",
+						"left": "0.5rem",
+						"right": "0.5rem",
+						"top": "0.5rem"
+					}
 				}
 			}
 		},
