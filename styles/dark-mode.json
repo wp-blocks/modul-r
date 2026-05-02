@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/theme.json",
-  "version": 2,
+  "version": 3,
   "title": "Dark Mode",
   "settings": {
 	"color": {
@@ -76,25 +76,6 @@
 			  "name": "Background"
 		  }
 	  ]
-	}
-  },
-  "styles": {
-	"elements": {
-	  "button": {
-		"border": {
-		  "width": "0px"
-		},
-		"color": {
-		  "background":"var(--wp--preset--color--secondary-light)",
-		  "text": "var(--wp--preset--color--white)"
-		},
-		":hover": {
-		  "color": {
-			"background":"var(--wp--preset--color--secondary-light)",
-			"text": "var(--wp--preset--color--white)"
-		  }
-		}
-	  }
 	}
   }
 }

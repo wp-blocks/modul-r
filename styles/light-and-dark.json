@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Light and Dark",
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Primary",
+          "slug": "primary",
+          "color": "light-dark(#1e293b, #e2e8f0)"
+        },
+        {
+          "name": "Primary Light",
+          "slug": "primary-light",
+          "color": "light-dark(#475569, #cbd5e1)"
+        },
+        {
+          "name": "Primary Dark",
+          "slug": "primary-dark",
+          "color": "light-dark(#0f172a, #f8fafc)"
+        },
+        {
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "light-dark(#0284c7, #38bdf8)"
+        },
+        {
+          "name": "Secondary Light",
+          "slug": "secondary-light",
+          "color": "light-dark(#0ea5e9, #7dd3fc)"
+        },
+        {
+          "name": "Secondary Dark",
+          "slug": "secondary-dark",
+          "color": "light-dark(#0369a1, #0284c7)"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "light-dark(#111111, #ffffff)"
+        },
+        {
+          "name": "Gray Dark",
+          "slug": "gray-dark",
+          "color": "light-dark(#4b5563, #d1d5db)"
+        },
+        {
+          "name": "Gray",
+          "slug": "gray",
+          "color": "light-dark(#9ca3af, #6b7280)"
+        },
+        {
+          "name": "Gray Light",
+          "slug": "gray-light",
+          "color": "light-dark(#e5e7eb, #374151)"
+        },
+        {
+          "name": "White Smoke",
+          "slug": "white-smoke",
+          "color": "light-dark(#f3f4f6, #1f2937)"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "light-dark(#ffffff, #111111)"
+        },
+        {
+          "name": "Text Color",
+          "slug": "text-color",
+          "color": "var(--wp--preset--color--black)"
+        },
+        {
+          "name": "Background",
+          "slug": "background",
+          "color": "var(--wp--preset--color--white)"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "css": ":root { color-scheme: light dark; }"
+  }
+}
