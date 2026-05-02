@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Dracula",
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Primary",
+          "slug": "primary",
+          "color": "#ff79c6"
+        },
+        {
+          "name": "Primary Light",
+          "slug": "primary-light",
+          "color": "#8be9fd"
+        },
+        {
+          "name": "Primary Dark",
+          "slug": "primary-dark",
+          "color": "#bd93f9"
+        },
+        {
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "#50fa7b"
+        },
+        {
+          "name": "Secondary Light",
+          "slug": "secondary-light",
+          "color": "#f1fa8c"
+        },
+        {
+          "name": "Secondary Dark",
+          "slug": "secondary-dark",
+          "color": "#ffb86c"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#282a36"
+        },
+        {
+          "name": "Gray Dark",
+          "slug": "gray-dark",
+          "color": "#44475a"
+        },
+        {
+          "name": "Gray",
+          "slug": "gray",
+          "color": "#6272a4"
+        },
+        {
+          "name": "Gray Light",
+          "slug": "gray-light",
+          "color": "#bfbfbf"
+        },
+        {
+          "name": "White Smoke",
+          "slug": "white-smoke",
+          "color": "#f8f8f2"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#ffffff"
+        },
+        {
+          "name": "Text Color",
+          "slug": "text-color",
+          "color": "var(--wp--preset--color--white-smoke)"
+        },
+        {
+          "name": "Background",
+          "slug": "background",
+          "color": "var(--wp--preset--color--black)"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--background)",
+      "text": "var(--wp--preset--color--text-color)"
+    }
+  }
+}
