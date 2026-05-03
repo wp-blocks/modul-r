@@ -1,0 +1,34 @@
+footer.wp-block-template-part {
+	margin-top: auto;
+
+	// Latest posts list
+	.wp-block-latest-posts.wp-block-latest-posts__list {
+		li {
+			margin-bottom: var(--wp--preset--spacing--40);
+		}
+		time {
+			opacity: 0.5;
+		}
+		// Featured image
+		.wp-block-latest-posts__featured-image.alignleft {
+			width: auto;
+			height: 60px;
+			border-radius: 50%;
+			overflow: hidden;
+			opacity: 0.8;
+			border-color: var(--wp--preset--color--primary);
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	@media all and (min-width: 699px) {
+		.wp-block-column {
+			padding: 0 !important;
+		}
+	}
+}
