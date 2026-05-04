@@ -1,0 +1,114 @@
+/**
+ * Mobile Navigation Accordion Styles
+ * Strictly scoped to the mobile overlay.
+ * Enforces left alignment, glass-morphism background, and restores the close button.
+ */
+
+:root {
+	// Dark transparent background for the glass effect
+	--wp--preset--element--menu-background: rgba(24, 24, 27, 0.90);
+	--wp--preset--element--menu-text: #ffffff;
+	--menu-border-color: rgba(255, 255, 255, 0.08);
+}
+
+.wp-block-navigation__responsive-container.is-menu-open {
+	background-color: var(--wp--preset--element--menu-background) !important;
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+
+	// Restore and properly position the close "X" button
+	.wp-block-navigation__responsive-container-close {
+		color: var(--wp--preset--element--menu-text);
+
+		svg {
+			width: 24px;
+			height: 24px;
+			fill: currentColor;
+		}
+	}
+
+	.wp-block-navigation__responsive-container-content {
+		color: var(--wp--preset--element--menu-text);
+		display: block;
+		padding: 80px 0 40px;
+
+		// Strip WP utility classes
+		.has-background {
+			background: transparent !important;
+		}
+
+		// Destroy core flex layouts to enforce a strict block column
+		.wp-block-navigation__container {
+			display: block !important;
+		}
+
+		// Main List Items (Rows)
+		.wp-block-navigation-item {
+			border-bottom: 1px solid var(--menu-border-color);
+			list-style: none;
+			flex-wrap: wrap !important;
+			flex-direction: row !important;
+
+			// Link typography
+			> a {
+				padding: 16px 0;
+				flex-grow: 1;
+				display: inline-flex;
+			}
+		}
+
+		// Submenu Toggle Icon
+		.wp-block-navigation__submenu-icon {
+			display: inline-flex !important;
+			margin: 0 0 0 auto;
+			width: 16px;
+			height: 16px;
+
+			svg {
+				transition: transform 0.3s ease;
+			}
+		}
+
+		// Submenu Container (Closed State)
+		.wp-block-navigation__submenu-container {
+			display: block;
+			width: 100% !important;
+			max-height: 0 !important;
+			opacity: 0;
+			overflow: hidden !important;
+			visibility: hidden !important;
+			padding: 0 0 0 1rem !important;
+			border: none;
+			transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease, visibility 0.4s;
+
+			// Child items styling
+			.wp-block-navigation-item {
+				border-bottom: none !important;
+				list-style: none;
+				flex-wrap: wrap;
+				flex-direction: row;
+				line-height: 24px;
+
+				> a {
+					display: flex;
+					align-items: center;
+					opacity: 0.7;
+				}
+			}
+		}
+
+		// Accordion (Open State)
+		.is-custom-open {
+			> .wp-block-navigation__submenu-icon svg {
+				transform: rotate(180deg);
+			}
+
+			> .wp-block-navigation__submenu-container {
+				max-height: 1000px !important;
+				opacity: 1;
+				visibility: visible !important;
+			}
+		}
+	}
+}
+
