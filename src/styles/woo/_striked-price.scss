@@ -1,0 +1,7 @@
+// the price del tag (the striked price)
+.woocommerce ul.products li.product .price del {
+		color: inherit;
+		opacity: .5;
+		display: inline-block;
+		margin-right: 8px
+}
