@@ -1,5 +1,19 @@
 .is-style-masonry-layout {
   .wp-block-post {
 	  position: absolute;
+	  transition: opacity 0.3s ease, transform 0.3s ease;
+
+	  &.fading-out {
+		  opacity: 0;
+		  transform: scale(0.95);
+	  }
+
+	  &.hide {
+		  display: none !important;
+	  }
   }
+}
+
+.nav.wp-block-query-pagination {
+    display: none !important;
 }
