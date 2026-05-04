@@ -1,3 +1,4 @@
+import './style.scss';
 import { __ } from '@wordpress/i18n';
 const prefix = 'category-';
 
@@ -14,23 +15,63 @@ const prefix = 'category-';
  */
 function toggleCategoryVisiblity(
 	wrapper: HTMLElement,
-	category: string | null,
-	forceGridAnimation: any
+	category: string | null
 ): void {
-	if ( category && wrapper.querySelector( '.' + prefix + category ) ) {
-		Array.from( wrapper.children ).forEach( ( item ) => {
-			if ( ! item.classList.contains( prefix + category ) ) {
-				item.classList.add( 'hide' );
-			} else {
-				item.classList.remove( 'hide' );
+	const masonryInstance = ( wrapper as any ).miniMasonry;
+	const items = Array.from( wrapper.children ) as HTMLElement[];
+	const itemsToHide: HTMLElement[] = [];
+	const itemsToShow: HTMLElement[] = [];
+
+	items.forEach( ( item ) => {
+		const isMatch =
+			! category || item.classList.contains( prefix + category );
+		if ( isMatch ) {
+			if ( item.classList.contains( 'hide' ) ) {
+				itemsToShow.push( item );
 			}
-		} );
-	} else {
-		Array.from( wrapper.children ).forEach( ( item ) => {
-			item.classList.remove( 'hide' );
-		} );
+		} else {
+			if ( ! item.classList.contains( 'hide' ) ) {
+				itemsToHide.push( item );
+			}
+		}
+	} );
+
+	if ( itemsToHide.length === 0 && itemsToShow.length === 0 ) {
+		return;
 	}
-	forceGridAnimation();
+
+	// 1. Fade out items that need to be hidden
+	itemsToHide.forEach( ( item ) => item.classList.add( 'fading-out' ) );
+
+	// 2. Prepare items to show (start them as fading-out so they're transparent)
+	itemsToShow.forEach( ( item ) => {
+		item.classList.add( 'fading-out' );
+		item.classList.remove( 'hide' );
+	} );
+
+	const waitTime = itemsToHide.length > 0 ? 300 : 0;
+
+	setTimeout( () => {
+		// 3. Fully hide elements that faded out
+		itemsToHide.forEach( ( item ) => item.classList.add( 'hide' ) );
+
+		// 4. Trigger layout calculation so transparent items get positioned correctly
+		if ( masonryInstance ) {
+			masonryInstance.layout();
+		}
+
+		// 5. Trigger fade-in for shown items on next frames
+		requestAnimationFrame( () => {
+			setTimeout( () => {
+				itemsToShow.forEach( ( item ) =>
+					item.classList.remove( 'fading-out' )
+				);
+				itemsToHide.forEach( ( item ) =>
+					item.classList.remove( 'fading-out' )
+				);
+			}, 50 );
+		} );
+	}, waitTime );
 }
 
 /**
@@ -43,88 +84,60 @@ function getLastElementFromHref( href ) {
 	const url = new URL( href );
 	const pathname = url.pathname;
 	const pathnameParts = pathname.split( '/' );
-	const lastElement = pathnameParts[ pathnameParts.length - 2 ];
-
-	if ( url.hash === '#all' ) {
-		return null;
-	}
-
-	return lastElement;
-}
-
-function addAllCategory( ulElement ) {
-	if ( ulElement ) {
-		// Create a new <li> element
-		const liElement = document.createElement( 'li' );
-		liElement.setAttribute( 'class', 'cat-item cat-item-all' );
-
-		// Create a new <a> element with the "All" label
-		const aElement = document.createElement( 'a' );
-		aElement.href = '#all'; // Set the appropriate URL if needed
-		aElement.innerText = __( 'All' );
-
-		// Append the <a> element to the <li> element
-		liElement.appendChild( aElement );
-
-		// Insert the new <li> element before the first child of the <ul>
-		ulElement.insertBefore( liElement, ulElement.firstChild );
-	}
+	return pathnameParts[ pathnameParts.length - 2 ];
 }
 
 /**
- * The `modulrGrid` function adds event listeners to grid buttons and toggles the visibility of grid
- * categories based on user interaction.
+ * Initialize grid buttons, distinguishing between internal filters and external category links.
  */
 export async function modulrGrid(): Promise< void > {
-	addAllCategory( document.querySelector( 'ul.modulr-grid-buttons' ) );
 
-	/* Finding all elements with the class `animate__animated` and adding them to an array. */
-	const gridButtons: NodeListOf< HTMLAnchorElement > =
-		document.querySelectorAll( '.modulr-grid-buttons li' );
-
-	const grid: HTMLElement | null =
-		document.querySelector( '.modulr-grid > ul' );
+	const gridButtons: NodeListOf< HTMLElement > = document.querySelectorAll( '.modulr-grid-buttons li' );
+	const grid: HTMLElement | null = document.querySelector( '.modulr-grid > ul' );
 
 	if ( gridButtons && grid ) {
-		const { wrapGrid } = await import( 'animate-css-grid' );
+		const currentPath = window.location.pathname;
 
-		const { forceGridAnimation } = wrapGrid( grid );
-
-		/* The code block is adding event listeners to each button in the `gridButtons` array. */
 		gridButtons.forEach( ( button, index ) => {
 			button.dataset.index = index.toString();
+			const buttonAnchor = button.querySelector( 'a' );
+
+			if ( buttonAnchor ) {
+				const href = buttonAnchor.getAttribute( 'href' );
+				let isFilter = false;
+
+				if ( href && ( href.startsWith( '#' ) || href === '' ) ) {
+					isFilter = true;
+				} else if ( href ) {
+					try {
+						const linkUrl = new URL( href, window.location.origin );
+						// Verify if the link belongs to the same path or a subpath[cite: 2]
+						if ( linkUrl.pathname.startsWith( currentPath ) ) {
+							isFilter = true;
+						}
+					} catch ( e ) {
+						// Fallback for relative paths
+						if ( href.startsWith( currentPath ) ) isFilter = true;
+					}
+				}
+
+				button.classList.add( isFilter ? 'is-sub-category' : 'is-external-category' );
+			}
 
 			button.addEventListener( 'click', function ( e: Event ) {
-				e.preventDefault();
-
-				const clickedItem = e.currentTarget as HTMLAnchorElement;
-				const clickedItemAnchor =
-					clickedItem.firstChild as HTMLAnchorElement;
-
-				if ( clickedItem?.classList.contains( 'current-cat' ) ) {
-					toggleCategoryVisiblity( grid, null, forceGridAnimation );
-					// the main button cannot be disabled
-					if ( clickedItem.dataset.index === '0' ) {
-						return;
-					}
-					clickedItem.classList.remove( 'current-cat' );
-					gridButtons[ 0 ].classList.add( 'current-cat' );
-				} else {
-					const category = getLastElementFromHref(
-						clickedItemAnchor?.href
-					);
-
-					// remove the active class from sibling buttons
-					gridButtons.forEach( ( el ) => {
-						el.classList.remove( 'current-cat' );
-					} );
-					button.classList.add( 'current-cat' );
-					toggleCategoryVisiblity(
-						grid,
-						category,
-						forceGridAnimation
-					);
+				if ( button.classList.contains( 'is-external-category' ) ) {
+					return; // Let the browser handle the link naturally
 				}
+
+				e.preventDefault();
+				const clickedItem = e.currentTarget as HTMLElement;
+				const clickedItemAnchor = clickedItem.querySelector( 'a' );
+
+				gridButtons.forEach( ( el ) => el.classList.remove( 'current-cat' ) );
+				button.classList.add( 'current-cat' );
+
+				const category = getLastElementFromHref( clickedItemAnchor?.href );
+				toggleCategoryVisiblity( grid, category );
 			} );
 		} );
 	}
