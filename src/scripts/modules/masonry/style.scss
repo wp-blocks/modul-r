@@ -1,7 +1,7 @@
 .is-style-masonry-layout {
   .wp-block-post {
 	  position: absolute;
-	  transition: opacity 0.3s ease, transform 0.3s ease;
+	  transition: opacity 0.3s ease;
 
 	  &.fading-out {
 		  opacity: 0;
@@ -14,6 +14,10 @@
   }
 }
 
-.nav.wp-block-query-pagination {
-    display: none !important;
+.animate-pending {
+	opacity: 0;
+}
+
+.wp-block-query-pagination {
+	display: none !important;
 }

@@ -1,7 +1,9 @@
 /* Masonry */
 import './style.scss';
 
-const minCardSize = 300;
+const minCardSize = 200;
+const gutterX = 24;
+const gutterY = 24;
 
 /**
  * The function gets the base width and number of columns for a masonry layout.
@@ -9,9 +11,9 @@ const minCardSize = 300;
  *
  * @param {HTMLElement} wrapper - The main block wrapper.
  * @param {HTMLElement} gridElement - The actual container of the items (ul or figure).
- * @param {number} gutterX - Horizontal gutter size.
+ * @param {number} gutter - Horizontal gutter size.
  */
-function getMasonryAttributes( wrapper: HTMLElement, gridElement: HTMLElement, gutterX: number = 24 ) {
+function getMasonryAttributes( wrapper: HTMLElement, gridElement: HTMLElement, gutter: number = 24 ) {
 	const attributes: { baseWidth?: number; columns?: number } = {};
 	const containerWidth = gridElement?.clientWidth || 0;
 
@@ -21,7 +23,7 @@ function getMasonryAttributes( wrapper: HTMLElement, gridElement: HTMLElement, g
 	elementsToCheck.forEach( ( el ) => {
 		el?.classList.forEach( ( classname ) => {
 			if ( classname.startsWith( 'columns-' ) ) {
-				attributes.columns = Number( classname.replace( 'columns-', '' ) ) || undefined;
+				attributes.columns = Number( classname.replace( 'columns-', '' ) ) || 1;
 			}
 		} );
 	} );
@@ -30,9 +32,9 @@ function getMasonryAttributes( wrapper: HTMLElement, gridElement: HTMLElement, g
 		const totalGutterSpace = gutterX * ( attributes.columns - 1 );
 		const availableWidth = containerWidth - totalGutterSpace;
 
-		// We subtract 0.5px to force the browser to fit exactly the number of columns,
-		// preventing rounding errors that trigger a 5th column.
-		const exactWidth = ( availableWidth / attributes.columns ) - 0.5;
+		// We subtract the gutter space and 1px to force the browser to fit exactly the number of columns,
+		// preventing rounding errors that trigger a n+1 column.
+		const exactWidth = ( availableWidth / attributes.columns ) - gutter;
 
 		attributes.baseWidth = Math.max(
 			minCardSize,
@@ -96,7 +98,9 @@ function initInfiniteScroll( container: HTMLElement, masonryInstance: any ) {
 							'.is-style-masonry-layout ul > li.wp-block-post'
 						);
 						newItems.forEach( ( item ) => {
-							container.appendChild( item );
+							const el = item as HTMLElement;
+							el.classList.add( 'animate-pending' );
+							container.appendChild( el );
 						} );
 
 						const newNextLink = doc.querySelector(
@@ -113,6 +117,15 @@ function initInfiniteScroll( container: HTMLElement, masonryInstance: any ) {
 						// Wait for new appended images to load before recalculating
 						await waitForImagesToLoad( container );
 						masonryInstance.layout();
+
+						requestAnimationFrame( () => {
+							newItems.forEach( ( item, index ) => { // Ensure index is in the parameters
+								const el = item as HTMLElement;
+								el.classList.remove( 'animate-pending' );
+								el.classList.add( 'masonry-item-enter' );
+								el.style.animationDelay = `${ index * 60 }ms`; // Incremental delay
+							} );
+						} );
 
 					} catch ( error ) {
 						console.error( 'Error fetching next page:', error );
@@ -145,16 +158,19 @@ export async function modulrMasonryController() {
 
 		if ( gridContainer ) {
 			// Pass both the wrapper and the ul/figure to check for classes[cite: 1, 2]
-			const attributes = getMasonryAttributes( container, gridContainer as HTMLElement, 24 );
+			const attributes = getMasonryAttributes( container, gridContainer as HTMLElement, gutterX );
 
 			gridContainer.classList.remove( 'is-layout-flex', 'is-layout-flow', 'is-layout-grid' );
+
+			console.log(Math.round(attributes.baseWidth));
 
 			requestAnimationFrame( () => {
 				const masonryInstance = new MiniMasonry.default( {
 					container: gridContainer,
-					baseWidth: attributes.baseWidth,
-					gutterX: 24,
-					gutterY: 24,
+					baseWidth: Math.round(attributes.baseWidth),
+					gutterX: gutterX,
+					gutterY: gutterY,
+					surroundingGutter: false,
 				} );
 
 				( gridContainer as any ).miniMasonry = masonryInstance;
