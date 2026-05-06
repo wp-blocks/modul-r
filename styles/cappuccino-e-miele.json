@@ -7,31 +7,31 @@
 			"palette": [
 				{
 					"name": "Primary",
-					"color": "#b08968",
+					"color": "#CD792F",
 					"slug": "primary"
 				},
 				{
 					"slug": "primary-light",
-					"color": "#ddb892",
+					"color": "#DDB892",
 					"name": "Primary Light"
 				},
 				{
 					"slug": "primary-dark",
-					"color": "#7f5539",
+					"color": "#7F5539",
 					"name": "Primary Dark"
 				},
 				{
-					"color": "#fed920",
+					"color": "#FFD000",
 					"name": "Secondary",
 					"slug": "secondary"
 				},
 				{
-					"color": "#ffea7f",
+					"color": "#FFEA7F",
 					"name": "Secondary Light",
 					"slug": "secondary-light"
 				},
 				{
-					"color": "#ebb912",
+					"color": "#EBB912",
 					"name": "Secondary Dark",
 					"slug": "secondary-dark"
 				},

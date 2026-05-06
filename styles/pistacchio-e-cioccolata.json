@@ -7,7 +7,7 @@
 			"palette": [
 				{
 					"name": "Primary",
-					"color": "#7f9950",
+					"color": "#90BB40",
 					"slug": "primary"
 				},
 				{
@@ -21,7 +21,7 @@
 					"name": "Primary Dark"
 				},
 				{
-					"color": "#8c6a51",
+					"color": "#96664B",
 					"name": "Secondary",
 					"slug": "secondary"
 				},

@@ -8,62 +8,62 @@
         {
           "name": "Primary",
           "slug": "primary",
-          "color": "light-dark(#1e293b, #e2e8f0)"
+          "color": "#4c4ca9"
         },
         {
           "name": "Primary Light",
           "slug": "primary-light",
-          "color": "light-dark(#475569, #cbd5e1)"
+          "color": "light-dark(#000000, #77778F)"
         },
         {
           "name": "Primary Dark",
           "slug": "primary-dark",
-          "color": "light-dark(#0f172a, #f8fafc)"
+          "color": "light-dark(#77778F, #000000)"
         },
         {
           "name": "Secondary",
           "slug": "secondary",
-          "color": "light-dark(#0284c7, #38bdf8)"
+          "color": "#404099"
         },
         {
           "name": "Secondary Light",
           "slug": "secondary-light",
-          "color": "light-dark(#0ea5e9, #7dd3fc)"
+          "color": "light-dark(#DD289E, #2ea2cc)"
         },
         {
           "name": "Secondary Dark",
           "slug": "secondary-dark",
-          "color": "light-dark(#0369a1, #0284c7)"
+          "color": "light-dark(#2ea2cc, #DD289E)"
         },
         {
           "name": "Black",
           "slug": "black",
-          "color": "light-dark(#111111, #ffffff)"
+          "color": "light-dark(#1a1e24, #ffffff)"
         },
         {
           "name": "Gray Dark",
           "slug": "gray-dark",
-          "color": "light-dark(#4b5563, #d1d5db)"
+          "color": "light-dark(#2a2627, #f8f8f8)"
         },
         {
           "name": "Gray",
           "slug": "gray",
-          "color": "light-dark(#9ca3af, #6b7280)"
+          "color": "light-dark(#71717b, #e0e7ff)"
         },
         {
           "name": "Gray Light",
           "slug": "gray-light",
-          "color": "light-dark(#e5e7eb, #374151)"
+          "color": "light-dark(#e0e7ff, #71717b)"
         },
         {
           "name": "White Smoke",
           "slug": "white-smoke",
-          "color": "light-dark(#f3f4f6, #1f2937)"
+          "color": "light-dark(#f8f8f8, #2a2627)"
         },
         {
           "name": "White",
           "slug": "white",
-          "color": "light-dark(#ffffff, #111111)"
+          "color": "light-dark(#ffffff, #1a1e24)"
         },
         {
           "name": "Text Color",
@@ -77,8 +77,5 @@
         }
       ]
     }
-  },
-  "styles": {
-    "css": ":root { color-scheme: light dark; }"
   }
 }
