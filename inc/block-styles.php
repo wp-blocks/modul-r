@@ -75,8 +75,8 @@ function vsge_register_block_patterns() {
 		 * Covers
 		 */
 		register_block_style( 'core/cover', array(
-			'name'  => 'slate',
-			'label' => __( 'Slate', 'modul-r' )
+			'name'  => 'checker',
+			'label' => __( 'Checker pattern', 'modul-r' )
 		) );
 
 		/**
@@ -96,9 +96,10 @@ function vsge_register_block_patterns() {
 		 * Modules
 		 */
 		register_block_style( 'core/gallery', array(
-			'name'  => 'masonry-gallery',
+			'name'  => 'masonry-layout',
 			'label' => __( 'Masonry layout', 'modul-r' ),
 		) );
+
 		register_block_style( 'core/gallery', array(
 			'name'  => 'slider-gallery',
 			'label' => __( 'Slider', 'modul-r' ),
