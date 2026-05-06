@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Hidden Comments
- * Slug: modul-r/hidden-comments
+ * Title: Comments Form
+ * Slug: modul-r/comments
  * Inserter: no
  */
 ?>
