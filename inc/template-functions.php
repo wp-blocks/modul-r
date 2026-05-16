@@ -40,13 +40,3 @@ if ( ! function_exists( 'modul_r_content_height_fix' ) ) :
 	}
 endif;
 add_action( 'wp_head', 'modul_r_content_height_fix' );
-
-/**
- * Returns the custom scroll offset value.
- *
- * @return int The custom scroll offset value.
- */
-function modulr_get_custom_scroll_offset() {
-	return 1000;
-}
-add_filter( 'fast_smooth_scroll_offset', 'modulr_get_custom_scroll_offset' );

@@ -8,7 +8,7 @@
  * @license   GPL 2.0+
  * @link      https://modul-r.codekraft.it/
  */
-function vsge_register_block_patterns() {
+function modulr_register_block_patterns() {
 
 	/* Registering a block pattern category. */
 	if ( function_exists( 'register_block_pattern_category' ) ) {
@@ -17,7 +17,6 @@ function vsge_register_block_patterns() {
 		 * Register Block Pattern Category.
 		 */
 		register_block_pattern_category( 'modul-r', array( 'label' => __( 'Modul-R patterns', 'modul-r' ) ) );
-
 	}
 
 	/* Registering block styles. */
@@ -137,4 +136,4 @@ function vsge_register_block_patterns() {
 	}
 }
 
-add_action( 'after_setup_theme', 'vsge_register_block_patterns' );
+add_action( 'after_setup_theme', 'modulr_register_block_patterns' );
