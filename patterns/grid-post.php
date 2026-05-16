@@ -3,7 +3,7 @@
  * Title: Grid Post
  * Slug: modul-r/grid-post
  * Categories: modul-r
- * Contributors: codekraft
+ * Inserter: false
  */
 ?>
 <!-- wp:post-template {"align":"wide","layout":{"type":"grid","columnCount":4,"minimumColumnWidth":null}} -->

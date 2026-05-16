@@ -3,7 +3,7 @@
  * Title: Product Loop
  * Slug: modul-r/product-loop
  * Categories: modul-r
- * Contributors: codekraft
+ * Inserter: false
  */
 ?>
 <!-- wp:woocommerce/product-image {"showSaleBadge":false,"imageSizing":"thumbnail","isDescendentOfQueryLoop":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->

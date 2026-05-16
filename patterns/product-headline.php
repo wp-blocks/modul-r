@@ -4,6 +4,7 @@
  * Slug: modul-r/product-headline
  * Categories: modul-r
  * Contributors: codekraft
+ * Inserter: false
  */
 ?>
 <!-- wp:columns {"align":"wide"} -->
