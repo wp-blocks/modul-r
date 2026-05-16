@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Product Head
- * Slug: modul-r/product-head
+ * Title: Product Headline
+ * Slug: modul-r/product-headline
  * Categories: modul-r
  * Contributors: codekraft
  */
