@@ -396,6 +396,11 @@
 			"title": "Checkout Header"
 		},
 		{
+			"area": "header",
+			"name": "header-search",
+			"title": "Search Header"
+		},
+		{
 			"area": "footer",
 			"name": "footer",
 			"title": "Footer"
