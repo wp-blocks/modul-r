@@ -7,7 +7,6 @@ import { modulrSelectController } from './modules/select';
 import { modulrGrid } from './modules/grid';
 import { modulrScrollTo } from './modules/scroll/scroll';
 import { backToTop } from './modules/backToTop';
-import { modulrSidebarController } from './modules/mobileSidebar';
 import { modulrVivusController } from './modules/animateSvg';
 import { modulrPageableController } from './modules/pageable';
 import { modulrNavigationAccordionController } from './modules/navigation-accordion';
@@ -34,8 +33,6 @@ window.addEventListener( 'load', async () => {
 	modulrSelectController();
 	/* enable light-boxes */
 	modulrLightboxController();
-	/* enable mobile sidebar */
-	modulrSidebarController();
 	/* enable Vivus animations */
 	modulrVivusController();
 	/* enable pageable */

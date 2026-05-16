@@ -1,116 +1,15 @@
-// Content resize if placed after the sidebar
-@media (max-width: 768px) {
-	.wp-site-blocks {
-		position: relative;
-		.sidebar + .wp-block-group {
-			width: 100%;
-		}
-	}
-}
-
-// Mobile Sidebar Styles
-.sidebar.wp-block-template-part {
-	// Only apply mobile styles on screens smaller than 768px
-	@media (max-width: 768px) {
-		// Hide the sidebar off-screen to the left using transform
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 300px;
-		height: 100vh; // Full screen height
-		background-color: #ffffff;
-		z-index: 9999; // Make sure it sits on top of everything
-		overflow-y: auto; // Allow scrolling inside the sidebar
-		transform: translateX(-100%); // Hide off-screen
-		transition: transform 0.3s ease-in-out; // Smooth sliding animation
-		box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-		padding: 20px;
-
-		// The class that JavaScript will add to slide it in
-		&.is-open {
-			transform: translateX(0); // Slide in
-		}
-	}
-}
-
-// Sidebar toggle button
-.sidebar-toggle-btn {
-	@media (max-width: 768px) {
-		position: sticky;
-		top: 25%;
-		z-index: 10000;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 42px;
-		height: 42px;
-		padding: 0;
-		background-color: #333;
-		color: #fff;
-		border: none;
-		border-radius: 0px 8px 8px 0px;
-		cursor: pointer;
-		transition: all 0.2s ease-in-out;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-		&:hover {
-			background-color: #555;
-			transform: scale(1.05);
-			box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-		}
-
-		&:active {
-			transform: scale(0.95);
-			box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-		}
-
-		// SVG styling
-		svg {
-			width: 24px;
-			height: 24px;
-			transition: transform 0.2s ease-in-out;
-		}
-
-		// Hidden state - initially hidden
-		&.hidden {
-			display: none;
-		}
+@media screen and (max-width: 782px) {
+	/*
+	 * Fix for admin bar height on mobile
+	 */
+	html body.woocommerce {
+		--wp-admin--admin-bar--height: 64px
 	}
 
-	// Hide the toggle button on desktop
-	@media (min-width: 769px) {
-		display: none;
-	}
-}
-
-// Sidebar overlay
-.sidebar-overlay {
-	@media (max-width: 768px) {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0,0,0,0.5);
-		z-index: 9998;
-		opacity: 0;
-		visibility: hidden;
-		transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-		cursor: pointer;
-
-		&.is-open {
-			opacity: 1;
-			visibility: visible;
-		}
-
-		// Hidden state - initially hidden
-		&.hidden {
-			display: none;
-		}
-	}
-
-	// Hide overlay on desktop
-	@media (min-width: 769px) {
-		display: none;
+	/*
+	 * Fix for WooCommerce product filters on mobile
+	 */
+	:where(.wc-block-product-filters) {
+		--top-padding:64px
 	}
 }
