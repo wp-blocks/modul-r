@@ -5,13 +5,13 @@
  * Categories: headlines, modul-r
  */
 ?>
-<!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"overlayColor":"primary","isUserOverlayColor":true,"minHeight":33,"minHeightUnit":"vh","isDark":false,"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-cover is-light" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;min-height:33vh">
+<!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"overlayColor":"primary","isUserOverlayColor":true,"minHeight":40,"minHeightUnit":"vh","isDark":false,"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-cover is-light" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;min-height:40vh">
 	<span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim"></span>
 	<div class="wp-block-cover__inner-container">
 		<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 		<div class="wp-block-group">
-			<!-- wp:query-title {"type":"archive","textAlign":"center","showPrefix":false,"align":"wide","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}},"typography":{"fontSize":"6rem","textTransform":"uppercase","fontStyle":"normal","fontWeight":"300"}},"textColor":"background","fontFamily":"default"} /-->
+			<!-- wp:query-title {"type":"archive","textAlign":"center","showPrefix":false,"align":"wide","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}},"typography":{"fontSize":"5rem","textTransform":"uppercase","fontStyle":"normal","fontWeight":"300"}},"textColor":"background","fontFamily":"default"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
