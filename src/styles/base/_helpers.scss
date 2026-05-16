@@ -4,6 +4,18 @@
 
 .hide {
 	display: none;
+
+	&-on-desktop {
+		@media (min-width: 420px) {
+			display: none;
+		}
+	}
+
+	&-on-mobile {
+		@media (max-width: 420px) {
+			display: none;
+		}
+	}
 }
 
 .unselectable::selection {
