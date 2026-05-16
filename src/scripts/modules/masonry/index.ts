@@ -13,7 +13,7 @@ const gutterY = 24;
  * @param {HTMLElement} gridElement - The actual container of the items (ul or figure).
  * @param {number} gutter - Horizontal gutter size.
  */
-function getMasonryAttributes( wrapper: HTMLElement, gridElement: HTMLElement, gutter: number = 24 ) {
+function getMasonryAttributes( wrapper: HTMLElement, gridElement: HTMLElement, gutter: number = 24 ): { baseWidth?: number; columns?: number } {
 	const attributes: { baseWidth?: number; columns?: number } = {};
 	const containerWidth = gridElement?.clientWidth || 0;
 
@@ -162,12 +162,10 @@ export async function modulrMasonryController() {
 
 			gridContainer.classList.remove( 'is-layout-flex', 'is-layout-flow', 'is-layout-grid' );
 
-			console.log(Math.round(attributes.baseWidth));
-
 			requestAnimationFrame( () => {
 				const masonryInstance = new MiniMasonry.default( {
 					container: gridContainer,
-					baseWidth: Math.round(attributes.baseWidth),
+					baseWidth: Math.round(attributes?.baseWidth || minCardSize),
 					gutterX: gutterX,
 					gutterY: gutterY,
 					surroundingGutter: false,
