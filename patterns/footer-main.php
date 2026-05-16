@@ -12,15 +12,15 @@
 	<!-- wp:column {"width":"36%","style":{"spacing":{"blockGap":"var:preset|spacing|box-padding"}}} -->
 	<div class="wp-block-column" style="flex-basis:36%">
 		<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"right":"var:preset|spacing|box-padding","left":"0"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-		<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-right:var(--wp--preset--spacing--box-padding);padding-left:0"><!-- wp:site-logo /-->
+		<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-right:var(--wp--preset--spacing--box-padding);padding-left:0">
+			<!-- wp:site-logo /-->
 
 			<!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"textColor":"white","fontSize":"default"} -->
 			<p class="has-white-color has-text-color has-default-font-size" style="font-style:normal;font-weight:400"></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"background","iconColorValue":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dcolor\u002d\u002dwhite)","iconBackgroundColor":"secondary-dark","iconBackgroundColorValue":"#CA4505","openInNewTab":true,"size":"has-normal-icon-size","className":"is-style-default","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|20"}}}} -->
-			<ul class="wp-block-social-links has-normal-icon-size has-icon-color has-icon-background-color is-style-default" id="https://github.com/erikyo/"></ul>
-			<!-- /wp:social-links --></div>
+			<!-- wp:social-links {"iconColor":"background","iconColorValue":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dcolor\u002d\u002dwhite)","iconBackgroundColor":"secondary-dark","iconBackgroundColorValue":"#CA4505","openInNewTab":true,"size":"has-normal-icon-size","className":"is-style-default","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|20"}}}} /-->
+		</div>
 		<!-- /wp:group -->
 	</div>
 	<!-- /wp:column -->
