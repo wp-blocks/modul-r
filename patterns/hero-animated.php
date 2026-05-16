@@ -2,7 +2,7 @@
 /**
  * Title: Hero Animated
  * Slug: modul-r/hero-animated
- * Categories: header, modul-r
+ * Categories: headlines, modul-r
  */
 ?>
 <!-- wp:cover {"overlayColor":"white","isUserOverlayColor":true,"isDark":false,"metadata":{"categories":["modul-r"],"patternName":"modul-r/hero-animated","name":"Hero Animated"},"align":"full","className":"modulr-hero-animated-wrapper","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}}} -->

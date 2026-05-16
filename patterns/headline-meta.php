@@ -2,7 +2,7 @@
 /**
  * Title: Headline Metadata
  * Slug: modul-r/headline-meta
- * Categories: header, modul-r
+ * Categories: headlines, modul-r
  */
 ?>
 <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->

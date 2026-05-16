@@ -2,7 +2,7 @@
 /**
  * Title: Hero
  * Slug: modul-r/hero
- * Categories: header, modul-r
+ * Categories: headlines, modul-r
  */
 ?>
 <!-- wp:cover {"useFeaturedImage":true,"overlayColor":"gray-dark","minHeight":75,"minHeightUnit":"vh","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|60"}}},"className":"is-style-checker"} -->
