@@ -9,8 +9,8 @@
 <!-- wp:woocommerce/product-collection {"queryId":3,"query":{"perPage":9,"pages":0,"offset":0,"postType":"product","order":"asc","orderBy":"title","search":"","exclude":[],"inherit":true,"taxQuery":[],"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","outofstock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false,"relatedBy":{"categories":true,"tags":true}},"tagName":"div","displayLayout":{"type":"flex","columns":3,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"__privatePreviewState":{"isPreview":false,"previewMessage":"Actual products will vary depending on the page being viewed."},"align":"wide"} -->
 <div class="wp-block-woocommerce-product-collection alignwide">
 	<!-- wp:woocommerce/product-template -->
-	<!-- wp:group {"style":{"spacing":{"blockGap":"0"},"color":{"background":"#ffffff"}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group has-background" style="background-color:#ffffff">
+	<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"backgroundColor":"background","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group has-background-color has-background">
 		<!-- wp:woocommerce/product-image {"showSaleBadge":false,"imageSizing":"thumbnail","isDescendentOfQueryLoop":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
 		<!-- wp:woocommerce/product-sale-badge {"align":"left","backgroundColor":"secondary-light","textColor":"secondary-dark","fontSize":"extra-small","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":{"topLeft":"24px","topRight":"24px","bottomLeft":"24px","bottomRight":"24px"},"width":"0px","style":"none"},"elements":{"link":{"color":{"text":"var:preset|color|secondary-dark"}}},"typography":{"fontStyle":"normal","fontWeight":"400","lineHeight":"2"}}} /-->
 		<!-- /wp:woocommerce/product-image -->
