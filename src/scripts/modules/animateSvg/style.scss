@@ -1,0 +1,30 @@
+/**
+ * Vivus SVG styles
+ */
+.is-style-vivus {
+
+	svg {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	&.vivus-fill {
+		svg {
+
+			path {
+				// Initial state: visible stroke, transparent fill
+				fill-opacity: 0;
+				transition: fill-opacity 0.5s ease, stroke-opacity 0.5s ease;
+			}
+
+			// The "Swap" effect triggered by the JS callback
+			&.is-finished {
+				path {
+					fill-opacity: 1;
+					stroke-opacity: 0; // Swap: border hides while fill appears
+				}
+			}
+		}
+	}
+}

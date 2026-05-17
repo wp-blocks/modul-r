@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Light and Dark",
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Primary",
+          "slug": "primary",
+          "color": "#4c4ca9"
+        },
+        {
+          "name": "Primary Light",
+          "slug": "primary-light",
+          "color": "light-dark(#000000, #77778F)"
+        },
+        {
+          "name": "Primary Dark",
+          "slug": "primary-dark",
+          "color": "light-dark(#77778F, #000000)"
+        },
+        {
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "#404099"
+        },
+        {
+          "name": "Secondary Light",
+          "slug": "secondary-light",
+          "color": "light-dark(#DD289E, #2ea2cc)"
+        },
+        {
+          "name": "Secondary Dark",
+          "slug": "secondary-dark",
+          "color": "light-dark(#2ea2cc, #DD289E)"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "light-dark(#1a1e24, #ffffff)"
+        },
+        {
+          "name": "Gray Dark",
+          "slug": "gray-dark",
+          "color": "light-dark(#2a2627, #f8f8f8)"
+        },
+        {
+          "name": "Gray",
+          "slug": "gray",
+          "color": "light-dark(#71717b, #e0e7ff)"
+        },
+        {
+          "name": "Gray Light",
+          "slug": "gray-light",
+          "color": "light-dark(#e0e7ff, #71717b)"
+        },
+        {
+          "name": "White Smoke",
+          "slug": "white-smoke",
+          "color": "light-dark(#f8f8f8, #2a2627)"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "light-dark(#ffffff, #1a1e24)"
+        },
+        {
+          "name": "Text Color",
+          "slug": "text-color",
+          "color": "var(--wp--preset--color--black)"
+        },
+        {
+          "name": "Background",
+          "slug": "background",
+          "color": "var(--wp--preset--color--white)"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+/* Reset WordPress native styles for Masonry */
+.is-style-masonry-layout {
+	display: block !important; /* Overrides native WP CSS Grid */
+	position: relative !important;
+	width: 100%;
+
+	&.wp-block-gallery {
+		gap: 0 !important; /* Removes extra grid spacing */
+	}
+
+	/* Targets both loop items and gallery figures */
+	li.wp-block-post,
+	&.wp-block-gallery figure.wp-block-image {
+		display: block !important; /* Removes display: grid from children */
+		position: absolute; /* Prepares layout for MiniMasonry absolute positioning */
+		margin: 0 !important;
+		padding: 0 !important;
+		box-sizing: border-box;
+	}
+}
+
+/* Hide pagination — it is only used as an Intersection Observer trigger */
+.wp-block-query-pagination {
+	display: none !important;
+}
+
+/* Entry animation helper: keeps items invisible until layout is calculated */
+.animate-pending {
+	opacity: 0;
+}
+
+@keyframes masonryFadeInUp {
+	0% {
+		opacity: 0;
+		margin-top: 30px;
+	}
+	100% {
+		opacity: 1;
+		margin-top: 0;
+	}
+}
+
+.masonry-item-enter {
+	animation: masonryFadeInUp 0.4s ease-out both;
+}

@@ -7,7 +7,7 @@ export function modulrScrollTo() {
 	const anchorlinks = mainWrapper?.querySelectorAll( 'a[href^="#"]' );
 	const header: HTMLElement | null = document.querySelector(
 		'header.wp-block-template-part'
-	); // Replace with the actual class or ID of your fixed header
+	);
 
 	// Function to get the height of the header
 	function getHeaderHeight() {
@@ -34,7 +34,7 @@ export function modulrScrollTo() {
 					behavior: 'smooth',
 				} );
 
-				history.pushState( null, null, hash );
+				history.pushState( null, '', hash );
 			}
 		} );
 	} );

@@ -8,7 +8,7 @@
  * @license   GPL 2.0+
  * @link      https://modul-r.codekraft.it/
  */
-function vsge_register_block_patterns() {
+function modulr_register_block_patterns() {
 
 	/* Registering a block pattern category. */
 	if ( function_exists( 'register_block_pattern_category' ) ) {
@@ -17,7 +17,6 @@ function vsge_register_block_patterns() {
 		 * Register Block Pattern Category.
 		 */
 		register_block_pattern_category( 'modul-r', array( 'label' => __( 'Modul-R patterns', 'modul-r' ) ) );
-
 	}
 
 	/* Registering block styles. */
@@ -75,8 +74,8 @@ function vsge_register_block_patterns() {
 		 * Covers
 		 */
 		register_block_style( 'core/cover', array(
-			'name'  => 'slate',
-			'label' => __( 'Slate', 'modul-r' )
+			'name'  => 'checker',
+			'label' => __( 'Checker pattern', 'modul-r' )
 		) );
 
 		/**
@@ -87,13 +86,19 @@ function vsge_register_block_patterns() {
 			'label' => __( 'Card', 'modul-r' ),
 		) );
 
+		register_block_style( 'core/group', array(
+			'name'  => 'pageable',
+			'label' => __( 'Pageable', 'modul-r' ),
+		) );
+
 		/**
 		 * Modules
 		 */
 		register_block_style( 'core/gallery', array(
-			'name'  => 'masonry-gallery',
+			'name'  => 'masonry-layout',
 			'label' => __( 'Masonry layout', 'modul-r' ),
 		) );
+
 		register_block_style( 'core/gallery', array(
 			'name'  => 'slider-gallery',
 			'label' => __( 'Slider', 'modul-r' ),
@@ -131,4 +136,4 @@ function vsge_register_block_patterns() {
 	}
 }
 
-add_action( 'after_setup_theme', 'vsge_register_block_patterns' );
+add_action( 'after_setup_theme', 'modulr_register_block_patterns' );

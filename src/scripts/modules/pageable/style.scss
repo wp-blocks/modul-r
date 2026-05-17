@@ -1,0 +1,38 @@
+/**
+ * Pageable essential styles
+ */
+
+.is-style-pageable {
+	display: block;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+}
+
+// Style for navigation dots (pips)
+.pg-pips {
+	position: fixed;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 100;
+
+	li {
+		margin: 1.5rem 0;
+		list-style: none;
+		a {
+			background: var(--wp--preset--color--primary, #000);
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			display: block;
+			opacity: 0.5;
+			transition: opacity 0.3s;
+
+			&.active {
+				opacity: 1;
+				transform: scale(1.3);
+			}
+		}
+	}
+}

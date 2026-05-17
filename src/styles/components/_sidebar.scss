@@ -1,0 +1,15 @@
+@media screen and (max-width: 782px) {
+	/*
+	 * Fix for admin bar height on mobile
+	 */
+	html body.woocommerce {
+		--wp-admin--admin-bar--height: 64px
+	}
+
+	/*
+	 * Fix for WooCommerce product filters on mobile
+	 */
+	:where(.wc-block-product-filters) {
+		--top-padding:64px
+	}
+}

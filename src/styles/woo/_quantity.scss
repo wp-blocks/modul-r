@@ -1,0 +1,72 @@
+// Quantity Input Wrapper
+// Variables
+$transition: all 0.2s ease;
+
+.wc-block-components-quantity-selector {
+	display: flex;
+	align-items: stretch;
+	width: 130px;
+	height: 100%;
+	// Main container has a neutral border, not the primary one
+	background: var(--wp--preset--color--white-smoke);
+	border: 1px solid var(--wp--preset--color--white-smoke);
+	border-radius: 4px;
+	overflow: hidden;
+	padding: 0;
+
+	.qty {
+		border: 1px solid var(--wp--preset--color--white);;
+		background: var(--wp--preset--color--white);;
+	}
+
+	.wc-block-components-quantity-selector__button {
+		// Buttons are colored with the primary color
+		border: none;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 35px; // Fixed width for buttons
+		font-size: 1.2rem;
+		transition: $transition;
+		background-color: var(--wp--preset--color--white-smoke);
+
+		&:hover {
+			background-color: var(--wp--preset--color--primary);
+			color: var(--wp--preset--color--white);
+		}
+
+		&:disabled {
+			color: var(--wp--preset--color--gray-light);;
+			cursor: not-allowed;
+		}
+
+		&--minus {
+			order: 1;
+		}
+
+		&--plus {
+			order: 3;
+		}
+	}
+
+	input.wc-block-components-quantity-selector__input {
+		order: 2;
+		flex: 1;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		border-radius: 0;
+		appearance: textfield;
+		-webkit-appearance: none;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			display: none;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+}

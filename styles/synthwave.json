@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Synthwave",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Primary",
+					"slug": "primary",
+					"color": "#2DE2E6"
+				},
+				{
+					"name": "Primary Light",
+					"slug": "primary-light",
+					"color": "#FF6C11"
+				},
+				{
+					"name": "Primary Dark",
+					"slug": "primary-dark",
+					"color": "#023788"
+				},
+				{
+					"name": "Secondary",
+					"slug": "secondary",
+					"color": "#F6019D"
+				},
+				{
+					"name": "Secondary Light",
+					"slug": "secondary-light",
+					"color": "#FF3864"
+				},
+				{
+					"name": "Secondary Dark",
+					"slug": "secondary-dark",
+					"color": "#650D89"
+				},
+				{
+					"name": "Black",
+					"slug": "black",
+					"color": "light-dark(#0D0221, #ffffff)"
+				},
+				{
+					"name": "Gray Dark",
+					"slug": "gray-dark",
+					"color": "light-dark(#261447, #e2e2e2)"
+				},
+				{
+					"name": "Gray",
+					"slug": "gray",
+					"color": "light-dark(#540D6E, #791E94)"
+				},
+				{
+					"name": "Gray Light",
+					"slug": "gray-light",
+					"color": "light-dark(#791E94, #540D6E)"
+				},
+				{
+					"name": "White Smoke",
+					"slug": "white-smoke",
+					"color": "light-dark(#e2e2e2, #261447)"
+				},
+				{
+					"name": "White",
+					"slug": "white",
+					"color": "light-dark(#ffffff, #0D0221)"
+				},
+				{
+					"name": "Text Color",
+					"slug": "text-color",
+					"color": "var(--wp--preset--color--black)"
+				},
+				{
+					"name": "Background",
+					"slug": "background",
+					"color": "var(--wp--preset--color--white)"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--background)",
+			"text": "var(--wp--preset--color--text-color)"
+		}
+	}
+}

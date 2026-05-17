@@ -7,30 +7,36 @@ import { modulrSelectController } from './modules/select';
 import { modulrGrid } from './modules/grid';
 import { modulrScrollTo } from './modules/scroll/scroll';
 import { backToTop } from './modules/backToTop';
-
-
-/* enable scroll animations */
-modulrScrollControl();
-
-/* create a back-to-top button */
-backToTop();
+import { modulrVivusController } from './modules/animateSvg';
+import { modulrPageableController } from './modules/pageable';
+import { modulrNavigationAccordionController } from './modules/navigation-accordion';
 
 window.addEventListener( 'DOMContentLoaded', async () => {
+	/* create a back-to-top button */
+	backToTop();
+	/* enable scroll animations */
+	modulrScrollControl();
 	/* enable on-screen animations */
 	modulrAnimations();
 	/* enable sliders */
 	modulrSliderController();
 	/* enable oxone like animation for grid elements */
 	modulrScrollTo();
+	/* enable oxone like animation for grid elements */
+	modulrGrid();
 } );
 
 window.addEventListener( 'load', async () => {
-	/* enable oxone like animation for grid elements */
-	modulrGrid();
 	/* enable masonry layout */
 	modulrMasonryController();
-	/* enable light-boxes */
-	modulrLightboxController();
 	/* enable fancy select */
 	modulrSelectController();
+	/* enable light-boxes */
+	modulrLightboxController();
+	/* enable Vivus animations */
+	modulrVivusController();
+	/* enable pageable */
+	modulrPageableController();
+	/* enable navigation accordion */
+	modulrNavigationAccordionController();
 } );

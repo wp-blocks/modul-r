@@ -1,0 +1,105 @@
+/* --- WOOCOMMERCE PRODUCT DETAILS ACCORDION --- */
+.wp-block-woocommerce-product-details .wp-block-accordion {
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #eeeeee;
+}
+
+/* Accordion Item Container */
+.wp-block-accordion-item {
+	border-bottom: 1px solid #f4f4f4;
+}
+
+.wp-block-accordion-item:last-child {
+	border-bottom: none;
+}
+
+/* Toggle Header Button */
+.wp-block-accordion-heading__toggle {
+	padding: 20px 0 !important;
+	width: 100%;
+	background: transparent;
+	border: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	font-weight: 600;
+	font-size: 1.1rem;
+	color: #333;
+}
+
+.wp-block-accordion-heading__toggle:hover {
+	color: var(--wp--preset--color--primary);
+}
+
+/* Toggle Icon Style (+/-) */
+.wp-block-accordion-heading__toggle-icon {
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: var(--wp--preset--color--primary);
+}
+
+/* Content Panel */
+.wp-block-accordion-panel {
+	padding-bottom: 30px;
+	color: #555;
+	line-height: 1.6;
+}
+
+/* --- PRODUCT SPECIFICATIONS TABLE (Additional Info) --- */
+.wp-block-woocommerce-product-specifications table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+	border: none !important;
+}
+
+.wp-block-woocommerce-product-specifications table tr {
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.wp-block-woocommerce-product-specifications table th,
+.wp-block-woocommerce-product-specifications table td {
+	padding: 12px 15px;
+	text-align: left;
+	background: transparent !important;
+}
+
+/* Labels Column (Left) */
+.wp-block-woocommerce-product-specifications table th {
+	font-weight: 600;
+	color: #333;
+	width: 30%;
+	text-transform: uppercase;
+	font-size: 0.85rem;
+	letter-spacing: 0.05em;
+}
+
+/* Values Column (Right) */
+.wp-block-woocommerce-product-specifications table td p {
+	margin: 0;
+	color: #666;
+}
+
+/* Zebra Striping (Optional) */
+.wp-block-woocommerce-product-specifications table tr:nth-child(even) {
+	background-color: #fafafa !important;
+}
+
+/* --- REVIEWS AND FORM STYLING --- */
+.wp-block-woocommerce-product-reviews input[type="text"],
+.wp-block-woocommerce-product-reviews textarea {
+	border: 1px solid #ddd;
+	padding: 12px;
+	border-radius: 4px;
+	width: 100%;
+	transition: border-color 0.3s;
+}
+
+.wp-block-woocommerce-product-reviews input:focus,
+.wp-block-woocommerce-product-reviews textarea:focus {
+	border-color: var(--wp--preset--color--primary);
+	outline: none;
+}
+

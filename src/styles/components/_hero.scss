@@ -19,9 +19,4 @@
 		background: linear-gradient(80deg,var(--wp--preset--color--primary) 0%,var(--wp--preset--color--primary-light) 100%);
 		mask-image: radial-gradient(rgba(0,0,0,.45),transparent 60%);
 	}
-	&:after {
-		left: 100vw;
-		background: linear-gradient(240deg,var(--wp--preset--color--secondary) 0%,var(--wp--preset--color--secondary-light) 100%);
-		mask-image: radial-gradient(rgba(0,0,0,.33),transparent 65%);
-	}
 }

@@ -1,68 +1,68 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
-	"title": "Argento",
+	"version": 3,
+	"title": "Cappuccino e Miele",
 	"settings": {
 		"color": {
 			"palette": [
 				{
 					"name": "Primary",
-					"color": "#6F727A",
+					"color": "#CD792F",
 					"slug": "primary"
 				},
 				{
 					"slug": "primary-light",
-					"color": "#C7CBD0",
+					"color": "#DDB892",
 					"name": "Primary Light"
 				},
 				{
 					"slug": "primary-dark",
-					"color": "#4563ED",
+					"color": "#7F5539",
 					"name": "Primary Dark"
 				},
 				{
-					"color": "#A9A7B2",
+					"color": "#FFD000",
 					"name": "Secondary",
 					"slug": "secondary"
 				},
 				{
-					"color": "#6D6877",
+					"color": "#FFEA7F",
 					"name": "Secondary Light",
 					"slug": "secondary-light"
 				},
 				{
-					"color": "#56506E",
+					"color": "#EBB912",
 					"name": "Secondary Dark",
 					"slug": "secondary-dark"
 				},
 				{
 					"slug": "black",
-					"color": "#252323",
+					"color": "#221B16",
 					"name": "Black"
 				},
 				{
 					"slug": "gray-dark",
-					"color": "#46494c",
+					"color": "#362D27",
 					"name": "Gray Dark"
 				},
 				{
 					"slug": "gray",
-					"color": "#c5c3c6",
+					"color": "#5C514A",
 					"name": "Gray"
 				},
 				{
 					"slug": "gray-light",
-					"color": "#c5c3c6",
+					"color": "#e3dce4",
 					"name": "Gray Light"
 				},
 				{
 					"slug": "white-smoke",
-					"color": "#dcdcdd",
+					"color": "#ffefde",
 					"name": "White Smoke"
 				},
 				{
 					"slug": "white",
-					"color": "#ffffff",
+					"color": "#fcfdf0",
 					"name": "White"
 				},
 				{
