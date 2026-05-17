@@ -16,8 +16,8 @@ $template      = '<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:pres
 	</div>
 	<!-- /wp:codekraft/oh-my-svg -->
 
-	<!-- wp:heading {"textAlign":"center","level":3,"className":"is-style-default","style":{"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"extra-large","fontFamily":"default"} -->
-	<h3 class="wp-block-heading has-text-align-center is-style-default has-default-font-family has-extra-large-font-size" style="font-style:normal;font-weight:300"><strong><strong>Card Title</strong></strong></h3>
+	<!-- wp:heading {"textAlign":"center","level":3,"className":"is-style-default","style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"extra-large","fontFamily":"heading"} -->
+	<h3 class="wp-block-heading has-text-align-center is-style-default has-heading-font-family has-extra-large-font-size" style="font-style:normal;font-weight:700">Card Title</h3>
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph {"align":"center"} -->
