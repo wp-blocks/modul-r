@@ -11,7 +11,7 @@
 	<div class="wp-block-cover__inner-container">
 		<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 		<div class="wp-block-group">
-			<!-- wp:query-title {"type":"archive","textAlign":"center","showPrefix":false,"align":"wide","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}},"typography":{"fontSize":"6rem","textTransform":"uppercase","fontStyle":"normal","fontWeight":"300"}},"textColor":"background","fontFamily":"default"} /-->
+			<!-- wp:query-title {"type":"archive","textAlign":"center","showPrefix":false,"align":"wide","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}},"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"300"}},"textColor":"background","fontSize":"xx-large","fontFamily":"heading"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>

@@ -13,8 +13,8 @@
 	<!-- /wp:heading -->
 
 	<!-- wp:woocommerce/product-template -->
-		<!-- wp:group {"style":{"spacing":{"blockGap":"0"},"color":{"background":"#ffffff"}},"layout":{"type":"constrained"}} -->
-		<div class="wp-block-group has-background" style="background-color:#ffffff">
+		<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"backgroundColor":"background","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group has-background-color has-background">
 			<!-- wp:pattern {"slug":"modul-r/product-loop"} /-->
 		</div>
 		<!-- /wp:group -->
