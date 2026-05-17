@@ -15,11 +15,13 @@
 		<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-right:var(--wp--preset--spacing--box-padding);padding-left:0">
 			<!-- wp:site-logo /-->
 
-			<!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"textColor":"white","fontSize":"default"} -->
-			<p class="has-white-color has-text-color has-default-font-size" style="font-style:normal;font-weight:400"></p>
+			<!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"textColor":"text-color","fontSize":"default"} -->
+			<p class="has-text-color-color has-text-color has-default-font-size" style="font-style:normal;font-weight:400"></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"background","iconColorValue":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dcolor\u002d\u002dwhite)","iconBackgroundColor":"secondary-dark","iconBackgroundColorValue":"#CA4505","openInNewTab":true,"size":"has-normal-icon-size","className":"is-style-default","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|20"}}}} /-->
+			<!-- wp:social-links {"iconColor":"background","iconColorValue":"background","iconBackgroundColor":"secondary-dark","iconBackgroundColorValue":"secondary-light","openInNewTab":true,"size":"has-normal-icon-size","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|20"}}}} -->
+			<ul class="wp-block-social-links has-normal-icon-size has-icon-color has-icon-background-color"></ul>
+			<!-- /wp:social-links -->
 		</div>
 		<!-- /wp:group -->
 	</div>
@@ -27,8 +29,9 @@
 
 	<!-- wp:column {"width":"20%","style":{"spacing":{"padding":{"right":"var:preset|spacing|box-padding","left":"0"}}}} -->
 	<div class="wp-block-column" style="padding-right:var(--wp--preset--spacing--box-padding);padding-left:0;flex-basis:20%"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->
-		<div class="wp-block-group"><!-- wp:heading {"textColor":"secondary-dark","fontSize":"medium"} -->
-			<h2 class="wp-block-heading has-secondary-dark-color has-text-color has-medium-font-size"><strong>Posts</strong></h2>
+		<div class="wp-block-group">
+			<!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}},"textColor":"secondary-dark","fontSize":"medium"} -->
+			<h2 class="wp-block-heading has-secondary-dark-color has-text-color has-medium-font-size" style="font-style:normal;font-weight:500"><strong>Posts</strong></h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:latest-posts {"displayPostDate":true,"displayFeaturedImage":true,"featuredImageAlign":"left","featuredImageSizeWidth":75,"featuredImageSizeHeight":75,"style":{"typography":{"lineHeight":"1.2"},"spacing":{"padding":{"top":"var:preset|spacing|30"}}},"fontSize":"small"} /--></div>
@@ -37,8 +40,9 @@
 
 	<!-- wp:column {"width":"20%","style":{"spacing":{"padding":{"right":"var:preset|spacing|box-padding","left":"0"}}},"layout":{"type":"default"}} -->
 	<div class="wp-block-column" style="padding-right:var(--wp--preset--spacing--box-padding);padding-left:0;flex-basis:20%"><!-- wp:group {"style":{"spacing":{"padding":{"top":"0"}}},"layout":{"type":"default"}} -->
-		<div class="wp-block-group" style="padding-top:0"><!-- wp:heading {"textColor":"secondary-dark","fontSize":"medium"} -->
-			<h2 class="wp-block-heading has-secondary-dark-color has-text-color has-medium-font-size"><strong>Featured</strong></h2>
+		<div class="wp-block-group" style="padding-top:0">
+			<!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}},"textColor":"secondary-dark","fontSize":"medium"} -->
+			<h2 class="wp-block-heading has-secondary-dark-color has-text-color has-medium-font-size" style="font-style:normal;font-weight:500"><strong>Featured</strong></h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:navigation {"openSubmenusOnClick":true,"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|30"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"small","layout":{"type":"flex","orientation":"vertical","flexWrap":"wrap"}} /--></div>
