@@ -198,8 +198,8 @@
 					"size": "4rem",
 					"slug": "xx-large",
 					"fluid": {
-						"min": "2.4rem",
-						"max": "4rem"
+						"min": "2.8rem",
+						"max": "5rem"
 					}
 				},
 				{
