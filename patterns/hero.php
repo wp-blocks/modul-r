@@ -18,7 +18,7 @@
 					<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 					<div class="wp-block-group">
 						<!-- wp:site-title {"style":{"typography":{"fontStyle":"normal","fontWeight":"800","textTransform":"uppercase"}},"className":"hero-title is-style-gradient","fontSize":"xxx-large"} /-->
-						<!-- wp:site-tagline {"textAlign":"center","textColor":"white","fontSize":"medium"} /-->
+						<!-- wp:site-tagline {"textAlign":"center","textColor":"background","fontSize":"medium"} /-->
 					</div>
 				<!-- /wp:group -->
 			</div>
